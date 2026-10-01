@@ -164,3 +164,5 @@ Plotly загружается отдельным чанком; Vite предуп
 Это же точка подключения будущей опциональной 1D CNN.
 
 Фактические команды и ограничения проверки: [docs/verification.md](docs/verification.md).
+
+План следующих этапов для ML, backend и frontend: [TODO](docs/todo.md).
