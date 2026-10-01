@@ -1,0 +1,8 @@
+run_id: broadening-robustness
+seed: 42
+protocol: controlled_sweep
+models: [baseline-nnls, logistic-ovr, random-forest]
+base_samples: 72
+variations: 3
+factor: instrumental_fwhm_nm
+values: [0.2, 0.5, 1.0, 2.0]

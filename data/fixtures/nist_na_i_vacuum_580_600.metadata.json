@@ -1,0 +1,11 @@
+{
+  "source": "nist_asd_saved_export",
+  "retrieved_at": "2026-10-01",
+  "source_url": "https://physics.nist.gov/cgi-bin/ASD/lines1.pl?spectra=Na%20I&low_w=580&upp_w=600&unit=1&format=2&line_out=0&remove_js=on&en_unit=0&output=0&bibrefs=1&page_size=15&show_obs_wl=1&show_calc_wl=1&order_out=0&show_av=3&tsb_value=0&A_out=0&intens_out=on&allowed_out=1&forbid_out=1",
+  "element": "Na",
+  "ion_stage": 1,
+  "units": "nm",
+  "wavelength_medium": "vacuum",
+  "checksum_sha256": "87333ee3e64987702a618ae825156e7900c8214cc113016a9794457633195053",
+  "export_parameters": "Na I, 580-600 nm, vacuum, CSV"
+}

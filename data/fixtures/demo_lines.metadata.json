@@ -1,0 +1,9 @@
+{
+  "source": "demo_fixture",
+  "retrieved_at": "2026-10-01",
+  "export_parameters": "hand-curated teaching fixture; neutral atoms; 350-800 nm",
+  "units": "nm",
+  "wavelength_medium": "vacuum",
+  "official_nist_export": false,
+  "notice": "Demonstration values for software testing. Do not cite as NIST data."
+}

@@ -1,0 +1,36 @@
+[project]
+name = "spectralab-workspace"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+  "httpx==0.28.1",
+  "pytest==8.4.2",
+  "pytest-cov==7.0.0",
+  "ruff==0.13.2",
+]
+
+[tool.uv.workspace]
+members = ["ml", "backend"]
+
+[tool.uv.sources]
+spectralab-ml = { workspace = true }
+
+[tool.pytest.ini_options]
+testpaths = ["ml/tests", "backend/tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["frontend"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+# Russian UI/error strings intentionally use Cyrillic and typographic punctuation.
+ignore = ["RUF001"]

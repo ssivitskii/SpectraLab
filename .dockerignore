@@ -1,0 +1,14 @@
+.git
+.venv
+.tools
+.cache
+frontend/node_modules
+frontend/dist
+artifacts
+reports
+data/cache
+data/processed
+**/__pycache__
+
+**/*.tsbuildinfo
+frontend/.cache

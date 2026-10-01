@@ -1,0 +1,8 @@
+run_id: sampling-robustness
+seed: 42
+protocol: controlled_sweep
+models: [baseline-nnls, logistic-ovr, random-forest]
+base_samples: 72
+variations: 3
+factor: sampling_step_nm
+values: [0.05, 0.1, 0.2, 0.5]

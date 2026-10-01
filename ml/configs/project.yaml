@@ -1,0 +1,5 @@
+elements: [H, He, Na, Mg, Ca, Fe]
+wavelength_range_nm: [350.0, 800.0]
+model_step_nm: 0.05
+wavelength_medium: vacuum
+ion_stage: 1

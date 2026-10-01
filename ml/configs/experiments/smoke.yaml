@@ -1,0 +1,8 @@
+run_id: smoke
+seed: 42
+protocol: controlled_sweep
+models: [baseline-nnls, logistic-ovr, random-forest]
+base_samples: 18
+variations: 1
+factor: snr_db
+values: [10, 30]

@@ -1,0 +1,9 @@
+run_id: mixtures
+seed: 42
+protocol: controlled_sweep
+models: [baseline-nnls, logistic-ovr, random-forest]
+base_samples: 72
+variations: 3
+factor: snr_db
+values: [10, 20, 30]
+mixture_sizes: [2, 3]
