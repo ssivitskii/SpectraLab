@@ -1,0 +1,5091 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "diagnostic_only": true,
+  "run_directory": "reports/campaign_shift_v2/diagnostic-20261013T163803-4b10cde1",
+  "created_at": "2026-10-13T16:38:03.221905+00:00",
+  "completed_at": "2026-10-13T16:39:25.337650+00:00",
+  "v1_protocol_hash": "f755b186a0c3fd3fce923ccc60b14a6aeb945e5f7ff06d9af718c581f3471bf1",
+  "diagnostic_plan_sha256": "4fba86e98c4204c5eaea12ed31503d456431b33f896ac3904fe4d09cdbcf4ebd",
+  "reference_sha256": "504072fb7469e4bd1ae18f07ec2576b56267676dcfb58f8a3fea8ad60790ac6c",
+  "feature_plan": {
+    "schema_version": 1,
+    "grid_nm": {
+      "start": 240.0,
+      "end": 900.0,
+      "step": 0.1
+    },
+    "bands_nm": {
+      "uv": [
+        241.0,
+        340.0
+      ],
+      "blue": [
+        383.0,
+        468.0
+      ],
+      "visible": [
+        474.0,
+        900.0
+      ]
+    },
+    "line_core_half_width_nm": 0.2,
+    "line_sideband_inner_nm": 0.4,
+    "line_sideband_outer_nm": 0.8,
+    "background_floor_band_p95_fraction": 1e-06,
+    "lines": [
+      {
+        "name": "Mg_II_279",
+        "element": "Mg",
+        "ion_stage": 2,
+        "wavelength_nm": 279.6352,
+        "wavelength_medium": "vacuum",
+        "wavelength_kind": "observed",
+        "relative_intensity": 13.0,
+        "raw_intensity": "=\"13g\"",
+        "flags": "intensity_annotation:=\"13g\";excel_formula",
+        "source_id": "NIST ASD saved export",
+        "raw_wavelength": "=\"279.6352\"",
+        "source_fields": {
+          "obs_wl_vac(nm)": "=\"279.6352\"",
+          "ritz_wl_vac(nm)": "=\"279.6352\"",
+          "intens": "=\"13g\"",
+          "Aki(s^-1)": "=\"2.60e+08\"",
+          "Acc": "A+",
+          "Type": "",
+          "tp_ref": "=\"c31,T6870,T5467,T6659,c23\"",
+          "line_ref": "=\"L7414\"",
+          "": ""
+        }
+      },
+      {
+        "name": "Mg_II_280",
+        "element": "Mg",
+        "ion_stage": 2,
+        "wavelength_nm": 280.353,
+        "wavelength_medium": "vacuum",
+        "wavelength_kind": "observed",
+        "relative_intensity": 12.0,
+        "raw_intensity": "=\"12g\"",
+        "flags": "intensity_annotation:=\"12g\";excel_formula",
+        "source_id": "NIST ASD saved export",
+        "raw_wavelength": "=\"280.3530\"",
+        "source_fields": {
+          "obs_wl_vac(nm)": "=\"280.3530\"",
+          "ritz_wl_vac(nm)": "=\"280.3531\"",
+          "intens": "=\"12g\"",
+          "Aki(s^-1)": "=\"2.57e+08\"",
+          "Acc": "A+",
+          "Type": "",
+          "tp_ref": "=\"c31,T6870,T5467,T6659,c23\"",
+          "line_ref": "=\"L7414\"",
+          "": ""
+        }
+      },
+      {
+        "name": "Mg_I_285",
+        "element": "Mg",
+        "ion_stage": 1,
+        "wavelength_nm": 285.2965,
+        "wavelength_medium": "vacuum",
+        "wavelength_kind": "observed",
+        "relative_intensity": 50.0,
+        "raw_intensity": "=\"50g\"",
+        "flags": "intensity_annotation:=\"50g\";excel_formula",
+        "source_id": "NIST ASD saved export",
+        "raw_wavelength": "=\"285.2965\"",
+        "source_fields": {
+          "obs_wl_vac(nm)": "=\"285.2965\"",
+          "ritz_wl_vac(nm)": "=\"285.29642\"",
+          "intens": "=\"50g\"",
+          "Aki(s^-1)": "=\"4.91e+08\"",
+          "Acc": "A",
+          "Type": "",
+          "tp_ref": "=\"u19\"",
+          "line_ref": "=\"L6095\"",
+          "": ""
+        }
+      },
+      {
+        "name": "Mg_I_516",
+        "element": "Mg",
+        "ion_stage": 1,
+        "wavelength_nm": 516.87609,
+        "wavelength_medium": "vacuum",
+        "wavelength_kind": "observed",
+        "relative_intensity": 42.0,
+        "raw_intensity": "=\"42\"",
+        "flags": "intensity_annotation:=\"42\";excel_formula",
+        "source_id": "NIST ASD saved export",
+        "raw_wavelength": "=\"516.87609\"",
+        "source_fields": {
+          "obs_wl_vac(nm)": "=\"516.87609\"",
+          "ritz_wl_vac(nm)": "=\"516.87605\"",
+          "intens": "=\"42\"",
+          "Aki(s^-1)": "=\"1.13e+07\"",
+          "Acc": "B+",
+          "Type": "",
+          "tp_ref": "=\"c45\"",
+          "line_ref": "=\"L7428\"",
+          "": ""
+        }
+      },
+      {
+        "name": "Mg_I_517",
+        "element": "Mg",
+        "ion_stage": 1,
+        "wavelength_nm": 517.4125,
+        "wavelength_medium": "vacuum",
+        "wavelength_kind": "ritz",
+        "relative_intensity": null,
+        "raw_intensity": "=\"\"",
+        "flags": "=\"\";excel_formula",
+        "source_id": "NIST ASD saved export",
+        "raw_wavelength": "=\"517.4125\"",
+        "source_fields": {
+          "obs_wl_vac(nm)": "=\"\"",
+          "ritz_wl_vac(nm)": "=\"517.4125\"",
+          "intens": "=\"\"",
+          "Aki(s^-1)": "=\"3.46e-05\"",
+          "Acc": "B",
+          "Type": "M2",
+          "tp_ref": "=\"c43\"",
+          "line_ref": "=\"\"",
+          "": ""
+        }
+      },
+      {
+        "name": "Mg_I_518",
+        "element": "Mg",
+        "ion_stage": 1,
+        "wavelength_nm": 518.5048,
+        "wavelength_medium": "vacuum",
+        "wavelength_kind": "ritz",
+        "relative_intensity": null,
+        "raw_intensity": "=\"\"",
+        "flags": "=\"\";excel_formula",
+        "source_id": "NIST ASD saved export",
+        "raw_wavelength": "=\"518.5048\"",
+        "source_fields": {
+          "obs_wl_vac(nm)": "=\"\"",
+          "ritz_wl_vac(nm)": "=\"518.5048\"",
+          "intens": "=\"\"",
+          "Aki(s^-1)": "=\"1.02e-04\"",
+          "Acc": "B",
+          "Type": "M2",
+          "tp_ref": "=\"c43\"",
+          "line_ref": "=\"\"",
+          "": ""
+        }
+      },
+      {
+        "name": "Fe_I_404",
+        "element": "Fe",
+        "ion_stage": 1,
+        "wavelength_nm": 404.69551,
+        "wavelength_medium": "vacuum",
+        "wavelength_kind": "observed",
+        "relative_intensity": 1000000.0,
+        "raw_intensity": "=\"1000000\"",
+        "flags": "intensity_annotation:=\"1000000\";excel_formula",
+        "source_id": "NIST ASD saved export",
+        "raw_wavelength": "=\"404.69551\"",
+        "source_fields": {
+          "obs_wl_vac(nm)": "=\"404.69551\"",
+          "ritz_wl_vac(nm)": "=\"404.695487\"",
+          "intens": "=\"1000000\"",
+          "Aki(s^-1)": "=\"8.62e+07\"",
+          "Acc": "A",
+          "Type": "",
+          "tp_ref": "=\"T3831\"",
+          "line_ref": "=\"L11631\"",
+          "": ""
+        }
+      },
+      {
+        "name": "Fe_I_438",
+        "element": "Fe",
+        "ion_stage": 1,
+        "wavelength_nm": 438.47763,
+        "wavelength_medium": "vacuum",
+        "wavelength_kind": "observed",
+        "relative_intensity": 141000.0,
+        "raw_intensity": "=\"141000\"",
+        "flags": "intensity_annotation:=\"141000\";excel_formula",
+        "source_id": "NIST ASD saved export",
+        "raw_wavelength": "=\"438.47763\"",
+        "source_fields": {
+          "obs_wl_vac(nm)": "=\"438.47763\"",
+          "ritz_wl_vac(nm)": "=\"438.47760\"",
+          "intens": "=\"141000\"",
+          "Aki(s^-1)": "=\"5.00e+07\"",
+          "Acc": "A",
+          "Type": "",
+          "tp_ref": "=\"T3831\"",
+          "line_ref": "=\"L11631\"",
+          "": ""
+        }
+      },
+      {
+        "name": "Fe_I_527",
+        "element": "Fe",
+        "ion_stage": 1,
+        "wavelength_nm": 527.18227,
+        "wavelength_medium": "vacuum",
+        "wavelength_kind": "observed",
+        "relative_intensity": 288000.0,
+        "raw_intensity": "=\"288000\"",
+        "flags": "intensity_annotation:=\"288000\";excel_formula",
+        "source_id": "NIST ASD saved export",
+        "raw_wavelength": "=\"527.18227\"",
+        "source_fields": {
+          "obs_wl_vac(nm)": "=\"527.18227\"",
+          "ritz_wl_vac(nm)": "=\"527.18228\"",
+          "intens": "=\"288000\"",
+          "Aki(s^-1)": "=\"3.67e+06\"",
+          "Acc": "B+",
+          "Type": "",
+          "tp_ref": "=\"T5720\"",
+          "line_ref": "=\"L11631\"",
+          "": ""
+        }
+      }
+    ],
+    "intensity_processing": "Raw signed mean of shots 6..N; clip only positive-signal features.",
+    "line_processing": "Peak of nonnegative core; median of nonnegative sidebands; floor=max(1e-6*band positive p95,1e-12*band positive maximum); log1p(core_peak/max(background,floor)); signed contrast (core_peak-background)/(core_peak+background+floor).",
+    "limitations": [
+      "Nearby transitions and matrix effects can affect every line-window feature.",
+      "No isolated-line abundance, concentration, or instrument-causal interpretation.",
+      "V1 discarded wavelengths below 350 nm, including these strong Mg UV transitions."
+    ]
+  },
+  "features": [
+    "uv_log_positive_area",
+    "uv_negative_point_fraction",
+    "uv_negative_area_fraction",
+    "uv_positive_p95_to_max",
+    "blue_log_positive_area",
+    "blue_negative_point_fraction",
+    "blue_negative_area_fraction",
+    "blue_positive_p95_to_max",
+    "visible_log_positive_area",
+    "visible_negative_point_fraction",
+    "visible_negative_area_fraction",
+    "visible_positive_p95_to_max",
+    "log_area_ratio_uv_to_visible",
+    "log_area_ratio_blue_to_visible",
+    "Mg_II_279_log_signal_background",
+    "Mg_II_279_contrast",
+    "Mg_II_280_log_signal_background",
+    "Mg_II_280_contrast",
+    "Mg_I_285_log_signal_background",
+    "Mg_I_285_contrast",
+    "Mg_I_516_log_signal_background",
+    "Mg_I_516_contrast",
+    "Mg_I_517_log_signal_background",
+    "Mg_I_517_contrast",
+    "Mg_I_518_log_signal_background",
+    "Mg_I_518_contrast",
+    "Fe_I_404_log_signal_background",
+    "Fe_I_404_contrast",
+    "Fe_I_438_log_signal_background",
+    "Fe_I_438_contrast",
+    "Fe_I_527_log_signal_background",
+    "Fe_I_527_contrast"
+  ],
+  "physical_samples": 195,
+  "measurement_spectra": 198,
+  "descriptive_summaries": {
+    "campaign_2015": {
+      "all": {
+        "physical_samples": 124,
+        "clusters": 32,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.4961816827281,
+            "median": 30.744451825597437,
+            "q75": 31.012577690184354
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.004036326942482341,
+            "median": 0.013118062563067608,
+            "q75": 0.03229061553985873
+          },
+          "uv_negative_area_fraction": {
+            "q25": 6.337503443072476e-05,
+            "median": 0.00033657005518755365,
+            "q75": 0.0021721382433334082
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.12873174505696117,
+            "median": 0.15547871221245102,
+            "q75": 0.21852811460645233
+          },
+          "blue_log_positive_area": {
+            "q25": 29.46732040702791,
+            "median": 29.608802492453123,
+            "q75": 29.918232345476305
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0011750881316098707,
+            "median": 0.00881316098707403,
+            "q75": 0.014247943595769683
+          },
+          "blue_negative_area_fraction": {
+            "q25": 4.375664942173084e-06,
+            "median": 0.0002523870251656305,
+            "q75": 0.0007414568621571048
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.09273044695609806,
+            "median": 0.15486873186970923,
+            "q75": 0.19680993906427185
+          },
+          "visible_log_positive_area": {
+            "q25": 29.915850957343125,
+            "median": 30.050984078112304,
+            "q75": 30.236412794267395
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.006043182351560666,
+            "median": 0.011264961276695611,
+            "q75": 0.021356489087068765
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00023558317358043416,
+            "median": 0.0004689084031852916,
+            "q75": 0.0013178144558998706
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.0841663834034264,
+            "median": 0.09800974121073011,
+            "q75": 0.11320202240408889
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.3495932816671754,
+            "median": 0.6444433549130721,
+            "q75": 0.9833879432452539
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.5088571507869935,
+            "median": -0.3765570911219669,
+            "q75": -0.19683212362071156
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.5174146530118258,
+            "median": 1.6797302828066627,
+            "q75": 1.9311402399542843
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.5614428425582554,
+            "median": 0.6271352027013479,
+            "q75": 0.7100340592660256
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.2085922416365817,
+            "median": 1.33558867698112,
+            "q75": 1.4964294352259728
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.4027635217391681,
+            "median": 0.47399317693965826,
+            "q75": 0.5521414764383961
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 2.4823978315015696,
+            "median": 3.037262731776206,
+            "q75": 3.355420342897247
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.8329045323717259,
+            "median": 0.9040652464595982,
+            "q75": 0.9302098912653888
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7638755168463658,
+            "median": 0.797488777201319,
+            "q75": 0.8381209847264002
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.06828382740676003,
+            "median": 0.09908230933856657,
+            "q75": 0.1349545400932443
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.78319657351697,
+            "median": 0.8256265668029197,
+            "q75": 0.8611405695413898
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.08597011561691299,
+            "median": 0.12407828355869843,
+            "q75": 0.15464039550048977
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.839910694536659,
+            "median": 1.0162181031530928,
+            "q75": 1.0734236644549784
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.13649980580091356,
+            "median": 0.2760772411617612,
+            "q75": 0.316327428523002
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 1.8383216444865202,
+            "median": 2.5096649084354965,
+            "q75": 3.754355475728218
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.6816813462430804,
+            "median": 0.8373903992872631,
+            "q75": 0.9531511604929602
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 1.9786881324102403,
+            "median": 2.414659825896654,
+            "q75": 2.858027872988849
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.7145539091298119,
+            "median": 0.8212007342202847,
+            "q75": 0.8852157456502046
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.831603753015246,
+            "median": 0.8793462852161101,
+            "q75": 0.9162210715431527
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.12929867629409417,
+            "median": 0.1698915419551053,
+            "q75": 0.19994033171895453
+          }
+        }
+      },
+      "Na:positive": {
+        "physical_samples": 45,
+        "clusters": 23,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.47844838051571,
+            "median": 30.71337076774354,
+            "q75": 31.12354648322048
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.004036326942482341,
+            "median": 0.007063572149344097,
+            "q75": 0.017154389505549948
+          },
+          "uv_negative_area_fraction": {
+            "q25": 2.4187831990868768e-05,
+            "median": 9.289747665885452e-05,
+            "q75": 0.00045926735242205624
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.14715931263178103,
+            "median": 0.16381969693524118,
+            "q75": 0.21695369759299704
+          },
+          "blue_log_positive_area": {
+            "q25": 29.492149645594488,
+            "median": 29.70826930024482,
+            "q75": 29.85073618595993
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0011750881316098707,
+            "median": 0.010575793184488837,
+            "q75": 0.01645123384253819
+          },
+          "blue_negative_area_fraction": {
+            "q25": 5.065915306759497e-06,
+            "median": 0.0005068185348437967,
+            "q75": 0.0008403218938668424
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.09373485384434557,
+            "median": 0.10958276453233455,
+            "q75": 0.19179472068322137
+          },
+          "visible_log_positive_area": {
+            "q25": 29.94193675589709,
+            "median": 30.063640372171175,
+            "q75": 30.17931102258983
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.004693733865289838,
+            "median": 0.00844872095752171,
+            "q75": 0.013377141516076038
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00020972067488567566,
+            "median": 0.0002739426340651383,
+            "q75": 0.00048792091639261314
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.08364788677679558,
+            "median": 0.09659488185361921,
+            "q75": 0.10539528134221765
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.39563860385474925,
+            "median": 0.6236522795921289,
+            "q75": 0.9885625601137313
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.5305390311155023,
+            "median": -0.3655916257343925,
+            "q75": -0.19694544182658547
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.5966178050936153,
+            "median": 1.728794304387811,
+            "q75": 1.9273056552034291
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.5948388402609986,
+            "median": 0.6450033515482246,
+            "q75": 0.7089201820769196
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.2653542841510403,
+            "median": 1.3722486604370185,
+            "q75": 1.4897882567546212
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.43572126134801725,
+            "median": 0.4929274646417271,
+            "q75": 0.5491590164455231
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 2.653661232228662,
+            "median": 3.0437561863425717,
+            "q75": 3.2802012306328443
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.8592127956025671,
+            "median": 0.9046882491294168,
+            "q75": 0.924757959597172
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7699586606179795,
+            "median": 0.7986055235534565,
+            "q75": 0.8314054379599104
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.07393552300126824,
+            "median": 0.10008795598120081,
+            "q75": 0.1291261767824974
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.7995490577818734,
+            "median": 0.8436038411970186,
+            "q75": 0.8851647400763253
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.09841531668575361,
+            "median": 0.13968491270074243,
+            "q75": 0.17470749221777265
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.859916550037692,
+            "median": 1.0159715692553106,
+            "q75": 1.0709594336169785
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.15360510676889044,
+            "median": 0.2758988910174765,
+            "q75": 0.3146406437264553
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 2.430207800784166,
+            "median": 3.905854382197481,
+            "q75": 4.24735873152673
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.8239611670565327,
+            "median": 0.9597510428233287,
+            "q75": 0.9713949072623435
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 2.2546036785929626,
+            "median": 2.472080737454826,
+            "q75": 3.0314492501334276
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.7901675207060594,
+            "median": 0.8311802346249888,
+            "q75": 0.9035064879092363
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.8568652321013822,
+            "median": 0.9092364172007877,
+            "q75": 0.959053914708805
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.151018417876309,
+            "median": 0.19433634657228796,
+            "q75": 0.23348918446008882
+          }
+        }
+      },
+      "Na:negative": {
+        "physical_samples": 32,
+        "clusters": 16,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.5801750818134,
+            "median": 30.94487949320338,
+            "q75": 31.218574875683696
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0037840565085771947,
+            "median": 0.012613521695257316,
+            "q75": 0.051210898082744705
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.00011840495216321172,
+            "median": 0.0008705679712261747,
+            "q75": 0.0026738052591209916
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.0709231128581917,
+            "median": 0.12326585726401612,
+            "q75": 0.2573449161480868
+          },
+          "blue_log_positive_area": {
+            "q25": 29.53415543296519,
+            "median": 30.160187639932005,
+            "q75": 30.54759956855192
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.008225616921269096,
+            "q75": 0.02027027027027027
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 7.073188984880506e-05,
+            "q75": 0.0002628170176767745
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.07788032905637218,
+            "median": 0.09423721791551276,
+            "q75": 0.17727776122914513
+          },
+          "visible_log_positive_area": {
+            "q25": 29.905712173797173,
+            "median": 30.388577174482737,
+            "q75": 30.70427406823926
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.01144097629664398,
+            "median": 0.020183055620746303,
+            "q75": 0.02346866932644919
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00032694565774307526,
+            "median": 0.0009046228005198541,
+            "q75": 0.001765845027495393
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.09901255468950332,
+            "median": 0.11747123997759717,
+            "q75": 0.13375252858860212
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.18384560315505372,
+            "median": 0.4699183080188192,
+            "q75": 1.3279391600193495
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.33550547111292506,
+            "median": -0.21136973654020252,
+            "q75": -0.13229838996701826
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.2572488296755586,
+            "median": 1.5161994249426929,
+            "q75": 1.824833721687439
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.43107131380424024,
+            "median": 0.5609092366545384,
+            "q75": 0.6774824241528052
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.0721609733160928,
+            "median": 1.1432331841614367,
+            "q75": 1.3846560982441098
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.31545842590336676,
+            "median": 0.36229137425571106,
+            "q75": 0.49910312843497506
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 2.118719229415892,
+            "median": 2.7777112501675036,
+            "q75": 2.997217472065027
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.7576642160383082,
+            "median": 0.875636806110591,
+            "q75": 0.9001053428174696
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7497607788052818,
+            "median": 0.8183649955877639,
+            "q75": 0.8688631518640191
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.054961767050491564,
+            "median": 0.11769486896947028,
+            "q75": 0.16114334047639264
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.7828196519506385,
+            "median": 0.8206919695161388,
+            "q75": 0.8611405695413898
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.08576453432889167,
+            "median": 0.11974373497337829,
+            "q75": 0.15464039550048977
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.7940567493433082,
+            "median": 1.0215954788325972,
+            "q75": 1.1013358159714635
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.09587876551893346,
+            "median": 0.2799580829914771,
+            "q75": 0.3351435259628013
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.9625899022853879,
+            "median": 2.1758969038657083,
+            "q75": 2.7901401002231667
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.23618136777699042,
+            "median": 0.7729346669120006,
+            "q75": 0.8757230999840722
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.7943767375104105,
+            "median": 2.0621359371795704,
+            "q75": 2.7232607273274883
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.0962620252541697,
+            "median": 0.7454708679876445,
+            "q75": 0.8686701801306733
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.8460445855958814,
+            "median": 0.8812420214158774,
+            "q75": 0.9051242540262953
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.14166670868637155,
+            "median": 0.17146360697305293,
+            "q75": 0.19101474349232472
+          }
+        }
+      },
+      "Na:unknown": {
+        "physical_samples": 47,
+        "clusters": 18,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.493710957843653,
+            "median": 30.694114090005744,
+            "q75": 30.882513791682488
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.010090817356205853,
+            "median": 0.01917255297679112,
+            "q75": 0.04490413723511605
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0002531431656966083,
+            "median": 0.0005682802094923556,
+            "q75": 0.0025989137644218327
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.12434389704385923,
+            "median": 0.14729874859425438,
+            "q75": 0.2140043057156618
+          },
+          "blue_log_positive_area": {
+            "q25": 29.42103401532876,
+            "median": 29.501906575790578,
+            "q75": 29.61149191395424
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0023501762632197414,
+            "median": 0.008225616921269096,
+            "q75": 0.010575793184488837
+          },
+          "blue_negative_area_fraction": {
+            "q25": 3.431225132777945e-05,
+            "median": 0.0003826570103854184,
+            "q75": 0.0007422990973297756
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.15375624265326557,
+            "median": 0.18491450710619114,
+            "q75": 0.2097515338156664
+          },
+          "visible_log_positive_area": {
+            "q25": 29.913858206159976,
+            "median": 29.96882920595788,
+            "q75": 30.08493646976954
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.005867167331612298,
+            "median": 0.010795587890166627,
+            "q75": 0.02147383243370101
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00029766072907416426,
+            "median": 0.0006862002829750303,
+            "q75": 0.0015468975205078545
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.08294471771234688,
+            "median": 0.09262837710455199,
+            "q75": 0.10395382552072402
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.5024098316805858,
+            "median": 0.7401622057188533,
+            "q75": 0.9226392616085413
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.5349137630176415,
+            "median": -0.4523956553742501,
+            "q75": -0.36770535531996984
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.5332630070267512,
+            "median": 1.6704030248200143,
+            "q75": 1.9456142448145377
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.5683378226590927,
+            "median": 0.6236575016810179,
+            "q75": 0.7142005939684029
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.2446474375894807,
+            "median": 1.336297150688669,
+            "q75": 1.5133275191227695
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.4239146493167874,
+            "median": 0.4743658462881263,
+            "q75": 0.5596348013558379
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 2.5146173138056556,
+            "median": 3.2396289797549116,
+            "q75": 3.4270803513073975
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.8381735003688052,
+            "median": 0.9216423414490558,
+            "q75": 0.9350337438996499
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7688187850378616,
+            "median": 0.7894553467435312,
+            "q75": 0.8181498943053559
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.07287169630501043,
+            "median": 0.09181584209234683,
+            "q75": 0.11750531584858934
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.7803065740665717,
+            "median": 0.8197668768754609,
+            "q75": 0.8465074857874085
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.0834687708966917,
+            "median": 0.11893122957079352,
+            "q75": 0.14217892311898045
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.8581802110047964,
+            "median": 1.0012618323758875,
+            "q75": 1.0684505363380756
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.15193099330067594,
+            "median": 0.2651687902711687,
+            "q75": 0.3129168024929648
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 1.9804813854059866,
+            "median": 2.353060582341407,
+            "q75": 2.6395705558932323
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.7237251059056328,
+            "median": 0.8098427201041272,
+            "q75": 0.8571968402046435
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 2.1435331454242808,
+            "median": 2.515336389958996,
+            "q75": 2.7891296893790045
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.7653645340773221,
+            "median": 0.8383266979291305,
+            "q75": 0.8770462166973803
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.8072908894228732,
+            "median": 0.8406487938618071,
+            "q75": 0.884982559442664
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.10784220919145181,
+            "median": 0.13713872314890113,
+            "q75": 0.17455658556826872
+          }
+        }
+      },
+      "Mg:positive": {
+        "physical_samples": 80,
+        "clusters": 29,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.649707629479376,
+            "median": 30.810378305968158,
+            "q75": 31.028297423283473
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.008829465186680121,
+            "median": 0.020686175580221997,
+            "q75": 0.05070635721493441
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0002037155498832143,
+            "median": 0.0009576056747122223,
+            "q75": 0.003039947748114004
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.12054513089812217,
+            "median": 0.14424186958967514,
+            "q75": 0.16100643917043722
+          },
+          "blue_log_positive_area": {
+            "q25": 29.50502382191526,
+            "median": 29.70521199665145,
+            "q75": 30.00381729206034
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.006756756756756757,
+            "median": 0.009400705052878966,
+            "q75": 0.01645123384253819
+          },
+          "blue_negative_area_fraction": {
+            "q25": 7.914468258285952e-05,
+            "median": 0.0004415734858591013,
+            "q75": 0.000802072956826238
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.08402771093419895,
+            "median": 0.12058038739963961,
+            "q75": 0.17819116089634043
+          },
+          "visible_log_positive_area": {
+            "q25": 29.948068283117923,
+            "median": 30.0628567877732,
+            "q75": 30.217247940830344
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.005632480638347806,
+            "median": 0.009622154423844167,
+            "q75": 0.01936165219432058
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00023517615761507526,
+            "median": 0.0004203377766517823,
+            "q75": 0.000959804798980983
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.08572335184069169,
+            "median": 0.09937790793360687,
+            "q75": 0.11311186238675602
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.49769001052188866,
+            "median": 0.6832419841593005,
+            "q75": 0.9668754726369899
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.48967274573365227,
+            "median": -0.3173400159530395,
+            "q75": -0.14730975730648765
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.4713952988633634,
+            "median": 1.6074832643067627,
+            "q75": 1.70651331374136
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.5407901308213361,
+            "median": 0.599217282533965,
+            "q75": 0.6370048146705274
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.2009555950553445,
+            "median": 1.2830792490283534,
+            "q75": 1.3702825318452743
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.3981854098417363,
+            "median": 0.4456316336943916,
+            "q75": 0.4919295395101746
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 2.9398212957771017,
+            "median": 3.2150967177914653,
+            "q75": 3.430733348837062
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.8942485519839365,
+            "median": 0.919695906667482,
+            "q75": 0.9352728690628959
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7851680362716661,
+            "median": 0.8004885535019082,
+            "q75": 0.8300166156630235
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.08791378234830922,
+            "median": 0.10178050446187867,
+            "q75": 0.12791545775023744
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.8271498195693331,
+            "median": 0.8512326387618941,
+            "q75": 0.8793106492584305
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.1254119925297522,
+            "median": 0.14622306412400515,
+            "q75": 0.16985726064965373
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 1.0190418572088338,
+            "median": 1.0617045266979748,
+            "q75": 1.0933746909822961
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.27811802818723674,
+            "median": 0.30826758746088234,
+            "q75": 0.329831767152939
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 2.134702856968872,
+            "median": 2.6137932491864486,
+            "q75": 3.9142475698420975
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.7632120348920947,
+            "median": 0.8534846554521689,
+            "q75": 0.960085839389402
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 2.2065006938707024,
+            "median": 2.4597044941220374,
+            "q75": 2.78738316424959
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.7798214665037603,
+            "median": 0.8290650139209699,
+            "q75": 0.8768344349140537
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.8363663284076785,
+            "median": 0.8724449502290195,
+            "q75": 0.912047482965384
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.13343239723880698,
+            "median": 0.16414283919297945,
+            "q75": 0.19659768510364842
+          }
+        }
+      },
+      "Mg:negative": {
+        "physical_samples": 14,
+        "clusters": 8,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 29.994402770469037,
+            "median": 30.160156276218515,
+            "q75": 30.58397579108198
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0012613521695257316,
+            "median": 0.002522704339051463,
+            "q75": 0.004036326942482341
+          },
+          "uv_negative_area_fraction": {
+            "q25": 3.4952344849328096e-06,
+            "median": 3.6543466662047105e-05,
+            "q75": 8.033660174705392e-05
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.15726747708338465,
+            "median": 0.18159817163636216,
+            "q75": 0.23619528390363156
+          },
+          "blue_log_positive_area": {
+            "q25": 29.229838346010595,
+            "median": 29.507993704501022,
+            "q75": 29.6797308670799
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.003525264394829612
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 3.061351318438339e-05
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.14868351635909524,
+            "median": 0.20412455897359463,
+            "q75": 0.24306252637625
+          },
+          "visible_log_positive_area": {
+            "q25": 29.901437821618956,
+            "median": 30.127809450799553,
+            "q75": 30.289753475458518
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.013377141516076038,
+            "median": 0.0260502229523586,
+            "q75": 0.03485097394977705
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00042641715945811214,
+            "median": 0.0015429888213141676,
+            "q75": 0.0028059625676619035
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.08049011787353276,
+            "median": 0.09800974121073011,
+            "q75": 0.11290318715729396
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": -0.25485294460261354,
+            "median": 0.1259809572221151,
+            "q75": 0.3114656668654643
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.6621074680697987,
+            "median": -0.5975081237374411,
+            "q75": -0.428049364816558
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.8227308659799102,
+            "median": 1.9262905743159406,
+            "q75": 2.1309208332259053
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.6767975663625656,
+            "median": 0.7086106207959667,
+            "q75": 0.762519842372964
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.3224062655082698,
+            "median": 1.535650542356024,
+            "q75": 1.6528027926827438
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.4667732578791934,
+            "median": 0.5693677243234774,
+            "q75": 0.6165292451539911
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 1.0379777856411696,
+            "median": 1.3268030014142407,
+            "q75": 1.8759379063104193
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.2897671876045694,
+            "median": 0.4693495408643714,
+            "q75": 0.6903495047353272
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.6491826985515967,
+            "median": 0.6898095107960971,
+            "q75": 0.7189148696532088
+          },
+          "Mg_I_516_contrast": {
+            "q25": -0.04494922385837059,
+            "median": -0.0033442101044515553,
+            "q75": 0.024328292665155026
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6961939906675179,
+            "median": 0.7118503905225906,
+            "q75": 0.766323779268623
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.0030412054704617598,
+            "median": 0.018529162836272088,
+            "q75": 0.07039937496688645
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.7081457665293756,
+            "median": 0.724871672977855,
+            "q75": 0.7939960504598939
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.014886572881352199,
+            "median": 0.031211358659261633,
+            "q75": 0.09592594988058092
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.8024277071791577,
+            "median": 1.1919913245242835,
+            "q75": 2.385048216817779
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.10351853058806201,
+            "median": 0.3920925390139034,
+            "q75": 0.80871609103172
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.8852681110755488,
+            "median": 1.4472491767239992,
+            "q75": 2.4371336532227605
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.17421994398575383,
+            "median": 0.5207477893964728,
+            "q75": 0.8193480317832023
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.7716214016869657,
+            "median": 0.8537724660963883,
+            "q75": 0.8894389878730933
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.07514969771220419,
+            "median": 0.1475324982249831,
+            "q75": 0.17821426643312444
+          }
+        }
+      },
+      "Mg:unknown": {
+        "physical_samples": 30,
+        "clusters": 16,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.439645050023106,
+            "median": 30.720755654551834,
+            "q75": 31.008635210259396
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0020181634712411706,
+            "median": 0.007063572149344097,
+            "q75": 0.017154389505549948
+          },
+          "uv_negative_area_fraction": {
+            "q25": 3.1213481744290476e-05,
+            "median": 0.000128865628257397,
+            "q75": 0.00047375114340048974
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.2081577484961611,
+            "median": 0.26717611708223904,
+            "q75": 0.2951864286695631
+          },
+          "blue_log_positive_area": {
+            "q25": 29.414649723255568,
+            "median": 29.493062569303312,
+            "q75": 29.797918614963443
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0035252643948296123,
+            "q75": 0.010282021151586369
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 4.317026147985473e-05,
+            "q75": 0.0007130765369878253
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.14213469723233912,
+            "median": 0.18754621369600288,
+            "q75": 0.29747930957860946
+          },
+          "visible_log_positive_area": {
+            "q25": 29.849006301975006,
+            "median": 29.986625461200077,
+            "q75": 30.195674612962563
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.0063365407181412816,
+            "median": 0.014081201595869515,
+            "q75": 0.02123914574043652
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.0002381006799089002,
+            "median": 0.00046392584131955234,
+            "q75": 0.0014828016291621455
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.08001417642868416,
+            "median": 0.0908459927153574,
+            "q75": 0.11706560619842353
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.21416944925885506,
+            "median": 0.8103686656005085,
+            "q75": 1.4218649754877895
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.4911335651562929,
+            "median": -0.4137718575444911,
+            "q75": -0.29549420246617597
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.8072902638974608,
+            "median": 1.9904459300385018,
+            "q75": 2.1204548934392884
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.6715486421860345,
+            "median": 0.7267261486145931,
+            "q75": 0.7600066312101392
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.3940418834921848,
+            "median": 1.523181446331869,
+            "q75": 1.6126427781684
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.5032712364181928,
+            "median": 0.5639642769863312,
+            "q75": 0.6006967351892285
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 1.4341042330508942,
+            "median": 2.479376128184776,
+            "q75": 2.9016181665354193
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.523157345196803,
+            "median": 0.8323911366804786,
+            "q75": 0.8863084536043817
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7064095918338449,
+            "median": 0.8008466118235493,
+            "q75": 0.8819126873936766
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.012881236734174326,
+            "median": 0.10203810540858461,
+            "q75": 0.17201841585918737
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.7515347813158757,
+            "median": 0.780861547459297,
+            "q75": 0.8050117689929186
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.05671560405605415,
+            "median": 0.08397742631393637,
+            "q75": 0.10583273230491745
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.7445428095583714,
+            "median": 0.809330833031419,
+            "q75": 0.8887125807857152
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.050084502272872596,
+            "median": 0.10890582929065687,
+            "q75": 0.1776198185730959
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 1.1537033191045196,
+            "median": 2.5704175459879037,
+            "q75": 3.1121962134434815
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.3587934133638435,
+            "median": 0.8468282245712094,
+            "q75": 0.910958874216183
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 1.5321228024950728,
+            "median": 2.374845143401092,
+            "q75": 3.242622335266459
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.5650988823282475,
+            "median": 0.8128490951229275,
+            "q75": 0.9218724958356447
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.8467036163175354,
+            "median": 0.9060939889274499,
+            "q75": 0.9528572180303256
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.14219881815782026,
+            "median": 0.19180053469695327,
+            "q75": 0.22867164327656492
+          }
+        }
+      },
+      "Ca:positive": {
+        "physical_samples": 52,
+        "clusters": 21,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.64951800835107,
+            "median": 30.835572795232377,
+            "q75": 31.166566693818606
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.004036326942482341,
+            "median": 0.010595358224016145,
+            "q75": 0.03582240161453078
+          },
+          "uv_negative_area_fraction": {
+            "q25": 4.132367007532626e-05,
+            "median": 0.0002780338188219092,
+            "q75": 0.002212341798333036
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.0857795728697628,
+            "median": 0.14479847971326254,
+            "q75": 0.20659241163753794
+          },
+          "blue_log_positive_area": {
+            "q25": 29.83340504264354,
+            "median": 30.00510665109595,
+            "q75": 30.48251206249956
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.009106933019976497,
+            "median": 0.01645123384253819,
+            "q75": 0.0199764982373678
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.00015635896483983045,
+            "median": 0.0005848464284620413,
+            "q75": 0.001025115105593654
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.07525413470950974,
+            "median": 0.08557024415911191,
+            "q75": 0.10006252235244312
+          },
+          "visible_log_positive_area": {
+            "q25": 30.072268194512674,
+            "median": 30.215486055662076,
+            "q75": 30.64884537183081
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.0055151372917155595,
+            "median": 0.013142454822811546,
+            "q75": 0.021415160760384886
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00023474889480968236,
+            "median": 0.000433056054744364,
+            "q75": 0.001693655866001391
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.09898856119195355,
+            "median": 0.10730538262111852,
+            "q75": 0.12386769435849157
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.21389203923170808,
+            "median": 0.5417887430417263,
+            "q75": 0.9833879432452539
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.2841829581994668,
+            "median": -0.19170654415402932,
+            "q75": -0.09115792563957914
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.4338719151021337,
+            "median": 1.5690561906962364,
+            "q75": 1.7869491244764308
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.5232093156594326,
+            "median": 0.583363225187489,
+            "q75": 0.6650557821973015
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.1664268866597445,
+            "median": 1.267961362490174,
+            "q75": 1.3891351091205197
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.37704343278287417,
+            "median": 0.43718856883778656,
+            "q75": 0.5014003234358249
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 2.6754216960938217,
+            "median": 2.9631809374168405,
+            "q75": 3.25268476135728
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.8622366087075668,
+            "median": 0.8959459102310743,
+            "q75": 0.9226488177769405
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7684060682232169,
+            "median": 0.8053537067810422,
+            "q75": 0.841025868920908
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.07249596540749739,
+            "median": 0.10607309865986794,
+            "q75": 0.13746162001407733
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.8034289371621783,
+            "median": 0.8607732429625357,
+            "q75": 0.8980398967569763
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.1044113692740645,
+            "median": 0.15432982544910645,
+            "q75": 0.18526508605693906
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.9710597820098035,
+            "median": 1.0542888980478802,
+            "q75": 1.0933746909822961
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.24263579133568486,
+            "median": 0.3025449886418303,
+            "q75": 0.329831767152939
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 1.0308613921376124,
+            "median": 3.8301641734638756,
+            "q75": 4.237338720764612
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.28643805502667496,
+            "median": 0.9554679644009767,
+            "q75": 0.9711062860014864
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 1.127355370247585,
+            "median": 2.3634466092765507,
+            "q75": 2.78738316424959
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.3475531239932353,
+            "median": 0.8117375869756852,
+            "q75": 0.8768344349140537
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.8858422510053321,
+            "median": 0.9082958365270646,
+            "q75": 0.9365157448494582
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.17526494318886815,
+            "median": 0.19357805122731292,
+            "q75": 0.2160154230316489
+          }
+        }
+      },
+      "Ca:negative": {
+        "physical_samples": 39,
+        "clusters": 15,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.483608944295238,
+            "median": 30.700569967591672,
+            "q75": 30.913156135530237
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0075681130171543895,
+            "median": 0.01917255297679112,
+            "q75": 0.04742684157416751
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.00020886413015754204,
+            "median": 0.0005888871760914079,
+            "q75": 0.0029361246570940016
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.13352289487159522,
+            "median": 0.17059360266243237,
+            "q75": 0.26437983923086683
+          },
+          "blue_log_positive_area": {
+            "q25": 29.33198904789479,
+            "median": 29.47261565341908,
+            "q75": 29.5185956677198
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.005875440658049354,
+            "q75": 0.009400705052878966
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.00014592097593175917,
+            "q75": 0.0007168948000633997
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.17024552465288345,
+            "median": 0.19094561634257068,
+            "q75": 0.2392803427599055
+          },
+          "visible_log_positive_area": {
+            "q25": 29.88163812131681,
+            "median": 29.950583106168043,
+            "q75": 30.06120107715096
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.00727528749119925,
+            "median": 0.011264961276695611,
+            "q75": 0.021121802393804272
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00029142229756574944,
+            "median": 0.0006954370648216346,
+            "q75": 0.0012382920493241051
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.0816441734415608,
+            "median": 0.08634231660916773,
+            "q75": 0.09968476278912972
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.5092989697048882,
+            "median": 0.7808277006775555,
+            "q75": 1.033578008509659
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.6107011116164038,
+            "median": -0.48806789888854496,
+            "q75": -0.41690210713134057
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.5396483319208771,
+            "median": 1.7043791837609723,
+            "q75": 1.9456142448145377
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.5710840495190674,
+            "median": 0.6362293707797698,
+            "q75": 0.7142005939684029
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.2484110148627219,
+            "median": 1.3478231617792653,
+            "q75": 1.5083233112006074
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.42607725100369404,
+            "median": 0.4803895428598216,
+            "q75": 0.5574369103311856
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 2.224619017589518,
+            "median": 3.175448194051,
+            "q75": 3.4270803513073975
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.7834071404535065,
+            "median": 0.9164483974601441,
+            "q75": 0.9350337438996499
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7809548974789449,
+            "median": 0.7894553467435312,
+            "q75": 0.8524208543882767
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.08406285471842578,
+            "median": 0.09181584209234683,
+            "q75": 0.14718008972125343
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.7803065740665717,
+            "median": 0.8156359450629304,
+            "q75": 0.8404090368912935
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.0834687708966917,
+            "median": 0.11528407295989487,
+            "q75": 0.13693110038292228
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.7956550848743404,
+            "median": 0.9594479251028455,
+            "q75": 1.0445577640919954
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.0974171181155961,
+            "median": 0.23379119069985227,
+            "q75": 0.29630500048003994
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 2.029354365092402,
+            "median": 2.41998053239235,
+            "q75": 2.719445723560985
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.7371548643458563,
+            "median": 0.8221514343500765,
+            "q75": 0.868148120071632
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 2.198656493175763,
+            "median": 2.6543887294922635,
+            "q75": 3.0590603419857514
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.7780782930167218,
+            "median": 0.8593145651062845,
+            "q75": 0.9056942458706957
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.7983422504496125,
+            "median": 0.8393798309664484,
+            "q75": 0.884982559442664
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.09985074069028416,
+            "median": 0.13604306686466588,
+            "q75": 0.17455658556826872
+          }
+        }
+      },
+      "Ca:unknown": {
+        "physical_samples": 33,
+        "clusters": 23,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.39904474670711,
+            "median": 30.681965068597613,
+            "q75": 30.836266523678567
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.004036326942482341,
+            "median": 0.009081735620585268,
+            "q75": 0.02119071644803229
+          },
+          "uv_negative_area_fraction": {
+            "q25": 4.889910133322545e-05,
+            "median": 0.00017953175807800356,
+            "q75": 0.0014952654956913827
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.14412809877624103,
+            "median": 0.15828152624047453,
+            "q75": 0.21601304598704388
+          },
+          "blue_log_positive_area": {
+            "q25": 29.396657932909154,
+            "median": 29.501906575790578,
+            "q75": 29.551244269084037
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0023501762632197414,
+            "q75": 0.009400705052878966
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 1.8665985128338298e-05,
+            "q75": 0.0006109558257361238
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.17105851086181106,
+            "median": 0.19358586164756264,
+            "q75": 0.21362696743492327
+          },
+          "visible_log_positive_area": {
+            "q25": 29.842894849322644,
+            "median": 29.937328153736384,
+            "q75": 30.101589329784236
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.005632480638347806,
+            "median": 0.0086834076507862,
+            "q75": 0.01689744191504342
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00021894893321821598,
+            "median": 0.0003301166588572456,
+            "q75": 0.0006921098172971475
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.08026944336450652,
+            "median": 0.0929195918865739,
+            "q75": 0.09948798941159719
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.34034558751320887,
+            "median": 0.6666319722139846,
+            "q75": 0.9239650515586106
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.5912790079998516,
+            "median": -0.4650856385101143,
+            "q75": -0.3655916257343925
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.6241214302375906,
+            "median": 1.817163013181672,
+            "q75": 1.9962920741560546
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.6058304192735969,
+            "median": 0.6750277942925624,
+            "q75": 0.7283237280614097
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.259375658626665,
+            "median": 1.3866285908178775,
+            "q75": 1.53595261333639
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.43233630810860574,
+            "median": 0.500167012188987,
+            "q75": 0.5694978831541772
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 1.9027966970373116,
+            "median": 2.941288306115285,
+            "q75": 3.3421007145724233
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.7016966850183062,
+            "median": 0.8944037750224647,
+            "q75": 0.9292740825851902
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7214684548173621,
+            "median": 0.7865108955585193,
+            "q75": 0.8180086278257619
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.02704263504923797,
+            "median": 0.08913775470285855,
+            "q75": 0.11738070867640733
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.7671304489718532,
+            "median": 0.8060845774528533,
+            "q75": 0.8423025675841591
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.07131272219114072,
+            "median": 0.10679291422636175,
+            "q75": 0.1385646502008329
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.7304616855119602,
+            "median": 0.9254987499773936,
+            "q75": 1.041500252924324
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.0366268071976311,
+            "median": 0.2073325254058697,
+            "q75": 0.2941502067528879
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 1.7657622387785308,
+            "median": 2.3409690948075257,
+            "q75": 2.7075460390454857
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.6578851100216394,
+            "median": 0.8075291086432731,
+            "q75": 0.8665978277948608
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 2.120747840437506,
+            "median": 2.3975692787454057,
+            "q75": 2.802569486480617
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.7515307963714459,
+            "median": 0.8181211753852374,
+            "q75": 0.8786897304818478
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.8043522705313477,
+            "median": 0.8388776937457242,
+            "q75": 0.8579831633335514
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.10524452036553752,
+            "median": 0.1356091545156067,
+            "q75": 0.1519669149625784
+          }
+        }
+      },
+      "Fe:positive": {
+        "physical_samples": 100,
+        "clusters": 31,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.594223287433756,
+            "median": 30.769669921241295,
+            "q75": 31.115949525044893
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.005045408678102927,
+            "median": 0.012108980827447022,
+            "q75": 0.026488395560040363
+          },
+          "uv_negative_area_fraction": {
+            "q25": 8.947211415112883e-05,
+            "median": 0.00033657005518755365,
+            "q75": 0.0015483091259974283
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.13863560115909446,
+            "median": 0.1610400734302892,
+            "q75": 0.24822990152548935
+          },
+          "blue_log_positive_area": {
+            "q25": 29.445303630218227,
+            "median": 29.544602111818193,
+            "q75": 29.832006729146926
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0011750881316098707,
+            "median": 0.008225616921269096,
+            "q75": 0.011750881316098707
+          },
+          "blue_negative_area_fraction": {
+            "q25": 4.375664942173084e-06,
+            "median": 0.00027497112260266564,
+            "q75": 0.0007409940606717313
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.0996957879015824,
+            "median": 0.16964083693844256,
+            "q75": 0.19799464396629202
+          },
+          "visible_log_positive_area": {
+            "q25": 29.906538852082917,
+            "median": 30.026258600015694,
+            "q75": 30.147974614936977
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.005573808965031683,
+            "median": 0.009446139403895798,
+            "q75": 0.01672142689509505
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00022114689559950583,
+            "median": 0.0003694842488661225,
+            "q75": 0.000770822840021276
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.08348724729443234,
+            "median": 0.0943348677798767,
+            "q75": 0.10540930584152566
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.522940471781494,
+            "median": 0.8114536562241774,
+            "q75": 1.090362053550698
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.5264305554856294,
+            "median": -0.41690210713134057,
+            "q75": -0.24313730499863961
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.534622801123767,
+            "median": 1.6895938423143169,
+            "q75": 1.8983788924740712
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.5689247927091056,
+            "median": 0.6308109051678128,
+            "q75": 0.7003357587392927
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.2456176053116348,
+            "median": 1.3372346532434212,
+            "q75": 1.487326342709436
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.4244736422557614,
+            "median": 0.4748581696330073,
+            "q75": 0.5480475765460969
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 2.6740562484682657,
+            "median": 3.1562392150274112,
+            "q75": 3.4180435233322846
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.8620451525652497,
+            "median": 0.9148279458778377,
+            "q75": 0.9344464401489445
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7816164216634769,
+            "median": 0.8019680907929195,
+            "q75": 0.8399016373692456
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.0846686497261499,
+            "median": 0.10310875576341597,
+            "q75": 0.13649379132498304
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.795179005818482,
+            "median": 0.8354843158521377,
+            "q75": 0.8621347852139323
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.09699883008577917,
+            "median": 0.13267002159679825,
+            "q75": 0.15548009709146526
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.8556962931801666,
+            "median": 1.02421304996375,
+            "q75": 1.0734236644549784
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.15000276171162547,
+            "median": 0.2818254392178705,
+            "q75": 0.316327428523002
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 2.2104897085446282,
+            "median": 2.6751722093565697,
+            "q75": 3.9071660146372986
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.7798238376010181,
+            "median": 0.8621820572755436,
+            "q75": 0.9598034459191584
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 2.252191960942207,
+            "median": 2.6348848473772146,
+            "q75": 3.0584521798810282
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.7896591987576078,
+            "median": 0.8565387387334964,
+            "q75": 0.9059763107775481
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.8348520852603554,
+            "median": 0.8864099625481456,
+            "q75": 0.9325046335017555
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.13212093352737392,
+            "median": 0.17573425890152344,
+            "q75": 0.2128426218563675
+          }
+        }
+      },
+      "Fe:negative": {
+        "physical_samples": 8,
+        "clusters": 4,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.39164585843409,
+            "median": 30.440505157585207,
+            "q75": 30.69182924206666
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.010595358224016145,
+            "median": 0.02623612512613522,
+            "q75": 0.06029263370332997
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.00015724776755981725,
+            "median": 0.0012681729606623668,
+            "q75": 0.003054119809475402
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.059934771862456694,
+            "median": 0.072186339246824,
+            "q75": 0.09589740395533838
+          },
+          "blue_log_positive_area": {
+            "q25": 30.303315341004847,
+            "median": 30.604974787389118,
+            "q75": 30.638234442774316
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.018507638072855465,
+            "median": 0.028789659224441835,
+            "q75": 0.035546415981198586
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.00020767820942282266,
+            "median": 0.0007285101084061124,
+            "q75": 0.001198117025481811
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.0786607857776009,
+            "median": 0.08183953135804135,
+            "q75": 0.1465913855182703
+          },
+          "visible_log_positive_area": {
+            "q25": 30.787043719157854,
+            "median": 30.88370874446433,
+            "q75": 30.966561103613543
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.02223656418681061,
+            "median": 0.028397089885003522,
+            "q75": 0.037491199249002585
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.0015003291041462432,
+            "median": 0.0023735407584162807,
+            "q75": 0.004448802328894885
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.1147172763951804,
+            "median": 0.12807608504323248,
+            "q75": 0.15340262776108568
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": -0.4789672174442279,
+            "median": -0.4419157384355863,
+            "q75": -0.1364555693326368
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.3756532439205218,
+            "median": -0.30669288360304137,
+            "q75": -0.20949914155182991
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.3809022537427025,
+            "median": 1.6738254164018707,
+            "q75": 1.9214827761816569
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.49627930768726725,
+            "median": 0.6172485035909374,
+            "q75": 0.7072096262333014
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.1711966878956435,
+            "median": 1.3920588518347394,
+            "q75": 1.5533130826695858
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.37857294825117194,
+            "median": 0.5009889508401351,
+            "q75": 0.5767047675628387
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.9910972907699818,
+            "median": 1.8801803891770208,
+            "q75": 2.6288848482321123
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.25764120201429863,
+            "median": 0.6800432599509051,
+            "q75": 0.8539189208881582
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.6120760916494421,
+            "median": 0.6613396239923068,
+            "q75": 0.6933046341324888
+          },
+          "Mg_I_516_contrast": {
+            "q25": -0.08447629025949258,
+            "median": -0.032417186180929265,
+            "q75": -3.513302953109254e-05
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.7019127278397036,
+            "median": 0.7274697920675033,
+            "q75": 0.7926312884487637
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.008720140454997676,
+            "median": 0.03373920146157909,
+            "q75": 0.0946905467088352
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.848516086418518,
+            "median": 0.904063378305549,
+            "q75": 0.9686789916011229
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.14144628258599878,
+            "median": 0.19015531251309126,
+            "q75": 0.24050669639471117
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.5745921935012691
+          },
+          "Fe_I_404_contrast": {
+            "q25": -0.0077443074856737805,
+            "median": 0.0,
+            "q75": 0.0
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.5204687534141987,
+            "median": 0.6290427866058332,
+            "q75": 0.6437510244207155
+          },
+          "Fe_I_438_contrast": {
+            "q25": -0.1890565577668638,
+            "median": -0.06620097112288069,
+            "q75": -0.05063391115421794
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.8414985763533235,
+            "median": 0.8807623916310997,
+            "q75": 0.8928813833542045
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.13680731916477673,
+            "median": 0.17106482885495844,
+            "q75": 0.1810514611590217
+          }
+        }
+      },
+      "Fe:unknown": {
+        "physical_samples": 16,
+        "clusters": 10,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.05561413517938,
+            "median": 30.65961828895327,
+            "q75": 30.96560906986297
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0010090817356205853,
+            "median": 0.014127144298688193,
+            "q75": 0.036074672048435924
+          },
+          "uv_negative_area_fraction": {
+            "q25": 4.5803929357875066e-06,
+            "median": 0.0008946345938401426,
+            "q75": 0.002212341798333036
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.07063406435375504,
+            "median": 0.10743951598326484,
+            "q75": 0.1878656078421293
+          },
+          "blue_log_positive_area": {
+            "q25": 29.66963895779617,
+            "median": 30.20860798372823,
+            "q75": 30.55410498603566
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.001762632197414806,
+            "median": 0.012925969447708578,
+            "q75": 0.021151586368977675
+          },
+          "blue_negative_area_fraction": {
+            "q25": 1.3999488846253724e-05,
+            "median": 0.00012084812806201648,
+            "q75": 0.00034842302777478437
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.07788032905637218,
+            "median": 0.09558084671616845,
+            "q75": 0.14199982184932658
+          },
+          "visible_log_positive_area": {
+            "q25": 30.25922631002406,
+            "median": 30.349580229257306,
+            "q75": 30.70856242515344
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.019772353907533444,
+            "median": 0.021356489087068765,
+            "q75": 0.03009856841117109
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.0006164374758680253,
+            "median": 0.0019029145361543931,
+            "q75": 0.0022456233722447025
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.10843313860887538,
+            "median": 0.12160185602623722,
+            "q75": 0.1303242885080933
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": -0.05819697734284457,
+            "median": 0.16800743746504132,
+            "q75": 0.2726752434213493
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.43054828696839476,
+            "median": -0.16757407165666827,
+            "q75": -0.12811124783834682
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.2789395523185862,
+            "median": 1.5360507171408426,
+            "q75": 1.9586709534916584
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.4433184428368162,
+            "median": 0.5662191488241064,
+            "q75": 0.7178764628756018
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.0624348958719896,
+            "median": 1.1022830697879167,
+            "q75": 1.5295289523399571
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.3087649605725488,
+            "median": 0.3357612067537064,
+            "q75": 0.5665158511212418
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 2.2770302934104554,
+            "median": 2.715934867508852,
+            "q75": 2.945815676772459
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.791054587587543,
+            "median": 0.867499015085152,
+            "q75": 0.894864396549713
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.6813764296297845,
+            "median": 0.7431130581815314,
+            "q75": 0.841025868920908
+          },
+          "Mg_I_516_contrast": {
+            "q25": -0.011915877893673845,
+            "median": 0.04820015226098461,
+            "q75": 0.13746162001407733
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.7126362781567686,
+            "median": 0.8108678527177241,
+            "q75": 0.8456583906911248
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.01930027094652917,
+            "median": 0.11104515466145173,
+            "q75": 0.14144589960082
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.7184182326713049,
+            "median": 0.9977192895109198,
+            "q75": 1.0830285295711555
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.02495433870691373,
+            "median": 0.26231351184844,
+            "q75": 0.3228314632559217
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.8238767727531487,
+            "median": 1.0270061832368427,
+            "q75": 2.2686940883174627
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.122486992538256,
+            "median": 0.28374676312615765,
+            "q75": 0.7895486141660589
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.7943767375104105,
+            "median": 0.9372833594865997,
+            "q75": 1.2604185012369813
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.0962620252541697,
+            "median": 0.21654957163924426,
+            "q75": 0.4328911113724685
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.7593464373591925,
+            "median": 0.8786064988154194,
+            "q75": 0.8809231245278183
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.06394836728213149,
+            "median": 0.1692772166126372,
+            "q75": 0.1711993907465742
+          }
+        }
+      }
+    },
+    "campaign_2021": {
+      "all": {
+        "physical_samples": 71,
+        "clusters": 12,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.079987580490027,
+            "median": 30.380340184787546,
+            "q75": 31.440848889313393
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0020181634712411706,
+            "q75": 0.01160443995963673
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 1.0204908474809004e-05,
+            "q75": 0.00022764217515943114
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.12202764166424249,
+            "median": 0.17555011725114855,
+            "q75": 0.2382536686148744
+          },
+          "blue_log_positive_area": {
+            "q25": 29.494811350555885,
+            "median": 29.69371090635062,
+            "q75": 30.08276269483962
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0035252643948296123,
+            "q75": 0.01410105757931845
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 2.9041844253727402e-05,
+            "q75": 0.000770261082119969
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.10161068792685145,
+            "median": 0.15555619675391094,
+            "q75": 0.21975512940501685
+          },
+          "visible_log_positive_area": {
+            "q25": 29.73653550753111,
+            "median": 30.09334635221115,
+            "q75": 30.353931267725493
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.0024642102792771653,
+            "median": 0.012907768129547055,
+            "q75": 0.02229523586012673
+          },
+          "visible_negative_area_fraction": {
+            "q25": 5.8735736677581505e-05,
+            "median": 0.00047238904373423697,
+            "q75": 0.0011662960906551685
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.10111661130777565,
+            "median": 0.11998915531985527,
+            "q75": 0.14703049716883843
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.003108514700764786,
+            "median": 0.3987035236937757,
+            "q75": 1.4917875645210064
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.6808927702006748,
+            "median": -0.21488554665453208,
+            "q75": -0.01984517703455424
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.2522836928265706,
+            "median": 1.5993196788691508,
+            "q75": 1.9425967949930323
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.4281891715794224,
+            "median": 0.5959306110061406,
+            "q75": 0.7133362924939091
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 0.970106644683168,
+            "median": 1.195674619366224,
+            "q75": 1.476624672969887
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.241828610128896,
+            "median": 0.3950003360926903,
+            "q75": 0.5431112462239993
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.9210177233861029,
+            "median": 1.6547822243001598,
+            "q75": 2.8446326466720864
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.2036236491277142,
+            "median": 0.6177276257179867,
+            "q75": 0.8836759026467229
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7114922443317135,
+            "median": 0.7466049211627976,
+            "q75": 0.84324748338793
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.018177797542853667,
+            "median": 0.05205282183348842,
+            "q75": 0.13937781604666977
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.690541516648588,
+            "median": 0.7202148045953286,
+            "q75": 0.8267259964073246
+          },
+          "Mg_I_517_contrast": {
+            "q25": -0.002609513188946742,
+            "median": 0.026704493531941362,
+            "q75": 0.12502960079551403
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.6856283864207784,
+            "median": 0.7232389291778221,
+            "q75": 0.9519735348326979
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.007547177785412209,
+            "median": 0.029643463728767444,
+            "q75": 0.22791958897371273
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.7275610740049546,
+            "median": 1.1619425766219436,
+            "q75": 2.6456732292414786
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.033816616293056524,
+            "median": 0.3742424970547138,
+            "q75": 0.8579146268188957
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.6952762800894439,
+            "median": 1.121900709816042,
+            "q75": 2.3182933167280986
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.0021230408567143666,
+            "median": 0.34867651937856226,
+            "q75": 0.8029349524492171
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.6986068925581561,
+            "median": 0.7488932693503217,
+            "q75": 0.8608953746387522
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.005444607011331348,
+            "median": 0.054220674130452666,
+            "q75": 0.1544329800373188
+          }
+        }
+      },
+      "Na:positive": {
+        "physical_samples": 28,
+        "clusters": 8,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 27.501103788895456,
+            "median": 30.243964013573496,
+            "q75": 30.33375998991956
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.010343087790111
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.0001672552996311364
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.16265437956547213,
+            "median": 0.1756463931651316,
+            "q75": 0.21117851876622037
+          },
+          "blue_log_positive_area": {
+            "q25": 26.34425030210873,
+            "median": 29.554373381252834,
+            "q75": 29.840846023877432
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0011750881316098707,
+            "q75": 0.012044653349001174
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 4.321301383602084e-06,
+            "q75": 0.0009132448855189328
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.10865445124738989,
+            "median": 0.17734933439844242,
+            "q75": 0.6693298897763815
+          },
+          "visible_log_positive_area": {
+            "q25": 27.105993246135704,
+            "median": 30.100858903320116,
+            "q75": 30.302611790509815
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.006688570758038019,
+            "q75": 0.015665336775404833
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 8.474458208830063e-05,
+            "q75": 0.0008722082661078667
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.1157676933501292,
+            "median": 0.12738994666630632,
+            "q75": 0.17728023238122467
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": -0.034617440179979475,
+            "median": 0.3092369977316647,
+            "q75": 0.41660507036994776
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.7584652250474848,
+            "median": -0.6149384874588311,
+            "q75": -0.2554395319044449
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 0.7853194143564677,
+            "median": 1.6225353718818374,
+            "q75": 2.0828119263983775
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.08798726540114149,
+            "median": 0.6050965231445106,
+            "q75": 0.7506711552641578
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 0.7395152636524376,
+            "median": 1.3045057630405448,
+            "q75": 1.5127748671127532
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.04530483345490281,
+            "median": 0.45737293090337433,
+            "q75": 0.5591880113657478
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.797111323022889,
+            "median": 2.0148937676173215,
+            "q75": 2.9762769297219984
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.09869778832062283,
+            "median": 0.7309941841273347,
+            "q75": 0.8980332167707977
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7105108582548489,
+            "median": 0.7198697092702289,
+            "q75": 0.7844976109719279
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.01721372278091164,
+            "median": 0.026368137540449924,
+            "q75": 0.08729829604187969
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6859334724952708,
+            "median": 0.6945227636629809,
+            "q75": 0.7311648561440351
+          },
+          "Mg_I_517_contrast": {
+            "q25": -0.007251663362724307,
+            "median": 0.0013743287201203455,
+            "q75": 0.037297518180979594
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.6872654036760598,
+            "median": 0.7052747403615243,
+            "q75": 0.8104855490449792
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.005899144259983859,
+            "median": 0.012013145036670924,
+            "q75": 0.11051535622000702
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.706739758008063,
+            "median": 1.0205240204489545,
+            "q75": 1.5214064370821554
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.013496299157434857,
+            "median": 0.2791804422270287,
+            "q75": 0.5631791382657909
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.6280494202771647,
+            "median": 0.7697505007566102,
+            "q75": 1.521607537153096
+          },
+          "Fe_I_438_contrast": {
+            "q25": -0.06739954322051085,
+            "median": 0.07371472075585758,
+            "q75": 0.5600205013841255
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.6989233815074518,
+            "median": 0.7341025533919269,
+            "q75": 0.8278093686329874
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.005754836373951388,
+            "median": 0.04011464233943282,
+            "q75": 0.12597573229602835
+          }
+        }
+      },
+      "Na:negative": {
+        "physical_samples": 30,
+        "clusters": 8,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.26415747414913,
+            "median": 31.309247240184483,
+            "q75": 31.968382379902394
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0035317860746720484,
+            "q75": 0.016649848637739655
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 3.484689863221001e-05,
+            "q75": 0.0005982933751956526
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.08960711140569724,
+            "median": 0.18032857153584614,
+            "q75": 0.2635958369771457
+          },
+          "blue_log_positive_area": {
+            "q25": 29.657248347623145,
+            "median": 30.01250035728824,
+            "q75": 30.479078487554617
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.007050528789659225,
+            "q75": 0.02497062279670975
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.00017501642242235947,
+            "q75": 0.0008863176734572217
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.09931078841819518,
+            "median": 0.1449385557455493,
+            "q75": 0.1938084514471321
+          },
+          "visible_log_positive_area": {
+            "q25": 29.947416713439743,
+            "median": 30.115216840985568,
+            "q75": 30.47454319877022
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.008155362590941094,
+            "median": 0.016662755221778926,
+            "q75": 0.02522881952593288
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00017814191565868238,
+            "median": 0.0006449803936479236,
+            "q75": 0.0020062479010520724
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.09660042188152132,
+            "median": 0.11774830698174682,
+            "q75": 0.13418221928074736
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.02254076911636016,
+            "median": 1.1507891155185366,
+            "q75": 1.8126745426098614
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.33140598002700106,
+            "median": -0.06431898872392239,
+            "q75": 0.00598201572042889
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.2101821405096562,
+            "median": 1.6128185801804724,
+            "q75": 1.9144288403031593
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.4033427913993751,
+            "median": 0.6013429339048032,
+            "q75": 0.7051473182367722
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.022572873700707,
+            "median": 1.2131830405972244,
+            "q75": 1.5366173281779323
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.2806629850659852,
+            "median": 0.40549251789199725,
+            "q75": 0.5693412118125385
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.9832872295373846,
+            "median": 1.4475831793350273,
+            "q75": 2.7637433416416575
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.24981429306667255,
+            "median": 0.5296438557905327,
+            "q75": 0.8738800179993017
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7116687542175381,
+            "median": 0.7765066421242673,
+            "q75": 0.8852206517849197
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.01835096279417947,
+            "median": 0.07996851303914693,
+            "q75": 0.17475372856147942
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6972460519768553,
+            "median": 0.7549286378010074,
+            "q75": 0.8415502248917245
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.004089948064112227,
+            "median": 0.05989108439513089,
+            "q75": 0.13791609692755966
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.6851159867707937,
+            "median": 0.7643246205741127,
+            "q75": 0.8958063294292784
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.00806364242863338,
+            "median": 0.06868778696336968,
+            "q75": 0.18333647769321954
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.7613940277882019,
+            "median": 1.2930858229448192,
+            "q75": 2.9875787496146766
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.0659497199799571,
+            "median": 0.45053442588445314,
+            "q75": 0.899180064180181
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.7604017879578292,
+            "median": 1.357626905419222,
+            "q75": 2.646529543298427
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.06452860937982441,
+            "median": 0.4847300987569856,
+            "q75": 0.8572530177301254
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.7092681627791254,
+            "median": 0.8072362687140223,
+            "q75": 0.8714290527555638
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.015989035857103186,
+            "median": 0.10774530853691014,
+            "q75": 0.16329164751448574
+          }
+        }
+      },
+      "Na:unknown": {
+        "physical_samples": 13,
+        "clusters": 10,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.197953014175155,
+            "median": 30.92535645645646,
+            "q75": 31.88566712860775
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0020181634712411706,
+            "q75": 0.012108980827447022
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 6.874154149699174e-06,
+            "q75": 0.00021369628586473887
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.10080786324998044,
+            "median": 0.15402402301957524,
+            "q75": 0.24729136159460138
+          },
+          "blue_log_positive_area": {
+            "q25": 29.55972903086096,
+            "median": 29.621401531542613,
+            "q75": 30.081017465691872
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0011750881316098707,
+            "median": 0.0035252643948296123,
+            "q75": 0.011750881316098707
+          },
+          "blue_negative_area_fraction": {
+            "q25": 5.501586769408273e-07,
+            "median": 0.00010694632028713658,
+            "q75": 0.0006385219999086267
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.10603981657649258,
+            "median": 0.14655741462417332,
+            "q75": 0.18647804166433268
+          },
+          "visible_log_positive_area": {
+            "q25": 29.923812006552126,
+            "median": 30.077950987894795,
+            "q75": 30.299393470641878
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.005397793945083313,
+            "median": 0.012907768129547055,
+            "q75": 0.02558084956582962
+          },
+          "visible_negative_area_fraction": {
+            "q25": 5.4766476446081356e-05,
+            "median": 0.0005074508493283611,
+            "q75": 0.0009331518047737268
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.09129077367520314,
+            "median": 0.1154920815511847,
+            "q75": 0.12702214028956113
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.3651308050056308,
+            "median": 0.9424647542352815,
+            "q75": 1.86956408644879
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.6690174154522381,
+            "median": -0.21488554665453208,
+            "q75": 0.06214932857392341
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.2895643942639572,
+            "median": 1.3942643404227884,
+            "q75": 1.8696589145398383
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.4492185400160043,
+            "median": 0.503969113409275,
+            "q75": 0.6916458669051688
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.0715982099393693,
+            "median": 1.1076721530603981,
+            "q75": 1.2538291116375366
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.3150783385966623,
+            "median": 0.3393459413792773,
+            "q75": 0.4291799670244515
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 1.2475430383979993,
+            "median": 1.4739293157625317,
+            "q75": 2.9836090815786593
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.4255794348063313,
+            "median": 0.5419465725120651,
+            "q75": 0.8987799023823995
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.713083819551939,
+            "median": 0.8313965972679368,
+            "q75": 0.8824338256829379
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.01973919742336898,
+            "median": 0.1291185137573242,
+            "q75": 0.1724506744174967
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6941702002116293,
+            "median": 0.8039477486309957,
+            "q75": 0.8443349112080258
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.0010224958122994792,
+            "median": 0.10488272330557809,
+            "q75": 0.14031367808350118
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.685303417491995,
+            "median": 0.7127699767464614,
+            "q75": 0.9933513946218504
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.007874597467948252,
+            "median": 0.019431454542614055,
+            "q75": 0.25933296770186454
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.7520564421495246,
+            "median": 1.244101651601675,
+            "q75": 2.102508264266473
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.05720763709105813,
+            "median": 0.4235988225148106,
+            "q75": 0.7557002036748177
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.6925258218634821,
+            "median": 1.4170253059379379,
+            "q75": 2.412452652494764
+          },
+          "Fe_I_438_contrast": {
+            "q25": -0.0006215411897987587,
+            "median": 0.5151296174866169,
+            "q75": 0.8208067282702961
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.692985930949997,
+            "median": 0.6979367235079988,
+            "q75": 0.868989042064595
+          },
+          "Fe_I_527_contrast": {
+            "q25": -0.00016126243346338415,
+            "median": 0.0047780887982177426,
+            "q75": 0.16124927252725543
+          }
+        }
+      },
+      "Mg:positive": {
+        "physical_samples": 19,
+        "clusters": 10,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.361664163251135,
+            "median": 31.152390740493445,
+            "q75": 31.549128678571357
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.007063572149344097,
+            "median": 0.02119071644803229,
+            "q75": 0.03229061553985873
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.000113096130088841,
+            "median": 0.0008704085321887923,
+            "q75": 0.003751710702519005
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.0785899033870637,
+            "median": 0.10080786324998044,
+            "q75": 0.20823098358089934
+          },
+          "blue_log_positive_area": {
+            "q25": 29.494811350555885,
+            "median": 29.692210801897737,
+            "q75": 30.0340114352064
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0005875440658049354,
+            "median": 0.0035252643948296123,
+            "q75": 0.012338425381903642
+          },
+          "blue_negative_area_fraction": {
+            "q25": 1.9254867777482248e-08,
+            "median": 2.9041844253727402e-05,
+            "q75": 0.0006293815717653506
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.10705894195277049,
+            "median": 0.13584107093574038,
+            "q75": 0.18775450037101582
+          },
+          "visible_log_positive_area": {
+            "q25": 29.508184762542648,
+            "median": 29.746948450191613,
+            "q75": 29.997752473704146
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.007627317531095986,
+            "median": 0.01689744191504342,
+            "q75": 0.027693029805210045
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00028915466767107193,
+            "median": 0.0008278935676357075,
+            "q75": 0.0011662960906551685
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.08889503942778489,
+            "median": 0.09868030372902596,
+            "q75": 0.12529629469366732
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.7913517834453572,
+            "median": 1.2402768534016069,
+            "q75": 1.800896480909591
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.11689085700657564,
+            "median": -0.020727416577656754,
+            "q75": 0.06637075262387526
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.177701085257997,
+            "median": 1.2895643942639572,
+            "q75": 1.4637767251252485
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.3840174466115239,
+            "median": 0.4492185400160043,
+            "q75": 0.5372438465917135
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.0460999166860239,
+            "median": 1.0890283220626547,
+            "q75": 1.1785227849296807
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.29738928478475346,
+            "median": 0.3269132861438265,
+            "q75": 0.38453376993597504
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 1.9827383719766942,
+            "median": 2.7769182137162822,
+            "q75": 3.0389167557669934
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.7033823409656002,
+            "median": 0.8755396019875699,
+            "q75": 0.904225709587707
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.8264069303851374,
+            "median": 0.8421842046130277,
+            "q75": 0.8707711557458787
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.12476075729139058,
+            "median": 0.13846276761701565,
+            "q75": 0.16273178267010618
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.8150580568775708,
+            "median": 0.8395163710945465,
+            "q75": 0.8522332624920259
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.11475488210610993,
+            "median": 0.1361611579539068,
+            "q75": 0.1470756545969198
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.9742339760675627,
+            "median": 0.9969757172840629,
+            "q75": 1.037786670148159
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.24503610297368295,
+            "median": 0.26201257717220466,
+            "q75": 0.2915220082030348
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.7651415931177932,
+            "median": 2.5975416209864504,
+            "q75": 3.14537807705569
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.06943680407360843,
+            "median": 0.8510852354102802,
+            "q75": 0.9136203519381703
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.7671177682042553,
+            "median": 2.275496983801306,
+            "q75": 2.656147628752686
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.07098812537205232,
+            "median": 0.7945065212142102,
+            "q75": 0.8595421733455454
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.7293871446125424,
+            "median": 0.8246578957722612,
+            "q75": 0.8722967403562101
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.03547828933021077,
+            "median": 0.12322995992177753,
+            "q75": 0.1640052898219992
+          }
+        }
+      },
+      "Mg:negative": {
+        "physical_samples": 21,
+        "clusters": 8,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.07288924246737,
+            "median": 30.244471760397097,
+            "q75": 30.44276922415576
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.0030272452068617556
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 2.9947967001258777e-05
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.15160891259890816,
+            "median": 0.1650677175049244,
+            "q75": 0.20481567047811902
+          },
+          "blue_log_positive_area": {
+            "q25": 29.55972903086096,
+            "median": 29.69371090635062,
+            "q75": 29.98242243649481
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.01410105757931845
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.0007198034525518427
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.11237217627464623,
+            "median": 0.1668248606545352,
+            "q75": 0.26583272083356285
+          },
+          "visible_log_positive_area": {
+            "q25": 30.057772560281258,
+            "median": 30.292436690776427,
+            "q75": 30.497222376814392
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.004224360478760855,
+            "median": 0.007275287491199249,
+            "q75": 0.01854024876789486
+          },
+          "visible_negative_area_fraction": {
+            "q25": 6.270499690908165e-05,
+            "median": 0.0002010062518878403,
+            "q75": 0.0006609523619976866
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.11461754990421623,
+            "median": 0.1227980821113777,
+            "q75": 0.1402125991644507
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": -0.11795717300882558,
+            "median": -0.028454368054578794,
+            "q75": 0.3883713833811129
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.7527982240142208,
+            "median": -0.46360452940194463,
+            "q75": -0.20653023959638617
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.318039463034351,
+            "median": 1.8460227658330284,
+            "q75": 2.221400623775294
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.4646805927858043,
+            "median": 0.6842721988341648,
+            "q75": 0.7830852569597317
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 0.8857681316331888,
+            "median": 1.428085834158036,
+            "q75": 1.592765515848377
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.1752045607743924,
+            "median": 0.5204639814121741,
+            "q75": 0.5932721149349519
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.7587518912461065,
+            "median": 1.429642433613702,
+            "q75": 1.7550065299855269
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.06349890049287522,
+            "median": 0.5212029101029414,
+            "q75": 0.6541834426786526
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7029514747169313,
+            "median": 0.7118213277839659,
+            "q75": 0.7188938473420496
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.00975632172169962,
+            "median": 0.01850084927196411,
+            "q75": 0.025418000196283264
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6296330579900369,
+            "median": 0.6895877550947404,
+            "q75": 0.6941702002116293
+          },
+          "Mg_I_517_contrast": {
+            "q25": -0.06557418468556822,
+            "median": -0.003565760470052976,
+            "q75": 0.0010224958122994792
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.6839480278559574,
+            "median": 0.688165985753713,
+            "q75": 0.7203870945024022
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.009241555797148047,
+            "median": -0.004993616785533698,
+            "q75": 0.026872162577234432
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.7520564421495246,
+            "median": 1.0164364486238762,
+            "q75": 1.2858974600144042
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.05720763709105813,
+            "median": 0.27623420418743055,
+            "q75": 0.4471932289334347
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.5837661111739256,
+            "median": 0.6813028196476473,
+            "q75": 1.3044968351188977
+          },
+          "Fe_I_438_contrast": {
+            "q25": -0.11558610477037015,
+            "median": -0.011914773538092614,
+            "q75": 0.45737967175466704
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.6920363352748123,
+            "median": 0.7079205834365307,
+            "q75": 0.7488932693503217
+          },
+          "Fe_I_527_contrast": {
+            "q25": -0.00111146112348476,
+            "median": 0.014664791010942051,
+            "q75": 0.054220674130452666
+          }
+        }
+      },
+      "Mg:unknown": {
+        "physical_samples": 31,
+        "clusters": 9,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.04451393964991,
+            "median": 30.380340184787546,
+            "q75": 31.556497269852994
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0010090817356205853,
+            "q75": 0.005045408678102927
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 5.061691255214098e-06,
+            "q75": 0.00013128485589681565
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.1703157556537277,
+            "median": 0.20893736527094472,
+            "q75": 0.25159096510779805
+          },
+          "blue_log_positive_area": {
+            "q25": 29.458098238373463,
+            "median": 29.929526890706107,
+            "q75": 30.249841037539383
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.005875440658049354,
+            "q75": 0.018213866039952994
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.00011450585602393372,
+            "q75": 0.0009410919627398363
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.09254483241667721,
+            "median": 0.15379181595979477,
+            "q75": 0.22305460881840478
+          },
+          "visible_log_positive_area": {
+            "q25": 29.996785116650003,
+            "median": 30.143945246358978,
+            "q75": 30.36673042513186
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.0018774935461159353,
+            "median": 0.012203708049753579,
+            "q75": 0.019009622154423846
+          },
+          "visible_negative_area_fraction": {
+            "q25": 4.3462216090901817e-05,
+            "median": 0.0003907982664361192,
+            "q75": 0.0012596288296479418
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.1165472257636235,
+            "median": 0.12323831116804844,
+            "q75": 0.15155100305771507
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.00444776406043168,
+            "median": 0.3651308050056308,
+            "q75": 1.4515214772382272
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.7018776416582284,
+            "median": -0.296503262359721,
+            "q75": -0.037618510816249895
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.4113640052432839,
+            "median": 1.718323013931444,
+            "q75": 1.9875176958653666
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.5099265675755886,
+            "median": 0.6412664325021594,
+            "q75": 0.7256415868538693
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 0.9390980663908117,
+            "median": 1.298429779242952,
+            "q75": 1.5285962013024972
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.217938865215494,
+            "median": 0.45407924323325327,
+            "q75": 0.5660692990297649
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.9210177233861029,
+            "median": 1.3085735810358134,
+            "q75": 2.8631432992106074
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.2036236491277142,
+            "median": 0.4595871356444021,
+            "q75": 0.8857590325907956
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7114922443317135,
+            "median": 0.7320343266926612,
+            "q75": 0.8644159805801085
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.018177797542853667,
+            "median": 0.038140619277265454,
+            "q75": 0.15672583156899147
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6946845049073724,
+            "median": 0.7212852641839187,
+            "q75": 0.7868297437718926
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.0015356984417839853,
+            "median": 0.02774578479086112,
+            "q75": 0.08942240453151984
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.6850701407015997,
+            "median": 0.7127699767464614,
+            "q75": 0.7841278983461825
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.008109767335917019,
+            "median": 0.019431454542614055,
+            "q75": 0.08687424424969348
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.7097630841377662,
+            "median": 1.2374977034662649,
+            "q75": 2.1160773885890034
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.016447145698512095,
+            "median": 0.41977954854817096,
+            "q75": 0.7589702327273389
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.7603967183415091,
+            "median": 1.1016015833219523,
+            "q75": 2.3472370579852777
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.06503691843468806,
+            "median": 0.3353166953249669,
+            "q75": 0.8081919373308109
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.6983191026108359,
+            "median": 0.7691482826992898,
+            "q75": 0.8647467303480167
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.005158108571176203,
+            "median": 0.07318472047575127,
+            "q75": 0.15767929687362697
+          }
+        }
+      },
+      "Ca:positive": {
+        "physical_samples": 40,
+        "clusters": 11,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.082235653946718,
+            "median": 30.444183850132468,
+            "q75": 31.208413785121017
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.004540867810292634,
+            "q75": 0.018920282542885976
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.00010397873567339553,
+            "q75": 0.000880696698454223
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.0906278745375245,
+            "median": 0.1748112036865735,
+            "q75": 0.23446623928604238
+          },
+          "blue_log_positive_area": {
+            "q25": 29.50501518830489,
+            "median": 29.957762776612327,
+            "q75": 30.302897187534143
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0011750881316098707,
+            "median": 0.012338425381903642,
+            "q75": 0.020564042303172738
+          },
+          "blue_negative_area_fraction": {
+            "q25": 1.555414072407151e-05,
+            "median": 0.0005950830097016396,
+            "q75": 0.0010535409026278732
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.08928578884581975,
+            "median": 0.10705894195277049,
+            "q75": 0.17090479381999374
+          },
+          "visible_log_positive_area": {
+            "q25": 29.5330335182922,
+            "median": 30.186242454263237,
+            "q75": 30.387983567481683
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.0014081201595869514,
+            "median": 0.01478526167566299,
+            "q75": 0.021943205820229992
+          },
+          "visible_negative_area_fraction": {
+            "q25": 2.4118466801791708e-05,
+            "median": 0.0005207783080727382,
+            "q75": 0.0012195057262881198
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.11527344863944258,
+            "median": 0.12383261957647368,
+            "q75": 0.15017792181591874
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.03843049485142558,
+            "median": 0.4222566435926307,
+            "q75": 1.209386565827769
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.43078287357746525,
+            "median": -0.09373460138621148,
+            "q75": 0.03192576149563919
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.27198070122029,
+            "median": 1.6219182972184045,
+            "q75": 1.9216542453443624
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.43930402494227716,
+            "median": 0.6049588349277969,
+            "q75": 0.7072508039326917
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.0424781758962671,
+            "median": 1.2070417694080882,
+            "q75": 1.4433478635271062
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.29392535571626266,
+            "median": 0.4017998617202452,
+            "q75": 0.5277096197422169
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 1.2236806050420244,
+            "median": 1.9544031987332944,
+            "q75": 3.032937871315597
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.41119686934033894,
+            "median": 0.7159697138445691,
+            "q75": 0.903650199967221
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7187325140970373,
+            "median": 0.7853452640409022,
+            "q75": 0.8539850680545078
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.025260718311564862,
+            "median": 0.08806783558385331,
+            "q75": 0.14855059209485447
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6893810075943781,
+            "median": 0.7590995701174914,
+            "q75": 0.8380485090827345
+          },
+          "Mg_I_517_contrast": {
+            "q25": -0.003773331543109962,
+            "median": 0.0638218073104652,
+            "q75": 0.13489185158642744
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.7091727152712992,
+            "median": 0.8128788735428039,
+            "q75": 0.9948619628264492
+          },
+          "Mg_I_518_contrast": {
+            "q25": 0.015857281944512566,
+            "median": 0.11274542782929517,
+            "q75": 0.26043260237153004
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.6971964577080743,
+            "median": 1.0418469914393695,
+            "q75": 3.16274082850328
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.00404070029752858,
+            "median": 0.2943677824083349,
+            "q75": 0.9142578703398562
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.7263997316424321,
+            "median": 1.2755438758578355,
+            "q75": 2.4149373534318945
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.032671196887673504,
+            "median": 0.43296509541016415,
+            "q75": 0.8212501262947013
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.7483405530469451,
+            "median": 0.8478711290972042,
+            "q75": 0.8739557785678076
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.053697343582601656,
+            "median": 0.14334660658927872,
+            "q75": 0.1654025196871992
+          }
+        }
+      },
+      "Ca:negative": {
+        "physical_samples": 10,
+        "clusters": 6,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.09938079012455,
+            "median": 30.221212387286126,
+            "q75": 31.185653694226488
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.0
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.0
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.14891311220208328,
+            "median": 0.1535608752779374,
+            "q75": 0.22000320936831552
+          },
+          "blue_log_positive_area": {
+            "q25": 29.451297381233775,
+            "median": 29.56090992871513,
+            "q75": 29.67161134154287
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.000881316098707403
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 1.291641668061867e-06
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.16898612210061373,
+            "median": 0.18613353054067525,
+            "q75": 0.3138035557907677
+          },
+          "visible_log_positive_area": {
+            "q25": 29.94334195122426,
+            "median": 30.178390681912617,
+            "q75": 30.356329797920385
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.004693733865289838,
+            "median": 0.007979347570992725,
+            "q75": 0.011382304623327857
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00012864526264949974,
+            "median": 0.0002113312177093957,
+            "q75": 0.0002870771305424111
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.10387581388795045,
+            "median": 0.1150290836182741,
+            "q75": 0.12526389404713467
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": -0.10868722019544119,
+            "median": 0.06654741495964878,
+            "q75": 0.8284169097558127
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.8235016414193801,
+            "median": -0.7264466606617148,
+            "q75": -0.4496196590136776
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.2815483909539163,
+            "median": 1.7273386394402788,
+            "q75": 2.251097115075791
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.4447038847625874,
+            "median": 0.6408783956690334,
+            "q75": 0.7894005613864926
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 0.9624488832550699,
+            "median": 1.2700059796264043,
+            "q75": 1.6371137323562355
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.23519310656779563,
+            "median": 0.42953185840356556,
+            "q75": 0.6101564340981582
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.9248841070175803,
+            "median": 1.3751493043776843,
+            "q75": 2.050174139730462
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.20175104635039587,
+            "median": 0.4919223620482299,
+            "q75": 0.7385657879220924
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7116651844518564,
+            "median": 0.7128223902276349,
+            "q75": 0.7574466034601933
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.018347580468081055,
+            "median": 0.01948286797166248,
+            "q75": 0.06198813286248981
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6925331743297489,
+            "median": 0.6939561001236555,
+            "q75": 0.6984399044352676
+          },
+          "Mg_I_517_contrast": {
+            "q25": -0.0006142648740507672,
+            "median": 0.0008085689677942218,
+            "q75": 0.005278206454148655
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.6838243207906188,
+            "median": 0.6847316993401789,
+            "q75": 0.6870765542557391
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.009366439224487742,
+            "median": -0.008451147950520772,
+            "q75": -0.006089276989454802
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 1.1808313583330239,
+            "median": 1.2649995558080396,
+            "q75": 1.9492938827321113
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.3856267599280781,
+            "median": 0.43539602572412267,
+            "q75": 0.7145850034724944
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.5350147456823423,
+            "median": 0.6823318688852258,
+            "q75": 1.3605858696399586
+          },
+          "Fe_I_438_contrast": {
+            "q25": -0.17177800792616757,
+            "median": -0.010874480984323889,
+            "q75": 0.48497254201051315
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.6922737341936085,
+            "median": 0.6942897084881052,
+            "q75": 0.7184994893035703
+          },
+          "Fe_I_527_contrast": {
+            "q25": -0.000873911450979416,
+            "median": 0.0011416408225516806,
+            "q75": 0.024989904116420596
+          }
+        }
+      },
+      "Ca:unknown": {
+        "physical_samples": 21,
+        "clusters": 9,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.139344937836956,
+            "median": 30.264495199370202,
+            "q75": 31.88566712860775
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0010090817356205853,
+            "q75": 0.004036326942482341
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 8.402099008759818e-06,
+            "q75": 3.829596966598901e-05
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.15419177810837126,
+            "median": 0.18893337561833162,
+            "q75": 0.24631613871322608
+          },
+          "blue_log_positive_area": {
+            "q25": 29.59209489570023,
+            "median": 29.643745489350604,
+            "q75": 30.00201887495883
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0011750881316098707,
+            "q75": 0.0023501762632197414
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 3.8509735554964496e-08,
+            "q75": 2.607286009566398e-05
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.14400860534656504,
+            "median": 0.19226059808185605,
+            "q75": 0.26583272083356285
+          },
+          "visible_log_positive_area": {
+            "q25": 29.923812006552126,
+            "median": 30.060977648299794,
+            "q75": 30.299393470641878
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.004224360478760855,
+            "median": 0.012438394743018071,
+            "q75": 0.02558084956582962
+          },
+          "visible_negative_area_fraction": {
+            "q25": 6.270499690908165e-05,
+            "median": 0.0006119729821210246,
+            "q75": 0.0012886768471422948
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.08474950417412172,
+            "median": 0.11805974758876918,
+            "q75": 0.13298053371694862
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.08876588678567288,
+            "median": 0.3883713833811129,
+            "q75": 1.7301490975677005
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.5884735430240937,
+            "median": -0.4137412011191337,
+            "q75": -0.12484513446858259
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.18323959796385,
+            "median": 1.543872398460229,
+            "q75": 1.8460227658330284
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.38742695885922057,
+            "median": 0.5728940167936,
+            "q75": 0.6842721988341648
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 0.9850952155993752,
+            "median": 1.179305427628459,
+            "q75": 1.4302195647218428
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.2531908131827282,
+            "median": 0.38501542939374156,
+            "q75": 0.5214869708794779
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.775774172384499,
+            "median": 1.4655239250563528,
+            "q75": 2.667015239549775
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.07930517215970041,
+            "median": 0.538084801478124,
+            "q75": 0.8610812994763681
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7085726111768512,
+            "median": 0.7167395783938053,
+            "q75": 0.8390493694258915
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.015307058414600729,
+            "median": 0.02331625116858224,
+            "q75": 0.13575774661131035
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6914952782024355,
+            "median": 0.7040281042270956,
+            "q75": 0.8215287248139913
+          },
+          "Mg_I_517_contrast": {
+            "q25": -0.0016532659078405082,
+            "median": 0.010821932829571449,
+            "q75": 0.12048221828431481
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.688165985753713,
+            "median": 0.6951243063228167,
+            "q75": 0.7749930715186979
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.004993616785533698,
+            "median": 0.001975171078894961,
+            "q75": 0.0785854406317659
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.7726367237769757,
+            "median": 1.024611592274033,
+            "q75": 1.3405049344926572
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.07641097226091106,
+            "median": 0.28212668026662685,
+            "q75": 0.47656993959299493
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.7411775816941915,
+            "median": 1.1742048848630686,
+            "q75": 2.169866730627381
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.046894483114659546,
+            "median": 0.3818680681829888,
+            "q75": 0.7716125962217882
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.6972339360239048,
+            "median": 0.7046746151623285,
+            "q75": 0.7133109008069095
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.004078412498842978,
+            "median": 0.011461234248247841,
+            "q75": 0.01996177039558659
+          }
+        }
+      },
+      "Fe:positive": {
+        "physical_samples": 40,
+        "clusters": 11,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.233191372079222,
+            "median": 31.169185430007698,
+            "q75": 31.935870132951695
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0020181634712411706,
+            "q75": 0.014631685166498487
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 2.122197065710096e-05,
+            "q75": 0.0006289299222811159
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.1652287524176639,
+            "median": 0.21927007648134128,
+            "q75": 0.26628157970624305
+          },
+          "blue_log_positive_area": {
+            "q25": 29.38519067242173,
+            "median": 29.690078611680182,
+            "q75": 30.073857646287088
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0035252643948296123,
+            "q75": 0.012044653349001174
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 4.548729934004553e-05,
+            "q75": 0.0007038165703259979
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.09398784107096592,
+            "median": 0.16206119792240425,
+            "q75": 0.34286306180713927
+          },
+          "visible_log_positive_area": {
+            "q25": 29.422969446550983,
+            "median": 29.981502161566837,
+            "q75": 30.24447346398378
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.0014081201595869514,
+            "median": 0.009035437690682938,
+            "q75": 0.019772353907533444
+          },
+          "visible_negative_area_fraction": {
+            "q25": 2.4118466801791708e-05,
+            "median": 0.0002656626454548258,
+            "q75": 0.0008451150076627784
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.10056309603616619,
+            "median": 0.1189403153290469,
+            "q75": 0.16020269425864098
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.3974103656239043,
+            "median": 1.0174401642963673,
+            "q75": 1.9327864195094069
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.6971427862136963,
+            "median": -0.11689085700657564,
+            "q75": -0.0054494506272746435
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.1881530775400966,
+            "median": 1.561847463914829,
+            "q75": 1.8438302197024203
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.390430523636603,
+            "median": 0.5804352491056968,
+            "q75": 0.6835516531911877
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 0.9137505771692942,
+            "median": 1.140484027530615,
+            "q75": 1.395445647632949
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.19785963271054122,
+            "median": 0.3603272527769221,
+            "q75": 0.5045491924579714
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.844631801380688,
+            "median": 1.4475831793350273,
+            "q75": 2.868121431083714
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.14033484620316,
+            "median": 0.5296438557905327,
+            "q75": 0.8863738300894777
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.7374659696318153,
+            "median": 0.8264069303851374,
+            "q75": 0.8900576039624445
+          },
+          "Mg_I_516_contrast": {
+            "q25": 0.04334621779112867,
+            "median": 0.12476075729139058,
+            "q75": 0.17870681177143627
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.7095833766169236,
+            "median": 0.7738792729435555,
+            "q75": 0.8380485090827345
+          },
+          "Mg_I_517_contrast": {
+            "q25": 0.01629677492939415,
+            "median": 0.07755862420853024,
+            "q75": 0.13489185158642744
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.6748494637816718,
+            "median": 0.7378016756823007,
+            "q75": 0.9802276800525012
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.018466730563691053,
+            "median": 0.04364611148977214,
+            "q75": 0.2495271691046675
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.9413626582329458,
+            "median": 2.1160773885890034,
+            "q75": 3.2808858653178232
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.21971486828076023,
+            "median": 0.7589702327273389,
+            "q75": 0.9244563044318846
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 1.3605858696399586,
+            "median": 2.220974695177325,
+            "q75": 2.6826707448473255
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.48497254201051315,
+            "median": 0.7827080752577465,
+            "q75": 0.8632180045939725
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.7097392873411538,
+            "median": 0.7938369772606431,
+            "q75": 0.8860165668433431
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.01645020120924822,
+            "median": 0.09578635764109139,
+            "q75": 0.17541006408858908
+          }
+        }
+      },
+      "Fe:negative": {
+        "physical_samples": 17,
+        "clusters": 8,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.07462403654022,
+            "median": 30.2415551786038,
+            "q75": 30.321654860499912
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.009081735620585268
+          },
+          "uv_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.0,
+            "q75": 0.0001406614292588729
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.08619022113692518,
+            "median": 0.14887795241290172,
+            "q75": 0.16249414147440358
+          },
+          "blue_log_positive_area": {
+            "q25": 29.5620908265693,
+            "median": 29.745597264816514,
+            "q75": 30.14367183905661
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.009400705052878966,
+            "q75": 0.0282021151586369
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 0.00017562491559173913,
+            "q75": 0.0009081609044750681
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.09858872888839006,
+            "median": 0.14655741462417332,
+            "q75": 0.19197486250323867
+          },
+          "visible_log_positive_area": {
+            "q25": 30.237653479731527,
+            "median": 30.305266566697394,
+            "q75": 30.434240004934196
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.007275287491199249,
+            "median": 0.012907768129547055,
+            "q75": 0.01854024876789486
+          },
+          "visible_negative_area_fraction": {
+            "q25": 0.00022165618353095105,
+            "median": 0.0006609523619976866,
+            "q75": 0.0018341922881047936
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.11193117513616305,
+            "median": 0.1227980821113777,
+            "q75": 0.13298053371694862
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": -0.24450980233510577,
+            "median": -0.11258514443429135,
+            "q75": -0.028454368054578794
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.7527982240142208,
+            "median": -0.46360452940194463,
+            "q75": -0.09398164067492587
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.5993196788691508,
+            "median": 1.8696589145398383,
+            "q75": 2.221400623775294
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.5959306110061406,
+            "median": 0.6916458669051688,
+            "q75": 0.7830852569597317
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 1.3113949654295831,
+            "median": 1.5300923486623166,
+            "q75": 1.6568662130180918
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.46111016228115287,
+            "median": 0.5669662593706514,
+            "q75": 0.618528041891539
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 1.3316098253512436,
+            "median": 1.7550065299855269,
+            "q75": 2.3739829608749847
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.4718950327826611,
+            "median": 0.6541834426786526,
+            "q75": 0.8137780051857721
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.6833116015750338,
+            "median": 0.7101766279041924,
+            "q75": 0.713083819551939
+          },
+          "Mg_I_516_contrast": {
+            "q25": -0.009884059775563954,
+            "median": 0.01688525435004936,
+            "q75": 0.01973919742336898
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.66992077326798,
+            "median": 0.6914952782024355,
+            "q75": 0.6937420000356816
+          },
+          "Mg_I_517_contrast": {
+            "q25": -0.02349813966188233,
+            "median": -0.0016532659078405082,
+            "q75": 0.0005946421232889644
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.6875672339913156,
+            "median": 0.6961480135970111,
+            "q75": 0.8302573972659992
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.0055955389991068525,
+            "median": 0.0029963212199602385,
+            "q75": 0.12812558133380356
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.5456931128772395,
+            "median": 0.9908884951593484,
+            "q75": 1.2374977034662649
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.0,
+            "median": 0.25750475386078137,
+            "q75": 0.41977954854817096
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.5015165864299372,
+            "median": 0.5395706365679235,
+            "q75": 0.6003121474885323
+          },
+          "Fe_I_438_contrast": {
+            "q25": -0.21122055019213826,
+            "median": -0.16598725102758569,
+            "q75": -0.09727871124377001
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.6936066583499653,
+            "median": 0.7046746151623285,
+            "q75": 0.8545339934593352
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.0004593716793051265,
+            "median": 0.011461234248247841,
+            "q75": 0.14903709919618444
+          }
+        }
+      },
+      "Fe:unknown": {
+        "physical_samples": 14,
+        "clusters": 8,
+        "features": {
+          "uv_log_positive_area": {
+            "q25": 30.055579401736903,
+            "median": 30.38603149238158,
+            "q75": 30.89912373748666
+          },
+          "uv_negative_point_fraction": {
+            "q25": 0.0012613521695257316,
+            "median": 0.0020181634712411706,
+            "q75": 0.0055499495459132185
+          },
+          "uv_negative_area_fraction": {
+            "q25": 5.896793193600528e-06,
+            "median": 2.1368849733553848e-05,
+            "q75": 0.00012207889091786682
+          },
+          "uv_positive_p95_to_max": {
+            "q25": 0.10161233903514685,
+            "median": 0.17187998562146475,
+            "q75": 0.18651642703838367
+          },
+          "blue_log_positive_area": {
+            "q25": 29.38815851903803,
+            "median": 29.71518875311843,
+            "q75": 30.238248693068673
+          },
+          "blue_negative_point_fraction": {
+            "q25": 0.0,
+            "median": 0.0005875440658049354,
+            "q75": 0.012338425381903642
+          },
+          "blue_negative_area_fraction": {
+            "q25": 0.0,
+            "median": 1.919619418625587e-06,
+            "q75": 0.0004168442783939732
+          },
+          "blue_positive_p95_to_max": {
+            "q25": 0.11422693987356244,
+            "median": 0.15467400635685286,
+            "q75": 0.16872833405480073
+          },
+          "visible_log_positive_area": {
+            "q25": 29.870878959314926,
+            "median": 30.14940860169731,
+            "q75": 30.388287206775082
+          },
+          "visible_negative_point_fraction": {
+            "q25": 0.005808495658296175,
+            "median": 0.019244308847688338,
+            "q75": 0.03285613705702887
+          },
+          "visible_negative_area_fraction": {
+            "q25": 6.913189915173012e-05,
+            "median": 0.0009053134741112859,
+            "q75": 0.0017661867241621702
+          },
+          "visible_positive_p95_to_max": {
+            "q25": 0.09332316305631282,
+            "median": 0.12176962809247913,
+            "q75": 0.13812714117358327
+          },
+          "log_area_ratio_uv_to_visible": {
+            "q25": 0.004000156665548538,
+            "median": 0.18666660508720945,
+            "q75": 0.8977321088515238
+          },
+          "log_area_ratio_blue_to_visible": {
+            "q25": -0.4765269673051318,
+            "median": -0.40516910442482335,
+            "q75": -0.11392824461378837
+          },
+          "Mg_II_279_log_signal_background": {
+            "q25": 1.2470507164456563,
+            "median": 1.4148187975730049,
+            "q75": 1.9574757260174864
+          },
+          "Mg_II_279_contrast": {
+            "q25": 0.42512641681021063,
+            "median": 0.5117830455691639,
+            "q75": 0.7126482862058254
+          },
+          "Mg_II_280_log_signal_background": {
+            "q25": 0.9943415637710481,
+            "median": 1.080475937935775,
+            "q75": 1.4059549631081991
+          },
+          "Mg_II_280_contrast": {
+            "q25": 0.2599703730890448,
+            "median": 0.32110727657330596,
+            "q75": 0.509367275658876
+          },
+          "Mg_I_285_log_signal_background": {
+            "q25": 0.7978345207088035,
+            "median": 2.2149732531034427,
+            "q75": 3.073863148646142
+          },
+          "Mg_I_285_contrast": {
+            "q25": 0.0978052984860033,
+            "median": 0.7505138177035054,
+            "q75": 0.9074990553622321
+          },
+          "Mg_I_516_log_signal_background": {
+            "q25": 0.6845970814452538,
+            "median": 0.7140554651913729,
+            "q75": 0.7789229173799704
+          },
+          "Mg_I_516_contrast": {
+            "q25": -0.008658562986042541,
+            "median": 0.020687677693751436,
+            "q75": 0.08219150953959005
+          },
+          "Mg_I_517_log_signal_background": {
+            "q25": 0.6805402883195983,
+            "median": 0.7079111811278782,
+            "q75": 0.7798293922058309
+          },
+          "Mg_I_517_contrast": {
+            "q25": -0.012700457326504665,
+            "median": 0.014620718279099982,
+            "q75": 0.082878886728128
+          },
+          "Mg_I_518_log_signal_background": {
+            "q25": 0.6861555944715365,
+            "median": 0.7034971762892968,
+            "q75": 0.9549351103217508
+          },
+          "Mg_I_518_contrast": {
+            "q25": -0.007016139274921726,
+            "median": 0.010237760233747329,
+            "q75": 0.22880503659744447
+          },
+          "Fe_I_404_log_signal_background": {
+            "q25": 0.7214636375566944,
+            "median": 0.7575838015587547,
+            "q75": 1.0770172687392712
+          },
+          "Fe_I_404_contrast": {
+            "q25": 0.027899380301605617,
+            "median": 0.0624041504549965,
+            "q75": 0.3177938700857749
+          },
+          "Fe_I_438_log_signal_background": {
+            "q25": 0.6988830208964936,
+            "median": 0.8266007484432336,
+            "q75": 1.0953079838834323
+          },
+          "Fe_I_438_contrast": {
+            "q25": 0.005718272054196579,
+            "median": 0.12489531439915644,
+            "q75": 0.3304016250361776
+          },
+          "Fe_I_527_log_signal_background": {
+            "q25": 0.6966302980695087,
+            "median": 0.7110083738094637,
+            "q75": 0.7448509731834388
+          },
+          "Fe_I_527_contrast": {
+            "q25": 0.003475891495019779,
+            "median": 0.017697918038713477,
+            "q75": 0.05038498324706002
+          }
+        }
+      }
+    }
+  },
+  "domain_separability": {
+    "spectral": {
+      "status": "completed",
+      "method": "Fixed C=1 balanced logistic, training-fold StandardScaler, StratifiedGroupKFold",
+      "seed": 20261013,
+      "positive_campaign": "campaign_2021",
+      "n_splits": 5,
+      "physical_samples": 195,
+      "support": {
+        "campaign_2015": {
+          "physical_samples": 124,
+          "clusters": 32
+        },
+        "campaign_2021": {
+          "physical_samples": 71,
+          "clusters": 12
+        }
+      },
+      "clusters": 44,
+      "roc_auc": 0.9229895502044525,
+      "balanced_accuracy": 0.8781803725579282,
+      "folds": [
+        {
+          "fold": 0,
+          "train_campaign_support": {
+            "campaign_2015": 105,
+            "campaign_2021": 51
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 19,
+            "campaign_2021": 20
+          },
+          "roc_auc": 0.9578947368421054,
+          "balanced_accuracy": 0.8447368421052632
+        },
+        {
+          "fold": 1,
+          "train_campaign_support": {
+            "campaign_2015": 106,
+            "campaign_2021": 51
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 20,
+            "campaign_2015": 18
+          },
+          "roc_auc": 0.8416666666666667,
+          "balanced_accuracy": 0.8194444444444444
+        },
+        {
+          "fold": 2,
+          "train_campaign_support": {
+            "campaign_2015": 89,
+            "campaign_2021": 59
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 35,
+            "campaign_2021": 12
+          },
+          "roc_auc": 1.0,
+          "balanced_accuracy": 0.9857142857142858
+        },
+        {
+          "fold": 3,
+          "train_campaign_support": {
+            "campaign_2015": 95,
+            "campaign_2021": 60
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 11,
+            "campaign_2015": 29
+          },
+          "roc_auc": 0.8275862068965517,
+          "balanced_accuracy": 0.7946708463949843
+        },
+        {
+          "fold": 4,
+          "train_campaign_support": {
+            "campaign_2015": 101,
+            "campaign_2021": 63
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 23,
+            "campaign_2021": 8
+          },
+          "roc_auc": 0.967391304347826,
+          "balanced_accuracy": 0.9375
+        }
+      ],
+      "interpretation": "Campaign association only: different compositions/materials confound instrumental causes."
+    },
+    "composition_label_only": {
+      "status": "completed",
+      "method": "Fixed C=1 balanced logistic, training-fold StandardScaler, StratifiedGroupKFold",
+      "seed": 20261013,
+      "positive_campaign": "campaign_2021",
+      "n_splits": 5,
+      "physical_samples": 195,
+      "support": {
+        "campaign_2015": {
+          "physical_samples": 124,
+          "clusters": 32
+        },
+        "campaign_2021": {
+          "physical_samples": 71,
+          "clusters": 12
+        }
+      },
+      "clusters": 44,
+      "roc_auc": 0.7050772376192639,
+      "balanced_accuracy": 0.6798046342571559,
+      "folds": [
+        {
+          "fold": 0,
+          "train_campaign_support": {
+            "campaign_2015": 105,
+            "campaign_2021": 51
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 19,
+            "campaign_2021": 20
+          },
+          "roc_auc": 0.668421052631579,
+          "balanced_accuracy": 0.6118421052631579
+        },
+        {
+          "fold": 1,
+          "train_campaign_support": {
+            "campaign_2015": 106,
+            "campaign_2021": 51
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 20,
+            "campaign_2015": 18
+          },
+          "roc_auc": 0.5291666666666667,
+          "balanced_accuracy": 0.5611111111111111
+        },
+        {
+          "fold": 2,
+          "train_campaign_support": {
+            "campaign_2015": 89,
+            "campaign_2021": 59
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 35,
+            "campaign_2021": 12
+          },
+          "roc_auc": 0.8345238095238094,
+          "balanced_accuracy": 0.7761904761904761
+        },
+        {
+          "fold": 3,
+          "train_campaign_support": {
+            "campaign_2015": 95,
+            "campaign_2021": 60
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 11,
+            "campaign_2015": 29
+          },
+          "roc_auc": 0.7021943573667712,
+          "balanced_accuracy": 0.7084639498432602
+        },
+        {
+          "fold": 4,
+          "train_campaign_support": {
+            "campaign_2015": 101,
+            "campaign_2021": 63
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 23,
+            "campaign_2021": 8
+          },
+          "roc_auc": 0.828804347826087,
+          "balanced_accuracy": 0.7445652173913043
+        }
+      ],
+      "interpretation": "Campaign association only: different compositions/materials confound instrumental causes."
+    }
+  },
+  "conditional_domain_separability": {
+    "Mg:positive": {
+      "status": "completed",
+      "method": "Fixed C=1 balanced logistic, training-fold StandardScaler, StratifiedGroupKFold",
+      "seed": 20261013,
+      "positive_campaign": "campaign_2021",
+      "n_splits": 5,
+      "physical_samples": 99,
+      "support": {
+        "campaign_2015": {
+          "physical_samples": 80,
+          "clusters": 29
+        },
+        "campaign_2021": {
+          "physical_samples": 19,
+          "clusters": 10
+        }
+      },
+      "clusters": 39,
+      "roc_auc": 0.8888157894736843,
+      "balanced_accuracy": 0.7921052631578948,
+      "folds": [
+        {
+          "fold": 0,
+          "train_campaign_support": {
+            "campaign_2015": 61,
+            "campaign_2021": 16
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 19,
+            "campaign_2021": 3
+          },
+          "roc_auc": 0.9649122807017544,
+          "balanced_accuracy": 0.8070175438596491
+        },
+        {
+          "fold": 1,
+          "train_campaign_support": {
+            "campaign_2015": 61,
+            "campaign_2021": 18
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 19,
+            "campaign_2021": 1
+          },
+          "roc_auc": 1.0,
+          "balanced_accuracy": 0.8421052631578947
+        },
+        {
+          "fold": 2,
+          "train_campaign_support": {
+            "campaign_2015": 74,
+            "campaign_2021": 12
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 7,
+            "campaign_2015": 6
+          },
+          "roc_auc": 0.9523809523809524,
+          "balanced_accuracy": 0.7142857142857143
+        },
+        {
+          "fold": 3,
+          "train_campaign_support": {
+            "campaign_2015": 67,
+            "campaign_2021": 14
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 13,
+            "campaign_2021": 5
+          },
+          "roc_auc": 1.0,
+          "balanced_accuracy": 1.0
+        },
+        {
+          "fold": 4,
+          "train_campaign_support": {
+            "campaign_2015": 57,
+            "campaign_2021": 16
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 23,
+            "campaign_2021": 3
+          },
+          "roc_auc": 0.6666666666666666,
+          "balanced_accuracy": 0.8115942028985508
+        }
+      ],
+      "interpretation": "Campaign association only: different compositions/materials confound instrumental causes."
+    },
+    "Mg:negative": {
+      "status": "completed",
+      "method": "Fixed C=1 balanced logistic, training-fold StandardScaler, StratifiedGroupKFold",
+      "seed": 20261013,
+      "positive_campaign": "campaign_2021",
+      "n_splits": 5,
+      "physical_samples": 35,
+      "support": {
+        "campaign_2015": {
+          "physical_samples": 14,
+          "clusters": 8
+        },
+        "campaign_2021": {
+          "physical_samples": 21,
+          "clusters": 8
+        }
+      },
+      "clusters": 16,
+      "roc_auc": 0.8503401360544218,
+      "balanced_accuracy": 0.7738095238095237,
+      "folds": [
+        {
+          "fold": 0,
+          "train_campaign_support": {
+            "campaign_2021": 16,
+            "campaign_2015": 11
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 5,
+            "campaign_2015": 3
+          },
+          "roc_auc": 1.0,
+          "balanced_accuracy": 1.0
+        },
+        {
+          "fold": 1,
+          "train_campaign_support": {
+            "campaign_2021": 17,
+            "campaign_2015": 13
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 4,
+            "campaign_2015": 1
+          },
+          "roc_auc": 1.0,
+          "balanced_accuracy": 1.0
+        },
+        {
+          "fold": 2,
+          "train_campaign_support": {
+            "campaign_2021": 13,
+            "campaign_2015": 11
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 8,
+            "campaign_2015": 3
+          },
+          "roc_auc": 0.7916666666666667,
+          "balanced_accuracy": 0.5833333333333333
+        },
+        {
+          "fold": 3,
+          "train_campaign_support": {
+            "campaign_2021": 20,
+            "campaign_2015": 10
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 1,
+            "campaign_2015": 4
+          },
+          "roc_auc": 0.25,
+          "balanced_accuracy": 0.375
+        },
+        {
+          "fold": 4,
+          "train_campaign_support": {
+            "campaign_2021": 18,
+            "campaign_2015": 11
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 3,
+            "campaign_2015": 3
+          },
+          "roc_auc": 1.0,
+          "balanced_accuracy": 0.8333333333333333
+        }
+      ],
+      "interpretation": "Campaign association only: different compositions/materials confound instrumental causes."
+    },
+    "Fe:positive": {
+      "status": "completed",
+      "method": "Fixed C=1 balanced logistic, training-fold StandardScaler, StratifiedGroupKFold",
+      "seed": 20261013,
+      "positive_campaign": "campaign_2021",
+      "n_splits": 5,
+      "physical_samples": 140,
+      "support": {
+        "campaign_2015": {
+          "physical_samples": 100,
+          "clusters": 31
+        },
+        "campaign_2021": {
+          "physical_samples": 40,
+          "clusters": 11
+        }
+      },
+      "clusters": 42,
+      "roc_auc": 0.9327500000000001,
+      "balanced_accuracy": 0.9125,
+      "folds": [
+        {
+          "fold": 0,
+          "train_campaign_support": {
+            "campaign_2015": 66,
+            "campaign_2021": 38
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 34,
+            "campaign_2021": 2
+          },
+          "roc_auc": 0.5147058823529411,
+          "balanced_accuracy": 0.75
+        },
+        {
+          "fold": 1,
+          "train_campaign_support": {
+            "campaign_2015": 81,
+            "campaign_2021": 35
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 19,
+            "campaign_2021": 5
+          },
+          "roc_auc": 1.0,
+          "balanced_accuracy": 0.9736842105263157
+        },
+        {
+          "fold": 2,
+          "train_campaign_support": {
+            "campaign_2015": 79,
+            "campaign_2021": 39
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 21,
+            "campaign_2021": 1
+          },
+          "roc_auc": 1.0,
+          "balanced_accuracy": 0.9761904761904762
+        },
+        {
+          "fold": 3,
+          "train_campaign_support": {
+            "campaign_2015": 88,
+            "campaign_2021": 32
+          },
+          "validation_campaign_support": {
+            "campaign_2021": 8,
+            "campaign_2015": 12
+          },
+          "roc_auc": 0.84375,
+          "balanced_accuracy": 0.7916666666666667
+        },
+        {
+          "fold": 4,
+          "train_campaign_support": {
+            "campaign_2015": 86,
+            "campaign_2021": 16
+          },
+          "validation_campaign_support": {
+            "campaign_2015": 14,
+            "campaign_2021": 24
+          },
+          "roc_auc": 0.9523809523809523,
+          "balanced_accuracy": 0.9226190476190477
+        }
+      ],
+      "interpretation": "Campaign association only: different compositions/materials confound instrumental causes."
+    },
+    "Fe:negative": {
+      "status": "unsupported_fixed_split",
+      "n_splits": 4,
+      "support": {
+        "campaign_2015": {
+          "physical_samples": 8,
+          "clusters": 4
+        },
+        "campaign_2021": {
+          "physical_samples": 17,
+          "clusters": 8
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Both v1 development and disclosed former test are now diagnostic/development data.",
+    "Campaign differences cannot establish instrument drift without shared controls.",
+    "Class-conditional summaries fix one coarse label, not the full matrix composition.",
+    "The label-only comparator is not complete composition adjustment or a causal test.",
+    "Grouped-CV scores describe these campaigns; no final recognition model is selected.",
+    "No blank controls or new unopened spectra are included in this diagnostic."
+  ]
+}

@@ -1,0 +1,11 @@
+schema_version: 1
+run_id: cnn-comparison
+project_config: ../benchmark_project.yaml
+seeds: [7, 17, 29, 43, 71]
+models: [baseline-nnls, logistic-ovr, random-forest, cnn-1d]
+base_samples: 48
+variations: 2
+factor: snr_db
+values: [10, 30]
+timing_warmups: 2
+timing_repeats: 7

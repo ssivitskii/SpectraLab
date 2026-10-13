@@ -1,0 +1,1500 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "run_id": "chemcam-20261013T161956-5164617a",
+  "run_directory": "reports/adaptation/chemcam-20261013T161956-5164617a",
+  "protocol_hash": "f755b186a0c3fd3fce923ccc60b14a6aeb945e5f7ff06d9af718c581f3471bf1",
+  "protocol_locked_at": "2026-10-13T16:19:34.081210+00:00",
+  "completed_at": "2026-10-13T16:20:32.172769+00:00",
+  "evaluation_kind": "first_locked_evaluation",
+  "estimand": "operational_above_threshold",
+  "decision_policy": {
+    "Na": {
+      "oxide": "Na2O",
+      "units": "oxide_wt_percent",
+      "negative_max": 0.1,
+      "positive_min": 1.0,
+      "nominal_decision_level": 0.5,
+      "zero_policy": "unknown"
+    },
+    "Mg": {
+      "oxide": "MgO",
+      "units": "oxide_wt_percent",
+      "negative_max": 0.1,
+      "positive_min": 1.0,
+      "nominal_decision_level": 0.5,
+      "zero_policy": "unknown"
+    },
+    "Ca": {
+      "oxide": "CaO",
+      "units": "oxide_wt_percent",
+      "negative_max": 0.1,
+      "positive_min": 1.0,
+      "nominal_decision_level": 0.5,
+      "zero_policy": "unknown"
+    },
+    "Fe": {
+      "oxide": "FeOT",
+      "units": "oxide_wt_percent",
+      "negative_max": 0.1,
+      "positive_min": 1.0,
+      "nominal_decision_level": 0.5,
+      "zero_policy": "unknown"
+    }
+  },
+  "source": {
+    "dataset_id": "MSL-M-CHEMCAM-LIBS-4/5-RDR-V1.0",
+    "doi": "10.17189/1519485",
+    "license_id": "us-pd",
+    "license_url": "https://data.nasa.gov/dataset/msl-mars-chemcam-libs-spectra-4-5-rdr-v1-0-f9501",
+    "license_basis": "NASA explicit us-pd; DATA_SET_ID must match each PDS label.",
+    "wavelength_medium": "vacuum",
+    "wavelength_units": "nm",
+    "intensity_units": "photons/shot/mm^2/sr/nm",
+    "calibration_documentation": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calinfo.txt",
+    "composition_url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv",
+    "wavelength_method_sources": [
+      "https://doi.org/10.1016/j.sab.2016.12.003",
+      "https://doi.org/10.1016/j.sab.2021.106223",
+      "https://www.osti.gov/pages/servlets/purl/1785483"
+    ],
+    "wavelength_method_evidence": "Clegg2017 wavelength calibration section: Ti baseline wavelength-channel map uses known vacuum lines and spectra are resampled to that map. Gasda2021 sections2.1/2.3.1 identify the same LANL testbed and Ti calibration before each laboratory sample run, citing Clegg2017. CALINFO links calib_2015 and calib_2021 to those methods. Medium is based on this method chain, not chamber pressure.",
+    "composition_evidence": "Clegg2017 standard provenance: independent XRF/dry combustion or certified values; missing values are not zero. Gasda2021 section2.2: commercial reference standards or independent ACTLabs fusion ICP-MS. Values are published assay estimates, not certified per-cell upper bounds.",
+    "evidence_snapshots": [
+      {
+        "path": "data/raw/chemcam_external/clegg2017.pdf",
+        "sha256": "7c8c1af12fd15ef50cddba446e86aeb1dc530c0a397906018486d69e25d2aa10"
+      },
+      {
+        "path": "data/raw/adaptation_candidates_ml/gasda2021.pdf",
+        "sha256": "30a867b653c86a941e4c4b91a2a1ba3bdfd5484b9029d43934e77840c9973065"
+      },
+      {
+        "path": "data/raw/chemcam_external/calinfo.txt",
+        "sha256": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf"
+      },
+      {
+        "path": "data/raw/chemcam_external/license.html",
+        "sha256": "f89453aaca99bc4b2990f405772dae1f213cd712de53dcbced4a26047445848f"
+      }
+    ]
+  },
+  "intake_sha256": "96030fed84993656e52be8e55de71a8968001e7a747d61fe46410bb441fffe00",
+  "development_support": {
+    "train": {
+      "spectra": 93,
+      "physical_materials": 90,
+      "clusters": 24,
+      "labels": {
+        "Na": {
+          "positive": 37,
+          "negative": 19,
+          "unknown": 34
+        },
+        "Mg": {
+          "positive": 58,
+          "negative": 10,
+          "unknown": 22
+        },
+        "Ca": {
+          "positive": 37,
+          "negative": 29,
+          "unknown": 24
+        },
+        "Fe": {
+          "positive": 77,
+          "negative": 2,
+          "unknown": 11
+        }
+      }
+    },
+    "tune": {
+      "spectra": 34,
+      "physical_materials": 34,
+      "clusters": 8,
+      "labels": {
+        "Na": {
+          "positive": 8,
+          "negative": 13,
+          "unknown": 13
+        },
+        "Mg": {
+          "positive": 22,
+          "negative": 4,
+          "unknown": 8
+        },
+        "Ca": {
+          "positive": 15,
+          "negative": 10,
+          "unknown": 9
+        },
+        "Fe": {
+          "positive": 23,
+          "negative": 6,
+          "unknown": 5
+        }
+      }
+    }
+  },
+  "selected_C": 1.0,
+  "candidates": [
+    {
+      "C": 0.01,
+      "selection": {
+        "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+        "maximum_tuning_point_fpr": 0.05,
+        "macro_balanced_accuracy": 0.764266304347826,
+        "per_class": [
+          {
+            "threshold": 0.9499098512921206,
+            "recall": 0.375,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 0.6875,
+            "positive_physical_support": 8,
+            "negative_physical_support": 13
+          },
+          {
+            "threshold": 0.9970805752812613,
+            "recall": 0.0,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 0.5,
+            "positive_physical_support": 22,
+            "negative_physical_support": 4
+          },
+          {
+            "threshold": 0.8683295082938494,
+            "recall": 1.0,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 1.0,
+            "positive_physical_support": 15,
+            "negative_physical_support": 10
+          },
+          {
+            "threshold": 0.972202253409245,
+            "recall": 0.7391304347826086,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 0.8695652173913043,
+            "positive_physical_support": 23,
+            "negative_physical_support": 6
+          }
+        ],
+        "guarantees_population_fpr": false
+      },
+      "model_identity": "06cc6b01f4a1152510835cc2f82dd292d678d4a83beb5f22843100f00f776922"
+    },
+    {
+      "C": 0.1,
+      "selection": {
+        "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+        "maximum_tuning_point_fpr": 0.05,
+        "macro_balanced_accuracy": 0.8016304347826086,
+        "per_class": [
+          {
+            "threshold": 0.9912632256446732,
+            "recall": 0.5,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 0.75,
+            "positive_physical_support": 8,
+            "negative_physical_support": 13
+          },
+          {
+            "threshold": 0.9999723394237502,
+            "recall": 0.0,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 0.5,
+            "positive_physical_support": 22,
+            "negative_physical_support": 4
+          },
+          {
+            "threshold": 0.9779483476656071,
+            "recall": 1.0,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 1.0,
+            "positive_physical_support": 15,
+            "negative_physical_support": 10
+          },
+          {
+            "threshold": 0.957113670599845,
+            "recall": 0.9130434782608695,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 0.9565217391304348,
+            "positive_physical_support": 23,
+            "negative_physical_support": 6
+          }
+        ],
+        "guarantees_population_fpr": false
+      },
+      "model_identity": "307350fa990b2ab1a2d7f1263d08e0bf08cad54941f2509155aa80b5c99cea6d"
+    },
+    {
+      "C": 1.0,
+      "selection": {
+        "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+        "maximum_tuning_point_fpr": 0.05,
+        "macro_balanced_accuracy": 0.8070652173913043,
+        "per_class": [
+          {
+            "threshold": 0.9991293804905957,
+            "recall": 0.5,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 0.75,
+            "positive_physical_support": 8,
+            "negative_physical_support": 13
+          },
+          {
+            "threshold": 0.9999999030464575,
+            "recall": 0.0,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 0.5,
+            "positive_physical_support": 22,
+            "negative_physical_support": 4
+          },
+          {
+            "threshold": 0.9977653383067473,
+            "recall": 1.0,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 1.0,
+            "positive_physical_support": 15,
+            "negative_physical_support": 10
+          },
+          {
+            "threshold": 0.9667048409739099,
+            "recall": 0.9565217391304348,
+            "false_positive_rate": 0.0,
+            "balanced_accuracy": 0.9782608695652174,
+            "positive_physical_support": 23,
+            "negative_physical_support": 6
+          }
+        ],
+        "guarantees_population_fpr": false
+      },
+      "model_identity": "66774fade309abc5e6a3f14679bd78e62a8c26d001772b56e86596d5558372b7"
+    }
+  ],
+  "baseline_selection": {
+    "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+    "maximum_tuning_point_fpr": 0.05,
+    "macro_balanced_accuracy": 0.6758893280632411,
+    "per_class": [
+      {
+        "threshold": 0.007790835342148778,
+        "recall": 1.0,
+        "false_positive_rate": 0.0,
+        "balanced_accuracy": 1.0,
+        "positive_physical_support": 8,
+        "negative_physical_support": 13
+      },
+      {
+        "threshold": 0.005097971536920761,
+        "recall": 0.36363636363636365,
+        "false_positive_rate": 0.0,
+        "balanced_accuracy": 0.6818181818181819,
+        "positive_physical_support": 22,
+        "negative_physical_support": 4
+      },
+      {
+        "threshold": 0.008994461511123871,
+        "recall": 0.0,
+        "false_positive_rate": 0.0,
+        "balanced_accuracy": 0.5,
+        "positive_physical_support": 15,
+        "negative_physical_support": 10
+      },
+      {
+        "threshold": 0.09147060253488165,
+        "recall": 0.043478260869565216,
+        "false_positive_rate": 0.0,
+        "balanced_accuracy": 0.5217391304347826,
+        "positive_physical_support": 23,
+        "negative_physical_support": 6
+      }
+    ],
+    "guarantees_population_fpr": false
+  },
+  "profile_identity": "66774fade309abc5e6a3f14679bd78e62a8c26d001772b56e86596d5558372b7",
+  "comparison": {
+    "schema_version": 1,
+    "protocol_hash": "f755b186a0c3fd3fce923ccc60b14a6aeb945e5f7ff06d9af718c581f3471bf1",
+    "baseline": {
+      "schema_version": 1,
+      "estimand": "operational_above_threshold",
+      "protocol_hash": "f755b186a0c3fd3fce923ccc60b14a6aeb945e5f7ff06d9af718c581f3471bf1",
+      "split_hash": "776d8a863866d6e2d6fea4a64fb0cd4a522a0229c3d5de3e883082ca5deb0a37",
+      "test_measurement_ids": [
+        "test:bcs203a:2019_06_28_134918_ccs",
+        "test:cgl006:2017_04_06_142627_ccs",
+        "test:cgl015:2017_04_06_130651_ccs",
+        "test:crm212281:2017_04_06_124221_ccs",
+        "test:crm212481:2017_04_06_105619_ccs",
+        "test:dc601222:2017_04_06_111043_ccs",
+        "test:dc601232:2017_04_06_113824_ccs",
+        "test:dc60125:2017_05_16_084409_ccs",
+        "test:dc60126:2017_05_16_100902_ccs",
+        "test:dc71301:2017_05_16_090929_ccs",
+        "test:dc73303:2017_05_16_092822_ccs",
+        "test:dv1:2018_02_16_113756_ccs",
+        "test:dv10:2018_02_20_142803_ccs",
+        "test:dv11:2018_02_20_144636_ccs",
+        "test:dv12:2018_02_20_150136_ccs",
+        "test:dv13:2018_07_30_143534_ccs",
+        "test:dv14:2018_07_30_150947_ccs",
+        "test:dv15:2018_07_30_155801_ccs",
+        "test:dv16prehnite:2018_10_10_150446_ccs",
+        "test:dv17calciteblue:2018_10_10_154400_ccs",
+        "test:dv18microkeys:2018_10_10_161808_ccs",
+        "test:dv19nickmagnes:2018_10_10_164159_ccs",
+        "test:dv2:2018_02_16_115322_ccs",
+        "test:dv23clausthalite:2018_10_10_124734_ccs",
+        "test:dv24pollurhodes:2018_10_10_133410_ccs",
+        "test:dv25opaltorr:2018_10_10_170249_ccs",
+        "test:dv26columbite:2018_10_10_172004_ccs",
+        "test:dv27cobaltite:2018_10_10_111319_ccs",
+        "test:dv3:2018_02_16_120534_ccs",
+        "test:dv4:2018_02_20_111603_ccs",
+        "test:dv5:2018_02_20_112854_ccs",
+        "test:dv6:2018_02_20_114503_ccs",
+        "test:dv7:2018_02_20_120415_ccs",
+        "test:dv8:2018_02_20_135103_ccs",
+        "test:dv9:2018_02_20_140406_ccs",
+        "test:dv_calcite_opt:2018_10_23_143107_ccs",
+        "test:dv_diopside:2018_10_23_133714_ccs",
+        "test:dvserpentine:2018_10_23_130743_ccs",
+        "test:goedv:2018_07_30_134057_ccs",
+        "test:hemdv:2018_07_30_111642_ccs",
+        "test:holldv:2018_07_30_113057_ccs",
+        "test:ilmdv:2018_07_30_132159_ccs",
+        "test:jcrmr604:2017_04_07_082707_ccs",
+        "test:jcrmr605:2017_04_07_083839_ccs",
+        "test:jcrmr703:2017_04_07_115910_ccs",
+        "test:jcrmr803:2017_04_07_130637_ccs",
+        "test:jf1:2017_04_07_094059_ccs",
+        "test:jf2:2017_04_07_092021_ccs",
+        "test:jsy1:2017_04_06_134827_ccs",
+        "test:magdv:2018_07_30_122546_ccs",
+        "test:ncs_dc_11023:2018_07_11_100713_ccs",
+        "test:ncs_dc_28043:2018_07_11_103002_ccs",
+        "test:ncs_dc_28210:2018_07_10_140130_ccs",
+        "test:ncs_dc_28211:2018_07_10_141856_ccs",
+        "test:pacmnnod:2018_07_30_124338_ccs",
+        "test:psidv:2018_07_30_140217_ccs",
+        "test:purpdv:2018_07_30_115823_ccs",
+        "test:rhoddv:2018_07_30_125840_ccs",
+        "test:rtb1:2019_06_28_143127_ccs",
+        "test:saa1:2019_06_28_152901_ccs",
+        "test:sarm131:2017_04_18_095239_ccs",
+        "test:sarm2:2017_04_06_141122_ccs",
+        "test:srm201a:2017_05_16_082426_ccs",
+        "test:sx1602:2017_05_16_102150_ccs",
+        "test:unskk:2017_04_07_090145_ccs",
+        "test:vs212381:2017_04_06_145652_ccs",
+        "test:vs72875:2017_04_06_151031_ccs",
+        "test:vsm011:2017_04_07_121819_ccs",
+        "test:vsstm2:2017_04_06_132103_ccs",
+        "test:wmb24a:2019_06_28_151319_ccs",
+        "test:wmb24b:2019_06_27_160345_ccs"
+      ],
+      "class_order": [
+        "Na",
+        "Mg",
+        "Ca",
+        "Fe"
+      ],
+      "physical_samples": 71,
+      "replicate_spectra": 71,
+      "independent_clusters": 12,
+      "per_element": {
+        "Na": {
+          "recall": {
+            "estimate": 0.8928571428571429,
+            "ci95": [
+              0.7618571428571428,
+              1.0
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 25.0,
+            "denominator_sample_equivalents": 28.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "false_positive_rate": {
+            "estimate": 0.13333333333333333,
+            "ci95": [
+              0.0,
+              0.2692307692307692
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 4.0,
+            "denominator_sample_equivalents": 30.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "known_label_precision": {
+            "estimate": 0.8620689655172413,
+            "ci95": [
+              0.6470588235294118,
+              1.0
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 25.0,
+            "denominator_sample_equivalents": 29.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "physical_positive_support": 28,
+          "physical_negative_support": 30,
+          "physical_unknown_support": 13,
+          "positive_cluster_support": 8,
+          "negative_cluster_support": 8,
+          "replicate_positive_support": 28,
+          "replicate_negative_support": 30,
+          "replicate_unknown_support": 13,
+          "unknown_label_prediction_count": 3,
+          "unknown_prediction_sample_equivalents": 3.0,
+          "tp_sample_equivalents": 25.0,
+          "fp_sample_equivalents": 4.0,
+          "tn_sample_equivalents": 26.0,
+          "fn_sample_equivalents": 3.0
+        },
+        "Mg": {
+          "recall": {
+            "estimate": 0.631578947368421,
+            "ci95": [
+              0.46153846153846156,
+              0.8666666666666667
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 12.0,
+            "denominator_sample_equivalents": 19.0,
+            "supporting_clusters": 10,
+            "valid_bootstrap_draws": 2000
+          },
+          "false_positive_rate": {
+            "estimate": 0.19047619047619047,
+            "ci95": [
+              0.0,
+              0.4167763157894731
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 4.0,
+            "denominator_sample_equivalents": 21.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "known_label_precision": {
+            "estimate": 0.75,
+            "ci95": [
+              0.5861350574712644,
+              1.0
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 12.0,
+            "denominator_sample_equivalents": 16.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "physical_positive_support": 19,
+          "physical_negative_support": 21,
+          "physical_unknown_support": 31,
+          "positive_cluster_support": 10,
+          "negative_cluster_support": 8,
+          "replicate_positive_support": 19,
+          "replicate_negative_support": 21,
+          "replicate_unknown_support": 31,
+          "unknown_label_prediction_count": 6,
+          "unknown_prediction_sample_equivalents": 6.0,
+          "tp_sample_equivalents": 12.0,
+          "fp_sample_equivalents": 4.0,
+          "tn_sample_equivalents": 17.0,
+          "fn_sample_equivalents": 7.0
+        },
+        "Ca": {
+          "recall": {
+            "estimate": 0.175,
+            "ci95": [
+              0.0,
+              0.4827586206896552
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 7.0,
+            "denominator_sample_equivalents": 40.0,
+            "supporting_clusters": 11,
+            "valid_bootstrap_draws": 2000
+          },
+          "false_positive_rate": {
+            "estimate": 0.2,
+            "ci95": [
+              0.0,
+              0.42857142857142855
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 2.0,
+            "denominator_sample_equivalents": 10.0,
+            "supporting_clusters": 6,
+            "valid_bootstrap_draws": 2000
+          },
+          "known_label_precision": {
+            "estimate": 0.7777777777777778,
+            "ci95": [
+              0.0,
+              0.875
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 7.0,
+            "denominator_sample_equivalents": 9.0,
+            "supporting_clusters": 2,
+            "valid_bootstrap_draws": 1798
+          },
+          "physical_positive_support": 40,
+          "physical_negative_support": 10,
+          "physical_unknown_support": 21,
+          "positive_cluster_support": 11,
+          "negative_cluster_support": 6,
+          "replicate_positive_support": 40,
+          "replicate_negative_support": 10,
+          "replicate_unknown_support": 21,
+          "unknown_label_prediction_count": 3,
+          "unknown_prediction_sample_equivalents": 3.0,
+          "tp_sample_equivalents": 7.0,
+          "fp_sample_equivalents": 2.0,
+          "tn_sample_equivalents": 8.0,
+          "fn_sample_equivalents": 33.0
+        },
+        "Fe": {
+          "recall": {
+            "estimate": 0.225,
+            "ci95": [
+              0.0,
+              0.5107511283043191
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 9.0,
+            "denominator_sample_equivalents": 40.0,
+            "supporting_clusters": 11,
+            "valid_bootstrap_draws": 2000
+          },
+          "false_positive_rate": {
+            "estimate": 0.058823529411764705,
+            "ci95": [
+              0.0,
+              0.26666666666666666
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 1.0,
+            "denominator_sample_equivalents": 17.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "known_label_precision": {
+            "estimate": 0.9,
+            "ci95": [
+              0.8888888888888888,
+              1.0
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 9.0,
+            "denominator_sample_equivalents": 10.0,
+            "supporting_clusters": 2,
+            "valid_bootstrap_draws": 1798
+          },
+          "physical_positive_support": 40,
+          "physical_negative_support": 17,
+          "physical_unknown_support": 14,
+          "positive_cluster_support": 11,
+          "negative_cluster_support": 8,
+          "replicate_positive_support": 40,
+          "replicate_negative_support": 17,
+          "replicate_unknown_support": 14,
+          "unknown_label_prediction_count": 1,
+          "unknown_prediction_sample_equivalents": 1.0,
+          "tp_sample_equivalents": 9.0,
+          "fp_sample_equivalents": 1.0,
+          "tn_sample_equivalents": 16.0,
+          "fn_sample_equivalents": 31.0
+        }
+      },
+      "uncertainty": {
+        "method": "paired physical/family/session/checksum-cluster percentile bootstrap",
+        "repeats": 2000,
+        "seed": 20261013,
+        "confidence_level": 0.95,
+        "weighting": "Each physical sample has unit weight; average its replicate detections.",
+        "null_interval_policy": "<2 supporting clusters, <100 valid draws or degenerate draws"
+      },
+      "limitations": [
+        "Unknown labels are excluded, never counted as negatives.",
+        "Precision is conditional on known labels and requires positive and negative support.",
+        "Intervals condition on sampled clusters and fixed fitted models; not simultaneous.",
+        "A zero observed false-positive count is not proof of a zero population rate.",
+        "Operational below-threshold labels do not establish elemental absence."
+      ]
+    },
+    "adapted": {
+      "schema_version": 1,
+      "estimand": "operational_above_threshold",
+      "protocol_hash": "f755b186a0c3fd3fce923ccc60b14a6aeb945e5f7ff06d9af718c581f3471bf1",
+      "split_hash": "776d8a863866d6e2d6fea4a64fb0cd4a522a0229c3d5de3e883082ca5deb0a37",
+      "test_measurement_ids": [
+        "test:bcs203a:2019_06_28_134918_ccs",
+        "test:cgl006:2017_04_06_142627_ccs",
+        "test:cgl015:2017_04_06_130651_ccs",
+        "test:crm212281:2017_04_06_124221_ccs",
+        "test:crm212481:2017_04_06_105619_ccs",
+        "test:dc601222:2017_04_06_111043_ccs",
+        "test:dc601232:2017_04_06_113824_ccs",
+        "test:dc60125:2017_05_16_084409_ccs",
+        "test:dc60126:2017_05_16_100902_ccs",
+        "test:dc71301:2017_05_16_090929_ccs",
+        "test:dc73303:2017_05_16_092822_ccs",
+        "test:dv1:2018_02_16_113756_ccs",
+        "test:dv10:2018_02_20_142803_ccs",
+        "test:dv11:2018_02_20_144636_ccs",
+        "test:dv12:2018_02_20_150136_ccs",
+        "test:dv13:2018_07_30_143534_ccs",
+        "test:dv14:2018_07_30_150947_ccs",
+        "test:dv15:2018_07_30_155801_ccs",
+        "test:dv16prehnite:2018_10_10_150446_ccs",
+        "test:dv17calciteblue:2018_10_10_154400_ccs",
+        "test:dv18microkeys:2018_10_10_161808_ccs",
+        "test:dv19nickmagnes:2018_10_10_164159_ccs",
+        "test:dv2:2018_02_16_115322_ccs",
+        "test:dv23clausthalite:2018_10_10_124734_ccs",
+        "test:dv24pollurhodes:2018_10_10_133410_ccs",
+        "test:dv25opaltorr:2018_10_10_170249_ccs",
+        "test:dv26columbite:2018_10_10_172004_ccs",
+        "test:dv27cobaltite:2018_10_10_111319_ccs",
+        "test:dv3:2018_02_16_120534_ccs",
+        "test:dv4:2018_02_20_111603_ccs",
+        "test:dv5:2018_02_20_112854_ccs",
+        "test:dv6:2018_02_20_114503_ccs",
+        "test:dv7:2018_02_20_120415_ccs",
+        "test:dv8:2018_02_20_135103_ccs",
+        "test:dv9:2018_02_20_140406_ccs",
+        "test:dv_calcite_opt:2018_10_23_143107_ccs",
+        "test:dv_diopside:2018_10_23_133714_ccs",
+        "test:dvserpentine:2018_10_23_130743_ccs",
+        "test:goedv:2018_07_30_134057_ccs",
+        "test:hemdv:2018_07_30_111642_ccs",
+        "test:holldv:2018_07_30_113057_ccs",
+        "test:ilmdv:2018_07_30_132159_ccs",
+        "test:jcrmr604:2017_04_07_082707_ccs",
+        "test:jcrmr605:2017_04_07_083839_ccs",
+        "test:jcrmr703:2017_04_07_115910_ccs",
+        "test:jcrmr803:2017_04_07_130637_ccs",
+        "test:jf1:2017_04_07_094059_ccs",
+        "test:jf2:2017_04_07_092021_ccs",
+        "test:jsy1:2017_04_06_134827_ccs",
+        "test:magdv:2018_07_30_122546_ccs",
+        "test:ncs_dc_11023:2018_07_11_100713_ccs",
+        "test:ncs_dc_28043:2018_07_11_103002_ccs",
+        "test:ncs_dc_28210:2018_07_10_140130_ccs",
+        "test:ncs_dc_28211:2018_07_10_141856_ccs",
+        "test:pacmnnod:2018_07_30_124338_ccs",
+        "test:psidv:2018_07_30_140217_ccs",
+        "test:purpdv:2018_07_30_115823_ccs",
+        "test:rhoddv:2018_07_30_125840_ccs",
+        "test:rtb1:2019_06_28_143127_ccs",
+        "test:saa1:2019_06_28_152901_ccs",
+        "test:sarm131:2017_04_18_095239_ccs",
+        "test:sarm2:2017_04_06_141122_ccs",
+        "test:srm201a:2017_05_16_082426_ccs",
+        "test:sx1602:2017_05_16_102150_ccs",
+        "test:unskk:2017_04_07_090145_ccs",
+        "test:vs212381:2017_04_06_145652_ccs",
+        "test:vs72875:2017_04_06_151031_ccs",
+        "test:vsm011:2017_04_07_121819_ccs",
+        "test:vsstm2:2017_04_06_132103_ccs",
+        "test:wmb24a:2019_06_28_151319_ccs",
+        "test:wmb24b:2019_06_27_160345_ccs"
+      ],
+      "class_order": [
+        "Na",
+        "Mg",
+        "Ca",
+        "Fe"
+      ],
+      "physical_samples": 71,
+      "replicate_spectra": 71,
+      "independent_clusters": 12,
+      "per_element": {
+        "Na": {
+          "recall": {
+            "estimate": 0.42857142857142855,
+            "ci95": [
+              0.12118181818181818,
+              0.7727272727272727
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 12.0,
+            "denominator_sample_equivalents": 28.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "false_positive_rate": {
+            "estimate": 0.0,
+            "ci95": null,
+            "ci_reason": "degenerate_cluster_bootstrap",
+            "numerator_sample_equivalents": 0.0,
+            "denominator_sample_equivalents": 30.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "known_label_precision": {
+            "estimate": 1.0,
+            "ci95": null,
+            "ci_reason": "degenerate_cluster_bootstrap",
+            "numerator_sample_equivalents": 12.0,
+            "denominator_sample_equivalents": 12.0,
+            "supporting_clusters": 5,
+            "valid_bootstrap_draws": 1998
+          },
+          "physical_positive_support": 28,
+          "physical_negative_support": 30,
+          "physical_unknown_support": 13,
+          "positive_cluster_support": 8,
+          "negative_cluster_support": 8,
+          "replicate_positive_support": 28,
+          "replicate_negative_support": 30,
+          "replicate_unknown_support": 13,
+          "unknown_label_prediction_count": 2,
+          "unknown_prediction_sample_equivalents": 2.0,
+          "tp_sample_equivalents": 12.0,
+          "fp_sample_equivalents": 0.0,
+          "tn_sample_equivalents": 30.0,
+          "fn_sample_equivalents": 16.0
+        },
+        "Mg": {
+          "recall": {
+            "estimate": 0.0,
+            "ci95": null,
+            "ci_reason": "degenerate_cluster_bootstrap",
+            "numerator_sample_equivalents": 0.0,
+            "denominator_sample_equivalents": 19.0,
+            "supporting_clusters": 10,
+            "valid_bootstrap_draws": 2000
+          },
+          "false_positive_rate": {
+            "estimate": 0.0,
+            "ci95": null,
+            "ci_reason": "degenerate_cluster_bootstrap",
+            "numerator_sample_equivalents": 0.0,
+            "denominator_sample_equivalents": 21.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "known_label_precision": {
+            "estimate": null,
+            "ci95": null,
+            "ci_reason": "zero_denominator",
+            "numerator_sample_equivalents": 0.0,
+            "denominator_sample_equivalents": 0.0,
+            "supporting_clusters": 0,
+            "valid_bootstrap_draws": 0
+          },
+          "physical_positive_support": 19,
+          "physical_negative_support": 21,
+          "physical_unknown_support": 31,
+          "positive_cluster_support": 10,
+          "negative_cluster_support": 8,
+          "replicate_positive_support": 19,
+          "replicate_negative_support": 21,
+          "replicate_unknown_support": 31,
+          "unknown_label_prediction_count": 0,
+          "unknown_prediction_sample_equivalents": 0.0,
+          "tp_sample_equivalents": 0.0,
+          "fp_sample_equivalents": 0.0,
+          "tn_sample_equivalents": 21.0,
+          "fn_sample_equivalents": 19.0
+        },
+        "Ca": {
+          "recall": {
+            "estimate": 0.525,
+            "ci95": [
+              0.257109634551495,
+              0.7837837837837838
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 21.0,
+            "denominator_sample_equivalents": 40.0,
+            "supporting_clusters": 11,
+            "valid_bootstrap_draws": 2000
+          },
+          "false_positive_rate": {
+            "estimate": 0.0,
+            "ci95": null,
+            "ci_reason": "degenerate_cluster_bootstrap",
+            "numerator_sample_equivalents": 0.0,
+            "denominator_sample_equivalents": 10.0,
+            "supporting_clusters": 6,
+            "valid_bootstrap_draws": 2000
+          },
+          "known_label_precision": {
+            "estimate": 1.0,
+            "ci95": null,
+            "ci_reason": "degenerate_cluster_bootstrap",
+            "numerator_sample_equivalents": 21.0,
+            "denominator_sample_equivalents": 21.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "physical_positive_support": 40,
+          "physical_negative_support": 10,
+          "physical_unknown_support": 21,
+          "positive_cluster_support": 11,
+          "negative_cluster_support": 6,
+          "replicate_positive_support": 40,
+          "replicate_negative_support": 10,
+          "replicate_unknown_support": 21,
+          "unknown_label_prediction_count": 0,
+          "unknown_prediction_sample_equivalents": 0.0,
+          "tp_sample_equivalents": 21.0,
+          "fp_sample_equivalents": 0.0,
+          "tn_sample_equivalents": 10.0,
+          "fn_sample_equivalents": 19.0
+        },
+        "Fe": {
+          "recall": {
+            "estimate": 0.65,
+            "ci95": [
+              0.35555555555555557,
+              0.9166666666666666
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 26.0,
+            "denominator_sample_equivalents": 40.0,
+            "supporting_clusters": 11,
+            "valid_bootstrap_draws": 2000
+          },
+          "false_positive_rate": {
+            "estimate": 0.47058823529411764,
+            "ci95": [
+              0.23518099547511312,
+              0.6875
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 8.0,
+            "denominator_sample_equivalents": 17.0,
+            "supporting_clusters": 8,
+            "valid_bootstrap_draws": 2000
+          },
+          "known_label_precision": {
+            "estimate": 0.7647058823529411,
+            "ci95": [
+              0.5483870967741935,
+              0.9285714285714286
+            ],
+            "ci_reason": null,
+            "numerator_sample_equivalents": 26.0,
+            "denominator_sample_equivalents": 34.0,
+            "supporting_clusters": 11,
+            "valid_bootstrap_draws": 2000
+          },
+          "physical_positive_support": 40,
+          "physical_negative_support": 17,
+          "physical_unknown_support": 14,
+          "positive_cluster_support": 11,
+          "negative_cluster_support": 8,
+          "replicate_positive_support": 40,
+          "replicate_negative_support": 17,
+          "replicate_unknown_support": 14,
+          "unknown_label_prediction_count": 9,
+          "unknown_prediction_sample_equivalents": 9.0,
+          "tp_sample_equivalents": 26.0,
+          "fp_sample_equivalents": 8.0,
+          "tn_sample_equivalents": 9.0,
+          "fn_sample_equivalents": 14.0
+        }
+      },
+      "uncertainty": {
+        "method": "paired physical/family/session/checksum-cluster percentile bootstrap",
+        "repeats": 2000,
+        "seed": 20261013,
+        "confidence_level": 0.95,
+        "weighting": "Each physical sample has unit weight; average its replicate detections.",
+        "null_interval_policy": "<2 supporting clusters, <100 valid draws or degenerate draws"
+      },
+      "limitations": [
+        "Unknown labels are excluded, never counted as negatives.",
+        "Precision is conditional on known labels and requires positive and negative support.",
+        "Intervals condition on sampled clusters and fixed fitted models; not simultaneous.",
+        "A zero observed false-positive count is not proof of a zero population rate.",
+        "Operational below-threshold labels do not establish elemental absence."
+      ]
+    },
+    "adaptation_minus_baseline": {
+      "Na": {
+        "recall": {
+          "estimate": -0.46428571428571436,
+          "ci95": [
+            -0.8095238095238095,
+            -0.07992307692307742
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 2000,
+          "supporting_clusters": 8
+        },
+        "false_positive_rate": {
+          "estimate": -0.13333333333333333,
+          "ci95": [
+            -0.2692307692307692,
+            0.0
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 2000,
+          "supporting_clusters": 8
+        },
+        "known_label_precision": {
+          "estimate": 0.13793103448275867,
+          "ci95": [
+            0.0,
+            0.3529411764705882
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 1998,
+          "supporting_clusters": 5
+        }
+      },
+      "Mg": {
+        "recall": {
+          "estimate": -0.631578947368421,
+          "ci95": [
+            -0.8666666666666667,
+            -0.46153846153846156
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 2000,
+          "supporting_clusters": 10
+        },
+        "false_positive_rate": {
+          "estimate": -0.19047619047619047,
+          "ci95": [
+            -0.4167763157894737,
+            0.0
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 2000,
+          "supporting_clusters": 8
+        },
+        "known_label_precision": {
+          "estimate": null,
+          "ci95": null,
+          "ci_reason": "undefined_component_metric",
+          "valid_bootstrap_draws": 0,
+          "supporting_clusters": 0
+        }
+      },
+      "Ca": {
+        "recall": {
+          "estimate": 0.35000000000000003,
+          "ci95": [
+            -0.1860828488372093,
+            0.7837837837837838
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 2000,
+          "supporting_clusters": 11
+        },
+        "false_positive_rate": {
+          "estimate": -0.2,
+          "ci95": [
+            -0.42857142857142855,
+            0.0
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 2000,
+          "supporting_clusters": 6
+        },
+        "known_label_precision": {
+          "estimate": 0.2222222222222222,
+          "ci95": [
+            0.125,
+            1.0
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 1798,
+          "supporting_clusters": 2
+        }
+      },
+      "Fe": {
+        "recall": {
+          "estimate": 0.42500000000000004,
+          "ci95": [
+            -0.16335034013605443,
+            0.90625
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 2000,
+          "supporting_clusters": 11
+        },
+        "false_positive_rate": {
+          "estimate": 0.4117647058823529,
+          "ci95": [
+            0.05866873065015479,
+            0.6666666666666666
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 2000,
+          "supporting_clusters": 8
+        },
+        "known_label_precision": {
+          "estimate": -0.1352941176470589,
+          "ci95": [
+            -0.3513513513513513,
+            0.021285278413424966
+          ],
+          "ci_reason": null,
+          "valid_bootstrap_draws": 1798,
+          "supporting_clusters": 2
+        }
+      }
+    },
+    "fit_audits": [
+      {
+        "operation": "instrument_adaptation",
+        "protocol_hash": "f755b186a0c3fd3fce923ccc60b14a6aeb945e5f7ff06d9af718c581f3471bf1",
+        "split_hash": "776d8a863866d6e2d6fea4a64fb0cd4a522a0229c3d5de3e883082ca5deb0a37",
+        "measurement_ids": [
+          "development:130:2013_10_01_140247_ccs",
+          "development:132:2013_10_01_141736_ccs",
+          "development:152769:2013_11_06_152615_ccs",
+          "development:201424:2013_11_06_155107_ccs",
+          "development:221123:2013_11_07_143449_ccs",
+          "development:34p4:2013_10_01_153451_ccs",
+          "development:42877m:2013_10_01_154443_ccs",
+          "development:46436m:2013_11_07_152255_ccs",
+          "development:54939m:2013_10_01_192540_ccs",
+          "development:54942m:2013_10_01_195209_ccs",
+          "development:54943bm:2013_10_01_200154_ccs",
+          "development:54949m:2013_10_02_142249_ccs",
+          "development:8005:2013_11_07_153551_ccs",
+          "development:81:2013_10_01_135232_ccs",
+          "development:ao10:2013_10_02_150920_ccs",
+          "development:ao8:2013_10_02_154658_ccs",
+          "development:dkm1390:2013_10_02_182342_ccs",
+          "development:dkm3090:2013_10_08_155817_ccs",
+          "development:g13mt:2013_10_08_185920_ccs",
+          "development:g1mt:2013_10_15_160952_ccs",
+          "development:g6mt:2013_10_16_153546_ccs",
+          "development:g9mt:2013_10_17_144638_ccs",
+          "development:gbw07108:2013_08_07_145511_ccs",
+          "development:gbw07113:2013_08_07_151957_ccs",
+          "development:gbw07114:2013_08_07_153343_ccs",
+          "development:gbw07216a:2013_08_07_154520_ccs",
+          "development:gbw07217a:2013_08_07_155609_ccs",
+          "development:gbw07306:2013_08_07_190300_ccs",
+          "development:gbw07309:2013_08_07_191307_ccs",
+          "development:gl3mt:2013_10_17_153331_ccs",
+          "development:gl5mt:2013_10_23_142144_ccs",
+          "development:gl6mt:2013_10_23_143039_ccs",
+          "development:gl7mt:2013_10_23_143948_ccs",
+          "development:igs29:2013_08_15_195541_ccs",
+          "development:jdo1:2013_08_13_151318_ccs",
+          "development:jr1:2013_08_13_153051_ccs",
+          "development:jsc1366:2013_09_09_155032_ccs",
+          "development:jsc1376:2013_09_09_184439_ccs",
+          "development:jsc1378:2013_09_10_140818_ccs",
+          "development:jsc1383:2013_09_10_152800_ccs",
+          "development:jsc1387:2013_09_10_183653_ccs",
+          "development:jsc1388:2013_09_10_184559_ccs",
+          "development:jsc1389:2013_09_10_185510_ccs",
+          "development:jsc1393:2013_09_11_135342_ccs",
+          "development:jsc1400:2013_09_11_153158_ccs",
+          "development:jsc1404:2013_09_11_181752_ccs",
+          "development:jsc1406:2013_09_11_183649_ccs",
+          "development:jsc1407:2013_09_12_141722_ccs",
+          "development:jsc1414:2013_09_12_191538_ccs",
+          "development:jsc1418:2013_09_12_200947_ccs",
+          "development:jsc1422:2013_09_16_143112_ccs",
+          "development:jsc1428:2013_09_16_153432_ccs",
+          "development:jsc1432:2013_09_16_181217_ccs",
+          "development:jsc1439:2013_09_17_133812_ccs",
+          "development:jsc1446:2013_09_17_145142_ccs",
+          "development:jsc1448:2013_09_17_151229_ccs",
+          "development:jsc1450:2013_09_17_155310_ccs",
+          "development:jsc1451:2013_09_17_160433_ccs",
+          "development:jsc1452:2013_09_17_161901_ccs",
+          "development:jsc1455:2013_09_18_155147_ccs",
+          "development:jsc1456:2013_09_18_160112_ccs",
+          "development:jsc1459:2013_09_18_180349_ccs",
+          "development:jsc1460:2013_09_18_181417_ccs",
+          "development:jsc1461:2013_09_18_182818_ccs",
+          "development:lp14:2013_10_23_152611_ccs",
+          "development:mhc1356:2013_08_14_162132_ccs",
+          "development:mhc2319:2013_08_14_163349_ccs",
+          "development:nau2los:2013_08_19_194437_ccs",
+          "development:ncsdc47008:2013_08_15_182618_ccs",
+          "development:ncsdc47009:2013_08_15_183622_ccs",
+          "development:oreas170a:2013_08_15_194519_ccs",
+          "development:p13mt:2013_10_28_150528_ccs",
+          "development:p1mt:2013_10_28_152843_ccs",
+          "development:pg1:2013_10_28_183552_ccs",
+          "development:pg2:2013_10_28_185503_ccs",
+          "development:pg3:2013_10_28_190354_ccs",
+          "development:pg4:2013_10_29_151657_ccs",
+          "development:pg5:2013_10_29_152510_ccs",
+          "development:pg6:2013_10_29_153619_ccs",
+          "development:pg7:2013_11_07_161422_ccs",
+          "development:pl3:2013_10_29_160210_ccs",
+          "development:r41:2013_11_04_185049_ccs",
+          "development:r42:2013_11_04_190017_ccs",
+          "development:r44:2013_11_04_192154_ccs",
+          "development:r45:2013_11_04_200218_ccs",
+          "development:r62:2013_11_04_201939_ccs",
+          "development:sarm16:2013_08_15_184636_ccs",
+          "development:sarm51:2013_08_29_145448_ccs",
+          "development:trond:2013_09_03_153324_ccs",
+          "development:unsak:2013_09_03_161214_ccs",
+          "development:unszk:2013_09_03_170216_ccs",
+          "development:vzo106:2013_09_03_181628_ccs",
+          "development:vzo114:2013_09_03_182802_ccs"
+        ],
+        "physical_sample_ids": [
+          "130",
+          "132",
+          "152769m",
+          "201424m",
+          "221123",
+          "34p4",
+          "42877m",
+          "46436m",
+          "54939m",
+          "54942m",
+          "54943bm",
+          "54949m",
+          "81",
+          "ao10",
+          "ao8",
+          "dkm1390",
+          "dkm3090",
+          "g13mt",
+          "g1mt",
+          "g6mt",
+          "g9mt",
+          "gbw07108",
+          "gbw07113",
+          "gbw07114",
+          "gbw07216a",
+          "gbw07217a",
+          "gbw07306",
+          "gbw07309",
+          "gl3mt",
+          "gl5mt",
+          "gl6mt",
+          "gl7mt",
+          "igs29",
+          "jdo1",
+          "jr1",
+          "jsc1366",
+          "jsc1376",
+          "jsc1378",
+          "jsc1383",
+          "jsc1389",
+          "jsc1400",
+          "jsc1404",
+          "jsc1414",
+          "jsc1418",
+          "jsc1422",
+          "jsc1428",
+          "jsc1432",
+          "jsc1439",
+          "jsc1446",
+          "jsc1448",
+          "jsc1450",
+          "jsc1451",
+          "jsc1452",
+          "jsc1455",
+          "jsc1459",
+          "jsc1460",
+          "jsc1461",
+          "lp14",
+          "mcl8005",
+          "mhc1356",
+          "mhc2319",
+          "nau2los",
+          "ncsdc47008",
+          "ncsdc47009",
+          "oreas170a",
+          "p13mt",
+          "p1mt",
+          "pg1",
+          "pg2",
+          "pg3",
+          "pg4",
+          "pg5",
+          "pg6",
+          "pg7",
+          "pl3",
+          "published-sample-hwmk104",
+          "published-sample-sympca5",
+          "published-sample-tecny1",
+          "r41",
+          "r42",
+          "r44",
+          "r45",
+          "r62",
+          "sarm16",
+          "sarm51",
+          "trond",
+          "unsak",
+          "unszk",
+          "vzo106",
+          "vzo114"
+        ],
+        "session_ids": [
+          "chemcam-testbed-2013-08-07",
+          "chemcam-testbed-2013-08-13",
+          "chemcam-testbed-2013-08-14",
+          "chemcam-testbed-2013-08-15",
+          "chemcam-testbed-2013-08-19",
+          "chemcam-testbed-2013-08-29",
+          "chemcam-testbed-2013-09-03",
+          "chemcam-testbed-2013-09-09",
+          "chemcam-testbed-2013-09-10",
+          "chemcam-testbed-2013-09-11",
+          "chemcam-testbed-2013-09-12",
+          "chemcam-testbed-2013-09-16",
+          "chemcam-testbed-2013-09-17",
+          "chemcam-testbed-2013-09-18",
+          "chemcam-testbed-2013-10-01",
+          "chemcam-testbed-2013-10-02",
+          "chemcam-testbed-2013-10-08",
+          "chemcam-testbed-2013-10-15",
+          "chemcam-testbed-2013-10-16",
+          "chemcam-testbed-2013-10-17",
+          "chemcam-testbed-2013-10-23",
+          "chemcam-testbed-2013-10-28",
+          "chemcam-testbed-2013-10-29",
+          "chemcam-testbed-2013-11-04",
+          "chemcam-testbed-2013-11-06",
+          "chemcam-testbed-2013-11-07"
+        ],
+        "family_ids": [
+          "130",
+          "132",
+          "152769m",
+          "201424m",
+          "221123",
+          "34p4",
+          "42877m",
+          "46436m",
+          "54939m",
+          "54942m",
+          "54943bm",
+          "54949m",
+          "81",
+          "ao10",
+          "ao8",
+          "dkm1390",
+          "dkm3090",
+          "g13mt",
+          "g1mt",
+          "g6mt",
+          "g9mt",
+          "gbw07108",
+          "gbw07113",
+          "gbw07114",
+          "gbw07216a",
+          "gbw07217a",
+          "gbw07306",
+          "gbw07309",
+          "gl3mt",
+          "gl5mt",
+          "gl6mt",
+          "gl7mt",
+          "igs29",
+          "jdo1",
+          "jr1",
+          "jsc1366",
+          "jsc1376",
+          "jsc1378",
+          "jsc1383",
+          "jsc1389",
+          "jsc1400",
+          "jsc1404",
+          "jsc1414",
+          "jsc1418",
+          "jsc1422",
+          "jsc1428",
+          "jsc1432",
+          "jsc1439",
+          "jsc1446",
+          "jsc1448",
+          "jsc1450",
+          "jsc1451",
+          "jsc1452",
+          "jsc1455",
+          "jsc1459",
+          "jsc1460",
+          "jsc1461",
+          "lp14",
+          "mcl8005",
+          "mhc1356",
+          "mhc2319",
+          "nau2los",
+          "ncsdc47008",
+          "ncsdc47009",
+          "oreas170a",
+          "p13mt",
+          "p1mt",
+          "pg1",
+          "pg2",
+          "pg3",
+          "pg4",
+          "pg5",
+          "pg6",
+          "pg7",
+          "pl3",
+          "published-sample-hwmk104",
+          "published-sample-sympca5",
+          "published-sample-tecny1",
+          "r41",
+          "r42",
+          "r44",
+          "r45",
+          "r62",
+          "sarm16",
+          "sarm51",
+          "trond",
+          "unsak",
+          "unszk",
+          "vzo106",
+          "vzo114"
+        ],
+        "audit_hash": "8cc01a59aae01bf17ac942ac3f384e1b52dba83ef2398fc6c130e4383fa90135"
+      },
+      {
+        "operation": "threshold",
+        "protocol_hash": "f755b186a0c3fd3fce923ccc60b14a6aeb945e5f7ff06d9af718c581f3471bf1",
+        "split_hash": "776d8a863866d6e2d6fea4a64fb0cd4a522a0229c3d5de3e883082ca5deb0a37",
+        "measurement_ids": [
+          "development:agv2:2013_08_06_164544_ccs",
+          "development:dh4909:2013_08_06_201331_ccs",
+          "development:dh4912:2013_08_06_205452_ccs",
+          "development:guwgna:2013_08_08_152732_ccs",
+          "development:gypa:2013_08_08_154541_ccs",
+          "development:gypb:2013_08_08_160842_ccs",
+          "development:gypc:2013_08_08_162033_ccs",
+          "development:gypd:2013_08_08_163025_ccs",
+          "development:icel009010:2013_09_25_145801_ccs",
+          "development:jsc1465:2013_09_19_141107_ccs",
+          "development:mc:2013_10_24_141815_ccs",
+          "development:mi5:2013_10_25_145130_ccs",
+          "development:mix1o:2013_09_25_183002_ccs",
+          "development:mix2o:2013_09_26_135905_ccs",
+          "development:mix3o:2013_09_26_150701_ccs",
+          "development:mix4o:2013_09_26_162501_ccs",
+          "development:mix5o:2013_10_22_193840_ccs",
+          "development:mix6b:2013_09_30_145241_ccs",
+          "development:mix6o:2013_09_30_155009_ccs",
+          "development:mn45:2013_10_25_150703_ccs",
+          "development:mnfn:2013_10_25_151514_ccs",
+          "development:mnk:2013_10_25_152544_ccs",
+          "development:r63:2013_11_05_145404_ccs",
+          "development:s3a:2013_11_05_151631_ccs",
+          "development:s3b:2013_11_05_152627_ccs",
+          "development:s5:2013_11_05_160247_ccs",
+          "development:sanci:2013_09_20_172548_ccs",
+          "development:sanck:2013_09_25_135315_ccs",
+          "development:sarm17:2013_08_06_160434_ccs",
+          "development:sc2:2013_11_05_170336_ccs",
+          "development:sc3:2013_11_05_171529_ccs",
+          "development:srm88b:2013_08_20_190820_ccs",
+          "development:srm97a:2013_08_20_161900_ccs",
+          "development:srm98a:2013_08_20_183318_ccs"
+        ],
+        "physical_sample_ids": [
+          "agv2",
+          "dh4909",
+          "dh4912",
+          "guwgna",
+          "gypa",
+          "gypb",
+          "gypc",
+          "gypd",
+          "icel009010",
+          "jsc1465",
+          "mc",
+          "mi5",
+          "mix1o",
+          "mix2o",
+          "mix3o",
+          "mix4o",
+          "mix5o",
+          "mix6b",
+          "mix6o",
+          "mn45",
+          "mnfn",
+          "mnk",
+          "r63",
+          "s3a",
+          "s3b",
+          "s5",
+          "sanci",
+          "sanck",
+          "sarm17",
+          "sc2",
+          "sc3",
+          "srm88b",
+          "srm97a",
+          "srm98a"
+        ],
+        "session_ids": [
+          "chemcam-testbed-2013-08-06",
+          "chemcam-testbed-2013-08-08",
+          "chemcam-testbed-2013-08-20",
+          "chemcam-testbed-2013-09-19",
+          "chemcam-testbed-2013-09-20",
+          "chemcam-testbed-2013-09-25",
+          "chemcam-testbed-2013-09-26",
+          "chemcam-testbed-2013-09-30",
+          "chemcam-testbed-2013-10-22",
+          "chemcam-testbed-2013-10-24",
+          "chemcam-testbed-2013-10-25",
+          "chemcam-testbed-2013-11-05"
+        ],
+        "family_ids": [
+          "agv2",
+          "dh4909",
+          "dh4912",
+          "guwgna",
+          "gypa",
+          "gypb",
+          "gypc",
+          "gypd",
+          "icel009010",
+          "jsc1465",
+          "mc",
+          "mi5",
+          "mn45",
+          "mnfn",
+          "mnk",
+          "r63",
+          "s3a",
+          "s3b",
+          "s5",
+          "sanc-alteration-suite",
+          "sarm17",
+          "sc2",
+          "sc3",
+          "srm88b",
+          "srm97a",
+          "srm98a",
+          "synthetic-mix-series"
+        ],
+        "audit_hash": "9cae5799fad70fe30c944df35741bbddf21b2a50b44d9a4a445c5ded8fa50a53"
+      }
+    ],
+    "comparison": "Same test observations, label mask, weights and cluster bootstrap draws.",
+    "decision_scope": "Descriptive paired comparison, not selection on held-out test results."
+  },
+  "qualification": {
+    "status": "research_only_not_qualified",
+    "reason": "Independent test Mg recall=0 and Fe FPR=8/17; the development point FPR<=5% target did not transfer. No model or threshold was changed after test.",
+    "new_holdout_required_for_further_selection": true
+  },
+  "artifact_paths": {
+    "profile": "reports/adaptation/chemcam-20261013T161956-5164617a/profile",
+    "result": "reports/adaptation/chemcam-20261013T161956-5164617a/result.json",
+    "test_predictions": "reports/adaptation/chemcam-20261013T161956-5164617a/test_predictions.json",
+    "protocol": "data/reference/chemcam_adaptation_protocol.json"
+  }
+}

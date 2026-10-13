@@ -1,0 +1,99 @@
+{
+  "H": {
+    "accepted_rows": 158,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "96d1e7e4d861a4fbe72c7e16382f913886e9471c694f28d91fdf3f0007a78765"
+  },
+  "He": {
+    "accepted_rows": 117,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "70f136d35fc0a4208d3fcfb93df274b21b2c08ce026d5c94bfc3821dc405ccd7"
+  },
+  "Na": {
+    "accepted_rows": 152,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "93a5b891853f13cba624d22f708dc429aeffdde909a8ccc08aafd60c095a4ad4"
+  },
+  "Mg": {
+    "accepted_rows": 137,
+    "dropped_rows": [
+      {
+        "row_number": 82,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"534.7464\"",
+          "ritz_wl_vac(nm)": "=\"534.7463\"",
+          "intens": "=\"1d*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L6095\"",
+          "": ""
+        }
+      },
+      {
+        "row_number": 83,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"534.7464\"",
+          "ritz_wl_vac(nm)": "=\"534.7463\"",
+          "intens": "=\"1d*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L6095\"",
+          "": ""
+        }
+      },
+      {
+        "row_number": 85,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"551.1128\"",
+          "ritz_wl_vac(nm)": "=\"551.1128\"",
+          "intens": "=\"2d*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L6095\"",
+          "": ""
+        }
+      },
+      {
+        "row_number": 86,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"551.1128\"",
+          "ritz_wl_vac(nm)": "=\"551.1128\"",
+          "intens": "=\"2d*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L6095\"",
+          "": ""
+        }
+      }
+    ],
+    "duplicate_rows": 4,
+    "checksum_sha256": "917f58784f59388574e96d762476fa9d07a593a8c2deeecc34b876d8b90bfec3"
+  },
+  "Ca": {
+    "accepted_rows": 103,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "accd91af3314d8752560ed0e7092d8a4eb0f96b438c8f8af88c67a883d6e6c97"
+  },
+  "Fe": {
+    "accepted_rows": 3186,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "407f89f5105f11fb5f029bedb55427f24372d542c2ccd68a96b0e2c4452a3b82"
+  }
+}

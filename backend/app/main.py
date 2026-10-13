@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import logging
 import math
+import re
 import time
+import uuid
 from contextlib import asynccontextmanager
 from typing import Any
 
@@ -12,12 +14,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from app.api.routes import experiments, predict, spectra, system
+from app.api.routes import batches, experiments, jobs, predict, spectra, system
 from app.core.body_limit import BodyLimitMiddleware
 from app.core.config import settings
 from app.core.logging import configure_logging
 from app.schemas.api import ErrorResponse
 from app.services.container import build_services
+from app.services.exports import public_record
 
 configure_logging()
 
@@ -42,20 +45,28 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="SpectraLab API",
-    version="0.1.0",
+    version="1.1.0",
     description="Research API for synthetic atomic-emission spectra. Not a certified analyser.",
     lifespan=lifespan,
-    responses={code: {"model": ErrorResponse} for code in (400, 404, 413, 422, 500, 507)},
+    responses={code: {"model": ErrorResponse} for code in (400, 404, 409, 413, 422, 500, 507)},
 )
 app.add_middleware(BodyLimitMiddleware, max_bytes=settings.max_request_bytes)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
     allow_credentials=False,
-    allow_methods=["GET", "POST"],
-    allow_headers=["Content-Type"],
+    allow_methods=["GET", "POST", "PATCH", "DELETE"],
+    allow_headers=["Content-Type", "X-Request-ID"],
+    expose_headers=["X-Request-ID", "X-Content-SHA256", "Content-Disposition"],
 )
-for router in (system.router, spectra.router, predict.router, experiments.router):
+for router in (
+    system.router,
+    spectra.router,
+    predict.router,
+    experiments.router,
+    jobs.router,
+    batches.router,
+):
     app.include_router(router, prefix="/api/v1")
 
 
@@ -75,6 +86,8 @@ async def validation_error(_: Request, exc: RequestValidationError) -> JSONRespo
 
 @app.exception_handler(StarletteHTTPException)
 async def http_error(_: Request, exc: HTTPException) -> JSONResponse:
+    if isinstance(exc.detail, dict) and {"code", "message"} <= exc.detail.keys():
+        return JSONResponse(status_code=exc.status_code, content={"error": exc.detail})
     return JSONResponse(
         status_code=exc.status_code,
         content={"error": {"code": "http_error", "message": str(exc.detail), "details": None}},
@@ -85,7 +98,9 @@ async def http_error(_: Request, exc: HTTPException) -> JSONResponse:
 async def not_found(_: Request, exc: FileNotFoundError) -> JSONResponse:
     return JSONResponse(
         status_code=404,
-        content={"error": {"code": "not_found", "message": str(exc), "details": None}},
+        content={
+            "error": {"code": "not_found", "message": public_record(str(exc)), "details": None}
+        },
     )
 
 
@@ -93,7 +108,9 @@ async def not_found(_: Request, exc: FileNotFoundError) -> JSONResponse:
 async def value_error(_: Request, exc: ValueError) -> JSONResponse:
     return JSONResponse(
         status_code=422,
-        content={"error": {"code": "invalid_value", "message": str(exc), "details": None}},
+        content={
+            "error": {"code": "invalid_value", "message": public_record(str(exc)), "details": None}
+        },
     )
 
 
@@ -130,13 +147,20 @@ async def unexpected_error(_: Request, exc: Exception) -> JSONResponse:
 @app.middleware("http")
 async def log_request(request: Request, call_next):
     start = time.perf_counter()
+    incoming_id = request.headers.get("X-Request-ID", "")
+    request_id = (
+        incoming_id if re.fullmatch(r"[a-zA-Z0-9._-]{1,64}", incoming_id) else uuid.uuid4().hex
+    )
+    request.state.request_id = request_id
     response = await call_next(request)
+    response.headers["X-Request-ID"] = request_id
     logging.getLogger("spectralab").info(
         "request",
         extra={
             "path": request.url.path,
             "status": response.status_code,
             "duration_ms": round((time.perf_counter() - start) * 1000, 2),
+            "request_id": request_id,
         },
     )
     return response

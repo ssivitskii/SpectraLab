@@ -1,5 +1,7 @@
 .DS_Store
 .env
+.env.*
+!.env.example
 .venv/
 __pycache__/
 *.py[cod]
@@ -26,6 +28,7 @@ reports/experiments/*
 .ipynb_checkpoints/
 .tools/
 .cache/
+tmp/
 frontend/.cache/
 frontend/*.tsbuildinfo
 reports/*.json
@@ -33,3 +36,12 @@ reports/analytics/
 artifacts/*.json
 artifacts/*.csv
 reports/verification/
+frontend/test-results/
+frontend/playwright-report/
+artifacts/jobs/
+artifacts/batches/
+artifacts/predictions/
+reports/external/
+reports/adaptation/
+reports/adaptation_v2/
+reports/campaign_shift_v2/

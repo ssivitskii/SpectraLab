@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 import time
 from dataclasses import asdict, dataclass
@@ -11,6 +12,7 @@ from scipy.signal import find_peaks
 
 from spectralab_ml.data.reference import ReferenceCatalog
 from spectralab_ml.models import BaselineNNLS, load_artifact
+from spectralab_ml.models.cnn import cnn_available
 from spectralab_ml.preprocessing import SpectrumPreprocessor
 from spectralab_ml.training import make_reference_templates
 
@@ -43,14 +45,17 @@ class ModelRegistry:
         catalog: ReferenceCatalog,
         class_order: tuple[str, ...],
         preprocessor: SpectrumPreprocessor | None = None,
+        *,
+        ion_stage: int = 1,
     ):
         self.artifacts_dir = artifacts_dir.resolve()
         self._cache: dict[str, tuple[tuple[int, ...], tuple[Any, Any, Any]]] = {}
         self.catalog = catalog
         self.class_order = class_order
+        self.ion_stage = ion_stage
         self.preprocessor = preprocessor or SpectrumPreprocessor()
         self._builtin = BaselineNNLS(
-            make_reference_templates(catalog, self.preprocessor, class_order)
+            make_reference_templates(catalog, self.preprocessor, class_order, ion_stage=ion_stage)
         )
 
     def list_models(self) -> list[dict[str, Any]]:
@@ -63,10 +68,14 @@ class ModelRegistry:
                 "score_kind": self._builtin.score_kind,
                 "calibrated": False,
                 "data_source": self.catalog.source_name,
-                "applicability": "Synthetic neutral-atom spectra; fixed conservative threshold",
+                "applicability": (
+                    f"Synthetic ion stage {self.ion_stage}; fixed conservative threshold"
+                ),
+                "unavailable_reason": None,
+                "diagnostic_code": None,
             }
         ]
-        for model_id in ("baseline-nnls", "logistic-ovr", "random-forest"):
+        for model_id in ("baseline-nnls", "logistic-ovr", "random-forest", "cnn-1d"):
             try:
                 _, _, manifest = self._load(model_id)
                 models.append(
@@ -79,9 +88,26 @@ class ModelRegistry:
                         "calibrated": manifest.calibrated,
                         "data_source": manifest.data_source,
                         "applicability": manifest.applicability,
+                        "unavailable_reason": None,
+                        "diagnostic_code": None,
                     }
                 )
-            except (FileNotFoundError, ValueError, KeyError, TypeError, OSError):
+            except (
+                ImportError,
+                FileNotFoundError,
+                ValueError,
+                KeyError,
+                TypeError,
+                OSError,
+                EOFError,
+                AttributeError,
+            ) as exc:
+                if model_id == "cnn-1d" and not cnn_available():
+                    code, reason = "optional_runtime_missing", "Установите optional extra cnn"
+                elif isinstance(exc, FileNotFoundError):
+                    code, reason = "artifact_missing", "Модель ещё не обучена"
+                else:
+                    code, reason = "artifact_incompatible", "Артефакт повреждён или несовместим"
                 models.append(
                     {
                         "model_id": model_id,
@@ -90,19 +116,32 @@ class ModelRegistry:
                         "ready": False,
                         "score_kind": None,
                         "calibrated": False,
-                        "data_source": "demo_fixture",
+                        "data_source": self.catalog.source_name,
                         "applicability": "Run `make demo` to create this trusted local artifact",
+                        "unavailable_reason": reason,
+                        "diagnostic_code": code,
                     }
                 )
         return models
 
     def _load(self, model_id: str) -> tuple[Any, Any, Any]:
-        if model_id not in {"baseline-nnls", "logistic-ovr", "random-forest"}:
+        if model_id not in {"baseline-nnls", "logistic-ovr", "random-forest", "cnn-1d"}:
             raise FileNotFoundError("Неизвестная модель; выберите модель из /models")
         directory = self.artifacts_dir / model_id
         if directory.is_symlink() or directory.resolve().parent != self.artifacts_dir:
             raise ValueError("Artifact escapes trusted model directory")
-        paths = [directory / name for name in ("manifest.json", "model.joblib")]
+        if model_id == "cnn-1d" and not cnn_available():
+            raise ImportError("CNN requires optional runtime")
+        manifest_path = directory / "manifest.json"
+        if manifest_path.is_symlink():
+            raise ValueError("Symlink artifacts are not trusted")
+        raw_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        filename = (
+            "model.npz"
+            if raw_manifest.get("artifact_format") == "cnn-state-npz-v1"
+            else "model.joblib"
+        )
+        paths = [manifest_path, directory / filename]
         if any(path.is_symlink() for path in paths):
             raise ValueError("Symlink artifacts are not trusted")
         fingerprint = tuple(
@@ -115,7 +154,10 @@ class ModelRegistry:
                 expected_class_order=self.class_order,
                 expected_reference=self.catalog.metadata,
                 expected_model_id=model_id,
+                expected_ion_stages=(self.ion_stage,),
             )
+            if value[1].to_dict() != self.preprocessor.to_dict():
+                raise ValueError("Artifact preprocessing is incompatible with service grid")
             self._cache[model_id] = fingerprint, value
         return self._cache[model_id][1]
 
@@ -182,18 +224,23 @@ class ModelRegistry:
             }
             for line in self.catalog.lines
             if line.element in detected
-            and line.ion_stage == 1
+            and line.ion_stage == self.ion_stage
             and len(peak_wavelengths)
             and np.min(abs(peak_wavelengths - line.wavelength_nm)) <= 1.0
         ]
         warnings = [
-            "Оценки не калиброваны и не являются вероятностями.",
+            (
+                "Калибровка проверена только на синтетической development-выборке."
+                if metadata["calibrated"]
+                else "Оценки не калиброваны и не являются вероятностями."
+            ),
             (
                 "Линии сопоставлены с пиками в пределах 1 nm. "
                 "Это диагностика, а не доказанное объяснение решения модели."
             ),
             (
-                "Область применимости: синтетические спектры справочника demo_fixture; "
+                "Область применимости: синтетические спектры справочника "
+                f"{self.catalog.source_name}; "
                 "реальные измерения требуют отдельной проверки."
             ),
         ]

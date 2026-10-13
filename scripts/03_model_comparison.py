@@ -8,9 +8,9 @@ from spectralab_ml.config import repository_root
 
 root = repository_root()
 found = 0
-for path in sorted((root / "reports" / "experiments").glob("*/result.json")):
+for path in sorted((root / "reports" / "experiments").rglob("result.json")):
     result = json.loads(path.read_text(encoding="utf-8"))
-    if result["status"] != "completed":
+    if result["status"] != "completed" or not result.get("runs"):
         continue
     found += 1
     out = root / "reports" / "analytics" / "03_model_comparison" / result["run_id"]

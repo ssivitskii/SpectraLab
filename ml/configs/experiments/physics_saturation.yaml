@@ -1,0 +1,22 @@
+schema_version: 1
+run_id: physics-saturation
+project_config: ../benchmark_project.yaml
+seeds:
+- 7
+- 17
+- 29
+- 43
+- 71
+models:
+- baseline-nnls
+- logistic-ovr
+- random-forest
+base_samples: 36
+variations: 1
+factor: saturation_level
+values:
+- null
+- 0.1
+- 0.5
+generation:
+  snr_db: null

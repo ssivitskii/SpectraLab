@@ -1,0 +1,875 @@
+{
+  "schema_version": 1,
+  "audit_id": "non_chemcam_blank_candidates_v2",
+  "reviewed_on": "2026-10-13",
+  "scope": "Independent non-ChemCam LIBS sources with numerical spectra, real chemical/method/matrix blanks or independently characterized low Fe/Mg standards, explicit data reuse rights, and air/vacuum wavelength convention.",
+  "outcome": "no_fully_admissible_dataset_confirmed",
+  "admitted_candidate_ids": [],
+  "interpretation": "This is a bounded source audit, not proof that suitable data do not exist. Several papers report real blank measurements; none of the inspected sources establishes every required property for Fe/Mg validation.",
+  "access_policy": {
+    "raw_intensity_files_downloaded": false,
+    "raw_intensity_files_opened": false,
+    "new_final_spectra_analyzed": false,
+    "allowed_material": [
+      "repository metadata",
+      "papers",
+      "small independent composition tables"
+    ],
+    "authors_contacted": false,
+    "reported_chemical_zero_is_strict_absence": false,
+    "libs_nondetection_is_independent_label": false,
+    "dark_measurement_is_chemical_blank": false,
+    "measurement_atmosphere_implies_wavelength_medium": false
+  },
+  "required_before_admission": [
+    "Public numerical wavelength/intensity files with sample/control identifiers and a verified data license.",
+    "Explicit wavelength units and air/vacuum convention, independently documented rather than inferred from acquisition atmosphere.",
+    "Independent Fe/Mg composition or element-specific upper bounds for the measured blank/standard, with units, method and uncertainty/detection limits where applicable.",
+    "Provenance connecting each numerical spectrum to the independently characterized material and actual blank preparation.",
+    "Physical material, family, preparation batch and session grouping; overlap with previously used materials checked before splitting.",
+    "Freeze selection and any development/test allocation before inspecting prediction scores or new final intensities."
+  ],
+  "candidates": [
+    {
+      "id": "hrdlicka_2025_algae_filter",
+      "title": "Influence of sample matrix and filter fixation on LIBS signal in analysis of algae on filter",
+      "urls": {
+        "paper": "https://doi.org/10.1039/D5JA00236B",
+        "dataset": "https://doi.org/10.5281/zenodo.15650002",
+        "metadata": "https://api.datacite.org/dois/10.5281/zenodo.15650002",
+        "institution": "https://www.muni.cz/vyzkum/publikace/2541260"
+      },
+      "license": {
+        "dataset_id": "CC-BY-4.0",
+        "dataset_status": "verified_datacite_rights_list",
+        "dataset_url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+        "article_id": "CC-BY-NC-3.0",
+        "note": "Dataset rights differ from article rights; verified separately."
+      },
+      "axis": {
+        "units": "nm",
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed",
+        "note": "Echelle coverage and line assignments do not establish the wavelength convention of deposited files."
+      },
+      "blank": {
+        "reported": true,
+        "types": [
+          "filter_rim_matrix_blank",
+          "unspiked_algae_control"
+        ],
+        "note": "Filter rim outside the filtration area is a real substrate/matrix control. Unspiked algae are not an element-free blank."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": "ICP-MS",
+        "note": "Independent analysis finds nonzero blank/control composition despite weak LIBS signals. No element-specific Fe/Mg blank upper bounds confirmed."
+      },
+      "independence": {
+        "status": "external_laboratory_grouping_not_yet_verified",
+        "required_groups": [
+          "parent_filter",
+          "preparation_batch",
+          "fixation_condition",
+          "instrument_session"
+        ],
+        "note": "Tape-layer variants and repeated shots are not independent physical samples."
+      },
+      "availability": {
+        "numeric_spectra": "raw_spectra_deposit_explicitly_cited_by_paper",
+        "file_inventory": "not_retrieved",
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "wavelength_medium_unconfirmed",
+        "Fe_Mg_blank_chemistry_unconfirmed",
+        "file_inventory_and_control_mapping_unverified"
+      ],
+      "next_evidence": "Obtain repository file metadata/control mapping, wavelength convention and the independent Fe/Mg assay for each blank type before selecting spectra.",
+      "evidence_snapshot_ids": [
+        "datacite_15650002"
+      ]
+    },
+    {
+      "id": "lepore_dyar_ytsma_2023_superlibs_earth_vacuum",
+      "title": "Mount Holyoke College Laser Induced Breakdown Spectra; SuperLIBS 10K; Earth and vacuum atmospheres",
+      "urls": {
+        "dataset": "https://doi.org/10.5281/zenodo.10287455",
+        "metadata": "https://api.datacite.org/dois/10.5281/zenodo.10287455",
+        "paper_citing_dataset": "https://doi.org/10.1029/2024EA003635",
+        "related_pds_database": "https://doi.org/10.17189/b2aj-cz96"
+      },
+      "license": {
+        "dataset_id": "CC-BY-4.0",
+        "dataset_status": "verified_datacite_rights_list",
+        "dataset_url": "https://creativecommons.org/licenses/by/4.0/legalcode"
+      },
+      "axis": {
+        "units": null,
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed",
+        "acquisition_atmosphere": [
+          "Earth ambient",
+          "vacuum"
+        ],
+        "note": "Vacuum in the dataset title identifies chamber conditions, not wavelength calibration convention."
+      },
+      "blank": {
+        "reported": null,
+        "types": [],
+        "note": "Known-composition reference targets are documented; no explicit chemical blank or reagent purity bounds established in inspected metadata."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": null,
+        "note": "Target chemistry is described as known. A target-specific low Fe/Mg certificate was not verified here."
+      },
+      "independence": {
+        "status": "independent_acquisition_material_overlap_unresolved",
+        "required_groups": [
+          "reference_target",
+          "material_family",
+          "acquisition_session"
+        ],
+        "note": "Check shared standard materials against ChemCam/PDS inventories before claiming independent evaluation."
+      },
+      "availability": {
+        "numeric_spectra": "deposit_described_by_datacite_and_paper",
+        "file_inventory": "not_retrieved",
+        "processing": [
+          "airPLS baseline removal",
+          "normalization within UV/VIS/VIS-NIR regions"
+        ],
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "wavelength_medium_unconfirmed",
+        "actual_blank_unconfirmed",
+        "target_chemistry_and_overlap_unverified",
+        "file_inventory_unverified"
+      ],
+      "next_evidence": "Inspect only repository manifests and independent composition certificates first; keep acquisition-atmosphere variants grouped by physical target.",
+      "evidence_snapshot_ids": [
+        "datacite_10287455"
+      ]
+    },
+    {
+      "id": "ceitec_2020_soil_ore_benchmark",
+      "title": "Soil/ore LIBS classification benchmark with OREAS compositions",
+      "urls": {
+        "paper": "https://www.nature.com/articles/s41597-020-0396-8",
+        "dataset": "https://doi.org/10.6084/m9.figshare.c.4768790",
+        "composition_metadata": "https://api.figshare.com/v2/articles/11316572",
+        "training_metadata": "https://api.figshare.com/v2/articles/11316578",
+        "testing_metadata": "https://api.figshare.com/v2/articles/11316575"
+      },
+      "license": {
+        "dataset_id": "CC0-1.0",
+        "dataset_status": "verified_figshare_api_for_support_train_test",
+        "dataset_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "axis": {
+        "units": "nm",
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed",
+        "acquisition_atmosphere": "air",
+        "note": "Air acquisition does not establish an air-wavelength axis."
+      },
+      "blank": {
+        "reported": false,
+        "types": [],
+        "note": "Inspected methods describe ore materials and mixtures, not a measured chemical blank."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": "vendor OREAS reference compositions reported by authors",
+        "low_concentration_leads": [
+          {
+            "sample": "OREAS40",
+            "element": "Mg",
+            "value": 0.01,
+            "units": "wt_percent",
+            "quantity_kind": "reported_composition_not_upper_bound"
+          },
+          {
+            "sample": "OREAS602",
+            "element": "Fe",
+            "value": 2.24,
+            "units": "wt_percent",
+            "quantity_kind": "minimum_reported_Fe_in_inspected_OREAS_table"
+          }
+        ],
+        "note": "Derived mixture tables can turn missing source entries into zero plus/minus zero. Gypsum binder is excluded from reported mixture composition; neither case establishes chemical absence."
+      },
+      "independence": {
+        "status": "external_material_family_grouping_required",
+        "required_groups": [
+          "source_CRM",
+          "mixture_parent_CRMs",
+          "prepared_pellet",
+          "session"
+        ],
+        "note": "Repeated shots and mixtures sharing reference parents cannot be treated as independent materials."
+      },
+      "availability": {
+        "numeric_spectra": "h5_files_confirmed_in_repository_metadata",
+        "files": [
+          {
+            "name": "train.h5",
+            "size_bytes": 7574242117
+          },
+          {
+            "name": "test.h5",
+            "size_bytes": 3179807973
+          }
+        ],
+        "composition_only_file_inspected": "support_tables.xlsx",
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "wavelength_medium_unconfirmed",
+        "no_qualified_chemical_blank",
+        "no_independent_low_Fe_support",
+        "missing_values_and_binder_require_chemistry_audit"
+      ],
+      "next_evidence": "A low-Mg standard lead exists; require original certificates, preparation/binder chemistry and an explicit axis convention before any spectral intake.",
+      "evidence_snapshot_ids": [
+        "figshare4768790",
+        "figshare11316572",
+        "figshare11316578",
+        "figshare11316575",
+        "ceitec_support_tables"
+      ]
+    },
+    {
+      "id": "zhu_2023_water_ca_mg_membrane",
+      "title": "Rapid automatic detection of calcium and magnesium in water by LIBS",
+      "urls": {
+        "paper": "https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2023.1179574/full"
+      },
+      "license": {
+        "dataset_id": null,
+        "dataset_status": "no_public_numeric_deposit_confirmed",
+        "article_id": "CC-BY-4.0"
+      },
+      "axis": {
+        "units": "nm",
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed",
+        "reported_coverage_nm": [
+          200,
+          1100
+        ]
+      },
+      "blank": {
+        "reported": true,
+        "types": [
+          "pretreated_ion_exchange_membrane_blank",
+          "nominal_zero_standard"
+        ],
+        "note": "Acid-treated and deionized-water-washed membrane provides a real substrate control; no observable LIBS signal is not independent chemical evidence."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": null,
+        "nominal_Mg_calibration_range_mg_per_L": [
+          0,
+          48
+        ],
+        "note": "Nominal zero and LIBS detection limits do not certify residual Fe/Mg in the complete prepared blank."
+      },
+      "independence": {
+        "status": "external_experiment_grouping_required",
+        "required_groups": [
+          "membrane",
+          "solution_preparation_batch",
+          "session"
+        ],
+        "note": "Multiple positions on one membrane are technical replicates."
+      },
+      "availability": {
+        "numeric_spectra": "authors_state_available_on_request",
+        "public_numeric_repository": null,
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "no_public_numeric_deposit_confirmed",
+        "data_license_unconfirmed",
+        "wavelength_medium_unconfirmed",
+        "Fe_Mg_blank_upper_bounds_unconfirmed"
+      ],
+      "next_evidence": "A future authorized author request would need numerical blank spectra, complete preparation chemistry, axis metadata and explicit reuse rights.",
+      "evidence_snapshot_ids": []
+    },
+    {
+      "id": "blanchette_2022_bacteria_filtration",
+      "title": "Detection and classification of bacterial cells after centrifugation and filtration by LIBS",
+      "urls": {
+        "paper": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9411782/",
+        "doi": "https://doi.org/10.1177/00037028221092789"
+      },
+      "license": {
+        "dataset_id": null,
+        "dataset_status": "no_numeric_raw_deposit_confirmed",
+        "article_and_supplement_id": "CC-BY-NC-4.0"
+      },
+      "axis": {
+        "units": "nm",
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed",
+        "reported_coverage_nm": [
+          200,
+          780
+        ],
+        "acquisition_atmosphere": "argon"
+      },
+      "blank": {
+        "reported": true,
+        "types": [
+          "unused_filter_substrate_blank",
+          "sterile_water_full_procedure_blank"
+        ],
+        "note": "The water control passes through the same centrifugation/filtration procedure. It is a real method blank, but small Mg/Ca/Na lines are observed."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": null,
+        "note": "Bacterial absence labels do not imply elemental absence; no independent Fe/Mg impurity bound confirmed."
+      },
+      "independence": {
+        "status": "external_controls_grouping_required",
+        "required_groups": [
+          "filter",
+          "preparation_batch",
+          "measurement_day"
+        ],
+        "note": "Repeated single-shot spectra on one filter are not independent chemical controls."
+      },
+      "availability": {
+        "numeric_spectra": "not_confirmed",
+        "supplement": "PDF tables and spectral ratios; no public numerical raw-spectra archive identified",
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "no_public_numeric_deposit_confirmed",
+        "wavelength_medium_unconfirmed",
+        "Fe_Mg_blank_upper_bounds_unconfirmed"
+      ],
+      "next_evidence": "Use as a method-blank protocol reference only until numerical files and independent chemistry are supplied.",
+      "evidence_snapshot_ids": []
+    },
+    {
+      "id": "wang_2024_blank_sample_denoising",
+      "title": "Blank sample denoising algorithm for LIBS water analysis",
+      "urls": {
+        "paper": "https://www.sciencedirect.com/science/article/abs/pii/S003991402400465X",
+        "doi": "https://doi.org/10.1016/j.talanta.2024.126086"
+      },
+      "license": {
+        "dataset_id": null,
+        "dataset_status": "not_confirmed"
+      },
+      "axis": {
+        "units": null,
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed"
+      },
+      "blank": {
+        "reported": true,
+        "types": [
+          "deionized_water_reagent_blank"
+        ],
+        "note": "The abstract describes a self-built blank spectral database; this does not establish an accessible numerical archive."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": null,
+        "reported_analytes": [
+          "Na",
+          "Mg",
+          "Ca",
+          "K",
+          "Sr",
+          "Li"
+        ],
+        "note": "Trace purity bounds for the deionized water were not verified; Fe is not among the listed analytes."
+      },
+      "independence": {
+        "status": "unverified",
+        "required_groups": [
+          "water_batch",
+          "session"
+        ]
+      },
+      "availability": {
+        "numeric_spectra": "database_described_but_no_public_repository_confirmed",
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "no_public_numeric_deposit_confirmed",
+        "data_license_unconfirmed",
+        "wavelength_medium_unconfirmed",
+        "Fe_Mg_blank_upper_bounds_unconfirmed"
+      ],
+      "next_evidence": "Locate an actual licensed repository and independent blank characterization before considering this source for validation.",
+      "evidence_snapshot_ids": []
+    },
+    {
+      "id": "kitzhaber_2025_molten_salt_sparge",
+      "title": "Sparge Sampling of Molten Salts for Online Monitoring by Laser-Induced Breakdown Spectroscopy",
+      "urls": {
+        "paper": "https://doi.org/10.1021/acsomega.5c04988",
+        "full_text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12391992/",
+        "institution": "https://www.ornl.gov/publication/sparge-sampling-molten-salts-online-monitoring-laser-induced-breakdown-spectroscopy"
+      },
+      "license": {
+        "dataset_id": null,
+        "dataset_status": "undeposited_raw_data_rights_not_confirmed",
+        "article_id": "CC-BY-4.0"
+      },
+      "axis": {
+        "units": null,
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed"
+      },
+      "blank": {
+        "reported": true,
+        "types": [
+          "NaNO3_KNO3_matrix_blank"
+        ],
+        "note": "Blank independently checked by ICP-OES, providing a useful analytical-control precedent."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": "ICP-OES",
+        "other_analyte_method_detection_limits": [
+          {
+            "element": "Sr",
+            "value": 0.06,
+            "units": "wt_percent_relative_to_Na"
+          },
+          {
+            "element": "Li",
+            "value": 0.006,
+            "units": "wt_percent_relative_to_Na"
+          }
+        ],
+        "note": "The blank is reported below those Sr/Li limits; these bounds cannot be transferred to Fe/Mg."
+      },
+      "independence": {
+        "status": "external_laboratory_target_analytes_differ",
+        "required_groups": [
+          "salt_preparation_batch",
+          "sparging_run",
+          "session"
+        ]
+      },
+      "availability": {
+        "numeric_spectra": "available_on_reasonable_request",
+        "supplement": "PDF methods/calibration information, not a verified numerical spectrum archive",
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "no_public_numeric_deposit_confirmed",
+        "data_license_unconfirmed",
+        "wavelength_medium_unconfirmed",
+        "blank_chemistry_bounds_are_Sr_Li_not_Fe_Mg"
+      ],
+      "next_evidence": "Retain as a protocol precedent; target-specific Fe/Mg independent chemistry would still be required.",
+      "evidence_snapshot_ids": []
+    },
+    {
+      "id": "mendeley_2026_marine_salt_aerosols",
+      "title": "LIBS-LIA-FSRF marine salt aerosol dataset",
+      "urls": {
+        "dataset": "https://data.mendeley.com/datasets/73jr9wpp3f/1",
+        "doi": "https://doi.org/10.17632/73jr9wpp3f.1"
+      },
+      "license": {
+        "dataset_id": "CC-BY-4.0",
+        "dataset_status": "verified_repository_page"
+      },
+      "axis": {
+        "units": "nm",
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed",
+        "reported_coverage_nm": [
+          300,
+          890
+        ]
+      },
+      "blank": {
+        "reported": null,
+        "types": [],
+        "note": "NaCl, CaCl2, MgSO4 and KCl aerosols are described; no explicit reagent/method blank established."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": null,
+        "note": "Nominal salt formulas do not certify absence of Mg/Fe contamination or provide impurity upper bounds."
+      },
+      "independence": {
+        "status": "external_material_and_batch_metadata_unverified",
+        "required_groups": [
+          "reagent_lot",
+          "aerosol_preparation",
+          "session"
+        ]
+      },
+      "availability": {
+        "numeric_spectra": "LIBS_zip_file_listed_contents_not_inspected",
+        "files_as_displayed": [
+          "LIBS.zip (4.29 MB)",
+          "LIA.zip (16.8 MB)"
+        ],
+        "processing": "Repository describes normalization/PCA; raw-versus-processed file contents were not inspected.",
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "wavelength_medium_unconfirmed",
+        "actual_blank_unconfirmed",
+        "Fe_Mg_purity_bounds_unconfirmed",
+        "sample_mapping_unverified"
+      ],
+      "next_evidence": "Seek reagent certificates and a metadata-only inventory of numerical columns and real blank records.",
+      "evidence_snapshot_ids": []
+    },
+    {
+      "id": "menegatti_2026_estuarine_filters",
+      "title": "Direct LIBS Analysis of Estuarine Suspended Particulate Matter Collected on Filters",
+      "urls": {
+        "paper": "https://www.mdpi.com/1420-3049/31/4/647",
+        "full_text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12943375/",
+        "doi": "https://doi.org/10.3390/molecules31040647"
+      },
+      "license": {
+        "dataset_id": null,
+        "dataset_status": "separate_numeric_archive_not_confirmed",
+        "article_id": "CC-BY-4.0"
+      },
+      "axis": {
+        "units": null,
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed"
+      },
+      "blank": {
+        "reported": true,
+        "types": [
+          "filter_substrate_blank"
+        ],
+        "note": "Blank filters measured under matching LIBS conditions show substrate elemental emission. Treated as a constant contribution, not chemical absence."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": null,
+        "note": "Environmental Fe/Mg signals and their salinity trends do not supply an independent blank impurity certificate."
+      },
+      "independence": {
+        "status": "external_experiment_repeated_shots_not_independent",
+        "required_groups": [
+          "filter",
+          "sampling_site_and_date",
+          "session"
+        ],
+        "note": "1820 shots per filter are averaged; the filter is the physical sample."
+      },
+      "availability": {
+        "numeric_spectra": "not_confirmed",
+        "data_statement": "Article states all generated/analyzed data are included; supplement ZIP is listed but was not inspected.",
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "numerical_spectra_archive_unverified",
+        "wavelength_medium_unconfirmed",
+        "Fe_Mg_blank_upper_bounds_unconfirmed"
+      ],
+      "next_evidence": "Verify supplement inventory without opening intensity data, then require independent blank chemistry and an explicit axis convention.",
+      "evidence_snapshot_ids": []
+    },
+    {
+      "id": "augusto_2017_cellulose_blank",
+      "title": "Calibration strategies for direct determination of Ca, K and Mg in powder samples by LIBS",
+      "urls": {
+        "institutional_paper": "https://repositorio.unesp.br/server/api/core/bitstreams/9aed46de-91e3-4751-8d84-4840b1488f20/content"
+      },
+      "license": {
+        "dataset_id": null,
+        "dataset_status": "no_public_numeric_deposit_confirmed"
+      },
+      "axis": {
+        "units": null,
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed"
+      },
+      "blank": {
+        "reported": true,
+        "types": [
+          "microcrystalline_cellulose_matrix_blank"
+        ],
+        "note": "Cellulose blank is included in calibration mixtures, a real material control rather than an electronic dark measurement."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": "ICP-OES comparison samples; independent blank bounds not established",
+        "reported_Mg_LIBS_LOQ": {
+          "value": 49,
+          "units": "mg_per_kg"
+        },
+        "note": "LIBS LOQ is a performance statistic, not an independently measured cellulose impurity upper bound. Nominal blank zero is not strict absence."
+      },
+      "independence": {
+        "status": "external_experiment_grouping_required",
+        "required_groups": [
+          "cellulose_reagent_lot",
+          "mixture_preparation",
+          "pellet",
+          "session"
+        ]
+      },
+      "availability": {
+        "numeric_spectra": "no_public_repository_confirmed",
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "no_public_numeric_deposit_confirmed",
+        "data_license_unconfirmed",
+        "wavelength_medium_unconfirmed",
+        "Fe_Mg_blank_upper_bounds_unconfirmed"
+      ],
+      "next_evidence": "Require measured numerical blank spectra, reagent certificate/independent assay, explicit data rights and wavelength convention.",
+      "evidence_snapshot_ids": []
+    },
+    {
+      "id": "csa_2017_planetary_materials",
+      "title": "Laser-Induced Breakdown Spectroscopy Dataset for Planetary Materials Analysis",
+      "urls": {
+        "dataset": "https://open.canada.ca/data/en/dataset/137bdc17-2f46-4d70-98e7-acc46f602e9f",
+        "metadata": "https://open.canada.ca/data/api/action/package_show?id=137bdc17-2f46-4d70-98e7-acc46f602e9f",
+        "file_inventory": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/"
+      },
+      "license": {
+        "dataset_id": "Open Government Licence - Canada",
+        "dataset_status": "verified_official_CKAN_API",
+        "dataset_url": "https://open.canada.ca/en/open-government-licence-canada"
+      },
+      "axis": {
+        "units": null,
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed"
+      },
+      "blank": {
+        "reported": null,
+        "types": [],
+        "note": "No explicit chemical/method blank established from the official catalogue; the detailed guide could not be fetched."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": null,
+        "note": "Independent composition CSVs are listed; their contents and provenance were not retrieved. No impurity certificate or blank upper bound is established."
+      },
+      "independence": {
+        "status": "external_agency_material_overlap_unverified",
+        "required_groups": [
+          "physical_material",
+          "sample_family",
+          "session"
+        ],
+        "note": "Official temporal coverage is 2010-11-25 through 2010-11-29; distinct dates alone do not establish independent materials."
+      },
+      "availability": {
+        "numeric_spectra": "official_CSV_7z_and_TXT_zip_archives_listed",
+        "files_as_displayed": [
+          "LIBSOpenDatacsv.7z (5.3M)",
+          "LIBSOpenDatatxt.zip (7.6M)",
+          "Sample_Composition_Data_LargeSet.csv (8.0K)",
+          "Sample_Composition_Data_SubSet.csv (406 bytes)"
+        ],
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "wavelength_medium_unconfirmed",
+        "actual_blank_unconfirmed",
+        "Fe_Mg_blank_upper_bounds_unconfirmed",
+        "detailed_guide_and_composition_unretrieved"
+      ],
+      "next_evidence": "Obtain the small guide and composition metadata from the official host, then establish wavelength convention, material matching and actual blank assays before spectral intake.",
+      "evidence_snapshot_ids": [
+        "csa_package"
+      ]
+    },
+    {
+      "id": "ordar_165_handheld_minerals",
+      "title": "Spectral Analysis of Minerals with Handheld LIBS Technology",
+      "urls": {
+        "dataset": "https://doi.org/10.24396/ORDAR-165",
+        "repository": "https://ordar.otelo.univ-lorraine.fr/record?id=10.24396/ORDAR-165"
+      },
+      "license": {
+        "dataset_id": "CC-BY-NC-SA",
+        "dataset_version": null,
+        "dataset_status": "license_family_verified_repository_page_version_not_shown"
+      },
+      "axis": {
+        "units": null,
+        "wavelength_medium": null,
+        "medium_status": "not_confirmed"
+      },
+      "blank": {
+        "reported": null,
+        "types": [],
+        "note": "Pure mineral spectra are described, not certified method/matrix blanks."
+      },
+      "chemical_limits": {
+        "Fe_upper_bound": null,
+        "Mg_upper_bound": null,
+        "independent_method": null,
+        "note": "Metadata description lists mineral chemical formulas; a formula is not an independent trace-impurity assay or absence certificate."
+      },
+      "independence": {
+        "status": "external_laboratory_material_overlap_unverified",
+        "required_groups": [
+          "mineral_specimen",
+          "material_family",
+          "session"
+        ],
+        "note": "Measurements span 2021-2023; multiple points/spectra on one mineral require physical grouping."
+      },
+      "availability": {
+        "numeric_spectra": "Mineral_HandheldLIBS_Spectra.zip_listed_not_downloaded",
+        "metadata_file": "ReadMe_Metadata_HandheldLIBS_Spectra.xlsx_listed_not_retrieved",
+        "intensities_inspected": false
+      },
+      "admission_status": "blocked",
+      "blockers": [
+        "wavelength_medium_unconfirmed",
+        "actual_blank_unconfirmed",
+        "independent_Fe_Mg_chemical_limits_unconfirmed",
+        "metadata_file_unretrieved"
+      ],
+      "next_evidence": "Inspect the metadata file and independent certificates; do not derive negative labels from ideal mineral formulas.",
+      "evidence_snapshot_ids": []
+    }
+  ],
+  "evidence_snapshots": [
+    {
+      "id": "datacite_15650002",
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.15650002",
+      "path": "data/raw/blank_candidates_v2_metadata/datacite_15650002.json",
+      "sha256": "35aa1027632db0cacf8f93136f8daa7433ef70c1419074762af060b018277e7b",
+      "content_kind": "repository_metadata"
+    },
+    {
+      "id": "datacite_10287455",
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.10287455",
+      "path": "data/raw/blank_candidates_v2_metadata/datacite_10287455.json",
+      "sha256": "4e8b49bccca577ffe6301c5665cd35c2e77ac54127934ad39d3779220038f4b2",
+      "content_kind": "repository_metadata"
+    },
+    {
+      "id": "figshare4768790",
+      "url": "https://api.figshare.com/v2/collections/4768790/articles",
+      "path": "data/raw/blank_candidates_v2_metadata/figshare4768790.json",
+      "sha256": "a819c544b94177317665b13020c2d8a0296b23f63fb309c41442975ed7a864f5",
+      "content_kind": "repository_metadata"
+    },
+    {
+      "id": "figshare11316572",
+      "url": "https://api.figshare.com/v2/articles/11316572",
+      "path": "data/raw/blank_candidates_v2_metadata/figshare11316572.json",
+      "sha256": "1d5ced58c817e6b2dc4a5f398d69c8fc4946f2ac7ec3b5bea4de50e678871021",
+      "content_kind": "repository_metadata"
+    },
+    {
+      "id": "figshare11316578",
+      "url": "https://api.figshare.com/v2/articles/11316578",
+      "path": "data/raw/blank_candidates_v2_metadata/figshare11316578.json",
+      "sha256": "199d6d481aaafdef0e1ab656fe0fbda8f908bde863f8fc178a30cafd693f6876",
+      "content_kind": "repository_metadata"
+    },
+    {
+      "id": "figshare11316575",
+      "url": "https://api.figshare.com/v2/articles/11316575",
+      "path": "data/raw/blank_candidates_v2_metadata/figshare11316575.json",
+      "sha256": "439d9c1d15f918e7a5ea9ae54eb0b3b8cd3d31798d4112e6013c5dd49a61db55",
+      "content_kind": "repository_metadata"
+    },
+    {
+      "id": "ceitec_support_tables",
+      "url": "https://ndownloader.figshare.com/files/21189387",
+      "path": "data/raw/blank_candidates_v2_metadata/ceitec_support_tables.xlsx",
+      "sha256": "844f6413544152347871c4ef58cf2e9a8f8a5feb16eee9e593545d37e8c51737",
+      "content_kind": "independent_composition_tables_no_spectral_intensities"
+    },
+    {
+      "id": "csa_package",
+      "url": "https://open.canada.ca/data/api/action/package_show?id=137bdc17-2f46-4d70-98e7-acc46f602e9f",
+      "path": "data/raw/blank_candidates_v2_metadata/csa_package.json",
+      "sha256": "833ecc613b79a4393a404fd218a3e061db9b6d359d337ed41ca167738ac85279",
+      "content_kind": "repository_metadata"
+    }
+  ],
+  "retrieval_limitations": [
+    {
+      "url": "https://zenodo.org/api/records/15650002",
+      "observed": "HTTP 403",
+      "effect": "File inventory unavailable in this session; DOI metadata independently retrieved from DataCite."
+    },
+    {
+      "url": "https://zenodo.org/api/records/10287455",
+      "observed": "HTTP 403",
+      "effect": "File inventory unavailable in this session; DOI metadata independently retrieved from DataCite."
+    },
+    {
+      "url": "https://zenodo.org/api/records/3823778",
+      "observed": "read timeout",
+      "effect": "No candidate claims derived from this inaccessible lead."
+    },
+    {
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.3823778",
+      "observed": "HTTP 404",
+      "effect": "Unresolved lead, not evidence that a qualified dataset exists."
+    },
+    {
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2025/ja/d5ja00236b",
+      "observed": "direct fetch HTTP 403; primary publisher text available through search index",
+      "effect": "Paper metadata/methods inspected through publisher-indexed text; no intensity files retrieved."
+    },
+    {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/",
+      "observed": "Guide DOCX and composition CSV downloads failed certificate verification with system and certifi CA bundles; web fetch timed out. Official CKAN metadata and directory index were accessible.",
+      "effect": "No conclusion about detailed guide content; numerical intensity archives were not requested."
+    }
+  ],
+  "previous_candidates_not_readmitted": [
+    {
+      "source": "LASO LIBS / Aalto CC0",
+      "reason": "No new evidence resolving the prior raw-file/axis blockers in this pass."
+    },
+    {
+      "source": "Figshare 21984989 MIT FeCo",
+      "reason": "No new evidence resolving the prior air/vacuum wavelength-convention blocker in this pass."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "source": "NASA PDS ChemCam preflight laboratory calibration spectra",
+  "dataset_id": "MSL-M-CHEMCAM-LIBS-4/5-RDR-V1.0",
+  "doi": "10.17189/1519485",
+  "instrument": "ChemCam flight model, LANL cleanroom preflight Test 6",
+  "license_id": "us-pd",
+  "license_source": "https://data.nasa.gov/dataset/msl-mars-chemcam-libs-spectra-4-5-rdr-v1-0-f9501",
+  "license_evidence": "NASA dataset page explicitly declares us-pd and links USA.gov public-domain label 1.0; applies to the matching DATA_SET_ID in the downloaded PDS label. This is not inferred from archive publicity.",
+  "wavelength_medium": "vacuum",
+  "units": "nm",
+  "wavelength_medium_source": "https://doi.org/10.1016/j.sab.2013.02.003",
+  "wavelength_medium_evidence": {
+    "author_copy": "https://www.researchgate.net/publication/257236897_Pre-flight_calibration_and_initial_data_processing_for_the_ChemCam_laser-induced_breakdown_spectroscopy_instrument_on_the_Mars_Science_Laboratory_rover",
+    "locator": "Wiens et al. 2013, wavelength calibration discussion: Ti baseline channel-to-wavelength map",
+    "quote": "we calibrated to vacuum wavelengths",
+    "basis": "The paper states that all spectra are adjusted to its Ti baseline wavelength-channel map. The official CALINFO identifies the preflight cleanroom calibration with this paper and Test 6."
+  },
+  "composition_source": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv",
+  "composition_evidence": {
+    "paper": "https://doi.org/10.1016/j.sab.2013.02.003",
+    "locator": "Table 3 and section 2.2 standard provenance",
+    "interpretation": "Ground calibration standard compositions, not Mars MOC predictions. The PDS calibration field descriptions reuse the word Predicted, but CALINFO and the primary Table 3 identify standards and their reference compositions. FeOT converts the table total Fe2O3 convention; only positive presence is evaluated."
+  },
+  "intensity_units": "photons/shot/mm^2/sr/nm",
+  "preprocessing_by_provider": "dark subtraction, denoising, continuum removal, wavelength calibration and instrument response correction",
+  "retrieved_at": "2026-10-13",
+  "downloads": [
+    {
+      "name": "msl_ccam_libs_calib.csv",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/msl_ccam_libs_calib.csv",
+      "sha256": "4e9b34d79b87d8594d2be300f428f167f95a65dff8febf0bf8d79df96c1348c2"
+    },
+    {
+      "name": "msl_ccam_libs_calib.lbl",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/msl_ccam_libs_calib.lbl",
+      "sha256": "2deddf91f0ce6af40d3d4d733884c8de9db563147c290e5d74c4691681e0f218"
+    },
+    {
+      "name": "ccam_calibration_compositions.csv",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv",
+      "sha256": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07"
+    },
+    {
+      "name": "calinfo.txt",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calinfo.txt",
+      "sha256": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf"
+    }
+  ],
+  "evidence_snapshots": {
+    "license.html": {
+      "url": "https://data.nasa.gov/dataset/msl-mars-chemcam-libs-spectra-4-5-rdr-v1-0-f9501",
+      "sha256": "f89453aaca99bc4b2990f405772dae1f213cd712de53dcbced4a26047445848f"
+    }
+  }
+}

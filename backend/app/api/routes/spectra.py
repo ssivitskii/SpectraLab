@@ -2,18 +2,34 @@ from __future__ import annotations
 
 import csv
 import io
-from typing import Annotated
+import json
+from typing import Annotated, Literal
 
 import numpy as np
-from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile
 from spectralab_ml.preprocessing import validate_spectrum_arrays
 from spectralab_ml.simulation import GenerationConfig, generate_spectrum
 
 from app.api.dependencies import get_services
-from app.schemas.api import GenerateSpectrumRequest, SpectrumResponse
+from app.schemas.api import (
+    GenerateSpectrumRequest,
+    MeasurementMetadata,
+    SpectrumPage,
+    SpectrumResponse,
+)
 from app.services.container import Services
+from app.services.exports import export_record
 
 router = APIRouter(prefix="/spectra", tags=["spectra"])
+
+
+@router.get("", response_model=SpectrumPage)
+def list_spectra(
+    services: Annotated[Services, Depends(get_services)],
+    limit: Annotated[int, Query(ge=1, le=100)] = 20,
+    cursor: Annotated[str | None, Query(max_length=1024)] = None,
+) -> dict[str, object]:
+    return services.spectra.list(limit=limit, cursor=cursor)
 
 
 @router.post("/generate", response_model=SpectrumResponse)
@@ -23,6 +39,9 @@ def generate(
     unsupported = set(request.elements) - set(services.project.elements)
     if unsupported:
         raise HTTPException(422, f"Unsupported elements: {', '.join(sorted(unsupported))}")
+    ion_stage = request.ion_stage if request.ion_stage is not None else services.project.ion_stage
+    if ion_stage != services.project.ion_stage:
+        raise HTTPException(422, "Requested ion stage is incompatible with the active project")
     spectrum = generate_spectrum(
         GenerationConfig(
             elements=tuple(request.elements),
@@ -36,13 +55,34 @@ def generate(
             background_slope=request.background_slope,
             calibration_shift_nm=request.calibration_shift_nm,
             amplitude_variation=request.amplitude_variation,
+            profile=request.profile,
+            lorentzian_fwhm_nm=request.lorentzian_fwhm_nm,
+            noise_model=request.noise_model,
+            photon_scale=request.photon_scale,
+            read_noise_std=request.read_noise_std,
+            response_slope=request.response_slope,
+            saturation_level=request.saturation_level,
+            ion_stage=ion_stage,
             seed=request.seed,
             max_points=services.settings.max_spectrum_points,
         ),
         services.catalog,
         class_order=services.project.elements,
     )
-    return services.spectra.save({**spectrum.to_dict(), "origin": "generated"})
+    return services.spectra.save(
+        {
+            **spectrum.to_dict(),
+            "parameters": {
+                **spectrum.parameters,
+                "units": "nm",
+                "wavelength_medium": services.project.wavelength_medium,
+                "intensity_units": "relative",
+            },
+            "origin": "generated",
+            "measurement_metadata": request.measurement_metadata.model_dump(),
+            "reference_metadata": services.catalog.metadata,
+        }
+    )
 
 
 @router.post("/upload", response_model=SpectrumResponse)
@@ -51,9 +91,13 @@ async def upload(
     units: Annotated[str, Form()],
     wavelength_medium: Annotated[str, Form()],
     services: Annotated[Services, Depends(get_services)],
+    measurement_metadata: Annotated[str | None, Form()] = None,
 ) -> dict[str, object]:
     if units != "nm" or wavelength_medium != "vacuum":
         raise HTTPException(422, "Only vacuum wavelengths in nm are accepted")
+    metadata = MeasurementMetadata.model_validate(
+        json.loads(measurement_metadata) if measurement_metadata else {}
+    )
     raw = await file.read(services.settings.max_upload_bytes + 1)
     if len(raw) > services.settings.max_upload_bytes:
         raise HTTPException(413, "CSV file is too large")
@@ -95,6 +139,8 @@ async def upload(
             "base_sample_id": None,
             "reference_source": "user_upload",
             "origin": "uploaded",
+            "measurement_metadata": metadata.model_dump(),
+            "reference_metadata": services.catalog.metadata,
         }
     )
 
@@ -104,3 +150,29 @@ def get_spectrum(
     spectrum_id: str, services: Annotated[Services, Depends(get_services)]
 ) -> dict[str, object]:
     return services.spectra.get(spectrum_id)
+
+
+@router.patch("/{spectrum_id}/metadata", response_model=SpectrumResponse)
+def update_metadata(
+    spectrum_id: str,
+    request: MeasurementMetadata,
+    services: Annotated[Services, Depends(get_services)],
+) -> dict[str, object]:
+    return services.spectra.update_metadata(spectrum_id, request.model_dump(exclude_unset=True))
+
+
+@router.delete("/{spectrum_id}", status_code=204)
+def delete_spectrum(
+    spectrum_id: str, services: Annotated[Services, Depends(get_services)]
+) -> Response:
+    services.spectra.delete(spectrum_id)
+    return Response(status_code=204)
+
+
+@router.get("/{spectrum_id}/export")
+def export_spectrum(
+    spectrum_id: str,
+    services: Annotated[Services, Depends(get_services)],
+    format: Literal["json", "csv", "zip"] = "zip",
+) -> Response:
+    return export_record("spectrum", spectrum_id, services.spectra.get(spectrum_id), format)

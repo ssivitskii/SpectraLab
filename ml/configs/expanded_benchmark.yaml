@@ -1,0 +1,39 @@
+schema_version: 1
+benchmark_id: expanded-nist-robustness-v1
+reference_cache: ../../data/reference/nist_neutral_350_800/catalog.json
+seeds: [7, 17, 29, 43, 71]
+base_samples: 240
+variations: 2
+models: [baseline-nnls, logistic-ovr, random-forest]
+bootstrap_repeats: 1000
+confidence_level: 0.95
+trace_ratios: [1.0, 0.1, 0.03, 0.01, 0.003, 0.0]
+trace_recall_target: 0.9
+trace_false_positive_ceiling: 0.05
+suites:
+  - suite_id: nist-window
+    elements: [H, He, Na, Mg, Ca, Fe]
+    wavelength_range_nm: [390.0, 405.0]
+    grid_steps_nm: [0.01, 0.05]
+    snr_db: 35.0
+    calibration_jitter_std_nm: 0.003
+    training_fwhm_nm: 0.05
+    conditions:
+      - {condition_id: reference, profile: gaussian, instrumental_fwhm_nm: 0.05}
+      - {condition_id: narrow, profile: gaussian, instrumental_fwhm_nm: 0.02}
+      - {condition_id: broad, profile: gaussian, instrumental_fwhm_nm: 0.2}
+      - {condition_id: voigt-tails, profile: voigt, instrumental_fwhm_nm: 0.05, lorentzian_fwhm_nm: 0.05}
+      - {condition_id: response-tilt, profile: gaussian, instrumental_fwhm_nm: 0.05, response_slope: 0.5}
+  - suite_id: close-na-fe
+    elements: [Na, Fe]
+    wavelength_range_nm: [392.4, 392.9]
+    selected_lines_nm: {Na: 392.67, Fe: 392.67551}
+    grid_steps_nm: [0.001, 0.01]
+    snr_db: 35.0
+    calibration_jitter_std_nm: 0.0005
+    training_fwhm_nm: 0.01
+    conditions:
+      - {condition_id: reference, profile: gaussian, instrumental_fwhm_nm: 0.01}
+      - {condition_id: narrow, profile: gaussian, instrumental_fwhm_nm: 0.002}
+      - {condition_id: broad, profile: gaussian, instrumental_fwhm_nm: 0.05}
+      - {condition_id: voigt-tails, profile: voigt, instrumental_fwhm_nm: 0.01, lorentzian_fwhm_nm: 0.01}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "locked_before_predictions": true,
+  "created_at": "2026-10-13T16:19:20.561453+00:00",
+  "intake_sha256": "96030fed84993656e52be8e55de71a8968001e7a747d61fe46410bb441fffe00",
+  "alias_audit_sha256": "a2ef14fce3c991a1719fed3d9a6dcb3618160521492da02085a108d8673a7c9e",
+  "reason_scope": "Authoritatively confirmed source unavailability only. No intensity or model-prediction based exclusions. No sample replacement or replenishment. Original intake failure remains unchanged.",
+  "exclusions": [
+    {
+      "measurement_id": "development:jsc1413:2013_09_12_190104_ccs",
+      "reason": "pds_lut_first_spatial_point_missing_from_archive",
+      "evidence_path": "data/raw/chemcam_adaptation/metadata/calib_2015_jsc1413.html",
+      "evidence_sha256": "ea9f711ee685d937aa26d3d436f5e7724f5eb519bb10837b8c3d25e34b29874c",
+      "evidence_url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2015/1600mm/jsc1413/",
+      "exact_lut_entry": {
+        "path": "data/raw/adaptation_candidates_root/std_idx_2_file_lut.csv",
+        "sha256": "67c28d215257d41cda7b0681ae2911b4bb2d27fa2b306fe6f2e033fa061db2df",
+        "line_number": 1315,
+        "standard": "JSC1413",
+        "spatial_index": "1",
+        "filename": "2013_09_12_190104.CSV",
+        "raw_row": "JSC1413,1,2013_09_12_190104.CSV"
+      },
+      "available_csv_filenames": [
+        "2013_09_12_190458_ccs.csv",
+        "2013_09_12_190758_ccs.csv",
+        "2013_09_12_190943_ccs.csv",
+        "2013_09_12_191125_ccs.csv"
+      ],
+      "available_spatial_indices": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "http_status": 404,
+      "replacement_used": false,
+      "intensity_examined_for_exclusion": false,
+      "prediction_examined_for_exclusion": false
+    }
+  ]
+}

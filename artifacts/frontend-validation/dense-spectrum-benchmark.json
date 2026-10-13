@@ -1,0 +1,47 @@
+{
+  "points": 100000,
+  "reference_lines": 1000,
+  "before": [
+    {
+      "duration_ms": 217.29999999701977,
+      "display_points": 100000
+    },
+    {
+      "duration_ms": 148.5,
+      "display_points": 100000
+    },
+    {
+      "duration_ms": 151.29999999701977,
+      "display_points": 100000
+    }
+  ],
+  "after": [
+    {
+      "duration_ms": 48.5,
+      "display_points": 3924
+    },
+    {
+      "duration_ms": 47,
+      "display_points": 3924
+    },
+    {
+      "duration_ms": 81.29999999701977,
+      "display_points": 3924
+    }
+  ],
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+  "logical_processors": 8,
+  "viewport": [
+    1440,
+    1000
+  ],
+  "method": "3 alternating runs after warmup; performance.now through Plotly.newPlot + 2 requestAnimationFrame; raw SVG+1000 shapes versus min/max envelope+one reference trace",
+  "browser_version": "141.0.7390.37",
+  "device": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "cpu": "Apple M1",
+    "ram_gib": 8
+  },
+  "measured_at": "2026-10-13T12:46:16.557Z"
+}

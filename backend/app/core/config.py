@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -18,6 +19,19 @@ class Settings(BaseSettings):
     max_stored_spectra: int = 500
     max_storage_bytes: int = 500_000_000
     max_spectrum_points: int = 100_000
+    reference_cache: Path | None = None
+    reference_sha256: str | None = None
+    max_stored_predictions: int = Field(default=1000, ge=1)
+    max_prediction_storage_bytes: int = Field(default=100_000_000, ge=1000)
+    max_pending_jobs: int = Field(default=10, ge=1, le=100)
+    max_job_records: int = Field(default=1000, ge=1)
+    job_timeout_seconds: int = Field(default=3600, ge=1, le=86400)
+    worker_memory_mb: int = Field(default=4096, ge=256, le=65536)
+    max_batch_files: int = Field(default=200, ge=1, le=200)
+    max_batch_records: int = Field(default=100, ge=1, le=10000)
+    max_batch_upload_bytes: int = Field(default=100_000_000, ge=1000)
+    max_batch_input_storage_bytes: int = Field(default=500_000_000, ge=1000)
+    max_batch_cache_bytes: int = Field(default=100_000_000, ge=1000)
 
     def resolved_data_dir(self) -> Path:
         return (self.data_dir or self.project_root / "data").resolve()

@@ -114,7 +114,9 @@ def _normalise_nist_row(
         if not element or ion_stage <= 0:
             raise ValueError("single-spectrum export requires metadata element and ion_stage")
     # One transition may contain observed and Ritz columns. Prefer observed when populated.
-    populated = [item for item in wavelength_columns if (row.get(item[0]) or "").strip()]
+    populated = [
+        item for item in wavelength_columns if (row.get(item[0]) or "").strip() not in {"", '=""'}
+    ]
     if not populated:
         raise ValueError("row has no observed or Ritz wavelength")
     selected = next((item for item in populated if item[1] == "observed"), populated[0])
@@ -155,6 +157,19 @@ class ReferenceCatalog:
     def for_elements(self, elements: list[str] | tuple[str, ...]) -> list[SpectralLine]:
         wanted = set(elements)
         return [line for line in self.lines if line.element in wanted]
+
+    def to_cache(self, path: Path) -> None:
+        metadata = {**self.metadata, "schema_version": 2}
+        rows = [asdict(line) for line in self.lines]
+        metadata["content_sha256"] = reference_content_hash(metadata, rows)
+        self.metadata = metadata
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            json.dumps(
+                {"metadata": metadata, "lines": rows}, ensure_ascii=False, indent=2, allow_nan=False
+            ),
+            encoding="utf-8",
+        )
 
     @classmethod
     def from_delimited(
@@ -249,17 +264,13 @@ class ReferenceCatalog:
         # A single NIST row carrying observed and Ritz already yielded one record above.
         # Only byte-for-byte equivalent normalized rows are treated as duplicates; close
         # physical lines remain distinct.
-        selected: dict[tuple[str, int, float, str, str], tuple[int, SpectralLine]] = {}
+        selected: dict[str, tuple[int, SpectralLine]] = {}
         duplicate_rows = 0
         for candidate in candidates:
             row_number, line = candidate
-            key = (
-                line.element,
-                line.ion_stage,
-                line.wavelength_nm,
-                line.wavelength_kind,
-                line.source_id,
-            )
+            # Distinct transitions may share the rounded observed wavelength.
+            # Keep their Ritz values/level information and all source fields distinct.
+            key = json.dumps(asdict(line), sort_keys=True, ensure_ascii=False, allow_nan=False)
             existing = selected.get(key)
             if existing is None:
                 selected[key] = candidate
@@ -284,16 +295,7 @@ class ReferenceCatalog:
         report = ImportReport(len(lines), issues, duplicate_rows, checksum)
         catalog = cls(lines, enriched_metadata)
         if cache_path:
-            cache_path.parent.mkdir(parents=True, exist_ok=True)
-            cache_path.write_text(
-                json.dumps(
-                    {"metadata": enriched_metadata, "lines": [asdict(line) for line in lines]},
-                    ensure_ascii=False,
-                    indent=2,
-                    allow_nan=False,
-                ),
-                encoding="utf-8",
-            )
+            catalog.to_cache(cache_path)
         if report_path:
             report_path.parent.mkdir(parents=True, exist_ok=True)
             report_path.write_text(
@@ -305,12 +307,44 @@ class ReferenceCatalog:
     @classmethod
     def from_cache(cls, path: Path) -> ReferenceCatalog:
         payload = json.loads(path.read_text(encoding="utf-8"))
+        metadata = payload["metadata"]
+        if metadata.get("schema_version") != 2:
+            raise ValueError("Reference cache schema must be 2; re-import the original export")
+        if metadata.get("content_sha256") != reference_content_hash(metadata, payload["lines"]):
+            raise ValueError("Reference cache content checksum mismatch")
+        if metadata.get("units") != "nm" or metadata.get("wavelength_medium") != "vacuum":
+            raise ValueError("Reference requires explicitly converted vacuum nm wavelengths")
         lines = []
         for row in payload["lines"]:
             row.setdefault("raw_wavelength", str(row["wavelength_nm"]))
             row.setdefault("source_fields", {})
-            lines.append(SpectralLine(**row))
+            line = SpectralLine(**row)
+            if (
+                line.wavelength_medium != "vacuum"
+                or line.ion_stage < 1
+                or not math.isfinite(line.wavelength_nm)
+                or line.wavelength_nm <= 0
+                or (
+                    line.relative_intensity is not None
+                    and (not math.isfinite(line.relative_intensity) or line.relative_intensity < 0)
+                )
+            ):
+                raise ValueError("Invalid reference line or wavelength convention")
+            lines.append(line)
         return cls(lines, payload["metadata"])
+
+
+def reference_content_hash(metadata: dict[str, Any], rows: list[dict[str, Any]]) -> str:
+    """Integrity of normalized lines AND provenance, independent of import wall time."""
+    stable = {k: v for k, v in metadata.items() if k not in {"content_sha256", "imported_at"}}
+    return hashlib.sha256(
+        json.dumps(
+            {"metadata": stable, "lines": rows},
+            sort_keys=True,
+            separators=(",", ":"),
+            allow_nan=False,
+        ).encode()
+    ).hexdigest()
 
 
 def load_demo_catalog(root: Path | None = None) -> ReferenceCatalog:

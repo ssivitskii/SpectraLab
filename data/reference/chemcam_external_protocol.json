@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "protocol_id": "chemcam-preflight-positive-recall-v1",
+  "locked_at": "2026-10-13T15:07:47.763060+00:00",
+  "test_locked_before_prediction": true,
+  "selection_rule": "All physical sample names in original preflight matrix with exactly one exact case-insensitive Spectrum Name match in official chemistry table. No selection by intensity or predictions.",
+  "test_sample_ids": [
+    "AGV2",
+    "BCR2",
+    "BEN",
+    "BHVO2",
+    "BIR1",
+    "BK2",
+    "BT2",
+    "BWQC1",
+    "CADILLAC",
+    "DH4912",
+    "GBW07104",
+    "GBW07105",
+    "GBW07108",
+    "GBW07110",
+    "GBW07113",
+    "GBW07313",
+    "GBW07316",
+    "GRANODIKE",
+    "GSR2",
+    "GUWGNA",
+    "GYPA",
+    "GYPB",
+    "GYPC",
+    "GYPD",
+    "JA1",
+    "JA2",
+    "JA3",
+    "JB2",
+    "JB3",
+    "JDO1",
+    "JR1",
+    "KGA-MED-S",
+    "MHC1356",
+    "MHC2319",
+    "MHC3828",
+    "MO12",
+    "MO14",
+    "MO7",
+    "MOPPIN",
+    "MSHA",
+    "NAU2",
+    "NAU2-HI-S",
+    "NAU2-LO-S",
+    "NAU2-MED-S",
+    "NORITE",
+    "PICRITE",
+    "SARM51",
+    "SHERGOTTITE",
+    "SRM688",
+    "SRM88B",
+    "SRM97A",
+    "SRM98A",
+    "STSD1",
+    "STSD3",
+    "STSD4",
+    "TROND",
+    "UMPH",
+    "UNSAK",
+    "UNSZK",
+    "VH1",
+    "VH49",
+    "VZO106",
+    "VZO114",
+    "WM"
+  ],
+  "excluded_samples": {
+    "SGR1": "missing or ambiguous chemistry mapping",
+    "M6-HAGGERTY": "missing or ambiguous chemistry mapping"
+  },
+  "development_sample_ids": [],
+  "development_session_ids": [],
+  "acquisition_session_id": "ChemCam-LANL-preflight-cleanroom-Test6-campaign",
+  "grouping": "Physical sample name, all replicate columns; entire campaign external-only. Dates not recovered in compiled product; conservatively one session.",
+  "model_seeds": [
+    7,
+    17,
+    29,
+    43,
+    71
+  ],
+  "models": [
+    "baseline-nnls",
+    "logistic-ovr",
+    "random-forest"
+  ],
+  "classes": [
+    "H",
+    "He",
+    "Na",
+    "Mg",
+    "Ca",
+    "Fe"
+  ],
+  "preprocessing": {
+    "wavelength_medium": "vacuum",
+    "grid_start_nm": 350.0,
+    "grid_end_nm": 800.0,
+    "step_nm": 0.1,
+    "observed_intervals_nm": [
+      [
+        383.0,
+        468.0
+      ],
+      [
+        500.0,
+        800.0
+      ]
+    ],
+    "max_gap_nm": 0.5,
+    "normalization": "max_abs within observed mask",
+    "gaps": "Unobserved features removed from estimator input and templates; no interpolation across spectrometer gaps"
+  },
+  "labels": {
+    "positive": "reported finite oxide wt% > 0 for Na2O MgO CaO FeOT",
+    "unknown": "missing, zero, negative values; H and He always unknown",
+    "negative": "none: rounded zero is not proof of elemental absence",
+    "chemistry_is_not_spectral_prediction": "Official calibration-standard reference composition table; no Mars MOC prediction tables used."
+  },
+  "metrics": {
+    "primary": "equal-physical-sample weighted recall on known positive labels; per-element support, misses and recall",
+    "uncertainty": "sample-cluster percentile bootstrap, 1000 resamples seed20261013; conditional on this acquisition campaign",
+    "undefined": [
+      "precision",
+      "specificity",
+      "micro_f1",
+      "false_positive_rate"
+    ],
+    "replicate_vote": "mean binary detection within each physical sample; no replicate treated as independent sample"
+  },
+  "synthetic_development": {
+    "base_samples": 240,
+    "variations": 2,
+    "split": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "mixture_sizes": [
+      1,
+      2,
+      3
+    ],
+    "component_weights": [
+      0.35,
+      1.2
+    ],
+    "snr_db": [
+      20.0,
+      40.0
+    ],
+    "fwhm_nm": 0.5,
+    "mechanism": "linear combinations of pixel-integrated Gaussian NIST templates; Gaussian noise; identical observation mask applied to templates/train/development/real test",
+    "thresholds": "select per-class F1 on synthetic development only"
+  },
+  "adaptation": "none: no real-spectrum alignment, scaling fit, model/calibration/threshold selection; profile fixed from instrument documentation before predictions",
+  "input_sha256": {
+    "msl_ccam_libs_calib.csv": "4e9b34d79b87d8594d2be300f428f167f95a65dff8febf0bf8d79df96c1348c2",
+    "msl_ccam_libs_calib.lbl": "2deddf91f0ce6af40d3d4d733884c8de9db563147c290e5d74c4691681e0f218",
+    "ccam_calibration_compositions.csv": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07",
+    "calinfo.txt": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf"
+  }
+}

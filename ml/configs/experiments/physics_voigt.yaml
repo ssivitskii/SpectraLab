@@ -1,0 +1,23 @@
+schema_version: 1
+run_id: physics-voigt
+project_config: ../benchmark_project.yaml
+seeds:
+- 7
+- 17
+- 29
+- 43
+- 71
+models:
+- baseline-nnls
+- logistic-ovr
+- random-forest
+base_samples: 36
+variations: 1
+factor: lorentzian_fwhm_nm
+values:
+- 0
+- 0.1
+- 0.5
+generation:
+  profile: voigt
+  snr_db: null

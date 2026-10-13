@@ -1,0 +1,10 @@
+schema_version: 1
+run_id: nist-smoke
+project_config: ../benchmark_project.yaml
+reference_cache: ../../../data/reference/nist_neutral_350_800/catalog.json
+seed: 17
+models: [baseline-nnls, logistic-ovr, random-forest]
+base_samples: 18
+variations: 1
+factor: snr_db
+values: [20]

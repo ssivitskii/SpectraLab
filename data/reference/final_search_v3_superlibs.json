@@ -1,0 +1,2142 @@
+{
+  "schema_version": 1,
+  "audit_id": "final-search-v3-superlibs",
+  "reviewed_at": "2026-10-13",
+  "status": "blocked",
+  "metrics_status": "pending_no_final_score",
+  "final_metrics": null,
+  "scope": "Targeted primary metadata/chemistry search for new low-Fe operational-negative materials and independently certified Fe/Mg method/matrix blanks. This is a candidate intake, not a final campaign admission.",
+  "safety_of_evaluation": {
+    "new_final_intensity_downloaded_or_opened": false,
+    "predictions_or_fit_executed": false,
+    "authors_contacted": false,
+    "model_or_thresholds_changed": false
+  },
+  "resolved_previous_blockers": [
+    {
+      "code": "pds_license_now_confirmed",
+      "detail": "The registered PDS bundle DOI explicitly carries CC0-1.0 in DataCite, alongside the US-government-work statement. This supersedes a metadata-discovery blocker, not the scientific admission guards.",
+      "url": "https://api.datacite.org/dois/10.17189/b2aj-cz96",
+      "source_sha256": "a7d7389f77e2a36a859ab48f7ba5b779ffe9d580e8c1477fc60faaee9f268bfe"
+    },
+    {
+      "code": "zenodo_metadata_retrieved_by_alternative_official_endpoints",
+      "detail": "Record export/json and files API both work; catalogue has seven large numeric CSV assets and no separate README or chemistry attachment. No CSV content requested."
+    },
+    {
+      "code": "new_low_Fe_materials_identified",
+      "detail": "Chemistry rows and SuperLIBS XML labels are pinned for prospective low-Fe materials. These are point-estimate labels, not blank certification."
+    },
+    {
+      "code": "ALI_numeric_product_catalogue_presence",
+      "detail": "ALI appears in the retrieved prefix of the ChemLIBS product catalogue. Positive presence is confirmed; catalogue transfer was incomplete and neither product label nor intensity was opened."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "pds_libs_v1_1",
+      "doi": "10.17189/b2aj-cz96",
+      "url": "https://pds.nasa.gov/ds-view/pds/viewBundle.jsp?identifier=urn%3Anasa%3Apds%3Alibs_reference_database&version=1.1",
+      "license_id": "CC0-1.0",
+      "rights": [
+        {
+          "lang": "en-US",
+          "rights": "This is a work of the U.S. Government and is not subject to copyright protection in the United States. Foreign copyrights may apply.",
+          "rightsUri": "https://www.usa.gov/government-works"
+        },
+        {
+          "lang": "en-US",
+          "rights": "Creative Commons Zero v1.0 Universal",
+          "rightsUri": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+          "schemeUri": "https://spdx.org/licenses/",
+          "rightsIdentifier": "cc0-1.0",
+          "rightsIdentifierScheme": "SPDX"
+        }
+      ],
+      "numeric_spectra_availability": "PDS4 XML labels and product LID inventories; raw data content not accessed",
+      "processing": "PDS dark-subtracted, Ti-aligned, instrument-response-corrected for ChemLIBS/SuperLIBS; no baseline removal. pLIBS is reported in arbitrary units.",
+      "axis_medium": "unconfirmed"
+    },
+    {
+      "source_id": "zenodo_superlibs_10287455",
+      "doi": "10.5281/zenodo.10287455",
+      "url": "https://zenodo.org/records/10287455",
+      "metadata_endpoints": [
+        "https://zenodo.org/records/10287455/export/json",
+        "https://zenodo.org/api/records/10287455/files"
+      ],
+      "license_id": "CC-BY-4.0",
+      "file_count": 7,
+      "total_bytes": 2634018275,
+      "files": [
+        {
+          "name": "zenodo.10K_EARTH.2.4mJ.csv",
+          "bytes": 385656316,
+          "checksum": "md5:7e2d18e8b37e158fe09dc4445c5f86d1",
+          "url": "https://zenodo.org/api/records/10287455/files/zenodo.10K_EARTH.2.4mJ.csv/content",
+          "downloaded": false
+        },
+        {
+          "name": "zenodo.10K_EARTH.3.2mJ.csv",
+          "bytes": 330380878,
+          "checksum": "md5:166dcaeb7fec09a63e1ced072e68b3bb",
+          "url": "https://zenodo.org/api/records/10287455/files/zenodo.10K_EARTH.3.2mJ.csv/content",
+          "downloaded": false
+        },
+        {
+          "name": "zenodo.10K_EARTH.4.0mJ.csv",
+          "bytes": 385424139,
+          "checksum": "md5:fac1709aef777419279e32b6b039ea31",
+          "url": "https://zenodo.org/api/records/10287455/files/zenodo.10K_EARTH.4.0mJ.csv/content",
+          "downloaded": false
+        },
+        {
+          "name": "zenodo.10K_VACUUM.2.4mJ.csv",
+          "bytes": 383501716,
+          "checksum": "md5:b8ec653d2aa960357f26386130c0281b",
+          "url": "https://zenodo.org/api/records/10287455/files/zenodo.10K_VACUUM.2.4mJ.csv/content",
+          "downloaded": false
+        },
+        {
+          "name": "zenodo.10K_VACUUM.4.0mJ.csv",
+          "bytes": 382917565,
+          "checksum": "md5:a78b258ba2cc747b17184f4efc5f0256",
+          "url": "https://zenodo.org/api/records/10287455/files/zenodo.10K_VACUUM.4.0mJ.csv/content",
+          "downloaded": false
+        },
+        {
+          "name": "zenodo.10K_VACUUM.5.6mJ.csv",
+          "bytes": 382940762,
+          "checksum": "md5:baf68ed5627901c78dfe13445f0be2ae",
+          "url": "https://zenodo.org/api/records/10287455/files/zenodo.10K_VACUUM.5.6mJ.csv/content",
+          "downloaded": false
+        },
+        {
+          "name": "zenodo.10K_VACUUM.7.2mJ.csv",
+          "bytes": 383196899,
+          "checksum": "md5:9c936570aed5c74b38b1ce47b059e039",
+          "url": "https://zenodo.org/api/records/10287455/files/zenodo.10K_VACUUM.7.2mJ.csv/content",
+          "downloaded": false
+        }
+      ],
+      "axis_medium": "unconfirmed",
+      "processing": "Published SuperLIBS 10K Earth/vacuum products use airPLS and per-region normalization. They must not be treated as identical to PDS products without a documented transformation.",
+      "chemistry_asset_separate": false
+    }
+  ],
+  "operational_policy": {
+    "estimand": "operational_above_threshold",
+    "units": "oxide wt %",
+    "negative_condition": "0 < point estimate <= 0.1",
+    "positive_condition": "point estimate >= 1.0",
+    "unknown": "missing, zero, or 0.1 < point estimate < 1.0",
+    "strict_absence_inferred": false,
+    "blank_requirement": "At least one independently certified method/matrix blank family with separately sourced finite FeOT and MgO upper bounds <=0.1 oxide wt %, traceable material/assay IDs and provenance."
+  },
+  "Fe_oxide_conversion": {
+    "source_column": "Fe2O3*",
+    "target": "FeOT equivalent",
+    "formula": "FeOT = Fe2O3* * 2*(55.845+15.999)/(2*55.845+3*15.999)",
+    "atomic_masses_g_mol": {
+      "Fe": 55.845,
+      "O": 15.999
+    },
+    "factor": 0.8998102538090137,
+    "interpretation": "Stoichiometric reporting conversion of the reported Fe2O3* mass to equivalent FeO mass; does not establish oxidation state, exact absence, uncertainty, or a certified upper bound."
+  },
+  "axis_evidence": [
+    {
+      "source": "PDS user guide",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/user_guide.pdf",
+      "snapshot_sha256": "db388ced0d24536a5111c30fb4a3aab0edca4a594239f6b52fa24a0a26b2b643",
+      "locations": "sections 2a–2d, 5 and references 13–17",
+      "finding": "Ti wavelength alignment and a standard pLIBS axis are described, but no air/vacuum convention or numerical Ti reference atlas is identified. Vacuum labels describe measurement atmosphere."
+    },
+    {
+      "source": "Lepore et al. 2018 SuperLIBS instrument paper",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2018/pdf/1179.pdf",
+      "snapshot_sha256": "e32af7d4c1d585ca11e8156be0a7fe343994937238a550d5ab64020774a62c2b",
+      "locations": "page 2, Data preprocessing",
+      "finding": "Ti alignment is analogous to ChemCam processing; this does not state the wavelength convention for exported SuperLIBS products."
+    },
+    {
+      "source": "Lepore et al. 2024 post-processing paper",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2024/pdf/1084.pdf",
+      "snapshot_sha256": "7bc258b65ba8581ffed974d5f6289a8cdfb53f77d88296596ee3ba1285e17ce5",
+      "locations": "page 1, Reference standards and instrumentation",
+      "finding": "Ti alignment and common-axis resampling are described; no wavelength-medium convention is provided."
+    },
+    {
+      "source": "Belkhodja 2025, official repository extracted thesis text",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bitstreams/31295384-cfd6-41e1-afa2-8b23510225b8/content",
+      "snapshot_sha256": "f6b9275cb174ce98bfb79b2fd9481edd7f0420b9743da6758dffc1d17b384b37",
+      "locations": "sections 4.2.1B–C, printed pages 32–33; local lines 2070–2100",
+      "finding": "Each run Ti spectrum is aligned with icoshift to a baseline spectrum, then the shift is applied to targets. The baseline reference axis is not identified as air or vacuum. The DH2000 section concerns instrument response."
+    },
+    {
+      "source": "Dyar et al. 2024",
+      "url": "https://doi.org/10.1029/2024EA003635",
+      "locations": "section 3 Data Processing and Models",
+      "finding": "Dark subtraction, Ti alignment, instrument-response correction, airPLS and region normalization; no explicit exported-axis medium. Published LOQ is model-derived and cannot certify chemical blanks."
+    }
+  ],
+  "previous_access_audit": {
+    "sources": [
+      {
+        "path": "data/reference/chemcam_v2_final_admission.json",
+        "sha256": "acb74da49c1fc58cef738d9d89240f88159b89e800c977ee01069b126cb4ff1a",
+        "bytes": 63004,
+        "kind": "metadata"
+      },
+      {
+        "path": "data/reference/chemcam_adaptation_intake.json",
+        "sha256": "96030fed84993656e52be8e55de71a8968001e7a747d61fe46410bb441fffe00",
+        "bytes": 453829,
+        "kind": "metadata"
+      },
+      {
+        "path": "data/reference/chemcam_adaptation_v2_intake.json",
+        "sha256": "288d7bea92e209e9cb38fb6d30fc83c6df22cb28486773db33656c5179c16ec3",
+        "bytes": 19925,
+        "kind": "metadata"
+      },
+      {
+        "path": "data/reference/external_pds_intake.json",
+        "sha256": "a1352ea995ce313e89db664a0301e2b293ed5eed11f5507dc1fa4497012fb937",
+        "bytes": 8238,
+        "kind": "metadata"
+      }
+    ],
+    "seen_registry_counts": {
+      "measurement_ids": 203,
+      "physical_sample_ids": 247,
+      "family_ids": 207,
+      "session_ids": 54,
+      "input_sha256s": 206,
+      "assay_ids": 203
+    },
+    "material_reuse_exclusions": [
+      "GYPB",
+      "JDO1"
+    ],
+    "conservative_possible_alias_exclusion": [
+      "JD01 -> JDO1"
+    ],
+    "session_reuse_exclusion": "All inspected pLIBS Z300 labels report 2018-07-05Z, matching previously accessed 2018-07-05Z-run1.",
+    "limitations": "A novel normalized ID is not proof of independent material/family/assay. SuperLIBS label date versus preprocessing filename inconsistencies must be reconciled before session-disjoint use."
+  },
+  "candidates": [
+    {
+      "sample_id": "A131705",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 321,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:321:A131705",
+        "row_sha256": "3ba4bd282ef5ccedcf0b9751597cf19061bda0b5afebef4ecad9d0e223604058",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A321",
+        "Fe_source_cell": "E321",
+        "Mg_source_cell": "G321",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.09,
+        "FeOT_equivalent_wt_percent": 0.08098292284281124,
+        "MgO_wt_percent": null,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "unknown"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": []
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 99,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21120705ccs_mars_t64l01_a131705_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21120705ccs_mars_t64l02_a131705_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21120705ccs_mars_t64l03_a131705_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_a131705::1.0"
+          ]
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 18,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16063002ccs_mars_t05l01_a131705_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16063002ccs_mars_t05l02_a131705_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16063002ccs_mars_t05l03_a131705_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/plibs_z300_a131705.xml",
+            "sha256": "fdb7b35f28f68d7dc8fc1341b682841b5dc7ae271fe46c2d56671c92c9533922",
+            "bytes": 10656,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_a131705.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_a131705",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_a131705.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "pLIBS Z-300",
+          "measurement_date_time_reported": "2018-07-05Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Unknown",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "blocked_seen_session",
+          "records_reported": "23431",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        },
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/mh6_21120902ccs_vacuum_t64l01_a131705_spect.xml",
+            "sha256": "5c5780264e9156bbb47842cdfe08681993da3a0490df4fc49dec0bb95b75f0d0",
+            "bytes": 20563,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21120902ccs_vacuum_t64l01_a131705_spect.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21120902ccs_vacuum_t64l01_a131705_spect",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21120902ccs_vacuum_t64l01_a131705_spect.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "SuperLIBS",
+          "measurement_date_time_reported": "2021-12-07Z",
+          "filename_date_component": "211209",
+          "specimen_provider_name": "Unknown",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "provisional_date_only_run_identity_unresolved",
+          "records_reported": "8767",
+          "notes": [
+            "Filename YYMMDDRR is documented as preprocessing date for SuperLIBS. Some label acquisition dates occur later than filename date; retain both and require reconciliation before a session-disjoint final."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "ALI",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 332,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:332:ALI",
+        "row_sha256": "8997a4befd52cc2cdc7baed2457b829f4856a5260c2e84ebd67baa78bdb3654b",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A332",
+        "Fe_source_cell": "E332",
+        "Mg_source_cell": "G332",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.03,
+        "FeOT_equivalent_wt_percent": 0.02699430761427041,
+        "MgO_wt_percent": 0.04,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "negative"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": []
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 24,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16031801ccs_mars_t02l01_ali_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16031801ccs_mars_t02l02_ali_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16031801ccs_mars_t02l03_ali_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds",
+        "measurement_label_and_session_not_pinned"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "GYPB",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 768,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:768:GYPB",
+        "row_sha256": "29377df64c71075086af7f4a1e613261af2ab45cbd5fb8be4f85bd5bec2d4710",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A768",
+        "Fe_source_cell": "E768",
+        "Mg_source_cell": "G768",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.07,
+        "FeOT_equivalent_wt_percent": 0.06298671776663096,
+        "MgO_wt_percent": 1.8,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "positive"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {
+          "physical_sample_ids": [
+            "gypb"
+          ],
+          "family_ids": [
+            "gypb"
+          ]
+        },
+        "published_alias_matches": [
+          {
+            "measurement_id": "development:gypb:2013_08_08_160842_ccs",
+            "physical_sample_id": "gypb",
+            "family_id": "gypb",
+            "session_id": "chemcam-testbed-2013-08-08",
+            "role": "development"
+          }
+        ],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": []
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 64,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20050301ccs_mars_t11l01_gypb_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20050301ccs_mars_t11l02_gypb_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20050301ccs_mars_t11l03_gypb_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_gypb::1.0"
+          ]
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z903:plibs_z903_gypb::1.0"
+          ]
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 54,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_15071401ccs_mars_t05l01_gypb_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_15071401ccs_mars_t05l02_gypb_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_15071401ccs_mars_t05l03_gypb_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/plibs_z300_gypb.xml",
+            "sha256": "a01ca9e139ef0d8157fb23d9e75fdb3c2a10fef0ea1effaf74833553f90bef29",
+            "bytes": 10735,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_gypb.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_gypb",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_gypb.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "pLIBS Z-300",
+          "measurement_date_time_reported": "2018-07-05Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Brammer Standard",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "blocked_seen_session",
+          "records_reported": "23431",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds",
+        "previously_seen_material"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "JD01",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 1211,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:1211:JD01",
+        "row_sha256": "f0081f567afe385230c35c6f2d0b133ddde901165b75a8c3abfee76ae5116d93",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A1211",
+        "Fe_source_cell": "E1211",
+        "Mg_source_cell": "G1211",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.1,
+        "FeOT_equivalent_wt_percent": 0.08998102538090137,
+        "MgO_wt_percent": 18.4,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "positive"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": [
+          "Possible zero/O alias of already-seen JDO1: major-oxide rows are identical. Exclude pending material-level resolution."
+        ]
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_jd01::1.0"
+          ]
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 18,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_15071303ccs_mars_t07l01_jd01_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_15071303ccs_mars_t07l02_jd01_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_15071303ccs_mars_t07l03_jd01_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/plibs_z300_jd01.xml",
+            "sha256": "94757ff7123f4e46ee6d9c5d904ce3fbb7a33b6b3d664ace0e74150d6ac1fe0a",
+            "bytes": 10638,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_jd01.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_jd01",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_jd01.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "pLIBS Z-300",
+          "measurement_date_time_reported": "2018-07-05Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Unknown",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "blocked_seen_session",
+          "records_reported": "23431",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds",
+        "possible_alias_of_previously_seen_JDO1"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "JDO1",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 1212,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:1212:JDO1",
+        "row_sha256": "e3b5d1b4a36f22589f5ab7b51c471761dd51c0b9ccff5ed7fa66a1f03c5315d4",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A1212",
+        "Fe_source_cell": "E1212",
+        "Mg_source_cell": "G1212",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.1,
+        "FeOT_equivalent_wt_percent": 0.08998102538090137,
+        "MgO_wt_percent": 18.4,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "positive"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {
+          "physical_sample_ids": [
+            "jdo1"
+          ],
+          "family_ids": [
+            "jdo1"
+          ]
+        },
+        "published_alias_matches": [
+          {
+            "measurement_id": "development:jdo1:2013_08_13_151318_ccs",
+            "physical_sample_id": "jdo1",
+            "family_id": "jdo1",
+            "session_id": "chemcam-testbed-2013-08-13",
+            "role": "development"
+          }
+        ],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": []
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 29,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20050301ccs_mars_t63l01_jdo1_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20050301ccs_mars_t63l02_jdo1_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20050301ccs_mars_t63l03_jdo1_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 0,
+          "complete_inventory": false,
+          "example_lids": []
+        }
+      },
+      "pinned_measurement_labels": [],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds",
+        "previously_seen_material",
+        "measurement_label_and_session_not_pinned"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "S10MA010D",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 2352,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:2352:S10MA010D",
+        "row_sha256": "ba669c048c3d92139dace75697dcc411a5e95b237181e052cd94959877543181",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A2352",
+        "Fe_source_cell": "E2352",
+        "Mg_source_cell": "G2352",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.12,
+        "FeOT_equivalent_wt_percent": 0.10797723045708164,
+        "MgO_wt_percent": 0.01,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "unknown",
+          "MgO": "negative"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": []
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 59,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21072704ccs_mars_t25l01_s10ma010d_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21072704ccs_mars_t25l02_s10ma010d_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21072704ccs_mars_t25l03_s10ma010d_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_s10ma010d::1.0"
+          ]
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z903:plibs_z903_s10ma010d::1.0"
+          ]
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 18,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19012802ccs_mars_t14l01_s10ma010d_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19012802ccs_mars_t14l02_s10ma010d_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19012802ccs_mars_t14l03_s10ma010d_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/mh6_21072802ccs_vacuum_t25l01_s10ma010d_spect.xml",
+            "sha256": "65fc063c0b254509f1bb48cfdb41c644f3de0596a189941085aaf77247bf38f3",
+            "bytes": 20658,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21072802ccs_vacuum_t25l01_s10ma010d_spect.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21072802ccs_vacuum_t25l01_s10ma010d_spect",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21072802ccs_vacuum_t25l01_s10ma010d_spect.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "SuperLIBS",
+          "measurement_date_time_reported": "2021-08-27Z",
+          "filename_date_component": "210728",
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "provisional_date_only_run_identity_unresolved",
+          "records_reported": "8767",
+          "notes": [
+            "Filename YYMMDDRR is documented as preprocessing date for SuperLIBS. Some label acquisition dates occur later than filename date; retain both and require reconciliation before a session-disjoint final."
+          ]
+        },
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/plibs_z300_s10ma010d.xml",
+            "sha256": "18a27fabff1253b2e87bd2db1856eb1bd319cc4a93ca11b03d68d22e6465d14a",
+            "bytes": 10751,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_s10ma010d.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_s10ma010d",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_s10ma010d.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "pLIBS Z-300",
+          "measurement_date_time_reported": "2018-07-05Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "blocked_seen_session",
+          "records_reported": "23431",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds",
+        "FeOT_point_estimate_above_negative_threshold"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "T10CT010",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 2505,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:2505:T10CT010",
+        "row_sha256": "07747148eca9c6b5f855c582ce9fbbe228cfc59439852d3902b60a4feb5de244",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A2505",
+        "Fe_source_cell": "E2505",
+        "Mg_source_cell": "G2505",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.08,
+        "FeOT_equivalent_wt_percent": 0.0719848203047211,
+        "MgO_wt_percent": 0.0,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "unknown"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": [
+          "Rhodes material series: physical batch/family provenance not supplied. Do not count IDs or shot/location files as independent families."
+        ]
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 59,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101303ccs_mars_t21l01_t10ct010_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101303ccs_mars_t21l02_t10ct010_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101303ccs_mars_t21l03_t10ct010_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_t10ct010::1.0"
+          ]
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z903:plibs_z903_t10ct010::1.0"
+          ]
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 17,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16071904ccs_mars_t07l01_t10ct010_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16071904ccs_mars_t07l02_t10ct010_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16071904ccs_mars_t07l03_t10ct010_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/plibs_z300_t10ct010.xml",
+            "sha256": "69135e9e7574613f04f6250d9d94c35ce9e8be451daef3eb95805f02f67fa3fd",
+            "bytes": 10745,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct010.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_t10ct010",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct010.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "pLIBS Z-300",
+          "measurement_date_time_reported": "2018-07-05Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "blocked_seen_session",
+          "records_reported": "23431",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        },
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/mh6_21101803ccs_vacuum_t21l01_t10ct010_spect.xml",
+            "sha256": "76ca36ab24bc8ce648f866d4319af40a882ef9d2bf7679442e4f12a44821f28f",
+            "bytes": 20652,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21101803ccs_vacuum_t21l01_t10ct010_spect.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101803ccs_vacuum_t21l01_t10ct010_spect",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21101803ccs_vacuum_t21l01_t10ct010_spect.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "SuperLIBS",
+          "measurement_date_time_reported": "2021-11-14Z",
+          "filename_date_component": "211018",
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "provisional_date_only_run_identity_unresolved",
+          "records_reported": "8767",
+          "notes": [
+            "Filename YYMMDDRR is documented as preprocessing date for SuperLIBS. Some label acquisition dates occur later than filename date; retain both and require reconciliation before a session-disjoint final."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "T10CT012",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 2507,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:2507:T10CT012",
+        "row_sha256": "e349a469b4252065ee3a5966709c4c26462ad0319cab06cc374048efc6d92c92",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A2507",
+        "Fe_source_cell": "E2507",
+        "Mg_source_cell": "G2507",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.05,
+        "FeOT_equivalent_wt_percent": 0.044990512690450686,
+        "MgO_wt_percent": 0.0,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "unknown"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": [
+          "Rhodes material series: physical batch/family provenance not supplied. Do not count IDs or shot/location files as independent families."
+        ]
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 59,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101303ccs_mars_t23l01_t10ct012_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101303ccs_mars_t23l02_t10ct012_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101303ccs_mars_t23l03_t10ct012_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_t10ct012::1.0"
+          ]
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z903:plibs_z903_t10ct012::1.0"
+          ]
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 18,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16071904ccs_mars_t10l01_t10ct012_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16071904ccs_mars_t10l02_t10ct012_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16071904ccs_mars_t10l03_t10ct012_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/plibs_z300_t10ct012.xml",
+            "sha256": "f7eaba1966dd0c65f9093d439e85fa5814724edd1ebd3cc8cb2d2959d183c1cb",
+            "bytes": 10745,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct012.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_t10ct012",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct012.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "pLIBS Z-300",
+          "measurement_date_time_reported": "2018-07-05Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "blocked_seen_session",
+          "records_reported": "23431",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        },
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/mh6_21101803ccs_vacuum_t23l01_t10ct012_spect.xml",
+            "sha256": "aefc2afb9bb4a0a7c4a6bb5a4791b8f5f2e0fbd8d5f8a646776d41ff1557288b",
+            "bytes": 20652,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21101803ccs_vacuum_t23l01_t10ct012_spect.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101803ccs_vacuum_t23l01_t10ct012_spect",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21101803ccs_vacuum_t23l01_t10ct012_spect.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "SuperLIBS",
+          "measurement_date_time_reported": "2021-11-14Z",
+          "filename_date_component": "211018",
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "provisional_date_only_run_identity_unresolved",
+          "records_reported": "8767",
+          "notes": [
+            "Filename YYMMDDRR is documented as preprocessing date for SuperLIBS. Some label acquisition dates occur later than filename date; retain both and require reconciliation before a session-disjoint final."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "T12CT134",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 2636,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:2636:T12CT134",
+        "row_sha256": "51ad0de121c925301b7623e7debad8c89c00eb1a023eae61a6d81ba22b08b09b",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A2636",
+        "Fe_source_cell": "E2636",
+        "Mg_source_cell": "G2636",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.1,
+        "FeOT_equivalent_wt_percent": 0.08998102538090137,
+        "MgO_wt_percent": 0.03,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "negative"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": [
+          "Rhodes material series: physical batch/family provenance not supplied. Do not count IDs or shot/location files as independent families."
+        ]
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 59,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21102203ccs_mars_t51l01_t12ct134_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21102203ccs_mars_t51l02_t12ct134_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21102203ccs_mars_t51l03_t12ct134_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_t12ct134::1.0"
+          ]
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z903:plibs_z903_t12ct134::1.0"
+          ]
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 18,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19020108ccs_mars_t13l01_t12ct134_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19020108ccs_mars_t13l02_t12ct134_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19020108ccs_mars_t13l03_t12ct134_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/plibs_z300_t12ct134.xml",
+            "sha256": "9ba0e51e1b50ae28dd3f007c9da2a5ad3e53ac0718d169ae1c480149b7399453",
+            "bytes": 10745,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct134.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_t12ct134",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct134.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "pLIBS Z-300",
+          "measurement_date_time_reported": "2018-07-05Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "blocked_seen_session",
+          "records_reported": "23431",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        },
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/mh6_21102701ccs_vacuum_t51l01_t12ct134_spect.xml",
+            "sha256": "6ea11ff9fb6fa70860fd02a68f40dff0d7f01644f85fac5142848f2dec8bc73a",
+            "bytes": 20652,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21102701ccs_vacuum_t51l01_t12ct134_spect.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21102701ccs_vacuum_t51l01_t12ct134_spect",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21102701ccs_vacuum_t51l01_t12ct134_spect.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "SuperLIBS",
+          "measurement_date_time_reported": "2021-11-25Z",
+          "filename_date_component": "211027",
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "provisional_date_only_run_identity_unresolved",
+          "records_reported": "8767",
+          "notes": [
+            "Filename YYMMDDRR is documented as preprocessing date for SuperLIBS. Some label acquisition dates occur later than filename date; retain both and require reconciliation before a session-disjoint final."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "T12CT135",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 2637,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:2637:T12CT135",
+        "row_sha256": "5855c7570e44c0f88194b361d52b3a7399f3a5a536d55f255f362e058cbfd471",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A2637",
+        "Fe_source_cell": "E2637",
+        "Mg_source_cell": "G2637",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.03,
+        "FeOT_equivalent_wt_percent": 0.02699430761427041,
+        "MgO_wt_percent": 0.02,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "negative"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": [
+          "Rhodes material series: physical batch/family provenance not supplied. Do not count IDs or shot/location files as independent families."
+        ]
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 59,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21102203ccs_mars_t52l01_t12ct135_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21102203ccs_mars_t52l02_t12ct135_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21102203ccs_mars_t52l03_t12ct135_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_t12ct135::1.0"
+          ]
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z903:plibs_z903_t12ct135::1.0"
+          ]
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 17,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19020108ccs_mars_t15l01_t12ct135_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19020108ccs_mars_t15l02_t12ct135_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19020108ccs_mars_t15l03_t12ct135_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/mh6_21102701ccs_vacuum_t52l01_t12ct135_spect.xml",
+            "sha256": "3949c8a123e931ce4f7b5c1c1545bf00f3fa30d6525460e740a4775acf3c559b",
+            "bytes": 20652,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21102701ccs_vacuum_t52l01_t12ct135_spect.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21102701ccs_vacuum_t52l01_t12ct135_spect",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21102701ccs_vacuum_t52l01_t12ct135_spect.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "SuperLIBS",
+          "measurement_date_time_reported": "2021-11-25Z",
+          "filename_date_component": "211027",
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "provisional_date_only_run_identity_unresolved",
+          "records_reported": "8767",
+          "notes": [
+            "Filename YYMMDDRR is documented as preprocessing date for SuperLIBS. Some label acquisition dates occur later than filename date; retain both and require reconciliation before a session-disjoint final."
+          ]
+        },
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/plibs_z300_t12ct135.xml",
+            "sha256": "57fc34f659113f7e58acad8706bcff21a44e10aa57fedb7866c29e5b69c6db8e",
+            "bytes": 10745,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct135.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_t12ct135",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct135.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "pLIBS Z-300",
+          "measurement_date_time_reported": "2018-07-05Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Rhodes, Michael",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "blocked_seen_session",
+          "records_reported": "23431",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "T12CT157A",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 2648,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:2648:T12CT157A",
+        "row_sha256": "5a12fc5f14bae0ef148475b89ae638e418312332566cdc2eb33500d2466b0f5f",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A2648",
+        "Fe_source_cell": "E2648",
+        "Mg_source_cell": "G2648",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.04,
+        "FeOT_equivalent_wt_percent": 0.03599241015236055,
+        "MgO_wt_percent": 0.22,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "negative",
+          "MgO": "unknown"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": [
+          "Rhodes material series: physical batch/family provenance not supplied. Do not count IDs or shot/location files as independent families."
+        ]
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 53,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101303ccs_mars_t08l01_t12ct157a_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101303ccs_mars_t08l03_t12ct157a_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_21101303ccs_mars_t08l04_t12ct157a_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z903:plibs_z903_t12ct157a::1.0"
+          ]
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 12,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19013104ccs_mars_t15l01_t12ct157a_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19013104ccs_mars_t15l02_t12ct157a_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_19013104ccs_mars_t15l03_t12ct157a_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds",
+        "measurement_label_and_session_not_pinned"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "GRAPHITE",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 758,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:758:GRAPHITE",
+        "row_sha256": "1f2bf3fef9c1340c72f711ee13bade89cfcc47250d1e3355008a95b4b65e6408",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A758",
+        "Fe_source_cell": "E758",
+        "Mg_source_cell": "G758",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.0,
+        "FeOT_equivalent_wt_percent": 0.0,
+        "MgO_wt_percent": 0.0,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "unknown",
+          "MgO": "unknown"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": []
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 44,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20101311ccs_mars_t32l01_graphite_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20101311ccs_mars_t32l02_graphite_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20101311ccs_mars_t32l03_graphite_spect::1.0"
+          ]
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 18,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_15120801ccs_mars_t02l01_graphite_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_15120801ccs_mars_t02l02_graphite_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_15120801ccs_mars_t02l03_graphite_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/graphite_18k_mars.xml",
+            "sha256": "fc8d2c826966fdb938d03772594e4c469cc05a7ca4c80c19631ab60b4fece5df",
+            "bytes": 20634,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/18k/mars/3mj/mh6_20101311ccs_mars_t32l01_graphite_spect.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_20101311ccs_mars_t32l01_graphite_spect",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/18k/mars/3mj/mh6_20101311ccs_mars_t32l01_graphite_spect.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "SuperLIBS",
+          "measurement_date_time_reported": "2020-10-13Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Unknown",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "provisional_date_only_run_identity_unresolved",
+          "records_reported": "16520",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        },
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/graphite_10k_mars.xml",
+            "sha256": "79ece85153db088bb2fead89ba36790b600e07253aa89cc06b3f1617ffcc3cdc",
+            "bytes": 19281,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/mars/3mj/mh6_22033104ccs_mars_t32l01_graphite_spect.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_superlibs:mh6_22033104ccs_mars_t32l01_graphite_spect",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/mars/3mj/mh6_22033104ccs_mars_t32l01_graphite_spect.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "SuperLIBS",
+          "measurement_date_time_reported": "2022-03-31Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Unknown",
+          "specimen_type": "Terrestrial Sample",
+          "specimen_classification": null,
+          "session_independence": "provisional_date_only_run_identity_unresolved",
+          "records_reported": "8767",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds",
+        "zero_composition_is_unknown_not_absence"
+      ],
+      "blank_admitted": false
+    },
+    {
+      "sample_id": "K2289",
+      "status": "candidate_metadata_only_not_admitted",
+      "composition": {
+        "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "worksheet": "Metadata_COMPS_PDS_230124",
+        "row_number_one_based": 1229,
+        "material_assay_id": "pds_libs_metadata:Metadata_COMPS_PDS_230124:row:1229:K2289",
+        "row_sha256": "65f471ab2fbbe16318131d041d42ab6b5d4aa528285acec13f60833df377ebcd",
+        "row_hash_encoding": "JSON UTF-8 sorted keys compact separators; exact cell strings from pds_composition_cells.json",
+        "pellet_name_cell": "A1229",
+        "Fe_source_cell": "E1229",
+        "Mg_source_cell": "G1229",
+        "Fe_source_header": "Fe2O3*",
+        "Mg_source_header": "MgO",
+        "source_units": "wt %",
+        "Fe2O3_reported_wt_percent": 0.0,
+        "FeOT_equivalent_wt_percent": 0.0,
+        "MgO_wt_percent": 14.0,
+        "label_basis": "independent repository chemistry point estimate; not certified absence or a blank upper bound",
+        "provisional_operational_labels": {
+          "FeOT": "unknown",
+          "MgO": "positive"
+        },
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "exact_normalized_seen_registry_matches": {},
+        "published_alias_matches": [],
+        "alias_normalization": "Unicode source strings -> lowercase ASCII alphanumerics; all published string composition-row values plus material/family/folder IDs checked",
+        "no_match_is_proof_of_independence": false,
+        "cautions": []
+      },
+      "catalogue_presence": {
+        "SuperLIBS": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "pLIBS_Z300": {
+          "observed_product_count": 1,
+          "complete_inventory": true,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_k2289::1.0"
+          ]
+        },
+        "pLIBS_Z903": {
+          "observed_product_count": 0,
+          "complete_inventory": true,
+          "example_lids": []
+        },
+        "ChemLIBS_partial": {
+          "observed_product_count": 30,
+          "complete_inventory": false,
+          "example_lids": [
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16062405ccs_mars_t07l01_k2289_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16062405ccs_mars_t07l02_k2289_spect::1.0",
+            "urn:nasa:pds:libs_reference_database:data_chemlibs:mh6_16062405ccs_mars_t07l03_k2289_spect::1.0"
+          ]
+        }
+      },
+      "pinned_measurement_labels": [
+        {
+          "label": {
+            "path": "data/raw/final_search_v3/plibs_z300_k2289.xml",
+            "sha256": "8c96303d2b9f0605a3aab06f7fb569733449e15eeb64760234a0a1cf78641983",
+            "bytes": 10734,
+            "kind": "metadata",
+            "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_k2289.xml"
+          },
+          "measurement_lid": "urn:nasa:pds:libs_reference_database:data_plibs_z300:plibs_z300_k2289",
+          "data_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_k2289.csv",
+          "data_downloaded": false,
+          "input_sha256": null,
+          "axis_unit": "nm",
+          "axis_medium": "unconfirmed",
+          "instrument": "pLIBS Z-300",
+          "measurement_date_time_reported": "2018-07-05Z",
+          "filename_date_component": null,
+          "specimen_provider_name": "Dyar, M. Darby",
+          "specimen_type": "Synthetic Sample",
+          "specimen_classification": null,
+          "session_independence": "blocked_seen_session",
+          "records_reported": "23431",
+          "notes": [
+            "The previously accessed pLIBS examples use session 2018-07-05Z-run1; no independence claim is made from a new pellet ID."
+          ]
+        }
+      ],
+      "blockers": [
+        "axis_medium_unconfirmed",
+        "material_alias_and_family_provenance_not_fully_resolved",
+        "raw_file_sha256_not_acquired_before_selection",
+        "no_certified_Fe_Mg_blank_upper_bounds",
+        "zero_composition_is_unknown_not_absence"
+      ],
+      "blank_admitted": false
+    }
+  ],
+  "blank_review": {
+    "qualifying_blank_families": [],
+    "graphite": "PDS GRAPHITE labels describe a natural terrestrial graphite mineral with unknown provider, not a linked certified pure reagent; Fe/Mg zeros in the chemistry table are unknown, not absence.",
+    "dark": "No-target/no-laser acquisitions are electronic dark measurements; no claim of a chemical method or matrix blank is made.",
+    "point_estimates": "Low nonzero Fe/Mg chemistry supports provisional operational-negative labels only. General method precision statements do not supply material-specific certified upper bounds."
+  },
+  "blockers": [
+    {
+      "code": "missing_certified_joint_Fe_Mg_method_or_matrix_blank",
+      "required_evidence": "A linked numeric measurement and independent assay/certificate naming the physical blank/family, matrix/method blank type, positive finite FeOT/MgO upper bounds <=0.1 wt %, and source hashes."
+    },
+    {
+      "code": "wavelength_medium_unconfirmed",
+      "required_evidence": "A product-specific explicit vacuum axis statement or explicit air axis with fixed documented air-to-vacuum conversion; chamber pressure is not sufficient."
+    },
+    {
+      "code": "independence_incomplete",
+      "required_evidence": "Resolve material/assay aliases, preparation families and actual acquisition runs against all previously seen data; reconcile XML/file dates."
+    },
+    {
+      "code": "raw_checksums_pending_preselection",
+      "required_evidence": "After metadata admission and frozen selection, retrieve permitted numeric products, pin raw SHA256 and validate shapes/axes; none were fetched for this audit."
+    }
+  ],
+  "evidence_snapshots": [
+    {
+      "path": "data/raw/final_search_v3/bundle_libs_reference_database.xml",
+      "sha256": "4c87f8cea069a6d7e4804a9b4f11573d705fc128e65449405d28f6ba0fe453ee",
+      "bytes": 15002,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/bundle_libs_reference_database.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/chemlibs_inventory.csv.partial",
+      "sha256": "1814ac3342e8f5fe1fa1ecaddd3118b8f4693ca12c3e4696197dc4a71a36996d",
+      "bytes": 6484743,
+      "kind": "partial_LID_inventory",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_chemlibs/collection_data_chemlibs_inventory.csv"
+    },
+    {
+      "path": "data/raw/final_search_v3/datacite_pds.json",
+      "sha256": "a7d7389f77e2a36a859ab48f7ba5b779ffe9d580e8c1477fc60faaee9f268bfe",
+      "bytes": 7200,
+      "kind": "metadata",
+      "url": "https://api.datacite.org/dois/10.17189/b2aj-cz96"
+    },
+    {
+      "path": "data/raw/final_search_v3/graphite_10k_mars.xml",
+      "sha256": "79ece85153db088bb2fead89ba36790b600e07253aa89cc06b3f1617ffcc3cdc",
+      "bytes": 19281,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/mars/3mj/mh6_22033104ccs_mars_t32l01_graphite_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/graphite_18k_mars.xml",
+      "sha256": "fc8d2c826966fdb938d03772594e4c469cc05a7ca4c80c19631ab60b4fece5df",
+      "bytes": 20634,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/18k/mars/3mj/mh6_20101311ccs_mars_t32l01_graphite_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/lepore_postprocessing_2024.pdf",
+      "sha256": "7bc258b65ba8581ffed974d5f6289a8cdfb53f77d88296596ee3ba1285e17ce5",
+      "bytes": 1411404,
+      "kind": "metadata",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2024/pdf/1084.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v3/lepore_superlibs_2018.pdf",
+      "sha256": "e32af7d4c1d585ca11e8156be0a7fe343994937238a550d5ab64020774a62c2b",
+      "bytes": 308711,
+      "kind": "metadata",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2018/pdf/1179.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21072802ccs_vacuum_t25l01_s10ma010d_spect.xml",
+      "sha256": "65fc063c0b254509f1bb48cfdb41c644f3de0596a189941085aaf77247bf38f3",
+      "bytes": 20658,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21072802ccs_vacuum_t25l01_s10ma010d_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21101803ccs_vacuum_t21l01_t10ct010_spect.xml",
+      "sha256": "76ca36ab24bc8ce648f866d4319af40a882ef9d2bf7679442e4f12a44821f28f",
+      "bytes": 20652,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21101803ccs_vacuum_t21l01_t10ct010_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21101803ccs_vacuum_t23l01_t10ct012_spect.xml",
+      "sha256": "aefc2afb9bb4a0a7c4a6bb5a4791b8f5f2e0fbd8d5f8a646776d41ff1557288b",
+      "bytes": 20652,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21101803ccs_vacuum_t23l01_t10ct012_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21102701ccs_vacuum_t51l01_t12ct134_spect.xml",
+      "sha256": "6ea11ff9fb6fa70860fd02a68f40dff0d7f01644f85fac5142848f2dec8bc73a",
+      "bytes": 20652,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21102701ccs_vacuum_t51l01_t12ct134_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21102701ccs_vacuum_t52l01_t12ct135_spect.xml",
+      "sha256": "3949c8a123e931ce4f7b5c1c1545bf00f3fa30d6525460e740a4775acf3c559b",
+      "bytes": 20652,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21102701ccs_vacuum_t52l01_t12ct135_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21120902ccs_vacuum_t64l01_a131705_spect.xml",
+      "sha256": "5c5780264e9156bbb47842cdfe08681993da3a0490df4fc49dec0bb95b75f0d0",
+      "bytes": 20563,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21120902ccs_vacuum_t64l01_a131705_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/pds_libs_metadata.xlsx",
+      "sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+      "bytes": 584961,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx"
+    },
+    {
+      "path": "data/raw/final_search_v3/pds_user_guide.pdf",
+      "sha256": "db388ced0d24536a5111c30fb4a3aab0edca4a594239f6b52fa24a0a26b2b643",
+      "bytes": 550988,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/user_guide.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_a131705.xml",
+      "sha256": "fdb7b35f28f68d7dc8fc1341b682841b5dc7ae271fe46c2d56671c92c9533922",
+      "bytes": 10656,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_a131705.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_gypb.xml",
+      "sha256": "a01ca9e139ef0d8157fb23d9e75fdb3c2a10fef0ea1effaf74833553f90bef29",
+      "bytes": 10735,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_gypb.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_inventory.csv",
+      "sha256": "a91dd459c086a14ec165fcac72e06a47bdce223fffb036ac36ebaeeff112306d",
+      "bytes": 215409,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/collection_data_plibs_z300_inventory.csv"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_jd01.xml",
+      "sha256": "94757ff7123f4e46ee6d9c5d904ce3fbb7a33b6b3d664ace0e74150d6ac1fe0a",
+      "bytes": 10638,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_jd01.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_k2289.xml",
+      "sha256": "8c96303d2b9f0605a3aab06f7fb569733449e15eeb64760234a0a1cf78641983",
+      "bytes": 10734,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_k2289.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_s10ma010d.xml",
+      "sha256": "18a27fabff1253b2e87bd2db1856eb1bd319cc4a93ca11b03d68d22e6465d14a",
+      "bytes": 10751,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_s10ma010d.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_t10ct010.xml",
+      "sha256": "69135e9e7574613f04f6250d9d94c35ce9e8be451daef3eb95805f02f67fa3fd",
+      "bytes": 10745,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct010.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_t10ct012.xml",
+      "sha256": "f7eaba1966dd0c65f9093d439e85fa5814724edd1ebd3cc8cb2d2959d183c1cb",
+      "bytes": 10745,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct012.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_t12ct134.xml",
+      "sha256": "9ba0e51e1b50ae28dd3f007c9da2a5ad3e53ac0718d169ae1c480149b7399453",
+      "bytes": 10745,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct134.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_t12ct135.xml",
+      "sha256": "57fc34f659113f7e58acad8706bcff21a44e10aa57fedb7866c29e5b69c6db8e",
+      "bytes": 10745,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct135.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z903_inventory.csv",
+      "sha256": "5705d120f83d092c4fdd7df9c908e3bb13cfcf4f3934402738b51371de0e8053",
+      "bytes": 203321,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z903/collection_data_plibs_z903_inventory.csv"
+    },
+    {
+      "path": "data/raw/final_search_v3/readme.txt",
+      "sha256": "bb50070da068c25aa7ccde7cdcfc4e74453ec0b863f78d78e0628657f9bf0c60",
+      "bytes": 1717,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/readme.txt"
+    },
+    {
+      "path": "data/raw/final_search_v3/release_notes.txt",
+      "sha256": "7af36047f0657b409b935fed733ae741a2197a40c59f97f753687a5e2180f26e",
+      "bytes": 1904,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/release_notes.txt"
+    },
+    {
+      "path": "data/raw/final_search_v3/superlibs_inventory.csv",
+      "sha256": "72a23da90ab2d462d66061dfc28215b86916aacdb5417b1a625248a3bb017d2f",
+      "bytes": 16051768,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/collection_data_superlibs_inventory.csv"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_bitstream_metadata.json",
+      "sha256": "c0d225f6d11a908d8c27459fe0c43cc414d0857ba98892729d4fdf83541dd2df",
+      "bytes": 1450,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bitstreams/7fe0ae1a-1b7a-40ec-b9ed-073726b45f73"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_bundle.json",
+      "sha256": "6a2f8b06c8c320de528d25ca7cb014f79c877dbc78bbafbcca7d3f05f10ab704",
+      "bytes": 863,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bitstreams/7fe0ae1a-1b7a-40ec-b9ed-073726b45f73/bundle"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_bundles.json",
+      "sha256": "8fd4924d5345f681e519acf408706a643dd188c477d73ced1a67daf26651ad7b",
+      "bytes": 4194,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/items/c84bc529-e373-4bbe-8edf-559a2a800ccc/bundles"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_item.json",
+      "sha256": "9d21f3d13608ca27f1080cbcbd48f108afb3ac1a5403a8703c712dc55fa3539c",
+      "bytes": 6541,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bundles/3ae2fa47-1ef9-492e-a504-b71e9343150a/item"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_official_extracted_text.txt",
+      "sha256": "f6b9275cb174ce98bfb79b2fd9481edd7f0420b9743da6758dffc1d17b384b37",
+      "bytes": 219044,
+      "kind": "paper_text",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bitstreams/31295384-cfd6-41e1-afa2-8b23510225b8/content"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_text_bitstreams.json",
+      "sha256": "b6a33cc94310199d2d0350282d004df24dc13a38048ef06b21044acbc95af9e1",
+      "bytes": 2207,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bundles/4566a112-a0aa-4698-8da4-bcc5fd98d80a/bitstreams"
+    },
+    {
+      "path": "data/raw/final_search_v3/zenodo_10287455_export.json",
+      "sha256": "77a5f6d2552688729a998cf7e36f8d93cab1cfd87c3cd3107118dbb0a7020d58",
+      "bytes": 12573,
+      "kind": "metadata",
+      "url": "https://zenodo.org/records/10287455/export/json"
+    },
+    {
+      "path": "data/raw/final_search_v3/zenodo_10287455_files.json",
+      "sha256": "ee94a660798aae64635be7af9c76970702df2baab4c70005fd637a644399ff49",
+      "bytes": 5013,
+      "kind": "metadata",
+      "url": "https://zenodo.org/api/records/10287455/files"
+    },
+    {
+      "path": "data/raw/final_search_v3/pds_composition_cells.json",
+      "sha256": "6791f6d82df206c3126d0cac721c8df20c64a3ac27597a67b0a216e3a31df7c3",
+      "bytes": 2433353,
+      "kind": "derived_metadata"
+    },
+    {
+      "path": "data/raw/final_search_v3/pds_low_fe_metadata_selection.json",
+      "sha256": "0dd2c1e88840f6fa6edf11ce67613e98f07cb2fa2cee3dcb2df1101678df0017",
+      "bytes": 1837,
+      "kind": "derived_metadata"
+    },
+    {
+      "path": "data/raw/final_search_v3/inventory_selection.json",
+      "sha256": "89d8ee572beaa99c37ce80df06273435512328419eb4959384de95ecd2592019",
+      "bytes": 4253,
+      "kind": "derived_metadata"
+    }
+  ],
+  "retrieval_notes": {
+    "verified_TLS": "System /usr/bin/curl was used without certificate bypass. Initial Python CA-chain failures do not prove resource absence.",
+    "chemLIBS_catalogue_partial": {
+      "path": "data/raw/final_search_v3/chemlibs_inventory.csv.partial",
+      "sha256": "1814ac3342e8f5fe1fa1ecaddd3118b8f4693ca12c3e4696197dc4a71a36996d",
+      "received_bytes": 6484743,
+      "expected_bytes_reported_by_server": 14411364,
+      "status": "partial_timeout",
+      "may_support_positive_presence_only": true
+    },
+    "failed_or_incomplete_requests": [
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/bundle_libs_reference_database.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/release_notes.txt",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/readme.txt",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://zenodo.org/api/records/8377071",
+        "status": "failed",
+        "error": "HTTP Error 404: NOT FOUND"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_a131705.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_ali.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_gypb.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_jd01.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_jdo1.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_s10ma010d.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct010.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct012.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct134.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct135.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct157a.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_graphite.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_k2289.xml",
+        "status": "failed",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_ali.xml",
+        "client": "system_curl_verified_TLS",
+        "status": "failed",
+        "error": "curl: (56) The requested URL returned error: 404"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_jdo1.xml",
+        "client": "system_curl_verified_TLS",
+        "status": "failed",
+        "error": "curl: (56) The requested URL returned error: 404"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct157a.xml",
+        "client": "system_curl_verified_TLS",
+        "status": "failed",
+        "error": "curl: (56) The requested URL returned error: 404"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_graphite.xml",
+        "client": "system_curl_verified_TLS",
+        "status": "failed",
+        "error": "curl: (56) The requested URL returned error: 404"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z903/plibs_z903_ali.xml",
+        "client": "system_curl_verified_TLS",
+        "status": "failed",
+        "error": "curl: (56) The requested URL returned error: 404"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_chemlibs/collection_data_chemlibs_inventory.csv",
+        "client": "system_curl_verified_TLS",
+        "status": "failed",
+        "error": "curl: (28) Operation timed out after 30000 milliseconds with 12458826 out of 14411364 bytes received"
+      },
+      {
+        "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21101803ccs_vacuum_t08l06_t12ct157a_spect.xml",
+        "client": "system_curl_verified_TLS",
+        "status": "failed",
+        "error": "curl: (56) The requested URL returned error: 404"
+      }
+    ],
+    "thesis_text_MD5_matches_repository": true
+  }
+}

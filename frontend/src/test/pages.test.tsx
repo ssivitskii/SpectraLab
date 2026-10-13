@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { api, type Spectrum, type Prediction } from "../api/client";
+import { api } from "../api/client";
 import { Analysis } from "../pages/Analysis";
 import { Generator } from "../pages/Generator";
 import { Experiments } from "../pages/Experiments";
@@ -11,30 +11,7 @@ vi.mock("../components/Chart", () => ({
   SpectrumChart: () => <div aria-label="Спектр образца" />,
   Chart: () => <div aria-label="График эксперимента" />,
 }));
-const spectrum: Spectrum = {
-  spectrum_id: "a".repeat(32),
-  wavelength_nm: [350, 800],
-  intensity: [1, 2],
-  clean_signal: [1, 2],
-  true_labels: { H: 1 },
-  parameters: { snr_db: 20 },
-  reference_source: "demo_fixture",
-  origin: "generated",
-};
-const prediction: Prediction = {
-  model_id: "builtin-nnls",
-  model_version: "1",
-  model_origin: "reference",
-  reference_source: "demo_fixture",
-  scores: [{ element: "H", value: 0.8 }],
-  score_kind: "nnls_coefficient_times_fit_quality",
-  calibrated: false,
-  thresholds: { H: 0.2 },
-  detected_elements: ["H"],
-  warnings: ["Демонстрационные данные"],
-  processing_time_ms: 1,
-  matched_reference_lines: [],
-};
+import { capability, spectrum, prediction } from "./fixtures";
 function wrap(element: React.ReactNode, route = "/analysis") {
   return render(
     <QueryClientProvider
@@ -53,6 +30,13 @@ function wrap(element: React.ReactNode, route = "/analysis") {
 }
 beforeEach(() => {
   vi.restoreAllMocks();
+  vi.spyOn(api, "capabilities").mockResolvedValue(capability);
+  vi.spyOn(api, "spectra").mockResolvedValue({ items: [], next_cursor: null });
+  vi.spyOn(api, "jobs").mockResolvedValue([]);
+  vi.spyOn(api, "experimentCatalog").mockResolvedValue({
+    items: [],
+    next_cursor: null,
+  });
   vi.spyOn(api, "models").mockResolvedValue([
     {
       model_id: "builtin-nnls",
@@ -77,7 +61,7 @@ describe("Analysis states", () => {
     vi.spyOn(api, "models").mockImplementation(() => new Promise(() => {}));
     wrap(<Analysis />);
     expect(screen.getByText("Спектр ещё не выбран")).toBeInTheDocument();
-    expect(screen.getByRole("status")).toHaveTextContent("Загрузка");
+    expect(screen.getAllByRole("status")[0]).toHaveTextContent("Загрузка");
   });
   it("shows API errors", async () => {
     vi.spyOn(api, "spectrum").mockRejectedValue(new Error("Спектр не найден"));
@@ -101,7 +85,11 @@ describe("Analysis states", () => {
     expect(
       await screen.findByLabelText("Результат распознавания"),
     ).toHaveTextContent("0.8000");
-    expect(predict).toHaveBeenCalledWith(spectrum.spectrum_id, "builtin-nnls");
+    expect(predict).toHaveBeenCalledWith(
+      spectrum.spectrum_id,
+      "builtin-nnls",
+      expect.objectContaining({ signal: expect.any(AbortSignal) }),
+    );
     expect(screen.getByText("Демонстрационные данные")).toBeInTheDocument();
   });
   it("permits no detections", async () => {
@@ -127,7 +115,9 @@ describe("Analysis states", () => {
 it("generator preserves truth separately and exposes analysis link", async () => {
   const call = vi.spyOn(api, "generate").mockResolvedValue(spectrum);
   wrap(<Generator />, "/generator");
-  await userEvent.click(await screen.findByRole("button", { name: "H I" }));
+  await userEvent.click(
+    await screen.findByRole("button", { name: "H · стадия 1" }),
+  );
   await userEvent.click(
     screen.getByRole("button", { name: "Сгенерировать спектр" }),
   );

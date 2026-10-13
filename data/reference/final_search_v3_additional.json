@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-13",
+  "scope": "Metadata and independent chemistry only; no numerical spectral intensities or model predictions were inspected.",
+  "raw_spectral_files_opened": 0,
+  "predictions_run": 0,
+  "authors_contacted": false,
+  "candidates": [
+    {
+      "id": "inptdat1012_underwater_cu_zn",
+      "title": "Determination of elemental concentrations in underwater LIBS plasmas using spectra simulation for copper-zinc alloys",
+      "sources": [
+        "https://doi.org/10.34711/inptdat.1012",
+        "https://www.inptdat.de/dataset/determination-elemental-concentrations-underwater-libs-plasmas-using-spectra-simulation",
+        "https://pubs.rsc.org/en/content/articlehtml/2026/ja/d5ja00260e"
+      ],
+      "dataset_license": "CC-BY-4.0",
+      "release_date": "2025-12-04",
+      "raw_availability": "Repository lists measured RAW8 and converted TXT spectra plus XML metadata. Measured and simulated archives are separate; neither was opened.",
+      "composition_evidence": "Cu, Zn and brass targets are listed, but no matched independent Fe/Mg impurity bounds were located. The chamber uses tap water, so nominal target identity does not bound the complete emitting matrix.",
+      "coverage_nm": [452, 537],
+      "coverage_basis": "The primary paper restricts the diagnostic and evaluated Cu/Zn spectra to this interval.",
+      "wavelength_medium": "not explicitly established in reviewed metadata",
+      "status": "not_admitted",
+      "blockers": [
+        "insufficient frozen-profile coverage",
+        "independent Fe/Mg bounds missing",
+        "explicit wavelength convention missing",
+        "instrument transfer and independent sample/session mapping unresolved"
+      ]
+    },
+    {
+      "id": "supercam_scct_cousin2022",
+      "title": "SuperCam calibration targets: fabrication and quantitative characterization",
+      "sources": [
+        "https://doi.org/10.1016/j.sab.2021.106341",
+        "https://hal.science/hal-03845207v1",
+        "https://hal.science/hal-03845207/document",
+        "https://ntrs.nasa.gov/api/citations/20220000028/downloads/SuperCam_Calibration_Paper_accepted.pdf"
+      ],
+      "dataset_license": "No final numerical file selection made; its file-specific PDS rights/provenance still require admission.",
+      "wavelength_medium": "vacuum",
+      "wavelength_evidence": "Anderson et al., section 3.1.6, explicitly calibrates SuperCam to NIST vacuum wavelengths. This evidence applies to SuperCam, not automatically to the different SuperLIBS instrument.",
+      "composition_evidence": "Cousin et al. accepted manuscript, Table 4, PDF page 69, visually verified. Calcite LCA530106 has FeO 0.01 wt% by both LA-ICP-MS and EPMA. MgO is 0.22 wt% by LA-ICP-MS and 0.19 wt% by EPMA, so it is outside the <=0.1 negative range. Apatite TAPAG0205 has no measured Fe/Mg entries in this table; missing values are not zero.",
+      "provisional_materials": [
+        {
+          "material_id": "LCA530106",
+          "FeOT_wt_percent": 0.01,
+          "MgO_wt_percent": 0.22,
+          "method": "LA-ICP-MS",
+          "Fe_operational_label": "negative",
+          "Mg_operational_label": "unknown",
+          "certified_joint_blank": false,
+          "identity_audit": "pending; not counted as an admitted new independent material"
+        }
+      ],
+      "raw_availability": "SuperCam PDS is a possible measurement source; no spectral file was opened or selected. Model-derived Mars composition products cannot replace independent target chemistry.",
+      "profile_coverage": "SuperCam UV starts at 243.79 nm and the VNIR range ends near 850 nm, which does not supply the frozen model's full 241-900 nm bands.",
+      "status": "not_admitted",
+      "blockers": [
+        "no qualified joint Fe/Mg blank established",
+        "insufficient frozen-profile coverage",
+        "measurement-to-assay and independent physical/family/session mapping pending",
+        "a compatible instrument profile would need development before any final predictions"
+      ]
+    },
+    {
+      "id": "winnand2022_filter_controls",
+      "title": "Evaluation of electrolyte element composition in human tissue by LIBS",
+      "sources": [
+        "https://doi.org/10.1038/s41598-022-20825-0",
+        "https://www.nature.com/articles/s41598-022-20825-0"
+      ],
+      "composition_evidence": "Ash-free filter paper controls are described. An ash specification and absent emission peaks do not establish sample-linked independent Fe/Mg bounds for the measured control.",
+      "dataset_license": null,
+      "raw_availability": "The primary data-availability statement says data are available from the corresponding author on reasonable request. No request sent.",
+      "wavelength_medium": "not explicitly established",
+      "status": "not_admitted",
+      "blockers": ["no public numerical dataset confirmed", "dataset rights unresolved", "explicit wavelength convention missing", "sample-linked Fe/Mg upper bounds missing"]
+    },
+    {
+      "id": "dong2026_sodium_iron_impurities",
+      "title": "Monitoring iron and oxygen impurities in liquid sodium by LIBS with gas protection",
+      "sources": [
+        "https://doi.org/10.1039/D5JA00438A",
+        "https://pubs.rsc.org/en/content/articlelanding/2026/ja/d5ja00438a",
+        "https://pubs.rsc.org/en/content/articlehtml/2026/ja/d5ja00438a"
+      ],
+      "article_license": "CC-BY-NC-3.0",
+      "dataset_license": null,
+      "composition_evidence": "Independent ICP-OES Fe reference measurements and low Fe concentrations are described. An oxygen control does not establish a joint Fe/Mg blank; Mg impurities are mentioned in the sodium matrix.",
+      "raw_availability": "The repository page lists two supplementary PDFs. The article describes sample information and spectrum/averaging figures, not a numerical full-spectrum archive. No numerical dataset was established or opened.",
+      "wavelength_medium": "not explicitly established",
+      "status": "not_admitted",
+      "blockers": ["public numerical spectra unconfirmed", "numerical dataset rights unresolved", "explicit wavelength convention missing", "independent joint Fe/Mg control bounds missing"]
+    }
+  ],
+  "conclusion": "No candidate in this additional branch can be admitted to the requested independent final campaign. This is a bounded search result, not a proof of global unavailability."
+}

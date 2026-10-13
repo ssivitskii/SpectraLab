@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "source": "NASA PDS / Mount Holyoke College Multi-Parameter LIBS Reference Database",
+  "source_url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/",
+  "authors": [
+    "M. Darby Dyar",
+    "Kate Lepore"
+  ],
+  "license_id": null,
+  "license_source": null,
+  "rights_note": "Public archive; no per-bundle license found in inspected metadata. Do not infer a university dataset license from NASA mission policy. Alternative SuperLIBS Zenodo7566042 is explicitly CC BY4.0.",
+  "units": "nm",
+  "wavelength_medium": null,
+  "wavelength_medium_source": null,
+  "test_locked_before_prediction": true,
+  "selection": "first five lexical target IDs in PDS pLIBS Z300 inventory; frozen before prediction",
+  "development_sample_ids": [],
+  "development_session_ids": [],
+  "samples": [
+    {
+      "sample_id": "0201H",
+      "session_id": "2018-07-05Z-run1",
+      "instrument": "pLIBS Z-300",
+      "filename": "plibs_z300_0201h.csv",
+      "sha256": "8b5509946c0e4b90efc686c8977affc06e253513d01dc13184e973b2a8c7744c",
+      "labels": {
+        "H": null,
+        "He": null,
+        "Na": true,
+        "Mg": true,
+        "Ca": true,
+        "Fe": true
+      },
+      "composition_worksheet": "Metadata_COMPS_PDS_230124",
+      "composition_row": 3,
+      "composition_wt_percent": {
+        "Fe2O3*": 9.94,
+        "MgO": 2.32,
+        "CaO": 13.64,
+        "Na2O": 3.81
+      }
+    },
+    {
+      "sample_id": "0211H",
+      "session_id": "2018-07-05Z-run1",
+      "instrument": "pLIBS Z-300",
+      "filename": "plibs_z300_0211h.csv",
+      "sha256": "5f41de0e6f1cfa384eb94d41209b33e0389effa7874fbb936ec73df1d4d3b769",
+      "labels": {
+        "H": null,
+        "He": null,
+        "Na": true,
+        "Mg": true,
+        "Ca": true,
+        "Fe": true
+      },
+      "composition_worksheet": "Metadata_COMPS_PDS_230124",
+      "composition_row": 4,
+      "composition_wt_percent": {
+        "Fe2O3*": 13.43,
+        "MgO": 4.09,
+        "CaO": 8.58,
+        "Na2O": 3.43
+      }
+    },
+    {
+      "sample_id": "0213H",
+      "session_id": "2018-07-05Z-run1",
+      "instrument": "pLIBS Z-300",
+      "filename": "plibs_z300_0213h.csv",
+      "sha256": "7deb0cd1adcce4688682f614a328b369006e052c221b562c76bc909ca61d27b6",
+      "labels": {
+        "H": null,
+        "He": null,
+        "Na": true,
+        "Mg": true,
+        "Ca": true,
+        "Fe": true
+      },
+      "composition_worksheet": "Metadata_COMPS_PDS_230124",
+      "composition_row": 6,
+      "composition_wt_percent": {
+        "Fe2O3*": 2.02,
+        "MgO": 0.23,
+        "CaO": 1.99,
+        "Na2O": 5.94
+      }
+    },
+    {
+      "sample_id": "0214H",
+      "session_id": "2018-07-05Z-run1",
+      "instrument": "pLIBS Z-300",
+      "filename": "plibs_z300_0214h.csv",
+      "sha256": "371dc4d10f65a40e463f4f493eae0ea3e5729c0ec8bc59978f486ab401e888c5",
+      "labels": {
+        "H": null,
+        "He": null,
+        "Na": true,
+        "Mg": true,
+        "Ca": true,
+        "Fe": true
+      },
+      "composition_worksheet": "Metadata_COMPS_PDS_230124",
+      "composition_row": 7,
+      "composition_wt_percent": {
+        "Fe2O3*": 9.01,
+        "MgO": 0.88,
+        "CaO": 12.55,
+        "Na2O": 4.72
+      }
+    },
+    {
+      "sample_id": "0228H",
+      "session_id": "2018-07-05Z-run1",
+      "instrument": "pLIBS Z-300",
+      "filename": "plibs_z300_0228h.csv",
+      "sha256": "c35107c8e50fb1213e9c363ab65c81d06dd704e24f19306ee618fc38d7470e84",
+      "labels": {
+        "H": null,
+        "He": null,
+        "Na": true,
+        "Mg": true,
+        "Ca": true,
+        "Fe": true
+      },
+      "composition_worksheet": "Metadata_COMPS_PDS_230124",
+      "composition_row": 9,
+      "composition_wt_percent": {
+        "Fe2O3*": 6.91,
+        "MgO": 0.44,
+        "CaO": 5.6,
+        "Na2O": 5.04
+      }
+    }
+  ],
+  "downloads": [
+    {
+      "name": "user_guide.pdf",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/user_guide.pdf",
+      "sha256": "db388ced0d24536a5111c30fb4a3aab0edca4a594239f6b52fa24a0a26b2b643",
+      "bytes": 550988
+    },
+    {
+      "name": "libs_metadata.xlsx",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+      "sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+      "bytes": 584961
+    },
+    {
+      "name": "libs_metadata.pdf",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.pdf",
+      "sha256": "a8799fb75923af71c579f30c1df73012168d34246bc962155143958e76bbd3f0",
+      "bytes": 398920
+    },
+    {
+      "name": "plibs_z300_0201h.xml",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0201h.xml",
+      "sha256": "67fd42c05475a72937174211caef7f15578908f55dff8ab63d5653afa7069b7f",
+      "bytes": 10729
+    },
+    {
+      "name": "plibs_z300_0201h.csv",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0201h.csv",
+      "sha256": "8b5509946c0e4b90efc686c8977affc06e253513d01dc13184e973b2a8c7744c",
+      "bytes": 377775
+    },
+    {
+      "name": "plibs_z300_0211h.xml",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0211h.xml",
+      "sha256": "31c999fff9c9cf8281a51e32c5350341277ad2e34df781478beb830def175bba",
+      "bytes": 10734
+    },
+    {
+      "name": "plibs_z300_0211h.csv",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0211h.csv",
+      "sha256": "5f41de0e6f1cfa384eb94d41209b33e0389effa7874fbb936ec73df1d4d3b769",
+      "bytes": 377746
+    },
+    {
+      "name": "plibs_z300_0213h.xml",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0213h.xml",
+      "sha256": "d43cf25559b4525d8ead5ebed2c8cdf4b7910e47fc62ab3a3b15a6b0f22e122c",
+      "bytes": 10736
+    },
+    {
+      "name": "plibs_z300_0213h.csv",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0213h.csv",
+      "sha256": "7deb0cd1adcce4688682f614a328b369006e052c221b562c76bc909ca61d27b6",
+      "bytes": 377714
+    },
+    {
+      "name": "plibs_z300_0214h.xml",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0214h.xml",
+      "sha256": "2ffc9ec305ce1d2fbda4a270e5525706e0bce58a845e618e26db36e56c2dfea4",
+      "bytes": 10737
+    },
+    {
+      "name": "plibs_z300_0214h.csv",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0214h.csv",
+      "sha256": "371dc4d10f65a40e463f4f493eae0ea3e5729c0ec8bc59978f486ab401e888c5",
+      "bytes": 377802
+    },
+    {
+      "name": "plibs_z300_0228h.xml",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0228h.xml",
+      "sha256": "4761e252854aa57d732e5a67bd701b5060186e7c212be775ed5af9b389437526",
+      "bytes": 10738
+    },
+    {
+      "name": "plibs_z300_0228h.csv",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_0228h.csv",
+      "sha256": "c35107c8e50fb1213e9c363ab65c81d06dd704e24f19306ee618fc38d7470e84",
+      "bytes": 377782
+    }
+  ],
+  "candidates": [
+    {
+      "url": "https://zenodo.org/records/7566042",
+      "license": "CC-BY-4.0",
+      "limitation": "SuperLIBS bands contain 353–369 and479–499 nm gaps; wavelength convention not specified in record"
+    },
+    {
+      "url": "https://zenodo.org/records/18392937",
+      "license": "CC-BY-4.0",
+      "limitation": "normalized training file is channel-indexed; requires wavelength mapping"
+    },
+    {
+      "url": "https://zenodo.org/records/18195629",
+      "license": "CC-BY-4.0",
+      "limitation": "2.2GB archive with 100 spectra/sample, conventions and instrument calibration need verification"
+    }
+  ]
+}

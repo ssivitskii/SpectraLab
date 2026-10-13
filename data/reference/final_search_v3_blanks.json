@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "artifact_type": "independent_libs_blank_candidate_search",
+  "reviewed_at": "2026-10-13",
+  "scope": "Metadata-only review of algae/filter, carbonate, cellulose, liquid and high-purity material LIBS controls; no changes to v1/v2 models or protocols.",
+  "raw_spectral_files_downloaded": 0,
+  "raw_spectral_files_opened": 0,
+  "predictions_run": 0,
+  "authors_contacted": false,
+  "qualified_new_controls": 0,
+  "conclusion": "None of the reviewed candidates establishes all required provenance, composition-bound, wavelength-medium, accessible-data and spectral-coverage conditions for a new independent Fe/Mg blank evaluation of the current instrument profile. This is a bounded search result, not proof that no suitable public dataset exists.",
+  "admission_rules": [
+    "An analytical blank or unspiked control is not automatically an Fe/Mg-negative material.",
+    "Nominal formulation zeros, a missing element, and absent LIBS emission are not independently measured impurity bounds.",
+    "A documented total mass purity can bound all residual impurities jointly only if its basis, actual sample identity and certification apply to the measured material; processing, binder and substrate contamination must also be accounted for.",
+    "Elemental mass fractions, oxide equivalents, surface loadings and solution concentrations must not be interchanged without a documented conversion and mass denominator.",
+    "Ambient gas or a vacuum chamber does not declare whether the exported wavelength axis uses air or vacuum wavelengths.",
+    "Another instrument or incomplete wavelength coverage cannot be silently treated as validation of the frozen ChemCam profile.",
+    "Replicate laser shots are not independent physical blank materials."
+  ],
+  "candidates": [
+    {
+      "id": "algae_filters_zenodo15650002",
+      "title": "Influence of sample matrix and filter fixation on LIBS signal in analysis of algae on filter",
+      "sources": [
+        "https://zenodo.org/records/15650002",
+        "https://zenodo.org/api/records/15650002",
+        "https://pubs.rsc.org/en/content/articlehtml/2025/ja/d5ja00236b",
+        "https://pubs.rsc.org/en/content/articlepdf/2025/ja/d5ja00236b"
+      ],
+      "dataset_license": "CC-BY-4.0, explicit in Zenodo API metadata",
+      "article_license": "CC-BY-NC-3.0",
+      "raw_availability": {"file_count": 100, "total_bytes": 147741315, "downloaded": false},
+      "composition_evidence": "The sample blank is a filter rim outside the algae area; the control contains algae without added Zn/Ni. The paper reports nonzero ICP-MS blank/control results and treats Mg as a matrix element. Concentrations discussed as surface loadings do not establish the required bulk oxide fractions. No qualified Fe/Mg impurity upper bounds were located.",
+      "wavelength_medium": "not explicitly established in reviewed article or record metadata",
+      "coverage_nm": [200, 1000],
+      "instrument_and_grouping": "Different SP and DP LIBS arrangements, tape layers, algae/control/filter conditions. File names identify conditions; independent material and session grouping still requires documentation.",
+      "metadata_inventory": "The API file inventory contains txt/asc spectral files and tif shadowgraphs; no separately named README or chemical concentration table was found. Spectral files were not opened.",
+      "status": "not_admitted",
+      "blockers": ["Fe/Mg composition bounds", "explicit wavelength convention", "instrument transfer and physical-group provenance"]
+    },
+    {
+      "id": "carbonate_cao_sensors2026",
+      "title": "Comparative Evaluation of Spectroscopic Sensor Modalities for the Quantification of Calcium Carbonate",
+      "sources": ["https://doi.org/10.3390/s26092609", "https://pmc.ncbi.nlm.nih.gov/articles/PMC13166039/"],
+      "article_license": "CC-BY",
+      "dataset_license": null,
+      "composition_evidence": "Sixteen CaCO3/CaO formulation pellets include nominal pure endpoints. No matched Fe/Mg assay, impurity certificate or upper bound was located. A 100% nominal mixing proportion does not prove chemical purity.",
+      "wavelength_medium": "not explicitly established",
+      "coverage_nm": [[200, 447], [425, 920]],
+      "raw_availability": "Article contributions and author inquiry statement; no standalone downloadable raw blank dataset was located. No inquiry sent.",
+      "status": "not_admitted",
+      "blockers": ["Fe/Mg purity bounds", "explicit wavelength convention", "accessible licensed raw spectra"]
+    },
+    {
+      "id": "cellulose_foodres2017",
+      "title": "Calibration strategies for the direct determination of Ca, K, and Mg in powdered milk and solid dietary supplements",
+      "sources": ["https://doi.org/10.1016/j.foodres.2017.01.027", "https://repositorio.unesp.br/server/api/core/bitstreams/9aed46de-91e3-4751-8d84-4840b1488f20/content"],
+      "dataset_license": null,
+      "composition_evidence": "Microcrystalline cellulose serves as an analytical blank and a dilution material. The zero entries in its formulation table are not a certified Fe/Mg impurity assay. The reported Mg analytical quantification limit is method performance, not a certified bound on the cellulose lot.",
+      "wavelength_medium": "not explicitly established in reviewed sources",
+      "raw_availability": "Open article PDF located; no separate licensed raw spectra or sample-linked purity certificate located.",
+      "status": "not_admitted",
+      "blockers": ["Fe/Mg impurity bounds", "explicit wavelength convention", "accessible licensed raw spectra"]
+    },
+    {
+      "id": "aerosol_water_isotopes2023",
+      "title": "Novel Calibration Approach for Monitoring Aerosol Hydrogen Isotopes Using LIBS for Molten Salt Reactor Off-Gas Streams",
+      "sources": ["https://doi.org/10.3390/s23249797", "https://pmc.ncbi.nlm.nih.gov/articles/PMC10747517/"],
+      "article_license": "CC-BY-4.0",
+      "dataset_license": "Article/supplement access; separate raw dataset license not established",
+      "composition_evidence": "The experiment uses Milli-Q water, commercial D2O described as 99.99%, filters, and high-purity argon. Neither water resistivity nor unspecified D2O purity basis establishes matched Fe/Mg limits for the ablated filter or aerosol path. The D2O percentage must not be assumed to be a certified total-metals mass purity.",
+      "wavelength_medium": "not explicitly established",
+      "coverage_nm": {"compact": [501, 722], "echelle": [200, 895], "high_resolution": [654, 658]},
+      "raw_availability": "Article points to a 773.5KB supplementary ZIP; archive and intensities were not opened because composition and wavelength prerequisites were unmet.",
+      "status": "not_admitted",
+      "blockers": ["Fe/Mg impurity bounds including substrate/path", "explicit wavelength convention", "current profile coverage and instrument compatibility"]
+    },
+    {
+      "id": "estuarine_filter_molecules2026",
+      "title": "Direct LIBS Analysis of Estuarine Suspended Particulate Matter Collected on Filters",
+      "sources": ["https://doi.org/10.3390/molecules31040647", "https://pmc.ncbi.nlm.nih.gov/articles/PMC12943375/"],
+      "article_license": "CC-BY-4.0",
+      "dataset_license": null,
+      "composition_evidence": "Blank glass-fiber filters have intrinsic elemental emission, treated as stable substrate background. The study presents relative signals rather than independent quantitative Fe/Mg assays; no certified filter impurity bounds were found.",
+      "wavelength_medium": "not explicitly established; the vacuum reference concerns filtration pressure",
+      "coverage_nm": [186, 1042],
+      "raw_availability": "Article states that generated/analyzed data are included in the publication; supplementary archive is 49.9KB and described for summary variability tables. No raw blank file inventory established.",
+      "status": "not_admitted",
+      "blockers": ["Fe/Mg impurity bounds", "explicit wavelength convention", "accessible identified raw blank spectra"]
+    },
+    {
+      "id": "structured_al_water2026",
+      "title": "Enhanced toxic trace element detection in water using LIBS and a femtosecond laser-engineered substrate",
+      "sources": ["https://doi.org/10.1039/D5JA00300H", "https://pubs.rsc.org/en/content/articlehtml/2026/ja/d5ja00300h"],
+      "dataset_license": null,
+      "composition_evidence": "The paper specifies Al substrates above 99.99% purity, with chemical surface treatment and deposited Cr/Pb/As solutions. No sample-linked total-mass purity certificate or Fe/Mg bounds for the complete processed target were located. Nominal substrate purity alone cannot certify the deposited sample.",
+      "wavelength_medium": "not explicitly established",
+      "coverage_nm": [200, 750],
+      "raw_availability": "Data available from authors on reasonable request; no request sent.",
+      "status": "not_admitted",
+      "blockers": ["processed-target composition provenance", "explicit wavelength convention", "no public raw dataset", "insufficient current-profile coverage"]
+    },
+    {
+      "id": "certified_fe_mn_powders2022",
+      "title": "Rapid Analysis of Steel Powder for 3D Printing Using LIBS",
+      "sources": ["https://doi.org/10.2355/isijinternational.ISIJINT-2021-476", "https://www.jstage.jst.go.jp/article/isijinternational/62/5/62_ISIJINT-2021-476/_html/-char/en"],
+      "article_license": "CC-BY-NC-ND-4.0",
+      "dataset_license": null,
+      "composition_evidence": "Section 2.2 explicitly reports certified 99.995% Fe and 99.99% Mn powders from Beijing Research Institute for Nonferrous Metals. The measured series S0-S10 contains 95-100% nominal Fe; it is not a low-Fe series. S0 is potentially informative for Mg only. Certificate documents, purity basis and preparation contamination are not resolved.",
+      "conditional_impurity_inference": "If those purities are certified total mass fractions for the actual lots, residual impurities jointly are at most 0.005 wt% in Fe powder and 0.01 wt% in Mn powder; these are conditional feedstock bounds, not assigned final-spectrum labels.",
+      "wavelength_medium": "not explicitly established",
+      "coverage_nm": [400, 410],
+      "raw_availability": "No standalone raw spectrum download located.",
+      "status": "not_admitted",
+      "blockers": ["only 400-410nm coverage", "explicit wavelength convention", "raw data and actual-lot certificate linkage"]
+    },
+    {
+      "id": "empirical_pure_elements2008",
+      "title": "Elemental analysis of LIBS aided by an empirical spectral database",
+      "sources": ["https://doi.org/10.1364/AO.47.000G99", "https://opg.optica.org/ao/abstract.cfm?uri=ao-47-31-G99"],
+      "dataset_license": null,
+      "composition_evidence": "Table 3 lists forty elemental targets and nominal purities, including 99.99% graphite and 99.999% phosphorus/sulfur. It does not supply lot-linked impurity certificates or Fe/Mg upper bounds. These entries are leads, not certified negative labels.",
+      "wavelength_medium": "not explicitly established on the accessible primary landing page",
+      "coverage_nm": [198, 968],
+      "raw_availability": "Historic empirical library identified; no current licensed raw download or grouping manifest established in this review.",
+      "status": "not_admitted",
+      "blockers": ["current raw availability and license", "sample-linked certified impurities", "explicit wavelength convention", "physical/session identifiers"]
+    },
+    {
+      "id": "beeswax_calibration2022",
+      "title": "A novel strategy for preparing LIBS calibration standards using beeswax as a substrate",
+      "sources": ["https://doi.org/10.1016/j.sab.2022.106566", "https://www.sciencedirect.com/science/article/abs/pii/S0584854722002105"],
+      "dataset_license": null,
+      "composition_evidence": "The method quantifies Fe and Mg in beeswax-based cosmetic/oil preparations with independent analytical comparisons. Accessible primary material reports detection limits, not a sample-specific certificate or upper confidence bound for Fe/Mg in the unspiked substrate. Detection limits alone cannot be relabeled as blank concentrations.",
+      "wavelength_medium": "not explicitly established in accessible primary material",
+      "raw_availability": "No public licensed spectrum dataset located; primary preview is accessible.",
+      "status": "not_admitted",
+      "blockers": ["blank composition upper bounds", "explicit wavelength convention", "accessible licensed raw spectra"]
+    }
+  ],
+  "additional_leads_sent_to_parent": [
+    {
+      "url": "https://christiangoueguel.r-universe.dev/specProc/doc/manual.html",
+      "lead": "forageLIBS documentation lists 365 physical samples/368 measurements, independent Fe mg/kg and Mg percent assays; 199.4-822.2nm. Wavelength convention, licensing and current-profile coverage need resolution. No spectral values opened."
+    },
+    {
+      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=935287",
+      "lead": "NIST SRM915c calcium carbonate certification could establish impurity metadata, but no public LIBS spectrum of that exact certified material/lot was identified; not a control dataset by itself."
+    }
+  ],
+  "snapshot_manifest": "data/raw/final_search_v3/blanks_snapshot_manifest.json",
+  "limits": "Unavailable or missing evidence is reported as not established, not as proven absent. No author contact, new fitting, threshold selection, raw-file preview or candidate prediction was performed."
+}

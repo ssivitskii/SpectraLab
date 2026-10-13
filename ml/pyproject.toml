@@ -19,6 +19,7 @@ dependencies = [
 
 [project.optional-dependencies]
 notebooks = ["ipykernel==7.0.1", "jupyterlab==4.4.9"]
+cnn = ["torch==2.9.0"]
 
 [project.scripts]
 spectralab = "spectralab_ml.cli:main"

@@ -52,6 +52,7 @@ class DatasetBundle:
             base_sample_ids=np.asarray([r["base_sample_id"] for r in self.records]),
         )
         metadata = {
+            "schema_version": 1,
             "dataset_hash": self.dataset_hash,
             "split_hash": self.split_hash,
             "class_order": self.class_order,
@@ -111,6 +112,7 @@ def build_demo_dataset(
     base_samples: int = 36,
     variations: int = 2,
     combinations: list[tuple[str, ...]] | None = None,
+    ion_stage: int = 1,
 ) -> DatasetBundle:
     if base_samples < max(12, 2 * len(class_order)) or not 1 <= variations <= 100:
         raise ValueError("Insufficient base samples or invalid variation count")
@@ -158,6 +160,11 @@ def build_demo_dataset(
                 instrumental_fwhm_nm=float(rng.choice([0.2, 0.5, 1.0])),
                 calibration_shift_nm=float(rng.normal(0, 0.015)),
                 seed=seed * 10000 + int(base_id[5:]) * 100 + variant,
+                **(
+                    {"ion_stage": ion_stage}
+                    if "ion_stage" in GenerationConfig.__dataclass_fields__
+                    else {}
+                ),
             )
             spectrum = generate_spectrum(
                 params, catalog, class_order=class_order, base_sample_id=base_id
@@ -178,6 +185,7 @@ def build_demo_dataset(
         "records": records,
         "reference_lines": [asdict(line) for line in catalog.lines],
         "source": catalog.source_name,
+        "reference_metadata": {k: v for k, v in catalog.metadata.items() if k != "imported_at"},
         "classes": class_order,
         "preprocessing": preprocessor.to_dict(),
     }

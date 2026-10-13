@@ -1,0 +1,715 @@
+{
+  "schema_version": 1,
+  "audit_id": "chemcam-v2-new-materials-and-blank-feasibility",
+  "created_at": "2026-10-13T16:42:59.478405+00:00",
+  "scope": "Metadata, chemistry and primary publications only for final feasibility. Four named new low-Mg standards were separately authorized for development-only download. No new final intensities or predictions inspected.",
+  "status": "independent_final_blocked_missing_verified_Fe_Mg_blank_controls",
+  "not_a_locked_final_protocol": true,
+  "no_new_final_intensities_downloaded": true,
+  "no_new_final_predictions_generated": true,
+  "screening_rule": {
+    "negative_guardband": "0<reported oxide wt%<=0.1",
+    "positive_guardband": "reported oxide wt%>=1",
+    "decision_threshold_oxide_wt_percent": 0.5,
+    "zero_missing_intermediate": "unknown",
+    "seen_guard": "Transitive union of normalized published Target/Spectrum Name/Sample Name over all572rows, seeded from preflight64 plus v1development+v1test. Family exclusions are additional and conservative."
+  },
+  "summary": {
+    "nonempty_composition_rows": 572,
+    "rows_not_in_seen_alias_closure": 321,
+    "seen_alias_count": 353,
+    "seen_v1_sessions": 51,
+    "all_published_low_FeOT_rows": 25,
+    "unseen_low_FeOT_rows": 0,
+    "all_published_low_MgO_rows": 41,
+    "unseen_low_MgO_rows": 5,
+    "unseen_low_MgO_base_materials": 4,
+    "new_development_materials_downloaded": 4,
+    "verified_new_Fe_Mg_method_or_matrix_blanks": 0
+  },
+  "seen_inputs": [
+    {
+      "path": "data/reference/chemcam_external_protocol.json",
+      "sha256": "c4b417be023a7aeb7e8e0adb67b1d578e2b5ef5b6966b33a1e415294dd61f06b"
+    },
+    {
+      "path": "data/reference/chemcam_adaptation_protocol.json",
+      "sha256": "0d7c4f5baa35203f60087f9eb3b0294975cb12328d0f85beba20f6e4db91a87e"
+    },
+    {
+      "path": "data/reference/chemcam_adaptation_alias_audit.json",
+      "sha256": "a2ef14fce3c991a1719fed3d9a6dcb3618160521492da02085a108d8673a7c9e"
+    }
+  ],
+  "seen_session_ids": [
+    "chemcam-testbed-2013-08-06",
+    "chemcam-testbed-2013-08-07",
+    "chemcam-testbed-2013-08-08",
+    "chemcam-testbed-2013-08-13",
+    "chemcam-testbed-2013-08-14",
+    "chemcam-testbed-2013-08-15",
+    "chemcam-testbed-2013-08-19",
+    "chemcam-testbed-2013-08-20",
+    "chemcam-testbed-2013-08-29",
+    "chemcam-testbed-2013-09-03",
+    "chemcam-testbed-2013-09-09",
+    "chemcam-testbed-2013-09-10",
+    "chemcam-testbed-2013-09-11",
+    "chemcam-testbed-2013-09-12",
+    "chemcam-testbed-2013-09-16",
+    "chemcam-testbed-2013-09-17",
+    "chemcam-testbed-2013-09-18",
+    "chemcam-testbed-2013-09-19",
+    "chemcam-testbed-2013-09-20",
+    "chemcam-testbed-2013-09-25",
+    "chemcam-testbed-2013-09-26",
+    "chemcam-testbed-2013-09-30",
+    "chemcam-testbed-2013-10-01",
+    "chemcam-testbed-2013-10-02",
+    "chemcam-testbed-2013-10-08",
+    "chemcam-testbed-2013-10-15",
+    "chemcam-testbed-2013-10-16",
+    "chemcam-testbed-2013-10-17",
+    "chemcam-testbed-2013-10-22",
+    "chemcam-testbed-2013-10-23",
+    "chemcam-testbed-2013-10-24",
+    "chemcam-testbed-2013-10-25",
+    "chemcam-testbed-2013-10-28",
+    "chemcam-testbed-2013-10-29",
+    "chemcam-testbed-2013-11-04",
+    "chemcam-testbed-2013-11-05",
+    "chemcam-testbed-2013-11-06",
+    "chemcam-testbed-2013-11-07",
+    "chemcam-testbed-2017-04-06",
+    "chemcam-testbed-2017-04-07",
+    "chemcam-testbed-2017-04-18",
+    "chemcam-testbed-2017-05-16",
+    "chemcam-testbed-2018-02-16",
+    "chemcam-testbed-2018-02-20",
+    "chemcam-testbed-2018-07-10",
+    "chemcam-testbed-2018-07-11",
+    "chemcam-testbed-2018-07-30",
+    "chemcam-testbed-2018-10-10",
+    "chemcam-testbed-2018-10-23",
+    "chemcam-testbed-2019-06-27",
+    "chemcam-testbed-2019-06-28"
+  ],
+  "low_content_candidates": [
+    {
+      "composition_row_number": 435,
+      "composition_row": {
+        "Target": "JCH-1",
+        "Spectrum Name": "",
+        "Sample Name": "",
+        "SiO2": "97.81",
+        "TiO2": "0.03",
+        "Al2O3": "0.72",
+        "FeOT": "0.32",
+        "MnO": "0.017",
+        "MgO": "0.08",
+        "CaO": "0.04",
+        "Na2O": "0.03",
+        "K2O": "0.22",
+        "MOC total": "99.27",
+        "Used for 2015 calibration": "0",
+        "Used for 2021 Mn calibration": "1",
+        "Used for 2022 Li calibration": "1"
+      },
+      "published_aliases": [
+        "jch1"
+      ],
+      "archive_matches": [
+        {
+          "campaign": "calib_2021",
+          "folder": "jch-1",
+          "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/jch-1/"
+        }
+      ],
+      "seen_material_aliases": [],
+      "low_FeOT": false,
+      "low_MgO": true,
+      "family_id": "jch1",
+      "session_id": "chemcam-testbed-2013-09-04",
+      "acquisition_session_seen": false,
+      "disposition": "downloaded_for_development_only",
+      "intake_measurement_id": "development-v2:jch-1:2013_09_04_153432_ccs",
+      "warnings": []
+    },
+    {
+      "composition_row_number": 466,
+      "composition_row": {
+        "Target": "27-07",
+        "Spectrum Name": "",
+        "Sample Name": "DH2707",
+        "SiO2": "6.16",
+        "TiO2": "",
+        "Al2O3": "0.37",
+        "FeOT": "0.23",
+        "MnO": "0.008",
+        "MgO": "0.07",
+        "CaO": "46.76",
+        "Na2O": "0.06",
+        "K2O": "0.04",
+        "MOC total": "53.7",
+        "Used for 2015 calibration": "0",
+        "Used for 2021 Mn calibration": "1",
+        "Used for 2022 Li calibration": "0"
+      },
+      "published_aliases": [
+        "2707",
+        "dh2707"
+      ],
+      "archive_matches": [
+        {
+          "campaign": "calib_2021",
+          "folder": "27-07",
+          "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/27-07/"
+        }
+      ],
+      "seen_material_aliases": [],
+      "low_FeOT": false,
+      "low_MgO": true,
+      "family_id": "2707",
+      "session_id": "chemcam-testbed-2013-09-04",
+      "acquisition_session_seen": false,
+      "disposition": "downloaded_for_development_only",
+      "intake_measurement_id": "development-v2:27-07:2013_09_04_150414_ccs",
+      "warnings": [
+        "Gasda2021 section3.1 removed 27-07 as an original-paper spectral outlier; retained as metadata-selected development with published assay labels."
+      ]
+    },
+    {
+      "composition_row_number": 525,
+      "composition_row": {
+        "Target": "Macusanite",
+        "Spectrum Name": "MACUSANITE",
+        "Sample Name": "MACUSANITE",
+        "SiO2": "73.75",
+        "TiO2": "0.04",
+        "Al2O3": "16.35",
+        "FeOT": "0.52",
+        "MnO": "0.065",
+        "MgO": "0.01",
+        "CaO": "0.24",
+        "Na2O": "4.07",
+        "K2O": "3.99",
+        "MOC total": "99.03",
+        "Used for 2015 calibration": "0",
+        "Used for 2021 Mn calibration": "1",
+        "Used for 2022 Li calibration": "0"
+      },
+      "published_aliases": [
+        "macusanite"
+      ],
+      "archive_matches": [
+        {
+          "campaign": "calib_2015",
+          "folder": "macusanite",
+          "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2015/1600mm/macusanite/"
+        }
+      ],
+      "seen_material_aliases": [],
+      "low_FeOT": false,
+      "low_MgO": true,
+      "family_id": "macusanite",
+      "session_id": "chemcam-testbed-2013-08-14",
+      "acquisition_session_seen": true,
+      "disposition": "downloaded_for_development_only",
+      "intake_measurement_id": "development-v2:macusanite:2013_08_14_161022_ccs",
+      "warnings": []
+    },
+    {
+      "composition_row_number": 554,
+      "composition_row": {
+        "Target": "JR-3",
+        "Spectrum Name": "",
+        "Sample Name": "",
+        "SiO2": "72.76",
+        "TiO2": "0.21",
+        "Al2O3": "11.9",
+        "FeOT": "4.2471",
+        "MnO": "0.083",
+        "MgO": "0.05",
+        "CaO": "0.093",
+        "Na2O": "4.69",
+        "K2O": "4.29",
+        "MOC total": "98.3231",
+        "Used for 2015 calibration": "0",
+        "Used for 2021 Mn calibration": "0",
+        "Used for 2022 Li calibration": "1"
+      },
+      "published_aliases": [
+        "jr3"
+      ],
+      "archive_matches": [
+        {
+          "campaign": "calib_2021",
+          "folder": "jr-3",
+          "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/jr-3/"
+        }
+      ],
+      "seen_material_aliases": [],
+      "low_FeOT": false,
+      "low_MgO": true,
+      "family_id": "jr3",
+      "session_id": "chemcam-testbed-2021-01-13",
+      "acquisition_session_seen": false,
+      "disposition": "downloaded_for_development_only",
+      "intake_measurement_id": "development-v2:jr-3:2021_01_13_154849_ccs",
+      "warnings": []
+    },
+    {
+      "composition_row_number": 566,
+      "composition_row": {
+        "Target": "Li420_NCS_JR3",
+        "Spectrum Name": "",
+        "Sample Name": "",
+        "SiO2": "72.999581",
+        "TiO2": "0.181726",
+        "Al2O3": "12.325592",
+        "FeOT": "3.667179",
+        "MnO": "0.081065",
+        "MgO": "0.048512",
+        "CaO": "0.129756",
+        "Na2O": "4.615596",
+        "K2O": "4.123335",
+        "MOC total": "98.172342",
+        "Used for 2015 calibration": "0",
+        "Used for 2021 Mn calibration": "0",
+        "Used for 2022 Li calibration": "1"
+      },
+      "published_aliases": [
+        "li420ncsjr3"
+      ],
+      "archive_matches": [
+        {
+          "campaign": "calib_2021",
+          "folder": "li420ncsjr3",
+          "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/li420ncsjr3/"
+        }
+      ],
+      "seen_material_aliases": [],
+      "low_FeOT": false,
+      "low_MgO": true,
+      "family_id": "jr3",
+      "session_id": "chemcam-testbed-2021-08-06",
+      "acquisition_session_seen": false,
+      "disposition": "excluded_derived_JR3_material_not_an_independent_base_standard",
+      "family_evidence": "Published Target Li420_NCS_JR3 identifies JR3 parent; conservative grouping, not an asserted complete recipe."
+    }
+  ],
+  "all_low_FeOT_rows": [
+    {
+      "composition_row_number": 65,
+      "target": "JDo-1",
+      "FeOT": "0.09",
+      "seen_aliases": [
+        "jdo1"
+      ]
+    },
+    {
+      "composition_row_number": 128,
+      "target": "1383",
+      "FeOT": "0.06",
+      "seen_aliases": [
+        "1383",
+        "dceng1",
+        "jsc1383"
+      ]
+    },
+    {
+      "composition_row_number": 249,
+      "target": "GYPA",
+      "FeOT": "0.04",
+      "seen_aliases": [
+        "gypa"
+      ]
+    },
+    {
+      "composition_row_number": 250,
+      "target": "GYPB",
+      "FeOT": "0.06",
+      "seen_aliases": [
+        "gypb"
+      ]
+    },
+    {
+      "composition_row_number": 272,
+      "target": "MIX1O",
+      "FeOT": "0.02",
+      "seen_aliases": [
+        "mix1o"
+      ]
+    },
+    {
+      "composition_row_number": 275,
+      "target": "MIX2O",
+      "FeOT": "0.02",
+      "seen_aliases": [
+        "mix2o"
+      ]
+    },
+    {
+      "composition_row_number": 278,
+      "target": "MIX3O",
+      "FeOT": "0.03",
+      "seen_aliases": [
+        "mix3o"
+      ]
+    },
+    {
+      "composition_row_number": 284,
+      "target": "MIX5O",
+      "FeOT": "0.02",
+      "seen_aliases": [
+        "mix5o"
+      ]
+    },
+    {
+      "composition_row_number": 436,
+      "target": "JF1",
+      "FeOT": "0.07",
+      "seen_aliases": [
+        "jf1"
+      ]
+    },
+    {
+      "composition_row_number": 437,
+      "target": "JF2",
+      "FeOT": "0.05",
+      "seen_aliases": [
+        "jf2"
+      ]
+    },
+    {
+      "composition_row_number": 480,
+      "target": "DV_Calcite_opt",
+      "FeOT": "0.01",
+      "seen_aliases": [
+        "dvcalciteopt"
+      ]
+    },
+    {
+      "composition_row_number": 483,
+      "target": "DV10",
+      "FeOT": "0.07",
+      "seen_aliases": [
+        "dv10"
+      ]
+    },
+    {
+      "composition_row_number": 487,
+      "target": "DV14",
+      "FeOT": "0.02",
+      "seen_aliases": [
+        "dv14"
+      ]
+    },
+    {
+      "composition_row_number": 490,
+      "target": "DV17CalciteBlue",
+      "FeOT": "0.01",
+      "seen_aliases": [
+        "dv17calciteblue"
+      ]
+    },
+    {
+      "composition_row_number": 491,
+      "target": "DV18MicroKeys",
+      "FeOT": "0.03",
+      "seen_aliases": [
+        "dv18microkeys"
+      ]
+    },
+    {
+      "composition_row_number": 492,
+      "target": "DV19NickMagnes",
+      "FeOT": "0.04",
+      "seen_aliases": [
+        "dv19nickmagnes"
+      ]
+    },
+    {
+      "composition_row_number": 493,
+      "target": "DV2",
+      "FeOT": "0.05",
+      "seen_aliases": [
+        "dv2"
+      ]
+    },
+    {
+      "composition_row_number": 494,
+      "target": "DV23Clausthalite",
+      "FeOT": "0.07",
+      "seen_aliases": [
+        "dv23clausthalite"
+      ]
+    },
+    {
+      "composition_row_number": 501,
+      "target": "DV5",
+      "FeOT": "0.09",
+      "seen_aliases": [
+        "dv5"
+      ]
+    },
+    {
+      "composition_row_number": 502,
+      "target": "DV6",
+      "FeOT": "0.07",
+      "seen_aliases": [
+        "dv6"
+      ]
+    },
+    {
+      "composition_row_number": 505,
+      "target": "DV9",
+      "FeOT": "0.03",
+      "seen_aliases": [
+        "dv9"
+      ]
+    },
+    {
+      "composition_row_number": 521,
+      "target": "JCRMR703",
+      "FeOT": "0.07",
+      "seen_aliases": [
+        "crmr703",
+        "jcrmr703"
+      ]
+    },
+    {
+      "composition_row_number": 522,
+      "target": "JCRMR803",
+      "FeOT": "0.04",
+      "seen_aliases": [
+        "crmr803",
+        "jcrmr803"
+      ]
+    },
+    {
+      "composition_row_number": 523,
+      "target": "JSY2",
+      "FeOT": "0.08",
+      "seen_aliases": [
+        "jsy1",
+        "jsy2"
+      ]
+    },
+    {
+      "composition_row_number": 544,
+      "target": "SX1602",
+      "FeOT": "0.06",
+      "seen_aliases": [
+        "sx1602"
+      ]
+    }
+  ],
+  "blank_candidates": [
+    {
+      "candidate": "ChemCam Ti calibration plate",
+      "control_type": "instrument wavelength reference",
+      "eligible_Fe_Mg_blank": false,
+      "evidence": "Wiens2012 Table5 and section5 describe typical6-4 titanium alloy, approximately6%Al/4%V. No lot/grade-specific Fe or Mg upper bounds are given. Onboard plate chemistry cannot be transferred to unspecified LANL testbed plate.",
+      "reason": "no_certified_Fe_Mg_bound_and_no_unique_new_lab_CCS_mapping",
+      "source": "https://doi.org/10.1007/s11214-012-9902-4"
+    },
+    {
+      "candidate": "ChemCam graphite calibration disk",
+      "control_type": "carbon identification reference",
+      "eligible_Fe_Mg_blank": false,
+      "evidence": "Wiens2012 reports EDS/WDS-confirmed surface impurities includingFe; no numerical Fe/Mg bounds.",
+      "reason": "known_impurities_no_quantitative_bound_no_new_lab_CCS_mapping",
+      "source": "https://doi.org/10.1007/s11214-012-9902-4"
+    },
+    {
+      "candidate": "Gasda2021 four calcium sulfate / calcium sulfate plus KCl materials",
+      "control_type": "documented_Mn_method_blank",
+      "eligible_Fe_Mg_blank": false,
+      "evidence": "Section2.8 documents20 spectra of four SigmaAldrich materials prepared as rock pellets. This establishes the Mn blank procedure only; exact lot, Fe/Mg assay limits and unique CCS IDs are not supplied in that passage. GYPA-D must not be substituted: they are natural gypsiferous reference standards, already seen.",
+      "reason": "analyte_specific_blank_not_verified_for_Fe_Mg_unresolved_product_mapping",
+      "source": "https://doi.org/10.1016/j.sab.2021.106223"
+    },
+    {
+      "candidate": "Gasda2017 calcium sulfate used for boron calibration",
+      "control_type": "reagent matrix",
+      "eligible_Fe_Mg_blank": false,
+      "evidence": "LPSC2017 abstract1539 gives SigmaAldrichCaSO4·2H2O purity98%. Even the conservative totalimpurity bound2wt% does not prove either FeOT or MgO below0.5wt%. This material cannot be assumed identical to the Gasda2021 Mn method blanks.",
+      "reason": "purity_bound_too_weak_unresolved_exact_archived_CCS_mapping",
+      "source": "https://www.hou.usra.edu/meetings/lpsc2017/pdf/1539.pdf"
+    },
+    {
+      "candidate": "MIX4O quartz/silica endmember",
+      "control_type": "synthetic-series endmember",
+      "eligible_Fe_Mg_blank": false,
+      "evidence": "Clegg2017 identifies100%SiO2 endmember within K1919 mixture suite. MIX4O was already used in v1development; zero cells do not certify Fe/Mg absence and no applicable impurity certificate was found.",
+      "reason": "previously_exposed_family_and_no_certified_Fe_Mg_bound",
+      "source": "https://doi.org/10.1016/j.sab.2016.12.003"
+    },
+    {
+      "candidate": "calib_2015 TiO2 additions",
+      "control_type": "TiO2_BHVO2_mixture_series",
+      "eligible_Fe_Mg_blank": false,
+      "evidence": "Clegg2017 describes TiO2 added toBHVO2. Archived unmatched folders0.1tio2,1tio2,3tio2,5tio2,7tio2,10tio2,25tio2,50tio2,75tio2 do not establish a pure certifiedTiO2 product. BHVO2 parent already seen.",
+      "reason": "seen_parent_mixture_no_pure_product_mapping_or_purity_certificate",
+      "source": "https://doi.org/10.1016/j.sab.2016.12.003"
+    },
+    {
+      "candidate": "dark/no-laser spectrum",
+      "control_type": "detector/background_control",
+      "eligible_Fe_Mg_blank": false,
+      "evidence": "A detector/background measurement does not traverse laser ablation, sample matrix or preparation and cannot estimate matrix/method false positives.",
+      "reason": "different_control_estimand_not_a_substitute",
+      "source": null
+    }
+  ],
+  "source": {
+    "dataset_id": "MSL-M-CHEMCAM-LIBS-4/5-RDR-V1.0",
+    "doi": "10.17189/1519485",
+    "license_id": "us-pd",
+    "license_url": "https://data.nasa.gov/dataset/msl-mars-chemcam-libs-spectra-4-5-rdr-v1-0-f9501",
+    "license_basis": "NASA explicit us-pd; DATA_SET_ID must match each PDS label.",
+    "wavelength_medium": "vacuum",
+    "wavelength_units": "nm",
+    "intensity_units": "photons/shot/mm^2/sr/nm",
+    "calibration_documentation": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calinfo.txt",
+    "composition_url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv",
+    "wavelength_method_sources": [
+      "https://doi.org/10.1016/j.sab.2016.12.003",
+      "https://doi.org/10.1016/j.sab.2021.106223",
+      "https://www.osti.gov/pages/servlets/purl/1785483"
+    ],
+    "wavelength_method_evidence": "Clegg2017 wavelength calibration section: Ti baseline wavelength-channel map uses known vacuum lines and spectra are resampled to that map. Gasda2021 sections2.1/2.3.1 identify the same LANL testbed and Ti calibration before each laboratory sample run, citing Clegg2017. CALINFO links calib_2015 and calib_2021 to those methods. Medium is based on this method chain, not chamber pressure.",
+    "composition_evidence": "Clegg2017 standard provenance: independent XRF/dry combustion or certified values; missing values are not zero. Gasda2021 section2.2: commercial reference standards or independent ACTLabs fusion ICP-MS. Values are published assay estimates, not certified per-cell upper bounds.",
+    "evidence_snapshots": [
+      {
+        "path": "data/raw/chemcam_external/clegg2017.pdf",
+        "sha256": "7c8c1af12fd15ef50cddba446e86aeb1dc530c0a397906018486d69e25d2aa10"
+      },
+      {
+        "path": "data/raw/adaptation_candidates_ml/gasda2021.pdf",
+        "sha256": "30a867b653c86a941e4c4b91a2a1ba3bdfd5484b9029d43934e77840c9973065"
+      },
+      {
+        "path": "data/raw/chemcam_external/calinfo.txt",
+        "sha256": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf"
+      },
+      {
+        "path": "data/raw/chemcam_external/license.html",
+        "sha256": "f89453aaca99bc4b2990f405772dae1f213cd712de53dcbced4a26047445848f"
+      }
+    ]
+  },
+  "evidence_snapshots": [
+    {
+      "path": "data/raw/chemcam_external/ccam_calibration_compositions.csv",
+      "sha256": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv",
+      "description": "572 nonempty published chemistry rows; zero is not established absence."
+    },
+    {
+      "path": "data/raw/chemcam_v2_candidates/calib-index.html",
+      "sha256": "a952753658d5a582bbce3f46a001d2ee39369c1de74a8c410cace5c6ef5a425f",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/",
+      "description": "Archive campaigns; no separate calib_2022 directory."
+    },
+    {
+      "path": "data/raw/chemcam_external/calinfo.txt",
+      "sha256": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calinfo.txt",
+      "description": "CALIB_2021 explicitly includes Mn2021 and Li2022 calibration; CCS radiance units."
+    },
+    {
+      "path": "data/raw/chemcam_v2_candidates/cleanroom-index.html",
+      "sha256": "6ee29f63609dd92e1d1bebf65eafb052c3e1e67bf8e351423dad42dcbe56f816",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/cleanroom/",
+      "description": "Available preflight calibration folders; no separate Ti/graphite/blank product identified."
+    },
+    {
+      "path": "data/raw/chemcam_external/calib2015-index.html",
+      "sha256": "2f2d0ca8de1714f6288a6b6c7be093605e8e60582814e945cb05307be0b09bf0",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2015/1600mm/",
+      "description": "2015 material folders."
+    },
+    {
+      "path": "data/raw/adaptation_candidates_root/calib2021-index.html",
+      "sha256": "9fc729155d8f1bf8b464167f208d06f8fbcfa1ecd43637f5d71ee1595bfcb2f8",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/",
+      "description": "2021 material folders, including Li2022 additions."
+    },
+    {
+      "path": "data/raw/chemcam_external/clegg2017.pdf",
+      "sha256": "7c8c1af12fd15ef50cddba446e86aeb1dc530c0a397906018486d69e25d2aa10",
+      "url": "https://doi.org/10.1016/j.sab.2016.12.003",
+      "description": "Independent chemistry, mixtures, vacuum wavelength calibration."
+    },
+    {
+      "path": "data/raw/adaptation_candidates_ml/gasda2021.pdf",
+      "sha256": "30a867b653c86a941e4c4b91a2a1ba3bdfd5484b9029d43934e77840c9973065",
+      "url": "https://www.osti.gov/pages/servlets/purl/1785483",
+      "description": "Mn method blanks, sample preparation and common Ti wavelength calibration."
+    },
+    {
+      "path": "data/raw/chemcam_v2_candidates/wiens2012.pdf",
+      "sha256": "e83983f45b0cd33b3b3f5237405fd2ea8dae61c3c21171fb544747af44061e3d",
+      "url": "https://molokai.sese.asu.edu/~jimbo/indexed/publications/other_co_author/0135_Wiens_RC_The_ChemCam_Instrument_Suite_Space_Sci_Rev_2012.pdf",
+      "description": "ChemCam onboard Ti alloy and graphite composition evidence; DOI10.1007/s11214-012-9902-4."
+    },
+    {
+      "path": "data/raw/chemcam_v2_candidates/gasda2017_boron.pdf",
+      "sha256": "1cc6f3bf181bb02ca65d511c3089cbb1f1e51d514138c5ea69f716e980c3fa1d",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2017/pdf/1539.pdf",
+      "description": "Separate boron study specifies 98% calcium sulfate, insufficient generic impurity bound."
+    },
+    {
+      "path": "data/raw/chemcam_v2_candidates/gasda2021_zenodo.json",
+      "sha256": "ff8268e0c12478821201fbf5601b36c83eaef8b0c382a8d85765f4fcc6e9ffc5",
+      "url": "https://zenodo.org/api/records/4507630",
+      "description": "CC-BY4 metadata; only composition/name metadata is co-packaged with 176884180-byte spectral matrix. Matrix/predictions not downloaded."
+    },
+    {
+      "path": "data/raw/chemcam_external/license.html",
+      "sha256": "f89453aaca99bc4b2990f405772dae1f213cd712de53dcbced4a26047445848f",
+      "url": "https://data.nasa.gov/dataset/msl-mars-chemcam-libs-spectra-4-5-rdr-v1-0-f9501",
+      "description": "NASA explicit us-pd for the PDS calibration dataset."
+    },
+    {
+      "path": "data/raw/chemcam_v2_candidates/macusanite.html",
+      "sha256": "6ac9f7d8f3ffda3ef7b4cd764ba6d1773f414db9ee281d9a391158f28213bf69",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2015/1600mm/macusanite/"
+    },
+    {
+      "path": "data/raw/chemcam_adaptation/metadata/calib_2021_27-07.html",
+      "sha256": "98072697c3ba3c239d17307e845f68159ccc12ea6bca4c8cc60070f5298e2d2a",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/27-07/"
+    },
+    {
+      "path": "data/raw/chemcam_adaptation/metadata/calib_2021_jch-1.html",
+      "sha256": "39929b638bf8ca8f8219a86731f7015065f9238b62aa9adbd53067ace82a47e0",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/jch-1/"
+    },
+    {
+      "path": "data/raw/chemcam_v2_candidates/jr-3.html",
+      "sha256": "2d1ad1d4be1d73f4f4646fb17a5a0e39bf2759b09cc55029c92160b0471dc5c8",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/jr-3/"
+    },
+    {
+      "path": "data/raw/chemcam_v2_candidates/li420ncsjr3.html",
+      "sha256": "eaa85d980d082d5e5fc80146b66ca3ea4f45df28fa85ebe3124f8e32973fc7b2",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/li420ncsjr3/",
+      "description": "Derived JR3 candidate, metadata-only. No CSV intensity downloaded."
+    }
+  ],
+  "access_limitations": [
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2021JE007097&file=2021JE007097-sup-0001-Supporting%20Information%20SI-S01.pdf",
+      "result": "HTTP403",
+      "implication": "Gasda2022 supplementS7 recipe not independently retrieved; JR3 family exclusion remains conservative based on published target name."
+    }
+  ],
+  "next_required_evidence": [
+    "A new, independently acquired numeric CCS file linked to a documented method/matrix blank with sample preparation and acquisition session.",
+    "Exact reagent lot/certificate or analyte-specific upper bounds proving FeOT/MgO below the declared decision level.",
+    "Final selection and preprocessing fixed before opening any candidate final intensity; do not reuse v1test or these four development samples."
+  ]
+}

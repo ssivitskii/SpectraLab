@@ -1,0 +1,1533 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-13T17:22:02.524248+00:00",
+  "scope": "Independent metadata-only final-source search v3: CSA planetary LIBS and Aalto LASOLIBS",
+  "metadata_only": true,
+  "new_final_intensities_downloaded_or_read": false,
+  "new_final_predictions_generated": false,
+  "qualified_final_datasets": 0,
+  "qualified_Fe_Mg_blank_controls": 0,
+  "summary": "CSA access restored with official HTTPS endpoint and TLS verification; exact numeric filenames confirmed through range-fetched ZIP directory. KD2 is promising jointly low Fe/Mg reference material, not a qualified blank. Aalto URLs/license resolved but axis/purity/group metadata missing. No new final source admitted.",
+  "sources": {
+    "csa_zip_central_directory.bin": {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBSOpenDatatxt.zip",
+      "request_log": "data/raw/final_search_v3/requests_kd2_zip.json",
+      "path": "data/raw/final_search_v3/csa_zip_central_directory.bin",
+      "sha256": "135c74b4d0296f6655b3646a878f5a4be26138897675dcddc15c133f1000c889",
+      "bytes": 15866
+    },
+    "breitlander_graphite_catalogue.pdf": {
+      "url": "https://metimex.com.pl/wp-content/uploads/2021/11/Kat.nr-5-wegiel.pdf",
+      "request_log": "data/raw/final_search_v3/requests_kd2_zip.json",
+      "path": "data/raw/final_search_v3/breitlander_graphite_catalogue.pdf",
+      "sha256": "238c43f34684ea92f1240e980881062664bfaef3db69affdf866f9f82625ffca",
+      "bytes": 214708
+    },
+    "brammer_home.html": {
+      "url": "https://www.brammerstandard.com/",
+      "request_log": "data/raw/final_search_v3/requests_kd2_zip.json",
+      "path": "data/raw/final_search_v3/brammer_home.html",
+      "sha256": "02e5cd881f657711a1e84725a7ee56fca1f37e89c1b0baaed8ca2d85f6279baa",
+      "bytes": 952
+    },
+    "brammer_navigation.html": {
+      "url": "https://www.brammerstandard.com/navigation.html",
+      "request_log": "data/raw/final_search_v3/requests_brammer.json",
+      "path": "data/raw/final_search_v3/brammer_navigation.html",
+      "sha256": "6607eadd927d74eef3f41ab207e83b370d3446219f43e5dfa3e4d38de4180c32",
+      "bytes": 2819
+    },
+    "brammer_geological.pdf": {
+      "url": "https://www.brammerstandard.com/pdf/geological.pdf",
+      "request_log": "data/raw/final_search_v3/requests_brammer.json",
+      "path": "data/raw/final_search_v3/brammer_geological.pdf",
+      "sha256": "6adeda558957ce57e2f36243b17bafc99ff47394530641b69c80f0488e6ffc3a",
+      "bytes": 1685766
+    },
+    "aalto_datasets_final.html": {
+      "url": "https://users.aalto.fi/~lainei1/pages/datasets/",
+      "request_log": "data/raw/final_search_v3/requests_papers.json",
+      "path": "data/raw/final_search_v3/aalto_datasets_final.html",
+      "sha256": "002c40fa5659cab2d86a3afc2b38facc2c72147eb822701a1955795edef7a2c8",
+      "bytes": 5912
+    },
+    "csa_koujelev2011.pdf": {
+      "url": "https://openresearchlibrary.org/ext/api/media/030164ec-a306-4bc6-be98-34975a9bee08/assets/external_content.pdf",
+      "request_log": "data/raw/final_search_v3/requests_papers.json",
+      "path": "data/raw/final_search_v3/csa_koujelev2011.pdf",
+      "sha256": "2d49bef215a393a86e0d31ad3e074ef991db3ae51fa13751062f1958a841e037",
+      "bytes": 1103705
+    },
+    "csa_assay.deflate": {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBSOpenDatatxt.zip",
+      "request_log": "data/raw/final_search_v3/requests_assay_certificates.json",
+      "path": "data/raw/final_search_v3/csa_assay.deflate",
+      "sha256": "9a9c5bdf0e02aa65250cab5fe5712e8bd64c75aec31a6e497b3233b4dfe36abf",
+      "bytes": 16974
+    },
+    "brammer_certificates.html": {
+      "url": "https://www.brammerstandard.com/certificates.html",
+      "request_log": "data/raw/final_search_v3/requests_assay_certificates.json",
+      "path": "data/raw/final_search_v3/brammer_certificates.html",
+      "sha256": "8ab6c0a53e9f66b676855530afb77feb103b6be76fcc6a4d4387d7d1a99aace7",
+      "bytes": 121140
+    },
+    "brammer_introduction.html": {
+      "url": "https://www.brammerstandard.com/introduction.html",
+      "request_log": "data/raw/final_search_v3/requests_assay_certificates.json",
+      "path": "data/raw/final_search_v3/brammer_introduction.html",
+      "sha256": "c6be6e6ac94754c82885756df4172ea195b53035c10264e5521955218108e301",
+      "bytes": 20158
+    },
+    "brammer_catalogues.html": {
+      "url": "https://www.brammerstandard.com/adobe.html",
+      "request_log": "data/raw/final_search_v3/requests_assay_certificates.json",
+      "path": "data/raw/final_search_v3/brammer_catalogues.html",
+      "sha256": "8919401a33ee6c15d3a23c0ee9705379adfd43641f4f023a46779d9499c4cd52",
+      "bytes": 2681
+    },
+    "aalto_elements_current.html": {
+      "url": "https://users.aalto.fi/~lainei1/pages/elements/",
+      "request_log": "data/raw/final_search_v3/requests_aalto_current.json",
+      "path": "data/raw/final_search_v3/aalto_elements_current.html",
+      "sha256": "0770c8b98b900ee6e1f576aec033796d777c3f8279f8e2d6c26292b891e0e568",
+      "bytes": 36800
+    },
+    "aalto_calibration_current.html": {
+      "url": "https://users.aalto.fi/~lainei1/pages/calibration/",
+      "request_log": "data/raw/final_search_v3/requests_aalto_current.json",
+      "path": "data/raw/final_search_v3/aalto_calibration_current.html",
+      "sha256": "9de776ea7b0d8aa6bd947a72676051f9ee74114a97cd6c25d491aab9324351cd",
+      "bytes": 5952
+    },
+    "aalto_atomic_lines_current.html": {
+      "url": "https://users.aalto.fi/~lainei1/pages/atomic_emission_lines/",
+      "request_log": "data/raw/final_search_v3/requests_aalto_current.json",
+      "path": "data/raw/final_search_v3/aalto_atomic_lines_current.html",
+      "sha256": "77001c95a4886af8ad95eb243aeb00f94e61c6bf324ada38a4c417c2c492decd",
+      "bytes": 21680
+    },
+    "csa_package.json": {
+      "url": "https://open.canada.ca/data/api/3/action/package_show?id=137bdc17-2f46-4d70-98e7-acc46f602e9f",
+      "path": "data/raw/final_search_v3/csa_package.json",
+      "sha256": "833ecc613b79a4393a404fd218a3e061db9b6d359d337ed41ca167738ac85279",
+      "bytes": 9478
+    },
+    "csa_directory.html": {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/",
+      "path": "data/raw/final_search_v3/csa_directory.html",
+      "sha256": "6f9950cf3043cf5171e8c88aa42155aff94af57c17e6322d6a9dbcb6d0dcfdd2",
+      "bytes": 3311
+    },
+    "csa_description.docx": {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBS%20data%20set%20description%202017-01-19.docx",
+      "path": "data/raw/final_search_v3/csa_description.docx",
+      "sha256": "2e2b5d778b904ce398252f36b5e36c8e91b2ea65d543329d346d3f41ecd820e6",
+      "bytes": 213280
+    },
+    "csa_compositions_large.csv": {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/Sample_Composition_Data_LargeSet.csv",
+      "path": "data/raw/final_search_v3/csa_compositions_large.csv",
+      "sha256": "d3db564c30601f1aecafd5b75a17803b8c666bfbe6a36e97dcd6f345a0bd3bd0",
+      "bytes": 8143
+    },
+    "csa_compositions_subset.csv": {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/Sample_Composition_Data_SubSet.csv",
+      "path": "data/raw/final_search_v3/csa_compositions_subset.csv",
+      "sha256": "ea3b049a4b34cc08bfbc41ce6eb15e66aaf3847cd034e301241b1d8222806db0",
+      "bytes": 406
+    },
+    "csa_sample_composition_data.xls": {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBSOpenDatatxt.zip",
+      "path": "data/raw/final_search_v3/csa_sample_composition_data.xls",
+      "sha256": "4268fe74483143b50f876d9c6c86b2934e298696cb6dd110a0a116ad9264d8af",
+      "bytes": 60416,
+      "extraction": {
+        "member": "Sample_Composition_Data.xls",
+        "compressed_http_range": [
+          7889582,
+          7906555
+        ],
+        "method": "raw DEFLATE; archive CRC32 002c33a6 verified; no spectral member downloaded"
+      }
+    },
+    "csa_zip_eocd.bin": {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBSOpenDatatxt.zip",
+      "path": "data/raw/final_search_v3/csa_zip_eocd.bin",
+      "sha256": "b5e3a8ae4b96139123a0ab26f75031580fa37457b9fd3629f0f482274dd835ff",
+      "bytes": 22
+    },
+    "csa_archive_file_inventory.json": {
+      "path": "data/raw/final_search_v3/csa_archive_file_inventory.json",
+      "sha256": "e79a9b7eac12995e1e53c5784aa8699a5bbe3841f6dfcd53c1535c2fa0fd72d5",
+      "derived_from": [
+        "csa_zip_eocd.bin",
+        "csa_zip_central_directory.bin"
+      ],
+      "note": "Only ZIP central directory names, sizes, CRC and stored timestamps; timestamps are not claimed as acquisition sessions."
+    },
+    "csa_assay_workbook_rows.json": {
+      "path": "data/raw/final_search_v3/csa_assay_workbook_rows.json",
+      "sha256": "79e9d48d97056ee23ad14360fae0d405f9a5577b19e4f52dc4b4c70db350b203",
+      "derived_from": [
+        "csa_sample_composition_data.xls"
+      ]
+    },
+    "ocean_calibration_faq.html": {
+      "url": "https://www.oceanoptics.com/faq/calibration-faqs/",
+      "path": "data/raw/final_search_v3/ocean_calibration_faq.html",
+      "sha256": "dcd20eec66f44cc2c0d6270fd55e07ab2af584c2023ef54f3f0e30c1bc71c488",
+      "bytes": 236599
+    },
+    "ocean_legacy.html": {
+      "url": "https://www.oceanoptics.com/resources/legacy-spectrometers/",
+      "path": "data/raw/final_search_v3/ocean_legacy.html",
+      "sha256": "3aeb8343a879f7b9ba8a91a13544744922e3af2d6ac78b3bbe61295e266258fa",
+      "bytes": 222577
+    },
+    "ocean_calibration_qsg2026.pdf": {
+      "url": "https://www.oceanoptics.com/wp-content/uploads/2026/02/MNL-1015-Wavelength-Calibration-QSG-Rev-A_OceanOptics_Feb2026.pdf",
+      "path": "data/raw/final_search_v3/ocean_calibration_qsg2026.pdf",
+      "sha256": "0c77c463225cfbd390fc6f18caf432807b7a822a876dd32dd524b399c43b27b5",
+      "bytes": 973640
+    },
+    "ocean_hr2000plus.pdf": {
+      "url": "https://www.oceanoptics.com/wp-content/uploads/2024/12/HR2000Plus.pdf",
+      "path": "data/raw/final_search_v3/ocean_hr2000plus.pdf",
+      "sha256": "5846e65ab841c1fb18ae6bdbdb206ceb3cea48c96be3931948b70e24d3e38e41",
+      "bytes": 387637
+    }
+  },
+  "policy": {
+    "negative": "Published nonzero point estimate 0 < oxide wt% <= 0.1; positive >= 1; zeros and missing entries unknown. These labels remain conditional on established units/basis. Point estimates do not qualify a certified bound or procedural blank.",
+    "no_zero_implies_absence": true,
+    "oxide_conversions": {
+      "Fe_to_FeOT": 1.2864893902766585,
+      "Mg_to_MgO": 1.6582596173626827,
+      "Fe2O3_to_FeOT": 0.8998102538090137
+    },
+    "weight_fraction_to_wt_percent": 100,
+    "point_estimate_not_upper_bound": true
+  },
+  "seen_guard": {
+    "protocols": [
+      {
+        "path": "data/reference/chemcam_adaptation_protocol.json",
+        "sha256": "0d7c4f5baa35203f60087f9eb3b0294975cb12328d0f85beba20f6e4db91a87e"
+      },
+      {
+        "path": "data/reference/chemcam_external_protocol.json",
+        "sha256": "c4b417be023a7aeb7e8e0adb67b1d578e2b5ef5b6966b33a1e415294dd61f06b"
+      },
+      {
+        "path": "data/reference/chemcam_adaptation_v2_intake.json",
+        "sha256": "288d7bea92e209e9cb38fb6d30fc83c6df22cb28486773db33656c5179c16ec3"
+      }
+    ],
+    "transitive_published_ChemCam_alias_count": 358,
+    "cross_institution_unpublished_lots_not_proven_independent": true
+  },
+  "csa": {
+    "dataset_id": "137bdc17-2f46-4d70-98e7-acc46f602e9f",
+    "license": {
+      "id": "ca-ogl-lgo",
+      "title": "Open Government Licence - Canada",
+      "url": "https://open.canada.ca/en/open-government-licence-canada",
+      "note": "Dataset metadata isopen=false despite explicit Open Government Licence - Canada; use license field, not assumption from public access."
+    },
+    "official_directory": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/",
+    "archive_url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBSOpenDatatxt.zip",
+    "archive_content_length": 7922444,
+    "access_resolution": "Use donnees-data.asc-csa.gc.ca HTTPS with normal certificate verification; ftp.asc-csa.gc.ca legacy endpoint timed out.",
+    "instrument": {
+      "name": "Ocean Optics LIBS2000",
+      "excitation": "Spectra Physics LPY150 Nd:YAG,1064nm,20mJ,7ns,2Hz",
+      "spectral_range_nm": [
+        200,
+        970
+      ],
+      "resolution_nm": 0.1,
+      "rows_per_spectrum": 13490,
+      "measurement_atmosphere": "ambient,1atm,23C",
+      "wavelength_medium": null,
+      "reason": "Acquisition atmosphere does not prove reported wavelength medium; CSA guide, associated Koujelev2011 chapter and inspected instrument documentation do not explicitly establish air/vacuum scale."
+    },
+    "acquisition_grouping": {
+      "published_coverage": [
+        "2010-11-25",
+        "2010-11-29"
+      ],
+      "1000average": "1000 shots at 10 spots averaged into one spectrum per certified material",
+      "200average": "200 shots at 2 spots averaged into one spectrum per material",
+      "statistical_unit": "physical material; shot counts are not independent records; shared material across average products remains same group",
+      "archive_timestamp_not_guaranteed_acquisition_date": true,
+      "guide_sample_counts": {
+        "certified": 39,
+        "hand_samples": 29
+      },
+      "archive_txt_counts": {
+        "Certified Samples Subset 1000pulseaverage": 41,
+        "Material Large Set 200pulseaverage": 69
+      },
+      "composition_large_named_rows": 82,
+      "count_discrepancy": "Archive/assay contains different totals from guide; no silent drop or forced equality."
+    },
+    "assay_basis_caution": "XLS CertifiedSamplesSubset explicitly Fe2O3; MaterialLargeSet/CSV FeO header duplicates certified Fe2O3 entries, including JA1=.0707. Both interpretations for low hand Fe entries remain below0.1wt% but exact FeOT basis is unresolved without original Actlabs report. Other-material KD2 is explicitly elemental Fe/Mg.",
+    "graphite_kd2": {
+      "material": "Graphite KD2",
+      "candidate_aliases": [
+        "Graphite KD2",
+        "CIBA KD-2",
+        "CB KD2"
+      ],
+      "manufacturer": "CIBA-GEIGY, Switzerland (Brammer producer-key table)",
+      "composition_source": "Other materials subset worksheet row 2 / csa_compositions_subset.csv row 2",
+      "composition_row": {
+        "Others": "Graphite KD2",
+        "Al": 3.5e-05,
+        "Cu": 1e-06,
+        "Mg": 2.1e-05,
+        "Si": 0.000145,
+        "Fe": 0.00018,
+        "Mn": 2.3e-05,
+        "Ni": 4.2e-06,
+        "Zn": 4.4e-06,
+        "Pb": 1.6e-06,
+        "Sn": 2e-07,
+        "Ti": 4.6e-05,
+        "Cr": 1.3e-06,
+        "P": "",
+        "As": 5e-08,
+        "Sb": 2e-08,
+        "S": 4.4e-05,
+        "C": 0.9993956099999999,
+        "Ca": 9.8e-05,
+        "B": "NA",
+        "Mo": 2.2e-07,
+        "V": 3.6e-06
+      },
+      "units_evidence": "Official Brammer geological catalogue p27 explicitly states mg/kg for CIBA KD-2: Fe 180, Mg (21), matching CSA fractions 0.00018 and 0.000021. Multiplying the mass fractions by 100 gives elemental wt%.",
+      "element_mg_per_kg": {
+        "Fe": 180,
+        "Mg": 21
+      },
+      "oxide_wt_percent_point_estimates": {
+        "FeOT": 0.023156809024979852,
+        "MgO": 0.0034823451964616334
+      },
+      "operational_point_labels": {
+        "Fe": "negative",
+        "Mg": "negative"
+      },
+      "certified_upper_bounds": {
+        "Fe": null,
+        "Mg": null
+      },
+      "assay_uncertainty": null,
+      "catalogue_status": {
+        "material": "CRM synthetic graphite",
+        "Fe": "unparenthesized catalogue value180",
+        "Mg": "Parenthesized catalogue value (21), not accepted here as certified; exact KD2 certificate and its legend are absent.",
+        "supplier_caution": "Brammer introduction instructs use paperwork rather than catalogue; no lot certificate retrieved."
+      },
+      "spectral_members": [
+        {
+          "name": "Certified Samples Subset 1000pulseaverage/Graphite_1000AVG.txt",
+          "uncompressed_size": 215302,
+          "compressed_size": 68123,
+          "crc32": "0f231580",
+          "archive_entry_timestamp": "2010-11-25T15:41:08",
+          "local_header_offset": 1214685
+        }
+      ],
+      "spectral_to_composition_mapping": "Only graphite entry in Other materials subset and only Graphite TXT in certified folder; natural inference, not explicit lot-ID filename. LargeSet has no graphite row or Graphite TXT.",
+      "independence": {
+        "alias_overlap": [],
+        "provisional_only": true,
+        "note": "Do not equate with unspecified ChemCam graphite pellet/holder. CIBA KD2 identity is new by available aliases; no same-lot acquisition evidence."
+      },
+      "blank_type": "synthetic reference material with measured impurities; no documented procedural/method blank preparation or certified upper bound",
+      "new_final_admitted": false,
+      "blockers": [
+        "wavelength_air_vacuum_not_documented",
+        "sample_specific_certificate_and_uncertainty_missing",
+        "no_documented_blank_control_protocol"
+      ]
+    },
+    "other_low_candidates": [
+      {
+        "material": "AnhydriteGUWAN",
+        "composition_csv_row_number": 6,
+        "composition_row": {
+          "Name": "AnhydriteGUWAN",
+          "Al2O3": "~ 0.00023",
+          "CaO": "0.407",
+          "FeO": "0.00014",
+          "K2O": "0.00013",
+          "MgO": "0.0034",
+          "MnO": "~ 0.00002",
+          "Na2O": "0.00032",
+          "SiO2": "~ 0.0022",
+          "TiO2": "~ 0.00003",
+          "P2O5": "-",
+          "C": "0.0065"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.013999999999999999,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.01259734355332619,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.013999999999999999,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "negative",
+              "as_Fe2O3": "negative"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.33999999999999997,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [],
+        "numeric_member_present": false,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "Named standard requires transitive lot/family alias audit; generic names cannot establish physical independence."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available",
+          "numeric_product_missing_for_named_material"
+        ]
+      },
+      {
+        "material": "Granite",
+        "composition_csv_row_number": 21,
+        "composition_row": {
+          "Name": "Granite",
+          "Al2O3": "0.1247",
+          "CaO": "0.007",
+          "FeO": "0.0097",
+          "K2O": "0.0471",
+          "MgO": "0.00037",
+          "MnO": "0.00016",
+          "Na2O": "0.0354",
+          "SiO2": "0.7683",
+          "TiO2": "0.00044",
+          "P2O5": "0.00002",
+          "C": "0.000035"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.97,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.8728159461947432,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.97,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "unknown",
+              "as_Fe2O3": "unknown"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.037,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Certified Samples Subset 1000pulseaverage/Granite_1000AVG.txt",
+            "uncompressed_size": 215628,
+            "compressed_size": 69186,
+            "crc32": "e16d945d",
+            "archive_entry_timestamp": "2010-11-25T15:39:24",
+            "local_header_offset": 1145408
+          },
+          {
+            "name": "Material Large Set 200pulseaverage/Granite_200AVG.txt",
+            "uncompressed_size": 215979,
+            "compressed_size": 69445,
+            "crc32": "ff11b155",
+            "archive_entry_timestamp": "2010-11-25T15:34:52",
+            "local_header_offset": 4078362
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "Named standard requires transitive lot/family alias audit; generic names cannot establish physical independence."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "KFeldspar",
+        "composition_csv_row_number": 29,
+        "composition_row": {
+          "Name": "KFeldspar",
+          "Al2O3": "0.1863",
+          "CaO": "0.0076",
+          "FeO": "0.0019",
+          "K2O": "0.096",
+          "MgO": "0.00054",
+          "MnO": "-",
+          "Na2O": "0.0369",
+          "SiO2": "0.6626",
+          "TiO2": "0.00048",
+          "P2O5": "-",
+          "C": "-"
+        },
+        "iron_basis": "Fe2O3 from explicit CertifiedSamplesSubset header",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.19,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.1709639482237126,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.1709639482237126,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.054,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Certified Samples Subset 1000pulseaverage/KFeldspar_1000AVG.txt",
+            "uncompressed_size": 216668,
+            "compressed_size": 70782,
+            "crc32": "0502b29a",
+            "archive_entry_timestamp": "2010-11-25T16:29:16",
+            "local_header_offset": 1572320
+          },
+          {
+            "name": "Material Large Set 200pulseaverage/KFeldspar_200AVG.txt",
+            "uncompressed_size": 216962,
+            "compressed_size": 71082,
+            "crc32": "5bb76866",
+            "archive_entry_timestamp": "2010-11-25T16:27:18",
+            "local_header_offset": 6604275
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "Named standard requires transitive lot/family alias audit; generic names cannot establish physical independence."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "SyeniteJSy1",
+        "composition_csv_row_number": 49,
+        "composition_row": {
+          "Name": "SyeniteJSy1",
+          "Al2O3": "0.2317",
+          "CaO": "0.0025",
+          "FeO": "0.00084",
+          "K2O": "0.0482",
+          "MgO": "0.00016",
+          "MnO": "0.000024",
+          "Na2O": "0.1074",
+          "SiO2": "0.6002",
+          "TiO2": "0.000015",
+          "P2O5": "0.00014",
+          "C": "0.00034"
+        },
+        "iron_basis": "Fe2O3 from explicit CertifiedSamplesSubset header",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.084,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.07558406131995715,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.07558406131995715,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.016,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Certified Samples Subset 1000pulseaverage/SyeniteJSy1_1000AVG.txt",
+            "uncompressed_size": 216693,
+            "compressed_size": 70248,
+            "crc32": "cc836178",
+            "archive_entry_timestamp": "2010-11-29T10:17:56",
+            "local_header_offset": 2571828
+          },
+          {
+            "name": "Material Large Set 200pulseaverage/SyeniteJSy1_200AVG.txt",
+            "uncompressed_size": 216874,
+            "compressed_size": 70412,
+            "crc32": "7a15fad8",
+            "archive_entry_timestamp": "2010-11-29T10:15:42",
+            "local_header_offset": 7531336
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [
+            "jsy1"
+          ],
+          "provisional_only": true,
+          "note": "Named standard requires transitive lot/family alias audit; generic names cannot establish physical independence."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available",
+          "previously_seen_standard_alias"
+        ]
+      },
+      {
+        "material": "hand sample3 calcite",
+        "composition_csv_row_number": 55,
+        "composition_row": {
+          "Name": "hand sample3 calcite",
+          "Al2O3": "0.0007",
+          "CaO": "0.5503",
+          "FeO": "0.0007",
+          "K2O": "< 0.0001",
+          "MgO": "0.0003",
+          "MnO": "0.00046",
+          "Na2O": "0.0002",
+          "SiO2": "0.0022",
+          "TiO2": "0.00002",
+          "P2O5": "< 0.0001",
+          "C": "0.434"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.06999999999999999,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.06298671776663095,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.06999999999999999,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "negative",
+              "as_Fe2O3": "negative"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.03,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample3_200AVG.txt",
+            "uncompressed_size": 218523,
+            "compressed_size": 72873,
+            "crc32": "45e97079",
+            "archive_entry_timestamp": "2010-11-29T10:59:02",
+            "local_header_offset": 4886692
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample4 fluorite",
+        "composition_csv_row_number": 56,
+        "composition_row": {
+          "Name": "hand sample4 fluorite",
+          "Al2O3": "0.0006",
+          "CaO": "0.7189",
+          "FeO": "0.0004",
+          "K2O": "< 0.0001",
+          "MgO": "0.0003",
+          "MnO": "0.00003",
+          "Na2O": "0.0002",
+          "SiO2": "0.0029",
+          "TiO2": "0.00002",
+          "P2O5": "0.0002",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.04,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.03599241015236055,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.04,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "negative",
+              "as_Fe2O3": "negative"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.03,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample4_200AVG.txt",
+            "uncompressed_size": 218737,
+            "compressed_size": 72982,
+            "crc32": "6bdde015",
+            "archive_entry_timestamp": "2010-11-29T11:06:34",
+            "local_header_offset": 5245356
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample6 potash feldspar",
+        "composition_csv_row_number": 57,
+        "composition_row": {
+          "Name": "hand sample6 potash feldspar",
+          "Al2O3": "0.1817",
+          "CaO": "0.0017",
+          "FeO": "0.0045",
+          "K2O": "0.139",
+          "MgO": "0.0002",
+          "MnO": "0.00006",
+          "Na2O": "0.0159",
+          "SiO2": "0.6347",
+          "TiO2": "0.00002",
+          "P2O5": "0.0042",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.44999999999999996,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.4049146142140561,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.44999999999999996,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "unknown",
+              "as_Fe2O3": "unknown"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.02,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample6_200AVG.txt",
+            "uncompressed_size": 216056,
+            "compressed_size": 69314,
+            "crc32": "bb38482f",
+            "archive_entry_timestamp": "2010-11-29T11:12:02",
+            "local_header_offset": 6100547
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample10 galena",
+        "composition_csv_row_number": 58,
+        "composition_row": {
+          "Name": "hand sample10 galena",
+          "Al2O3": "0.0005",
+          "CaO": "0.001",
+          "FeO": "0.0004",
+          "K2O": "0.0001",
+          "MgO": "0.0004",
+          "MnO": "< 0.00001",
+          "Na2O": "0.0002",
+          "SiO2": "0.0017",
+          "TiO2": "0.00001",
+          "P2O5": "0.0002",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.04,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.03599241015236055,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.04,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "negative",
+              "as_Fe2O3": "negative"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.04,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample10_200AVG.txt",
+            "uncompressed_size": 219831,
+            "compressed_size": 73364,
+            "crc32": "91ec2d7b",
+            "archive_entry_timestamp": "2010-11-29T11:14:58",
+            "local_header_offset": 4220344
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample27 chalcopyrite",
+        "composition_csv_row_number": 62,
+        "composition_row": {
+          "Name": "hand sample27 chalcopyrite",
+          "Al2O3": "0.0102",
+          "CaO": "0.0006",
+          "FeO": "0.3933",
+          "K2O": "0.0065",
+          "MgO": "0.0007",
+          "MnO": "0.00016",
+          "Na2O": "0.0003",
+          "SiO2": "0.0527",
+          "TiO2": "0.00036",
+          "P2O5": "0.0004",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 39.33,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 35.38953728230851,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 39.33,
+            "policy_label_conditional": "positive",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "positive",
+              "as_Fe2O3": "positive"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.06999999999999999,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample27_200AVG.txt",
+            "uncompressed_size": 221240,
+            "compressed_size": 76304,
+            "crc32": "da588c24",
+            "archive_entry_timestamp": "2010-11-29T11:46:58",
+            "local_header_offset": 4590011
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample32 pyrolusite",
+        "composition_csv_row_number": 63,
+        "composition_row": {
+          "Name": "hand sample32 pyrolusite",
+          "Al2O3": "0.0015",
+          "CaO": "0.0035",
+          "FeO": "0.01",
+          "K2O": "0.0033",
+          "MgO": "0.0004",
+          "MnO": "0.5754",
+          "Na2O": "0.0009",
+          "SiO2": "0.252",
+          "TiO2": "0.00005",
+          "P2O5": "0.0002",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 1.0,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.8998102538090137,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 1.0,
+            "policy_label_conditional": "positive",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "positive",
+              "as_Fe2O3": "unknown"
+            },
+            "robust_to_oxide_header_ambiguity": false
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.04,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample32_200AVG.txt",
+            "uncompressed_size": 220337,
+            "compressed_size": 75777,
+            "crc32": "01bd7ce7",
+            "archive_entry_timestamp": "2010-11-29T11:48:56",
+            "local_header_offset": 4666404
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available",
+          "Fe_operational_label_changes_with_unresolved_oxide_basis"
+        ]
+      },
+      {
+        "material": "hand sample37 barite",
+        "composition_csv_row_number": 65,
+        "composition_row": {
+          "Name": "hand sample37 barite",
+          "Al2O3": "0.0003",
+          "CaO": "0.0004",
+          "FeO": "0.0012",
+          "K2O": "< 0.0001",
+          "MgO": "0.0001",
+          "MnO": "0.00012",
+          "Na2O": "< 0.0001",
+          "SiO2": "0.0053",
+          "TiO2": "< 0.00001",
+          "P2O5": "0.0002",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.12,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.10797723045708164,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.12,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "unknown",
+              "as_Fe2O3": "unknown"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.01,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample37_200AVG.txt",
+            "uncompressed_size": 219670,
+            "compressed_size": 74295,
+            "crc32": "256c68c2",
+            "archive_entry_timestamp": "2010-11-29T11:49:44",
+            "local_header_offset": 4812308
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample41 gypsum",
+        "composition_csv_row_number": 66,
+        "composition_row": {
+          "Name": "hand sample41 gypsum",
+          "Al2O3": "0.0035",
+          "CaO": "0.3228",
+          "FeO": "0.0018",
+          "K2O": "0.0004",
+          "MgO": "0.0008",
+          "MnO": "0.00012",
+          "Na2O": "0.0014",
+          "SiO2": "0.0117",
+          "TiO2": "0.00019",
+          "P2O5": "< 0.0001",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.18,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.16196584568562247,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.18,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "unknown",
+              "as_Fe2O3": "unknown"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.08,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample41_200AVG.txt",
+            "uncompressed_size": 219302,
+            "compressed_size": 72480,
+            "crc32": "57b7b4a1",
+            "archive_entry_timestamp": "2010-11-29T11:50:10",
+            "local_header_offset": 4959653
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample42 kyanite",
+        "composition_csv_row_number": 67,
+        "composition_row": {
+          "Name": "hand sample42 kyanite",
+          "Al2O3": "0.3308",
+          "CaO": "0.0008",
+          "FeO": "0.0077",
+          "K2O": "0.0019",
+          "MgO": "0.0002",
+          "MnO": "0.00004",
+          "Na2O": "0.0005",
+          "SiO2": "0.6296",
+          "TiO2": "0.00055",
+          "P2O5": "0.0012",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.77,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.6928538954329405,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.77,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "unknown",
+              "as_Fe2O3": "unknown"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.02,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample42_200AVG.txt",
+            "uncompressed_size": 217729,
+            "compressed_size": 70697,
+            "crc32": "c5d65325",
+            "archive_entry_timestamp": "2010-11-29T11:50:32",
+            "local_header_offset": 5032222
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample48 plagioclase feldspar",
+        "composition_csv_row_number": 69,
+        "composition_row": {
+          "Name": "hand sample48 plagioclase feldspar",
+          "Al2O3": "0.2",
+          "CaO": "0.0114",
+          "FeO": "0.0056",
+          "K2O": "0.0261",
+          "MgO": "0.0003",
+          "MnO": "0.00005",
+          "Na2O": "0.0906",
+          "SiO2": "0.6632",
+          "TiO2": "0.00003",
+          "P2O5": "< 0.0001",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.5599999999999999,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.5038937421330476,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.5599999999999999,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "unknown",
+              "as_Fe2O3": "unknown"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.03,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample48_200AVG.txt",
+            "uncompressed_size": 216479,
+            "compressed_size": 69690,
+            "crc32": "00d48034",
+            "archive_entry_timestamp": "2010-11-29T11:51:06",
+            "local_header_offset": 5175577
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample54 kaolinite",
+        "composition_csv_row_number": 73,
+        "composition_row": {
+          "Name": "hand sample54 kaolinite",
+          "Al2O3": "0.3726",
+          "CaO": "0.0006",
+          "FeO": "0.0016",
+          "K2O": "0.0004",
+          "MgO": "0.0004",
+          "MnO": "0.00002",
+          "Na2O": "0.0002",
+          "SiO2": "0.4691",
+          "TiO2": "0.00314",
+          "P2O5": "0.0003",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.16,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.1439696406094422,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.16,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "unknown",
+              "as_Fe2O3": "unknown"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.04,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample54_200AVG.txt",
+            "uncompressed_size": 218136,
+            "compressed_size": 71370,
+            "crc32": "f2277800",
+            "archive_entry_timestamp": "2010-11-29T11:52:42",
+            "local_header_offset": 5534137
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample66 rhyolite",
+        "composition_csv_row_number": 79,
+        "composition_row": {
+          "Name": "hand sample66 rhyolite",
+          "Al2O3": "0.128",
+          "CaO": "0.0016",
+          "FeO": "0.0167",
+          "K2O": "0.0435",
+          "MgO": "0.0004",
+          "MnO": "0.00034",
+          "Na2O": "0.0408",
+          "SiO2": "0.7664",
+          "TiO2": "0.0003",
+          "P2O5": "< 0.0001",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 1.67,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 1.5026831238610527,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 1.67,
+            "policy_label_conditional": "positive",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "positive",
+              "as_Fe2O3": "positive"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.04,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample66_200AVG.txt",
+            "uncompressed_size": 216903,
+            "compressed_size": 70361,
+            "crc32": "746bfbcb",
+            "archive_entry_timestamp": "2010-11-29T11:54:54",
+            "local_header_offset": 5960819
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample72 limestone",
+        "composition_csv_row_number": 81,
+        "composition_row": {
+          "Name": "hand sample72 limestone",
+          "Al2O3": "0.0006",
+          "CaO": "0.5645",
+          "FeO": "0.0006",
+          "K2O": "0.0001",
+          "MgO": "0.0039",
+          "MnO": "0.00004",
+          "Na2O": "0.0002",
+          "SiO2": "0.0035",
+          "TiO2": "0.00002",
+          "P2O5": "0.0003",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.06,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.05398861522854082,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.06,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "negative",
+              "as_Fe2O3": "negative"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.38999999999999996,
+            "policy_label_conditional": "unknown",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample72_200AVG.txt",
+            "uncompressed_size": 219065,
+            "compressed_size": 73166,
+            "crc32": "6f183c58",
+            "archive_entry_timestamp": "2010-11-29T11:55:36",
+            "local_header_offset": 6169949
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      },
+      {
+        "material": "hand sample82 travertine",
+        "composition_csv_row_number": 83,
+        "composition_row": {
+          "Name": "hand sample82 travertine",
+          "Al2O3": "0.0009",
+          "CaO": "0.5748",
+          "FeO": "0.0006",
+          "K2O": "0.0002",
+          "MgO": "0.0005",
+          "MnO": "0.00002",
+          "Na2O": "0.0003",
+          "SiO2": "0.0028",
+          "TiO2": "0.00001",
+          "P2O5": "< 0.0001",
+          "C": "-"
+        },
+        "iron_basis": "FeO as published in MaterialLargeSet header; caution: some rows duplicate Fe2O3 values in CertifiedSamplesSubset",
+        "FeOT_if_FeO_header_literal_wt_percent": 0.06,
+        "FeOT_if_header_meant_Fe2O3_wt_percent": 0.05398861522854082,
+        "labels": {
+          "Fe": {
+            "published_point_oxide_wt_percent": 0.06,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null,
+            "policy_under_two_header_interpretations": {
+              "literal_FeO": "negative",
+              "as_Fe2O3": "negative"
+            },
+            "robust_to_oxide_header_ambiguity": true
+          },
+          "Mg": {
+            "published_point_oxide_wt_percent": 0.05,
+            "policy_label_conditional": "negative",
+            "certified_upper_bound_wt_percent": null
+          }
+        },
+        "spectral_members": [
+          {
+            "name": "Material Large Set 200pulseaverage/hand sample82_200AVG.txt",
+            "uncompressed_size": 219298,
+            "compressed_size": 73506,
+            "crc32": "b09fbf03",
+            "archive_entry_timestamp": "2010-11-29T11:56:42",
+            "local_header_offset": 6312279
+          }
+        ],
+        "numeric_member_present": true,
+        "new_final_admitted": false,
+        "blank_type": "not_documented_blank",
+        "independence": {
+          "alias_overlap": [],
+          "provisional_only": true,
+          "note": "New CSA/Miners Inc K4009 specimen ID; no published cross-institution lot mapping. Mineral type alone does not establish same physical sample; independent physical identity remains provisional."
+        },
+        "blockers": [
+          "wavelength_air_vacuum_not_documented",
+          "sample_specific_assay_uncertainty_not_available"
+        ]
+      }
+    ],
+    "additional_censored_candidate": {
+      "material": "hand sample17 pyrite",
+      "published_MgO_fraction": "<0.0001",
+      "implied_MgO_wt_percent_upper_limit": 0.01,
+      "FeO_wt_percent_as_header": 63.12,
+      "type": "reported analytical upper limit, not certified bound or method blank",
+      "not_joint_Fe_Mg_negative": true
+    },
+    "search_limitations": [
+      "No sample-specific CIBA KD2 certificate/uncertainty retrieved; official certificate index does not list KD2.",
+      "Generic mineral names and vendor provenance are insufficient for full lot-level cross-campaign identity proof.",
+      "No explicit CSA wavelength medium found; no axis inferred from spectral peaks or test output."
+    ],
+    "axis_document_review": [
+      {
+        "source": "ocean_calibration_qsg2026.pdf",
+        "location": "pp3–5",
+        "finding": "Third-order pixel-to-wavelength calibration and Hg/Ar reference lines; neither air nor vacuum explicitly specified. 2026 instructions do not establish CSA 2010 calibration convention."
+      },
+      {
+        "source": "ocean_hr2000plus.pdf",
+        "location": "Appendix A, printed pp11–14",
+        "finding": "Calibration method and known-line wavelength table; no explicit air/vacuum declaration. Related HR2000+ instrument manual is not a CSA instrument-specific calibration certificate."
+      },
+      {
+        "source": "ocean_calibration_faq.html",
+        "finding": "Calibration sheet is unit-specific and includes coefficients and reference lines. CSA unit-specific sheet is absent from inspected archive metadata."
+      },
+      {
+        "source": "ocean_legacy.html",
+        "finding": "HR2000 manual not linked; related HR2000+ manual linked and retrieved. No dataset-specific axis provenance obtained."
+      }
+    ]
+  },
+  "aalto": {
+    "current_elements_url": "https://users.aalto.fi/~lainei1/pages/elements/",
+    "legacy_elements_url": "https://users.aalto.fi/~lainei1/pages/LIBS_elements/",
+    "redirect": "HTML refresh../elements, not HTTPredirect",
+    "current_datasets_url": "https://users.aalto.fi/~lainei1/pages/datasets/",
+    "license": {
+      "dataset_specific": "CC0",
+      "evidence": "Pure-element dataset entry in datasets page; site footer CC-BY-SA must not override dataset-specific CC0."
+    },
+    "numerical_data": "Individual processed spectra available via element plot CSV exports; full raw multiple-measurement download remainsTODO. No new plot or intensity downloaded in this search. Cu had already been inspected in an earlier task, so Cu cannot serve as untouched final.",
+    "processing": "Continuum-removed99%-quantile across multiple measurements; spectra may originate from pure elements or references with known constituents; filtered multielement and theoretical series coexist.",
+    "wavelength_medium": null,
+    "calibration_page": "https://users.aalto.fi/~lainei1/pages/calibration/",
+    "axis_blocker": "Calibration uses theoretical peaks and ambientO/N lines; no explicit air/vacuum axis statement. Ambient atmosphere is not axis metadata.",
+    "chemical_truth_blocker": "No specimen-specific purity, Fe/Mg impurity bounds, CoA, lot IDs or independently assayed low-Fe values found on current pages. Labels pureelement do not proveFe/Mgabsence.",
+    "acquisition_groups": "Bulk averaging and signal-quality selection prevent reconstruction of independent sample/replicate groups from plotted spectrum.",
+    "new_final_admitted": false,
+    "qualified_blank_controls": 0
+  },
+  "retrieval_failures": [
+    {
+      "url": "https://www.oceanoptics.com/wp-content/uploads/2024/07/Wavelength-Calibration-Products-v1.0_0724.pdf",
+      "path": "data/raw/final_search_v3/ocean_calibration_lamps2024.pdf",
+      "code": 56,
+      "error": "curl: (56) The requested URL returned error: 404\n",
+      "bytes": 0
+    },
+    {
+      "url": "https://www.brammerstandard.com/certificates/cibakd-2.pdf",
+      "path": "data/raw/final_search_v3/brammer_kd2_certificate_attempt.pdf",
+      "code": 56,
+      "error": "curl: (56) The requested URL returned error: 404\n",
+      "bytes": 0
+    },
+    {
+      "url": "https://jeos.edpsciences.org/articles/jeos/pdf/2008/01/jeos20080308011.pdf",
+      "path": "data/raw/final_search_v3/csa_mottoros2008.pdf",
+      "code": 56,
+      "error": "curl: (56) The requested URL returned error: 403\n",
+      "bytes": 0
+    },
+    {
+      "url": "https://users.aalto.fi/~lainei1/datasets/",
+      "path": "data/raw/final_search_v3/aalto_datasets_current.html",
+      "code": 22,
+      "error": "curl: (22) The requested URL returned error: 404\n",
+      "bytes": 0
+    }
+  ],
+  "updated_at": "2026-10-13T17:24:47.107706+00:00"
+}

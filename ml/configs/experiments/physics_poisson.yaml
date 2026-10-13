@@ -1,0 +1,23 @@
+schema_version: 1
+run_id: physics-poisson
+project_config: ../benchmark_project.yaml
+seeds:
+- 7
+- 17
+- 29
+- 43
+- 71
+models:
+- baseline-nnls
+- logistic-ovr
+- random-forest
+base_samples: 36
+variations: 1
+factor: photon_scale
+values:
+- 100
+- 1000
+- 10000
+generation:
+  noise_model: poisson_read
+  snr_db: null

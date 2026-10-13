@@ -1,0 +1,158 @@
+{
+  "Na_I": {
+    "accepted_rows": 198,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "4581eb070798fec103b3181f73b6a71fd5e33f7358db972ff5744b9cf1cafafc"
+  },
+  "Na_II": {
+    "accepted_rows": 774,
+    "dropped_rows": [
+      {
+        "row_number": 707,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"540.091\"",
+          "ritz_wl_vac(nm)": "=\"540.088\"",
+          "intens": "=\"45bl*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L914\"",
+          "": ""
+        }
+      },
+      {
+        "row_number": 708,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"540.091\"",
+          "ritz_wl_vac(nm)": "=\"540.096\"",
+          "intens": "=\"45bl*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L914\"",
+          "": ""
+        }
+      }
+    ],
+    "duplicate_rows": 2,
+    "checksum_sha256": "917562b1a55dd5cf715fb6e8401495349c7c3b7e5d262e6c49bfae8898f32c12"
+  },
+  "Mg_I": {
+    "accepted_rows": 270,
+    "dropped_rows": [
+      {
+        "row_number": 163,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"534.7464\"",
+          "ritz_wl_vac(nm)": "=\"534.7463\"",
+          "intens": "=\"1d*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L6095\"",
+          "": ""
+        }
+      },
+      {
+        "row_number": 164,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"534.7464\"",
+          "ritz_wl_vac(nm)": "=\"534.7463\"",
+          "intens": "=\"1d*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L6095\"",
+          "": ""
+        }
+      },
+      {
+        "row_number": 166,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"551.1128\"",
+          "ritz_wl_vac(nm)": "=\"551.1128\"",
+          "intens": "=\"2d*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L6095\"",
+          "": ""
+        }
+      },
+      {
+        "row_number": 167,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"551.1128\"",
+          "ritz_wl_vac(nm)": "=\"551.1128\"",
+          "intens": "=\"2d*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L6095\"",
+          "": ""
+        }
+      }
+    ],
+    "duplicate_rows": 4,
+    "checksum_sha256": "fedf460f81e0d4de134deba224030bbb0ce0815e9ca9fd7e39bc00dab3cb1845"
+  },
+  "Mg_II": {
+    "accepted_rows": 197,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "c96f99fb7eb383219a85027576ca8022c97fdc96ebede750f7431f425f1b48c9"
+  },
+  "Ca_I": {
+    "accepted_rows": 159,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "c005fb06b02062cb9f67bed48d56c54b878f213b2e4788b37e4bd5e7f4000629"
+  },
+  "Ca_II": {
+    "accepted_rows": 60,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "1599877f35fdeb62d113955d4f3e89490061923e632b10f558402533e3a6367d"
+  },
+  "Fe_I": {
+    "accepted_rows": 5914,
+    "dropped_rows": [],
+    "duplicate_rows": 0,
+    "checksum_sha256": "e4998d718396ce1fc35133992d84616cc4f32ecfb8753037b75abf4c4c09041c"
+  },
+  "Fe_II": {
+    "accepted_rows": 5521,
+    "dropped_rows": [
+      {
+        "row_number": 423,
+        "reason": "exact duplicate transition",
+        "raw": {
+          "obs_wl_vac(nm)": "=\"245.9923\"",
+          "ritz_wl_vac(nm)": "=\"245.992481\"",
+          "intens": "=\"600bl(Fe II)*\"",
+          "Aki(s^-1)": "=\"\"",
+          "Acc": "",
+          "Type": "",
+          "tp_ref": "=\"\"",
+          "line_ref": "=\"L18349c142\"",
+          "": ""
+        }
+      }
+    ],
+    "duplicate_rows": 1,
+    "checksum_sha256": "f51b8457322a8192e67dfa9206bcf7ad462454845372361b842d998ab76e3182"
+  }
+}

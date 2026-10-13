@@ -1,0 +1,10 @@
+schema_version: 1
+run_id: calibration
+project_config: ../benchmark_project.yaml
+seeds: [7, 17, 29, 43, 71]
+models: [logistic-ovr, random-forest]
+base_samples: 100
+variations: 2
+factor: snr_db
+values: [10, 30]
+calibrate: true

@@ -108,6 +108,7 @@ def test_invalid_measurements(processor, wavelength, intensity):
 
 def test_unseen_protocol_and_immutable_runs(tmp_path):
     config = {
+        "schema_version": 1,
         "run_id": "check",
         "seed": 7,
         "protocol": "unseen_combinations",

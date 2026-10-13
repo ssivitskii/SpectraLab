@@ -1,0 +1,2302 @@
+{
+  "schema_version": 2,
+  "run_id": "development-20261013T164342-b37a6ab8",
+  "status": "completed",
+  "scope": "nested_grouped_development_cv_not_independent_test",
+  "independent_blank_test_status": "not_performed_pending_qualified_controls",
+  "models": {
+    "v1-bins": {
+      "metrics": {
+        "schema_version": 1,
+        "estimand": "operational_above_threshold",
+        "protocol_hash": "e11089bb7acc50513867ff7f1fd8159973ef39edb2b3d7c3d057be43610832e2",
+        "split_hash": "99893e3396e36d5f4cd0ba503ea2067e041001411a36e098d931d54c0472fec3",
+        "test_measurement_ids": [
+          "development:130:2013_10_01_140247_ccs",
+          "development:132:2013_10_01_141736_ccs",
+          "development:152769:2013_11_06_152615_ccs",
+          "development:201424:2013_11_06_155107_ccs",
+          "development:221123:2013_11_07_143449_ccs",
+          "development:34p4:2013_10_01_153451_ccs",
+          "development:42877m:2013_10_01_154443_ccs",
+          "development:46436m:2013_11_07_152255_ccs",
+          "development:54939m:2013_10_01_192540_ccs",
+          "development:54942m:2013_10_01_195209_ccs",
+          "development:54943bm:2013_10_01_200154_ccs",
+          "development:54949m:2013_10_02_142249_ccs",
+          "development:8005:2013_11_07_153551_ccs",
+          "development:81:2013_10_01_135232_ccs",
+          "development:agv2:2013_08_06_164544_ccs",
+          "development:ao10:2013_10_02_150920_ccs",
+          "development:ao8:2013_10_02_154658_ccs",
+          "development:dh4909:2013_08_06_201331_ccs",
+          "development:dh4912:2013_08_06_205452_ccs",
+          "development:dkm1390:2013_10_02_182342_ccs",
+          "development:dkm3090:2013_10_08_155817_ccs",
+          "development:g13mt:2013_10_08_185920_ccs",
+          "development:g1mt:2013_10_15_160952_ccs",
+          "development:g6mt:2013_10_16_153546_ccs",
+          "development:g9mt:2013_10_17_144638_ccs",
+          "development:gbw07108:2013_08_07_145511_ccs",
+          "development:gbw07113:2013_08_07_151957_ccs",
+          "development:gbw07114:2013_08_07_153343_ccs",
+          "development:gbw07216a:2013_08_07_154520_ccs",
+          "development:gbw07217a:2013_08_07_155609_ccs",
+          "development:gbw07306:2013_08_07_190300_ccs",
+          "development:gbw07309:2013_08_07_191307_ccs",
+          "development:gl3mt:2013_10_17_153331_ccs",
+          "development:gl5mt:2013_10_23_142144_ccs",
+          "development:gl6mt:2013_10_23_143039_ccs",
+          "development:gl7mt:2013_10_23_143948_ccs",
+          "development:guwgna:2013_08_08_152732_ccs",
+          "development:gypa:2013_08_08_154541_ccs",
+          "development:gypb:2013_08_08_160842_ccs",
+          "development:gypc:2013_08_08_162033_ccs",
+          "development:gypd:2013_08_08_163025_ccs",
+          "development:icel009010:2013_09_25_145801_ccs",
+          "development:igs29:2013_08_15_195541_ccs",
+          "development:jdo1:2013_08_13_151318_ccs",
+          "development:jr1:2013_08_13_153051_ccs",
+          "development:jsc1366:2013_09_09_155032_ccs",
+          "development:jsc1376:2013_09_09_184439_ccs",
+          "development:jsc1378:2013_09_10_140818_ccs",
+          "development:jsc1383:2013_09_10_152800_ccs",
+          "development:jsc1387:2013_09_10_183653_ccs",
+          "development:jsc1388:2013_09_10_184559_ccs",
+          "development:jsc1389:2013_09_10_185510_ccs",
+          "development:jsc1393:2013_09_11_135342_ccs",
+          "development:jsc1400:2013_09_11_153158_ccs",
+          "development:jsc1404:2013_09_11_181752_ccs",
+          "development:jsc1406:2013_09_11_183649_ccs",
+          "development:jsc1407:2013_09_12_141722_ccs",
+          "development:jsc1414:2013_09_12_191538_ccs",
+          "development:jsc1418:2013_09_12_200947_ccs",
+          "development:jsc1422:2013_09_16_143112_ccs",
+          "development:jsc1428:2013_09_16_153432_ccs",
+          "development:jsc1432:2013_09_16_181217_ccs",
+          "development:jsc1439:2013_09_17_133812_ccs",
+          "development:jsc1446:2013_09_17_145142_ccs",
+          "development:jsc1448:2013_09_17_151229_ccs",
+          "development:jsc1450:2013_09_17_155310_ccs",
+          "development:jsc1451:2013_09_17_160433_ccs",
+          "development:jsc1452:2013_09_17_161901_ccs",
+          "development:jsc1455:2013_09_18_155147_ccs",
+          "development:jsc1456:2013_09_18_160112_ccs",
+          "development:jsc1459:2013_09_18_180349_ccs",
+          "development:jsc1460:2013_09_18_181417_ccs",
+          "development:jsc1461:2013_09_18_182818_ccs",
+          "development:jsc1465:2013_09_19_141107_ccs",
+          "development:lp14:2013_10_23_152611_ccs",
+          "development:mc:2013_10_24_141815_ccs",
+          "development:mhc1356:2013_08_14_162132_ccs",
+          "development:mhc2319:2013_08_14_163349_ccs",
+          "development:mi5:2013_10_25_145130_ccs",
+          "development:mix1o:2013_09_25_183002_ccs",
+          "development:mix2o:2013_09_26_135905_ccs",
+          "development:mix3o:2013_09_26_150701_ccs",
+          "development:mix4o:2013_09_26_162501_ccs",
+          "development:mix5o:2013_10_22_193840_ccs",
+          "development:mix6b:2013_09_30_145241_ccs",
+          "development:mix6o:2013_09_30_155009_ccs",
+          "development:mn45:2013_10_25_150703_ccs",
+          "development:mnfn:2013_10_25_151514_ccs",
+          "development:mnk:2013_10_25_152544_ccs",
+          "development:nau2los:2013_08_19_194437_ccs",
+          "development:ncsdc47008:2013_08_15_182618_ccs",
+          "development:ncsdc47009:2013_08_15_183622_ccs",
+          "development:oreas170a:2013_08_15_194519_ccs",
+          "development:p13mt:2013_10_28_150528_ccs",
+          "development:p1mt:2013_10_28_152843_ccs",
+          "development:pg1:2013_10_28_183552_ccs",
+          "development:pg2:2013_10_28_185503_ccs",
+          "development:pg3:2013_10_28_190354_ccs",
+          "development:pg4:2013_10_29_151657_ccs",
+          "development:pg5:2013_10_29_152510_ccs",
+          "development:pg6:2013_10_29_153619_ccs",
+          "development:pg7:2013_11_07_161422_ccs",
+          "development:pl3:2013_10_29_160210_ccs",
+          "development:r41:2013_11_04_185049_ccs",
+          "development:r42:2013_11_04_190017_ccs",
+          "development:r44:2013_11_04_192154_ccs",
+          "development:r45:2013_11_04_200218_ccs",
+          "development:r62:2013_11_04_201939_ccs",
+          "development:r63:2013_11_05_145404_ccs",
+          "development:s3a:2013_11_05_151631_ccs",
+          "development:s3b:2013_11_05_152627_ccs",
+          "development:s5:2013_11_05_160247_ccs",
+          "development:sanci:2013_09_20_172548_ccs",
+          "development:sanck:2013_09_25_135315_ccs",
+          "development:sarm16:2013_08_15_184636_ccs",
+          "development:sarm17:2013_08_06_160434_ccs",
+          "development:sarm51:2013_08_29_145448_ccs",
+          "development:sc2:2013_11_05_170336_ccs",
+          "development:sc3:2013_11_05_171529_ccs",
+          "development:srm88b:2013_08_20_190820_ccs",
+          "development:srm97a:2013_08_20_161900_ccs",
+          "development:srm98a:2013_08_20_183318_ccs",
+          "development:trond:2013_09_03_153324_ccs",
+          "development:unsak:2013_09_03_161214_ccs",
+          "development:unszk:2013_09_03_170216_ccs",
+          "development:vzo106:2013_09_03_181628_ccs",
+          "development:vzo114:2013_09_03_182802_ccs",
+          "test:bcs203a:2019_06_28_134918_ccs",
+          "test:cgl006:2017_04_06_142627_ccs",
+          "test:cgl015:2017_04_06_130651_ccs",
+          "test:crm212281:2017_04_06_124221_ccs",
+          "test:crm212481:2017_04_06_105619_ccs",
+          "test:dc601222:2017_04_06_111043_ccs",
+          "test:dc601232:2017_04_06_113824_ccs",
+          "test:dc60125:2017_05_16_084409_ccs",
+          "test:dc60126:2017_05_16_100902_ccs",
+          "test:dc71301:2017_05_16_090929_ccs",
+          "test:dc73303:2017_05_16_092822_ccs",
+          "test:dv1:2018_02_16_113756_ccs",
+          "test:dv10:2018_02_20_142803_ccs",
+          "test:dv11:2018_02_20_144636_ccs",
+          "test:dv12:2018_02_20_150136_ccs",
+          "test:dv13:2018_07_30_143534_ccs",
+          "test:dv14:2018_07_30_150947_ccs",
+          "test:dv15:2018_07_30_155801_ccs",
+          "test:dv16prehnite:2018_10_10_150446_ccs",
+          "test:dv17calciteblue:2018_10_10_154400_ccs",
+          "test:dv18microkeys:2018_10_10_161808_ccs",
+          "test:dv19nickmagnes:2018_10_10_164159_ccs",
+          "test:dv2:2018_02_16_115322_ccs",
+          "test:dv23clausthalite:2018_10_10_124734_ccs",
+          "test:dv24pollurhodes:2018_10_10_133410_ccs",
+          "test:dv25opaltorr:2018_10_10_170249_ccs",
+          "test:dv26columbite:2018_10_10_172004_ccs",
+          "test:dv27cobaltite:2018_10_10_111319_ccs",
+          "test:dv3:2018_02_16_120534_ccs",
+          "test:dv4:2018_02_20_111603_ccs",
+          "test:dv5:2018_02_20_112854_ccs",
+          "test:dv6:2018_02_20_114503_ccs",
+          "test:dv7:2018_02_20_120415_ccs",
+          "test:dv8:2018_02_20_135103_ccs",
+          "test:dv9:2018_02_20_140406_ccs",
+          "test:dv_calcite_opt:2018_10_23_143107_ccs",
+          "test:dv_diopside:2018_10_23_133714_ccs",
+          "test:dvserpentine:2018_10_23_130743_ccs",
+          "test:goedv:2018_07_30_134057_ccs",
+          "test:hemdv:2018_07_30_111642_ccs",
+          "test:holldv:2018_07_30_113057_ccs",
+          "test:ilmdv:2018_07_30_132159_ccs",
+          "test:jcrmr604:2017_04_07_082707_ccs",
+          "test:jcrmr605:2017_04_07_083839_ccs",
+          "test:jcrmr703:2017_04_07_115910_ccs",
+          "test:jcrmr803:2017_04_07_130637_ccs",
+          "test:jf1:2017_04_07_094059_ccs",
+          "test:jf2:2017_04_07_092021_ccs",
+          "test:jsy1:2017_04_06_134827_ccs",
+          "test:magdv:2018_07_30_122546_ccs",
+          "test:ncs_dc_11023:2018_07_11_100713_ccs",
+          "test:ncs_dc_28043:2018_07_11_103002_ccs",
+          "test:ncs_dc_28210:2018_07_10_140130_ccs",
+          "test:ncs_dc_28211:2018_07_10_141856_ccs",
+          "test:pacmnnod:2018_07_30_124338_ccs",
+          "test:psidv:2018_07_30_140217_ccs",
+          "test:purpdv:2018_07_30_115823_ccs",
+          "test:rhoddv:2018_07_30_125840_ccs",
+          "test:rtb1:2019_06_28_143127_ccs",
+          "test:saa1:2019_06_28_152901_ccs",
+          "test:sarm131:2017_04_18_095239_ccs",
+          "test:sarm2:2017_04_06_141122_ccs",
+          "test:srm201a:2017_05_16_082426_ccs",
+          "test:sx1602:2017_05_16_102150_ccs",
+          "test:unskk:2017_04_07_090145_ccs",
+          "test:vs212381:2017_04_06_145652_ccs",
+          "test:vs72875:2017_04_06_151031_ccs",
+          "test:vsm011:2017_04_07_121819_ccs",
+          "test:vsstm2:2017_04_06_132103_ccs",
+          "test:wmb24a:2019_06_28_151319_ccs",
+          "test:wmb24b:2019_06_27_160345_ccs",
+          "development-v2:macusanite:2013_08_14_161022_ccs",
+          "development-v2:27-07:2013_09_04_150414_ccs",
+          "development-v2:jch-1:2013_09_04_153432_ccs",
+          "development-v2:jr-3:2021_01_13_154849_ccs"
+        ],
+        "class_order": [
+          "Na",
+          "Mg",
+          "Ca",
+          "Fe"
+        ],
+        "physical_samples": 199,
+        "replicate_spectra": 202,
+        "independent_clusters": 46,
+        "per_element": {
+          "Na": {
+            "recall": {
+              "estimate": 0.8666666666666667,
+              "ci95": [
+                0.6701241134751773,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 65.0,
+              "denominator_sample_equivalents": 75.0,
+              "supporting_clusters": 33,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.015625,
+              "ci95": [
+                0.0,
+                0.04918032786885246
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 1.0,
+              "denominator_sample_equivalents": 64.0,
+              "supporting_clusters": 25,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 0.9848484848484849,
+              "ci95": [
+                0.9482758620689655,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 65.0,
+              "denominator_sample_equivalents": 66.0,
+              "supporting_clusters": 32,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 75,
+            "physical_negative_support": 64,
+            "physical_unknown_support": 60,
+            "positive_cluster_support": 33,
+            "negative_cluster_support": 25,
+            "replicate_positive_support": 78,
+            "replicate_negative_support": 64,
+            "replicate_unknown_support": 60,
+            "unknown_label_prediction_count": 32,
+            "unknown_prediction_sample_equivalents": 32.0,
+            "tp_sample_equivalents": 65.0,
+            "fp_sample_equivalents": 1.0,
+            "tn_sample_equivalents": 63.0,
+            "fn_sample_equivalents": 10.0
+          },
+          "Mg": {
+            "recall": {
+              "estimate": 0.8181818181818182,
+              "ci95": [
+                0.7191011235955056,
+                0.9029126213592233
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 81.0,
+              "denominator_sample_equivalents": 99.0,
+              "supporting_clusters": 39,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.0,
+              "ci95": null,
+              "ci_reason": "degenerate_cluster_bootstrap",
+              "numerator_sample_equivalents": 0.0,
+              "denominator_sample_equivalents": 39.0,
+              "supporting_clusters": 18,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 1.0,
+              "ci95": null,
+              "ci_reason": "degenerate_cluster_bootstrap",
+              "numerator_sample_equivalents": 81.0,
+              "denominator_sample_equivalents": 81.0,
+              "supporting_clusters": 35,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 99,
+            "physical_negative_support": 39,
+            "physical_unknown_support": 61,
+            "positive_cluster_support": 39,
+            "negative_cluster_support": 18,
+            "replicate_positive_support": 100,
+            "replicate_negative_support": 40,
+            "replicate_unknown_support": 62,
+            "unknown_label_prediction_count": 4,
+            "unknown_prediction_sample_equivalents": 4.0,
+            "tp_sample_equivalents": 81.0,
+            "fp_sample_equivalents": 0.0,
+            "tn_sample_equivalents": 39.0,
+            "fn_sample_equivalents": 18.0
+          },
+          "Ca": {
+            "recall": {
+              "estimate": 0.8817204301075269,
+              "ci95": [
+                0.734675154465456,
+                0.9887640449438202
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 82.0,
+              "denominator_sample_equivalents": 93.0,
+              "supporting_clusters": 33,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.0784313725490196,
+              "ci95": [
+                0.017543859649122806,
+                0.18
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 4.0,
+              "denominator_sample_equivalents": 51.0,
+              "supporting_clusters": 23,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 0.9534883720930233,
+              "ci95": [
+                0.9113853727144866,
+                0.9888888888888889
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 82.0,
+              "denominator_sample_equivalents": 86.0,
+              "supporting_clusters": 31,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 93,
+            "physical_negative_support": 51,
+            "physical_unknown_support": 55,
+            "positive_cluster_support": 33,
+            "negative_cluster_support": 23,
+            "replicate_positive_support": 95,
+            "replicate_negative_support": 51,
+            "replicate_unknown_support": 56,
+            "unknown_label_prediction_count": 12,
+            "unknown_prediction_sample_equivalents": 12.0,
+            "tp_sample_equivalents": 82.0,
+            "fp_sample_equivalents": 4.0,
+            "tn_sample_equivalents": 47.0,
+            "fn_sample_equivalents": 11.0
+          },
+          "Fe": {
+            "recall": {
+              "estimate": 0.7553191489361702,
+              "ci95": [
+                0.611492008924506,
+                0.870132348567463
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 106.5,
+              "denominator_sample_equivalents": 141.0,
+              "supporting_clusters": 43,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.08,
+              "ci95": [
+                0.0,
+                0.16129032258064516
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 2.0,
+              "denominator_sample_equivalents": 25.0,
+              "supporting_clusters": 12,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 0.9815668202764977,
+              "ci95": [
+                0.9532655434162608,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 106.5,
+              "denominator_sample_equivalents": 108.5,
+              "supporting_clusters": 33,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 141,
+            "physical_negative_support": 25,
+            "physical_unknown_support": 33,
+            "positive_cluster_support": 43,
+            "negative_cluster_support": 12,
+            "replicate_positive_support": 144,
+            "replicate_negative_support": 25,
+            "replicate_unknown_support": 33,
+            "unknown_label_prediction_count": 6,
+            "unknown_prediction_sample_equivalents": 6.0,
+            "tp_sample_equivalents": 106.5,
+            "fp_sample_equivalents": 2.0,
+            "tn_sample_equivalents": 23.0,
+            "fn_sample_equivalents": 34.5
+          }
+        },
+        "uncertainty": {
+          "method": "paired physical/family/session/checksum-cluster percentile bootstrap",
+          "repeats": 2000,
+          "seed": 20261014,
+          "confidence_level": 0.95,
+          "weighting": "Each physical sample has unit weight; average its replicate detections.",
+          "null_interval_policy": "<2 supporting clusters, <100 valid draws or degenerate draws"
+        },
+        "limitations": [
+          "Unknown labels are excluded, never counted as negatives.",
+          "Precision is conditional on known labels and requires positive and negative support.",
+          "Intervals condition on sampled clusters and fixed fitted models; not simultaneous.",
+          "A zero observed false-positive count is not proof of a zero population rate.",
+          "Operational below-threshold labels do not establish elemental absence."
+        ],
+        "evaluation_scope": "nested_grouped_development_cv_not_independent_test",
+        "independent_final_test": false
+      },
+      "outer_selections": [
+        {
+          "fold": 0,
+          "C": 0.1,
+          "thresholds": [
+            0.6765574560825333,
+            0.8238835377932587,
+            0.5820931305985604,
+            0.9747823319042977
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.9443495719821071,
+            "per_class": [
+              {
+                "threshold": 0.6765574560825333,
+                "recall": 0.9838709677419355,
+                "false_positive_rate": 0.044444444444444446,
+                "balanced_accuracy": 0.9697132616487455,
+                "positive_physical_support": 62,
+                "negative_physical_support": 45
+              },
+              {
+                "threshold": 0.8238835377932587,
+                "recall": 0.9647058823529412,
+                "false_positive_rate": 0.037037037037037035,
+                "balanced_accuracy": 0.9638344226579522,
+                "positive_physical_support": 85,
+                "negative_physical_support": 27
+              },
+              {
+                "threshold": 0.5820931305985604,
+                "recall": 0.9859154929577465,
+                "false_positive_rate": 0.025,
+                "balanced_accuracy": 0.9804577464788733,
+                "positive_physical_support": 71,
+                "negative_physical_support": 40
+              },
+              {
+                "threshold": 0.9747823319042977,
+                "recall": 0.7767857142857143,
+                "false_positive_rate": 0.05,
+                "balanced_accuracy": 0.8633928571428572,
+                "positive_physical_support": 112,
+                "negative_physical_support": 20
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 1,
+          "C": 0.1,
+          "thresholds": [
+            0.64400667478941,
+            0.9447335200123421,
+            0.7418946816208447,
+            0.9945675051375265
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.8516485677520305,
+            "per_class": [
+              {
+                "threshold": 0.64400667478941,
+                "recall": 0.8412698412698413,
+                "false_positive_rate": 0.0392156862745098,
+                "balanced_accuracy": 0.9010270774976658,
+                "positive_physical_support": 63,
+                "negative_physical_support": 51
+              },
+              {
+                "threshold": 0.9447335200123421,
+                "recall": 0.7978723404255319,
+                "false_positive_rate": 0.038461538461538464,
+                "balanced_accuracy": 0.8797054009819967,
+                "positive_physical_support": 94,
+                "negative_physical_support": 26
+              },
+              {
+                "threshold": 0.7418946816208447,
+                "recall": 0.8765432098765432,
+                "false_positive_rate": 0.045454545454545456,
+                "balanced_accuracy": 0.9155443322109988,
+                "positive_physical_support": 81,
+                "negative_physical_support": 44
+              },
+              {
+                "threshold": 0.9945675051375265,
+                "recall": 0.42063492063492064,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.7103174603174603,
+                "positive_physical_support": 126,
+                "negative_physical_support": 17
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 2,
+          "C": 1.0,
+          "thresholds": [
+            0.7072107892651688,
+            0.9017847014366354,
+            0.7508223003636795,
+            0.9371570234944627
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.9238534415995774,
+            "per_class": [
+              {
+                "threshold": 0.7072107892651688,
+                "recall": 0.8666666666666667,
+                "false_positive_rate": 0.03278688524590164,
+                "balanced_accuracy": 0.9169398907103825,
+                "positive_physical_support": 60,
+                "negative_physical_support": 61
+              },
+              {
+                "threshold": 0.9017847014366354,
+                "recall": 0.9230769230769231,
+                "false_positive_rate": 0.027777777777777776,
+                "balanced_accuracy": 0.9476495726495727,
+                "positive_physical_support": 78,
+                "negative_physical_support": 36
+              },
+              {
+                "threshold": 0.7508223003636795,
+                "recall": 0.8734177215189873,
+                "false_positive_rate": 0.021739130434782608,
+                "balanced_accuracy": 0.9258392955421023,
+                "positive_physical_support": 79,
+                "negative_physical_support": 46
+              },
+              {
+                "threshold": 0.9371570234944627,
+                "recall": 0.853448275862069,
+                "false_positive_rate": 0.043478260869565216,
+                "balanced_accuracy": 0.9049850074962519,
+                "positive_physical_support": 116,
+                "negative_physical_support": 23
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 3,
+          "C": 0.1,
+          "thresholds": [
+            0.6852348899321762,
+            0.9605484953780087,
+            0.4328676464469667,
+            0.8526263569652565
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.883878357557935,
+            "per_class": [
+              {
+                "threshold": 0.6852348899321762,
+                "recall": 0.8214285714285714,
+                "false_positive_rate": 0.022727272727272728,
+                "balanced_accuracy": 0.8993506493506493,
+                "positive_physical_support": 56,
+                "negative_physical_support": 44
+              },
+              {
+                "threshold": 0.9605484953780087,
+                "recall": 0.6197183098591549,
+                "false_positive_rate": 0.030303030303030304,
+                "balanced_accuracy": 0.7947076397780624,
+                "positive_physical_support": 71,
+                "negative_physical_support": 33
+              },
+              {
+                "threshold": 0.4328676464469667,
+                "recall": 0.9014084507042254,
+                "false_positive_rate": 0.02564102564102564,
+                "balanced_accuracy": 0.9378837125316,
+                "positive_physical_support": 71,
+                "negative_physical_support": 39
+              },
+              {
+                "threshold": 0.8526263569652565,
+                "recall": 0.8571428571428571,
+                "false_positive_rate": 0.05,
+                "balanced_accuracy": 0.9035714285714286,
+                "positive_physical_support": 105,
+                "negative_physical_support": 20
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 4,
+          "C": 1.0,
+          "thresholds": [
+            0.6620995172682294,
+            0.9886093091399221,
+            0.6324442563172981,
+            0.9829056222868745
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.8655671243844225,
+            "per_class": [
+              {
+                "threshold": 0.6620995172682294,
+                "recall": 0.8305084745762712,
+                "false_positive_rate": 0.03636363636363636,
+                "balanced_accuracy": 0.8970724191063174,
+                "positive_physical_support": 59,
+                "negative_physical_support": 55
+              },
+              {
+                "threshold": 0.9886093091399221,
+                "recall": 0.6764705882352942,
+                "false_positive_rate": 0.029411764705882353,
+                "balanced_accuracy": 0.823529411764706,
+                "positive_physical_support": 68,
+                "negative_physical_support": 34
+              },
+              {
+                "threshold": 0.6324442563172981,
+                "recall": 0.8714285714285714,
+                "false_positive_rate": 0.02857142857142857,
+                "balanced_accuracy": 0.9214285714285715,
+                "positive_physical_support": 70,
+                "negative_physical_support": 35
+              },
+              {
+                "threshold": 0.9829056222868745,
+                "recall": 0.6904761904761905,
+                "false_positive_rate": 0.05,
+                "balanced_accuracy": 0.8202380952380952,
+                "positive_physical_support": 105,
+                "negative_physical_support": 20
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        }
+      ]
+    },
+    "lines-visible": {
+      "metrics": {
+        "schema_version": 1,
+        "estimand": "operational_above_threshold",
+        "protocol_hash": "e11089bb7acc50513867ff7f1fd8159973ef39edb2b3d7c3d057be43610832e2",
+        "split_hash": "99893e3396e36d5f4cd0ba503ea2067e041001411a36e098d931d54c0472fec3",
+        "test_measurement_ids": [
+          "development:130:2013_10_01_140247_ccs",
+          "development:132:2013_10_01_141736_ccs",
+          "development:152769:2013_11_06_152615_ccs",
+          "development:201424:2013_11_06_155107_ccs",
+          "development:221123:2013_11_07_143449_ccs",
+          "development:34p4:2013_10_01_153451_ccs",
+          "development:42877m:2013_10_01_154443_ccs",
+          "development:46436m:2013_11_07_152255_ccs",
+          "development:54939m:2013_10_01_192540_ccs",
+          "development:54942m:2013_10_01_195209_ccs",
+          "development:54943bm:2013_10_01_200154_ccs",
+          "development:54949m:2013_10_02_142249_ccs",
+          "development:8005:2013_11_07_153551_ccs",
+          "development:81:2013_10_01_135232_ccs",
+          "development:agv2:2013_08_06_164544_ccs",
+          "development:ao10:2013_10_02_150920_ccs",
+          "development:ao8:2013_10_02_154658_ccs",
+          "development:dh4909:2013_08_06_201331_ccs",
+          "development:dh4912:2013_08_06_205452_ccs",
+          "development:dkm1390:2013_10_02_182342_ccs",
+          "development:dkm3090:2013_10_08_155817_ccs",
+          "development:g13mt:2013_10_08_185920_ccs",
+          "development:g1mt:2013_10_15_160952_ccs",
+          "development:g6mt:2013_10_16_153546_ccs",
+          "development:g9mt:2013_10_17_144638_ccs",
+          "development:gbw07108:2013_08_07_145511_ccs",
+          "development:gbw07113:2013_08_07_151957_ccs",
+          "development:gbw07114:2013_08_07_153343_ccs",
+          "development:gbw07216a:2013_08_07_154520_ccs",
+          "development:gbw07217a:2013_08_07_155609_ccs",
+          "development:gbw07306:2013_08_07_190300_ccs",
+          "development:gbw07309:2013_08_07_191307_ccs",
+          "development:gl3mt:2013_10_17_153331_ccs",
+          "development:gl5mt:2013_10_23_142144_ccs",
+          "development:gl6mt:2013_10_23_143039_ccs",
+          "development:gl7mt:2013_10_23_143948_ccs",
+          "development:guwgna:2013_08_08_152732_ccs",
+          "development:gypa:2013_08_08_154541_ccs",
+          "development:gypb:2013_08_08_160842_ccs",
+          "development:gypc:2013_08_08_162033_ccs",
+          "development:gypd:2013_08_08_163025_ccs",
+          "development:icel009010:2013_09_25_145801_ccs",
+          "development:igs29:2013_08_15_195541_ccs",
+          "development:jdo1:2013_08_13_151318_ccs",
+          "development:jr1:2013_08_13_153051_ccs",
+          "development:jsc1366:2013_09_09_155032_ccs",
+          "development:jsc1376:2013_09_09_184439_ccs",
+          "development:jsc1378:2013_09_10_140818_ccs",
+          "development:jsc1383:2013_09_10_152800_ccs",
+          "development:jsc1387:2013_09_10_183653_ccs",
+          "development:jsc1388:2013_09_10_184559_ccs",
+          "development:jsc1389:2013_09_10_185510_ccs",
+          "development:jsc1393:2013_09_11_135342_ccs",
+          "development:jsc1400:2013_09_11_153158_ccs",
+          "development:jsc1404:2013_09_11_181752_ccs",
+          "development:jsc1406:2013_09_11_183649_ccs",
+          "development:jsc1407:2013_09_12_141722_ccs",
+          "development:jsc1414:2013_09_12_191538_ccs",
+          "development:jsc1418:2013_09_12_200947_ccs",
+          "development:jsc1422:2013_09_16_143112_ccs",
+          "development:jsc1428:2013_09_16_153432_ccs",
+          "development:jsc1432:2013_09_16_181217_ccs",
+          "development:jsc1439:2013_09_17_133812_ccs",
+          "development:jsc1446:2013_09_17_145142_ccs",
+          "development:jsc1448:2013_09_17_151229_ccs",
+          "development:jsc1450:2013_09_17_155310_ccs",
+          "development:jsc1451:2013_09_17_160433_ccs",
+          "development:jsc1452:2013_09_17_161901_ccs",
+          "development:jsc1455:2013_09_18_155147_ccs",
+          "development:jsc1456:2013_09_18_160112_ccs",
+          "development:jsc1459:2013_09_18_180349_ccs",
+          "development:jsc1460:2013_09_18_181417_ccs",
+          "development:jsc1461:2013_09_18_182818_ccs",
+          "development:jsc1465:2013_09_19_141107_ccs",
+          "development:lp14:2013_10_23_152611_ccs",
+          "development:mc:2013_10_24_141815_ccs",
+          "development:mhc1356:2013_08_14_162132_ccs",
+          "development:mhc2319:2013_08_14_163349_ccs",
+          "development:mi5:2013_10_25_145130_ccs",
+          "development:mix1o:2013_09_25_183002_ccs",
+          "development:mix2o:2013_09_26_135905_ccs",
+          "development:mix3o:2013_09_26_150701_ccs",
+          "development:mix4o:2013_09_26_162501_ccs",
+          "development:mix5o:2013_10_22_193840_ccs",
+          "development:mix6b:2013_09_30_145241_ccs",
+          "development:mix6o:2013_09_30_155009_ccs",
+          "development:mn45:2013_10_25_150703_ccs",
+          "development:mnfn:2013_10_25_151514_ccs",
+          "development:mnk:2013_10_25_152544_ccs",
+          "development:nau2los:2013_08_19_194437_ccs",
+          "development:ncsdc47008:2013_08_15_182618_ccs",
+          "development:ncsdc47009:2013_08_15_183622_ccs",
+          "development:oreas170a:2013_08_15_194519_ccs",
+          "development:p13mt:2013_10_28_150528_ccs",
+          "development:p1mt:2013_10_28_152843_ccs",
+          "development:pg1:2013_10_28_183552_ccs",
+          "development:pg2:2013_10_28_185503_ccs",
+          "development:pg3:2013_10_28_190354_ccs",
+          "development:pg4:2013_10_29_151657_ccs",
+          "development:pg5:2013_10_29_152510_ccs",
+          "development:pg6:2013_10_29_153619_ccs",
+          "development:pg7:2013_11_07_161422_ccs",
+          "development:pl3:2013_10_29_160210_ccs",
+          "development:r41:2013_11_04_185049_ccs",
+          "development:r42:2013_11_04_190017_ccs",
+          "development:r44:2013_11_04_192154_ccs",
+          "development:r45:2013_11_04_200218_ccs",
+          "development:r62:2013_11_04_201939_ccs",
+          "development:r63:2013_11_05_145404_ccs",
+          "development:s3a:2013_11_05_151631_ccs",
+          "development:s3b:2013_11_05_152627_ccs",
+          "development:s5:2013_11_05_160247_ccs",
+          "development:sanci:2013_09_20_172548_ccs",
+          "development:sanck:2013_09_25_135315_ccs",
+          "development:sarm16:2013_08_15_184636_ccs",
+          "development:sarm17:2013_08_06_160434_ccs",
+          "development:sarm51:2013_08_29_145448_ccs",
+          "development:sc2:2013_11_05_170336_ccs",
+          "development:sc3:2013_11_05_171529_ccs",
+          "development:srm88b:2013_08_20_190820_ccs",
+          "development:srm97a:2013_08_20_161900_ccs",
+          "development:srm98a:2013_08_20_183318_ccs",
+          "development:trond:2013_09_03_153324_ccs",
+          "development:unsak:2013_09_03_161214_ccs",
+          "development:unszk:2013_09_03_170216_ccs",
+          "development:vzo106:2013_09_03_181628_ccs",
+          "development:vzo114:2013_09_03_182802_ccs",
+          "test:bcs203a:2019_06_28_134918_ccs",
+          "test:cgl006:2017_04_06_142627_ccs",
+          "test:cgl015:2017_04_06_130651_ccs",
+          "test:crm212281:2017_04_06_124221_ccs",
+          "test:crm212481:2017_04_06_105619_ccs",
+          "test:dc601222:2017_04_06_111043_ccs",
+          "test:dc601232:2017_04_06_113824_ccs",
+          "test:dc60125:2017_05_16_084409_ccs",
+          "test:dc60126:2017_05_16_100902_ccs",
+          "test:dc71301:2017_05_16_090929_ccs",
+          "test:dc73303:2017_05_16_092822_ccs",
+          "test:dv1:2018_02_16_113756_ccs",
+          "test:dv10:2018_02_20_142803_ccs",
+          "test:dv11:2018_02_20_144636_ccs",
+          "test:dv12:2018_02_20_150136_ccs",
+          "test:dv13:2018_07_30_143534_ccs",
+          "test:dv14:2018_07_30_150947_ccs",
+          "test:dv15:2018_07_30_155801_ccs",
+          "test:dv16prehnite:2018_10_10_150446_ccs",
+          "test:dv17calciteblue:2018_10_10_154400_ccs",
+          "test:dv18microkeys:2018_10_10_161808_ccs",
+          "test:dv19nickmagnes:2018_10_10_164159_ccs",
+          "test:dv2:2018_02_16_115322_ccs",
+          "test:dv23clausthalite:2018_10_10_124734_ccs",
+          "test:dv24pollurhodes:2018_10_10_133410_ccs",
+          "test:dv25opaltorr:2018_10_10_170249_ccs",
+          "test:dv26columbite:2018_10_10_172004_ccs",
+          "test:dv27cobaltite:2018_10_10_111319_ccs",
+          "test:dv3:2018_02_16_120534_ccs",
+          "test:dv4:2018_02_20_111603_ccs",
+          "test:dv5:2018_02_20_112854_ccs",
+          "test:dv6:2018_02_20_114503_ccs",
+          "test:dv7:2018_02_20_120415_ccs",
+          "test:dv8:2018_02_20_135103_ccs",
+          "test:dv9:2018_02_20_140406_ccs",
+          "test:dv_calcite_opt:2018_10_23_143107_ccs",
+          "test:dv_diopside:2018_10_23_133714_ccs",
+          "test:dvserpentine:2018_10_23_130743_ccs",
+          "test:goedv:2018_07_30_134057_ccs",
+          "test:hemdv:2018_07_30_111642_ccs",
+          "test:holldv:2018_07_30_113057_ccs",
+          "test:ilmdv:2018_07_30_132159_ccs",
+          "test:jcrmr604:2017_04_07_082707_ccs",
+          "test:jcrmr605:2017_04_07_083839_ccs",
+          "test:jcrmr703:2017_04_07_115910_ccs",
+          "test:jcrmr803:2017_04_07_130637_ccs",
+          "test:jf1:2017_04_07_094059_ccs",
+          "test:jf2:2017_04_07_092021_ccs",
+          "test:jsy1:2017_04_06_134827_ccs",
+          "test:magdv:2018_07_30_122546_ccs",
+          "test:ncs_dc_11023:2018_07_11_100713_ccs",
+          "test:ncs_dc_28043:2018_07_11_103002_ccs",
+          "test:ncs_dc_28210:2018_07_10_140130_ccs",
+          "test:ncs_dc_28211:2018_07_10_141856_ccs",
+          "test:pacmnnod:2018_07_30_124338_ccs",
+          "test:psidv:2018_07_30_140217_ccs",
+          "test:purpdv:2018_07_30_115823_ccs",
+          "test:rhoddv:2018_07_30_125840_ccs",
+          "test:rtb1:2019_06_28_143127_ccs",
+          "test:saa1:2019_06_28_152901_ccs",
+          "test:sarm131:2017_04_18_095239_ccs",
+          "test:sarm2:2017_04_06_141122_ccs",
+          "test:srm201a:2017_05_16_082426_ccs",
+          "test:sx1602:2017_05_16_102150_ccs",
+          "test:unskk:2017_04_07_090145_ccs",
+          "test:vs212381:2017_04_06_145652_ccs",
+          "test:vs72875:2017_04_06_151031_ccs",
+          "test:vsm011:2017_04_07_121819_ccs",
+          "test:vsstm2:2017_04_06_132103_ccs",
+          "test:wmb24a:2019_06_28_151319_ccs",
+          "test:wmb24b:2019_06_27_160345_ccs",
+          "development-v2:macusanite:2013_08_14_161022_ccs",
+          "development-v2:27-07:2013_09_04_150414_ccs",
+          "development-v2:jch-1:2013_09_04_153432_ccs",
+          "development-v2:jr-3:2021_01_13_154849_ccs"
+        ],
+        "class_order": [
+          "Na",
+          "Mg",
+          "Ca",
+          "Fe"
+        ],
+        "physical_samples": 199,
+        "replicate_spectra": 202,
+        "independent_clusters": 46,
+        "per_element": {
+          "Na": {
+            "recall": {
+              "estimate": 0.74,
+              "ci95": [
+                0.5705,
+                0.9130434782608695
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 55.5,
+              "denominator_sample_equivalents": 75.0,
+              "supporting_clusters": 33,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.046875,
+              "ci95": [
+                0.0,
+                0.12121212121212122
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 3.0,
+              "denominator_sample_equivalents": 64.0,
+              "supporting_clusters": 25,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 0.9487179487179487,
+              "ci95": [
+                0.8643875192604007,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 55.5,
+              "denominator_sample_equivalents": 58.5,
+              "supporting_clusters": 31,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 75,
+            "physical_negative_support": 64,
+            "physical_unknown_support": 60,
+            "positive_cluster_support": 33,
+            "negative_cluster_support": 25,
+            "replicate_positive_support": 78,
+            "replicate_negative_support": 64,
+            "replicate_unknown_support": 60,
+            "unknown_label_prediction_count": 7,
+            "unknown_prediction_sample_equivalents": 7.0,
+            "tp_sample_equivalents": 55.5,
+            "fp_sample_equivalents": 3.0,
+            "tn_sample_equivalents": 61.0,
+            "fn_sample_equivalents": 19.5
+          },
+          "Mg": {
+            "recall": {
+              "estimate": 0.8787878787878788,
+              "ci95": [
+                0.7692,
+                0.9638661790017211
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 87.0,
+              "denominator_sample_equivalents": 99.0,
+              "supporting_clusters": 39,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.02564102564102564,
+              "ci95": [
+                0.0,
+                0.07692307692307693
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 1.0,
+              "denominator_sample_equivalents": 39.0,
+              "supporting_clusters": 18,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 0.9886363636363636,
+              "ci95": [
+                0.9603861386138614,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 87.0,
+              "denominator_sample_equivalents": 88.0,
+              "supporting_clusters": 36,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 99,
+            "physical_negative_support": 39,
+            "physical_unknown_support": 61,
+            "positive_cluster_support": 39,
+            "negative_cluster_support": 18,
+            "replicate_positive_support": 100,
+            "replicate_negative_support": 40,
+            "replicate_unknown_support": 62,
+            "unknown_label_prediction_count": 4,
+            "unknown_prediction_sample_equivalents": 4.0,
+            "tp_sample_equivalents": 87.0,
+            "fp_sample_equivalents": 1.0,
+            "tn_sample_equivalents": 38.0,
+            "fn_sample_equivalents": 12.0
+          },
+          "Ca": {
+            "recall": {
+              "estimate": 0.9139784946236559,
+              "ci95": [
+                0.7608582427536232,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 85.0,
+              "denominator_sample_equivalents": 93.0,
+              "supporting_clusters": 33,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.0196078431372549,
+              "ci95": [
+                0.0,
+                0.06666666666666667
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 1.0,
+              "denominator_sample_equivalents": 51.0,
+              "supporting_clusters": 23,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 0.9883720930232558,
+              "ci95": [
+                0.959445575712699,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 85.0,
+              "denominator_sample_equivalents": 86.0,
+              "supporting_clusters": 33,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 93,
+            "physical_negative_support": 51,
+            "physical_unknown_support": 55,
+            "positive_cluster_support": 33,
+            "negative_cluster_support": 23,
+            "replicate_positive_support": 95,
+            "replicate_negative_support": 51,
+            "replicate_unknown_support": 56,
+            "unknown_label_prediction_count": 15,
+            "unknown_prediction_sample_equivalents": 15.0,
+            "tp_sample_equivalents": 85.0,
+            "fp_sample_equivalents": 1.0,
+            "tn_sample_equivalents": 50.0,
+            "fn_sample_equivalents": 8.0
+          },
+          "Fe": {
+            "recall": {
+              "estimate": 0.8297872340425532,
+              "ci95": [
+                0.6927978883861237,
+                0.9371167452830188
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 117.0,
+              "denominator_sample_equivalents": 141.0,
+              "supporting_clusters": 43,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.08,
+              "ci95": [
+                0.0,
+                0.16129032258064516
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 2.0,
+              "denominator_sample_equivalents": 25.0,
+              "supporting_clusters": 12,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 0.9831932773109243,
+              "ci95": [
+                0.9574422622294964,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 117.0,
+              "denominator_sample_equivalents": 119.0,
+              "supporting_clusters": 39,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 141,
+            "physical_negative_support": 25,
+            "physical_unknown_support": 33,
+            "positive_cluster_support": 43,
+            "negative_cluster_support": 12,
+            "replicate_positive_support": 144,
+            "replicate_negative_support": 25,
+            "replicate_unknown_support": 33,
+            "unknown_label_prediction_count": 5,
+            "unknown_prediction_sample_equivalents": 5.0,
+            "tp_sample_equivalents": 117.0,
+            "fp_sample_equivalents": 2.0,
+            "tn_sample_equivalents": 23.0,
+            "fn_sample_equivalents": 24.0
+          }
+        },
+        "uncertainty": {
+          "method": "paired physical/family/session/checksum-cluster percentile bootstrap",
+          "repeats": 2000,
+          "seed": 20261014,
+          "confidence_level": 0.95,
+          "weighting": "Each physical sample has unit weight; average its replicate detections.",
+          "null_interval_policy": "<2 supporting clusters, <100 valid draws or degenerate draws"
+        },
+        "limitations": [
+          "Unknown labels are excluded, never counted as negatives.",
+          "Precision is conditional on known labels and requires positive and negative support.",
+          "Intervals condition on sampled clusters and fixed fitted models; not simultaneous.",
+          "A zero observed false-positive count is not proof of a zero population rate.",
+          "Operational below-threshold labels do not establish elemental absence."
+        ],
+        "evaluation_scope": "nested_grouped_development_cv_not_independent_test",
+        "independent_final_test": false
+      },
+      "outer_selections": [
+        {
+          "fold": 0,
+          "C": 1.0,
+          "thresholds": [
+            0.7543028765296059,
+            0.4450749093958162,
+            0.2477694548300561,
+            0.6524392405217422
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.9743158620975272,
+            "per_class": [
+              {
+                "threshold": 0.7543028765296059,
+                "recall": 0.9838709677419355,
+                "false_positive_rate": 0.022222222222222223,
+                "balanced_accuracy": 0.9808243727598567,
+                "positive_physical_support": 62,
+                "negative_physical_support": 45
+              },
+              {
+                "threshold": 0.4450749093958162,
+                "recall": 0.9882352941176471,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.9941176470588236,
+                "positive_physical_support": 85,
+                "negative_physical_support": 27
+              },
+              {
+                "threshold": 0.2477694548300561,
+                "recall": 1.0,
+                "false_positive_rate": 0.025,
+                "balanced_accuracy": 0.9875,
+                "positive_physical_support": 71,
+                "negative_physical_support": 40
+              },
+              {
+                "threshold": 0.6524392405217422,
+                "recall": 0.9196428571428571,
+                "false_positive_rate": 0.05,
+                "balanced_accuracy": 0.9348214285714286,
+                "positive_physical_support": 112,
+                "negative_physical_support": 20
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 1,
+          "C": 0.01,
+          "thresholds": [
+            0.6172939195814601,
+            0.539873949316753,
+            0.4458219423156447,
+            0.7316546639953518
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.8309527545030257,
+            "per_class": [
+              {
+                "threshold": 0.6172939195814601,
+                "recall": 0.49206349206349204,
+                "false_positive_rate": 0.0392156862745098,
+                "balanced_accuracy": 0.7264239028944911,
+                "positive_physical_support": 63,
+                "negative_physical_support": 51
+              },
+              {
+                "threshold": 0.539873949316753,
+                "recall": 0.9148936170212766,
+                "false_positive_rate": 0.038461538461538464,
+                "balanced_accuracy": 0.938216039279869,
+                "positive_physical_support": 94,
+                "negative_physical_support": 26
+              },
+              {
+                "threshold": 0.4458219423156447,
+                "recall": 0.9135802469135802,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.9567901234567902,
+                "positive_physical_support": 81,
+                "negative_physical_support": 44
+              },
+              {
+                "threshold": 0.7316546639953518,
+                "recall": 0.40476190476190477,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.7023809523809523,
+                "positive_physical_support": 126,
+                "negative_physical_support": 17
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 2,
+          "C": 0.1,
+          "thresholds": [
+            0.6420334998199259,
+            0.5126589730583676,
+            0.47460703713072605,
+            0.44735656421079295
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.9351057461443055,
+            "per_class": [
+              {
+                "threshold": 0.6420334998199259,
+                "recall": 0.8333333333333334,
+                "false_positive_rate": 0.01639344262295082,
+                "balanced_accuracy": 0.9084699453551913,
+                "positive_physical_support": 60,
+                "negative_physical_support": 61
+              },
+              {
+                "threshold": 0.5126589730583676,
+                "recall": 0.9743589743589743,
+                "false_positive_rate": 0.027777777777777776,
+                "balanced_accuracy": 0.9732905982905984,
+                "positive_physical_support": 78,
+                "negative_physical_support": 36
+              },
+              {
+                "threshold": 0.47460703713072605,
+                "recall": 0.8987341772151899,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.9493670886075949,
+                "positive_physical_support": 79,
+                "negative_physical_support": 46
+              },
+              {
+                "threshold": 0.44735656421079295,
+                "recall": 0.8620689655172413,
+                "false_positive_rate": 0.043478260869565216,
+                "balanced_accuracy": 0.9092953523238381,
+                "positive_physical_support": 116,
+                "negative_physical_support": 23
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 3,
+          "C": 0.01,
+          "thresholds": [
+            0.6295708595481389,
+            0.5786406294576107,
+            0.49188174617712643,
+            0.476471638807138
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.862718062453978,
+            "per_class": [
+              {
+                "threshold": 0.6295708595481389,
+                "recall": 0.5357142857142857,
+                "false_positive_rate": 0.022727272727272728,
+                "balanced_accuracy": 0.7564935064935064,
+                "positive_physical_support": 56,
+                "negative_physical_support": 44
+              },
+              {
+                "threshold": 0.5786406294576107,
+                "recall": 0.8169014084507042,
+                "false_positive_rate": 0.030303030303030304,
+                "balanced_accuracy": 0.893299189073837,
+                "positive_physical_support": 71,
+                "negative_physical_support": 33
+              },
+              {
+                "threshold": 0.49188174617712643,
+                "recall": 0.8873239436619719,
+                "false_positive_rate": 0.02564102564102564,
+                "balanced_accuracy": 0.9308414590104732,
+                "positive_physical_support": 71,
+                "negative_physical_support": 39
+              },
+              {
+                "threshold": 0.476471638807138,
+                "recall": 0.7904761904761904,
+                "false_positive_rate": 0.05,
+                "balanced_accuracy": 0.8702380952380951,
+                "positive_physical_support": 105,
+                "negative_physical_support": 20
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 4,
+          "C": 0.1,
+          "thresholds": [
+            0.6211337429068019,
+            0.8885678773163062,
+            0.49490391003639855,
+            0.3764466439526711
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.8766046961928069,
+            "per_class": [
+              {
+                "threshold": 0.6211337429068019,
+                "recall": 0.7966101694915254,
+                "false_positive_rate": 0.03636363636363636,
+                "balanced_accuracy": 0.8801232665639446,
+                "positive_physical_support": 59,
+                "negative_physical_support": 55
+              },
+              {
+                "threshold": 0.8885678773163062,
+                "recall": 0.5367647058823529,
+                "false_positive_rate": 0.029411764705882353,
+                "balanced_accuracy": 0.7536764705882353,
+                "positive_physical_support": 68,
+                "negative_physical_support": 34
+              },
+              {
+                "threshold": 0.49490391003639855,
+                "recall": 0.9,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.95,
+                "positive_physical_support": 70,
+                "negative_physical_support": 35
+              },
+              {
+                "threshold": 0.3764466439526711,
+                "recall": 0.8952380952380953,
+                "false_positive_rate": 0.05,
+                "balanced_accuracy": 0.9226190476190476,
+                "positive_physical_support": 105,
+                "negative_physical_support": 20
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        }
+      ]
+    },
+    "lines-uv-visible": {
+      "metrics": {
+        "schema_version": 1,
+        "estimand": "operational_above_threshold",
+        "protocol_hash": "e11089bb7acc50513867ff7f1fd8159973ef39edb2b3d7c3d057be43610832e2",
+        "split_hash": "99893e3396e36d5f4cd0ba503ea2067e041001411a36e098d931d54c0472fec3",
+        "test_measurement_ids": [
+          "development:130:2013_10_01_140247_ccs",
+          "development:132:2013_10_01_141736_ccs",
+          "development:152769:2013_11_06_152615_ccs",
+          "development:201424:2013_11_06_155107_ccs",
+          "development:221123:2013_11_07_143449_ccs",
+          "development:34p4:2013_10_01_153451_ccs",
+          "development:42877m:2013_10_01_154443_ccs",
+          "development:46436m:2013_11_07_152255_ccs",
+          "development:54939m:2013_10_01_192540_ccs",
+          "development:54942m:2013_10_01_195209_ccs",
+          "development:54943bm:2013_10_01_200154_ccs",
+          "development:54949m:2013_10_02_142249_ccs",
+          "development:8005:2013_11_07_153551_ccs",
+          "development:81:2013_10_01_135232_ccs",
+          "development:agv2:2013_08_06_164544_ccs",
+          "development:ao10:2013_10_02_150920_ccs",
+          "development:ao8:2013_10_02_154658_ccs",
+          "development:dh4909:2013_08_06_201331_ccs",
+          "development:dh4912:2013_08_06_205452_ccs",
+          "development:dkm1390:2013_10_02_182342_ccs",
+          "development:dkm3090:2013_10_08_155817_ccs",
+          "development:g13mt:2013_10_08_185920_ccs",
+          "development:g1mt:2013_10_15_160952_ccs",
+          "development:g6mt:2013_10_16_153546_ccs",
+          "development:g9mt:2013_10_17_144638_ccs",
+          "development:gbw07108:2013_08_07_145511_ccs",
+          "development:gbw07113:2013_08_07_151957_ccs",
+          "development:gbw07114:2013_08_07_153343_ccs",
+          "development:gbw07216a:2013_08_07_154520_ccs",
+          "development:gbw07217a:2013_08_07_155609_ccs",
+          "development:gbw07306:2013_08_07_190300_ccs",
+          "development:gbw07309:2013_08_07_191307_ccs",
+          "development:gl3mt:2013_10_17_153331_ccs",
+          "development:gl5mt:2013_10_23_142144_ccs",
+          "development:gl6mt:2013_10_23_143039_ccs",
+          "development:gl7mt:2013_10_23_143948_ccs",
+          "development:guwgna:2013_08_08_152732_ccs",
+          "development:gypa:2013_08_08_154541_ccs",
+          "development:gypb:2013_08_08_160842_ccs",
+          "development:gypc:2013_08_08_162033_ccs",
+          "development:gypd:2013_08_08_163025_ccs",
+          "development:icel009010:2013_09_25_145801_ccs",
+          "development:igs29:2013_08_15_195541_ccs",
+          "development:jdo1:2013_08_13_151318_ccs",
+          "development:jr1:2013_08_13_153051_ccs",
+          "development:jsc1366:2013_09_09_155032_ccs",
+          "development:jsc1376:2013_09_09_184439_ccs",
+          "development:jsc1378:2013_09_10_140818_ccs",
+          "development:jsc1383:2013_09_10_152800_ccs",
+          "development:jsc1387:2013_09_10_183653_ccs",
+          "development:jsc1388:2013_09_10_184559_ccs",
+          "development:jsc1389:2013_09_10_185510_ccs",
+          "development:jsc1393:2013_09_11_135342_ccs",
+          "development:jsc1400:2013_09_11_153158_ccs",
+          "development:jsc1404:2013_09_11_181752_ccs",
+          "development:jsc1406:2013_09_11_183649_ccs",
+          "development:jsc1407:2013_09_12_141722_ccs",
+          "development:jsc1414:2013_09_12_191538_ccs",
+          "development:jsc1418:2013_09_12_200947_ccs",
+          "development:jsc1422:2013_09_16_143112_ccs",
+          "development:jsc1428:2013_09_16_153432_ccs",
+          "development:jsc1432:2013_09_16_181217_ccs",
+          "development:jsc1439:2013_09_17_133812_ccs",
+          "development:jsc1446:2013_09_17_145142_ccs",
+          "development:jsc1448:2013_09_17_151229_ccs",
+          "development:jsc1450:2013_09_17_155310_ccs",
+          "development:jsc1451:2013_09_17_160433_ccs",
+          "development:jsc1452:2013_09_17_161901_ccs",
+          "development:jsc1455:2013_09_18_155147_ccs",
+          "development:jsc1456:2013_09_18_160112_ccs",
+          "development:jsc1459:2013_09_18_180349_ccs",
+          "development:jsc1460:2013_09_18_181417_ccs",
+          "development:jsc1461:2013_09_18_182818_ccs",
+          "development:jsc1465:2013_09_19_141107_ccs",
+          "development:lp14:2013_10_23_152611_ccs",
+          "development:mc:2013_10_24_141815_ccs",
+          "development:mhc1356:2013_08_14_162132_ccs",
+          "development:mhc2319:2013_08_14_163349_ccs",
+          "development:mi5:2013_10_25_145130_ccs",
+          "development:mix1o:2013_09_25_183002_ccs",
+          "development:mix2o:2013_09_26_135905_ccs",
+          "development:mix3o:2013_09_26_150701_ccs",
+          "development:mix4o:2013_09_26_162501_ccs",
+          "development:mix5o:2013_10_22_193840_ccs",
+          "development:mix6b:2013_09_30_145241_ccs",
+          "development:mix6o:2013_09_30_155009_ccs",
+          "development:mn45:2013_10_25_150703_ccs",
+          "development:mnfn:2013_10_25_151514_ccs",
+          "development:mnk:2013_10_25_152544_ccs",
+          "development:nau2los:2013_08_19_194437_ccs",
+          "development:ncsdc47008:2013_08_15_182618_ccs",
+          "development:ncsdc47009:2013_08_15_183622_ccs",
+          "development:oreas170a:2013_08_15_194519_ccs",
+          "development:p13mt:2013_10_28_150528_ccs",
+          "development:p1mt:2013_10_28_152843_ccs",
+          "development:pg1:2013_10_28_183552_ccs",
+          "development:pg2:2013_10_28_185503_ccs",
+          "development:pg3:2013_10_28_190354_ccs",
+          "development:pg4:2013_10_29_151657_ccs",
+          "development:pg5:2013_10_29_152510_ccs",
+          "development:pg6:2013_10_29_153619_ccs",
+          "development:pg7:2013_11_07_161422_ccs",
+          "development:pl3:2013_10_29_160210_ccs",
+          "development:r41:2013_11_04_185049_ccs",
+          "development:r42:2013_11_04_190017_ccs",
+          "development:r44:2013_11_04_192154_ccs",
+          "development:r45:2013_11_04_200218_ccs",
+          "development:r62:2013_11_04_201939_ccs",
+          "development:r63:2013_11_05_145404_ccs",
+          "development:s3a:2013_11_05_151631_ccs",
+          "development:s3b:2013_11_05_152627_ccs",
+          "development:s5:2013_11_05_160247_ccs",
+          "development:sanci:2013_09_20_172548_ccs",
+          "development:sanck:2013_09_25_135315_ccs",
+          "development:sarm16:2013_08_15_184636_ccs",
+          "development:sarm17:2013_08_06_160434_ccs",
+          "development:sarm51:2013_08_29_145448_ccs",
+          "development:sc2:2013_11_05_170336_ccs",
+          "development:sc3:2013_11_05_171529_ccs",
+          "development:srm88b:2013_08_20_190820_ccs",
+          "development:srm97a:2013_08_20_161900_ccs",
+          "development:srm98a:2013_08_20_183318_ccs",
+          "development:trond:2013_09_03_153324_ccs",
+          "development:unsak:2013_09_03_161214_ccs",
+          "development:unszk:2013_09_03_170216_ccs",
+          "development:vzo106:2013_09_03_181628_ccs",
+          "development:vzo114:2013_09_03_182802_ccs",
+          "test:bcs203a:2019_06_28_134918_ccs",
+          "test:cgl006:2017_04_06_142627_ccs",
+          "test:cgl015:2017_04_06_130651_ccs",
+          "test:crm212281:2017_04_06_124221_ccs",
+          "test:crm212481:2017_04_06_105619_ccs",
+          "test:dc601222:2017_04_06_111043_ccs",
+          "test:dc601232:2017_04_06_113824_ccs",
+          "test:dc60125:2017_05_16_084409_ccs",
+          "test:dc60126:2017_05_16_100902_ccs",
+          "test:dc71301:2017_05_16_090929_ccs",
+          "test:dc73303:2017_05_16_092822_ccs",
+          "test:dv1:2018_02_16_113756_ccs",
+          "test:dv10:2018_02_20_142803_ccs",
+          "test:dv11:2018_02_20_144636_ccs",
+          "test:dv12:2018_02_20_150136_ccs",
+          "test:dv13:2018_07_30_143534_ccs",
+          "test:dv14:2018_07_30_150947_ccs",
+          "test:dv15:2018_07_30_155801_ccs",
+          "test:dv16prehnite:2018_10_10_150446_ccs",
+          "test:dv17calciteblue:2018_10_10_154400_ccs",
+          "test:dv18microkeys:2018_10_10_161808_ccs",
+          "test:dv19nickmagnes:2018_10_10_164159_ccs",
+          "test:dv2:2018_02_16_115322_ccs",
+          "test:dv23clausthalite:2018_10_10_124734_ccs",
+          "test:dv24pollurhodes:2018_10_10_133410_ccs",
+          "test:dv25opaltorr:2018_10_10_170249_ccs",
+          "test:dv26columbite:2018_10_10_172004_ccs",
+          "test:dv27cobaltite:2018_10_10_111319_ccs",
+          "test:dv3:2018_02_16_120534_ccs",
+          "test:dv4:2018_02_20_111603_ccs",
+          "test:dv5:2018_02_20_112854_ccs",
+          "test:dv6:2018_02_20_114503_ccs",
+          "test:dv7:2018_02_20_120415_ccs",
+          "test:dv8:2018_02_20_135103_ccs",
+          "test:dv9:2018_02_20_140406_ccs",
+          "test:dv_calcite_opt:2018_10_23_143107_ccs",
+          "test:dv_diopside:2018_10_23_133714_ccs",
+          "test:dvserpentine:2018_10_23_130743_ccs",
+          "test:goedv:2018_07_30_134057_ccs",
+          "test:hemdv:2018_07_30_111642_ccs",
+          "test:holldv:2018_07_30_113057_ccs",
+          "test:ilmdv:2018_07_30_132159_ccs",
+          "test:jcrmr604:2017_04_07_082707_ccs",
+          "test:jcrmr605:2017_04_07_083839_ccs",
+          "test:jcrmr703:2017_04_07_115910_ccs",
+          "test:jcrmr803:2017_04_07_130637_ccs",
+          "test:jf1:2017_04_07_094059_ccs",
+          "test:jf2:2017_04_07_092021_ccs",
+          "test:jsy1:2017_04_06_134827_ccs",
+          "test:magdv:2018_07_30_122546_ccs",
+          "test:ncs_dc_11023:2018_07_11_100713_ccs",
+          "test:ncs_dc_28043:2018_07_11_103002_ccs",
+          "test:ncs_dc_28210:2018_07_10_140130_ccs",
+          "test:ncs_dc_28211:2018_07_10_141856_ccs",
+          "test:pacmnnod:2018_07_30_124338_ccs",
+          "test:psidv:2018_07_30_140217_ccs",
+          "test:purpdv:2018_07_30_115823_ccs",
+          "test:rhoddv:2018_07_30_125840_ccs",
+          "test:rtb1:2019_06_28_143127_ccs",
+          "test:saa1:2019_06_28_152901_ccs",
+          "test:sarm131:2017_04_18_095239_ccs",
+          "test:sarm2:2017_04_06_141122_ccs",
+          "test:srm201a:2017_05_16_082426_ccs",
+          "test:sx1602:2017_05_16_102150_ccs",
+          "test:unskk:2017_04_07_090145_ccs",
+          "test:vs212381:2017_04_06_145652_ccs",
+          "test:vs72875:2017_04_06_151031_ccs",
+          "test:vsm011:2017_04_07_121819_ccs",
+          "test:vsstm2:2017_04_06_132103_ccs",
+          "test:wmb24a:2019_06_28_151319_ccs",
+          "test:wmb24b:2019_06_27_160345_ccs",
+          "development-v2:macusanite:2013_08_14_161022_ccs",
+          "development-v2:27-07:2013_09_04_150414_ccs",
+          "development-v2:jch-1:2013_09_04_153432_ccs",
+          "development-v2:jr-3:2021_01_13_154849_ccs"
+        ],
+        "class_order": [
+          "Na",
+          "Mg",
+          "Ca",
+          "Fe"
+        ],
+        "physical_samples": 199,
+        "replicate_spectra": 202,
+        "independent_clusters": 46,
+        "per_element": {
+          "Na": {
+            "recall": {
+              "estimate": 0.84,
+              "ci95": [
+                0.6444047619047619,
+                0.9814814814814815
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 63.0,
+              "denominator_sample_equivalents": 75.0,
+              "supporting_clusters": 33,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.0,
+              "ci95": null,
+              "ci_reason": "degenerate_cluster_bootstrap",
+              "numerator_sample_equivalents": 0.0,
+              "denominator_sample_equivalents": 64.0,
+              "supporting_clusters": 25,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 1.0,
+              "ci95": null,
+              "ci_reason": "degenerate_cluster_bootstrap",
+              "numerator_sample_equivalents": 63.0,
+              "denominator_sample_equivalents": 63.0,
+              "supporting_clusters": 31,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 75,
+            "physical_negative_support": 64,
+            "physical_unknown_support": 60,
+            "positive_cluster_support": 33,
+            "negative_cluster_support": 25,
+            "replicate_positive_support": 78,
+            "replicate_negative_support": 64,
+            "replicate_unknown_support": 60,
+            "unknown_label_prediction_count": 23,
+            "unknown_prediction_sample_equivalents": 23.0,
+            "tp_sample_equivalents": 63.0,
+            "fp_sample_equivalents": 0.0,
+            "tn_sample_equivalents": 64.0,
+            "fn_sample_equivalents": 12.0
+          },
+          "Mg": {
+            "recall": {
+              "estimate": 0.9595959595959596,
+              "ci95": [
+                0.9032258064516129,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 95.0,
+              "denominator_sample_equivalents": 99.0,
+              "supporting_clusters": 39,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.0,
+              "ci95": null,
+              "ci_reason": "degenerate_cluster_bootstrap",
+              "numerator_sample_equivalents": 0.0,
+              "denominator_sample_equivalents": 39.0,
+              "supporting_clusters": 18,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 1.0,
+              "ci95": null,
+              "ci_reason": "degenerate_cluster_bootstrap",
+              "numerator_sample_equivalents": 95.0,
+              "denominator_sample_equivalents": 95.0,
+              "supporting_clusters": 37,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 99,
+            "physical_negative_support": 39,
+            "physical_unknown_support": 61,
+            "positive_cluster_support": 39,
+            "negative_cluster_support": 18,
+            "replicate_positive_support": 100,
+            "replicate_negative_support": 40,
+            "replicate_unknown_support": 62,
+            "unknown_label_prediction_count": 6,
+            "unknown_prediction_sample_equivalents": 6.0,
+            "tp_sample_equivalents": 95.0,
+            "fp_sample_equivalents": 0.0,
+            "tn_sample_equivalents": 39.0,
+            "fn_sample_equivalents": 4.0
+          },
+          "Ca": {
+            "recall": {
+              "estimate": 0.9247311827956989,
+              "ci95": [
+                0.776595744680851,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 86.0,
+              "denominator_sample_equivalents": 93.0,
+              "supporting_clusters": 33,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.0392156862745098,
+              "ci95": [
+                0.0,
+                0.10810810810810811
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 2.0,
+              "denominator_sample_equivalents": 51.0,
+              "supporting_clusters": 23,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 0.9772727272727273,
+              "ci95": [
+                0.9405940594059405,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 86.0,
+              "denominator_sample_equivalents": 88.0,
+              "supporting_clusters": 33,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 93,
+            "physical_negative_support": 51,
+            "physical_unknown_support": 55,
+            "positive_cluster_support": 33,
+            "negative_cluster_support": 23,
+            "replicate_positive_support": 95,
+            "replicate_negative_support": 51,
+            "replicate_unknown_support": 56,
+            "unknown_label_prediction_count": 11,
+            "unknown_prediction_sample_equivalents": 11.0,
+            "tp_sample_equivalents": 86.0,
+            "fp_sample_equivalents": 2.0,
+            "tn_sample_equivalents": 49.0,
+            "fn_sample_equivalents": 7.0
+          },
+          "Fe": {
+            "recall": {
+              "estimate": 0.9361702127659575,
+              "ci95": [
+                0.8275562739463601,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 132.0,
+              "denominator_sample_equivalents": 141.0,
+              "supporting_clusters": 43,
+              "valid_bootstrap_draws": 2000
+            },
+            "false_positive_rate": {
+              "estimate": 0.04,
+              "ci95": [
+                0.0,
+                0.11764705882352941
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 1.0,
+              "denominator_sample_equivalents": 25.0,
+              "supporting_clusters": 12,
+              "valid_bootstrap_draws": 2000
+            },
+            "known_label_precision": {
+              "estimate": 0.9924812030075187,
+              "ci95": [
+                0.9765578863188976,
+                1.0
+              ],
+              "ci_reason": null,
+              "numerator_sample_equivalents": 132.0,
+              "denominator_sample_equivalents": 133.0,
+              "supporting_clusters": 43,
+              "valid_bootstrap_draws": 2000
+            },
+            "physical_positive_support": 141,
+            "physical_negative_support": 25,
+            "physical_unknown_support": 33,
+            "positive_cluster_support": 43,
+            "negative_cluster_support": 12,
+            "replicate_positive_support": 144,
+            "replicate_negative_support": 25,
+            "replicate_unknown_support": 33,
+            "unknown_label_prediction_count": 11,
+            "unknown_prediction_sample_equivalents": 11.0,
+            "tp_sample_equivalents": 132.0,
+            "fp_sample_equivalents": 1.0,
+            "tn_sample_equivalents": 24.0,
+            "fn_sample_equivalents": 9.0
+          }
+        },
+        "uncertainty": {
+          "method": "paired physical/family/session/checksum-cluster percentile bootstrap",
+          "repeats": 2000,
+          "seed": 20261014,
+          "confidence_level": 0.95,
+          "weighting": "Each physical sample has unit weight; average its replicate detections.",
+          "null_interval_policy": "<2 supporting clusters, <100 valid draws or degenerate draws"
+        },
+        "limitations": [
+          "Unknown labels are excluded, never counted as negatives.",
+          "Precision is conditional on known labels and requires positive and negative support.",
+          "Intervals condition on sampled clusters and fixed fitted models; not simultaneous.",
+          "A zero observed false-positive count is not proof of a zero population rate.",
+          "Operational below-threshold labels do not establish elemental absence."
+        ],
+        "evaluation_scope": "nested_grouped_development_cv_not_independent_test",
+        "independent_final_test": false
+      },
+      "outer_selections": [
+        {
+          "fold": 0,
+          "C": 1.0,
+          "thresholds": [
+            0.6801308708845641,
+            0.28475992838358766,
+            0.2877293955646237,
+            0.3844440238050252
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.9869885005973715,
+            "per_class": [
+              {
+                "threshold": 0.6801308708845641,
+                "recall": 0.9838709677419355,
+                "false_positive_rate": 0.044444444444444446,
+                "balanced_accuracy": 0.9697132616487455,
+                "positive_physical_support": 62,
+                "negative_physical_support": 45
+              },
+              {
+                "threshold": 0.28475992838358766,
+                "recall": 1.0,
+                "false_positive_rate": 0.018518518518518517,
+                "balanced_accuracy": 0.9907407407407407,
+                "positive_physical_support": 85,
+                "negative_physical_support": 27
+              },
+              {
+                "threshold": 0.2877293955646237,
+                "recall": 1.0,
+                "false_positive_rate": 0.025,
+                "balanced_accuracy": 0.9875,
+                "positive_physical_support": 71,
+                "negative_physical_support": 40
+              },
+              {
+                "threshold": 0.3844440238050252,
+                "recall": 1.0,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 1.0,
+                "positive_physical_support": 112,
+                "negative_physical_support": 20
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 1,
+          "C": 0.1,
+          "thresholds": [
+            0.7638627053229085,
+            0.8161112081987558,
+            0.7055601498398444,
+            0.6994500113876594
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.9171540745252675,
+            "per_class": [
+              {
+                "threshold": 0.7638627053229085,
+                "recall": 0.7936507936507936,
+                "false_positive_rate": 0.0392156862745098,
+                "balanced_accuracy": 0.8772175536881418,
+                "positive_physical_support": 63,
+                "negative_physical_support": 51
+              },
+              {
+                "threshold": 0.8161112081987558,
+                "recall": 0.925531914893617,
+                "false_positive_rate": 0.038461538461538464,
+                "balanced_accuracy": 0.9435351882160392,
+                "positive_physical_support": 94,
+                "negative_physical_support": 26
+              },
+              {
+                "threshold": 0.7055601498398444,
+                "recall": 0.8641975308641975,
+                "false_positive_rate": 0.045454545454545456,
+                "balanced_accuracy": 0.909371492704826,
+                "positive_physical_support": 81,
+                "negative_physical_support": 44
+              },
+              {
+                "threshold": 0.6994500113876594,
+                "recall": 0.876984126984127,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.9384920634920635,
+                "positive_physical_support": 126,
+                "negative_physical_support": 17
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 2,
+          "C": 1.0,
+          "thresholds": [
+            0.743458467232335,
+            0.7942101466512879,
+            0.4638111914924725,
+            0.5900355756249348
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.9511385596555828,
+            "per_class": [
+              {
+                "threshold": 0.743458467232335,
+                "recall": 0.85,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.925,
+                "positive_physical_support": 60,
+                "negative_physical_support": 61
+              },
+              {
+                "threshold": 0.7942101466512879,
+                "recall": 0.9743589743589743,
+                "false_positive_rate": 0.027777777777777776,
+                "balanced_accuracy": 0.9732905982905984,
+                "positive_physical_support": 78,
+                "negative_physical_support": 36
+              },
+              {
+                "threshold": 0.4638111914924725,
+                "recall": 0.8987341772151899,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.9493670886075949,
+                "positive_physical_support": 79,
+                "negative_physical_support": 46
+              },
+              {
+                "threshold": 0.5900355756249348,
+                "recall": 0.9137931034482759,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.9568965517241379,
+                "positive_physical_support": 116,
+                "negative_physical_support": 23
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 3,
+          "C": 0.1,
+          "thresholds": [
+            0.5891516538278238,
+            0.8499885920210146,
+            0.6060775583763353,
+            0.41609033453023814
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.9221025893120964,
+            "per_class": [
+              {
+                "threshold": 0.5891516538278238,
+                "recall": 0.8392857142857143,
+                "false_positive_rate": 0.045454545454545456,
+                "balanced_accuracy": 0.8969155844155845,
+                "positive_physical_support": 56,
+                "negative_physical_support": 44
+              },
+              {
+                "threshold": 0.8499885920210146,
+                "recall": 0.8873239436619719,
+                "false_positive_rate": 0.030303030303030304,
+                "balanced_accuracy": 0.9285104566794709,
+                "positive_physical_support": 71,
+                "negative_physical_support": 33
+              },
+              {
+                "threshold": 0.6060775583763353,
+                "recall": 0.8873239436619719,
+                "false_positive_rate": 0.02564102564102564,
+                "balanced_accuracy": 0.9308414590104732,
+                "positive_physical_support": 71,
+                "negative_physical_support": 39
+              },
+              {
+                "threshold": 0.41609033453023814,
+                "recall": 0.9142857142857143,
+                "false_positive_rate": 0.05,
+                "balanced_accuracy": 0.932142857142857,
+                "positive_physical_support": 105,
+                "negative_physical_support": 20
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        },
+        {
+          "fold": 4,
+          "C": 0.1,
+          "thresholds": [
+            0.5222842373884655,
+            0.8222043864887844,
+            0.43755118974418133,
+            0.3793055085891802
+          ],
+          "selection": {
+            "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+            "maximum_tuning_point_fpr": 0.05,
+            "macro_balanced_accuracy": 0.9281718696723682,
+            "per_class": [
+              {
+                "threshold": 0.5222842373884655,
+                "recall": 0.8135593220338984,
+                "false_positive_rate": 0.03636363636363636,
+                "balanced_accuracy": 0.888597842835131,
+                "positive_physical_support": 59,
+                "negative_physical_support": 55
+              },
+              {
+                "threshold": 0.8222043864887844,
+                "recall": 0.8823529411764706,
+                "false_positive_rate": 0.029411764705882353,
+                "balanced_accuracy": 0.9264705882352942,
+                "positive_physical_support": 68,
+                "negative_physical_support": 34
+              },
+              {
+                "threshold": 0.43755118974418133,
+                "recall": 0.9,
+                "false_positive_rate": 0.02857142857142857,
+                "balanced_accuracy": 0.9357142857142857,
+                "positive_physical_support": 70,
+                "negative_physical_support": 35
+              },
+              {
+                "threshold": 0.3793055085891802,
+                "recall": 0.9238095238095239,
+                "false_positive_rate": 0.0,
+                "balanced_accuracy": 0.9619047619047619,
+                "positive_physical_support": 105,
+                "negative_physical_support": 20
+              }
+            ],
+            "guarantees_population_fpr": false
+          }
+        }
+      ]
+    }
+  },
+  "development_plan_sha256": "b679a367433deee6351a0988428ae14b6d1cb5b74b35a7ac869cab71cc97ada7",
+  "implementation_sha256": {
+    "scripts/improve_chemcam_v2.py": "85c0ecae303a3a205f79e09075f30afe0d6f24d2848253277300a5e49a02c906",
+    "ml/src/spectralab_ml/models/line_adapter_v2.py": "2b363ff02d32b066bde2f94f6076d81e29450b4bbb566f7dd3b3f637d71a26c4",
+    "ml/src/spectralab_ml/models/instrument_adaptation.py": "852727e1b770446560b7bfffcbc5ae090a4f5a4f5bea06776886563f772e1041",
+    "ml/src/spectralab_ml/evaluation/instrument_selection.py": "b67daa8338bac4a8487d91522e55a551a163fbbb8d69ec5fce0242ea989d8e5c"
+  },
+  "completed_at": "2026-10-13T16:44:17.207768+00:00",
+  "selected_profile": {
+    "selection": {
+      "C": 1.0,
+      "thresholds": [
+        0.577584930398025,
+        0.8743824098745326,
+        0.6390616914801134,
+        0.3201336433964708
+      ],
+      "selection": {
+        "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+        "maximum_tuning_point_fpr": 0.05,
+        "macro_balanced_accuracy": 0.9383663301062855,
+        "per_class": [
+          {
+            "threshold": 0.577584930398025,
+            "recall": 0.88,
+            "false_positive_rate": 0.015625,
+            "balanced_accuracy": 0.9321875,
+            "positive_physical_support": 75,
+            "negative_physical_support": 64
+          },
+          {
+            "threshold": 0.8743824098745326,
+            "recall": 0.9292929292929293,
+            "false_positive_rate": 0.02564102564102564,
+            "balanced_accuracy": 0.9518259518259519,
+            "positive_physical_support": 99,
+            "negative_physical_support": 39
+          },
+          {
+            "threshold": 0.6390616914801134,
+            "recall": 0.9032258064516129,
+            "false_positive_rate": 0.0392156862745098,
+            "balanced_accuracy": 0.9320050600885516,
+            "positive_physical_support": 93,
+            "negative_physical_support": 51
+          },
+          {
+            "threshold": 0.3201336433964708,
+            "recall": 0.9148936170212766,
+            "false_positive_rate": 0.04,
+            "balanced_accuracy": 0.9374468085106382,
+            "positive_physical_support": 141,
+            "negative_physical_support": 25
+          }
+        ],
+        "guarantees_population_fpr": false
+      }
+    },
+    "candidates": [
+      {
+        "C": 0.01,
+        "thresholds": [
+          0.6798092762422395,
+          0.4798999431474427,
+          0.6002546423293507,
+          0.4107519953824913
+        ],
+        "selection": {
+          "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+          "maximum_tuning_point_fpr": 0.05,
+          "macro_balanced_accuracy": 0.9035775336128947,
+          "per_class": [
+            {
+              "threshold": 0.6798092762422395,
+              "recall": 0.66,
+              "false_positive_rate": 0.046875,
+              "balanced_accuracy": 0.8065625000000001,
+              "positive_physical_support": 75,
+              "negative_physical_support": 64
+            },
+            {
+              "threshold": 0.4798999431474427,
+              "recall": 0.9797979797979798,
+              "false_positive_rate": 0.038461538461538464,
+              "balanced_accuracy": 0.9706682206682206,
+              "positive_physical_support": 99,
+              "negative_physical_support": 39
+            },
+            {
+              "threshold": 0.6002546423293507,
+              "recall": 0.8172043010752689,
+              "false_positive_rate": 0.0392156862745098,
+              "balanced_accuracy": 0.8889943074003795,
+              "positive_physical_support": 93,
+              "negative_physical_support": 51
+            },
+            {
+              "threshold": 0.4107519953824913,
+              "recall": 0.9361702127659575,
+              "false_positive_rate": 0.04,
+              "balanced_accuracy": 0.9480851063829787,
+              "positive_physical_support": 141,
+              "negative_physical_support": 25
+            }
+          ],
+          "guarantees_population_fpr": false
+        }
+      },
+      {
+        "C": 0.1,
+        "thresholds": [
+          0.6804214351642934,
+          0.6257038161696142,
+          0.6977977444377813,
+          0.3860272396267536
+        ],
+        "selection": {
+          "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+          "maximum_tuning_point_fpr": 0.05,
+          "macro_balanced_accuracy": 0.9367938155388541,
+          "per_class": [
+            {
+              "threshold": 0.6804214351642934,
+              "recall": 0.84,
+              "false_positive_rate": 0.046875,
+              "balanced_accuracy": 0.8965624999999999,
+              "positive_physical_support": 75,
+              "negative_physical_support": 64
+            },
+            {
+              "threshold": 0.6257038161696142,
+              "recall": 0.9696969696969697,
+              "false_positive_rate": 0.02564102564102564,
+              "balanced_accuracy": 0.9720279720279721,
+              "positive_physical_support": 99,
+              "negative_physical_support": 39
+            },
+            {
+              "threshold": 0.6977977444377813,
+              "recall": 0.8602150537634409,
+              "false_positive_rate": 0.0392156862745098,
+              "balanced_accuracy": 0.9104996837444655,
+              "positive_physical_support": 93,
+              "negative_physical_support": 51
+            },
+            {
+              "threshold": 0.3860272396267536,
+              "recall": 0.9361702127659575,
+              "false_positive_rate": 0.0,
+              "balanced_accuracy": 0.9680851063829787,
+              "positive_physical_support": 141,
+              "negative_physical_support": 25
+            }
+          ],
+          "guarantees_population_fpr": false
+        }
+      },
+      {
+        "C": 1.0,
+        "thresholds": [
+          0.577584930398025,
+          0.8743824098745326,
+          0.6390616914801134,
+          0.3201336433964708
+        ],
+        "selection": {
+          "method": "maximum physical recall under tuning point FPR budget; ties lower FPR then higher threshold",
+          "maximum_tuning_point_fpr": 0.05,
+          "macro_balanced_accuracy": 0.9383663301062855,
+          "per_class": [
+            {
+              "threshold": 0.577584930398025,
+              "recall": 0.88,
+              "false_positive_rate": 0.015625,
+              "balanced_accuracy": 0.9321875,
+              "positive_physical_support": 75,
+              "negative_physical_support": 64
+            },
+            {
+              "threshold": 0.8743824098745326,
+              "recall": 0.9292929292929293,
+              "false_positive_rate": 0.02564102564102564,
+              "balanced_accuracy": 0.9518259518259519,
+              "positive_physical_support": 99,
+              "negative_physical_support": 39
+            },
+            {
+              "threshold": 0.6390616914801134,
+              "recall": 0.9032258064516129,
+              "false_positive_rate": 0.0392156862745098,
+              "balanced_accuracy": 0.9320050600885516,
+              "positive_physical_support": 93,
+              "negative_physical_support": 51
+            },
+            {
+              "threshold": 0.3201336433964708,
+              "recall": 0.9148936170212766,
+              "false_positive_rate": 0.04,
+              "balanced_accuracy": 0.9374468085106382,
+              "positive_physical_support": 141,
+              "negative_physical_support": 25
+            }
+          ],
+          "guarantees_population_fpr": false
+        }
+      }
+    ],
+    "path": "reports/adaptation_v2/development-20261013T164342-b37a6ab8/profile.json",
+    "sha256": "22d3cf0ceb3e7702f166583b11ff001d310e0fbb9aa70b6fd81c174349051fdf"
+  },
+  "qualification": "development_only_no_independent_blank_validation"
+}

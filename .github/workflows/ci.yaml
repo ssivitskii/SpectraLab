@@ -19,3 +19,14 @@ jobs:
       - run: make api-types
       - run: git diff --exit-code -- frontend/src/api/schema.d.ts
       - run: make lint test build demo analytics
+      - run: scripts/npm.sh --prefix frontend exec -- playwright install --with-deps chromium
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/.cache/ms-playwright
+      - run: make e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-diagnostics
+          path: |
+            frontend/test-results/
+            frontend/playwright-report/

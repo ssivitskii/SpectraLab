@@ -1,0 +1,641 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-13T17:27:05.736491+00:00",
+  "status": "search_completed_final_validation_not_completed",
+  "scope": "metadata_and_independent_chemistry_only",
+  "candidate_audits": [
+    {
+      "path": "data/reference/final_search_v3_superlibs.json",
+      "sha256": "f474173d5708ac8a13162893679967725b572cc7f9fefd032ff3db61de33010b",
+      "bytes": 104798
+    },
+    {
+      "path": "data/reference/final_search_v3_csa_aalto.json",
+      "sha256": "4c374b3eee2d1bf03d92e5e337db4e9e9f4098b0657135db6f107bedc597748b",
+      "bytes": 63740
+    },
+    {
+      "path": "data/reference/final_search_v3_blanks.json",
+      "sha256": "5cfccd3b91cd8ad1d3e643320fad546f756e3ef070ff97ba5ea4961c4001ccbf",
+      "bytes": 13536
+    },
+    {
+      "path": "data/reference/final_search_v3_additional.json",
+      "sha256": "c8a59d946c11ddbca5d28fdd7024bfeaec1c269d3376087e8354f86b968815eb",
+      "bytes": 6410
+    }
+  ],
+  "evidence_snapshot_count": 79,
+  "evidence_snapshots": [
+    {
+      "url": "https://users.aalto.fi/~lainei1/pages/atomic_emission_lines/",
+      "request_log": "data/raw/final_search_v3/requests_aalto_current.json",
+      "path": "data/raw/final_search_v3/aalto_atomic_lines_current.html",
+      "sha256": "77001c95a4886af8ad95eb243aeb00f94e61c6bf324ada38a4c417c2c492decd",
+      "bytes": 21680
+    },
+    {
+      "url": "https://users.aalto.fi/~lainei1/pages/calibration/",
+      "request_log": "data/raw/final_search_v3/requests_aalto_current.json",
+      "path": "data/raw/final_search_v3/aalto_calibration_current.html",
+      "sha256": "9de776ea7b0d8aa6bd947a72676051f9ee74114a97cd6c25d491aab9324351cd",
+      "bytes": 5952
+    },
+    {
+      "url": "https://users.aalto.fi/~lainei1/pages/datasets/",
+      "request_log": "data/raw/final_search_v3/requests_papers.json",
+      "path": "data/raw/final_search_v3/aalto_datasets_final.html",
+      "sha256": "002c40fa5659cab2d86a3afc2b38facc2c72147eb822701a1955795edef7a2c8",
+      "bytes": 5912
+    },
+    {
+      "url": "https://users.aalto.fi/~lainei1/pages/elements/",
+      "request_log": "data/raw/final_search_v3/requests_aalto_current.json",
+      "path": "data/raw/final_search_v3/aalto_elements_current.html",
+      "sha256": "0770c8b98b900ee6e1f576aec033796d777c3f8279f8e2d6c26292b891e0e568",
+      "bytes": 36800
+    },
+    {
+      "path": "data/raw/final_search_v3/aerosol_hydrogen2023_article.html",
+      "size_bytes": 170953,
+      "sha256": "c435d04f5481bfc043c1fc6723ec7c1775bade4f1ebf66d99da81ca22f392e96",
+      "contents": "article_or_metadata_only_not_raw_spectral_files"
+    },
+    {
+      "path": "data/raw/final_search_v3/blanks_source_download_log.json",
+      "size_bytes": 1662,
+      "sha256": "ecfb4790828fc9eaa4eb2423d7be448d7ce355bf7bf98765f928aa0ac3cb717f",
+      "contents": "article_or_metadata_only_not_raw_spectral_files"
+    },
+    {
+      "url": "https://www.brammerstandard.com/adobe.html",
+      "request_log": "data/raw/final_search_v3/requests_assay_certificates.json",
+      "path": "data/raw/final_search_v3/brammer_catalogues.html",
+      "sha256": "8919401a33ee6c15d3a23c0ee9705379adfd43641f4f023a46779d9499c4cd52",
+      "bytes": 2681
+    },
+    {
+      "url": "https://www.brammerstandard.com/certificates.html",
+      "request_log": "data/raw/final_search_v3/requests_assay_certificates.json",
+      "path": "data/raw/final_search_v3/brammer_certificates.html",
+      "sha256": "8ab6c0a53e9f66b676855530afb77feb103b6be76fcc6a4d4387d7d1a99aace7",
+      "bytes": 121140
+    },
+    {
+      "url": "https://www.brammerstandard.com/pdf/geological.pdf",
+      "request_log": "data/raw/final_search_v3/requests_brammer.json",
+      "path": "data/raw/final_search_v3/brammer_geological.pdf",
+      "sha256": "6adeda558957ce57e2f36243b17bafc99ff47394530641b69c80f0488e6ffc3a",
+      "bytes": 1685766
+    },
+    {
+      "url": "https://www.brammerstandard.com/",
+      "request_log": "data/raw/final_search_v3/requests_kd2_zip.json",
+      "path": "data/raw/final_search_v3/brammer_home.html",
+      "sha256": "02e5cd881f657711a1e84725a7ee56fca1f37e89c1b0baaed8ca2d85f6279baa",
+      "bytes": 952
+    },
+    {
+      "url": "https://www.brammerstandard.com/introduction.html",
+      "request_log": "data/raw/final_search_v3/requests_assay_certificates.json",
+      "path": "data/raw/final_search_v3/brammer_introduction.html",
+      "sha256": "c6be6e6ac94754c82885756df4172ea195b53035c10264e5521955218108e301",
+      "bytes": 20158
+    },
+    {
+      "url": "https://www.brammerstandard.com/navigation.html",
+      "request_log": "data/raw/final_search_v3/requests_brammer.json",
+      "path": "data/raw/final_search_v3/brammer_navigation.html",
+      "sha256": "6607eadd927d74eef3f41ab207e83b370d3446219f43e5dfa3e4d38de4180c32",
+      "bytes": 2819
+    },
+    {
+      "url": "https://metimex.com.pl/wp-content/uploads/2021/11/Kat.nr-5-wegiel.pdf",
+      "request_log": "data/raw/final_search_v3/requests_kd2_zip.json",
+      "path": "data/raw/final_search_v3/breitlander_graphite_catalogue.pdf",
+      "sha256": "238c43f34684ea92f1240e980881062664bfaef3db69affdf866f9f82625ffca",
+      "bytes": 214708
+    },
+    {
+      "path": "data/raw/final_search_v3/bundle_libs_reference_database.xml",
+      "sha256": "4c87f8cea069a6d7e4804a9b4f11573d705fc128e65449405d28f6ba0fe453ee",
+      "bytes": 15002,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/bundle_libs_reference_database.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/carbonate_sensors2026_article.html",
+      "size_bytes": 263256,
+      "sha256": "724efef6802d480444c9e5fdbc4b0d27a598dec9e4f8470ceb6efa85241ec2c9",
+      "contents": "article_or_metadata_only_not_raw_spectral_files"
+    },
+    {
+      "path": "data/raw/final_search_v3/cellulose2017_article.pdf",
+      "size_bytes": 717872,
+      "sha256": "1507824d11167a7ae60f04afd10c2dc5292acb1a912588fb326909c779cbda6e",
+      "contents": "article_or_metadata_only_not_raw_spectral_files"
+    },
+    {
+      "path": "data/raw/final_search_v3/chemlibs_inventory.csv.partial",
+      "sha256": "1814ac3342e8f5fe1fa1ecaddd3118b8f4693ca12c3e4696197dc4a71a36996d",
+      "bytes": 6484743,
+      "kind": "partial_LID_inventory",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_chemlibs/collection_data_chemlibs_inventory.csv"
+    },
+    {
+      "path": "data/raw/final_search_v3/cousin_hal_document.download",
+      "sha256": "2fca62e4ba5e553c1f37e47249850104b979fdeed2ee3208d922ec7f7eae9d42",
+      "bytes": 20230158,
+      "url": "https://hal.science/hal-03845207/document",
+      "kind": "primary_metadata_or_document_not_numerical_spectra"
+    },
+    {
+      "path": "data/raw/final_search_v3/cousin_hal_metadata.json",
+      "sha256": "0d77b748f92fb24ec591467dcff48baa37939ce72b7a7b2af3b0dee63be8295e",
+      "bytes": 372,
+      "url": "https://api.archives-ouvertes.fr/search/?q=halId_s:hal-03845207&fl=title_s,fileMain_s,uri_s&wt=json",
+      "kind": "primary_metadata_or_document_not_numerical_spectra"
+    },
+    {
+      "path": "data/raw/final_search_v3/csa_archive_file_inventory.json",
+      "sha256": "e79a9b7eac12995e1e53c5784aa8699a5bbe3841f6dfcd53c1535c2fa0fd72d5",
+      "derived_from": [
+        "csa_zip_eocd.bin",
+        "csa_zip_central_directory.bin"
+      ],
+      "note": "Only ZIP central directory names, sizes, CRC and stored timestamps; timestamps are not claimed as acquisition sessions."
+    },
+    {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBSOpenDatatxt.zip",
+      "request_log": "data/raw/final_search_v3/requests_assay_certificates.json",
+      "path": "data/raw/final_search_v3/csa_assay.deflate",
+      "sha256": "9a9c5bdf0e02aa65250cab5fe5712e8bd64c75aec31a6e497b3233b4dfe36abf",
+      "bytes": 16974
+    },
+    {
+      "path": "data/raw/final_search_v3/csa_assay_workbook_rows.json",
+      "sha256": "79e9d48d97056ee23ad14360fae0d405f9a5577b19e4f52dc4b4c70db350b203",
+      "derived_from": [
+        "csa_sample_composition_data.xls"
+      ]
+    },
+    {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/Sample_Composition_Data_LargeSet.csv",
+      "path": "data/raw/final_search_v3/csa_compositions_large.csv",
+      "sha256": "d3db564c30601f1aecafd5b75a17803b8c666bfbe6a36e97dcd6f345a0bd3bd0",
+      "bytes": 8143
+    },
+    {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/Sample_Composition_Data_SubSet.csv",
+      "path": "data/raw/final_search_v3/csa_compositions_subset.csv",
+      "sha256": "ea3b049a4b34cc08bfbc41ce6eb15e66aaf3847cd034e301241b1d8222806db0",
+      "bytes": 406
+    },
+    {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBS%20data%20set%20description%202017-01-19.docx",
+      "path": "data/raw/final_search_v3/csa_description.docx",
+      "sha256": "2e2b5d778b904ce398252f36b5e36c8e91b2ea65d543329d346d3f41ecd820e6",
+      "bytes": 213280
+    },
+    {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/",
+      "path": "data/raw/final_search_v3/csa_directory.html",
+      "sha256": "6f9950cf3043cf5171e8c88aa42155aff94af57c17e6322d6a9dbcb6d0dcfdd2",
+      "bytes": 3311
+    },
+    {
+      "url": "https://openresearchlibrary.org/ext/api/media/030164ec-a306-4bc6-be98-34975a9bee08/assets/external_content.pdf",
+      "request_log": "data/raw/final_search_v3/requests_papers.json",
+      "path": "data/raw/final_search_v3/csa_koujelev2011.pdf",
+      "sha256": "2d49bef215a393a86e0d31ad3e074ef991db3ae51fa13751062f1958a841e037",
+      "bytes": 1103705
+    },
+    {
+      "url": "https://open.canada.ca/data/api/3/action/package_show?id=137bdc17-2f46-4d70-98e7-acc46f602e9f",
+      "path": "data/raw/final_search_v3/csa_package.json",
+      "sha256": "833ecc613b79a4393a404fd218a3e061db9b6d359d337ed41ca167738ac85279",
+      "bytes": 9478
+    },
+    {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBSOpenDatatxt.zip",
+      "path": "data/raw/final_search_v3/csa_sample_composition_data.xls",
+      "sha256": "4268fe74483143b50f876d9c6c86b2934e298696cb6dd110a0a116ad9264d8af",
+      "bytes": 60416,
+      "extraction": {
+        "member": "Sample_Composition_Data.xls",
+        "compressed_http_range": [
+          7889582,
+          7906555
+        ],
+        "method": "raw DEFLATE; archive CRC32 002c33a6 verified; no spectral member downloaded"
+      }
+    },
+    {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBSOpenDatatxt.zip",
+      "request_log": "data/raw/final_search_v3/requests_kd2_zip.json",
+      "path": "data/raw/final_search_v3/csa_zip_central_directory.bin",
+      "sha256": "135c74b4d0296f6655b3646a878f5a4be26138897675dcddc15c133f1000c889",
+      "bytes": 15866
+    },
+    {
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/LIBSOpenDatatxt.zip",
+      "path": "data/raw/final_search_v3/csa_zip_eocd.bin",
+      "sha256": "b5e3a8ae4b96139123a0ab26f75031580fa37457b9fd3629f0f482274dd835ff",
+      "bytes": 22
+    },
+    {
+      "path": "data/raw/final_search_v3/datacite_pds.json",
+      "sha256": "a7d7389f77e2a36a859ab48f7ba5b779ffe9d580e8c1477fc60faaee9f268bfe",
+      "bytes": 7200,
+      "kind": "metadata",
+      "url": "https://api.datacite.org/dois/10.17189/b2aj-cz96"
+    },
+    {
+      "path": "data/raw/final_search_v3/empirical_pure_elements2008_landing.html",
+      "size_bytes": 212707,
+      "sha256": "463df7d07d6d51d1ac01ab1b739bb2286878024f1370d939618db38d40d98149",
+      "contents": "article_or_metadata_only_not_raw_spectral_files"
+    },
+    {
+      "path": "data/raw/final_search_v3/estuarine_filter2026_article.html",
+      "size_bytes": 176979,
+      "sha256": "4d2a99ba665f299e9abe22fe71a7f9f96172ada409e889eeef5d5b4db3ba6da7",
+      "contents": "article_or_metadata_only_not_raw_spectral_files"
+    },
+    {
+      "path": "data/raw/final_search_v3/graphite_10k_mars.xml",
+      "sha256": "79ece85153db088bb2fead89ba36790b600e07253aa89cc06b3f1617ffcc3cdc",
+      "bytes": 19281,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/mars/3mj/mh6_22033104ccs_mars_t32l01_graphite_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/graphite_18k_mars.xml",
+      "sha256": "fc8d2c826966fdb938d03772594e4c469cc05a7ca4c80c19631ab60b4fece5df",
+      "bytes": 20634,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/18k/mars/3mj/mh6_20101311ccs_mars_t32l01_graphite_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/inptdat1012_metadata.html",
+      "sha256": "12804f45d6bc5677f3201dc9927756863e36c637cb24ed5df51ceb893c7aed5b",
+      "bytes": 39566,
+      "url": "https://www.inptdat.de/dataset/determination-elemental-concentrations-underwater-libs-plasmas-using-spectra-simulation",
+      "kind": "primary_metadata_or_document_not_numerical_spectra"
+    },
+    {
+      "path": "data/raw/final_search_v3/inventory_selection.json",
+      "sha256": "89d8ee572beaa99c37ce80df06273435512328419eb4959384de95ecd2592019",
+      "bytes": 4253,
+      "kind": "derived_metadata"
+    },
+    {
+      "path": "data/raw/final_search_v3/lepore_postprocessing_2024.pdf",
+      "sha256": "7bc258b65ba8581ffed974d5f6289a8cdfb53f77d88296596ee3ba1285e17ce5",
+      "bytes": 1411404,
+      "kind": "metadata",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2024/pdf/1084.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v3/lepore_superlibs_2018.pdf",
+      "sha256": "e32af7d4c1d585ca11e8156be0a7fe343994937238a550d5ab64020774a62c2b",
+      "bytes": 308711,
+      "kind": "metadata",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2018/pdf/1179.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21072802ccs_vacuum_t25l01_s10ma010d_spect.xml",
+      "sha256": "65fc063c0b254509f1bb48cfdb41c644f3de0596a189941085aaf77247bf38f3",
+      "bytes": 20658,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21072802ccs_vacuum_t25l01_s10ma010d_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21101803ccs_vacuum_t21l01_t10ct010_spect.xml",
+      "sha256": "76ca36ab24bc8ce648f866d4319af40a882ef9d2bf7679442e4f12a44821f28f",
+      "bytes": 20652,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21101803ccs_vacuum_t21l01_t10ct010_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21101803ccs_vacuum_t23l01_t10ct012_spect.xml",
+      "sha256": "aefc2afb9bb4a0a7c4a6bb5a4791b8f5f2e0fbd8d5f8a646776d41ff1557288b",
+      "bytes": 20652,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21101803ccs_vacuum_t23l01_t10ct012_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21102701ccs_vacuum_t51l01_t12ct134_spect.xml",
+      "sha256": "6ea11ff9fb6fa70860fd02a68f40dff0d7f01644f85fac5142848f2dec8bc73a",
+      "bytes": 20652,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21102701ccs_vacuum_t51l01_t12ct134_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21102701ccs_vacuum_t52l01_t12ct135_spect.xml",
+      "sha256": "3949c8a123e931ce4f7b5c1c1545bf00f3fa30d6525460e740a4775acf3c559b",
+      "bytes": 20652,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21102701ccs_vacuum_t52l01_t12ct135_spect.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/mh6_21120902ccs_vacuum_t64l01_a131705_spect.xml",
+      "sha256": "5c5780264e9156bbb47842cdfe08681993da3a0490df4fc49dec0bb95b75f0d0",
+      "bytes": 20563,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/10k/vacuum/3mj/mh6_21120902ccs_vacuum_t64l01_a131705_spect.xml"
+    },
+    {
+      "url": "https://www.oceanoptics.com/faq/calibration-faqs/",
+      "path": "data/raw/final_search_v3/ocean_calibration_faq.html",
+      "sha256": "dcd20eec66f44cc2c0d6270fd55e07ab2af584c2023ef54f3f0e30c1bc71c488",
+      "bytes": 236599
+    },
+    {
+      "url": "https://www.oceanoptics.com/wp-content/uploads/2026/02/MNL-1015-Wavelength-Calibration-QSG-Rev-A_OceanOptics_Feb2026.pdf",
+      "path": "data/raw/final_search_v3/ocean_calibration_qsg2026.pdf",
+      "sha256": "0c77c463225cfbd390fc6f18caf432807b7a822a876dd32dd524b399c43b27b5",
+      "bytes": 973640
+    },
+    {
+      "url": "https://www.oceanoptics.com/wp-content/uploads/2024/12/HR2000Plus.pdf",
+      "path": "data/raw/final_search_v3/ocean_hr2000plus.pdf",
+      "sha256": "5846e65ab841c1fb18ae6bdbdb206ceb3cea48c96be3931948b70e24d3e38e41",
+      "bytes": 387637
+    },
+    {
+      "url": "https://www.oceanoptics.com/resources/legacy-spectrometers/",
+      "path": "data/raw/final_search_v3/ocean_legacy.html",
+      "sha256": "3aeb8343a879f7b9ba8a91a13544744922e3af2d6ac78b3bbe61295e266258fa",
+      "bytes": 222577
+    },
+    {
+      "path": "data/raw/final_search_v3/pds_composition_cells.json",
+      "sha256": "6791f6d82df206c3126d0cac721c8df20c64a3ac27597a67b0a216e3a31df7c3",
+      "bytes": 2433353,
+      "kind": "derived_metadata"
+    },
+    {
+      "path": "data/raw/final_search_v3/pds_libs_metadata.xlsx",
+      "sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+      "bytes": 584961,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx"
+    },
+    {
+      "path": "data/raw/final_search_v3/pds_low_fe_metadata_selection.json",
+      "sha256": "0dd2c1e88840f6fa6edf11ce67613e98f07cb2fa2cee3dcb2df1101678df0017",
+      "bytes": 1837,
+      "kind": "derived_metadata"
+    },
+    {
+      "path": "data/raw/final_search_v3/pds_user_guide.pdf",
+      "sha256": "db388ced0d24536a5111c30fb4a3aab0edca4a594239f6b52fa24a0a26b2b643",
+      "bytes": 550988,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/user_guide.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_a131705.xml",
+      "sha256": "fdb7b35f28f68d7dc8fc1341b682841b5dc7ae271fe46c2d56671c92c9533922",
+      "bytes": 10656,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_a131705.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_gypb.xml",
+      "sha256": "a01ca9e139ef0d8157fb23d9e75fdb3c2a10fef0ea1effaf74833553f90bef29",
+      "bytes": 10735,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_gypb.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_inventory.csv",
+      "sha256": "a91dd459c086a14ec165fcac72e06a47bdce223fffb036ac36ebaeeff112306d",
+      "bytes": 215409,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/collection_data_plibs_z300_inventory.csv"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_jd01.xml",
+      "sha256": "94757ff7123f4e46ee6d9c5d904ce3fbb7a33b6b3d664ace0e74150d6ac1fe0a",
+      "bytes": 10638,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_jd01.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_k2289.xml",
+      "sha256": "8c96303d2b9f0605a3aab06f7fb569733449e15eeb64760234a0a1cf78641983",
+      "bytes": 10734,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_k2289.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_s10ma010d.xml",
+      "sha256": "18a27fabff1253b2e87bd2db1856eb1bd319cc4a93ca11b03d68d22e6465d14a",
+      "bytes": 10751,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_s10ma010d.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_t10ct010.xml",
+      "sha256": "69135e9e7574613f04f6250d9d94c35ce9e8be451daef3eb95805f02f67fa3fd",
+      "bytes": 10745,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct010.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_t10ct012.xml",
+      "sha256": "f7eaba1966dd0c65f9093d439e85fa5814724edd1ebd3cc8cb2d2959d183c1cb",
+      "bytes": 10745,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t10ct012.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_t12ct134.xml",
+      "sha256": "9ba0e51e1b50ae28dd3f007c9da2a5ad3e53ac0718d169ae1c480149b7399453",
+      "bytes": 10745,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct134.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z300_t12ct135.xml",
+      "sha256": "57fc34f659113f7e58acad8706bcff21a44e10aa57fedb7866c29e5b69c6db8e",
+      "bytes": 10745,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z300/plibs_z300_t12ct135.xml"
+    },
+    {
+      "path": "data/raw/final_search_v3/plibs_z903_inventory.csv",
+      "sha256": "5705d120f83d092c4fdd7df9c908e3bb13cfcf4f3934402738b51371de0e8053",
+      "bytes": 203321,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_plibs_z903/collection_data_plibs_z903_inventory.csv"
+    },
+    {
+      "path": "data/raw/final_search_v3/readme.txt",
+      "sha256": "bb50070da068c25aa7ccde7cdcfc4e74453ec0b863f78d78e0628657f9bf0c60",
+      "bytes": 1717,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/readme.txt"
+    },
+    {
+      "path": "data/raw/final_search_v3/release_notes.txt",
+      "sha256": "7af36047f0657b409b935fed733ae741a2197a40c59f97f753687a5e2180f26e",
+      "bytes": 1904,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/release_notes.txt"
+    },
+    {
+      "path": "data/raw/final_search_v3/steel_powder2022_article.html",
+      "size_bytes": 190419,
+      "sha256": "106fa8c84be7a0ba14894043d4e9cbe63976138edb5c6f9f4ea314d601cbfec8",
+      "contents": "article_or_metadata_only_not_raw_spectral_files"
+    },
+    {
+      "path": "data/raw/final_search_v3/supercam_calibration_accepted.pdf",
+      "sha256": "0ea70ad9fd329b7c0be8d41d15cd25443c565f9d479ed88c9c08e81a8a0d1469",
+      "bytes": 2964833,
+      "url": "https://ntrs.nasa.gov/api/citations/20220000028/downloads/SuperCam_Calibration_Paper_accepted.pdf",
+      "kind": "primary_metadata_or_document_not_numerical_spectra"
+    },
+    {
+      "path": "data/raw/final_search_v3/superlibs_inventory.csv",
+      "sha256": "72a23da90ab2d462d66061dfc28215b86916aacdb5417b1a625248a3bb017d2f",
+      "bytes": 16051768,
+      "kind": "metadata",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/data_superlibs/collection_data_superlibs_inventory.csv"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_bitstream_metadata.json",
+      "sha256": "c0d225f6d11a908d8c27459fe0c43cc414d0857ba98892729d4fdf83541dd2df",
+      "bytes": 1450,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bitstreams/7fe0ae1a-1b7a-40ec-b9ed-073726b45f73"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_bundle.json",
+      "sha256": "6a2f8b06c8c320de528d25ca7cb014f79c877dbc78bbafbcca7d3f05f10ab704",
+      "bytes": 863,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bitstreams/7fe0ae1a-1b7a-40ec-b9ed-073726b45f73/bundle"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_bundles.json",
+      "sha256": "8fd4924d5345f681e519acf408706a643dd188c477d73ced1a67daf26651ad7b",
+      "bytes": 4194,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/items/c84bc529-e373-4bbe-8edf-559a2a800ccc/bundles"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_item.json",
+      "sha256": "9d21f3d13608ca27f1080cbcbd48f108afb3ac1a5403a8703c712dc55fa3539c",
+      "bytes": 6541,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bundles/3ae2fa47-1ef9-492e-a504-b71e9343150a/item"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_official_extracted_text.txt",
+      "sha256": "f6b9275cb174ce98bfb79b2fd9481edd7f0420b9743da6758dffc1d17b384b37",
+      "bytes": 219044,
+      "kind": "paper_text",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bitstreams/31295384-cfd6-41e1-afa2-8b23510225b8/content"
+    },
+    {
+      "path": "data/raw/final_search_v3/thesis_text_bitstreams.json",
+      "sha256": "b6a33cc94310199d2d0350282d004df24dc13a38048ef06b21044acbc95af9e1",
+      "bytes": 2207,
+      "kind": "metadata",
+      "url": "https://ida.mtholyoke.edu/server/api/core/bundles/4566a112-a0aa-4698-8da4-bcc5fd98d80a/bitstreams"
+    },
+    {
+      "path": "data/raw/final_search_v3/zenodo15650002_metadata.json",
+      "size_bytes": 36451,
+      "sha256": "d0595cdcc7916a66f4d00d1315ce8521f7b0bb31b87e1e5167476222ca9ba7de",
+      "contents": "article_or_metadata_only_not_raw_spectral_files"
+    },
+    {
+      "path": "data/raw/final_search_v3/zenodo_10287455_export.json",
+      "sha256": "77a5f6d2552688729a998cf7e36f8d93cab1cfd87c3cd3107118dbb0a7020d58",
+      "bytes": 12573,
+      "kind": "metadata",
+      "url": "https://zenodo.org/records/10287455/export/json"
+    },
+    {
+      "path": "data/raw/final_search_v3/zenodo_10287455_files.json",
+      "sha256": "ee94a660798aae64635be7af9c76970702df2baab4c70005fd637a644399ff49",
+      "bytes": 5013,
+      "kind": "metadata",
+      "url": "https://zenodo.org/api/records/10287455/files"
+    }
+  ],
+  "audit_counts": {
+    "PDS_material_cards": 13,
+    "CSA_other_low_candidate_cards": 18,
+    "CSA_KD2_card": 1,
+    "blank_search_branches": 9,
+    "additional_source_branches": 4
+  },
+  "count_note": "Counts are cards/branches, not admitted samples or a sum of unique independent materials. CSA other-low includes low-Mg and previously known/ambiguous candidates.",
+  "priority_CSA_new_low_Fe_candidates": [
+    "Graphite KD2",
+    "hand sample 3 calcite",
+    "hand sample 4 fluorite",
+    "hand sample 10 galena",
+    "hand sample 72 limestone",
+    "hand sample 82 travertine"
+  ],
+  "priority_PDS_low_Fe_candidates": [
+    "ALI",
+    "T12CT134",
+    "T12CT135",
+    "T10CT010",
+    "T10CT012",
+    "A131705"
+  ],
+  "priority_candidate_independence": "provisional; physical-lot, assay and session ambiguities remain; no final labels assigned",
+  "qualified_final_datasets": 0,
+  "qualified_blank_controls": 0,
+  "new_raw_spectral_intensities_opened": false,
+  "new_model_predictions_generated": false,
+  "fit_performed": false,
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "admission": {
+    "path": "data/reference/final_search_v3_admission.json",
+    "sha256": "3ba1911e3529ee3c97c6bdf52412b65e9aaae336d6654c47ed5fb4c203969055",
+    "bytes": 59193
+  },
+  "frozen_v2_files_verified": [
+    {
+      "path": "scripts/improve_chemcam_v2.py",
+      "sha256": "85c0ecae303a3a205f79e09075f30afe0d6f24d2848253277300a5e49a02c906"
+    },
+    {
+      "path": "ml/src/spectralab_ml/models/line_adapter_v2.py",
+      "sha256": "2b363ff02d32b066bde2f94f6076d81e29450b4bbb566f7dd3b3f637d71a26c4"
+    },
+    {
+      "path": "ml/src/spectralab_ml/models/instrument_adaptation.py",
+      "sha256": "852727e1b770446560b7bfffcbc5ae090a4f5a4f5bea06776886563f772e1041"
+    },
+    {
+      "path": "ml/src/spectralab_ml/evaluation/instrument_selection.py",
+      "sha256": "b67daa8338bac4a8487d91522e55a551a163fbbb8d69ec5fce0242ea989d8e5c"
+    },
+    {
+      "path": "reports/adaptation_v2/development-20261013T164342-b37a6ab8/profile.json",
+      "sha256": "22d3cf0ceb3e7702f166583b11ff001d310e0fbb9aa70b6fd81c174349051fdf"
+    }
+  ],
+  "profile_identity": "1fb1c4802c8e68fbd028806684e0a2095bf4ae4aa30b707a08fdbb2072adfd71",
+  "historical_metrics_remain_development_only": true,
+  "authors_contacted": false,
+  "pending_information_requests": "docs/final_validation_search_v3.md (drafts only, not sent)",
+  "limitations": [
+    "Bounded search, not proof that suitable public data do not exist.",
+    "Source checksums authenticate retrieved bytes, not their scientific correctness.",
+    "ZIP directory and assay extraction do not inspect numerical spectral intensities.",
+    "Metadata gate is not a complete instrument-compatibility/evaluation-readiness gate."
+  ]
+}
