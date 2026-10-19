@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-19T17:39:34.717546+00:00",
+  "scope": "local_ml_implementation_checks_and_disclosed_development_study",
+  "checks": [
+    {
+      "command": "make lint test build demo",
+      "exit_code": 0,
+      "python_tests": 508,
+      "ui_tests": 33,
+      "ruff_files": 126,
+      "python_seconds": 39.7,
+      "dependency_warnings": 15,
+      "build_seconds": 2.9,
+      "log": ".cache/ml-v4-final-checks.log"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "exit_code": 0,
+      "python_tests": 509,
+      "all_collected_tests_passed": true,
+      "log": ".cache/ml-v4-final-python.log",
+      "collection_log": ".cache/ml-v4-collected-tests.log"
+    },
+    {
+      "command": ".venv/bin/ruff check ml backend scripts; .venv/bin/ruff format --check ml backend scripts",
+      "exit_code": 0,
+      "ruff_files": 127
+    },
+    {
+      "command": "make series CONFIG=ml/configs/experiments/benchmark_series.yaml",
+      "exit_code": 0,
+      "status": "completed",
+      "successful_seeds": [
+        7,
+        17,
+        29,
+        43,
+        71
+      ],
+      "demo_fixture": true,
+      "model_ids": [
+        "baseline-nnls",
+        "logistic-ovr",
+        "random-forest"
+      ],
+      "result_path": "reports/experiments/benchmark-series-20261019T172743-af3ef671/result.json",
+      "result_sha256": "2c9275726f287799078fc084e028a2e20f9358563e18f3f81bdbbe3327028738"
+    },
+    {
+      "command": "spectralab ml-check --verify-sources --output docs/ml_environment_v4_summary.json",
+      "exit_code": 0,
+      "status": "ready",
+      "counts": {
+        "passed": 98,
+        "failed": 0,
+        "not_downloaded": 0,
+        "optional_dependency_missing": 0
+      },
+      "numerical_spectra_opened": false
+    },
+    {
+      "command": "spectralab normalize-assays --input data/reference/assay_normalization_examples.json --output docs/assay_normalization_v4_summary.json",
+      "exit_code": 0,
+      "status": "normalized",
+      "qualified_blank_count": 0
+    },
+    {
+      "command": "spectralab instrument-predict --profile <primary-profile> --input <development-Macusanite-CCS> --metadata .cache/macusanite-v3-metadata.json --input-format chemcam-ccs",
+      "exit_code": 0,
+      "result_path": "reports/adaptation_v3/development-20261019T172235-da8f0847/prediction-smoke-macusanite-v4.json",
+      "result_sha256": "87097f31600491ae70b3f893c59b7b4027c9043f2b76369dcd7acce823a0487d",
+      "scope": "research_application_not_final_validation",
+      "profile_identity": "320aaa6b29449751dd0f07b9f8bbf90d4b553acd912d50061cedd29064c7a66d",
+      "input_sha256": "2edb3ad597980dd5751c5ad99ef9ec8ec36ce9644bb69f59507d463656694959",
+      "aggregation": {
+        "shot_count": 50,
+        "discarded_shots": 5,
+        "retained_shots": 45,
+        "aggregation": "arithmetic_mean_of_retained_shots"
+      },
+      "unsupported_elements_unknown": [
+        "H",
+        "He"
+      ]
+    },
+    {
+      "command": "spectralab final-preflight --manifest data/reference/final_campaign_v4_manifest.json --registry data/reference/final_search_v3_admission.json --output docs/final_campaign_v4_preflight.json",
+      "exit_code": 2,
+      "expected_blocked": true,
+      "status": "blocked",
+      "blocker_count": 27,
+      "numerical_files_read": 0,
+      "final_metrics": null
+    },
+    {
+      "test": "ml/tests/test_final_workflow_integration.py",
+      "included_in_final_full_suite": true,
+      "fictional_data_only": true,
+      "checks": [
+        "actual_profile_and_implementation_binding",
+        "exclusive_freeze",
+        "input_and_receipt_output_protection",
+        "successful_binary_score_evaluation",
+        "durable_consumption",
+        "repeated_independent_attempt_blocked",
+        "explicit_locked_replay",
+        "unchanged_input_model_code_freeze_and_receipt_bytes"
+      ],
+      "constant_fixture_fpr": 1.0,
+      "scientific_validation": false
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "Darwin",
+    "dependencies": {
+      "spectralab-ml": "0.1.0",
+      "numpy": "2.3.3",
+      "scipy": "1.16.2",
+      "scikit-learn": "1.7.2",
+      "pandas": "2.3.3",
+      "torch": "2.9.0"
+    },
+    "optional_cnn_available": true
+  },
+  "development": {
+    "primary_run": "development-20261019T172235-da8f0847",
+    "measurements": 202,
+    "physical_materials": 199,
+    "connected_groups": 46,
+    "outer_folds": 5,
+    "model_variants": 3,
+    "split_seeds": [
+      20261019,
+      20261020,
+      20261021,
+      20261022,
+      20261023
+    ],
+    "additional_seeds_post_primary": true,
+    "deployment_seed": 20261019,
+    "profile_identity": "320aaa6b29449751dd0f07b9f8bbf90d4b553acd912d50061cedd29064c7a66d",
+    "calibrated_brier_primary_baseline": 0.07407,
+    "calibrated_brier_primary_candidate": 0.05282,
+    "calibration_alone_improvement_confirmed": false,
+    "ca_oof_fpr": 0.0784313725490196,
+    "final_validation": false,
+    "summary": "docs/development_v3_summary.json"
+  },
+  "pinned_unchanged_sha256": {
+    "scripts/improve_chemcam_v2.py": "85c0ecae303a3a205f79e09075f30afe0d6f24d2848253277300a5e49a02c906",
+    "ml/src/spectralab_ml/models/line_adapter_v2.py": "2b363ff02d32b066bde2f94f6076d81e29450b4bbb566f7dd3b3f637d71a26c4",
+    "ml/src/spectralab_ml/models/instrument_adaptation.py": "852727e1b770446560b7bfffcbc5ae090a4f5a4f5bea06776886563f772e1041",
+    "ml/src/spectralab_ml/evaluation/instrument_selection.py": "b67daa8338bac4a8487d91522e55a551a163fbbb8d69ec5fce0242ea989d8e5c",
+    "ml/src/spectralab_ml/models/line_adapter_v3.py": "497c601766526fa478858a2346877a6799d8f4db24b33a8d2c47d445c9a3a62c",
+    "ml/src/spectralab_ml/evaluation/development_v3.py": "117e3e05c4ce0386b3edc3d36063014604f9d13ac2274f8448fb05188ce3d1c2",
+    "scripts/study_development_v3.py": "b98f048f44922b7b3547cd18ff75d45e29a111026c98651a06fa0a3877011400",
+    "data/reference/development_v4_source_plan.json": "b679a367433deee6351a0988428ae14b6d1cb5b74b35a7ac869cab71cc97ada7",
+    "reports/adaptation_v3/development-20261019T172235-da8f0847/profile.json": "8ffb76657c9618ff5c393b8be99690b2ceb41528d65529ebab31437caaf37c80",
+    "reports/adaptation_v2/development-20261013T164342-b37a6ab8/profile.json": "22d3cf0ceb3e7702f166583b11ff001d310e0fbb9aa70b6fd81c174349051fdf"
+  },
+  "implementation_sha256": {
+    "ml/src/spectralab_ml/cli.py": "7e36b13d1fdc58f60df36ab19ea69f4f778ba68745fdcf60e481a830f0aba7b9",
+    "ml/src/spectralab_ml/workflow_cli.py": "1eda6a4f44057a5e87bc328220d368a431d22324d400fb3abf7a1fa0b7d1c77f",
+    "ml/src/spectralab_ml/diagnostics.py": "ffc827ed2d4dd7adfc1637e60c8e4efc706c4136c0232134f9520c47cebb9740",
+    "ml/src/spectralab_ml/data/assays.py": "425fec9c97b4253c1f4078112342e66d53af71eccd391892a9312729b3e0c7fc",
+    "ml/src/spectralab_ml/data/measured_spectra.py": "7f81222d772a39da5c2334caaa1314bbdcd812d3130a9f2d9dc193cf41a1a284",
+    "ml/src/spectralab_ml/inference/measured.py": "5da9bc5e19cc315696f3594287b558305d687bea037e3e13858b16afb738d0f4",
+    "ml/src/spectralab_ml/datasets.py": "f74d3a7a45ceb5defbb8a2eeadc1f31ee50fe2d22e0e1752a8f7d63e358ae843",
+    "ml/src/spectralab_ml/training.py": "17c78189e0d730404bf3ec4bfad45adbf967fa46c67e345d1a631b273ddaaaa4",
+    "ml/src/spectralab_ml/preprocessing/pipeline.py": "acbee9a0de503fb254e79df8238e98fcc13525b7b2724904f6f57c3f74a16c60",
+    "ml/src/spectralab_ml/models/estimators.py": "3b083a256e6902a16c018a6264067fa4dd41046a984cfacf90be9f9b5125ca6b",
+    "ml/src/spectralab_ml/models/calibration.py": "9e875567835998986aa7d7946b624b96350fb6b94216f09801039e494e94f315",
+    "ml/src/spectralab_ml/models/cnn.py": "8b4a819370af752d1ceb1eca784cda3be25f0b86b6d73c9a5328cee3cbf6ff9b",
+    "ml/src/spectralab_ml/models/validation.py": "63cc1fccd314d8a063c9e1c8396d8f3363120981419d5551670e9d5ad7074a3f",
+    "ml/src/spectralab_ml/models/line_adapter_v3.py": "497c601766526fa478858a2346877a6799d8f4db24b33a8d2c47d445c9a3a62c",
+    "ml/src/spectralab_ml/evaluation/final_campaign_v3.py": "787298554042386e447cd187b9abb672bddde19623517f466c15a7631850ff30",
+    "ml/src/spectralab_ml/evaluation/_final_campaign_io.py": "a61692fb3bc7c3d98d48aa7059ab98b76d2c0c3e485c2700a2dc9da4675a1263",
+    "ml/src/spectralab_ml/evaluation/development_v3.py": "117e3e05c4ce0386b3edc3d36063014604f9d13ac2274f8448fb05188ce3d1c2",
+    "scripts/study_development_v3.py": "b98f048f44922b7b3547cd18ff75d45e29a111026c98651a06fa0a3877011400",
+    "scripts/report_development_v3.py": "cf9ab2dd6e0f5894a722f262350aa71fae247149dbcfa5f1fd224a9b5fe090f1"
+  },
+  "compact_artifact_sha256": {
+    "docs/development_v3_summary.json": "22d57787d52eecb5d6a2021d3130b51c7d1f62797e8d2fc511fbd4c49be693d5",
+    "docs/ml_environment_v4_summary.json": "954d81fdb58678f57346c091eb50d6c6f1cae5cc83a85c6fd1051ba65b47d901",
+    "docs/assay_normalization_v4_summary.json": "23d2073cc3ddeb2172ff043251facbc0a9b92c7379850c2a6054b4f755d0e278",
+    "docs/final_campaign_v4_preflight.json": "eaec8c630ae18326999709c96f58f39d77429dcce49c5f703f6ae4414925edd1",
+    "data/reference/final_campaign_v4_manifest.json": "65bc371b7ff1d373b10082f26a29dc9a4bdd24d326928febd04a60f7c134face"
+  },
+  "independent_final": {
+    "performed": false,
+    "final_metrics": null,
+    "new_intensities_opened": false,
+    "selective_policy_evaluated": false,
+    "admitted_real_datasets": 0,
+    "qualified_real_blanks": 0
+  },
+  "limits": [
+    "Development results reuse previously disclosed materials, including the former v1 test.",
+    "Conditional bootstrap of fixed OOF predictions does not refit models or provide independent final qualification.",
+    "Instrument-response and causal matrix corrections require independent measurements.",
+    "The current final manifest is deliberately incomplete; evidence and alias attestations need review.",
+    "Reports/raw data/trained models remain ignored local artifacts.",
+    "Browser E2E, remote CI, Docker and GitHub publication were not performed in this iteration.",
+    "No new source search or author contact was performed; the prior source-search findings retain their dates."
+  ]
+}

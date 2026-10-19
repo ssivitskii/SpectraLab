@@ -1,0 +1,515 @@
+{
+  "schema_version": 1,
+  "audit_id": "final-validation-v6-feasibility",
+  "reviewed_at": "2026-10-19T19:27:53.720273+00:00",
+  "scope": "metadata and existing frozen model only; no new final numerical arrays or predictions",
+  "new_final_numerical_files_downloaded": false,
+  "new_final_numerical_files_opened": false,
+  "new_final_predictions_generated": false,
+  "qualified_new_final_controls": 0,
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "current_profile": {
+    "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json",
+    "sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5",
+    "bytes": 260251,
+    "identity": "5be343aacc7d356911e3490ee9b2c22d38f5f62ea2ba7f3e2ccc39c30eabf933",
+    "artifact_type": "calcium_ensemble_v4",
+    "instrument_id": "chemcam-lanl-testbed",
+    "axis": {
+      "units": "nm",
+      "medium": "vacuum"
+    },
+    "grid": {
+      "start": 240.0,
+      "end": 900.0,
+      "points": 6601
+    },
+    "required_bands_nm": [
+      [
+        241.0,
+        340.0
+      ],
+      [
+        383.0,
+        468.0
+      ],
+      [
+        474.0,
+        900.0
+      ]
+    ],
+    "actual_thresholds": {
+      "Na": 0.10825272614392062,
+      "Mg": 0.9945672395383269,
+      "Ca": 0.6795050836572871,
+      "Fe": 0.7185455426436053
+    },
+    "decision_policy": {
+      "Na": {
+        "oxide": "Na2O",
+        "units": "oxide_wt_percent",
+        "negative_max": 0.1,
+        "positive_min": 1.0,
+        "nominal_decision_level": 0.5,
+        "zero_policy": "unknown"
+      },
+      "Mg": {
+        "oxide": "MgO",
+        "units": "oxide_wt_percent",
+        "negative_max": 0.1,
+        "positive_min": 1.0,
+        "nominal_decision_level": 0.5,
+        "zero_policy": "unknown"
+      },
+      "Ca": {
+        "oxide": "CaO",
+        "units": "oxide_wt_percent",
+        "negative_max": 0.1,
+        "positive_min": 1.0,
+        "nominal_decision_level": 0.5,
+        "zero_policy": "unknown"
+      },
+      "Fe": {
+        "oxide": "FeOT",
+        "units": "oxide_wt_percent",
+        "negative_max": 0.1,
+        "positive_min": 1.0,
+        "nominal_decision_level": 0.5,
+        "zero_policy": "unknown"
+      }
+    },
+    "calcium_only_replacement": true,
+    "Fe_Mg_model_unchanged_from_embedded_v3": true,
+    "maximum_native_gap_nm": 0.5,
+    "measured_response_correction": "none: no measured instrument response supplied",
+    "fixed_resolution_fwhm_limit_in_artifact": null,
+    "Fe_Mg_line_ranges_nm": {
+      "Fe": [
+        249.401546,
+        649.67746
+      ],
+      "Mg": [
+        245.0332,
+        883.7508
+      ]
+    },
+    "final_binder_estimand": "binary scores against frozen thresholds without selective refusal",
+    "pending_v6_max_resolution_fwhm_nm": 0.65
+  },
+  "final_campaign_state": {
+    "manifest": {
+      "path": "data/raw/final_search_v6_feasibility/observed_final_campaign_v6_manifest.json",
+      "observed_repository_path": "data/reference/final_campaign_v6_manifest.json",
+      "sha256": "202a8fdc977ec0737711a21635f07cf7a7a5e68185bc9eb5ac2a37b9fc6c3337",
+      "bytes": 2785
+    },
+    "profile_binding": {
+      "path": "data/raw/final_search_v6_feasibility/observed_final_profile_v6_binding.json",
+      "observed_repository_path": "docs/final_profile_v6_binding.json",
+      "sha256": "a4e443ba8dcc7ddc9030bcec7de2e4be4e407808b2efafb73a215281f8a82ea7",
+      "bytes": 2364
+    },
+    "selection_frozen_before_predictions": false,
+    "sample_count": 0,
+    "support_policy": {},
+    "actual_profile_bound": true,
+    "implementation_files_count": 9,
+    "preflight": {
+      "path": "data/raw/final_search_v6_feasibility/observed_final_campaign_v6_preflight.json",
+      "observed_repository_path": "docs/final_campaign_v6_preflight.json",
+      "sha256": "95fbee0efce52dc32cf9f8306278fabb9475a21e4ddb50d094625f1aea5f77ba",
+      "bytes": 5855
+    },
+    "preflight_blocker_count": 15,
+    "no_completed_actual_final_freeze_found": true,
+    "observed_preflight_registry_sha256": "425a8a8d76401fa16e275ff3d997c27ab7414c4f6af52cc14f778cb68d272e17",
+    "new_registry_sha256": "b98754917035dead10f2e5f2302139eae21eefff7dbaf9b40b799d3f6c1b3ef8",
+    "preflight_snapshot_note": "Observed metadata-only preflight snapshot preserved; root may later rebind new registry in its current report. No final freeze or evaluation occurred."
+  },
+  "support_contract": {
+    "elements": [
+      "Fe",
+      "Mg"
+    ],
+    "groups_per_element": [
+      "positive",
+      "negative",
+      "blank"
+    ],
+    "min_support_dimensions": [
+      "physical",
+      "family",
+      "session",
+      "independent_clusters"
+    ],
+    "minimum_value_per_dimension": 1,
+    "minimum_clusters_for_any_interval": 2,
+    "ci_estimand": "cluster_any_error",
+    "physical_point_metrics_not_binomial_ci": true,
+    "transitive_group_keys": [
+      "physical_sample_id",
+      "family_id",
+      "session_id",
+      "input_sha256"
+    ],
+    "specific_final_minimum_not_yet_declared": true,
+    "illustrative_95pct_worst_case_half_width_minimum_clusters": {
+      "0.3": 7,
+      "0.2": 21,
+      "0.1": 93,
+      "0.05": 381
+    },
+    "illustrative_zero_errors_95pct_twosided_Wilson_upper_le_05_minimum_clusters": 73,
+    "illustrations_are_not_frozen_requirements": true
+  },
+  "seen_registry_review": {
+    "old_registry": {
+      "path": "data/reference/final_search_v3_admission.json",
+      "sha256": "3ba1911e3529ee3c97c6bdf52412b65e9aaae336d6654c47ed5fb4c203969055",
+      "bytes": 59193
+    },
+    "new_registry": {
+      "path": "data/reference/final_seen_registry_v6.json",
+      "sha256": "b98754917035dead10f2e5f2302139eae21eefff7dbaf9b40b799d3f6c1b3ef8",
+      "bytes": 642491
+    },
+    "old_counts": {
+      "measurement_ids": 203,
+      "physical_sample_ids": 247,
+      "family_ids": 207,
+      "session_ids": 54,
+      "input_sha256s": 206,
+      "assay_ids": 203
+    },
+    "new_counts": {
+      "measurement_ids": 204,
+      "physical_sample_ids": 248,
+      "family_ids": 249,
+      "session_ids": 54,
+      "input_sha256s": 210,
+      "assay_ids": 244
+    },
+    "alias_edges": 1601,
+    "development_records": 202,
+    "development_coverage": {
+      "measurement_ids": {
+        "distinct_development_ids": 202,
+        "missing_old": [],
+        "missing_v6": []
+      },
+      "physical_sample_ids": {
+        "distinct_development_ids": 199,
+        "missing_old": [],
+        "missing_v6": []
+      },
+      "family_ids": {
+        "distinct_development_ids": 191,
+        "missing_old": [],
+        "missing_v6": []
+      },
+      "session_ids": {
+        "distinct_development_ids": 53,
+        "missing_old": [],
+        "missing_v6": []
+      },
+      "input_sha256s": {
+        "distinct_development_ids": 202,
+        "missing_old": [],
+        "missing_v6": []
+      }
+    },
+    "old_preflight_physical_count": 64,
+    "old_preflight_spectral_replicates": 255,
+    "old_preflight_physical_missing_after_normalization": [],
+    "old_preflight_assay_ids_added": [
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:102",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:224",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:225",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:226",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:227",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:247",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:260",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:266",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:291",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:292",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:295",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:297",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:3",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:36",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:363",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:368",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:369",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:37",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:370",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:39",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:4",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:402",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:446",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:447",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:47",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:49",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:5",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:527",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:543",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:57",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:59",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:6",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:60",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:61",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:63",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:64",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:80",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:82",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:84",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:85",
+      "ccam_composition_csv:f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07:row:99"
+    ],
+    "old_preflight_assay_count": 64,
+    "review_status": "incomplete",
+    "unresolved_identity_notes": [
+      "Aalto Cu stock, lot, physical replicate and acquisition session IDs remain unresolved. Exclude this source-Cu family, not all copper from other sources.",
+      "Fe-Co HDF5 historical evidence proves metadata inspection only; resolve intensity-viewing history and actual material/session IDs before considering other versions of these files.",
+      "Historical preflight compiled matrix lacks per-replicate final-registry measurement IDs; all64 physical names, session and compiled input hash are blocked. Repacked subsets require material/session provenance.",
+      "SGR1 and M6-HAGGERTY were excluded for chemistry mismatch in old preflight; compiled file was read but spectrum-level viewing status is not fully attested. Do not admit them merely because their names are absent.",
+      "Aliases added here are supported within named source documents. Metadata-only candidate searches do not automatically make every assayed material model-seen.",
+      "Current software does not enforce review_status or these notes. A successful structural preflight cannot replace the pending human source-independence audit."
+    ],
+    "ambiguous_aliases_not_merged": [
+      "CA9LVNP1",
+      "DIHUQ1",
+      "HWHL101",
+      "HWMK104",
+      "MCCSG1",
+      "PSNJ1"
+    ],
+    "prior_artifact_statuses": [
+      {
+        "path": "data/raw/adaptation_candidates_backend/aalto_Cu_spectrum.csv",
+        "bytes": 273357,
+        "sha256": "6d1007726b733b589563cb95bbede4c4dce1ef72d02c0d21e58899d75c646e42",
+        "source": {
+          "path": "data/raw/adaptation_candidates_backend/candidate_audit.json",
+          "sha256": "49ab26317aa111c17917f133095e07597dbc6235ed57abe0fb669f42dc9a0793",
+          "bytes": 5758
+        },
+        "status": "documented_previous_spectrum_inspection"
+      },
+      {
+        "path": "data/raw/adaptation_candidates_backend/aalto_Cu_plot.html",
+        "bytes": 282540,
+        "sha256": "410c458b0456bd4c1a3c8f37e354115cfcb43c16a5072cd48bf727a9cd6f7d3a",
+        "source": {
+          "path": "data/raw/adaptation_candidates_backend/candidate_audit.json",
+          "sha256": "49ab26317aa111c17917f133095e07597dbc6235ed57abe0fb669f42dc9a0793",
+          "bytes": 5758
+        },
+        "status": "documented_previous_spectrum_inspection"
+      },
+      {
+        "path": "data/raw/adaptation_candidates_backend/labtrace_avantes_7mJ.h5",
+        "bytes": 9066888,
+        "sha256": "1d0b3ac2ad13edd022fc00e0155bc0dbc9853e039b7e400e9f14787be70be3b7",
+        "source": {
+          "path": "data/raw/adaptation_candidates_backend/candidate_audit.json",
+          "sha256": "49ab26317aa111c17917f133095e07597dbc6235ed57abe0fb669f42dc9a0793",
+          "bytes": 5758
+        },
+        "status": "quarantined_previous_download_metadata_inspection",
+        "reason": "Published historical audit confirms download and metadata/axis inspection, not intensity viewing or fitting. Block exact bytes pending review; do not call the eleven materials model-seen.",
+        "source_qualified_material_ids_to_review": [
+          "figshare:21984989:sample-00",
+          "figshare:21984989:sample-01",
+          "figshare:21984989:sample-02",
+          "figshare:21984989:sample-03",
+          "figshare:21984989:sample-04",
+          "figshare:21984989:sample-05",
+          "figshare:21984989:sample-06",
+          "figshare:21984989:sample-07",
+          "figshare:21984989:sample-08",
+          "figshare:21984989:sample-09",
+          "figshare:21984989:sample-10"
+        ]
+      },
+      {
+        "path": "data/raw/adaptation_candidates_backend/firefly_avantes_multi_20mJ.h5",
+        "bytes": 29201640,
+        "sha256": "bd825f183ced17ae23332d0254c42a2ea4c20c2b0297a8488e8c2787bb0a19d6",
+        "source": {
+          "path": "data/raw/adaptation_candidates_backend/candidate_audit.json",
+          "sha256": "49ab26317aa111c17917f133095e07597dbc6235ed57abe0fb669f42dc9a0793",
+          "bytes": 5758
+        },
+        "status": "quarantined_previous_download_metadata_inspection",
+        "reason": "Published historical audit confirms download and metadata/axis inspection, not intensity viewing or fitting. Block exact bytes pending review; do not call the eleven materials model-seen.",
+        "source_qualified_material_ids_to_review": [
+          "figshare:21984989:sample-00",
+          "figshare:21984989:sample-01",
+          "figshare:21984989:sample-02",
+          "figshare:21984989:sample-03",
+          "figshare:21984989:sample-04",
+          "figshare:21984989:sample-05",
+          "figshare:21984989:sample-06",
+          "figshare:21984989:sample-07",
+          "figshare:21984989:sample-08",
+          "figshare:21984989:sample-09",
+          "figshare:21984989:sample-10"
+        ]
+      }
+    ]
+  },
+  "scientific_vs_contract_distinctions": [
+    {
+      "topic": "certificate",
+      "finding": "The schema requires certified=true independent bounds plus method, source and physical traceability, not a named accreditation or formal CoA file. A defensible independently assayed physical blank can support an operational negative; it must meet the declared evidence semantics. Do not relabel a point estimate, nominal zero, or purity marketing claim as certified upper bound."
+    },
+    {
+      "topic": "instrument",
+      "finding": "Current software binds ChemCam LANL exactly. Cross-instrument evaluation of unchanged weights is scientifically possible as explicitly OOD validation, but needs a separately reviewed versioned protocol/adapter contract before opening scores. It cannot pass the current contract by renaming the instrument; retraining is not inherently necessary for OOD testing and would change the frozen model."
+    },
+    {
+      "topic": "support",
+      "finding": "No fixed 30/59/73-material requirement has been frozen. Declare estimand and precision first. Shot repeats and same family/session do not create independent clusters."
+    },
+    {
+      "topic": "blank",
+      "finding": "Fe and Mg may use different documented method/matrix blank families. A low positive assay point can support an ordinary operational negative but cannot alone establish blank upper-bound evidence. Dark/no-laser files are not method/matrix blanks."
+    }
+  ],
+  "aalto_metadata_recheck": {
+    "sources": [
+      {
+        "path": "data/raw/final_search_v6_feasibility/aalto_datasets.html",
+        "sha256": "002c40fa5659cab2d86a3afc2b38facc2c72147eb822701a1955795edef7a2c8",
+        "bytes": 5912,
+        "url": "https://users.aalto.fi/~lainei1/pages/datasets/",
+        "findings": {
+          "pure_elements_license": "CC0",
+          "raw_pure_elements_dataset_link": "TODO",
+          "new_lot_evidence_found": false
+        }
+      },
+      {
+        "path": "data/raw/final_search_v6_feasibility/aalto_hardware.html",
+        "sha256": "e05b57875d27ef7ed06c4537ff694f32f46484043130dda20d48c34368659fbe",
+        "bytes": 6882,
+        "url": "https://users.aalto.fi/~lainei1/pages/LASOLIBS/",
+        "findings": {
+          "nominal_channels_nm": [
+            [
+              200,
+              400
+            ],
+            [
+              350,
+              950
+            ]
+          ],
+          "spectrometer": "AvaSpec-ULS-4096CL-EVO",
+          "configuration_year": 2023,
+          "not_actual_export_coverage": true
+        }
+      },
+      {
+        "path": "data/raw/final_search_v6_feasibility/aalto_calibration.html",
+        "sha256": "9de776ea7b0d8aa6bd947a72676051f9ee74114a97cd6c25d491aab9324351cd",
+        "bytes": 5952,
+        "url": "https://users.aalto.fi/~lainei1/pages/calibration/",
+        "findings": {
+          "calibration": "quadratic matching of theoretical element and ambient O/N lines",
+          "axis_medium_explicit": false,
+          "atmosphere_not_axis_convention": true
+        }
+      }
+    ],
+    "status": "no newly qualified control",
+    "new_lot_or_independent_Fe_Mg_upper_bound_found_in_reviewed_metadata": false,
+    "export_air_vacuum_still_unconfirmed": true,
+    "original_instrument_different_from_frozen_profile": true,
+    "prior_Cu_export_blocked_in_new_registry": true,
+    "no_individual_new_element_plot_or_spectrum_downloaded": true,
+    "scope_limit": "This is a recheck of the three cited official metadata pages, not proof that no other evidence exists."
+  },
+  "source_metadata": {
+    "historical": {
+      "path": "data/reference/final_search_v3_admission.json",
+      "sha256": "3ba1911e3529ee3c97c6bdf52412b65e9aaae336d6654c47ed5fb4c203969055",
+      "bytes": 59193
+    },
+    "development": {
+      "path": "data/reference/development_v4_source_plan.json",
+      "sha256": "b679a367433deee6351a0988428ae14b6d1cb5b74b35a7ac869cab71cc97ada7",
+      "bytes": 872883
+    },
+    "alias_audit": {
+      "path": "data/reference/chemcam_adaptation_alias_audit.json",
+      "sha256": "a2ef14fce3c991a1719fed3d9a6dcb3618160521492da02085a108d8673a7c9e",
+      "bytes": 558327
+    },
+    "preflight": {
+      "path": "data/reference/chemcam_external_protocol.json",
+      "sha256": "c4b417be023a7aeb7e8e0adb67b1d578e2b5ef5b6966b33a1e415294dd61f06b",
+      "bytes": 4424
+    },
+    "chemistry": {
+      "path": "data/raw/chemcam_external/ccam_calibration_compositions.csv",
+      "sha256": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07",
+      "bytes": 49247
+    },
+    "external_source": {
+      "path": "data/reference/chemcam_external_source.json",
+      "sha256": "0fa77df86039a7ca1e3144b474a0fc26f6f2e3209127e0cc10a77cc91d2457cb",
+      "bytes": 3510
+    },
+    "previous_candidate_audit": {
+      "path": "data/raw/adaptation_candidates_backend/candidate_audit.json",
+      "sha256": "49ab26317aa111c17917f133095e07597dbc6235ed57abe0fb669f42dc9a0793",
+      "bytes": 5758
+    },
+    "compiler": {
+      "path": "scripts/prepare_final_seen_registry_v6.py",
+      "sha256": "ea6d8972f99c3af99f8a883f9155f19c4adad90c86c130c6182aef607ba45792",
+      "bytes": 11669
+    },
+    "final_campaign_code": {
+      "path": "ml/src/spectralab_ml/evaluation/final_campaign_v3.py",
+      "sha256": "787298554042386e447cd187b9abb672bddde19623517f466c15a7631850ff30",
+      "bytes": 49224
+    },
+    "final_binder_code": {
+      "path": "ml/src/spectralab_ml/inference/measured.py",
+      "sha256": "c4bd3f5de761bda6d9c3f94836362b6e0e7752cc78112d52c5429a09832610cc",
+      "bytes": 9746
+    }
+  },
+  "next_stage": [
+    "Review the new registry and resolve source-qualified material/lot/session ambiguities before using a candidate.",
+    "Obtain independent Fe and Mg upper-bound evidence linked to actual physical method/matrix controls; no formal certificate-only filter.",
+    "Choose same-instrument final contract or an explicit separate OOD protocol without modifying frozen weights or thresholds.",
+    "Predeclare support and precision using metadata, then pin complete source, axis, coverage, resolution, numerical hashes and runtime contract.",
+    "Only after successful evidence review and freeze, evaluate once with persistent receipts and retain all outcomes."
+  ],
+  "historical_v4_campaign_state": {
+    "manifest": {
+      "path": "data/reference/final_campaign_v4_manifest.json",
+      "sha256": "65bc371b7ff1d373b10082f26a29dc9a4bdd24d326928febd04a60f7c134face",
+      "bytes": 380
+    },
+    "selection_frozen_before_predictions": false,
+    "sample_count": 0,
+    "support_policy": {},
+    "preflight": {
+      "path": "docs/final_campaign_v4_preflight.json",
+      "sha256": "eaec8c630ae18326999709c96f58f39d77429dcce49c5f703f6ae4414925edd1",
+      "bytes": 7882
+    },
+    "no_completed_actual_final_freeze_found": true
+  },
+  "verification": {
+    "tests": "ml/tests/test_final_seen_registry_v6.py",
+    "passed": 5,
+    "ruff": "passed",
+    "new_spectral_arrays_read": 0,
+    "actual_metadata_rebuild_matches": true
+  }
+}

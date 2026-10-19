@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "audit_id": "final_gap_v7_root",
+  "created_at": "2026-10-19T20:05:10.023895+00:00",
+  "scope": "Targeted BAM310/GOE100 source review; no new numerical final spectra or predictions",
+  "status": "not_admitted",
+  "new_final_numeric_rows_opened": 0,
+  "predictions_run": 0,
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "findings": [
+    {
+      "id": "GoeDV_existing_metadata",
+      "status": "does_not_resolve_material_identity",
+      "finding": "Previously disclosed PDS GoeDV composition row and both PDS3/PDS4 labels identify the product, but no stock/lot/origin resolving its relationship to GOE100. Acquisition filename date, publication metadata and different chemistry do not prove independence."
+    },
+    {
+      "id": "Gasda2021",
+      "status": "does_not_resolve_material_identity",
+      "finding": "General non-CRM standardization via ACTLabs fusion ICP-MS is described; no exact GoeDV-specific stock or GOE100 linkage located. Paper previously available; this retrieval is not a new independent dataset."
+    },
+    {
+      "id": "Kadenkin2017",
+      "status": "no_spectral_data_release_identified",
+      "finding": "BAM310 is listed in the thesis. The ORIGINAL bundle contains exactly one PDF; no numeric spectra. dc.rights text and rights URI disagree between NC-ND wording and NC-SA URL. No raw-data license inferred. Separate study, not evidence of 2025 specimen/preparation."
+    },
+    {
+      "id": "RSC_ESI_access",
+      "status": "access_closed_evidence_gap_remains",
+      "finding": "Public browser retrieved official six-page SI via the current publisher href. SI contains metric/normalization figures, no raw BAM310 manifest, actual export medium or crater/region/session mapping. Duplicate local copy is explicitly not another source."
+    }
+  ],
+  "evidence_snapshots": [
+    {
+      "path": "data/raw/final_gap_v7_root/calinfo.txt",
+      "bytes": 3706,
+      "sha256": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf",
+      "kind": "downloaded_primary_document_or_metadata",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calinfo.txt"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/d4ja00377b1_suppl.pdf",
+      "bytes": 1297507,
+      "sha256": "c88c2dce0c352b7d314ee021a572c859e0c730a2ab8cf0b4b152a3083316328a",
+      "kind": "downloaded_primary_document_or_metadata",
+      "url": "https://pubs.rsc.org/ja/article-supplement/852818/pdf/d4ja00377b1_suppl/"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/d4ja00377b1_suppl.txt",
+      "bytes": 3108,
+      "sha256": "feb2b021510bc57d6d0e2816f83b8f834d7460b4b1d1ad1b4341b844a3a55dfd",
+      "kind": "derived_text_or_review"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/gasda_mn2021.pdf",
+      "bytes": 3157150,
+      "sha256": "30a867b653c86a941e4c4b91a2a1ba3bdfd5484b9029d43934e77840c9973065",
+      "kind": "downloaded_primary_document_or_metadata",
+      "url": "https://www.osti.gov/pages/servlets/purl/1785483"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/goedv_metadata_review.json",
+      "bytes": 1508,
+      "sha256": "6cefd948d5c0d00f2967846fbbbb6ceb226cacde3ff51b2d4194d72618d9171e",
+      "kind": "derived_text_or_review"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/goedv_pds4.xml",
+      "bytes": 18083,
+      "sha256": "630e1765ada9cdf2e2b5880e84329c41f65b3524fe76fe979ba40ed0cfec1d82",
+      "kind": "downloaded_primary_document_or_metadata",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/goedv/2018_07_30_134057_ccs.xml"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/high_throughput_bundles.json",
+      "bytes": 4204,
+      "sha256": "b2ccacb357ecc1bf6c78ea6e4eb1c90de0c41965207757490c8e05672d8c47f1",
+      "kind": "downloaded_primary_document_or_metadata",
+      "url": "https://edoc.hu-berlin.de/server/api/core/items/741cf201-d5e6-47d7-acec-fc340e1381c3/bundles?size=100"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/high_throughput_item.json",
+      "bytes": 11437,
+      "sha256": "12f8a1df93f3108707b1183c3fb6ecd23ce39dec8e08ff73c392d2a1f1e7d010",
+      "kind": "downloaded_primary_document_or_metadata",
+      "url": "https://edoc.hu-berlin.de/server/api/core/items/741cf201-d5e6-47d7-acec-fc340e1381c3"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/high_throughput_libs.pdf",
+      "bytes": 18832356,
+      "sha256": "f338a088e598c1e8637ce5108cb6942f0632fe4d3a59c2103999857365ad9f08",
+      "kind": "downloaded_primary_document_or_metadata",
+      "url": "https://edoc.hu-berlin.de/bitstreams/a462c268-c99c-4e56-944b-4a9853efc767/download"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/high_throughput_libs.txt",
+      "bytes": 237371,
+      "sha256": "b952eb0a0e19238df346eec786978f4b6057f5ef3f8cfd23614265bfe3b30657",
+      "kind": "derived_text_or_review"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/high_throughput_original.json",
+      "bytes": 2136,
+      "sha256": "ecdcb57c4791e52e2c774070c8ed345c5cbcd5e2e8bb830c08f63344a02a0dea",
+      "kind": "downloaded_primary_document_or_metadata",
+      "url": "https://edoc.hu-berlin.de/server/api/core/bundles/2dbceb2a-ee5d-45eb-970b-08b528f7a208/bitstreams?size=100"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/rsc_supplement_browser_record.json",
+      "bytes": 897,
+      "sha256": "8322fa1e2b8a7cb3d548b1cf8b7f53c4b9838facf4af34d2eef43c7276235468",
+      "kind": "derived_text_or_review"
+    }
+  ],
+  "prior_metadata_bindings": [
+    {
+      "path": "data/raw/chemcam_external/ccam_calibration_compositions.csv",
+      "bytes": 49247,
+      "sha256": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07",
+      "kind": "previously_disclosed_composition_metadata"
+    },
+    {
+      "path": "data/raw/chemcam_adaptation/test/goedv/2018_07_30_134057_ccs.lbl",
+      "bytes": 19500,
+      "sha256": "a2e59dab33086fa6957647d31df0d1c8dd02a8f04a349c509de29d4e9be62541",
+      "kind": "previously_disclosed_product_label"
+    }
+  ],
+  "limits": [
+    "Search outcomes are bounded to the inspected public documents, not proof that no author records exist.",
+    "No messages were sent to authors.",
+    "Different instrument alone would permit a separately locked OOD challenge; it does not repair missing BAM310 source identity or license."
+  ]
+}

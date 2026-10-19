@@ -1,0 +1,1229 @@
+{
+  "schema_version": 1,
+  "artifact_type": "independent_libs_blank_candidate_search",
+  "reviewed_at": "2026-10-19",
+  "status": "blocked_no_qualified_final_campaign",
+  "scope": "Fresh primary-source metadata/document search for independent ChemCam Fe/Mg blank controls; source assays, release metadata, instrument and axis evidence only.",
+  "raw_spectral_files_downloaded": 0,
+  "raw_spectral_files_opened": 0,
+  "predictions_run": 0,
+  "authors_contacted": false,
+  "qualified_new_controls": 0,
+  "qualified_final_datasets": 0,
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "profile_required_bands_nm": [
+    [
+      241,
+      340
+    ],
+    [
+      383,
+      468
+    ],
+    [
+      474,
+      900
+    ]
+  ],
+  "profile_instrument": "ChemCam LANL laboratory testbed; flight ChemCam, Toulouse EQM, ChemLIBS, SuperLIBS and SuperCam are not interchangeable identities.",
+  "operational_policy": {
+    "FeOT_negative_upper_bound_wt_percent": 0.1,
+    "MgO_negative_upper_bound_wt_percent": 0.1,
+    "per_element_controls_allowed": true,
+    "point_estimates_are_not_upper_bounds": true,
+    "nondetect_is_not_zero": true,
+    "source_reported_censoring_is_not_automatically_a_certified_lot_bound": true
+  },
+  "previous_registry": {
+    "path": "data/reference/final_search_v3_admission.json",
+    "sha256": "3ba1911e3529ee3c97c6bdf52412b65e9aaae336d6654c47ed5fb4c203969055",
+    "bytes": 59193
+  },
+  "name_matching_policy": "lowercase alphanumeric normalization of nonempty Target, Spectrum Name, Sample Name against previous physical/family/measurement IDs; a nonmatch is not evidence of independence.",
+  "new_findings": [
+    "Anderson2017 TableS1 explicitly reports MgO<0.01wt% by independent ActLabs FUS-ICP for three salt endmember records; Fe2O3(T) has no censored value anywhere in that table.",
+    "Na2SO4 Batch2/Mix11O is a potentially useful new Mg source-assay control lead. No lot certificate, exact acquisition session or complete licensed numerical manifest was established; it is not admitted.",
+    "Cousin2011 reports >99.98% purity and explicit vacuum calibration for pure targets, but predominantly uses a different Toulouse EQM/OceanOptics setup; impurity certification, numerical export and matched identities remain unresolved.",
+    "ChemCam release42/41 dated2026-08-03 adds mission observations without updated product types. Its calibration chemistry file is byte-identical to the previously reviewed file.",
+    "ChemCam CCCT Ti is Ti6Al4V rather than an assumed pure-Ti blank; graphite has reported surface impurities including Fe. Neither establishes qualified Fe/Mg bounds."
+  ],
+  "chemcam_current_composition_census": {
+    "csv_records_including_non_numeric": 744,
+    "numeric_policy": "Only parseable numeric values with 0<value<=0.1 are low point-estimate candidates; zero, blank and nonnumeric cells are not negative labels.",
+    "by_oxide": {
+      "FeOT": {
+        "numeric_rows": 548,
+        "low_positive_point_rows": 25,
+        "seen_name_matches": 25,
+        "rows": [
+          {
+            "csv_row": 65,
+            "names": [
+              "JDo-1",
+              "JDO1",
+              "JDO1"
+            ],
+            "value_wt_percent": 0.09,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 128,
+            "names": [
+              "1383",
+              "JSC1383",
+              "DCENG1"
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 249,
+            "names": [
+              "GYPA",
+              "GYPA",
+              "GYPA"
+            ],
+            "value_wt_percent": 0.04,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 250,
+            "names": [
+              "GYPB",
+              "GYPB",
+              "GYPB"
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 272,
+            "names": [
+              "MIX1O",
+              "MIX 1O",
+              "MIX 1O"
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 275,
+            "names": [
+              "MIX2O",
+              "MIX 2O",
+              "MIX 2O"
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 278,
+            "names": [
+              "MIX3O",
+              "MIX 3O",
+              "MIX 3O"
+            ],
+            "value_wt_percent": 0.03,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 284,
+            "names": [
+              "MIX5O",
+              "MIX 5O",
+              "MIX 5O"
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 436,
+            "names": [
+              "JF1",
+              "JF1",
+              "JF1"
+            ],
+            "value_wt_percent": 0.07,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 437,
+            "names": [
+              "JF2",
+              "JF2",
+              "JF2"
+            ],
+            "value_wt_percent": 0.05,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 480,
+            "names": [
+              "DV_Calcite_opt",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.01,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 483,
+            "names": [
+              "DV10",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.07,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 487,
+            "names": [
+              "DV14",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 490,
+            "names": [
+              "DV17CalciteBlue",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.01,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 491,
+            "names": [
+              "DV18MicroKeys",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.03,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 492,
+            "names": [
+              "DV19NickMagnes",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.04,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 493,
+            "names": [
+              "DV2",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.05,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 494,
+            "names": [
+              "DV23Clausthalite",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.07,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 501,
+            "names": [
+              "DV5",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.09,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 502,
+            "names": [
+              "DV6",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.07,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 505,
+            "names": [
+              "DV9",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.03,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 521,
+            "names": [
+              "JCRMR703",
+              "CRMR703",
+              "JCRM R703"
+            ],
+            "value_wt_percent": 0.07,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 522,
+            "names": [
+              "JCRMR803",
+              "CRMR803",
+              "JCRM R803"
+            ],
+            "value_wt_percent": 0.04,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 523,
+            "names": [
+              "JSY2",
+              "Jsy1",
+              "Jsy-1"
+            ],
+            "value_wt_percent": 0.08,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 544,
+            "names": [
+              "SX1602",
+              "SX1602",
+              "SX1602"
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          }
+        ]
+      },
+      "MgO": {
+        "numeric_rows": 544,
+        "low_positive_point_rows": 41,
+        "seen_name_matches": 40,
+        "rows": [
+          {
+            "csv_row": 67,
+            "names": [
+              "JR-1",
+              "JR1",
+              "JR1"
+            ],
+            "value_wt_percent": 0.09,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 103,
+            "names": [
+              "UNS-ZK",
+              "UNSZK",
+              "UNSZK"
+            ],
+            "value_wt_percent": 0.07,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 121,
+            "names": [
+              "1376",
+              "JSC1376",
+              "MGSDL1"
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 128,
+            "names": [
+              "1383",
+              "JSC1383",
+              "DCENG1"
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 132,
+            "names": [
+              "1387",
+              "JSC1387",
+              "SYMPCA5"
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 133,
+            "names": [
+              "1388",
+              "JSC1388",
+              "SYMPCA5"
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 159,
+            "names": [
+              "1414",
+              "JSC1414",
+              "SQWCMT1"
+            ],
+            "value_wt_percent": 0.04,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 248,
+            "names": [
+              "GUWGNA",
+              "GUWGNA",
+              "GUWGNA"
+            ],
+            "value_wt_percent": 0.03,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 264,
+            "names": [
+              "MHC-1356",
+              "MHC1356",
+              "MHC1356"
+            ],
+            "value_wt_percent": 0.1,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 265,
+            "names": [
+              "MHC-2319",
+              "MHC2319",
+              "MHC2319"
+            ],
+            "value_wt_percent": 0.01,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 278,
+            "names": [
+              "MIX3O",
+              "MIX 3O",
+              "MIX 3O"
+            ],
+            "value_wt_percent": 0.04,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 281,
+            "names": [
+              "MIX4O",
+              "MIX 4O",
+              "MIX 4O"
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 284,
+            "names": [
+              "MIX5O",
+              "MIX 5O",
+              "MIX 5O"
+            ],
+            "value_wt_percent": 0.03,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 371,
+            "names": [
+              "VZ0106",
+              "VZO106",
+              "VZO106"
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 405,
+            "names": [
+              "VZO-114",
+              "VZO114",
+              "VZO114"
+            ],
+            "value_wt_percent": 0.05,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 433,
+            "names": [
+              "HollDV",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.01,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 435,
+            "names": [
+              "JCH-1",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.08,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 436,
+            "names": [
+              "JF1",
+              "JF1",
+              "JF1"
+            ],
+            "value_wt_percent": 0.01,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 443,
+            "names": [
+              "PSIDV",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.01,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 466,
+            "names": [
+              "27-07",
+              "",
+              "DH2707"
+            ],
+            "value_wt_percent": 0.07,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 475,
+            "names": [
+              "DC60122",
+              "DC601222",
+              "NCS-DC60122a"
+            ],
+            "value_wt_percent": 0.07,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 476,
+            "names": [
+              "DC60123",
+              "DC601232",
+              "NCS-DC60123a"
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 480,
+            "names": [
+              "DV_Calcite_opt",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.01,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 483,
+            "names": [
+              "DV10",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 488,
+            "names": [
+              "DV15",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 489,
+            "names": [
+              "DV16Prehnite",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.05,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 491,
+            "names": [
+              "DV18MicroKeys",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.1,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 493,
+            "names": [
+              "DV2",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.03,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 495,
+            "names": [
+              "DV24PolluRhodes",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.01,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 496,
+            "names": [
+              "DV25OpalTorr",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 501,
+            "names": [
+              "DV5",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 502,
+            "names": [
+              "DV6",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.03,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 505,
+            "names": [
+              "DV9",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 512,
+            "names": [
+              "GoeDV",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.06,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 521,
+            "names": [
+              "JCRMR703",
+              "CRMR703",
+              "JCRM R703"
+            ],
+            "value_wt_percent": 0.04,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 522,
+            "names": [
+              "JCRMR803",
+              "CRMR803",
+              "JCRM R803"
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 523,
+            "names": [
+              "JSY2",
+              "Jsy1",
+              "Jsy-1"
+            ],
+            "value_wt_percent": 0.02,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 525,
+            "names": [
+              "Macusanite",
+              "MACUSANITE",
+              "MACUSANITE"
+            ],
+            "value_wt_percent": 0.01,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 542,
+            "names": [
+              "SRM201A",
+              "SRM201A",
+              "SRM201A"
+            ],
+            "value_wt_percent": 0.03,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 554,
+            "names": [
+              "JR-3",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.05,
+            "seen_name_match": true
+          },
+          {
+            "csv_row": 566,
+            "names": [
+              "Li420_NCS_JR3",
+              "",
+              ""
+            ],
+            "value_wt_percent": 0.048512,
+            "seen_name_match": false
+          }
+        ]
+      }
+    }
+  },
+  "candidates": [
+    {
+      "id": "anderson2017_thomas2018_salts",
+      "sources": [
+        "https://doi.org/10.1002/2016JE005164",
+        "https://authors.library.caltech.edu/records/he2eq-rm869",
+        "https://doi.org/10.1029/2017JE005467",
+        "https://authors.library.caltech.edu/records/20rt7-cvf02"
+      ],
+      "status": "not_admitted",
+      "instrument": "LANL ChemCam analog engineering mast; 2013 at1.6m,2014 at3m; Thomas2018 additionally2015/2017 at1.6m. Exact session/product identities still unbound.",
+      "wavelength_medium": "vacuum explicitly stated in Anderson2017 section2.2 and Thomas2018 introduction",
+      "published_bands_nm": [
+        [
+          240,
+          340
+        ],
+        [
+          380,
+          470
+        ],
+        [
+          490,
+          850
+        ]
+      ],
+      "actual_file_coverage_verified": false,
+      "article_license": "CC-BY-NC-ND stated in Caltech records",
+      "dataset_license": "Independent Data.zip license not established; article license is not silently assigned to an external archive.",
+      "assay": {
+        "laboratory": "Activation Laboratories Ltd. (ActLabs)",
+        "method": "flux-fusion ICP optical emission spectroscopy (FUS-ICP)",
+        "reported_detection_limit_wt_percent": {
+          "Fe2O3(T)": 0.01,
+          "MgO": 0.01
+        },
+        "source": "Anderson2017 supplemental TableS1, PDFpage18/printedpage8; visual table verification performed.",
+        "report_status": "Peer-reviewed authors publish independent laboratory assay results; no signed lot certificate/report number was located. Thomas2018 section2.4 describes additional powders of the same endmembers.",
+        "all_table_Fe_censored_entries": 0,
+        "Mg_censored_endmembers": [
+          {
+            "sample": "NaCl Batch1",
+            "spectrum_label": "Mix1O",
+            "relation": "<",
+            "MgO_wt_percent": 0.01,
+            "known_same_label": true
+          },
+          {
+            "sample": "Na2SO4 Batch2",
+            "spectrum_label": "Mix11O",
+            "relation": "<",
+            "MgO_wt_percent": 0.01,
+            "known_same_label": false
+          },
+          {
+            "sample": "NaCl Batch2",
+            "spectrum_label": "Mix14O",
+            "relation": "<",
+            "MgO_wt_percent": 0.01,
+            "known_same_label": false,
+            "alias_concern": "Same named NaCl supplier/material as Batch1; a new lot was not established."
+          }
+        ],
+        "Fe_small_points_not_bounds": [
+          {
+            "material": "NaCl Batch1",
+            "Fe2O3T_wt_percent": 0.02
+          },
+          {
+            "material": "Na2SO4 Batch2",
+            "Fe2O3T_wt_percent": 0.03
+          },
+          {
+            "material": "NaCl Batch2",
+            "Fe2O3T_wt_percent": 0.02
+          }
+        ],
+        "other_materials": "CaSO4 MgO0.04/0.05 and CaCO3 MgO0.22 are points, not bounds. BaSO4, SrCO3, boric acid and SiO2 are not assay rows in TableS1."
+      },
+      "inventory_metadata": {
+        "Anderson_SI_declared_samples": 69,
+        "S2_mixture_labels": 66,
+        "S2_seen_exact_normalized_labels": [
+          "Mix1O",
+          "Mix2O",
+          "Mix3O",
+          "Mix5O"
+        ],
+        "S2_not_matched_labels": [
+          "Mix1A",
+          "Mix1B",
+          "Mix1C",
+          "Mix1D",
+          "Mix1E",
+          "Mix2A",
+          "Mix2B",
+          "Mix2C",
+          "Mix2D",
+          "Mix2E",
+          "Mix3A",
+          "Mix3B",
+          "Mix3C",
+          "Mix3D",
+          "Mix3E",
+          "Mix5A",
+          "Mix5B",
+          "Mix5C",
+          "Mix5D",
+          "Mix5E",
+          "Mix7AA",
+          "Mix7A",
+          "Mix7B",
+          "Mix7C",
+          "Mix7D",
+          "Mix7E",
+          "Mix7O",
+          "Mix8AA",
+          "Mix8A",
+          "Mix8B",
+          "Mix8C",
+          "Mix8D",
+          "Mix8E",
+          "Mix8O",
+          "Mix10AA",
+          "Mix10A",
+          "Mix10B",
+          "Mix10C",
+          "Mix10D",
+          "Mix10E",
+          "Mix10O",
+          "Mix11AA",
+          "Mix11A",
+          "Mix11B",
+          "Mix11C",
+          "Mix11D",
+          "Mix11E",
+          "Mix11O",
+          "Mix13AA",
+          "Mix13A",
+          "Mix13B",
+          "Mix13C",
+          "Mix13D",
+          "Mix13E",
+          "Mix13O",
+          "Mix14AA",
+          "Mix14A",
+          "Mix14B",
+          "Mix14C",
+          "Mix14D",
+          "Mix14E",
+          "Mix14O"
+        ],
+        "Thomas_SI_declared_LIBS_CSV": 872,
+        "Thomas_SI_declared_pelletized_samples": 194,
+        "Thomas_SI_declared_rock_chips": 11,
+        "archive_opened": false,
+        "manifest_obtained": false
+      },
+      "family_review": "Mix1/2/3/5 share already-seen endmembers; mixture series7/8/10/11 share K1919,13/14 share GBW07105. Pure Na2SO4 endpoint contains no basalt by formulation, but assay-to-pellet preparation/lot identity and family assignment require review. Do not admit the62 unmatched labels by name alone. Thomas2018 repeats relevant endmembers in2014 and2017; seen registry already contains2017 laboratory sessions.",
+      "raw_pointers": [
+        "https://caltech.box.com/s/pzvq5nsm1vsktgdglaf2pc179m3silvy",
+        "https://caltech.box.com/s/hdwg164njmakrujiducqzuf03x8gnb54"
+      ],
+      "blockers": [
+        "No qualified Fe upper bound in TableS1",
+        "Mg censoring not yet bound to certified measured lot/preparation",
+        "Exact days and aliases/families unverified",
+        "Declared490–850nm VNIR does not establish frozen474–900nm coverage",
+        "External archive pointers inaccessible in checked route; numerical inventory and dataset rights unverified",
+        "Physical/family/session support for final precision policy not established"
+      ]
+    },
+    {
+      "id": "chemcam_latest_calibration_archive",
+      "sources": [
+        "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/document/release_notes.txt",
+        "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv"
+      ],
+      "status": "not_admitted",
+      "license": "PDS US public-domain status previously pinned in project provenance",
+      "wavelength_medium": "Existing ChemCam calibrated export vacuum contract; no new candidate spectral axis read.",
+      "release": "Latest listed42 and41 both2026-08-03; PRODUCT TYPES UPDATED=None. Calibration directory still lists2015,2021,cleanroom.",
+      "composition_sha256": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07",
+      "chemistry": "All25low-Fe point rows and40of41low-Mg point rows match previously seen names. Li420_NCS_JR3 is the one literal low-Mg nonmatch; JR3 parent identity requires transitive alias review, not an independent blank declaration.",
+      "blockers": [
+        "No new certified Fe/Mg lot upper bounds",
+        "Previously seen materials cannot become new independent final by renaming",
+        "Mission releases are not new laboratory calibration certificates"
+      ]
+    },
+    {
+      "id": "chemcam_ccct_titanium_graphite",
+      "sources": [
+        "https://doi.org/10.1007/s11214-012-9902-4"
+      ],
+      "status": "not_admitted",
+      "evidence": "Wiens2012 Table5 and section4.1, printed194–195/PDF28–29: Ti target is6–4 titanium alloy; graphite replica surface analysis reports Fe and other impurities without quantitative upper bounds.",
+      "instrument": "Flight CCCT or engineering replica identity must be distinguished from LANL testbed. Cleanroom Test6 campaign is already seen.",
+      "blockers": [
+        "Not proven pure-Ti blank",
+        "No matched impurity bounds or lot certificate",
+        "Flight/testbed mismatch and previously seen cleanroom campaign",
+        "Repeated shots do not add independent physical/family support"
+      ]
+    },
+    {
+      "id": "cousin2011_puretargets",
+      "sources": [
+        "https://doi.org/10.1016/j.sab.2011.10.004",
+        "https://utheme.utoulouse.fr/files/original/f6c70ffff70efbf79d36b70ab9a7c2cf336dd1e7.pdf"
+      ],
+      "status": "not_admitted",
+      "evidence": "Author thesisPDF72 reproduces article section2: >99.98% purity for one/two-element targets including Ti,C,Cu,Ni,Pb,Zn,NaCl,CaF2; quadratic calibration uses NIST vacuum lines. No sample-specific certificate or lot number was located.",
+      "instrument": "Mainly Toulouse IRAP EQM mast with sequential OceanOptics HR2000 detectors; occasional LANL flight-model data. Not current LANL testbed.",
+      "published_bands_nm": [
+        [
+          240,
+          340
+        ],
+        [
+          380,
+          470
+        ],
+        [
+          480,
+          950
+        ]
+      ],
+      "wavelength_medium": "vacuum explicitly documented",
+      "conditional_impurity_bound": "If a certified total-mass purity >99.98% applied to the measured prepared specimen, all residual impurities combined would be <0.02wt%; this would imply FeOT<0.0258wt% or MgO<0.0332wt%. This is a conditional calculation, not an admitted measured bound.",
+      "data_scope": "Published online database is a1336-line identification list; measured numerical spectra with IDs/license were not established. Synthetic spectra from a line list are not measured final samples.",
+      "dataset_license": null,
+      "blockers": [
+        "No matched certified purity/lot/preparation",
+        "No verified accessible measured-spectrum inventory/license",
+        "Different instrument/coverage requires development transfer",
+        "No frozen independent session/family support"
+      ]
+    },
+    {
+      "id": "pds_multiparameter_libs_2026",
+      "sources": [
+        "https://doi.org/10.17189/b2aj-cz96",
+        "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/"
+      ],
+      "status": "not_admitted",
+      "dataset_license": "CC0-1.0 from previously pinned official DataCite metadata",
+      "fresh_check": "User guide and2951-sample chemistry workbook are byte-identical to v3 snapshots. Workbook contains no literal < censoring cells. Pure metal entries are nominal/compositional and do not supply Fe/Mg impurity certificates.",
+      "wavelength_medium": "Not explicit for exported wavelength column in checked guide/context/thesis; atmosphere labels air/vacuum are not axis declarations.",
+      "instrument": "ChemLIBS, SuperLIBS and pLIBS Z300 differ from LANL ChemCam testbed; published detector bands do not establish full frozen coverage.",
+      "blockers": [
+        "Explicit axis convention still unresolved",
+        "Qualified Fe/Mg impurity upper bounds and lot links absent",
+        "Different instruments need development transfer",
+        "Known aliases/sessions require guard before final"
+      ]
+    },
+    {
+      "id": "supercam_ccct_controls",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7691312/"
+      ],
+      "status": "not_admitted",
+      "wavelength_medium": "vacuum calibration explicit",
+      "evidence": "Ti6Al4V target, not high-purity Ti; SuperCam hardware and approximately245–850nm interest range differ from ChemCam profile.",
+      "blockers": [
+        "No matched Fe/Mg impurity bound",
+        "Different instrument and incomplete frozen-band coverage",
+        "Independent physical/family support not established"
+      ]
+    },
+    {
+      "id": "rapin2016_calcium_sulfates",
+      "sources": [
+        "https://www.osti.gov/servlets/purl/1417814"
+      ],
+      "status": "not_admitted",
+      "evidence": "Reagent gypsum/bassanite and dehydrated anhydrite, Raman mineral-phase verification and thermal preparation. Raman phase purity does not quantify Fe/Mg contamination.",
+      "blockers": [
+        "No trace Fe/Mg lot upper bound in checked document",
+        "No independently licensed numerical control manifest/session binding established",
+        "Instrument/preparation identity must be matched before any final use"
+      ]
+    }
+  ],
+  "evidence_snapshots": [
+    {
+      "path": "data/raw/final_search_v5_pds/pds_document_index.html",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/",
+      "bytes": 1645,
+      "sha256": "bf80b6136302a3111e8da6769b4cb7d6e40c1fbf43d305fa8fb9162f842b8941",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.771917+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/pds_release_notes.txt",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/release_notes.txt",
+      "bytes": 1904,
+      "sha256": "7af36047f0657b409b935fed733ae741a2197a40c59f97f753687a5e2180f26e",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.776990+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/pds_bundle.xml",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/bundle_libs_reference_database.xml",
+      "bytes": 15002,
+      "sha256": "4c87f8cea069a6d7e4804a9b4f11573d705fc128e65449405d28f6ba0fe453ee",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.929733+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_calib_index.html",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/",
+      "bytes": 4402,
+      "sha256": "a952753658d5a582bbce3f46a001d2ee39369c1de74a8c410cace5c6ef5a425f",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.775914+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_cleanroom_index.html",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/cleanroom/",
+      "bytes": 9291,
+      "sha256": "6ee29f63609dd92e1d1bebf65eafb052c3e1e67bf8e351423dad42dcbe56f816",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.781899+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_calinfo.txt",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calinfo.txt",
+      "bytes": 3706,
+      "sha256": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.817354+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_release_notes.txt",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/document/release_notes.txt",
+      "bytes": 49128,
+      "sha256": "784a38589ccdf56ba442e3258268f917d7be9a0aa6ca89ac10b5b2e9d11ace98",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:57.747003+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_compositions.csv",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv",
+      "bytes": 49247,
+      "sha256": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:57.791019+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/wiens2012_instrument.pdf",
+      "url": "https://molokai.sese.asu.edu/~jimbo/indexed/publications/other_co_author/0135_Wiens_RC_The_ChemCam_Instrument_Suite_Space_Sci_Rev_2012.pdf",
+      "bytes": 6625771,
+      "sha256": "e83983f45b0cd33b3b3f5237405fd2ea8dae61c3c21171fb544747af44061e3d",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:26.416741+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/supercam_targets.html",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7691312/",
+      "bytes": 262334,
+      "sha256": "bce3cd9254e5a43dacaf571d775004d4552765abe50aa677fdb19395cc496f5a",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:23.571835+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/pds_user_guide.pdf",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/user_guide.pdf",
+      "bytes": 550988,
+      "sha256": "db388ced0d24536a5111c30fb4a3aab0edca4a594239f6b52fa24a0a26b2b643",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:49.072069+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/pds_libs_metadata.xlsx",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+      "bytes": 584961,
+      "sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:49.012409+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/rapin2016_sulfates.pdf",
+      "url": "https://www.osti.gov/servlets/purl/1417814",
+      "bytes": 1700929,
+      "sha256": "1daae9920d3f40e606d7b93d2c7f7663bc2a2bdabdcbed1f590bb9353da10672",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:54.501784+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/transfer_lpsc2019.pdf",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2019/pdf/1103.pdf",
+      "bytes": 372706,
+      "sha256": "194414ce4a9329600d20b7d01b294ef4669dd237a5f52eb6197936c5b6bfd353",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:49.578750+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/superlibs_context.html",
+      "url": "https://pds.nasa.gov/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Amhc.superlibs&version=1.2",
+      "bytes": 8285,
+      "sha256": "d5045f1625b40340a79d4dccf1adb84ac36cbf9315d1dceb6523ad0c2927460e",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:48.110389+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/anderson2017_supplement.pdf",
+      "url": "https://authors.library.caltech.edu/records/he2eq-rm869/files/jgre20649-sup-0001-2016JE005164-S01.pdf?download=1",
+      "bytes": 2345163,
+      "sha256": "12a85ae7bc9ee3e328086761bd1d88a461f213c20a520ec114339f72c12b2dc5",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:41:36.417955+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/anderson2017_data_pointer.pdf",
+      "url": "https://authors.library.caltech.edu/records/he2eq-rm869/files/jgre20649-sup-0003-2016JE005164-s2_AA.pdf?download=1",
+      "bytes": 2589,
+      "sha256": "3a25bb8ea09ed80b45a15ac4a2f55f834f7df92d5c3c208c67919fe1e059968d",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:41:35.010539+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/anderson2017_paper.pdf",
+      "url": "https://authors.library.caltech.edu/records/he2eq-rm869/files/Anderson_et_al-2017-Journal_of_Geophysical_Research__Planets.pdf?download=1",
+      "bytes": 3519336,
+      "sha256": "42357c39d4ffac31c52068f3e4c518d1e6db1666240ea446ddc237a0a38a31a4",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:41:38.009440+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/cousin2012_thesis.pdf",
+      "url": "https://utheme.utoulouse.fr/files/original/f6c70ffff70efbf79d36b70ab9a7c2cf336dd1e7.pdf",
+      "bytes": 6003695,
+      "sha256": "a9763bcc34e1c10a3ef6da6e89c3b3dd003367052a9e962708f6be5babe962f9",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:47:48.489209+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/anderson2017_record.html",
+      "url": "https://authors.library.caltech.edu/records/he2eq-rm869",
+      "bytes": 146641,
+      "sha256": "9155f1e3d154dec3487e25a7faf33bb1e16f7764dc289bf09d7a9b297bdca9e2",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:47:28.745189+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/thomas2018_paper.pdf",
+      "url": "https://authors.library.caltech.edu/records/20rt7-cvf02/files/Thomas_et_al-2018-Journal_of_Geophysical_Research__Planets.pdf?download=1",
+      "bytes": 7311433,
+      "sha256": "5eafacc9797fec5a039b92db820250e1a01d54a519544e31413693608038a94e",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:48:54.596044+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/thomas2018_supplement.pdf",
+      "url": "https://authors.library.caltech.edu/records/20rt7-cvf02/files/jgre20980-sup-0001-2017je005467_s01.pdf?download=1",
+      "bytes": 57616,
+      "sha256": "929eeb8d3c8f21e38ebad218c84771a1a0e546fe8d0bdc33148afc7c972adc29",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:48:52.170616+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/thomas2018_data_pointer.docx",
+      "url": "https://authors.library.caltech.edu/records/20rt7-cvf02/files/jgre20980-sup-0002-2017je005467_s01.docx?download=1",
+      "bytes": 12224,
+      "sha256": "cee0923883ec9aa804d65c2270b9506817eaf096d6e0016865ac3a06cf6738d6",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:48:51.953628+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v3/datacite_pds.json",
+      "sha256": "a7d7389f77e2a36a859ab48f7ba5b779ffe9d580e8c1477fc60faaee9f268bfe",
+      "bytes": 7200,
+      "kind": "metadata",
+      "url": "https://api.datacite.org/dois/10.17189/b2aj-cz96",
+      "retrieval_scope": "previously_pinned_metadata_not_refetched"
+    }
+  ],
+  "retrieval_errors": [
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JE005164",
+      "error": "curl: (56) The requested URL returned error: 403"
+    },
+    {
+      "url": "https://authors.library.caltech.edu/records/he2eq-rm869/",
+      "error": "curl: (56) The requested URL returned error: 404"
+    },
+    {
+      "url": "https://caltech.box.com/s/pzvq5nsm1vsktgdglaf2pc179m3silvy",
+      "error": "curl: (56) The requested URL returned error: 404"
+    },
+    {
+      "url": "https://caltech.box.com/s/hdwg164njmakrujiducqzuf03x8gnb54",
+      "error": "curl HTTPS landing-page request returned HTTP404 on2026-10-19; spectral archive not downloaded."
+    }
+  ],
+  "conclusion": "New useful metadata were found, especially MgO<0.01 source-assay censoring, but zero new controls or final campaigns pass all current conditions. No final performance estimate was generated. This bounded search does not establish that suitable public data do not exist."
+}

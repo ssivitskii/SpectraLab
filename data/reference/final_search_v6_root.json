@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "artifact_type": "independent_final_source_search_audit",
+  "reviewed_at": "2026-10-19T19:28:18.636360+00:00",
+  "scope": "new and explicitly marked repeated primary metadata routes; no final spectral numerical files",
+  "candidates": [
+    {
+      "id": "myhre2018_alumina",
+      "title": "Myhre et al.2018: Eu/Sm in Al2O3; explicit unspiked alumina pellet",
+      "review_kind": "new_route",
+      "sources": [
+        "https://www.osti.gov/servlets/purl/1461071",
+        "https://www.ornl.gov/publication/laser-induced-breakdown-spectroscopy-analysis-europium-and-samarium-aluminum-oxide"
+      ],
+      "chemical_evidence": "Methods p4 specify Alfa Aesar Al2O3 purity>99.99%, Eu/Sm oxides>99.95%; pure Al2O3 blank pressed without binder, stored in plastic bags. Nominal source purity not an independently attested prepared-pellet Fe/Mg upper bound. No additional independent Fe/Mg assay established.",
+      "wavelength_medium": "Not explicit in inspected full manuscript; argon atmosphere does not determine axis convention.",
+      "raw_access_and_license": "Open accepted manuscript available. No separately identified licensed raw blank spectra or raw manifest established; US Government manuscript reuse statement does not license a missing dataset.",
+      "coverage_nm": [
+        182.27,
+        909.37
+      ],
+      "status": "not_admitted",
+      "blockers": [
+        "independent prepared-control Fe/Mg bound",
+        "explicit exported air/vacuum",
+        "licensed raw files and sample/session mapping"
+      ],
+      "new_final_spectral_files_opened": 0
+    },
+    {
+      "id": "mikkelsted2024_plants",
+      "title": "A novel LIBS method for quantitative and high-throughput analysis of macro- and micronutrients in plants",
+      "review_kind": "new_route",
+      "sources": [
+        "https://api.crossref.org/works/10.1039/D4JA00105B",
+        "https://doi.org/10.1039/D4JA00105B"
+      ],
+      "chemical_evidence": "Independent ICP-OES reference analysis of257 plant samples is reported. A qualified Fe/Mg blank of this study was not established in retrieved metadata; this limited screen does not exclude evidence in inaccessible full text or further records.",
+      "wavelength_medium": "Not established in retrieved metadata; nitrogen atmosphere is distinct.",
+      "raw_access_and_license": "Article CC-BY3.0 verified in Crossref. Both publisher/university PDF routes403 in this run; no standalone data licence or raw blank manifest established. Metadata screen is not complete full-text review.",
+      "coverage_nm": null,
+      "status": "not_admitted",
+      "blockers": [
+        "confirmed Fe/Mg blank",
+        "raw data licence and mapping",
+        "explicit medium",
+        "full coverage not established"
+      ],
+      "new_final_spectral_files_opened": 0
+    },
+    {
+      "id": "molina2025_brines",
+      "title": "Quantitative Analysis of Lithium in Natural Brines from the Lithium Triangle",
+      "review_kind": "new_route",
+      "sources": [
+        "https://api.crossref.org/works/10.3390/atoms13060056",
+        "https://doi.org/10.3390/atoms13060056"
+      ],
+      "chemical_evidence": "Li LIBS/AAS validation and a blank are reported in indexed primary publication; this does not establish independent Fe/Mg upper bounds. No such bounds established in retrieved metadata.",
+      "wavelength_medium": "Not established.",
+      "raw_access_and_license": "Article CC-BY4.0 verified in Crossref; author PDF route timed out and publisher PDF403. Raw blank dataset/licence not established; limited metadata screen.",
+      "coverage_nm": [
+        180,
+        900
+      ],
+      "status": "not_admitted",
+      "blockers": [
+        "independent Fe/Mg chemistry",
+        "explicit medium",
+        "identified licensed numerical controls"
+      ],
+      "new_final_spectral_files_opened": 0
+    },
+    {
+      "id": "winnand2022_ashfree_filters",
+      "title": "Evaluation of electrolyte element composition in human tissue: ash-free Qual.4 filters",
+      "review_kind": "revisited_with_full_PDF_visual_check",
+      "sources": [
+        "https://www.nature.com/articles/s41598-022-20825-0.pdf",
+        "https://doi.org/10.1038/s41598-022-20825-0"
+      ],
+      "chemical_evidence": "Methods p2 state ash<0.01% for Binzer/Munktell70mm Qual.4 filters. The general ash statement is not a reported independently measured bound linked to the tested filter lot. No-metal spectral emission assertion is not chemical truth.",
+      "wavelength_medium": "Not explicitly established; reported positions were not used to infer it.",
+      "raw_access_and_license": "CC-BY4.0 article. Data availability says corresponding author on reasonable request; no messages sent. No public raw blank manifest established.",
+      "coverage_nm": [
+        127,
+        868
+      ],
+      "status": "not_admitted",
+      "blockers": [
+        "independently confirmed prepared-filter bounds",
+        "explicit medium",
+        "raw data/licence",
+        "profile needs through900nm"
+      ],
+      "new_final_spectral_files_opened": 0
+    },
+    {
+      "id": "ordar165_minerals",
+      "title": "Spectral Analysis of Minerals with Handheld LIBS Technology",
+      "review_kind": "revisited_with_metadata_workbook",
+      "sources": [
+        "https://ordar.otelo.univ-lorraine.fr/record?id=10.24396/ORDAR-165",
+        "https://ordar.otelo.univ-lorraine.fr/files/ORDAR-165/ReadMe_Metadata_HandheldLIBS_Spectra.xlsx"
+      ],
+      "chemical_evidence": "Metadata workbook has172rows/10columns including sample ID/mineral/formula/location/matrix and acquisition counts. No quantitative Fe/Mg assay, uncertainty or impurity-bound columns; pure mineral/formula does not bound impurities.",
+      "wavelength_medium": "Not specified in inspected record and metadata workbook; argon purge is not medium.",
+      "raw_access_and_license": "Repository explicitly CC-BY-NC-SA. Archive listed but not downloaded; metadata XLSX only inspected.",
+      "coverage_nm": [
+        190,
+        950
+      ],
+      "status": "not_admitted",
+      "blockers": [
+        "independent Fe/Mg assay/bounds",
+        "explicit medium",
+        "sample/session independence mapping"
+      ],
+      "new_final_spectral_files_opened": 0
+    },
+    {
+      "id": "ceitec2020_gypsum",
+      "title": "Benchmark classification dataset for LIBS: OREAS soils in gypsum",
+      "review_kind": "revisited_primary_article",
+      "sources": [
+        "https://www.nature.com/articles/s41597-020-0396-8",
+        "https://libs.ceitec.cz/benchmarking/"
+      ],
+      "chemical_evidence": "Article states soils mixed1:1 with dental gypsum; published mixed chemical composition excludes gypsum contribution. Soil CRM certificates alone cannot establish Fe/Mg bounds for the whole processed pellet or certify a gypsum blank.",
+      "wavelength_medium": "Not explicitly established in inspected article.",
+      "raw_access_and_license": "Existing public benchmark; no new spectral archive downloaded. Raw availability alone does not resolve preparation chemistry.",
+      "coverage_nm": null,
+      "status": "not_admitted",
+      "blockers": [
+        "prepared-whole-control chemical bounds",
+        "explicit medium",
+        "actual blank-control file identities"
+      ],
+      "new_final_spectral_files_opened": 0
+    }
+  ],
+  "evidence_snapshots": [
+    {
+      "path": "data/raw/final_search_v6_root/algae_datacite.json",
+      "sha256": "35aa1027632db0cacf8f93136f8daa7433ef70c1419074762af060b018277e7b",
+      "bytes": 16383,
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.15650002",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ashfree_filter_paper.html",
+      "sha256": "09f4ce7d76efbb967b37156d325c4a2fa13067566af9daf3d4ad3d9144c0a84c",
+      "bytes": 469029,
+      "url": "https://www.nature.com/articles/s41598-022-20825-0",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ashfree_filter_paper.pdf",
+      "sha256": "0ca27265df863e4871a423ad5f2cddc23e3e7ce3eb90b19f2590e5b88eab6211",
+      "bytes": 1718768,
+      "url": "https://www.nature.com/articles/s41598-022-20825-0.pdf",
+      "kind": "article_pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ashfree_filter_paper_text.txt",
+      "sha256": "d93a16321d36bd73d980d21c907f836bfd1e6159d779d640db636245b42e5bfb",
+      "bytes": 54642,
+      "url": "https://www.nature.com/articles/s41598-022-20825-0.pdf",
+      "kind": "derived_article_text",
+      "derived_from": "data/raw/final_search_v6_root/ashfree_filter_paper.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/bacteria_paper.pdf",
+      "sha256": "1a0273e10b58890fb7ab00e103c6c78aa60fb203d5b26ca1f77d8d3c2b6c8a09",
+      "bytes": 1333167,
+      "url": "https://www.uwindsor.ca/people/rehse/sites/uwindsor.ca.people.rehse/files/blanchette_bacteria_appl_spect_2022.pdf",
+      "kind": "article_pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/bacteria_paper_text.txt",
+      "sha256": "53dee41bf9ea311d438082efc2fb7e66b9a3509c78316656faa4a22c6b141b3c",
+      "bytes": 58329,
+      "url": "https://www.uwindsor.ca/people/rehse/sites/uwindsor.ca.people.rehse/files/blanchette_bacteria_appl_spect_2022.pdf",
+      "kind": "derived_article_text",
+      "derived_from": "data/raw/final_search_v6_root/bacteria_paper.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/benchmark2020.html",
+      "sha256": "da7f599b4872fcb4e46df5baff2a23c2e593f98208359d1ba944222855e96a0e",
+      "bytes": 271352,
+      "url": "https://www.nature.com/articles/s41597-020-0396-8",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/brines_crossref.json",
+      "sha256": "dfe43b26d4ea02b288671550ff000b6d2b725e778e282fc860a56770d8393056",
+      "bytes": 17257,
+      "url": "https://api.crossref.org/works/10.3390/atoms13060056",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/datacite_blank_search.json",
+      "sha256": "572425dd8f7b2cd6c8ef0f8ee64ecdc364f89a3aa69c7328353419c48cb542a0",
+      "bytes": 38205,
+      "url": "https://api.datacite.org/dois?query=%22laser-induced%20breakdown%22%20AND%20blank&page%5Bsize%5D=100",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/datacite_crm_search.json",
+      "sha256": "7a1596fc2b9ce14a9328194a0f37c74b45b8b665dd2d6ff5dfd0f9866b94bcef",
+      "bytes": 100172,
+      "url": "https://api.datacite.org/dois?query=%22LIBS%22%20AND%20%22reference%20materials%22&page%5Bsize%5D=100",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/datacite_vacuum_search.json",
+      "sha256": "a89313bca0a7677fa87daad42cfa62ace33622888fb927c54eda6743305a93ec",
+      "bytes": 195396,
+      "url": "https://api.datacite.org/dois?query=%22laser-induced%20breakdown%22%20AND%20%22vacuum%22&page%5Bsize%5D=100",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/myhre2018.pdf",
+      "sha256": "223f910b814d63d7fb821f0d62ae3726da6ef6deb664380fdf52ae8f2f23a3fd",
+      "bytes": 289809,
+      "url": "https://www.osti.gov/servlets/purl/1461071",
+      "kind": "article_pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/myhre2018_text.txt",
+      "sha256": "f0213b53f3ed1c1634797ff218850ae8821381be4596fabe71bd26dffd0ac392",
+      "bytes": 26617,
+      "url": "https://www.osti.gov/servlets/purl/1461071",
+      "kind": "derived_article_text",
+      "derived_from": "data/raw/final_search_v6_root/myhre2018.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ordar165_datacite.json",
+      "sha256": "7f290b1628db333e4aaa50e83ad0aa5b7c18315b1ebdba82ef8829907022421a",
+      "bytes": 5016,
+      "url": "https://api.datacite.org/dois/10.24396/ORDAR-165",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ordar165_metadata.xlsx",
+      "sha256": "eeeec24afa88a66103392fd7dc659900431c4db64e3102557fb7f00bac083982",
+      "bytes": 21996,
+      "url": "https://ordar.otelo.univ-lorraine.fr/files/ORDAR-165/ReadMe_Metadata_HandheldLIBS_Spectra.xlsx",
+      "kind": "metadata_workbook_no_spectral_columns"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ordar165_record.html",
+      "sha256": "55b9a7f4a293501367ae8c92412c0a8d279232e80368958e8bc40eed229aeec2",
+      "bytes": 21706,
+      "url": "https://ordar.otelo.univ-lorraine.fr/record?id=10.24396/ORDAR-165",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/plant_matrix_crossref.json",
+      "sha256": "e5c556f1cab711baaa37093985a11c0cd51c6ce56e06f87069b96871f3dd70a5",
+      "bytes": 15282,
+      "url": "https://api.crossref.org/works/10.1039/D4JA00105B",
+      "kind": "primary_metadata_or_article_html"
+    }
+  ],
+  "query_screening": [
+    {
+      "path": "data/raw/final_search_v6_root/datacite_blank_search.json",
+      "query_record_count": 5,
+      "all_returned_records_in_snapshot": 5,
+      "records_not_unique_datasets": true
+    },
+    {
+      "path": "data/raw/final_search_v6_root/datacite_crm_search.json",
+      "query_record_count": 14,
+      "all_returned_records_in_snapshot": 14,
+      "records_not_unique_datasets": true
+    },
+    {
+      "path": "data/raw/final_search_v6_root/datacite_vacuum_search.json",
+      "query_record_count": 35,
+      "all_returned_records_in_snapshot": 35,
+      "records_not_unique_datasets": true
+    }
+  ],
+  "additional_revisited_sources": [
+    {
+      "id": "algae15650002",
+      "metadata_only": true,
+      "new_chemical_bound": false
+    },
+    {
+      "id": "blanchette2022_bacteria",
+      "article_read_only": true,
+      "new_independent_Fe_Mg_assay_established": false
+    }
+  ],
+  "access_limits": [
+    {
+      "url": "https://researchprofiles.ku.dk/files/400874025/d4ja00105b.pdf",
+      "result": "HTTP403"
+    },
+    {
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2024/ja/d4ja00105b",
+      "result": "HTTP403"
+    },
+    {
+      "url": "https://ri.conicet.gov.ar/bitstream/handle/11336/277450/CONICET_Digital_Nro.800905c7-74e5-4f7f-980f-234abbc077e7_B.pdf?isAllowed=y&sequence=2",
+      "result": "timeout45s"
+    },
+    {
+      "url": "https://www.mdpi.com/2218-2004/13/6/56/pdf",
+      "result": "HTTP403"
+    }
+  ],
+  "qualified_new_final_datasets": 0,
+  "qualified_Fe_blank_families": 0,
+  "qualified_Mg_blank_families": 0,
+  "new_final_spectral_files_downloaded": 0,
+  "new_final_spectral_files_opened": 0,
+  "predictions_run": 0,
+  "authors_contacted": false,
+  "limits": [
+    "A missing or inaccessible source is not evidence of worldwide data absence.",
+    "Independent chemical upper bounds need not be a separately branded certificate, but require traceability and defensible uncertainty/censoring.",
+    "Nominal formula, commercial purity, ash specification or absent LIBS lines are not silently promoted to confirmed Fe/Mg labels.",
+    "A different instrument can support a predeclared OOD test if all other prerequisites hold; this audit establishes none.",
+    "DataCite queries include article/thesis/collection records and version duplicates; they are not counts of admitted datasets."
+  ]
+}

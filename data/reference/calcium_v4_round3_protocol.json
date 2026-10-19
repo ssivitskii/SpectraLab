@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "study_id": "adaptive-calcium-v4-round3-zero-inner-fpr",
+  "created_at": "2026-10-19T19:00:51.542566+00:00",
+  "locked_before_new_operating_point": true,
+  "scope": "adaptive_grouped_development_not_independent_final",
+  "preceding_run": "reports/adaptation_v4/calcium-crossfit-20261019T185637-810e1148",
+  "preceding_lock_sha256": "e50d1d0971acaea844da0f043d97b2dc75164fd35fc1ae334e92a426e993af8e",
+  "adaptation_disclosure": "Declared after round2 primary TP86 FP1 and seed20261020 TP84 FP3. Prior alternatives/results retained. Zero innerOOF FP budget may remove allowance of one tuning false positive; this is adaptive development, not prospective final validation.",
+  "primary_budget": 0.0,
+  "budgets_searched": [
+    0.0
+  ],
+  "seeds": [
+    20261019,
+    20261020,
+    20261021,
+    20261022,
+    20261023
+  ],
+  "candidates": "Exactly existing45 from pinned round2 lock; no retraining, refitting of calibrators or feature changes.",
+  "selection": "Threshold and candidate selection computed solely from saved innerOOF mean4 probabilities using original max-recall, lower-FPR, lower-Brier, complexity and ID rules. Outer probabilities used only after selection.",
+  "deployment": "Full-development saved innerOOF selects one of45 already trained mean4 states. Same numeric ensemble contract; no automatic promotion.",
+  "primary_target": {
+    "primary_true_positive_min": 83,
+    "each_seed_matched_recall_delta_min": -0.02,
+    "each_seed_fpr_max": 0.05
+  },
+  "strict_original_target_retained": "All five seeds absolute recall>=84/93-.02 and FPR<=.05 separately reported.",
+  "input_pinning": "Before calculations snapshot SHA256 of completed preceding result, lock, all25fold score/report/state files, five OOF files, deployment scores/report/memberstates and pinned source and verifiedv3baselines.",
+  "uncertainty": "Same2000 paired connected-group resamples of fixed OOF errors; no fullrefit uncertainty.",
+  "stopping": "This is the final planned adaptive operating-point round; retain failure honestly rather than further outer-guided iteration.",
+  "new_final_data_used": false
+}

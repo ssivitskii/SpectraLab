@@ -1,0 +1,718 @@
+{
+  "schema_version": 1,
+  "audit_id": "final_search_v6_other",
+  "audit_date": "2026-10-19",
+  "status": "blocked",
+  "final_metrics_status": "pending_no_final_score",
+  "summary": {
+    "candidates": 8,
+    "admitted": 0,
+    "conditionally_interesting_Fe_chemistry": [
+      "rsc2025-bam310",
+      "rsc2024-nist1411"
+    ],
+    "qualified_Mg_blank_count": 0,
+    "qualifying_licensed_axis_known_independent_bundle_count": 0
+  },
+  "scope": {
+    "new_non_PDS_metadata_search": true,
+    "raw_final_intensities_downloaded": false,
+    "raw_final_intensities_opened": false,
+    "model_fit_or_score_performed": false,
+    "authors_contacted": false,
+    "new_measurements_requested": false,
+    "old_v5_candidates_retested": false
+  },
+  "estimand": {
+    "name": "operational_above_threshold",
+    "negative_max_oxide_wt_pct": 0.1,
+    "positive_min_oxide_wt_pct": 1.0,
+    "Fe_basis": "totalFeasFeO(FeOT)",
+    "Mg_basis": "MgO",
+    "strict_absence_not_claimed": true,
+    "separate_Fe_Mg_controls_allowed": true,
+    "conditional_certificate_arithmetic_is_not_sample_admission": true
+  },
+  "instrument_policy": {
+    "within_domain": "Existing ChemCam profile guard remains unchanged; reported range is not verified actual grid, response or coverage.",
+    "explicit_OOD": "A different instrument can support separately preregistered fixed-weight/fixed-threshold OOD validation after evidence and geometry qualification. No candidate here is blocked only by instrument mismatch.",
+    "positive_support": "Do not infer precision/recall from negative controls alone; independent compatible positive support and cluster identities must be defined."
+  },
+  "search_scope": {
+    "DataCite": "Two pages each of metals and certified queries(total148and138records), plus axisquery3records; counts are search hits, not admitted datasets.",
+    "DaRUS": "Exact laser-induced breakdown query returned0records; not proof that no relevant deposit exists.",
+    "focused_primary_followup": "BAM certificates, NIST certificate, RSC papers and author thesis, official GitHub metadata, ScienceDB, Figshare, Marburg and Mendeley metadata.",
+    "source_boundaries": "Paper licences, software licences and emission-line libraries do not prove separate measured-file licences. Chamber atmosphere does not prove axis medium."
+  },
+  "snapshot_manifest": {
+    "path": "data/raw/final_search_v6_other/snapshot_manifest.json",
+    "sha256": "873d692d38cadda2e57b5106ad34b6b9bfb85753dff82350e6aaa891aea50ef7",
+    "file_count": 50,
+    "retrieval_attempts": 38,
+    "successful_http_document_or_metadata_evidence": 27
+  },
+  "candidates": [
+    {
+      "candidate_id": "rsc2025-bam310",
+      "title": "BAM310 Fe-control route in D4JA00377B",
+      "status": "blocked",
+      "admitted_elements": [],
+      "primary_urls": [
+        "https://doi.org/10.1039/D4JA00377B",
+        "https://pubs.rsc.org/en/content/articlehtml/2025/ja/d4ja00377b",
+        "https://rrr.bam.de/RRR/Content/DE/Downloads/RM-Zertifikate/RM-Nichteisenmetalle/Aluminium/bam_310.pdf?__blob=publicationFile"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v6_other/rsc_primary_search_extract.json",
+          "sha256": "9a85ba785b3c3f1ea058cd71dda75c1e40b703142f4d975f35d5a3a1b2240e73",
+          "bytes": 31560
+        },
+        {
+          "path": "data/raw/final_search_v6_other/focused_medium_code_search.json",
+          "sha256": "dece8f7fec19b63bfd9ed58145008507012b0739cb6e398147870f8c4db477b6",
+          "bytes": 32464
+        },
+        {
+          "path": "data/raw/final_search_v6_other/bam310_certificate.pdf",
+          "sha256": "743237a611566d3b09c7c542448a3818bd7efaf87566af82cca0a29a3b3f8dc0",
+          "bytes": 21283
+        },
+        {
+          "path": "data/raw/final_search_v6_other/bam310_certificate.txt",
+          "sha256": "db72143f74fdc9cf920243949ccd924922e58ad7b2d7cb02352612ba08655e35",
+          "bytes": 6129
+        },
+        {
+          "path": "data/raw/final_search_v6_other/bam310_certificate_p1.png",
+          "sha256": "254f4ae3790cd553d87f94d000c22506dfcc0924f28c788b55d547c143aeb282",
+          "bytes": 155787
+        }
+      ],
+      "raw_final_intensities_downloaded": false,
+      "raw_final_intensities_opened": false,
+      "scored": false,
+      "physical_identity": {
+        "status": "unverified",
+        "material_to_lot_or_independent_assay_to_preparation_to_session_to_raw_filename": "not established",
+        "previously_seen_overlap": "not cleared; missing physical/family/session and measurement identifiers"
+      },
+      "axis": {
+        "medium": "unconfirmed",
+        "chamber_atmosphere_is_axis_evidence": false,
+        "reported_start_nm": 200,
+        "reported_step_nm": 0.02,
+        "reported_value_count": 40002,
+        "actual_file_geometry_verified": false,
+        "source_says": "air atmosphere, not air/vacuum wavelength convention"
+      },
+      "composition_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "instrument_domain": {
+        "within_chemcam_profile": "unverified_or_other_instrument",
+        "ood_final": "possible only under an explicit preregistered OOD contract with frozen weights and thresholds after chemistry, licence, axis, identities and usable geometry qualify; not admitted here",
+        "instrument": "LIBS Discovery / Catalina Scientific EMU-65 echelle / gated EMCCD",
+        "reported_positive_development": "Same publication describes Fe-rich steel CRMs; BAM310 certified Mg content exceeds positive threshold if linked correctly. No licensed file-to-assay mapping verified."
+      },
+      "chemistry": {
+        "material": "BAM310 (Al99.85Mg1)",
+        "source_document": "BAM March1993 certificate, p1; independent methods p3",
+        "basis": "total elemental Fe converted to total Fe as FeO (FeOT)",
+        "Fe_wt_pct": 0.0705,
+        "Fe_uncertainty_wt_pct": 0.0012,
+        "uncertainty_semantics": "certificate footnote: 95% confidence interval of certified mass fraction; not an absolute maximum for every surface point",
+        "FeOT_interval_upper_wt_pct": 0.09224128928283643,
+        "FeOT_conversion": "(0.0705 + 0.0012) * (55.845 + 15.999) / 55.845",
+        "conditional_Fe_negative_threshold_satisfied": true,
+        "Mg_wt_pct": 0.994,
+        "Mg_uncertainty_wt_pct": 0.015,
+        "MgO_interval_lower_wt_pct": 1.6234361653980662,
+        "conditional_Mg_role": "positive, not blank",
+        "certified_region_exclusions": "Outer mantle 5mm thick and central region diameter20mm excluded; actual LIBS positions must be tied to certified region",
+        "independent_assay_methods": [
+          "photometry",
+          "ICP-OES",
+          "flame AAS"
+        ],
+        "admission_caveat": "Certified-material chemistry does not establish the actual prepared/ablated surface, physical disk, family, session or raw-file mapping. No measured sample is labelled negative yet."
+      },
+      "licence": {
+        "paper": "CC-BY3.0",
+        "numeric_measurement_files": "unconfirmed",
+        "warning": "Paper licence cannot be transferred to an unidentified separate experimental archive."
+      },
+      "availability": {
+        "numeric_measurements": "Paper describes Fe/Al spectra including BAM310; separate linked licensed raw Fe/Al release not identified in inspected DataAvailability",
+        "data_availability_links": "Existing Fe-Co Figshare21984989 and soil benchmark4768790 do not establish BAM310 files",
+        "actual_raw_file_names": []
+      },
+      "blockers": [
+        "BAM310 raw numeric release and reuse licence not established",
+        "No explicit wavelength air/vacuum convention or documented conversion",
+        "Actual disk and ablation region not linked to certificate, preparation and session",
+        "Physical/family/session/raw identities cannot yet be checked against all previously seen data",
+        "Actual coverage/gaps and instrument response unverified; reported broad range alone is not grid qualification"
+      ],
+      "documents_needed": [
+        "Licensed raw-file manifest for Fe/Al experiment identifying BAM310",
+        "Independent record linking BAM310 disk/region, preparation, positions and sessions to those files",
+        "Instrument wavelength-calibration record specifying air/vacuum and exported wavelength convention",
+        "Sampling/homogeneity justification applying certificate interval to the ablated region",
+        "If pursued as OOD: preregistered mapping/geometry checks and limited-claim campaign; do not fit on final data"
+      ]
+    },
+    {
+      "candidate_id": "rsc2024-nist1411",
+      "title": "NISTSRM1411 in D4JA00247D",
+      "status": "blocked",
+      "admitted_elements": [],
+      "primary_urls": [
+        "https://doi.org/10.1039/D4JA00247D",
+        "https://tsapps.nist.gov/srmext/certificates/1411.pdf",
+        "https://colab.research.google.com/drive/1qmlSMMNvt5_ZczR6bYlUr5KvTUiZVaQV",
+        "https://zenodo.org/records/13762624"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v6_other/nist1411_official_certificate.pdf",
+          "sha256": "42c25af08dc0e4e256f61e71f26ff3d43e3ae6d616a78abc644d5132e6086658",
+          "bytes": 220361
+        },
+        {
+          "path": "data/raw/final_search_v6_other/nist1411_certificate_p1.png",
+          "sha256": "a672c7607ef4910492f6c0c842da6b0d95abac85bc56207c67467ecfe92965a6",
+          "bytes": 190217
+        },
+        {
+          "path": "data/raw/final_search_v6_other/nist1411_official_certificate_p2.png",
+          "sha256": "b8ed95fd75fddc2010d15033264f527770330bfa2dd7feb75e34b47479b522f8",
+          "bytes": 63477
+        },
+        {
+          "path": "data/raw/final_search_v6_other/rsc_primary_search_extract.json",
+          "sha256": "9a85ba785b3c3f1ea058cd71dda75c1e40b703142f4d975f35d5a3a1b2240e73",
+          "bytes": 31560
+        },
+        {
+          "path": "data/raw/final_search_v6_other/rsc_feature_thesis.pdf",
+          "sha256": "d3129e7898bbc4fa44c8482397fb27e27db554547bc461bfd1659e8a40734d02",
+          "bytes": 7910687
+        },
+        {
+          "path": "data/raw/final_search_v6_other/rsc_feature_thesis.txt",
+          "sha256": "43169ef6a78925f6b3cdcb444640f5e0bf83494924bb374c62d1bb9924b739bf",
+          "bytes": 549134
+        },
+        {
+          "path": "data/raw/final_search_v6_other/feature_detection_zenodo_api.json",
+          "sha256": "4958a112031d9c0d93ca10aaa1aff8d86b8845097b86c33179ff312bd57d0931",
+          "bytes": 3625
+        },
+        {
+          "path": "data/raw/final_search_v6_other/libs_featex_repo.json",
+          "sha256": "a298fd3d1a255b0eb21a952212460852e05ba9721d3445fb42d7ad054d88f94a",
+          "bytes": 132
+        },
+        {
+          "path": "data/raw/final_search_v6_other/libs_featex_tree.json",
+          "sha256": "f7a7b61452f5bb2dfd8b3bf5048fddd43402ba6f148d6949bf4a4ddf6a56b91b",
+          "bytes": 124
+        }
+      ],
+      "raw_final_intensities_downloaded": false,
+      "raw_final_intensities_opened": false,
+      "scored": false,
+      "physical_identity": {
+        "status": "unverified",
+        "material_to_lot_or_independent_assay_to_preparation_to_session_to_raw_filename": "not established",
+        "previously_seen_overlap": "not cleared; missing physical/family/session and measurement identifiers"
+      },
+      "axis": {
+        "medium": "unconfirmed",
+        "chamber_atmosphere_is_axis_evidence": false,
+        "reported_range_nm": [
+          200,
+          1500
+        ],
+        "actual_file_geometry_verified": false,
+        "source_says": "air at10L/min; not wavelength convention",
+        "calibration_evidence": "No explicit air/vacuum export convention found in inspected paper/thesis. NIST reference lines alone do not establish measured-axis calibration."
+      },
+      "composition_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "instrument_domain": {
+        "within_chemcam_profile": "unverified_or_other_instrument",
+        "ood_final": "possible only under an explicit preregistered OOD contract with frozen weights and thresholds after chemistry, licence, axis, identities and usable geometry qualify; not admitted here",
+        "instrument": "Lightigo FireFly with echelle and EMCCD",
+        "reported_positive_development": "Same FireFly study includes Fe-rich SUS1R, but SUS1R is not a certified Mg control; independently labelled Mg-positive set not established."
+      },
+      "chemistry": {
+        "material": "NISTSRM1411 soft borosilicate glass",
+        "certificate_date": "1985-08-02",
+        "Fe2O3_wt_pct": 0.05,
+        "Fe2O3_uncertainty_wt_pct": 0.008,
+        "uncertainty_semantics": "Judgement based on method biases, between-laboratory variability and material variability; no coverage factor or 95% probability declared",
+        "FeOT_quoted_uncertainty_endpoint_wt_pct": 0.0521889947209228,
+        "FeOT_conversion": "(0.050 + 0.008) * 2*(55.845+15.999)/(2*55.845+3*15.999)",
+        "conditional_Fe_candidate": "Below0.1wt%FeOT at quoted endpoint, but do not relabel as a measured one-sided95%upper bound",
+        "MgO_wt_pct": 0.33,
+        "MgO_uncertainty_wt_pct": 0.04,
+        "Mg_role": "Not a Mg blank and below project1wt%positive threshold; operational label unknown",
+        "CaO_wt_pct": 2.18,
+        "CaO_uncertainty_wt_pct": 0.05,
+        "Ca_conditional_role": "positive if actual prepared material and uncertainty applicability established",
+        "admission_caveat": "No material/session/file linkage or certified uncertainty coverage for an admitted blank established."
+      },
+      "licence": {
+        "paper": "CC-BY-NC3.0",
+        "demo": "described as non-commercial",
+        "numeric_measurement_files": "not independently confirmed from paper/demo terms",
+        "emission_line_database": "Zenodo13762624 is line database, not raw sample spectra"
+      },
+      "availability": {
+        "numeric_measurements": "Paper links interactive Colab demo, not a separately verified measurement manifest",
+        "notebooks_inspected": false,
+        "notebooks_reason": "May embed final spectra or rendered arrays; no notebook payload requested",
+        "author_code_route": "Thesis explicitly links github.com/gajzuz/libs-featex; official repo and tree API returned404 on2026-10-19",
+        "related_zenodo10557230": "Published model assessment/interface ZIPs; not verified numeric raw spectra and ZIPs not opened"
+      },
+      "blockers": [
+        "Numeric raw-file reuse licence and file manifest not established",
+        "No explicit measured-axis medium/calibration convention",
+        "NIST certificate uncertainty cannot be assigned an invented coverage level",
+        "Actual glass disk/preparation/session/file mapping and prior-exposure clearance missing",
+        "No qualifying Mg blank; no verified geometry or positive development support for same instrument"
+      ],
+      "documents_needed": [
+        "Standalone metadata/code and licensed numeric-file manifest from demo without inline intensities",
+        "Traceable link of measured glass specimen and preparation to SRM1411 certificate and assay applicability",
+        "Defensible upper-bound semantics for prepared sample under preregistered protocol",
+        "Air/vacuum calibration/export documentation and physical/family/session IDs"
+      ]
+    },
+    {
+      "candidate_id": "rsc2024-sus1r",
+      "title": "BAM SUS1R setting-up sample, not certified blank",
+      "status": "blocked",
+      "admitted_elements": [],
+      "primary_urls": [
+        "https://doi.org/10.1039/D4JA00247D",
+        "https://webshop.bam.de/webshop_en/reference-material/iron-steel/sample-for-spectrometric-analysis/bam-sus-1r.html",
+        "https://webshop.bam.de/media/wysiwyg/Kategorien/Referenzmaterialien/Eisen_Stahl/Spektrometer_Einstellprobe/Zertifikate/sus_1rde.pdf"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v6_other/sus1r_product.html",
+          "sha256": "144fb41bc36d000a600aec5d486d565e54763666613d089798a6acf5c65f453f",
+          "bytes": 72499
+        },
+        {
+          "path": "data/raw/final_search_v6_other/sus1r_certificate.pdf",
+          "sha256": "0a13e0663abb89f1132cd0fe7bcd1a8d2d6dee45b108ac5e25b6879a44639028",
+          "bytes": 141481
+        },
+        {
+          "path": "data/raw/final_search_v6_other/sus1r_certificate.txt",
+          "sha256": "13072cd96372cdfbd76d415ef146f783536e08da9971a7a405e0ed7dffa19ea5",
+          "bytes": 4125
+        },
+        {
+          "path": "data/raw/final_search_v6_other/sus1r_certificate_p2.png",
+          "sha256": "46febe403794e8b1a055712c89f9cde21ac39200c9faef9df318ce4085c836b0",
+          "bytes": 180841
+        },
+        {
+          "path": "data/raw/final_search_v6_other/rsc_primary_search_extract.json",
+          "sha256": "9a85ba785b3c3f1ea058cd71dda75c1e40b703142f4d975f35d5a3a1b2240e73",
+          "bytes": 31560
+        }
+      ],
+      "raw_final_intensities_downloaded": false,
+      "raw_final_intensities_opened": false,
+      "scored": false,
+      "physical_identity": {
+        "status": "unverified",
+        "material_to_lot_or_independent_assay_to_preparation_to_session_to_raw_filename": "not established",
+        "previously_seen_overlap": "not cleared; missing physical/family/session and measurement identifiers"
+      },
+      "axis": {
+        "medium": "unconfirmed",
+        "chamber_atmosphere_is_axis_evidence": false,
+        "reported_range_nm": [
+          200,
+          1500
+        ],
+        "source_says": "air atmosphere; no axis convention"
+      },
+      "composition_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "instrument_domain": {
+        "within_chemcam_profile": "unverified_or_other_instrument",
+        "ood_final": "possible only under an explicit preregistered OOD contract with frozen weights and thresholds after chemistry, licence, axis, identities and usable geometry qualify; not admitted here"
+      },
+      "chemistry": {
+        "matrix": "low-alloy steel, not silica",
+        "CRM_status": "Official BAM product says certified reference material: No",
+        "certificate_status": "English p2 explicitly Uncertified mass contents",
+        "uncertainty": "SD of87spark determinations on18samples; not certified concentration upper bounds",
+        "Mg": "Not listed; cannot infer zero or upper limit",
+        "Fe": "Iron-rich matrix, unsuitable as Fe blank",
+        "identity_inconsistency": "Paper Table2 reports Cu140ppm, Co21ppm,V59ppm,W3ppm whereas linked BAM sheet states Cu0.7%,Co0.3%,V0.5%,W0.7%; material/source-version identity requires clarification",
+        "conditional_roles": "Possible Fe-positive material only after independent assay/identity qualification; no Fe/Mg blank established"
+      },
+      "licence": {
+        "paper": "CC-BY-NC3.0",
+        "numeric_measurement_files": "unconfirmed"
+      },
+      "availability": {
+        "colab": "https://colab.research.google.com/drive/1G-UAWBh-ZBpL-Ztmyxf0Y6lddqsXRIzx",
+        "notebook_opened": false
+      },
+      "blockers": [
+        "SUS1R is not a certified Fe/Mg blank",
+        "No Mg assay/bound",
+        "Trace composition mismatch between paper and linked BAM sheet",
+        "Numeric-file licence, explicit wavelength medium and physical/session mapping unresolved"
+      ]
+    },
+    {
+      "candidate_id": "sciencedb-graphite-12638",
+      "title": "U/Th in graphite matrix",
+      "status": "blocked",
+      "admitted_elements": [],
+      "primary_urls": [
+        "https://doi.org/10.57760/sciencedb.12638",
+        "https://www.scidb.cn/detail?dataSetId=74edeee5e913457181d03cb693ff79fe"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v6_other/sciencedb_graphite_metadata.json",
+          "sha256": "3d978f926d3588ef254bae13bcfefc2facad7beb09593417f2d0d527a5d12d99",
+          "bytes": 10858
+        },
+        {
+          "path": "data/raw/final_search_v6_other/sciencedb_graphite_croissant_0.json",
+          "sha256": "8e550bb9d06cd3bbf3b4b468a47f18320051a8130fb6bf739ab47bd2c10836f5",
+          "bytes": 5093
+        },
+        {
+          "path": "data/raw/final_search_v6_other/sciencedb_graphite_page.html",
+          "sha256": "8f7d0a0341a0b2bdda88d28618082149f585d78a5f352d3f9f58e66946afd0f9",
+          "bytes": 795588
+        }
+      ],
+      "raw_final_intensities_downloaded": false,
+      "raw_final_intensities_opened": false,
+      "scored": false,
+      "physical_identity": {
+        "status": "unverified",
+        "material_to_lot_or_independent_assay_to_preparation_to_session_to_raw_filename": "not established",
+        "previously_seen_overlap": "not cleared; missing physical/family/session and measurement identifiers"
+      },
+      "axis": {
+        "medium": "unconfirmed",
+        "chamber_atmosphere_is_axis_evidence": false
+      },
+      "composition_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "instrument_domain": {
+        "within_chemcam_profile": "unverified_or_other_instrument",
+        "ood_final": "possible only under an explicit preregistered OOD contract with frozen weights and thresholds after chemistry, licence, axis, identities and usable geometry qualify; not admitted here"
+      },
+      "licence": {
+        "numeric_dataset_declared": "CC-BY4.0",
+        "source": "officialDataCite and ScienceDB Croissant",
+        "confirmed": true
+      },
+      "availability": {
+        "declared_dataset_bytes": 2066691,
+        "distribution_files": "Not enumerated in inspected Croissant metadata; payload not downloaded"
+      },
+      "chemistry": {
+        "reported_scope": "U/Th mixtures in graphite",
+        "Fe_Mg_bounds": "Absent from inspected metadata; graphite nominal identity is not chemical blank evidence"
+      },
+      "blockers": [
+        "No linked independent Fe/Mg upper-bound assay",
+        "No explicit wavelength medium in inspected metadata",
+        "No auditable physical/family/session/preparation/file linkage",
+        "Actual geometry/instrument and positive support not qualified"
+      ]
+    },
+    {
+      "candidate_id": "figshare-fsal-23757846",
+      "title": "Femtosecond LIBS aluminium alloys supplement",
+      "status": "blocked",
+      "admitted_elements": [],
+      "primary_urls": [
+        "https://doi.org/10.1364/OE.497880",
+        "https://doi.org/10.6084/m9.figshare.23757846",
+        "https://api.figshare.com/v2/collections/6759861/articles"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v6_other/fsal_figshare_collection.json",
+          "sha256": "43989b97dd804741cdf36532a2d96bb3f8c7fc6dd905bb60f7c7865bd52a5a0b",
+          "bytes": 4917
+        },
+        {
+          "path": "data/raw/final_search_v6_other/fsal_figshare_items.json",
+          "sha256": "fb9a0bc9212418b7dc1a3ab2423b12331c4612648bf2ca1a3351c062be28855d",
+          "bytes": 1210
+        },
+        {
+          "path": "data/raw/final_search_v6_other/fsal_figshare_supplement_metadata.json",
+          "sha256": "1816f96883c67fbfb89d8e538894c1f7339c12a4c48aabcd38c1bdcefd9235aa",
+          "bytes": 3824
+        },
+        {
+          "path": "data/raw/final_search_v6_other/fsal_supplement.pdf",
+          "sha256": "4956bc60bb19ef7b672374d0c8c4e2acfcf603ecc0250e9d7282eea5ccf6ac00",
+          "bytes": 731133
+        },
+        {
+          "path": "data/raw/final_search_v6_other/fsal_supplement.txt",
+          "sha256": "4e75bae76051dc7c7d176c3e11a148b7fc1e63ec6074f660025c36b1a7056ba0",
+          "bytes": 4033
+        }
+      ],
+      "raw_final_intensities_downloaded": false,
+      "raw_final_intensities_opened": false,
+      "scored": false,
+      "physical_identity": {
+        "status": "unverified",
+        "material_to_lot_or_independent_assay_to_preparation_to_session_to_raw_filename": "not established",
+        "previously_seen_overlap": "not cleared; missing physical/family/session and measurement identifiers"
+      },
+      "axis": {
+        "medium": "unconfirmed",
+        "chamber_atmosphere_is_axis_evidence": false
+      },
+      "composition_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "instrument_domain": {
+        "within_chemcam_profile": "unverified_or_other_instrument",
+        "ood_final": "possible only under an explicit preregistered OOD contract with frozen weights and thresholds after chemistry, licence, axis, identities and usable geometry qualify; not admitted here"
+      },
+      "licence": {
+        "supplement": "CC-BY4.0",
+        "raw_dataset": "not identified"
+      },
+      "availability": {
+        "collection_file_inventory": [
+          {
+            "name": "6528971.pdf",
+            "bytes": 731133,
+            "contents": "3-page supplement containing model hyperparameter table; no numeric raw spectral release in this inventory"
+          }
+        ]
+      },
+      "chemistry": {
+        "Fe_Mg_bounds": "Not in inspected supplement"
+      },
+      "blockers": [
+        "Identified open artifact is hyperparameter supplement, not numeric experimental spectra",
+        "No linked certified Fe/Mg bounds or explicit axis convention",
+        "Physical/family/session and raw-file mapping missing"
+      ]
+    },
+    {
+      "candidate_id": "marburg-libs-fdr56",
+      "title": "Marburg Data For LIBS Application",
+      "status": "blocked",
+      "admitted_elements": [],
+      "primary_urls": [
+        "https://doi.org/10.17192/fdr/56",
+        "https://data.uni-marburg.de/handle/dataumr/121"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v6_other/marburg_libs_metadata.json",
+          "sha256": "69a36ae5ae4ff5a6773c1c66b108c7a26c3bc66111115de29c1f03c795b262e0",
+          "bytes": 5556
+        },
+        {
+          "path": "data/raw/final_search_v6_other/marburg_libs_page.html",
+          "sha256": "91345c861aa587a68e37941d9e3396126272d15b530ecda680d930dffa0a994c",
+          "bytes": 817046
+        }
+      ],
+      "raw_final_intensities_downloaded": false,
+      "raw_final_intensities_opened": false,
+      "scored": false,
+      "physical_identity": {
+        "status": "unverified",
+        "material_to_lot_or_independent_assay_to_preparation_to_session_to_raw_filename": "not established",
+        "previously_seen_overlap": "not cleared; missing physical/family/session and measurement identifiers"
+      },
+      "axis": {
+        "medium": "unconfirmed",
+        "chamber_atmosphere_is_axis_evidence": false
+      },
+      "composition_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "instrument_domain": {
+        "within_chemcam_profile": "unverified_or_other_instrument",
+        "ood_final": "possible only under an explicit preregistered OOD contract with frozen weights and thresholds after chemistry, licence, axis, identities and usable geometry qualify; not admitted here"
+      },
+      "licence": {
+        "rights_uri": "https://rightsstatements.org/page/InC/1.0/",
+        "status": "InCopyright; open reuse permission not established"
+      },
+      "availability": {
+        "described_materials": "Polymer references including PA6,PE,PP,PVC,PET,PC,PS and natural/microparticle samples; vendor/BAM source does not establish trace assays"
+      },
+      "chemistry": {
+        "Fe_Mg_bounds": "No independent bound in inspected metadata; polymer formula is not blank evidence"
+      },
+      "blockers": [
+        "No confirmed reuse licence",
+        "No independent Fe/Mg upper-bound assay",
+        "Axis medium and physical/preparation/session mapping not established"
+      ]
+    },
+    {
+      "candidate_id": "mendeley-marine-salts-73jr9wpp3f",
+      "title": "LIBS-LIA-FSRF marine salt analogues",
+      "status": "blocked",
+      "admitted_elements": [],
+      "primary_urls": [
+        "https://doi.org/10.17632/73jr9wpp3f.1",
+        "https://data.mendeley.com/datasets/73jr9wpp3f/1"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v6_other/mendeley_salts_metadata.json",
+          "sha256": "e8354c5165f8c158bbf7ca1181b3de17d582221661f02ccd3b27c4859c5b39f7",
+          "bytes": 5239
+        },
+        {
+          "path": "data/raw/final_search_v6_other/mendeley_salts_page.html",
+          "sha256": "9721c4854518bbe898b51683c4fb373c84cf47eaabd49d38a8b9fbd308201377",
+          "bytes": 119109
+        }
+      ],
+      "raw_final_intensities_downloaded": false,
+      "raw_final_intensities_opened": false,
+      "scored": false,
+      "physical_identity": {
+        "status": "unverified",
+        "material_to_lot_or_independent_assay_to_preparation_to_session_to_raw_filename": "not established",
+        "previously_seen_overlap": "not cleared; missing physical/family/session and measurement identifiers"
+      },
+      "axis": {
+        "medium": "unconfirmed",
+        "chamber_atmosphere_is_axis_evidence": false,
+        "reported_range_nm": [
+          300,
+          890
+        ],
+        "coverage_status": "Reported range misses portions of ChemCam profileUV and longwave; no fabricated zero padding permitted"
+      },
+      "composition_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "instrument_domain": {
+        "within_chemcam_profile": "unverified_or_other_instrument",
+        "ood_final": "possible only under an explicit preregistered OOD contract with frozen weights and thresholds after chemistry, licence, axis, identities and usable geometry qualify; not admitted here"
+      },
+      "licence": {
+        "dataset": "CC-BY4.0",
+        "confirmed": true
+      },
+      "availability": {
+        "reported_files": [
+          "LIBS.zip",
+          "LIA.zip"
+        ],
+        "archives_downloaded": false
+      },
+      "chemistry": {
+        "reported_materials": [
+          "NaCl",
+          "CaCl2",
+          "MgSO4",
+          "KCl"
+        ],
+        "Fe_Mg_bounds": "No independently assayed upper bounds linked to actual prepared lots in inspected metadata"
+      },
+      "blockers": [
+        "No qualified Fe/Mg control assay",
+        "Explicit wavelength medium and linked identities unavailable",
+        "Reported geometry omits needed wavelengths; cannot claim full-profile test"
+      ]
+    },
+    {
+      "candidate_id": "osti-atomic-nacu-1616321",
+      "title": "ATOMIC simulations and experimental sodium/copper mixtures",
+      "status": "blocked",
+      "admitted_elements": [],
+      "primary_urls": [
+        "https://doi.org/10.25583/1616321",
+        "https://www.osti.gov/servlets/purl/1616321/"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v6_other/atomic_cu_metadata.json",
+          "sha256": "4d2ce4a0bceddbc3c504bb6f95946381c8902122d14a7712f154e9c315b762bc",
+          "bytes": 10789
+        }
+      ],
+      "raw_final_intensities_downloaded": false,
+      "raw_final_intensities_opened": false,
+      "scored": false,
+      "physical_identity": {
+        "status": "unverified",
+        "material_to_lot_or_independent_assay_to_preparation_to_session_to_raw_filename": "not established",
+        "previously_seen_overlap": "not cleared; missing physical/family/session and measurement identifiers"
+      },
+      "axis": {
+        "medium": "unconfirmed",
+        "chamber_atmosphere_is_axis_evidence": false,
+        "reported_experimental_range_nm": [
+          550,
+          600
+        ],
+        "coverage_status": "Insufficient for full-profile test"
+      },
+      "composition_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "instrument_domain": {
+        "within_chemcam_profile": "unverified_or_other_instrument",
+        "ood_final": "possible only under an explicit preregistered OOD contract with frozen weights and thresholds after chemistry, licence, axis, identities and usable geometry qualify; not admitted here"
+      },
+      "licence": {
+        "DataCite_rightsList": [],
+        "raw_dataset": "not established from inspected metadata"
+      },
+      "availability": {
+        "described_numeric_experimental": "CSV fourNa/Cumixtures; not downloaded",
+        "synthetic_vs_experimental": "240–880nm is coarse simulated range; included experimental results are matched by550–600nm fine simulations. Do not misattribute broad synthetic range to experimental data."
+      },
+      "chemistry": {
+        "Fe_Mg_bounds": "No independently bound traceFe/Mg assay for actual mixtures in inspected metadata; percentages summingNa+Cu to1in simulation are not physical purity evidence"
+      },
+      "blockers": [
+        "Actual experiment narrowrange, not full-profile numeric dataset",
+        "No linkedFe/Mgupperbounds",
+        "Raw licence and measured-axis convention not established",
+        "Physical/family/session lineage not cleared"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "repository": "JVrabel/PAPER_distanceLIBS",
+  "issue_number": 1,
+  "url": "https://github.com/JVrabel/PAPER_distanceLIBS/issues/1",
+  "title": "Data availability and wavelength convention for Fe & Al / BAM310 (D4JA00377B)",
+  "body": "Hello,\n\nI am looking for the measured Fe & Al dataset described in sections 2.3–2.5 of\n“On the non-universality of distance metrics in laser-induced breakdown\nspectroscopy” (DOI: 10.1039/D4JA00377B), particularly the BAM310 observations.\nI checked the linked Fe–Co/soil releases, the public spectra_similarity_datasets\nfolder and the article's ESI, but have not located these numerical Fe & Al files.\n\nCould you point to an existing release or provide the following existing records?\n\n1. The numerical BAM310 files and an explicit licence or permission for their reuse.\n2. The wavelength convention of the released axis (air or vacuum), with the\n   applicable calibration/export or conversion description.\n3. The link between the files and the actual BAM310 specimen/preparation, and\n   whether the ablated positions lie in the certificate's valid region (excluding\n   the outer 5 mm and the central 20 mm diameter). A documented statement or\n   existing acquisition map would be sufficient.\n4. Any existing specimen, preparation and acquisition identifiers needed to keep\n   repeated positions/laser energies grouped as one material in an external test.\n\nThe intended use is a test of a fixed model on a chemically characterised\nlow-Fe control. Repeated laser positions would be reported as repeats of that\nmaterial. No new measurements are requested.\n\nThank you.\n",
+  "author": "ssivitskii",
+  "state": "open",
+  "created_at": "2026-10-19T20:20:12Z",
+  "authorization": {
+    "source": "direct_human_reply_in_current_chat",
+    "text": "Да, опубликуй подготовленный запрос",
+    "scope": "The prepared public BAM310 issue only; no GOE100 author message authorized"
+  },
+  "published_via": "Existing authenticated gh CLI after the GitHub App connector returned Resource not accessible by integration",
+  "approved_body_matches": true,
+  "comments_at_verification": 0,
+  "owner_response_received": false
+}

@@ -1,0 +1,631 @@
+{
+  "schema_version": 1,
+  "artifact_type": "independent_libs_blank_candidate_search",
+  "reviewed_at": "2026-10-19",
+  "search_revision": "v6_pds",
+  "status": "blocked_no_qualified_final_campaign",
+  "scope": "New primary metadata/assay/archive routes for the frozen ChemCam LANL profile; no new spectral intensity access.",
+  "new_raw_spectral_files_downloaded": 0,
+  "new_raw_spectral_files_opened": 0,
+  "predictions_run": 0,
+  "authors_contacted": false,
+  "qualified_new_controls": 0,
+  "qualified_final_datasets": 0,
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "candidate_count": 8,
+  "required_instrument": "ChemCam LANL laboratory testbed",
+  "required_bands_nm": [
+    [
+      241,
+      340
+    ],
+    [
+      383,
+      468
+    ],
+    [
+      474,
+      900
+    ]
+  ],
+  "policy": {
+    "FeOT_max_blank_bound_wt_percent": 0.1,
+    "MgO_max_blank_bound_wt_percent": 0.1,
+    "separate_per_element_controls_allowed": true,
+    "formal_named_CoA_not_mandatory": true,
+    "independent_prepared_material_assay_can_qualify": true,
+    "point_or_observed_spot_max_is_not_automatically_an_upper_bound": true,
+    "prior_registry_nonmatch_is_not_proof_of_independence": true
+  },
+  "previous_registry": {
+    "path": "data/reference/final_search_v3_admission.json",
+    "sha256": "3ba1911e3529ee3c97c6bdf52412b65e9aaae336d6654c47ed5fb4c203969055",
+    "bytes": 59193,
+    "kind": "metadata"
+  },
+  "previous_audit": {
+    "path": "data/reference/final_search_v5_pds.json",
+    "sha256": "24c8073e8ecd547e236f6ebecfa9fa1a540f7db56065caef86e35284a5469a8b",
+    "bytes": 41324,
+    "kind": "metadata"
+  },
+  "previous_metadata_bindings": [
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_compositions.csv",
+      "sha256": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07",
+      "bytes": 49247,
+      "kind": "previously_retrieved_chemical_table",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv"
+    },
+    {
+      "path": "data/raw/chemcam_adaptation/test/goedv/2018_07_30_134057_ccs.lbl",
+      "sha256": "a2e59dab33086fa6957647d31df0d1c8dd02a8f04a349c509de29d4e9be62541",
+      "bytes": 19500,
+      "kind": "previously_seen_product_label_only",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/goedv/2018_07_30_134057_ccs.lbl"
+    }
+  ],
+  "metadata_archive_inventory": [
+    {
+      "name": "Table S2.xlsx",
+      "uncompressed_bytes": 238978,
+      "compressed_bytes": 219293,
+      "crc32": "1a540cef"
+    },
+    {
+      "name": "Table S3.xlsx",
+      "uncompressed_bytes": 27894,
+      "compressed_bytes": 25035,
+      "crc32": "0ce4e567"
+    },
+    {
+      "name": "Table S4.xlsx",
+      "uncompressed_bytes": 67663332,
+      "compressed_bytes": 3922902,
+      "crc32": "bcc88fda"
+    }
+  ],
+  "opened_archive_members": [
+    "Table S2.xlsx"
+  ],
+  "unopened_archive_members": [
+    "Table S3.xlsx",
+    "Table S4.xlsx"
+  ],
+  "david2020_LANL_spectral_archive_metadata": [
+    {
+      "key": "LIBS laboratory spectra LANL.zip",
+      "size": 270354229,
+      "checksum": "md5:024dd326aa4d20cb8de97e565eec16cc",
+      "links": {
+        "self": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content"
+      }
+    }
+  ],
+  "david2020_LANL_spectral_archive_downloaded": false,
+  "candidates": [
+    {
+      "id": "david2020_goe100_lanl",
+      "admission": "not_admitted",
+      "certified_blank": false,
+      "candidate_kind": "new_metadata_linked_low_Mg_control_lead",
+      "primary_url": "https://doi.org/10.1029/2019JE006314",
+      "archive_url": "https://zenodo.org/records/3902232",
+      "chemical_metadata_url": "https://zenodo.org/records/3903074",
+      "license": "CC-BY-4.0 for Zenodo data and tables",
+      "physical_id": "GOE100",
+      "aliases": [
+        "G100 (IRAP filename alias)"
+      ],
+      "instrument": "LANL ChemCam testbed EM mast / EQM body, not IRAP",
+      "source_assay": {
+        "method": "LA-ICP-MS, eight ~60 micrometre analysis points on Sigma Aldrich goethite powder",
+        "independent_of_LIBS": true,
+        "source_locator": "David thesis printed p255 / PDF p271 Figure C.3; Table S2 Mixture compositions row32",
+        "FeOT_point_wt_percent": 79.88726962654403,
+        "MgO_point_wt_percent": 0.007320814684312373,
+        "MgO_eight_spots_wt_percent": [
+          0.00607389,
+          0.00656981,
+          0.00698923,
+          0.00744733,
+          0.00697457,
+          0.00818041,
+          0.00791312,
+          0.00841815
+        ],
+        "MgO_values_censored": false,
+        "CaO_point_wt_percent": 0.009290474185378381,
+        "published_MgO_upper_bound": null,
+        "method_QA_status": "Eight spot replicates and indicative homogeneity described in thesis 4.4. No named LA-ICP-MS calibration standard, quantified recovery, bias or analytical uncertainty located in the reviewed thesis/paper; maxima are not certified whole-powder bounds."
+      },
+      "spectral_file_manifest": [
+        "CE5_310165629CCS_L1600050GOE100X18P1.csv",
+        "CE5_310165931CCS_L1600050GOE100X18P1.csv",
+        "CE5_310170202CCS_L1600050GOE100X18P1.csv",
+        "CE5_310170438CCS_L1600050GOE100X18P1.csv",
+        "CE5_310170759CCS_L1600050GOE100X18P1.csv"
+      ],
+      "manifest_locator": "Table S2 File Names rows67–71; IRAP aliases rows207–211",
+      "spectral_files_downloaded": false,
+      "session_id": null,
+      "filename_date_interpretation": "CE5_310 prefix retained verbatim; no date decoded without an authoritative filename mapping. 18P1 is not assumed to mean 2018.",
+      "axis_medium": "not established for these specific archived CSVs; Goetz2023 separately confirms current ChemCam vacuum calibration",
+      "coverage": "Paper describes UV/VIO/VNIR instrument bands, but exact exported axis, missing channels and units have not been checked.",
+      "previous_seen_status": {
+        "literal_name_match": false,
+        "independence": "unresolved",
+        "potential_related_seen_material": "GOEDV, old test now development, 2018-07-30",
+        "related_assay_point_MgO": 0.06,
+        "related_assay_point_FeOT": 78.34,
+        "related_assay_point_MnO": 0.276,
+        "inference": "Different names and composition estimates neither prove an alias nor distinct stock/family. No lot/preparation evidence resolves relationship."
+      },
+      "maximum_support_if_independence_and_assay_qualified": {
+        "physical_materials": 1,
+        "families": 1,
+        "certified_sessions": 0,
+        "acquisition_spots": 5
+      },
+      "blockers": [
+        "No defensible source-backed MgO upper bound yet: replicate spread does not quantify analytical bias.",
+        "Physical stock/family relation to GOEDV not established.",
+        "Actual session and per-file vacuum/coverage contract not established.",
+        "One material and repeated laser spots cannot satisfy campaign support by themselves."
+      ]
+    },
+    {
+      "id": "david2020_h100_irap",
+      "admission": "not_admitted",
+      "certified_blank": false,
+      "primary_url": "https://zenodo.org/records/3903074",
+      "archive_url": "https://zenodo.org/records/3772349",
+      "license": "CC-BY-4.0 established for chemical tables; IRAP archive not fetched in this audit",
+      "instrument": "IRAP EQM experimental setup, not the frozen LANL instrument",
+      "source_assay": {
+        "method": "eight LA-ICP-MS spots on Sigma Aldrich hematite powder",
+        "locator": "thesis Figure C.3 PDF p271; Table S2 row19",
+        "FeOT_point_wt_percent": 88.59750265161324,
+        "MgO_point_wt_percent": 0.0024812447001319447,
+        "MgO_spots_wt_percent": [
+          0.00245226,
+          0.00257788,
+          0.00217999,
+          0.00234021,
+          0.00267512,
+          0.00243906,
+          0.00209716,
+          0.00308828
+        ],
+        "CaO_source_reported_censored_average": "<0.005 wt%",
+        "MgO_upper_bound": null
+      },
+      "file_count_IRAP": 5,
+      "file_count_LANL": 0,
+      "previous_seen_status": "H100 literal name not matched; physical stock independence unresolved",
+      "blockers": [
+        "Different instrument requires development transfer before final evaluation.",
+        "Mg assay uncertainty and independence not established."
+      ],
+      "note": "Hematite formula is not used as proof of Mg absence. Censored CaO is real chemistry evidence but does not establish Fe/Mg blanks."
+    },
+    {
+      "id": "anderson_thomas_assay_and_archive_recovery",
+      "admission": "not_admitted",
+      "certified_blank": false,
+      "primary_urls": [
+        "https://doi.org/10.1002/2016JE005164",
+        "https://doi.org/10.1029/2017JE005467"
+      ],
+      "new_sources": [
+        "Caltech JSON file inventories",
+        "Anderson2020 thesis chapter6",
+        "Thomas2019 thesis",
+        "Current ActLabs 4B Fusion ICP method and QA pages"
+      ],
+      "confirmed_v5_lead": "Mix11O Na2SO4 Batch2 MgO<0.01 wt% by independent FUS-ICP; a useful censored assay, not zero",
+      "Fe_bound_status": "Fe2O3(T)=.03 wt% is a point estimate; no historically matched quantitative uncertainty for this measurement found.",
+      "formal_CoA_required": false,
+      "QA_finding": "Current ActLabs 4B documentation lists reagent blank, CRM, replicate checks and 0.01wt% detection limits for Fe2O3/MgO. It does not retrospectively establish batch-specific bias/uncertainty for 2013/14 salt results.",
+      "archive_finding": "Caltech inventories contain papers, supplements and external-data pointers, not the full raw spectral archive. Wiley still advertises DataS1 (~496.5MB); the checked web route returned403. This is not evidence that data disappeared worldwide.",
+      "previous_seen_status": "Same known K1919/GBW07105 and salt families across papers; Mix11O exact lot/session remains unresolved.",
+      "blockers": [
+        "Defensible low-Fe assay upper bound unresolved.",
+        "Mix11O family/preparation/session independence unresolved.",
+        "Accessible licensed full numerical manifest and complete 474–900nm coverage unresolved."
+      ]
+    },
+    {
+      "id": "gbw07701_07720_certified_matrix",
+      "admission": "not_admitted",
+      "certified_blank": false,
+      "primary_url": "https://www.ncrm.org.cn/English/CRM/pdf/GBW07701_20160301_141325746_1741800.pdf",
+      "candidate_kind": "PDS missing-chemistry route resolved against blank interpretation",
+      "source_locator": "Official certificate pp2–4, prepared matrix recipes",
+      "silicate_matrix_recipe_wt_percent": {
+        "Fe2O3": 4,
+        "pure_dolomite": 4
+      },
+      "limestone_matrix_recipe_wt_percent": {
+        "Fe2O3": 0.3,
+        "MgCO3": 8
+      },
+      "previous_seen_status": "Empty Fe/Mg composition fields in the PDS chemical table do not establish low concentrations or independence.",
+      "blockers": [
+        "Published matrix recipes deliberately contain Fe and Mg; missing PDS entries cannot be relabeled as blank."
+      ],
+      "license": "Public certificate; no new numerical-data reuse licence established by certificate alone."
+    },
+    {
+      "id": "gasda2017_boron_blanks",
+      "admission": "not_admitted",
+      "certified_blank": false,
+      "primary_url": "https://doi.org/10.1002/2017GL074480",
+      "source_locator": "Supporting Information pp2–3",
+      "new_finding": "B-free design is not Fe/Mg-free. Nominal B-free reference set spans FeOT0.045–86.31wt%; baseline calcite/dolomite/gypsum refers back to Anderson2017. Borax99.5% and gypsum98–99% purity plus BHVO2 mixtures do not bound Fe/Mg below policy.",
+      "instrument": "LANL ChemCam testbed",
+      "axis_medium": "Chamber vacuum/pressure is not an explicit exported-axis declaration.",
+      "previous_seen_status": "Anderson2017 and Clegg calibration parents overlap previous corpus; Smithsonian borates lack linked independent Fe/Mg assays and raw manifest.",
+      "license": "Article CC-BY-NC-ND; external spectral-product licence not established.",
+      "blockers": [
+        "No linked Fe/Mg quantitative assay bounds.",
+        "No independently qualified new material/session/export chain."
+      ]
+    },
+    {
+      "id": "vaniman2012_ceramic_components",
+      "admission": "not_admitted",
+      "certified_blank": false,
+      "primary_url": "https://doi.org/10.1007/s11214-012-9886-0",
+      "new_finding": "XRF repeatability values in this paper belong to its XRF method and samples. They cannot be attached to Anderson ActLabs FUS-ICP measurements. Kaolinite KGa2 is not Fe blank (raw ~.82wt% Fe2O3) and is already represented in earlier families. Mallinckrodt CaSO4 reagent is described without a linked Fe/Mg impurity upper bound.",
+      "instrument": "Flight calibration-target development; not a newly established independent LANL campaign.",
+      "previous_seen_status": "KGa2/canonical calibration materials overlap seen corpus.",
+      "blockers": [
+        "No new matched assay-bound and independent numerical controls."
+      ]
+    },
+    {
+      "id": "nellessen2023_adsorption_clays",
+      "admission": "not_admitted",
+      "certified_blank": false,
+      "primary_url": "https://doi.org/10.1016/j.icarus.2023.115599",
+      "source_locator": "2021 LPSC abstract2413 and primary LANL publication metadata",
+      "new_finding": "Independent ICP-OES/LIBS boron adsorption study of montmorillonite, nontronite, saponite and griffithite. The metadata/abstract reviewed gives no controlled low-Fe/Mg bound or linked licensed raw manifest.",
+      "previous_seen_status": "Not resolved; mineral names alone are not independent physical IDs.",
+      "blockers": [
+        "No source-backed Fe/Mg blank bounds.",
+        "No compatible independently identified numeric-control chain established."
+      ]
+    },
+    {
+      "id": "goetz2023_copper_route",
+      "admission": "not_admitted",
+      "certified_blank": false,
+      "primary_url": "https://doi.org/10.1029/2021JE007101",
+      "source_locator": "Methods section3, Figure4 caption, Data Availability",
+      "new_finding": "Explicitly identifies current ChemCam wavelength calibration as vacuum. Available data are mission PDS RDR plus Glen Torridon classification metadata, not a new linked LANL pure-Cu control archive. A pure-Ni correlation template is mentioned without Fe/Mg assay bounds.",
+      "license": "Paper CC-BY; PDS flight products remain a different instrument/domain from the LANL profile.",
+      "previous_seen_status": "No eligible new controlled material identified.",
+      "blockers": [
+        "No independently assayed Fe/Mg blank material/file chain.",
+        "Flight measurements cannot be substituted for matched LANL testbed validation."
+      ]
+    }
+  ],
+  "limitations": [
+    "Search is a bounded verified set of routes, not proof of worldwide absence of suitable data.",
+    "No raw axis or sample hashes checked for these potential new final spectra.",
+    "No claim of completed independent model validation; campaign support and receipt guards remain unsatisfied."
+  ],
+  "evidence_snapshots": [
+    {
+      "url": "https://authors.library.caltech.edu/records/9mqje-rbz59/files/grl56315-sup-0001-2017GL074480-SI.pdf?download=1",
+      "path": "data/raw/final_search_v6_pds/gasda2017_supplement.pdf",
+      "fetched_at": "2026-10-19T19:19:48.235580+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "c17bc0e8d1df5c5a3a45cc0876938b4775072031b507f0566e26d1697cc0cd9f",
+      "bytes": 648758,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://authors.library.caltech.edu/records/9mqje-rbz59/files/Gasda_et_al-2017-Geophysical_Research_Letters.pdf?download=1",
+      "path": "data/raw/final_search_v6_pds/gasda2017_paper.pdf",
+      "fetched_at": "2026-10-19T19:19:42.873185+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "6ca68caf72fbeb6ef130d5c96f1e22e0bda6df055260df014a4bda5ff04be1dd",
+      "bytes": 585300,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://actlabs.com/geochemistry-analysis/lithogeochemistry-and-whole-rock-analysis/lithogeochemistry-litho/",
+      "path": "data/raw/final_search_v6_pds/actlabs_lithogeochemistry.html",
+      "fetched_at": "2026-10-19T19:19:42.357949+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "3418f8723d7feba64d4358bcf08d2159d4d3eac812862b89210c425ed72a225a",
+      "bytes": 405896,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://actlabs.com/geochemistry-analysis/quality-assurance/",
+      "path": "data/raw/final_search_v6_pds/actlabs_quality.html",
+      "fetched_at": "2026-10-19T19:19:40.700249+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "d4c742f1787bd3a8412c65c4b9d6fa47a5b4a151d637ceedb69d35f2dd27c907",
+      "bytes": 128603,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://www.ncrm.org.cn/English/CRM/pdf/GBW07701_20160301_141325746_1741800.pdf",
+      "path": "data/raw/final_search_v6_pds/gbw07701_certificate.pdf",
+      "fetched_at": "2026-10-19T19:19:51.099803+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "e6f422b12e97caaa057ab8be91dafc05b832cc4cf743a436869a9050f8bb92f1",
+      "bytes": 1741800,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://www.ncrm.org.cn/Web/Ordering/MaterialDetail?autoID=7541",
+      "path": "data/raw/final_search_v6_pds/gbw07701_material.html",
+      "fetched_at": "2026-10-19T19:19:43.299930+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "a3d0da3cb330432b60a7dc5b1e9135b18aa2f848496372d33900f203ccf882ae",
+      "bytes": 81769,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://thesis.caltech.edu/11711/",
+      "path": "data/raw/final_search_v6_pds/thomas_thesis_record.html",
+      "fetched_at": "2026-10-19T19:19:43.185340+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "97a1f4ecf1c20d0fd508586e843be7f06d9346a3e18bdc57509277245b2b3c85",
+      "bytes": 6825,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://thesis.caltech.edu/11711/1/NThomas_Thesis_revised_submitted_compressed.pdf",
+      "path": "data/raw/final_search_v6_pds/thomas_thesis.pdf",
+      "fetched_at": "2026-10-19T19:19:46.189929+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "a45b29a94ecfe6958af7d673f6c4ec50da4166b9539bce66c320857dc5fc6e35",
+      "bytes": 9940420,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://zenodo.org/api/records/3902232",
+      "path": "data/raw/final_search_v6_pds/david2020_lanl.json",
+      "fetched_at": "2026-10-19T19:21:31.386946+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "6a11626d4b02d9df6af0d3daa7620fd30a8c0f3e9f52193a2d3205476a4e75bf",
+      "bytes": 3843,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://zenodo.org/api/records/3903074",
+      "path": "data/raw/final_search_v6_pds/david2020_samples.json",
+      "fetched_at": "2026-10-19T19:21:31.319403+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "a1c145932de04c6855320b7e07b06cfaf2323e7780d95133da83102b3af85f39",
+      "bytes": 3812,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s11214-012-9886-0",
+      "path": "data/raw/final_search_v6_pds/vaniman2012.html",
+      "fetched_at": "2026-10-19T19:21:32.525517+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "61417ba020957e1446d3cfb55dbf6b53164c85eae2dda181d8299bd6f38e250b",
+      "bytes": 402816,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s11214-012-9886-0/tables/1",
+      "path": "data/raw/final_search_v6_pds/vaniman2012_table1.html",
+      "fetched_at": "2026-10-19T19:21:32.551336+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "1dba6e39777fb14ddae5b5b48cf99cd6fc2cf2ee27e19ea7c282b4325e26065e",
+      "bytes": 217309,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s11214-012-9886-0/tables/2",
+      "path": "data/raw/final_search_v6_pds/vaniman2012_table2.html",
+      "fetched_at": "2026-10-19T19:21:32.527877+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "cb3ebebfece9d231d7ca4ebb327920f311c61c527c5bacb7665535e75105f072",
+      "bytes": 248678,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://laro.lanl.gov/esploro/outputs/journalArticle/Boron-adsorption-in-clay-minerals-Implications/9916458353503761",
+      "path": "data/raw/final_search_v6_pds/nellessen2023_lanl.html",
+      "fetched_at": "2026-10-19T19:21:32.520792+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "af1743206dc653d1e48304d896aa243be2755efd6ca1937752ee5f90cf72a52f",
+      "bytes": 2328,
+      "source_status": "HTML_shell_not_full_article"
+    },
+    {
+      "url": "https://www.hou.usra.edu/meetings/lpsc2021/pdf/2413.pdf",
+      "path": "data/raw/final_search_v6_pds/nellessen2021_abstract.pdf",
+      "fetched_at": "2026-10-19T19:21:33.310449+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "9417942ffd6c4679b6dbb381441984f373fecf9e02f461c67917f121b500939a",
+      "bytes": 212795,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://zenodo.org/api/records/3903074/files/Tables%20SM.zip/content",
+      "path": "data/raw/final_search_v6_pds/david2020_tables.zip",
+      "fetched_at": "2026-10-19T19:22:32.467584+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "c929f6c4f8a608428767b6529f6683ec860e20c5cda10bb365e6e3a4775f0c79",
+      "bytes": 4167558,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://thesis.caltech.edu/11803/14/anderson_dana_2020_thesis.pdf",
+      "path": "data/raw/final_search_v6_pds/anderson_thesis.pdf",
+      "fetched_at": "2026-10-19T19:22:33.850263+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "0c6b42e2d3af32fb866092d42303e28ca668a13792fa64570afbb5889b19e5dc",
+      "bytes": 9590307,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://thesis.caltech.edu/11803/",
+      "path": "data/raw/final_search_v6_pds/anderson_thesis_record.html",
+      "fetched_at": "2026-10-19T19:22:31.131651+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "f07c318e74034e638a8c42fe8b7629b87450234ea680bd3e68263ba78e82d054",
+      "bytes": 7530,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://authors.library.caltech.edu/api/records/he2eq-rm869",
+      "path": "data/raw/final_search_v6_pds/anderson_record.json",
+      "fetched_at": "2026-10-19T19:22:31.642156+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "3fe6ae3d50439bc5ae8cb6d4b9a6f07b88fd0b4789efd801cdfffc48ebeef73a",
+      "bytes": 20667,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://authors.library.caltech.edu/api/records/20rt7-cvf02",
+      "path": "data/raw/final_search_v6_pds/thomas_record.json",
+      "fetched_at": "2026-10-19T19:22:31.635999+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "755759d8e9d137c6e365450fea742bcceeac3e1341ecd6ca6f484f974e7c3208",
+      "bytes": 20197,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://api.crossref.org/works/10.1016%2Fj.icarus.2023.115599",
+      "path": "data/raw/final_search_v6_pds/nellessen2023_crossref.json",
+      "fetched_at": "2026-10-19T19:22:32.063427+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "f54278b0866669afcbb0cfffe7a1f4580f6ae63ce5fc70e41ae6898bbce62892",
+      "bytes": 42136,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://api.archives-ouvertes.fr/search/?q=doiId:10.1029/2019JE006314&fl=title_s,uri_s,fileMain_s,files_s,docid,halId_s&wt=json",
+      "path": "data/raw/final_search_v6_pds/david2020_hal_metadata.json",
+      "fetched_at": "2026-10-19T19:23:54.779165+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "b06688a7b8b577f623be74935e8fc7e333dd36cdafa51fa4fe1c3d6157118f24",
+      "bytes": 44,
+      "source_status": "API_error_response_not_evidence"
+    },
+    {
+      "url": "https://utheme.utoulouse.fr/files/original/6881e73d8a132a8993d9e6ff378cbe77fdd8653f.pdf",
+      "path": "data/raw/final_search_v6_pds/david_thesis.pdf",
+      "fetched_at": "2026-10-19T19:27:58.742136+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "d5790ccde624fce8736a0711d09c56740cf20ffe1eb6b7dd6a34d3f1e867a1d8",
+      "bytes": 14323626,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://hal.science/hal-03093150",
+      "path": "data/raw/final_search_v6_pds/david2020_hal_record.html",
+      "fetched_at": "2026-10-19T19:29:53.258568+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "33055c7d2dce9e16122d4567f24f86757be26f49d59beafb95b09c502229d761",
+      "bytes": 117763,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://hal.science/hal-03093150/document",
+      "path": "data/raw/final_search_v6_pds/david2020_hal_paper.pdf",
+      "fetched_at": "2026-10-19T19:29:53.662911+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "86f81e40dc6c9fbb877f7b751ae0d3505fb33478878538e754f132b163e7f42f",
+      "bytes": 2614085,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://hal.science/hal-04267058/document",
+      "path": "data/raw/final_search_v6_pds/goetz2023_hal.pdf",
+      "fetched_at": "2026-10-19T19:30:22.436114+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "57b718727b3c47950faeabc6aecd7e8046bc62857782f157b54b2f0e3dfcc0b9",
+      "bytes": 5895851,
+      "source_status": "retrieved"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_table_inventory.json",
+      "sha256": "454c0fa1845179c220b94ee7dfe6dbe5b64626fec4d2be8051c1e87273c9a411",
+      "bytes": 388,
+      "kind": "derived_archive_inventory",
+      "source_status": "derived_from_pinned_source",
+      "parent_path": "data/raw/final_search_v6_pds/david2020_tables.zip"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_chemistry_Table_S2.xlsx",
+      "sha256": "754efd08945f448b623084d84402691a6416173707f9236d2ecdd5f5c8cc41ed",
+      "bytes": 238978,
+      "kind": "chemical_compositions_and_filename_metadata",
+      "source_status": "derived_from_pinned_source",
+      "parent_path": "data/raw/final_search_v6_pds/david2020_tables.zip"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david_thesis_assay_C3.png",
+      "sha256": "4597d28f3bd26bf2ddb681d0e6fda84f3f4623fd1729f09937c90e42316aa14a",
+      "bytes": 1276284,
+      "kind": "rendered_assay_table_pdf_page_271",
+      "source_status": "derived_from_pinned_source",
+      "parent_path": "data/raw/final_search_v6_pds/david_thesis.pdf"
+    }
+  ],
+  "retrieval_errors": [
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/suppl/10.1029/2019JE006314/supinfo/jgre21446-sup-0001-Text_SI-S01.zip",
+      "fetched_at": "2026-10-19T19:23:54.633530+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 56,
+      "error": "curl: (56) The requested URL returned error: 403",
+      "attempted_path": "data/raw/final_search_v6_pds/david2020_wiley_supplement.zip"
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2019JE006314&file=jgre21446-sup-0001-Text_SI-S01.zip",
+      "fetched_at": "2026-10-19T19:23:54.599455+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 56,
+      "error": "curl: (56) The requested URL returned error: 403",
+      "attempted_path": "data/raw/final_search_v6_pds/david2020_wiley_action.zip"
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019JE006314",
+      "fetched_at": "2026-10-19T19:23:54.633127+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 56,
+      "error": "curl: (56) The requested URL returned error: 403",
+      "attempted_path": "data/raw/final_search_v6_pds/david2020_record.html"
+    },
+    {
+      "url": "https://utheme.utoulouse.fr/files/original/6881e73d8a132a8993d9e6ff378cbe77fdd8653f.pdf",
+      "fetched_at": "2026-10-19T19:27:28.804168+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 28,
+      "error": "curl: (28) Operation timed out after 40001 milliseconds with 3090206 out of 14323626 bytes received",
+      "attempted_path": "data/raw/final_search_v6_pds/david_thesis.pdf"
+    },
+    {
+      "url": "https://researchprofiles.ku.dk/files/346600243/JGR_Planets_2023_Goetz_Detection_of_Copper_by_the_ChemCam_Instrument_Along_Curiosity_s_Traverse_in_Gale_Crater_Mars_.pdf",
+      "fetched_at": "2026-10-19T19:27:59.468412+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 56,
+      "error": "curl: (56) The requested URL returned error: 403",
+      "attempted_path": "data/raw/final_search_v6_pds/goetz2023_paper.pdf"
+    },
+    {
+      "url": "https://e-docs.geo-leo.de/bitstreams/35be8715-76bf-4256-815e-d518c97746ad/download",
+      "fetched_at": "2026-10-19T19:29:53.073930+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 56,
+      "error": "curl: (56) The requested URL returned error: 403",
+      "attempted_path": "data/raw/final_search_v6_pds/goetz2023_paper_geo.pdf"
+    }
+  ]
+}

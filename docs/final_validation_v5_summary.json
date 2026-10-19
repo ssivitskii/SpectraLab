@@ -1,0 +1,703 @@
+{
+  "schema_version": 1,
+  "artifact_type": "independent_final_source_search_summary",
+  "reviewed_at": "2026-10-19T18:55:53.182908+00:00",
+  "status": "blocked_no_qualified_independent_campaign",
+  "scope": "bounded_primary_metadata_and_chemical_evidence_search_not_model_evaluation",
+  "candidate_audit_entries": 24,
+  "entries_are_not_unique_datasets": true,
+  "audits": [
+    {
+      "path": "data/reference/final_search_v5_pds.json",
+      "sha256": "24c8073e8ecd547e236f6ebecfa9fa1a540f7db56065caef86e35284a5469a8b",
+      "candidate_entries": 7
+    },
+    {
+      "path": "data/reference/final_search_v5_other.json",
+      "sha256": "6613bb8e6b88d1771366208aa679ae83eb8ea19477cf528163ca2650ba2ff9b6",
+      "candidate_entries": 14
+    },
+    {
+      "path": "data/reference/final_search_v5_root.json",
+      "sha256": "3563b87e80a1931d93e5a159d7ec6abc406691817bbc117461b489c1561b2953",
+      "candidate_entries": 3
+    }
+  ],
+  "evidence_files": 78,
+  "evidence_files_new_to_previous_search": 77,
+  "evidence_snapshots": [
+    {
+      "path": "data/raw/final_search_v3/datacite_pds.json",
+      "sha256": "a7d7389f77e2a36a859ab48f7ba5b779ffe9d580e8c1477fc60faaee9f268bfe",
+      "bytes": 7200,
+      "kind": "metadata",
+      "url": "https://api.datacite.org/dois/10.17189/b2aj-cz96",
+      "retrieval_scope": "previously_pinned_metadata_not_refetched"
+    },
+    {
+      "path": "data/raw/final_search_v5_other/acs25962644.json",
+      "sha256": "f2da10974ccb959c707fff7635107dacd0818c48989e2b64fb374dfd61b01d0b",
+      "bytes": 7136,
+      "url": "https://api.figshare.com/v2/articles/25962644",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/acs25962644_support.pdf",
+      "sha256": "5986107e31425f18bc86ce95945d3d5c92a068dad220031ce48a9a2964ec69f0",
+      "bytes": 5439546,
+      "url": "https://ndownloader.figshare.com/files/46795040",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/acs25962644_support.txt",
+      "sha256": "8508e8a7b2c8e3c3a5245420c12ea5c13b18518551c7e76752a10d2989d6b93b",
+      "bytes": 15108,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/al27_2023_paper.pdf",
+      "sha256": "3c5e3b0ff912dcb8f8e0561a2672d44e606bf21816c316c04d6a0adca46e5c34",
+      "bytes": 1880815,
+      "url": "https://upcommons.upc.edu/server/api/core/bitstreams/c9734bc4-f3e5-48e8-b869-75da5d4c17e9/content",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/al27_2023_paper.txt",
+      "sha256": "c3e276f050274c70ff01dc0acabda9e882fa9f7e48a23a2d3c86ee136d8be52f",
+      "bytes": 83455,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/boric2023_fulltext.xml",
+      "sha256": "bfbb1dfe8c88cbab0f7fec4dd8c71909d7bbb7468c7d6d2292d03b0a3394940b",
+      "bytes": 128350,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10278612/fullTextXML",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/brammer_certificates.html",
+      "sha256": "8ab6c0a53e9f66b676855530afb77feb103b6be76fcc6a4d4387d7d1a99aace7",
+      "bytes": 121140,
+      "url": "https://www.brammerstandard.com/certificates.html",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/brammer_geological_current.pdf",
+      "sha256": "9bdffdd358d6797df51c5d864c615dc0d1bf67ef2ef63654cc2af3aa37aa29d7",
+      "bytes": 1688792,
+      "url": "https://brammerstandard.com/pdf/geological.pdf",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/brammer_geological_current.txt",
+      "sha256": "dfc114bc1849ca5a3dd19486f28ea32b1d973879c5b45f3887a048bae4138789",
+      "bytes": 869430,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/charging_plug_contents.json",
+      "sha256": "1eb2e3be047af3f4d6a3dddfa6e1d8ba1f90b47fbdc928cc0dca2bf2f69b06e2",
+      "bytes": 5135,
+      "url": "https://api.github.com/repos/ptthoshi-web/LIBS-Charging-pile-plug/contents",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/charging_plug_paper.xml",
+      "sha256": "a2e8b242c53b452517c662d1f385915cb852db871fc08a6fb49c2d53b09af626",
+      "bytes": 115113,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12858054/fullTextXML",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/charging_plug_repo.json",
+      "sha256": "13df95aea5eb2a33ad81bd5bf8876763b9d46bc35786f997e4a20e0c91d3fbf8",
+      "bytes": 6495,
+      "url": "https://api.github.com/repos/ptthoshi-web/LIBS-Charging-pile-plug",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/csa_directory.html",
+      "sha256": "6f9950cf3043cf5171e8c88aa42155aff94af57c17e6322d6a9dbcb6d0dcfdd2",
+      "bytes": 3311,
+      "url": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/csa_package.json",
+      "sha256": "833ecc613b79a4393a404fd218a3e061db9b6d359d337ed41ca167738ac85279",
+      "bytes": 9478,
+      "url": "https://open.canada.ca/data/api/action/package_show?id=137bdc17-2f46-4d70-98e7-acc46f602e9f",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/datacite_blank_datasets.json",
+      "sha256": "9008adeea31baab5a6b54d6ad096e9ffec6ec10116bfa5bd7242639bc2a3f967",
+      "bytes": 3585585,
+      "url": "https://api.datacite.org/dois?query=%28%22laser-induced+breakdown%22+OR+LIBS%29+AND+%28blank+OR+purity+OR+copper+OR+boric+OR+aluminium+OR+aluminum%29+AND+types.resourceTypeGeneral%3ADataset&page%5Bsize%5D=100",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/datacite_laser_datasets.json",
+      "sha256": "7c4d61c5aac972e23e29f771d525b26c113751cd6241b630bb8c94777215436c",
+      "bytes": 450268,
+      "url": "https://api.datacite.org/dois?query=%22laser-induced+breakdown+spectroscopy%22&page%5Bsize%5D=100&sort=-created",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/figshare20141213.json",
+      "sha256": "e2e5a14afca8be25a0fe1b2df8b922b08b111ae29746c646426b7bacc95ad66c",
+      "bytes": 4641,
+      "url": "https://api.figshare.com/v2/articles/20141213",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/figshare_acs_search.json",
+      "sha256": "dbae26899a7f56e462e4c63f7dd8a74a8adc9f576696a18c45b530f7a70cd611",
+      "bytes": 1171,
+      "url": "https://api.figshare.com/v2/articles/search",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/gbw2025_fulltext.xml",
+      "sha256": "a161013977bbe77765e931d277e00e2bf5de3224fe64a28c5389be1c1ac4a7c6",
+      "bytes": 123007,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12630780/fullTextXML",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/inptdat1012_datacite.json",
+      "sha256": "76996ed72afd82aaff98cf656ec57cdd82b0aa328611baf4370456edf37e128b",
+      "bytes": 8789,
+      "url": "https://api.datacite.org/dois/10.34711/inptdat.1012",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/inptdat728_datacite.json",
+      "sha256": "70d74ae3a1079d89830ad86a8621fc0fbe412d7d026ed1c51e2b4e153286df20",
+      "bytes": 8236,
+      "url": "https://api.datacite.org/dois/10.34711/inptdat.728",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/inptdat728_metadata.xml",
+      "sha256": "4c2df8096605ba8197e9147aefcb362437040898d4c0b9cf67bbcc89c607aee5",
+      "bytes": 16121,
+      "url": "https://www.inptdat.de/system/files/node728_metadata.xml",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/inptdat815_datacite.json",
+      "sha256": "05aae61989c70ad2e30babd2bccc0e4f5714912098a580386fa7ea7b21b52c74",
+      "bytes": 8136,
+      "url": "https://api.datacite.org/dois/10.34711/inptdat.815",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/inptdat815_metadata.xml",
+      "sha256": "e860c0915b73ca6d0b4a3742824a9358e6752057816855e9fe63bf97faca3a00",
+      "bytes": 26954,
+      "url": "https://www.inptdat.de/system/files/node815_spectrometer-metadata.xml",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/inptdat_datacite_all.json",
+      "sha256": "54b5c995847390ecf225e342200f1302c0b494d89215c052d3a9b23b4eb4588f",
+      "bytes": 208874,
+      "url": "https://api.datacite.org/dois?query=prefix%3A10.34711&page%5Bsize%5D=100",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/inptdat_index.json",
+      "sha256": "c192c9b62afa97e5030d33df4d9aaa484fa1a5f323626069b0cd10b792dce496",
+      "bytes": 577026,
+      "url": "https://www.inptdat.de/data.json",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/requests_01.json",
+      "sha256": "4d73e3e45180af276b88a8c26da2e90080bde37c9fc0cf383082e063881b4c12",
+      "bytes": 1776,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/requests_02.json",
+      "sha256": "dba11d61dddf68723e6349ed0b6a855ad61f9d3dec2268300fbb5a553a92b03e",
+      "bytes": 2712,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/requests_03.json",
+      "sha256": "4e6c611c0aa04370edd14530a11f228e74e1929ca952f8ff1733e11563a0e7b1",
+      "bytes": 1071,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/requests_04.json",
+      "sha256": "9a616fb611e334daee4ccb7c733d3d539ce20bde009ed4575d0402dc7a72e576",
+      "bytes": 1846,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/requests_05.json",
+      "sha256": "7a48a10ed0b886a5e6beea8ab1cccd2b275c6f10b8ff6f4c7d4dde7199ae170b",
+      "bytes": 1207,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/requests_06.json",
+      "sha256": "f48720587688ef6aa3bfc7c9aa979b511eeb7a2e8b5ad25c8cb81661c675f312",
+      "bytes": 279,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/requests_07.json",
+      "sha256": "4bef621ab3d6ab3b6e636fb099990e990f8111a6d3b111ace0569f7def535a20",
+      "bytes": 1551,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/sarm2026_Table_S1.pdf",
+      "sha256": "430fa855f8b9b9d553b42d22b73c0c7ccef8162c67b276d35de73a41874c7e2c",
+      "bytes": 104880,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/sarm2026_Table_S1.txt",
+      "sha256": "bdb30e5a16478aa6876f238b41b71522c132835b5d008d22d45fbe59bed989c2",
+      "bytes": 1132,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/sarm2026_Table_S2.xlsx",
+      "sha256": "d051c9d3fb2994abf6d67de5450054ffb604a36d4888c278af909cfeb37ef62a",
+      "bytes": 18701,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/sarm2026_fulltext.xml",
+      "sha256": "5fec41a6b2bb18f6b0fc9f6e8025b0c94fdbae635afdd1e80c4aeaf5c904db89",
+      "bytes": 168315,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12900111/fullTextXML",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/sarm2026_supplement.zip",
+      "sha256": "76bdbff8883258fee680343dae110d7baff5c46d74815e3549b74844d4de3067",
+      "bytes": 2376451,
+      "url": "https://mdpi-res.com/d_attachment/sensors/sensors-26-01076/article_deploy/sensors-26-01076-s001.zip",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/sarm2026_supplement_inventory.json",
+      "sha256": "9c289303419ae94d81e5a578490dfe02a4e53dd12c08f3aae70b3ac02fe507d1",
+      "bytes": 368,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/sciencedb10911.html",
+      "sha256": "8097c525e982ec7738d5020181aa071d030062c349e37e0b011c737a213b225e",
+      "bytes": 807784,
+      "url": "https://www.scidb.cn/detail?dataSetId=2037fed3111c4e0eade4f9e47ab3803c",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/sciencedb10911_croissant_0.json",
+      "sha256": "1bd8855f6440a880f5aab952331e9a8e4456c779ffb1832b854e06a6f630993e",
+      "bytes": 16744,
+      "url": null,
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": true
+    },
+    {
+      "path": "data/raw/final_search_v5_other/sciencedb10911_datacite.json",
+      "sha256": "51f367a743d8d9662808981df24475579fb54d5399ec22b242813daa26c6a408",
+      "bytes": 14919,
+      "url": "https://api.datacite.org/dois/10.57760/sciencedb.10911",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/steel_purity2022.html",
+      "sha256": "18bbb7d2616d0d765ce4730fbf34ade7bf72d0e3da20a25efd0c29af13e57a25",
+      "bytes": 190419,
+      "url": "https://www.jstage.jst.go.jp/article/isijinternational/62/5/62_ISIJINT-2021-476/_html/-char/en",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/zenodo21639060_datacite.json",
+      "sha256": "8943d2296b375deb8e0ef62303ce54710dc3a84278c6ab29e5ce0c9b624d7324",
+      "bytes": 9521,
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.21639060",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/zenodo21965952_datacite.json",
+      "sha256": "90881e728bf0409ce8b108afde62cc8fee149cf089d64cf0d7acf61176fc5f23",
+      "bytes": 17180,
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.21965952",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_other/zenodo22130335_datacite.json",
+      "sha256": "cb3c97778b9255ab00df0e6c73c88c541dcb164a78c4e202a2c579663de414de",
+      "bytes": 7231,
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.22130335",
+      "kind": "metadata_or_article_or_chemical_table",
+      "derived": false
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/anderson2017_data_pointer.pdf",
+      "url": "https://authors.library.caltech.edu/records/he2eq-rm869/files/jgre20649-sup-0003-2016JE005164-s2_AA.pdf?download=1",
+      "bytes": 2589,
+      "sha256": "3a25bb8ea09ed80b45a15ac4a2f55f834f7df92d5c3c208c67919fe1e059968d",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:41:35.010539+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/anderson2017_paper.pdf",
+      "url": "https://authors.library.caltech.edu/records/he2eq-rm869/files/Anderson_et_al-2017-Journal_of_Geophysical_Research__Planets.pdf?download=1",
+      "bytes": 3519336,
+      "sha256": "42357c39d4ffac31c52068f3e4c518d1e6db1666240ea446ddc237a0a38a31a4",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:41:38.009440+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/anderson2017_record.html",
+      "url": "https://authors.library.caltech.edu/records/he2eq-rm869",
+      "bytes": 146641,
+      "sha256": "9155f1e3d154dec3487e25a7faf33bb1e16f7764dc289bf09d7a9b297bdca9e2",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:47:28.745189+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/anderson2017_supplement.pdf",
+      "url": "https://authors.library.caltech.edu/records/he2eq-rm869/files/jgre20649-sup-0001-2016JE005164-S01.pdf?download=1",
+      "bytes": 2345163,
+      "sha256": "12a85ae7bc9ee3e328086761bd1d88a461f213c20a520ec114339f72c12b2dc5",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:41:36.417955+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_calib_index.html",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/",
+      "bytes": 4402,
+      "sha256": "a952753658d5a582bbce3f46a001d2ee39369c1de74a8c410cace5c6ef5a425f",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.775914+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_calinfo.txt",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calinfo.txt",
+      "bytes": 3706,
+      "sha256": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.817354+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_cleanroom_index.html",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/cleanroom/",
+      "bytes": 9291,
+      "sha256": "6ee29f63609dd92e1d1bebf65eafb052c3e1e67bf8e351423dad42dcbe56f816",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.781899+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_compositions.csv",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv",
+      "bytes": 49247,
+      "sha256": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:57.791019+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_release_notes.txt",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/document/release_notes.txt",
+      "bytes": 49128,
+      "sha256": "784a38589ccdf56ba442e3258268f917d7be9a0aa6ca89ac10b5b2e9d11ace98",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:57.747003+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/cousin2012_thesis.pdf",
+      "url": "https://utheme.utoulouse.fr/files/original/f6c70ffff70efbf79d36b70ab9a7c2cf336dd1e7.pdf",
+      "bytes": 6003695,
+      "sha256": "a9763bcc34e1c10a3ef6da6e89c3b3dd003367052a9e962708f6be5babe962f9",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:47:48.489209+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/pds_bundle.xml",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/bundle_libs_reference_database.xml",
+      "bytes": 15002,
+      "sha256": "4c87f8cea069a6d7e4804a9b4f11573d705fc128e65449405d28f6ba0fe453ee",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.929733+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/pds_document_index.html",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/",
+      "bytes": 1645,
+      "sha256": "bf80b6136302a3111e8da6769b4cb7d6e40c1fbf43d305fa8fb9162f842b8941",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.771917+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/pds_libs_metadata.xlsx",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+      "bytes": 584961,
+      "sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:49.012409+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/pds_release_notes.txt",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/release_notes.txt",
+      "bytes": 1904,
+      "sha256": "7af36047f0657b409b935fed733ae741a2197a40c59f97f753687a5e2180f26e",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:56.776990+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/pds_user_guide.pdf",
+      "url": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/user_guide.pdf",
+      "bytes": 550988,
+      "sha256": "db388ced0d24536a5111c30fb4a3aab0edca4a594239f6b52fa24a0a26b2b643",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:49.072069+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/rapin2016_sulfates.pdf",
+      "url": "https://www.osti.gov/servlets/purl/1417814",
+      "bytes": 1700929,
+      "sha256": "1daae9920d3f40e606d7b93d2c7f7663bc2a2bdabdcbed1f590bb9353da10672",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:54.501784+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/supercam_targets.html",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7691312/",
+      "bytes": 262334,
+      "sha256": "bce3cd9254e5a43dacaf571d775004d4552765abe50aa677fdb19395cc496f5a",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:23.571835+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/superlibs_context.html",
+      "url": "https://pds.nasa.gov/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Amhc.superlibs&version=1.2",
+      "bytes": 8285,
+      "sha256": "d5045f1625b40340a79d4dccf1adb84ac36cbf9315d1dceb6523ad0c2927460e",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:48.110389+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/thomas2018_data_pointer.docx",
+      "url": "https://authors.library.caltech.edu/records/20rt7-cvf02/files/jgre20980-sup-0002-2017je005467_s01.docx?download=1",
+      "bytes": 12224,
+      "sha256": "cee0923883ec9aa804d65c2270b9506817eaf096d6e0016865ac3a06cf6738d6",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:48:51.953628+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/thomas2018_paper.pdf",
+      "url": "https://authors.library.caltech.edu/records/20rt7-cvf02/files/Thomas_et_al-2018-Journal_of_Geophysical_Research__Planets.pdf?download=1",
+      "bytes": 7311433,
+      "sha256": "5eafacc9797fec5a039b92db820250e1a01d54a519544e31413693608038a94e",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:48:54.596044+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/thomas2018_supplement.pdf",
+      "url": "https://authors.library.caltech.edu/records/20rt7-cvf02/files/jgre20980-sup-0001-2017je005467_s01.pdf?download=1",
+      "bytes": 57616,
+      "sha256": "929eeb8d3c8f21e38ebad218c84771a1a0e546fe8d0bdc33148afc7c972adc29",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:48:52.170616+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/transfer_lpsc2019.pdf",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2019/pdf/1103.pdf",
+      "bytes": 372706,
+      "sha256": "194414ce4a9329600d20b7d01b294ef4669dd237a5f52eb6197936c5b6bfd353",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:40:49.578750+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/wiens2012_instrument.pdf",
+      "url": "https://molokai.sese.asu.edu/~jimbo/indexed/publications/other_co_author/0135_Wiens_RC_The_ChemCam_Instrument_Suite_Space_Sci_Rev_2012.pdf",
+      "bytes": 6625771,
+      "sha256": "e83983f45b0cd33b3b3f5237405fd2ea8dae61c3c21171fb544747af44061e3d",
+      "kind": "primary_metadata_or_document",
+      "retrieved_at": "2026-10-19T18:38:26.416741+00:00"
+    },
+    {
+      "path": "data/raw/final_search_v5_root/capella2026.html",
+      "url": "https://www.nature.com/articles/s41598-026-46449-2",
+      "sha256": "d863c2e9b3e13d34504484e6fa5a7ab407dece9df4246e63518e271b4850adfa",
+      "bytes": 440960
+    },
+    {
+      "path": "data/raw/final_search_v5_root/capella_table2.html",
+      "url": "https://www.nature.com/articles/s41598-026-46449-2/tables/2",
+      "sha256": "5f875975d06f73892026a252c4ab8cdcca39cdeb89a3ddf90f8c6675ac2e4590",
+      "bytes": 172302
+    },
+    {
+      "path": "data/raw/final_search_v5_root/code_metadata/README.md",
+      "url": "https://zenodo.org/records/15967233/files/alinecapella/libs-quantification-pipeline-v1.0.0.zip",
+      "sha256": "fd7bcdfd8cdb426930e732aa76b675040e70ae39943809da0c3da6eeae5b673f",
+      "bytes": 1688,
+      "retrieval_method": "HTTP206 ZIP central-directory/README member only; no spectral members"
+    },
+    {
+      "path": "data/raw/final_search_v5_root/code_metadata/zip_inventory.json",
+      "url": "https://zenodo.org/records/15967233/files/alinecapella/libs-quantification-pipeline-v1.0.0.zip",
+      "sha256": "d692110df7d7dff4a13bc67cbe56578fed7fe6da1fd02897e5dc7ff635b3ebb2",
+      "bytes": 498,
+      "retrieval_method": "HTTP206 ZIP central-directory/README member only; no spectral members"
+    },
+    {
+      "path": "data/raw/final_search_v5_root/paddy2026.html",
+      "url": "https://www.nature.com/articles/s41598-026-56519-0",
+      "sha256": "6103afb0b90cdad1a0de5780802dba4700bc7749adf221059766a64305f133ef",
+      "bytes": 342863
+    },
+    {
+      "path": "data/raw/final_search_v5_root/zenodo15967233.json",
+      "url": "https://zenodo.org/api/records/15967233",
+      "sha256": "3dd178a7fdd062e4b1376b36e3336c26007319fb218a56995f32f4376e44f070",
+      "bytes": 5558
+    },
+    {
+      "path": "data/raw/final_search_v5_root/zenodo17796049.json",
+      "url": "https://zenodo.org/api/records/17796049",
+      "sha256": "6ea89de1edf5e692647556bbe1c55f66fd5eb457819d1f4a87752680e844dbd9",
+      "bytes": 4055
+    },
+    {
+      "path": "data/raw/final_search_v5_root/zenodo20437121.json",
+      "url": "https://zenodo.org/api/records/20437121",
+      "sha256": "586cb4aab1278352995d24db34e8511cd8637372850ebdef9e248c50419f24aa",
+      "bytes": 6612
+    }
+  ],
+  "admitted_new_final_datasets": 0,
+  "qualified_Fe_blank_families": 0,
+  "qualified_Mg_blank_families": 0,
+  "new_final_intensities_downloaded": 0,
+  "new_final_intensities_opened": 0,
+  "predictions_run": 0,
+  "authors_contacted": false,
+  "data_selection_frozen": false,
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "new_primary_findings": [
+    {
+      "id": "salt-Mg-censoring",
+      "source": "https://doi.org/10.1002/2016JE005164",
+      "finding": "ActLabs FUS-ICP independently reports MgO<0.01wt% for three salt endmember records, including Na2SO4 Batch2/Mix11O. This is censoring, not nominalzero.",
+      "remaining": [
+        "No corresponding censored Fe bound in TableS1.",
+        "Lot/preparation/exactsession and source-family independence unresolved.",
+        "Rawarchive pointer/license/fullnativeaxis not established.",
+        "No certified=true attestation supplied."
+      ]
+    },
+    {
+      "id": "PLOS-C14500",
+      "source": "https://doi.org/10.1371/journal.pone.0342086",
+      "finding": "PublicCC0fullspectrumrepository and reported other-element limit are a promising route.",
+      "remaining": [
+        "Independentactual-lotCoA and exhaustiveFe/Mg impurity coverage not established.",
+        "Exportair/vacuum, physical/session/optimization split and instrument-matched positive controls unresolved."
+      ]
+    },
+    {
+      "id": "MBH-Al-CRM",
+      "source": "https://doi.org/10.1038/s41598-026-46449-2",
+      "finding": "PublishedMBHcompositions identify lowFe G77J6 and lowMg cp-Al11697. Officiallinkedarchivecentraldirectory and README containcodeonly, requiringuser-providedCSV.",
+      "remaining": [
+        "Raw spectral files/license, uncertainty convention/lot link/controlrole, explicitaxis and matchedinstrumentprofile unresolved."
+      ]
+    },
+    {
+      "id": "PDS-release-recheck",
+      "source": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/document/release_notes.txt",
+      "finding": "Releases42/41 dated2026-08-03 and unchangedcalibrationchemistry rechecked; all25 positive-valued lowFe rows match previousnames.",
+      "remaining": [
+        "Previouslyseen materials cannot become independentfinal by choosinganotherfile."
+      ]
+    }
+  ],
+  "admission_policy_unchanged": {
+    "per_element_blanks_allowed": true,
+    "nominal_zero_is_not_negative": true,
+    "point_estimate_is_not_certified_upper_bound": true,
+    "explicit_censoring_not_automatically_a_lot_certificate": true,
+    "independently_certified_total_impurity_bound_may_support_mass_balance": true,
+    "instrument_id_and_full_model_coverage_required": true
+  },
+  "limitations": [
+    "No claim that suitable data are absent worldwide.",
+    "Searchmetadata includes article/chemicaltables and derivedtext; evidencefile counts are not independentphysicalmaterial support.",
+    "No testreceipts consumed because no real independentcampaign was admitted.",
+    "Priorhistoricalv1final is discloseddevelopment and cannot be reused as independent.",
+    "No finalFPR/recall can be reported from this metadata search."
+  ]
+}

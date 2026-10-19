@@ -9,6 +9,8 @@ import numpy as np
 from scipy.special import expit
 from sklearn.linear_model import LogisticRegression
 
+from spectralab_ml.models.validation import binary_labels, finite_matrix, training_arrays
+
 
 def probability_view(estimator: Any, scores: np.ndarray) -> np.ndarray:
     if estimator.score_kind == "logistic_decision_function":
@@ -17,8 +19,11 @@ def probability_view(estimator: Any, scores: np.ndarray) -> np.ndarray:
 
 
 def reliability_metrics(y: np.ndarray, probabilities: np.ndarray, bins: int = 10) -> dict:
-    if y.shape != probabilities.shape or not len(y):
+    y, probabilities = binary_labels(y), finite_matrix(probabilities, "Probabilities")
+    if y.shape != probabilities.shape:
         raise ValueError("Reliability requires matching nonempty labels and probabilities")
+    if type(bins) is not int or not 1 <= bins <= 1000:
+        raise ValueError("Reliability bin count must be an integer in [1, 1000]")
     if not np.isfinite(probabilities).all() or np.any((probabilities < 0) | (probabilities > 1)):
         raise ValueError("Reliability requires probabilities in [0, 1]")
     assignments = np.minimum((probabilities.ravel() * bins).astype(int), bins - 1)
@@ -60,23 +65,28 @@ class CalibratedEstimator:
     calibration_metadata: dict = field(default_factory=dict)
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> CalibratedEstimator:
+        X, y = training_arrays(X, y)
+        self.calibrators = []
+        self.calibration_metadata = {}
         self.estimator.fit(X, y)
         return self
 
     def fit_calibration(self, X: np.ndarray, y: np.ndarray) -> CalibratedEstimator:
-        scores = self.estimator.scores(X)
-        if scores.shape != y.shape or not len(X):
+        X, y = training_arrays(X, y)
+        scores = finite_matrix(self.estimator.scores(X), "Calibration scores")
+        if scores.shape != y.shape:
             raise ValueError("Nonempty, aligned calibration split required")
-        self.calibrators = []
+        calibrators = []
         fallback = []
         for column in range(y.shape[1]):
             if len(np.unique(y[:, column])) < 2:
-                self.calibrators.append(float((y[:, column].sum() + 1) / (len(y) + 2)))
+                calibrators.append(float((y[:, column].sum() + 1) / (len(y) + 2)))
                 fallback.append(column)
             else:
                 model = LogisticRegression(C=1.0, solver="lbfgs", random_state=0)
                 model.fit(scores[:, [column]], y[:, column])
-                self.calibrators.append(model)
+                calibrators.append(model)
+        self.calibrators = calibrators
         self.calibration_metadata = {
             "schema_version": 1,
             "method": "per-class sigmoid, C=1",
@@ -88,8 +98,9 @@ class CalibratedEstimator:
         return self
 
     def scores(self, X: np.ndarray) -> np.ndarray:
-        raw = self.estimator.scores(X)
-        if len(self.calibrators) != raw.shape[1]:
+        X = finite_matrix(X, "Features")
+        raw = finite_matrix(self.estimator.scores(X), "Calibration scores")
+        if len(raw) != len(X) or len(self.calibrators) != raw.shape[1]:
             raise ValueError("Calibrator has not been fitted for every class")
         return np.column_stack(
             [

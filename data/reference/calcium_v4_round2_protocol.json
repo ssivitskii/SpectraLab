@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "study_id": "adaptive-calcium-specificity-v4-round2-crossfit",
+  "created_at": "2026-10-19T18:50:15.511770+00:00",
+  "locked_before_new_scoring": true,
+  "scope": "adaptive_grouped_development_not_independent_final",
+  "adaptation_disclosure": "Round1 global selector had TP86 FP3 on primary seed, and missed fixed sensitivity target on remaining seeds. This round is selected after those disclosed outcomes; no outer labels enter parameter/threshold fitting.",
+  "source_plan": "data/reference/development_v4_source_plan.json",
+  "source_sha256": "b679a367433deee6351a0988428ae14b6d1cb5b74b35a7ac869cab71cc97ada7",
+  "seeds": [
+    20261019,
+    20261020,
+    20261021,
+    20261022,
+    20261023
+  ],
+  "matched_baseline_runs": [
+    {
+      "seed": 20261019,
+      "path": "reports/adaptation_v3/development-20261019T172235-da8f0847",
+      "result_sha256": "0624d4795fe390d9fabe6e8f06cb28b1af26da529256272160ceba4dcbf3a61d",
+      "protocol_sha256": "329c395cabab5d934ac7b910590fc73d6f6c4dcd017b0216b2814093a4388f80",
+      "oof_sha256": "699316e2fe004188e349e96921cc1411fc9b1b7853e14f41551f84f5b212eac4",
+      "profile_sha256": "8ffb76657c9618ff5c393b8be99690b2ceb41528d65529ebab31437caaf37c80"
+    },
+    {
+      "seed": 20261020,
+      "path": "reports/adaptation_v3/development-20261019T172516-562e7b55",
+      "result_sha256": "847dca5aa196535930d78a338a49822f57b00be5a4d58349cc35aee4e5396a4e",
+      "protocol_sha256": "72f9d23ed9cc03fda12a9d63bbbf83ec49c9a8c1df129b2b7bb34a0bacc3a9a7",
+      "oof_sha256": "99451178183176303d3756bda602330a4052f119028ecfe486b3548543b0895f",
+      "profile_sha256": "de10e55107df8a57b610d58009627a2f731b74edf137130e55b57fd22a01146d"
+    },
+    {
+      "seed": 20261021,
+      "path": "reports/adaptation_v3/development-20261019T172542-10651dbf",
+      "result_sha256": "8172e3c2c26b25fe254aa655ef1cef71ae1ee465d2747169d2ed58d2dbb990b2",
+      "protocol_sha256": "ff4b027056f8e16916b4bfc1d6da4d2b3ba9bc39f56c45e5ad5c934767ce2bb7",
+      "oof_sha256": "be759def57ccb5ec9dd0e884ed65f5a6883f320ca81e45b3b5c18b0a91d0269a",
+      "profile_sha256": "b5e86ab9395eb63669bcd9dbbb4d51007a07cd85817339fbfb414cc02852ef03"
+    },
+    {
+      "seed": 20261022,
+      "path": "reports/adaptation_v3/development-20261019T172608-dd27d703",
+      "result_sha256": "8d4173a2677e4cb8ce5e577ed293978ee42f68c5d9501563df96d9270eb154fe",
+      "protocol_sha256": "6ac8f18e1625f6d7378dd79a94f1116bbbda1d4f589961ed775a29ef8f04aa11",
+      "oof_sha256": "debe26b00129a630f3e66c600808e5df8c7d6ed328da648a9b5a05772c6bbb42",
+      "profile_sha256": "b24c7ab5cc6a3a60ac5c586a4d976f620545c6f38d4036fb900ab1b5fe5df773"
+    },
+    {
+      "seed": 20261023,
+      "path": "reports/adaptation_v3/development-20261019T172635-e969bcd7",
+      "result_sha256": "cf3ee657a13b9859963cd310bcb708b0849b41fd6ee26e5412d413d39c9dc35b",
+      "protocol_sha256": "ce16b5a8e7c75be92e5900a5460cc12dbf21ca509a471cbe5c9d62e31514e10c",
+      "oof_sha256": "d5a64009d5ff015a97364bcbe8ab3dcf2d1762ffaa35731e7739a5e080e8886f",
+      "profile_sha256": "adbc1a8a7648a09167f470ecaa80273bf3afe3c18c64fab1ebdfcb6035dc41b3"
+    }
+  ],
+  "outer_and_inner_partitions": "Reuse frozen v3 outer folds. Four inner campaign-stratified group folds; each inner-heldout prediction averages four models with independently drawn disjoint fit/calibrate groups, all excluding that heldout fold. Calibration is25% of remaining groups. Outer prediction averages four corresponding fit/calibrate models trained on the complete outerfit. No heldout labels enter any constituent model or calibrator.",
+  "target": {
+    "element": "Ca",
+    "oxide": "CaO",
+    "negative_max": 0.1,
+    "positive_min": 1.0,
+    "zero_or_missing": "unknown",
+    "unconditional": true,
+    "fpr_max": 0.05,
+    "negative_support": 51,
+    "max_false_positives": 2,
+    "v3_primary_recall": 0.9032258064516129,
+    "recall_noninferiority_absolute": 0.02,
+    "minimum_recall": 0.8832258064516129,
+    "positive_support": 93,
+    "minimum_true_positives": 83,
+    "robust_success": "Every one of the five seeds meets both point criteria; otherwise report individual/primary results without claiming robust success."
+  },
+  "feature_families": [
+    "full-v3-ca",
+    "blue-ca-agreement",
+    "full-ca-agreement"
+  ],
+  "reference_only_blue_lines_nm": [
+    393.477,
+    396.959,
+    422.792,
+    445.603
+  ],
+  "blue_stages": [
+    2,
+    2,
+    1,
+    1
+  ],
+  "agreement_features": "For each stage: mean/min/max log normalized excess and log SNR, within-stage disagreement; neutral-vs-ionized differences; counts SNR>=2,5,10. No sample identity or campaign/date feature.",
+  "learners": {
+    "balanced_logistic": {
+      "C": [
+        0.001,
+        0.003,
+        0.01,
+        0.03,
+        0.1,
+        0.3,
+        1.0,
+        3.0,
+        10.0
+      ]
+    },
+    "balanced_rbf_svc": {
+      "C": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "gamma_multiplier": [
+        0.1,
+        1.0
+      ],
+      "gamma": "multiplier/n_features after physical/class-balanced standard scaling"
+    }
+  },
+  "calibration": "Same fixed monotonic Platt ridge .001 on disjoint calibration groups; only known labels, equal physical weight, no class balancing.",
+  "threshold_budgets": [
+    0.025,
+    0.05
+  ],
+  "primary_tuning_budget": 0.025,
+  "threshold_rule": "Tune on concatenated strictly innerOOF probabilities; max physical recall under budget, ties lower FPR then higher threshold. Unknown labels excluded.",
+  "candidate_selection": "Tune max Ca recall, lower FPR, lower physical-weighted Brier, lower complexity then deterministic candidate ID. Report family-specific selectors and global selector. No outer result selects candidates or deployment.",
+  "all_attempts": "Store scores and tuning diagnostics for all candidates and both budgets, and outer metrics of every fixed attempt; global primary uses budget.025.",
+  "uncertainty": "Paired connected-cluster bootstrap of fixed matched OOF errors, 2000 resamples, 95% percentiles; conditional no refit; zero-error bootstrap not population bound. Per-seed counts plus mean/sampleSD describe split variability, not independent samples.",
+  "deployment": "Same4fold crossfit on full disclosed development, selected solely from pooled innerOOF. Store pure numeric research ensemble, no automatic promotion; original v3 Na/Mg/Fe retained.",
+  "new_final_data_used": false,
+  "preceding_run": {
+    "path": "reports/adaptation_v4/calcium-20261019T184555-b17b9d8d",
+    "result_sha256": "b552ce5cdf432f447dce858b74cc9683bfc4ef0cfb7e0d20acd641a28e61f422",
+    "features_sha256": "2b9eebad1f1ff3741eb67a041723c132744b8c4a7be5f482022548e4bb6278d7"
+  },
+  "inner_folds": 4,
+  "calibration_group_fraction": 0.25,
+  "inner_seed_offset": 4000,
+  "calibration_seed_offset": 5000,
+  "outer_prediction": "Mean of four independently fit/calibrated member probabilities; samefour-member averaging in innerOOF tuning and outer prediction.",
+  "distribution_caveat": "Inner member training uses fewer groups because its inner-heldout fold is excluded. Both inner/outer use mean4, but training-size effects and finite negative support still prevent an FPR guarantee.",
+  "pre_scoring_amendment": {
+    "created_at": "2026-10-19T18:51:07.688715+00:00",
+    "previous_metadata_sha256": "566a6ebc8730ad2bfff8be94e583d4cc426f83f9ae9686a02600ee4a58c0d0b1",
+    "reason": "Before any round2 development scoring, review requested symmetric ensemble probabilities for tune/outer and a separate own-baseline noninferiority criterion."
+  },
+  "ensemble_members": 4,
+  "secondary_robust_target": {
+    "primary_seed_true_positive_min": 83,
+    "each_seed_fpr_max": 0.05,
+    "each_seed_matched_recall_delta_min": -0.02,
+    "interpretation": "More directly matches requested preservation of recall relative to each matched v3 split. Original absolute83TP allseeds target is retained separately."
+  },
+  "baseline_integrity": "OOF includes measurement_ids, physical_ids, connected_groups and labels; verify all against pinned source order. Profile hash also checked against original v3 completed result."
+}

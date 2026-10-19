@@ -1,0 +1,570 @@
+{
+  "schema_version": 1,
+  "artifact_type": "targeted_independent_blank_gap_audit",
+  "reviewed_at": "2026-10-19T20:02:36.355496+00:00",
+  "search_revision": "v7_goe100",
+  "status": "blocked_material_independence_and_assay_bound",
+  "scope": "GOE100 metadata/assay/preparation/processing only; no final numerical spectrum row access or scoring.",
+  "new_complete_spectral_members_downloaded": 0,
+  "new_numeric_spectral_rows_decoded": 0,
+  "new_numeric_spectral_rows_saved_or_used": 0,
+  "predictions_run": 0,
+  "partial_spectral_archive_transport": true,
+  "metadata_header_members_inspected": 1,
+  "authors_contacted": false,
+  "qualified_new_controls": 0,
+  "qualified_final_datasets": 0,
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "candidate_count": 1,
+  "candidates": [
+    {
+      "id": "david2020_goe100_lanl",
+      "physical_id": "GOE100",
+      "admission": "not_admitted",
+      "certified_blank": false,
+      "intended_control_elements": [
+        "Mg"
+      ],
+      "not_an_Fe_blank": true,
+      "license": {
+        "id": "CC-BY-4.0",
+        "source": "Zenodo records 3902232 and 3903074"
+      },
+      "instrument": "ChemCam LANL laboratory testbed, EM mast / EQM body",
+      "instrument_evidence": "David2020 section3.4 explicitly identifies LANL setup, cites Clegg2017 and includes the hematite/goethite/magnetite mixtures.",
+      "source_assay": {
+        "method": "LA-ICP-MS, eight ~60 micrometre analysis points on Sigma Aldrich goethite powder",
+        "independent_of_LIBS": true,
+        "source_locator": "David thesis printed p255 / PDF p271 Figure C.3; Table S2 Mixture compositions row32",
+        "FeOT_point_wt_percent": 79.88726962654403,
+        "MgO_point_wt_percent": 0.007320814684312373,
+        "MgO_eight_spots_wt_percent": [
+          0.00607389,
+          0.00656981,
+          0.00698923,
+          0.00744733,
+          0.00697457,
+          0.00818041,
+          0.00791312,
+          0.00841815
+        ],
+        "MgO_values_censored": false,
+        "CaO_point_wt_percent": 0.009290474185378381,
+        "published_MgO_upper_bound": null,
+        "method_QA_status": "Eight spot replicates and indicative homogeneity described in thesis 4.4. No named LA-ICP-MS calibration standard, quantified recovery, bias or analytical uncertainty located in the reviewed thesis/paper; maxima are not certified whole-powder bounds."
+      },
+      "iron_basis_note": {
+        "source": "FigureC.3 goethite column is Fe2O3 wt.%; TableS2 L32 is reported FeOT wt.%.",
+        "reported_FeOT_wt_percent_retained": 79.88726962654403,
+        "Fe2O3_mean_from_eight_printed_spots_wt_percent": 89.760977125,
+        "implied_conversion": "Consistent with multiplying by0.89 to printed-spot precision; TableS2 value is numeric, not a published formula.",
+        "stoichiometric_factor": 0.8998102538090139,
+        "stoichiometric_formula": "2*71.844/159.687",
+        "separately_derived_FeOT_wt_percent": 80.76784760899135,
+        "derived_value_replaces_reported_source": false,
+        "label_effect": "Both FeOT values are positive under the predeclared >=1 wt.% rule. Neither is an Fe blank; Mg assay and outstanding gates are unchanged.",
+        "verification_path": "data/raw/final_gap_v7_goe100/goe100_iron_basis_check.json"
+      },
+      "assay_to_material_linkage": {
+        "status": "documented_at_endmember_and_preparation_level",
+        "evidence": "David2020 section2 + thesis4.4: measured goethite endmember; weighted powder mixtures and 10-ton pressed pellets; TableS2 GOE100 100% goethite and five LANL observations.",
+        "formal_CoA_required": false,
+        "not_claimed": "No serial-numbered pellet-to-assay aliquot chain or supplier lot is supplied."
+      },
+      "archive_entries": [
+        {
+          "name": "GOE100_#1 LIBS laboratory spectra LANL.csv",
+          "compressed_bytes": 1690446,
+          "uncompressed_bytes": 3437842,
+          "compression_method": 8,
+          "crc32": "9b55c2cf",
+          "local_header_offset": 0,
+          "archive_modified_timestamp_untrusted": "2020-04-21T00:01:30",
+          "extra_hex": "",
+          "comment": ""
+        },
+        {
+          "name": "GOE100_#2 LIBS laboratory spectra LANL.csv",
+          "compressed_bytes": 1690349,
+          "uncompressed_bytes": 3437952,
+          "compression_method": 8,
+          "crc32": "751e37e5",
+          "local_header_offset": 1690518,
+          "archive_modified_timestamp_untrusted": "2020-04-21T00:01:44",
+          "extra_hex": "",
+          "comment": ""
+        },
+        {
+          "name": "GOE100_#3 LIBS laboratory spectra LANL.csv",
+          "compressed_bytes": 1690542,
+          "uncompressed_bytes": 3437935,
+          "compression_method": 8,
+          "crc32": "8697a239",
+          "local_header_offset": 3380939,
+          "archive_modified_timestamp_untrusted": "2020-04-21T00:01:54",
+          "extra_hex": "",
+          "comment": ""
+        },
+        {
+          "name": "GOE100_#4 LIBS laboratory spectra LANL.csv",
+          "compressed_bytes": 1690620,
+          "uncompressed_bytes": 3438073,
+          "compression_method": 8,
+          "crc32": "9710b82f",
+          "local_header_offset": 5071553,
+          "archive_modified_timestamp_untrusted": "2020-04-21T00:02:20",
+          "extra_hex": "",
+          "comment": ""
+        },
+        {
+          "name": "GOE100_#5 LIBS laboratory spectra LANL.csv",
+          "compressed_bytes": 1690726,
+          "uncompressed_bytes": 3438022,
+          "compression_method": 8,
+          "crc32": "0fe6ea58",
+          "local_header_offset": 6762245,
+          "archive_modified_timestamp_untrusted": "2020-04-21T00:02:34",
+          "extra_hex": "",
+          "comment": ""
+        }
+      ],
+      "original_table_S2_filenames": [
+        "CE5_310165629CCS_L1600050GOE100X18P1.csv",
+        "CE5_310165931CCS_L1600050GOE100X18P1.csv",
+        "CE5_310170202CCS_L1600050GOE100X18P1.csv",
+        "CE5_310170438CCS_L1600050GOE100X18P1.csv",
+        "CE5_310170759CCS_L1600050GOE100X18P1.csv"
+      ],
+      "filename_linkage": {
+        "status": "material_and_replicate_set_linked",
+        "basis": "Same published LANL record and GOE100 label; five numbered archived observations and five LANL rows in TableS2.",
+        "per_member_original_filename_bijection_verified": false,
+        "note": "No inferred mapping of archive #n to original timestamp/CE5_310/X18P1. Group all five at one physical material; no acquisition date inferred."
+      },
+      "axis": {
+        "medium": "vacuum",
+        "units": "nm",
+        "status": "supported_by_documentary_LANL_CCS_lineage",
+        "basis_is_inference": true,
+        "chain": [
+          "David2020 Data Availability links this LANL Zenodo record; TableS2 GOE100 original filenames explicitly contain CCS.",
+          "David2020 section3.4 identifies Clegg2017 LANL EM/EQM setup and says the iron-oxide mixtures were analyzed with that setup.",
+          "Clegg2017 accepted manuscript pp15-18: baseline wavelength-channel map from known vacuum Ti lines; all LANL active/dark spectra undergo the Mars processing procedure and lab spectra are individually calibrated using batch Ti references.",
+          "Anderson2017 section2.2 independently makes the standard ChemCam CCS vacuum convention explicit, corroborating the method, not directly certifying the David export."
+        ],
+        "scope_limits": [
+          "David section3.2 clean/calibrated preprocessing sentence occurs in the IRAP paragraph; it alone is not an explicit LANL-export declaration.",
+          "The archived first header says wave/Shot1..Shot30 only. No per-file medium/unit string or numerical-axis verification has been obtained.",
+          "Chamber pressure is not the reason for assigning the wavelength medium."
+        ],
+        "numerically_verified": false,
+        "required_bands_nm": [
+          [
+            241,
+            340
+          ],
+          [
+            383,
+            468
+          ],
+          [
+            474,
+            900
+          ]
+        ],
+        "coverage_gaps_resolution_finite_axis_checks": "pending metadata admission and authorized numerical intake"
+      },
+      "session": {
+        "conservative_id": "source-campaign:zenodo3902232/LANL",
+        "id_kind": "source_campaign_cluster_not_acquisition_date",
+        "acquisition_datetime": null,
+        "independent_session_count_claimed": 0,
+        "grouping_cluster_count": 1,
+        "basis": "All five replicas remain in one conservative source campaign. ZIP dates are packaging metadata; CE5_310 not decoded without a primary naming specification."
+      },
+      "previous_seen_status": {
+        "literal_name_match": false,
+        "independence": "unresolved",
+        "potential_related_seen_material": "GOEDV, old test now development, 2018-07-30",
+        "related_assay_point_MgO": 0.06,
+        "related_assay_point_FeOT": 78.34,
+        "related_assay_point_MnO": 0.276,
+        "inference": "Different names and composition estimates neither prove an alias nor distinct stock/family. No lot/preparation evidence resolves relationship."
+      },
+      "supplier": {
+        "name": "Sigma Aldrich",
+        "catalogue_number": null,
+        "lot": null,
+        "basis": "David thesis4.4 printedp133 explicitly calls commercial hematite, magnetite and goethite powders Sigma Aldrich products.",
+        "public_71063_catalogue_not_assigned_to_sample": true,
+        "GOE100_to_GOEDV_stock_relation": "unresolved"
+      },
+      "applicable_assay_QA_search": {
+        "reviewed": [
+          "David2020 section2",
+          "David thesis4.4 and AnnexC.3",
+          "David2019 LPSC1228 and NinthMars6238",
+          "GET current official ICPMS platform"
+        ],
+        "located": [
+          "Independent LA-ICP-MS method",
+          "Eight local spots, approximately60 micrometres",
+          "Published composition table and endmember/preparation linkage"
+        ],
+        "not_located_in_reviewed_sources": [
+          "Named external/internal calibration standards for these Mg measurements",
+          "Run-specific recovery or matrix-bias bound",
+          "Applicable numerical analytical uncertainty/LOQ",
+          "GOE100 supplier catalogue/lot"
+        ],
+        "non_applicable_evidence": "Current GET equipment/personnel page does not prove which historical instrument/procedure or QA applied. Supplier catalogue without lot/material link cannot supply a retrospective uncertainty.",
+        "interpretation": "Failure to locate in this bounded review is not proof that supporting lab records never existed. Independent assay can qualify without a branded certificate if an applicable bound is substantiated."
+      },
+      "remaining_hard_gates": [
+        {
+          "code": "UNRESOLVED_SEEN_FAMILY_OVERLAP",
+          "detail": "GOEDV is already development. No stock/lot/preparation evidence establishes independence or equality; name and assay differences are insufficient."
+        },
+        {
+          "code": "UNSUBSTANTIATED_APPLICABLE_MG_UPPER_BOUND",
+          "detail": "Small eight-spot MgO values are real independent assays, but point scatter alone does not bound systematic analytical bias. No applicable source-backed upper bound has been established."
+        }
+      ],
+      "additional_campaign_limits": [
+        "Five LIBS observations and 30 shot columns do not create five materials or five sessions.",
+        "At most one physical material/family can be supported by this GOE100 endmember after qualification.",
+        "A complete predeclared campaign still needs separate Fe controls, positive/negative support and precision criteria; no thresholds or support policy changed."
+      ],
+      "final_metrics": null
+    }
+  ],
+  "archive_access": {
+    "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content",
+    "whole_archive_bytes": 270354229,
+    "archive_md5_from_record": "024dd326aa4d20cb8de97e565eec16cc",
+    "whole_archive_md5_verified": false,
+    "member_crc_verified": false,
+    "total_members": 160,
+    "csv_members": 160,
+    "README_or_label_members": [],
+    "unique_requested_byte_ranges": [
+      "0-29",
+      "30-71",
+      "72-583",
+      "270340362-270354206",
+      "270354207-270354228"
+    ],
+    "unique_transport_bytes": 14451,
+    "header_only_access": {
+      "member": "GOE100_#1 LIBS laboratory spectra LANL.csv",
+      "local_filename_verified": true,
+      "compressed_payload_start": 72,
+      "compressed_transport_bytes": 512,
+      "compressed_bytes_consumed_by_decoder": 147,
+      "decoded_prefix_bytes": 207,
+      "stop_reason": "Stopped immediately after textual column-name row",
+      "numerical_rows_decoded": 0,
+      "numerical_rows_saved": 0,
+      "remaining_compressed_bytes_discarded_uninterpreted": true,
+      "whole_member_crc_verified": false,
+      "requests": [
+        {
+          "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content",
+          "range": "bytes=0-29",
+          "status": 206,
+          "content_range": "bytes 0-29/270354229",
+          "purpose": "ZIP local header only",
+          "time_utc": "2026-10-19T19:56:16.162019+00:00",
+          "transport_bytes": 30,
+          "transport_sha256": "fae01841bb2be1b576b96333e3bf201fb9f23165c60438dc31042ed3b0f8510d"
+        },
+        {
+          "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content",
+          "range": "bytes=30-71",
+          "status": 206,
+          "content_range": "bytes 30-71/270354229",
+          "purpose": "ZIP local filename and extra metadata only",
+          "time_utc": "2026-10-19T19:56:17.826337+00:00",
+          "transport_bytes": 42,
+          "transport_sha256": "e797153ac6c0b64f54032e98e91d2dab840128e88c9191c6abfef78ead11842f"
+        },
+        {
+          "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content",
+          "range": "bytes=72-583",
+          "status": 206,
+          "content_range": "bytes 72-583/270354229",
+          "purpose": "bounded compressed prefix; no archive or compressed member saved",
+          "time_utc": "2026-10-19T19:56:18.488854+00:00",
+          "transport_bytes": 512,
+          "transport_sha256": "7e55414e6b1f9d4cbb7d1bfa80ba343da2913d9c196f0257161a18e27074fee7"
+        }
+      ],
+      "header_path": "data/raw/final_gap_v7_goe100/goe100_1_header_only.txt",
+      "header_sha256": "dc1dca76bac9586becfdd63830bd23c2ebc5ef615efa889a71ccac108b21d22f"
+    },
+    "initial_safe_stops": [
+      "First prefix attempt stopped on an unsupported codec alias while decoding the textual header; no data row decoded.",
+      "Second attempt did not recognize wave as a column marker, stopped at the first numeric-field sentinel byte, discarded it, and never decoded a numerical row or value.",
+      "Final successful procedure recognizes wave and stops exactly after the column-name newline (207 decoded text bytes)."
+    ],
+    "transport_limit": "512 compressed bytes may contain unconsumed compressed data; only147 bytes fed to decoder in the final successful pass, rest discarded without interpretation or persistence."
+  },
+  "evidence_snapshots": [
+    {
+      "path": "data/raw/final_gap_v7_goe100/chemcam_archsis.pdf",
+      "sha256": "95a0d36835d25e7dce63da5be6dba081fb7e1f2038b25a58fc0a5bd6a74dc88f",
+      "bytes": 427179,
+      "kind": "new_primary_document_or_metadata",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/document/chemcam_archsis.pdf"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/ccam_default_wave.lbl",
+      "sha256": "e37111448aabbf696a1b7ac08434f19272672ee60aaab91321df944e1d61effa",
+      "bytes": 2244,
+      "kind": "new_primary_document_or_metadata",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/document/ccam_default_wave.lbl",
+      "note": "PASSIVE/PSV wavelength label; not used as a LIBS/GOE100 axis certificate."
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/david2019_lpsc.pdf",
+      "sha256": "390d6e872d8985b095197d61253e860f24da8cd2dbc6cfb482387ceefe085cc3",
+      "bytes": 477454,
+      "kind": "new_primary_document_or_metadata",
+      "url": "https://www.hou.usra.edu/meetings/lpsc2019/pdf/1228.pdf"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/david2019_ninthmars.pdf",
+      "sha256": "307a4927ba1388e845ec52fb85a8023d19bff1c7f33ef64876bb868cded2621a",
+      "bytes": 211176,
+      "kind": "new_primary_document_or_metadata",
+      "url": "https://www.hou.usra.edu/meetings/ninthmars2019/pdf/6238.pdf"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/zenodo_lanl_current.json",
+      "sha256": "6a11626d4b02d9df6af0d3daa7620fd30a8c0f3e9f52193a2d3205476a4e75bf",
+      "bytes": 3843,
+      "kind": "new_primary_document_or_metadata",
+      "url": "https://zenodo.org/api/records/3902232"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/get_icpms_platform.html",
+      "sha256": "4014e4af0c2bea077691efa8eec418f91e1a205d24b1a3f83251de020039f6f0",
+      "bytes": 76909,
+      "kind": "new_primary_document_or_metadata",
+      "url": "https://www.get.omp.eu/platform/icpms/"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/supercam_calibration_collection.xml",
+      "sha256": "ef77da0f6e428be2f2857d56ad3aed4955fd19d82b13aaafe9f871e9ff9e9304",
+      "bytes": 6716,
+      "kind": "new_primary_document_or_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/collection_calibration_supercam.xml",
+      "note": "Ancillary inventory only; not used to establish ChemCam sample identity or transfer instrument identity."
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/supercam_3006_index.html",
+      "sha256": "abbe09aa173d538b16707a5cc28673edac3c1e6abf5c0f3a6ef8fd1e5b32b1b6",
+      "bytes": 16414,
+      "kind": "new_primary_document_or_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/3006mm/3006mm/",
+      "note": "Ancillary inventory only; not used to establish ChemCam sample identity or transfer instrument identity."
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/supercam_calibration_inventory.csv",
+      "sha256": "c8811e1db545e4ba4db0eb5579c44b6a65c46dcd75f95092ae85af16f78d4a35",
+      "bytes": 142654,
+      "kind": "new_primary_document_or_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/collection_calibration_supercam_inventory.csv",
+      "note": "Ancillary inventory only; not used to establish ChemCam sample identity or transfer instrument identity."
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/archive_eocd.bin",
+      "sha256": "1b44b237b010791a9859c01c552e2a90165817e46f314d32cc27a83770906927",
+      "bytes": 22,
+      "kind": "derived_metadata_or_access_procedure",
+      "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/archive_central_directory.bin",
+      "sha256": "ab334a46dab54b23d366fdcfd150735586fb1d6a93b3e4eb2707ca899df3f6e6",
+      "bytes": 13845,
+      "kind": "derived_metadata_or_access_procedure",
+      "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/archive_inventory.json",
+      "sha256": "bf6c573a6c10e30c1b4e4a61d2acd222213a253ff279c0a3b78c7d75fda8294a",
+      "bytes": 56793,
+      "kind": "derived_metadata_or_access_procedure",
+      "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/zip_range_requests.json",
+      "sha256": "82e243105d52fdba26b42e524dbbde8bff146092d776b3379dd2e67f6109bb25",
+      "bytes": 1244,
+      "kind": "derived_metadata_or_access_procedure",
+      "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/goe100_1_header_only.txt",
+      "sha256": "dc1dca76bac9586becfdd63830bd23c2ebc5ef615efa889a71ccac108b21d22f",
+      "bytes": 206,
+      "kind": "derived_metadata_or_access_procedure",
+      "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/goe100_1_header_access.json",
+      "sha256": "929f4c1f9339a44ca580e2da7f70eed076c6df4b27e78141010b93dc9b435344",
+      "bytes": 2035,
+      "kind": "derived_metadata_or_access_procedure",
+      "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/inspect_zip_metadata.py",
+      "sha256": "ec88dd9ac0959a4933cdbd2054104d923b9208720c7c2606059a73f21b5aa9b1",
+      "bytes": 2706,
+      "kind": "derived_metadata_or_access_procedure"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/read_csv_header_only.py",
+      "sha256": "d6dea36396ccb774027f3f31609e83a9da3cfedd96441fbd64389774c96cc9e6",
+      "bytes": 3614,
+      "kind": "derived_metadata_or_access_procedure"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/chemcam_archsis.txt",
+      "sha256": "e5f6aff55013f5d482b40fbdfc729cd0015367aa679fa674efbe3fa5aaeb1f2b",
+      "bytes": 33616,
+      "kind": "derived_metadata_or_access_procedure"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/david2019_lpsc.txt",
+      "sha256": "cdd88eec8e58ffa2856f749fa92b8f26e2264f098534c990a82d8c7cb5c17369",
+      "bytes": 10466,
+      "kind": "derived_metadata_or_access_procedure"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/david2019_ninthmars.txt",
+      "sha256": "4ee4bce748a5ca553fb433f927b8a14a3b823480fa7c361a53a0625f8d0b58d4",
+      "bytes": 10639,
+      "kind": "derived_metadata_or_access_procedure"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/goe100_iron_basis_check.json",
+      "sha256": "549f2e6bc3c2a9fc39f353d7d3d9002edd4a5738dbd4c5e2e16cb2cd4f0fa823",
+      "bytes": 2119,
+      "kind": "derived_metadata_or_access_procedure",
+      "url": "https://zenodo.org/api/records/3902232/files/LIBS%20laboratory%20spectra%20LANL.zip/content"
+    }
+  ],
+  "previous_evidence_bindings": [
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_hal_paper.pdf",
+      "sha256": "86f81e40dc6c9fbb877f7b751ae0d3505fb33478878538e754f132b163e7f42f",
+      "bytes": 2614085,
+      "kind": "previously_retrieved_primary_metadata_or_assay",
+      "url": "https://hal.science/hal-03093150/document"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david_thesis.pdf",
+      "sha256": "d5790ccde624fce8736a0711d09c56740cf20ffe1eb6b7dd6a34d3f1e867a1d8",
+      "bytes": 14323626,
+      "kind": "previously_retrieved_primary_metadata_or_assay",
+      "url": "https://utheme.utoulouse.fr/files/original/6881e73d8a132a8993d9e6ff378cbe77fdd8653f.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_chemistry_Table_S2.xlsx",
+      "sha256": "754efd08945f448b623084d84402691a6416173707f9236d2ecdd5f5c8cc41ed",
+      "bytes": 238978,
+      "kind": "previously_retrieved_primary_metadata_or_assay",
+      "url": "https://zenodo.org/records/3903074"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_samples.json",
+      "sha256": "a1c145932de04c6855320b7e07b06cfaf2323e7780d95133da83102b3af85f39",
+      "bytes": 3812,
+      "kind": "previously_retrieved_primary_metadata_or_assay",
+      "url": "https://zenodo.org/api/records/3903074"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david_thesis_assay_C3.png",
+      "sha256": "4597d28f3bd26bf2ddb681d0e6fda84f3f4623fd1729f09937c90e42316aa14a",
+      "bytes": 1276284,
+      "kind": "previously_retrieved_primary_metadata_or_assay"
+    },
+    {
+      "path": "data/raw/chemcam_external/clegg2017.pdf",
+      "sha256": "7c8c1af12fd15ef50cddba446e86aeb1dc530c0a397906018486d69e25d2aa10",
+      "bytes": 2899171,
+      "kind": "previously_retrieved_primary_metadata_or_assay",
+      "url": "https://doi.org/10.1016/j.sab.2016.12.003"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/anderson2017_paper.pdf",
+      "sha256": "42357c39d4ffac31c52068f3e4c518d1e6db1666240ea446ddc237a0a38a31a4",
+      "bytes": 3519336,
+      "kind": "previously_retrieved_primary_metadata_or_assay",
+      "url": "https://doi.org/10.1002/2016JE005164"
+    },
+    {
+      "path": "data/raw/final_search_v5_pds/chemcam_compositions.csv",
+      "sha256": "f717899d4be9da5f6c44fb9286ec89845423ccc2da1a25234243c533434a8c07",
+      "bytes": 49247,
+      "kind": "previously_retrieved_primary_metadata_or_assay",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/ccam_calibration_compositions.csv"
+    },
+    {
+      "path": "data/raw/chemcam_adaptation/test/goedv/2018_07_30_134057_ccs.lbl",
+      "sha256": "a2e59dab33086fa6957647d31df0d1c8dd02a8f04a349c509de29d4e9be62541",
+      "bytes": 19500,
+      "kind": "previously_retrieved_primary_metadata_or_assay",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calib_2021/1600mm/goedv/2018_07_30_134057_ccs.lbl"
+    }
+  ],
+  "previous_registry": {
+    "path": "data/reference/final_search_v3_admission.json",
+    "sha256": "3ba1911e3529ee3c97c6bdf52412b65e9aaae336d6654c47ed5fb4c203969055",
+    "bytes": 59193,
+    "kind": "previous_seen_metadata_registry"
+  },
+  "previous_audit": {
+    "path": "data/reference/final_search_v6_pds.json",
+    "sha256": "c1944417ca2dd32fc31e93730d9391c68e62614a24b3b04eb432b1a04f615bd7",
+    "bytes": 29474,
+    "kind": "previous_metadata_audit"
+  },
+  "related_current_review": {
+    "path": "data/raw/final_gap_v7_root/goedv_metadata_review.json",
+    "sha256": "6cefd948d5c0d00f2967846fbbbb6ceb226cacde3ff51b2d4194d72618d9171e",
+    "bytes": 1508,
+    "kind": "parallel_metadata_review"
+  },
+  "retrieval_errors": [
+    {
+      "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/71063",
+      "path": "data/raw/final_gap_v7_goe100/sigma_goethite_71063.html",
+      "fetched_at": "2026-10-19T19:52:33.685412+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 92,
+      "error": "curl: (92) HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR (err 2)"
+    },
+    {
+      "url": "https://hal.science/hal-01315519/document",
+      "path": "data/raw/final_gap_v7_goe100/wiens2013_hal.pdf",
+      "fetched_at": "2026-10-19T19:57:46.848365+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 56,
+      "error": "curl: (56) The requested URL returned error: 404"
+    },
+    {
+      "url": "https://www.sigmaaldrich.com/DE/en/product/aldrich/71063",
+      "path": "data/raw/final_gap_v7_goe100/sigma_goethite_71063_de.html",
+      "fetched_at": "2026-10-19T19:57:46.708849+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 92,
+      "error": "curl: (92) HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR (err 2)"
+    }
+  ],
+  "search_limits": "No author contact. Separate GOEDV source review handled by root. HTTP404/92 refer to attempted URLs only, not global source absence. No lot or QA bound invented."
+}

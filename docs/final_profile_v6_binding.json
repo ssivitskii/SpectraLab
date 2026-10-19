@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-19T19:26:18.264820+00:00",
+  "scope": "existing_profile_binding_only_not_data_admission_or_validation",
+  "manifest": "data/reference/final_campaign_v6_manifest.json",
+  "profile": {
+    "identity": "5be343aacc7d356911e3490ee9b2c22d38f5f62ea2ba7f3e2ccc39c30eabf933",
+    "instrument_id": "chemcam-lanl-testbed",
+    "class_order": [
+      "Na",
+      "Mg",
+      "Ca",
+      "Fe"
+    ],
+    "thresholds": {
+      "Na": 0.10825272614392062,
+      "Mg": 0.9945672395383269,
+      "Ca": 0.6795050836572871,
+      "Fe": 0.7185455426436053
+    },
+    "artifact_files": [
+      {
+        "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json",
+        "sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5"
+      }
+    ],
+    "units": "nm",
+    "medium": "vacuum",
+    "required_intervals_nm": [
+      [
+        241.0,
+        340.0
+      ],
+      [
+        383.0,
+        468.0
+      ],
+      [
+        474.0,
+        900.0
+      ]
+    ],
+    "max_sampling_step_nm": 0.5,
+    "max_resolution_fwhm_nm": 0.65,
+    "require_positive_signal": true
+  },
+  "actual_numeric_profile_binding": {
+    "profile_identity": "5be343aacc7d356911e3490ee9b2c22d38f5f62ea2ba7f3e2ccc39c30eabf933",
+    "artifact_sha256": {
+      "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5"
+    }
+  },
+  "required_calcium_ensemble_implementation": true,
+  "profile_sha256_unchanged": true,
+  "profile_identity_unchanged": true,
+  "new_final_spectra_read": 0,
+  "predictions_run": 0,
+  "receipts_consumed": 0,
+  "final_metrics": null,
+  "selection_frozen_before_predictions": false,
+  "support_policy": null,
+  "support_policy_note": "Not chosen before actual eligible metadata support is established; no fixed N has been claimed.",
+  "assessment_mode": "binary_score_threshold_only",
+  "limits": [
+    "Fe/Mg inherit the previous v3 weights and thresholds exactly. Their blank validation would not independently validate Ca.",
+    "An explicit different-instrument OOD test is scientifically possible if declared separately; current intended-domain binder does not support it.",
+    "Pending source/selection/support fields are deliberately incomplete; this is not a final freeze.",
+    "The pending native-resolution ceiling0.65nm is a planning constraint, not learned from model artifacts; applicability still requires instrument evidence. No final selection/support policy is frozen."
+  ]
+}

@@ -1,0 +1,2782 @@
+{
+  "schema_version": 3,
+  "run_id": "development-20261019T172235-da8f0847",
+  "status": "completed",
+  "scope": "nested_grouped_development_cv_not_independent_test",
+  "qualification": "development_only_no_independent_blank_validation",
+  "final_test_status": "not_performed",
+  "protocol_sha256": "329c395cabab5d934ac7b910590fc73d6f6c4dcd017b0216b2814093a4388f80",
+  "primary_candidate": "continuum-snr-ion",
+  "support": {
+    "spectra": 202,
+    "physical": 199,
+    "connected_groups": 46
+  },
+  "models": {
+    "v2-line-baseline": {
+      "metrics": {
+        "scope": "nested_grouped_development_cv_not_independent_test",
+        "independent_final_test": false,
+        "weighting": "Each physical material totals one; linked clusters resampled for CI",
+        "bootstrap": {
+          "clusters": 46,
+          "repeats": 1000,
+          "seed": 20261019,
+          "method": "percentile 95% connected-cluster bootstrap of fixed OOF predictions; no refit"
+        },
+        "per_class": {
+          "Na": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.10994623157051898,
+              "ece": 0.12434042406405495
+            },
+            "calibrated_reliability": {
+              "brier": 0.12591748566111202,
+              "ece": 0.13572788353581847
+            },
+            "all_answers": {
+              "known_physical_weight": 139.0,
+              "positive_physical_weight": 75.0,
+              "negative_physical_weight": 64.0,
+              "unknown_label_physical_weight": 60.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 46.5,
+              "accepted_false_positive_weight": 0.0,
+              "accepted_false_negative_weight": 28.5,
+              "accepted_true_negative_weight": 64.0,
+              "selective_recall": 0.62,
+              "selective_fpr": 0.0,
+              "selective_fnr": 0.38,
+              "positive_capture_including_refusals": 0.62,
+              "false_positive_risk_all_negatives": 0.0,
+              "accepted_false_negative_risk_all_positives": 0.38,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.81
+            },
+            "selective": {
+              "known_physical_weight": 139.0,
+              "positive_physical_weight": 75.0,
+              "negative_physical_weight": 64.0,
+              "unknown_label_physical_weight": 60.0,
+              "coverage_all": 0.9949748743718593,
+              "coverage_known": 0.9928057553956835,
+              "positive_coverage": 1.0,
+              "negative_coverage": 0.984375,
+              "accepted_true_positive_weight": 46.5,
+              "accepted_false_positive_weight": 0.0,
+              "accepted_false_negative_weight": 28.5,
+              "accepted_true_negative_weight": 63.0,
+              "selective_recall": 0.62,
+              "selective_fpr": 0.0,
+              "selective_fnr": 0.38,
+              "positive_capture_including_refusals": 0.62,
+              "false_positive_risk_all_negatives": 0.0,
+              "accepted_false_negative_risk_all_positives": 0.38,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 1.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.81
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.047229669593570035,
+                "upper": 0.23009323032501014,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 0.9770081722144708,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.0,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.4305443548387097,
+                "upper": 0.8305790960451976,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.4305443548387097,
+                "upper": 0.8305790960451976,
+                "valid_repeats": 1000
+              }
+            }
+          },
+          "Mg": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.04295967160435342,
+              "ece": 0.0638897530257429
+            },
+            "calibrated_reliability": {
+              "brier": 0.03139306608493123,
+              "ece": 0.0350413246514459
+            },
+            "all_answers": {
+              "known_physical_weight": 138.0,
+              "positive_physical_weight": 99.0,
+              "negative_physical_weight": 39.0,
+              "unknown_label_physical_weight": 61.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 90.0,
+              "accepted_false_positive_weight": 1.0,
+              "accepted_false_negative_weight": 9.0,
+              "accepted_true_negative_weight": 38.0,
+              "selective_recall": 0.9090909090909091,
+              "selective_fpr": 0.02564102564102564,
+              "selective_fnr": 0.09090909090909091,
+              "positive_capture_including_refusals": 0.9090909090909091,
+              "false_positive_risk_all_negatives": 0.02564102564102564,
+              "accepted_false_negative_risk_all_positives": 0.09090909090909091,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9417249417249418
+            },
+            "selective": {
+              "known_physical_weight": 138.0,
+              "positive_physical_weight": 99.0,
+              "negative_physical_weight": 39.0,
+              "unknown_label_physical_weight": 61.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 90.0,
+              "accepted_false_positive_weight": 1.0,
+              "accepted_false_negative_weight": 9.0,
+              "accepted_true_negative_weight": 38.0,
+              "selective_recall": 0.9090909090909091,
+              "selective_fpr": 0.02564102564102564,
+              "selective_fnr": 0.09090909090909091,
+              "positive_capture_including_refusals": 0.9090909090909091,
+              "false_positive_risk_all_negatives": 0.02564102564102564,
+              "accepted_false_negative_risk_all_positives": 0.09090909090909091,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9417249417249418
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.00286978890369511,
+                "upper": 0.06326037440477564,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 1.0,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.07696078431372547,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.8420632698768197,
+                "upper": 0.9636445536445536,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.8420632698768197,
+                "upper": 0.9636445536445536,
+                "valid_repeats": 1000
+              }
+            }
+          },
+          "Ca": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.06646900784177705,
+              "ece": 0.07639329826968258
+            },
+            "calibrated_reliability": {
+              "brier": 0.07089006844437473,
+              "ece": 0.07678931114699422
+            },
+            "all_answers": {
+              "known_physical_weight": 144.0,
+              "positive_physical_weight": 93.0,
+              "negative_physical_weight": 51.0,
+              "unknown_label_physical_weight": 55.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 78.0,
+              "accepted_false_positive_weight": 1.0,
+              "accepted_false_negative_weight": 15.0,
+              "accepted_true_negative_weight": 50.0,
+              "selective_recall": 0.8387096774193549,
+              "selective_fpr": 0.0196078431372549,
+              "selective_fnr": 0.16129032258064516,
+              "positive_capture_including_refusals": 0.8387096774193549,
+              "false_positive_risk_all_negatives": 0.0196078431372549,
+              "accepted_false_negative_risk_all_positives": 0.16129032258064516,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9095509171410501
+            },
+            "selective": {
+              "known_physical_weight": 144.0,
+              "positive_physical_weight": 93.0,
+              "negative_physical_weight": 51.0,
+              "unknown_label_physical_weight": 55.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 78.0,
+              "accepted_false_positive_weight": 1.0,
+              "accepted_false_negative_weight": 15.0,
+              "accepted_true_negative_weight": 50.0,
+              "selective_recall": 0.8387096774193549,
+              "selective_fpr": 0.0196078431372549,
+              "selective_fnr": 0.16129032258064516,
+              "positive_capture_including_refusals": 0.8387096774193549,
+              "false_positive_risk_all_negatives": 0.0196078431372549,
+              "accepted_false_negative_risk_all_positives": 0.16129032258064516,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9095509171410501
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.012937315956921507,
+                "upper": 0.17139385486823772,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 1.0,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.06669491525423726,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.6913534858387799,
+                "upper": 0.961038961038961,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.6913534858387799,
+                "upper": 0.961038961038961,
+                "valid_repeats": 1000
+              }
+            }
+          },
+          "Fe": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.06773531579003426,
+              "ece": 0.07664287365678589
+            },
+            "calibrated_reliability": {
+              "brier": 0.06808628149477268,
+              "ece": 0.07930845318009316
+            },
+            "all_answers": {
+              "known_physical_weight": 166.0,
+              "positive_physical_weight": 141.0,
+              "negative_physical_weight": 25.0,
+              "unknown_label_physical_weight": 33.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 128.0,
+              "accepted_false_positive_weight": 2.0,
+              "accepted_false_negative_weight": 13.0,
+              "accepted_true_negative_weight": 23.0,
+              "selective_recall": 0.9078014184397163,
+              "selective_fpr": 0.08,
+              "selective_fnr": 0.09219858156028368,
+              "positive_capture_including_refusals": 0.9078014184397163,
+              "false_positive_risk_all_negatives": 0.08,
+              "accepted_false_negative_risk_all_positives": 0.09219858156028368,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9139007092198581
+            },
+            "selective": {
+              "known_physical_weight": 166.0,
+              "positive_physical_weight": 141.0,
+              "negative_physical_weight": 25.0,
+              "unknown_label_physical_weight": 33.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 128.0,
+              "accepted_false_positive_weight": 2.0,
+              "accepted_false_negative_weight": 13.0,
+              "accepted_true_negative_weight": 23.0,
+              "selective_recall": 0.9078014184397163,
+              "selective_fpr": 0.08,
+              "selective_fnr": 0.09219858156028368,
+              "positive_capture_including_refusals": 0.9078014184397163,
+              "false_positive_risk_all_negatives": 0.08,
+              "accepted_false_negative_risk_all_positives": 0.09219858156028368,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9139007092198581
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.014087436733801318,
+                "upper": 0.13947546720152668,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 1.0,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.23076923076923078,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.7746247558342757,
+                "upper": 0.9904828042328042,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.7746247558342757,
+                "upper": 0.9904828042328042,
+                "valid_repeats": 1000
+              }
+            }
+          }
+        },
+        "by_campaign": {
+          "0": {
+            "Na": {
+              "calibrated_reliability": {
+                "brier": 0.05912564455786127,
+                "ece": 0.11497876936568904
+              },
+              "selective": {
+                "known_physical_weight": 80.0,
+                "positive_physical_weight": 46.0,
+                "negative_physical_weight": 34.0,
+                "unknown_label_physical_weight": 47.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 35.5,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 10.5,
+                "accepted_true_negative_weight": 34.0,
+                "selective_recall": 0.7717391304347826,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.22826086956521738,
+                "positive_capture_including_refusals": 0.7717391304347826,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.22826086956521738,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8858695652173914
+              }
+            },
+            "Mg": {
+              "calibrated_reliability": {
+                "brier": 0.003547941659132259,
+                "ece": 0.020640167490658792
+              },
+              "selective": {
+                "known_physical_weight": 97.0,
+                "positive_physical_weight": 80.0,
+                "negative_physical_weight": 17.0,
+                "unknown_label_physical_weight": 30.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 75.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 5.0,
+                "accepted_true_negative_weight": 17.0,
+                "selective_recall": 0.9375,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.0625,
+                "positive_capture_including_refusals": 0.9375,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.0625,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.96875
+              }
+            },
+            "Ca": {
+              "calibrated_reliability": {
+                "brier": 0.03036545215220962,
+                "ece": 0.04547912325399136
+              },
+              "selective": {
+                "known_physical_weight": 93.0,
+                "positive_physical_weight": 53.0,
+                "negative_physical_weight": 40.0,
+                "unknown_label_physical_weight": 34.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 51.0,
+                "accepted_false_positive_weight": 1.0,
+                "accepted_false_negative_weight": 2.0,
+                "accepted_true_negative_weight": 39.0,
+                "selective_recall": 0.9622641509433962,
+                "selective_fpr": 0.025,
+                "selective_fnr": 0.03773584905660377,
+                "positive_capture_including_refusals": 0.9622641509433962,
+                "false_positive_risk_all_negatives": 0.025,
+                "accepted_false_negative_risk_all_positives": 0.03773584905660377,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.9686320754716982
+              }
+            },
+            "Fe": {
+              "calibrated_reliability": {
+                "brier": 0.018059339660443402,
+                "ece": 0.017275826659171042
+              },
+              "selective": {
+                "known_physical_weight": 108.0,
+                "positive_physical_weight": 100.0,
+                "negative_physical_weight": 8.0,
+                "unknown_label_physical_weight": 19.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 99.0,
+                "accepted_false_positive_weight": 2.0,
+                "accepted_false_negative_weight": 1.0,
+                "accepted_true_negative_weight": 6.0,
+                "selective_recall": 0.99,
+                "selective_fpr": 0.25,
+                "selective_fnr": 0.01,
+                "positive_capture_including_refusals": 0.99,
+                "false_positive_risk_all_negatives": 0.25,
+                "accepted_false_negative_risk_all_positives": 0.01,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.87
+              }
+            }
+          },
+          "1": {
+            "Na": {
+              "calibrated_reliability": {
+                "brier": 0.21648269393670627,
+                "ece": 0.20094625141785186
+              },
+              "selective": {
+                "known_physical_weight": 59.0,
+                "positive_physical_weight": 29.0,
+                "negative_physical_weight": 30.0,
+                "unknown_label_physical_weight": 13.0,
+                "coverage_all": 0.9861111111111112,
+                "coverage_known": 0.9830508474576272,
+                "positive_coverage": 1.0,
+                "negative_coverage": 0.9666666666666667,
+                "accepted_true_positive_weight": 11.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 18.0,
+                "accepted_true_negative_weight": 29.0,
+                "selective_recall": 0.3793103448275862,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.6206896551724138,
+                "positive_capture_including_refusals": 0.3793103448275862,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.6206896551724138,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 1.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.6896551724137931
+              }
+            },
+            "Mg": {
+              "calibrated_reliability": {
+                "brier": 0.09727055558011417,
+                "ece": 0.10264560793003477
+              },
+              "selective": {
+                "known_physical_weight": 41.0,
+                "positive_physical_weight": 19.0,
+                "negative_physical_weight": 22.0,
+                "unknown_label_physical_weight": 31.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 15.0,
+                "accepted_false_positive_weight": 1.0,
+                "accepted_false_negative_weight": 4.0,
+                "accepted_true_negative_weight": 21.0,
+                "selective_recall": 0.7894736842105263,
+                "selective_fpr": 0.045454545454545456,
+                "selective_fnr": 0.21052631578947367,
+                "positive_capture_including_refusals": 0.7894736842105263,
+                "false_positive_risk_all_negatives": 0.045454545454545456,
+                "accepted_false_negative_risk_all_positives": 0.21052631578947367,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8720095693779905
+              }
+            },
+            "Ca": {
+              "calibrated_reliability": {
+                "brier": 0.14478789815361703,
+                "ece": 0.15259897471608158
+              },
+              "selective": {
+                "known_physical_weight": 51.0,
+                "positive_physical_weight": 40.0,
+                "negative_physical_weight": 11.0,
+                "unknown_label_physical_weight": 21.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 27.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 13.0,
+                "accepted_true_negative_weight": 11.0,
+                "selective_recall": 0.675,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.325,
+                "positive_capture_including_refusals": 0.675,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.325,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8375
+              }
+            },
+            "Fe": {
+              "calibrated_reliability": {
+                "brier": 0.1612398973242134,
+                "ece": 0.2072022000599377
+              },
+              "selective": {
+                "known_physical_weight": 58.0,
+                "positive_physical_weight": 41.0,
+                "negative_physical_weight": 17.0,
+                "unknown_label_physical_weight": 14.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 29.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 12.0,
+                "accepted_true_negative_weight": 17.0,
+                "selective_recall": 0.7073170731707317,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.2926829268292683,
+                "positive_capture_including_refusals": 0.7073170731707317,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.2926829268292683,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8536585365853658
+              }
+            }
+          }
+        },
+        "macro": {
+          "raw_brier": 0.07177755670167094,
+          "calibrated_brier": 0.07407172542129767,
+          "calibrated_ece": 0.08171674312858794,
+          "coverage_known": 0.9982014388489209,
+          "selective_fpr": 0.031312217194570134,
+          "selective_recall": 0.818900501237495,
+          "positive_capture_including_refusals": 0.818900501237495
+        }
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "C": 0.1,
+          "thresholds": [
+            0.2882208868239088,
+            0.8263868740159589,
+            0.6115529827845365,
+            0.7945426813523381
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 1,
+          "C": 1.0,
+          "thresholds": [
+            0.999760365530551,
+            0.9891475827611907,
+            0.9921660491737894,
+            0.8255511235714446
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 2,
+          "C": 1.0,
+          "thresholds": [
+            0.6284061668359628,
+            0.7230945973429777,
+            0.9475164569411423,
+            0.9440514362090296
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 5.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 3,
+          "C": 0.1,
+          "thresholds": [
+            0.9969431213954305,
+            0.920709137175867,
+            0.9930379978036076,
+            0.8606023180459772
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 5.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 4,
+          "C": 0.1,
+          "thresholds": [
+            0.5127080114940012,
+            0.9980365810421742,
+            0.9991408591355274,
+            0.9246916185151464
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            }
+          }
+        }
+      ],
+      "seconds": 0.9776746659772471,
+      "calibration_paired_brier": {
+        "definition": "after minus before Brier; equal physical weight, unknown truth excluded",
+        "method": "paired connected-cluster percentile 95% bootstrap of fixed OOF predictions",
+        "repeats": 1000,
+        "seed": 20261019,
+        "differences": {
+          "Na": {
+            "point": 0.01597125409059304,
+            "lower": 0.002424198252183268,
+            "upper": 0.031008086872182004,
+            "valid_repeats": 1000
+          },
+          "Mg": {
+            "point": -0.011566605519422181,
+            "lower": -0.021368824993912332,
+            "upper": -0.002160644938167208,
+            "valid_repeats": 1000
+          },
+          "Ca": {
+            "point": 0.004421060602597706,
+            "lower": -0.0050354334910375645,
+            "upper": 0.014999127330631168,
+            "valid_repeats": 1000
+          },
+          "Fe": {
+            "point": 0.0003509657047384165,
+            "lower": -0.03232731255311738,
+            "upper": 0.030632011654437963,
+            "valid_repeats": 1000
+          },
+          "macro": {
+            "point": 0.002294168719626746,
+            "lower": -0.007237955576889678,
+            "upper": 0.011889197947958974,
+            "valid_repeats": 1000
+          }
+        }
+      }
+    },
+    "continuum-snr-neutral": {
+      "metrics": {
+        "scope": "nested_grouped_development_cv_not_independent_test",
+        "independent_final_test": false,
+        "weighting": "Each physical material totals one; linked clusters resampled for CI",
+        "bootstrap": {
+          "clusters": 46,
+          "repeats": 1000,
+          "seed": 20261019,
+          "method": "percentile 95% connected-cluster bootstrap of fixed OOF predictions; no refit"
+        },
+        "per_class": {
+          "Na": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.0932274259585777,
+              "ece": 0.10439854520250792
+            },
+            "calibrated_reliability": {
+              "brier": 0.08215798198407546,
+              "ece": 0.09712276103361117
+            },
+            "all_answers": {
+              "known_physical_weight": 139.0,
+              "positive_physical_weight": 75.0,
+              "negative_physical_weight": 64.0,
+              "unknown_label_physical_weight": 60.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 62.5,
+              "accepted_false_positive_weight": 2.0,
+              "accepted_false_negative_weight": 12.5,
+              "accepted_true_negative_weight": 62.0,
+              "selective_recall": 0.8333333333333334,
+              "selective_fpr": 0.03125,
+              "selective_fnr": 0.16666666666666666,
+              "positive_capture_including_refusals": 0.8333333333333334,
+              "false_positive_risk_all_negatives": 0.03125,
+              "accepted_false_negative_risk_all_positives": 0.16666666666666666,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9010416666666667
+            },
+            "selective": {
+              "known_physical_weight": 139.0,
+              "positive_physical_weight": 75.0,
+              "negative_physical_weight": 64.0,
+              "unknown_label_physical_weight": 60.0,
+              "coverage_all": 0.964824120603015,
+              "coverage_known": 0.9712230215827338,
+              "positive_coverage": 1.0,
+              "negative_coverage": 0.9375,
+              "accepted_true_positive_weight": 62.5,
+              "accepted_false_positive_weight": 2.0,
+              "accepted_false_negative_weight": 12.5,
+              "accepted_true_negative_weight": 58.0,
+              "selective_recall": 0.8333333333333334,
+              "selective_fpr": 0.03333333333333333,
+              "selective_fnr": 0.16666666666666666,
+              "positive_capture_including_refusals": 0.8333333333333334,
+              "false_positive_risk_all_negatives": 0.03125,
+              "accepted_false_negative_risk_all_positives": 0.16666666666666666,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 4.0,
+              "unknown_truth_acceptance": 0.95,
+              "selective_balanced_accuracy": 0.9
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.012512064185713745,
+                "upper": 0.19254104824622711,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 0.935171568627451,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.09090909090909091,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.652161700048852,
+                "upper": 0.9838773681515617,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.652161700048852,
+                "upper": 0.9838773681515617,
+                "valid_repeats": 1000
+              }
+            }
+          },
+          "Mg": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.02464696954919194,
+              "ece": 0.05189702951152082
+            },
+            "calibrated_reliability": {
+              "brier": 0.024519582455101722,
+              "ece": 0.025025295824876663
+            },
+            "all_answers": {
+              "known_physical_weight": 138.0,
+              "positive_physical_weight": 99.0,
+              "negative_physical_weight": 39.0,
+              "unknown_label_physical_weight": 61.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 91.0,
+              "accepted_false_positive_weight": 0.0,
+              "accepted_false_negative_weight": 8.0,
+              "accepted_true_negative_weight": 39.0,
+              "selective_recall": 0.9191919191919192,
+              "selective_fpr": 0.0,
+              "selective_fnr": 0.08080808080808081,
+              "positive_capture_including_refusals": 0.9191919191919192,
+              "false_positive_risk_all_negatives": 0.0,
+              "accepted_false_negative_risk_all_positives": 0.08080808080808081,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9595959595959596
+            },
+            "selective": {
+              "known_physical_weight": 138.0,
+              "positive_physical_weight": 99.0,
+              "negative_physical_weight": 39.0,
+              "unknown_label_physical_weight": 61.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 91.0,
+              "accepted_false_positive_weight": 0.0,
+              "accepted_false_negative_weight": 8.0,
+              "accepted_true_negative_weight": 39.0,
+              "selective_recall": 0.9191919191919192,
+              "selective_fpr": 0.0,
+              "selective_fnr": 0.08080808080808081,
+              "positive_capture_including_refusals": 0.9191919191919192,
+              "false_positive_risk_all_negatives": 0.0,
+              "accepted_false_negative_risk_all_positives": 0.08080808080808081,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9595959595959596
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.003530479415296999,
+                "upper": 0.0559706325805835,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 1.0,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.0,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.8433417882054535,
+                "upper": 0.9700074257425743,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.8433417882054535,
+                "upper": 0.9700074257425743,
+                "valid_repeats": 1000
+              }
+            }
+          },
+          "Ca": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.056767940398834545,
+              "ece": 0.07684255918673344
+            },
+            "calibrated_reliability": {
+              "brier": 0.05775974152419448,
+              "ece": 0.05493703459002009
+            },
+            "all_answers": {
+              "known_physical_weight": 144.0,
+              "positive_physical_weight": 93.0,
+              "negative_physical_weight": 51.0,
+              "unknown_label_physical_weight": 55.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 83.0,
+              "accepted_false_positive_weight": 10.0,
+              "accepted_false_negative_weight": 10.0,
+              "accepted_true_negative_weight": 41.0,
+              "selective_recall": 0.8924731182795699,
+              "selective_fpr": 0.19607843137254902,
+              "selective_fnr": 0.10752688172043011,
+              "positive_capture_including_refusals": 0.8924731182795699,
+              "false_positive_risk_all_negatives": 0.19607843137254902,
+              "accepted_false_negative_risk_all_positives": 0.10752688172043011,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.8481973434535105
+            },
+            "selective": {
+              "known_physical_weight": 144.0,
+              "positive_physical_weight": 93.0,
+              "negative_physical_weight": 51.0,
+              "unknown_label_physical_weight": 55.0,
+              "coverage_all": 0.9949748743718593,
+              "coverage_known": 0.9930555555555556,
+              "positive_coverage": 1.0,
+              "negative_coverage": 0.9803921568627451,
+              "accepted_true_positive_weight": 83.0,
+              "accepted_false_positive_weight": 10.0,
+              "accepted_false_negative_weight": 10.0,
+              "accepted_true_negative_weight": 40.0,
+              "selective_recall": 0.8924731182795699,
+              "selective_fpr": 0.2,
+              "selective_fnr": 0.10752688172043011,
+              "positive_capture_including_refusals": 0.8924731182795699,
+              "false_positive_risk_all_negatives": 0.19607843137254902,
+              "accepted_false_negative_risk_all_positives": 0.10752688172043011,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 1.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.846236559139785
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.0016501299695675627,
+                "upper": 0.1608219987509226,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 0.9774261234481553,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.10203216879972328,
+                "upper": 0.3111111111111111,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.7428042328042328,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.7428042328042328,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              }
+            }
+          },
+          "Fe": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.08587552826712325,
+              "ece": 0.09547516493149037
+            },
+            "calibrated_reliability": {
+              "brier": 0.08285830613970226,
+              "ece": 0.07744281840148462
+            },
+            "all_answers": {
+              "known_physical_weight": 166.0,
+              "positive_physical_weight": 141.0,
+              "negative_physical_weight": 25.0,
+              "unknown_label_physical_weight": 33.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 120.0,
+              "accepted_false_positive_weight": 2.0,
+              "accepted_false_negative_weight": 21.0,
+              "accepted_true_negative_weight": 23.0,
+              "selective_recall": 0.851063829787234,
+              "selective_fpr": 0.08,
+              "selective_fnr": 0.14893617021276595,
+              "positive_capture_including_refusals": 0.851063829787234,
+              "false_positive_risk_all_negatives": 0.08,
+              "accepted_false_negative_risk_all_positives": 0.14893617021276595,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.8855319148936169
+            },
+            "selective": {
+              "known_physical_weight": 166.0,
+              "positive_physical_weight": 141.0,
+              "negative_physical_weight": 25.0,
+              "unknown_label_physical_weight": 33.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 120.0,
+              "accepted_false_positive_weight": 2.0,
+              "accepted_false_negative_weight": 21.0,
+              "accepted_true_negative_weight": 23.0,
+              "selective_recall": 0.851063829787234,
+              "selective_fpr": 0.08,
+              "selective_fnr": 0.14893617021276595,
+              "positive_capture_including_refusals": 0.851063829787234,
+              "false_positive_risk_all_negatives": 0.08,
+              "accepted_false_negative_risk_all_positives": 0.14893617021276595,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.8855319148936169
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.013127703937657022,
+                "upper": 0.1925625634865113,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 1.0,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.2,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.7210364311013662,
+                "upper": 0.9610587885397045,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.7210364311013662,
+                "upper": 0.9610587885397045,
+                "valid_repeats": 1000
+              }
+            }
+          }
+        },
+        "by_campaign": {
+          "0": {
+            "Na": {
+              "calibrated_reliability": {
+                "brier": 0.02024505847668505,
+                "ece": 0.05648351115219656
+              },
+              "selective": {
+                "known_physical_weight": 80.0,
+                "positive_physical_weight": 46.0,
+                "negative_physical_weight": 34.0,
+                "unknown_label_physical_weight": 47.0,
+                "coverage_all": 0.9763779527559056,
+                "coverage_known": 0.9875,
+                "positive_coverage": 1.0,
+                "negative_coverage": 0.9705882352941176,
+                "accepted_true_positive_weight": 42.5,
+                "accepted_false_positive_weight": 2.0,
+                "accepted_false_negative_weight": 3.5,
+                "accepted_true_negative_weight": 31.0,
+                "selective_recall": 0.9239130434782609,
+                "selective_fpr": 0.06060606060606061,
+                "selective_fnr": 0.07608695652173914,
+                "positive_capture_including_refusals": 0.9239130434782609,
+                "false_positive_risk_all_negatives": 0.058823529411764705,
+                "accepted_false_negative_risk_all_positives": 0.07608695652173914,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 1.0,
+                "unknown_truth_acceptance": 0.9574468085106383,
+                "selective_balanced_accuracy": 0.9316534914361001
+              }
+            },
+            "Mg": {
+              "calibrated_reliability": {
+                "brier": 0.006813205228587172,
+                "ece": 0.017276278095884463
+              },
+              "selective": {
+                "known_physical_weight": 97.0,
+                "positive_physical_weight": 80.0,
+                "negative_physical_weight": 17.0,
+                "unknown_label_physical_weight": 30.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 76.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 4.0,
+                "accepted_true_negative_weight": 17.0,
+                "selective_recall": 0.95,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.05,
+                "positive_capture_including_refusals": 0.95,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.05,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.975
+              }
+            },
+            "Ca": {
+              "calibrated_reliability": {
+                "brier": 0.012432803716618087,
+                "ece": 0.0182772314836259
+              },
+              "selective": {
+                "known_physical_weight": 93.0,
+                "positive_physical_weight": 53.0,
+                "negative_physical_weight": 40.0,
+                "unknown_label_physical_weight": 34.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 53.0,
+                "accepted_false_positive_weight": 9.0,
+                "accepted_false_negative_weight": 0.0,
+                "accepted_true_negative_weight": 31.0,
+                "selective_recall": 1.0,
+                "selective_fpr": 0.225,
+                "selective_fnr": 0.0,
+                "positive_capture_including_refusals": 1.0,
+                "false_positive_risk_all_negatives": 0.225,
+                "accepted_false_negative_risk_all_positives": 0.0,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8875
+              }
+            },
+            "Fe": {
+              "calibrated_reliability": {
+                "brier": 0.02005246412723789,
+                "ece": 0.02511020634458128
+              },
+              "selective": {
+                "known_physical_weight": 108.0,
+                "positive_physical_weight": 100.0,
+                "negative_physical_weight": 8.0,
+                "unknown_label_physical_weight": 19.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 98.0,
+                "accepted_false_positive_weight": 1.0,
+                "accepted_false_negative_weight": 2.0,
+                "accepted_true_negative_weight": 7.0,
+                "selective_recall": 0.98,
+                "selective_fpr": 0.125,
+                "selective_fnr": 0.02,
+                "positive_capture_including_refusals": 0.98,
+                "false_positive_risk_all_negatives": 0.125,
+                "accepted_false_negative_risk_all_positives": 0.02,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.9275
+              }
+            }
+          },
+          "1": {
+            "Na": {
+              "calibrated_reliability": {
+                "brier": 0.16610770877375733,
+                "ece": 0.17313012839332137
+              },
+              "selective": {
+                "known_physical_weight": 59.0,
+                "positive_physical_weight": 29.0,
+                "negative_physical_weight": 30.0,
+                "unknown_label_physical_weight": 13.0,
+                "coverage_all": 0.9444444444444444,
+                "coverage_known": 0.9491525423728814,
+                "positive_coverage": 1.0,
+                "negative_coverage": 0.9,
+                "accepted_true_positive_weight": 20.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 9.0,
+                "accepted_true_negative_weight": 27.0,
+                "selective_recall": 0.6896551724137931,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.3103448275862069,
+                "positive_capture_including_refusals": 0.6896551724137931,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.3103448275862069,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 3.0,
+                "unknown_truth_acceptance": 0.9230769230769231,
+                "selective_balanced_accuracy": 0.8448275862068966
+              }
+            },
+            "Mg": {
+              "calibrated_reliability": {
+                "brier": 0.06641027979588003,
+                "ece": 0.05969570266226155
+              },
+              "selective": {
+                "known_physical_weight": 41.0,
+                "positive_physical_weight": 19.0,
+                "negative_physical_weight": 22.0,
+                "unknown_label_physical_weight": 31.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 15.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 4.0,
+                "accepted_true_negative_weight": 22.0,
+                "selective_recall": 0.7894736842105263,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.21052631578947367,
+                "positive_capture_including_refusals": 0.7894736842105263,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.21052631578947367,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8947368421052632
+              }
+            },
+            "Ca": {
+              "calibrated_reliability": {
+                "brier": 0.1404147457615397,
+                "ece": 0.1557072676786856
+              },
+              "selective": {
+                "known_physical_weight": 51.0,
+                "positive_physical_weight": 40.0,
+                "negative_physical_weight": 11.0,
+                "unknown_label_physical_weight": 21.0,
+                "coverage_all": 0.9861111111111112,
+                "coverage_known": 0.9803921568627451,
+                "positive_coverage": 1.0,
+                "negative_coverage": 0.9090909090909091,
+                "accepted_true_positive_weight": 30.0,
+                "accepted_false_positive_weight": 1.0,
+                "accepted_false_negative_weight": 10.0,
+                "accepted_true_negative_weight": 9.0,
+                "selective_recall": 0.75,
+                "selective_fpr": 0.1,
+                "selective_fnr": 0.25,
+                "positive_capture_including_refusals": 0.75,
+                "false_positive_risk_all_negatives": 0.09090909090909091,
+                "accepted_false_negative_risk_all_positives": 0.25,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 1.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.825
+              }
+            },
+            "Fe": {
+              "calibrated_reliability": {
+                "brier": 0.19980711540429105,
+                "ece": 0.18826797078049406
+              },
+              "selective": {
+                "known_physical_weight": 58.0,
+                "positive_physical_weight": 41.0,
+                "negative_physical_weight": 17.0,
+                "unknown_label_physical_weight": 14.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 22.0,
+                "accepted_false_positive_weight": 1.0,
+                "accepted_false_negative_weight": 19.0,
+                "accepted_true_negative_weight": 16.0,
+                "selective_recall": 0.5365853658536586,
+                "selective_fpr": 0.058823529411764705,
+                "selective_fnr": 0.4634146341463415,
+                "positive_capture_including_refusals": 0.5365853658536586,
+                "false_positive_risk_all_negatives": 0.058823529411764705,
+                "accepted_false_negative_risk_all_positives": 0.4634146341463415,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.7388809182209469
+              }
+            }
+          }
+        },
+        "macro": {
+          "raw_brier": 0.06512946604343187,
+          "calibrated_brier": 0.061823903025768484,
+          "calibrated_ece": 0.06363197746249813,
+          "coverage_known": 0.9910696442845723,
+          "selective_fpr": 0.07833333333333334,
+          "selective_recall": 0.8740155501480141,
+          "positive_capture_including_refusals": 0.8740155501480141
+        }
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "C": 0.1,
+          "thresholds": [
+            0.3835559575917684,
+            0.9460701064593284,
+            0.9246158172149597,
+            0.9973322258358949
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 1,
+          "C": 0.1,
+          "thresholds": [
+            0.03726641015389208,
+            0.6276996568537931,
+            0.9181983263490764,
+            0.9835211303034205
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 2,
+          "C": 0.1,
+          "thresholds": [
+            0.09334070266306953,
+            0.7261161633115226,
+            7.0186557840439965e-06,
+            0.20652727782018826
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 5.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 5.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 3,
+          "C": 1.0,
+          "thresholds": [
+            0.9978766908711219,
+            0.9989884198154207,
+            0.002514321796296863,
+            0.15453533336809205
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 5.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 4,
+          "C": 0.1,
+          "thresholds": [
+            0.4457149908481244,
+            0.9988139145156304,
+            0.9967174245766136,
+            0.3088538091345069
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            }
+          }
+        }
+      ],
+      "seconds": 0.5476232079963665,
+      "calibration_paired_brier": {
+        "definition": "after minus before Brier; equal physical weight, unknown truth excluded",
+        "method": "paired connected-cluster percentile 95% bootstrap of fixed OOF predictions",
+        "repeats": 1000,
+        "seed": 20261019,
+        "differences": {
+          "Na": {
+            "point": -0.01106944397450227,
+            "lower": -0.03923713950780547,
+            "upper": 0.023662370808633478,
+            "valid_repeats": 1000
+          },
+          "Mg": {
+            "point": -0.00012738709409021844,
+            "lower": -0.00761486183966666,
+            "upper": 0.007133028000909266,
+            "valid_repeats": 1000
+          },
+          "Ca": {
+            "point": 0.0009918011253599555,
+            "lower": -0.009481405412303976,
+            "upper": 0.013560955217869703,
+            "valid_repeats": 1000
+          },
+          "Fe": {
+            "point": -0.0030172221274209843,
+            "lower": -0.01409806505300218,
+            "upper": 0.007236181277871181,
+            "valid_repeats": 1000
+          },
+          "macro": {
+            "point": -0.0033055630176633795,
+            "lower": -0.013498550202586135,
+            "upper": 0.00906548729108627,
+            "valid_repeats": 1000
+          }
+        }
+      }
+    },
+    "continuum-snr-ion": {
+      "metrics": {
+        "scope": "nested_grouped_development_cv_not_independent_test",
+        "independent_final_test": false,
+        "weighting": "Each physical material totals one; linked clusters resampled for CI",
+        "bootstrap": {
+          "clusters": 46,
+          "repeats": 1000,
+          "seed": 20261019,
+          "method": "percentile 95% connected-cluster bootstrap of fixed OOF predictions; no refit"
+        },
+        "per_class": {
+          "Na": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.0838008468577733,
+              "ece": 0.0952810076853224
+            },
+            "calibrated_reliability": {
+              "brier": 0.08401982458798561,
+              "ece": 0.08006226579420918
+            },
+            "all_answers": {
+              "known_physical_weight": 139.0,
+              "positive_physical_weight": 75.0,
+              "negative_physical_weight": 64.0,
+              "unknown_label_physical_weight": 60.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 63.0,
+              "accepted_false_positive_weight": 1.0,
+              "accepted_false_negative_weight": 12.0,
+              "accepted_true_negative_weight": 63.0,
+              "selective_recall": 0.84,
+              "selective_fpr": 0.015625,
+              "selective_fnr": 0.16,
+              "positive_capture_including_refusals": 0.84,
+              "false_positive_risk_all_negatives": 0.015625,
+              "accepted_false_negative_risk_all_positives": 0.16,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9121874999999999
+            },
+            "selective": {
+              "known_physical_weight": 139.0,
+              "positive_physical_weight": 75.0,
+              "negative_physical_weight": 64.0,
+              "unknown_label_physical_weight": 60.0,
+              "coverage_all": 0.9949748743718593,
+              "coverage_known": 0.9928057553956835,
+              "positive_coverage": 1.0,
+              "negative_coverage": 0.984375,
+              "accepted_true_positive_weight": 63.0,
+              "accepted_false_positive_weight": 1.0,
+              "accepted_false_negative_weight": 12.0,
+              "accepted_true_negative_weight": 62.0,
+              "selective_recall": 0.84,
+              "selective_fpr": 0.015873015873015872,
+              "selective_fnr": 0.16,
+              "positive_capture_including_refusals": 0.84,
+              "false_positive_risk_all_negatives": 0.015625,
+              "accepted_false_negative_risk_all_positives": 0.16,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 1.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.912063492063492
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.026231326910053063,
+                "upper": 0.16713739625161314,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 0.9770081722144708,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.05660377358490566,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.6483333333333333,
+                "upper": 0.9814980158730159,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.6483333333333333,
+                "upper": 0.9814980158730159,
+                "valid_repeats": 1000
+              }
+            }
+          },
+          "Mg": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.024380552126069793,
+              "ece": 0.04254037964668854
+            },
+            "calibrated_reliability": {
+              "brier": 0.027222375000726304,
+              "ece": 0.026232619950451345
+            },
+            "all_answers": {
+              "known_physical_weight": 138.0,
+              "positive_physical_weight": 99.0,
+              "negative_physical_weight": 39.0,
+              "unknown_label_physical_weight": 61.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 92.0,
+              "accepted_false_positive_weight": 0.0,
+              "accepted_false_negative_weight": 7.0,
+              "accepted_true_negative_weight": 39.0,
+              "selective_recall": 0.9292929292929293,
+              "selective_fpr": 0.0,
+              "selective_fnr": 0.0707070707070707,
+              "positive_capture_including_refusals": 0.9292929292929293,
+              "false_positive_risk_all_negatives": 0.0,
+              "accepted_false_negative_risk_all_positives": 0.0707070707070707,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9646464646464646
+            },
+            "selective": {
+              "known_physical_weight": 138.0,
+              "positive_physical_weight": 99.0,
+              "negative_physical_weight": 39.0,
+              "unknown_label_physical_weight": 61.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 92.0,
+              "accepted_false_positive_weight": 0.0,
+              "accepted_false_negative_weight": 7.0,
+              "accepted_true_negative_weight": 39.0,
+              "selective_recall": 0.9292929292929293,
+              "selective_fpr": 0.0,
+              "selective_fnr": 0.0707070707070707,
+              "positive_capture_including_refusals": 0.9292929292929293,
+              "false_positive_risk_all_negatives": 0.0,
+              "accepted_false_negative_risk_all_positives": 0.0707070707070707,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9646464646464646
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.00027045068497715707,
+                "upper": 0.06313652693352623,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 1.0,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.0,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.8543638754045307,
+                "upper": 0.9785003431708991,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.8543638754045307,
+                "upper": 0.9785003431708991,
+                "valid_repeats": 1000
+              }
+            }
+          },
+          "Ca": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.05614794972857848,
+              "ece": 0.07617573698109935
+            },
+            "calibrated_reliability": {
+              "brier": 0.0589048319828385,
+              "ece": 0.059695805308862246
+            },
+            "all_answers": {
+              "known_physical_weight": 144.0,
+              "positive_physical_weight": 93.0,
+              "negative_physical_weight": 51.0,
+              "unknown_label_physical_weight": 55.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 84.0,
+              "accepted_false_positive_weight": 4.0,
+              "accepted_false_negative_weight": 9.0,
+              "accepted_true_negative_weight": 47.0,
+              "selective_recall": 0.9032258064516129,
+              "selective_fpr": 0.0784313725490196,
+              "selective_fnr": 0.0967741935483871,
+              "positive_capture_including_refusals": 0.9032258064516129,
+              "false_positive_risk_all_negatives": 0.0784313725490196,
+              "accepted_false_negative_risk_all_positives": 0.0967741935483871,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9123972169512967
+            },
+            "selective": {
+              "known_physical_weight": 144.0,
+              "positive_physical_weight": 93.0,
+              "negative_physical_weight": 51.0,
+              "unknown_label_physical_weight": 55.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 84.0,
+              "accepted_false_positive_weight": 4.0,
+              "accepted_false_negative_weight": 9.0,
+              "accepted_true_negative_weight": 47.0,
+              "selective_recall": 0.9032258064516129,
+              "selective_fpr": 0.0784313725490196,
+              "selective_fnr": 0.0967741935483871,
+              "positive_capture_including_refusals": 0.9032258064516129,
+              "false_positive_risk_all_negatives": 0.0784313725490196,
+              "accepted_false_negative_risk_all_positives": 0.0967741935483871,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.9123972169512967
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.004132509445441026,
+                "upper": 0.15915090045525532,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 1.0,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.1702127659574468,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.7477353727353727,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.7477353727353727,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              }
+            }
+          },
+          "Fe": {
+            "raw_score_reliability_diagnostic": {
+              "brier": 0.049341349685901356,
+              "ece": 0.058400185000747416
+            },
+            "calibrated_reliability": {
+              "brier": 0.04113291215600633,
+              "ece": 0.04894105402935789
+            },
+            "all_answers": {
+              "known_physical_weight": 166.0,
+              "positive_physical_weight": 141.0,
+              "negative_physical_weight": 25.0,
+              "unknown_label_physical_weight": 33.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 127.0,
+              "accepted_false_positive_weight": 1.0,
+              "accepted_false_negative_weight": 14.0,
+              "accepted_true_negative_weight": 24.0,
+              "selective_recall": 0.900709219858156,
+              "selective_fpr": 0.04,
+              "selective_fnr": 0.09929078014184398,
+              "positive_capture_including_refusals": 0.900709219858156,
+              "false_positive_risk_all_negatives": 0.04,
+              "accepted_false_negative_risk_all_positives": 0.09929078014184398,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.930354609929078
+            },
+            "selective": {
+              "known_physical_weight": 166.0,
+              "positive_physical_weight": 141.0,
+              "negative_physical_weight": 25.0,
+              "unknown_label_physical_weight": 33.0,
+              "coverage_all": 1.0,
+              "coverage_known": 1.0,
+              "positive_coverage": 1.0,
+              "negative_coverage": 1.0,
+              "accepted_true_positive_weight": 127.0,
+              "accepted_false_positive_weight": 1.0,
+              "accepted_false_negative_weight": 14.0,
+              "accepted_true_negative_weight": 24.0,
+              "selective_recall": 0.900709219858156,
+              "selective_fpr": 0.04,
+              "selective_fnr": 0.09929078014184398,
+              "positive_capture_including_refusals": 0.900709219858156,
+              "false_positive_risk_all_negatives": 0.04,
+              "accepted_false_negative_risk_all_positives": 0.09929078014184398,
+              "refused_positive_weight": 0.0,
+              "refused_negative_weight": 0.0,
+              "unknown_truth_acceptance": 1.0,
+              "selective_balanced_accuracy": 0.930354609929078
+            },
+            "confidence_intervals": {
+              "brier": {
+                "lower": 0.0028328732005019675,
+                "upper": 0.10998211472552333,
+                "valid_repeats": 1000
+              },
+              "coverage_known": {
+                "lower": 1.0,
+                "upper": 1.0,
+                "valid_repeats": 1000
+              },
+              "selective_fpr": {
+                "lower": 0.0,
+                "upper": 0.1601666666666665,
+                "valid_repeats": 1000
+              },
+              "selective_recall": {
+                "lower": 0.767417490600195,
+                "upper": 0.9922510207704598,
+                "valid_repeats": 1000
+              },
+              "positive_capture_including_refusals": {
+                "lower": 0.767417490600195,
+                "upper": 0.9922510207704598,
+                "valid_repeats": 1000
+              }
+            }
+          }
+        },
+        "by_campaign": {
+          "0": {
+            "Na": {
+              "calibrated_reliability": {
+                "brier": 0.028528734218101183,
+                "ece": 0.08654733909092528
+              },
+              "selective": {
+                "known_physical_weight": 80.0,
+                "positive_physical_weight": 46.0,
+                "negative_physical_weight": 34.0,
+                "unknown_label_physical_weight": 47.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 44.0,
+                "accepted_false_positive_weight": 1.0,
+                "accepted_false_negative_weight": 2.0,
+                "accepted_true_negative_weight": 33.0,
+                "selective_recall": 0.9565217391304348,
+                "selective_fpr": 0.029411764705882353,
+                "selective_fnr": 0.043478260869565216,
+                "positive_capture_including_refusals": 0.9565217391304348,
+                "false_positive_risk_all_negatives": 0.029411764705882353,
+                "accepted_false_negative_risk_all_positives": 0.043478260869565216,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.9635549872122763
+              }
+            },
+            "Mg": {
+              "calibrated_reliability": {
+                "brier": 0.0008602087508114976,
+                "ece": 0.00515117567665672
+              },
+              "selective": {
+                "known_physical_weight": 97.0,
+                "positive_physical_weight": 80.0,
+                "negative_physical_weight": 17.0,
+                "unknown_label_physical_weight": 30.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 77.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 3.0,
+                "accepted_true_negative_weight": 17.0,
+                "selective_recall": 0.9625,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.0375,
+                "positive_capture_including_refusals": 0.9625,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.0375,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.98125
+              }
+            },
+            "Ca": {
+              "calibrated_reliability": {
+                "brier": 0.012646358547334506,
+                "ece": 0.024215515502864986
+              },
+              "selective": {
+                "known_physical_weight": 93.0,
+                "positive_physical_weight": 53.0,
+                "negative_physical_weight": 40.0,
+                "unknown_label_physical_weight": 34.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 53.0,
+                "accepted_false_positive_weight": 4.0,
+                "accepted_false_negative_weight": 0.0,
+                "accepted_true_negative_weight": 36.0,
+                "selective_recall": 1.0,
+                "selective_fpr": 0.1,
+                "selective_fnr": 0.0,
+                "positive_capture_including_refusals": 1.0,
+                "false_positive_risk_all_negatives": 0.1,
+                "accepted_false_negative_risk_all_positives": 0.0,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.95
+              }
+            },
+            "Fe": {
+              "calibrated_reliability": {
+                "brier": 0.008201442523566027,
+                "ece": 0.03312714482231683
+              },
+              "selective": {
+                "known_physical_weight": 108.0,
+                "positive_physical_weight": 100.0,
+                "negative_physical_weight": 8.0,
+                "unknown_label_physical_weight": 19.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 100.0,
+                "accepted_false_positive_weight": 1.0,
+                "accepted_false_negative_weight": 0.0,
+                "accepted_true_negative_weight": 7.0,
+                "selective_recall": 1.0,
+                "selective_fpr": 0.125,
+                "selective_fnr": 0.0,
+                "positive_capture_including_refusals": 1.0,
+                "false_positive_risk_all_negatives": 0.125,
+                "accepted_false_negative_risk_all_positives": 0.0,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.9375
+              }
+            }
+          },
+          "1": {
+            "Na": {
+              "calibrated_reliability": {
+                "brier": 0.15926198102172717,
+                "ece": 0.1797475870580622
+              },
+              "selective": {
+                "known_physical_weight": 59.0,
+                "positive_physical_weight": 29.0,
+                "negative_physical_weight": 30.0,
+                "unknown_label_physical_weight": 13.0,
+                "coverage_all": 0.9861111111111112,
+                "coverage_known": 0.9830508474576272,
+                "positive_coverage": 1.0,
+                "negative_coverage": 0.9666666666666667,
+                "accepted_true_positive_weight": 19.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 10.0,
+                "accepted_true_negative_weight": 29.0,
+                "selective_recall": 0.6551724137931034,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.3448275862068966,
+                "positive_capture_including_refusals": 0.6551724137931034,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.3448275862068966,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 1.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8275862068965517
+              }
+            },
+            "Mg": {
+              "calibrated_reliability": {
+                "brier": 0.08959140247003693,
+                "ece": 0.0883506312206071
+              },
+              "selective": {
+                "known_physical_weight": 41.0,
+                "positive_physical_weight": 19.0,
+                "negative_physical_weight": 22.0,
+                "unknown_label_physical_weight": 31.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 15.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 4.0,
+                "accepted_true_negative_weight": 22.0,
+                "selective_recall": 0.7894736842105263,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.21052631578947367,
+                "positive_capture_including_refusals": 0.7894736842105263,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.21052631578947367,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8947368421052632
+              }
+            },
+            "Ca": {
+              "calibrated_reliability": {
+                "brier": 0.1432585188358164,
+                "ece": 0.1577198610099677
+              },
+              "selective": {
+                "known_physical_weight": 51.0,
+                "positive_physical_weight": 40.0,
+                "negative_physical_weight": 11.0,
+                "unknown_label_physical_weight": 21.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 31.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 9.0,
+                "accepted_true_negative_weight": 11.0,
+                "selective_recall": 0.775,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.225,
+                "positive_capture_including_refusals": 0.775,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.225,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8875
+              }
+            },
+            "Fe": {
+              "calibrated_reliability": {
+                "brier": 0.10245357974744689,
+                "ece": 0.11099512098893524
+              },
+              "selective": {
+                "known_physical_weight": 58.0,
+                "positive_physical_weight": 41.0,
+                "negative_physical_weight": 17.0,
+                "unknown_label_physical_weight": 14.0,
+                "coverage_all": 1.0,
+                "coverage_known": 1.0,
+                "positive_coverage": 1.0,
+                "negative_coverage": 1.0,
+                "accepted_true_positive_weight": 27.0,
+                "accepted_false_positive_weight": 0.0,
+                "accepted_false_negative_weight": 14.0,
+                "accepted_true_negative_weight": 17.0,
+                "selective_recall": 0.6585365853658537,
+                "selective_fpr": 0.0,
+                "selective_fnr": 0.34146341463414637,
+                "positive_capture_including_refusals": 0.6585365853658537,
+                "false_positive_risk_all_negatives": 0.0,
+                "accepted_false_negative_risk_all_positives": 0.34146341463414637,
+                "refused_positive_weight": 0.0,
+                "refused_negative_weight": 0.0,
+                "unknown_truth_acceptance": 1.0,
+                "selective_balanced_accuracy": 0.8292682926829269
+              }
+            }
+          }
+        },
+        "macro": {
+          "raw_brier": 0.05341767459958073,
+          "calibrated_brier": 0.05281998593188919,
+          "calibrated_ece": 0.053732936270720164,
+          "coverage_known": 0.9982014388489209,
+          "selective_fpr": 0.03357609710550887,
+          "selective_recall": 0.8933069889006746,
+          "positive_capture_including_refusals": 0.8933069889006746
+        }
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "C": 0.1,
+          "thresholds": [
+            0.4185047935522812,
+            0.9778232434367914,
+            0.8182075125978138,
+            0.7653440859251827
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 1,
+          "C": 0.1,
+          "thresholds": [
+            0.3011531850646864,
+            0.14505813739757487,
+            0.2541611544966668,
+            0.9948730988083444
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 2,
+          "C": 1.0,
+          "thresholds": [
+            0.5851596127255834,
+            0.9789365026990045,
+            0.9992631440636874,
+            0.35354525833677447
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 5.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 10.0,
+              "margin": 0.05
+            }
+          }
+        },
+        {
+          "fold": 3,
+          "C": 1.0,
+          "thresholds": [
+            0.9009081121759374,
+            0.9986495523553566,
+            0.0030411492951378035,
+            0.00841274006831598
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 5.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 10.0,
+              "margin": 0.0
+            }
+          }
+        },
+        {
+          "fold": 4,
+          "C": 0.1,
+          "thresholds": [
+            0.5925139640401776,
+            0.9789207236206926,
+            0.9949611007079505,
+            0.8684202458064146
+          ],
+          "selective": {
+            "Na": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Mg": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Ca": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            },
+            "Fe": {
+              "minimum_snr": 0.0,
+              "margin": 0.0
+            }
+          }
+        }
+      ],
+      "seconds": 0.6812977919762488,
+      "calibration_paired_brier": {
+        "definition": "after minus before Brier; equal physical weight, unknown truth excluded",
+        "method": "paired connected-cluster percentile 95% bootstrap of fixed OOF predictions",
+        "repeats": 1000,
+        "seed": 20261019,
+        "differences": {
+          "Na": {
+            "point": 0.00021897773021230498,
+            "lower": -0.015453497420033716,
+            "upper": 0.016043134612807475,
+            "valid_repeats": 1000
+          },
+          "Mg": {
+            "point": 0.00284182287465651,
+            "lower": -0.005711826709280729,
+            "upper": 0.01616377086312178,
+            "valid_repeats": 1000
+          },
+          "Ca": {
+            "point": 0.002756882254260022,
+            "lower": -0.00505827030761953,
+            "upper": 0.011396785743039367,
+            "valid_repeats": 1000
+          },
+          "Fe": {
+            "point": -0.008208437529895042,
+            "lower": -0.02387664226856242,
+            "upper": 0.005696923884851564,
+            "valid_repeats": 1000
+          },
+          "macro": {
+            "point": -0.0005976886676915512,
+            "lower": -0.004983366102577836,
+            "upper": 0.0033696473613091184,
+            "valid_repeats": 1000
+          }
+        }
+      }
+    }
+  },
+  "paired_comparisons_to_baseline": {
+    "continuum-snr-neutral": {
+      "definition": "after minus before Brier; equal physical weight, unknown truth excluded",
+      "method": "paired connected-cluster percentile 95% bootstrap of fixed OOF predictions",
+      "repeats": 1000,
+      "seed": 20261019,
+      "differences": {
+        "Na": {
+          "point": -0.043759503677036585,
+          "lower": -0.0737858006899333,
+          "upper": -0.01699408349449782,
+          "valid_repeats": 1000
+        },
+        "Mg": {
+          "point": -0.00687348362982951,
+          "lower": -0.0227941702522895,
+          "upper": 0.005915831251385118,
+          "valid_repeats": 1000
+        },
+        "Ca": {
+          "point": -0.013130326920180247,
+          "lower": -0.024541310952304256,
+          "upper": -0.003155470980012241,
+          "valid_repeats": 1000
+        },
+        "Fe": {
+          "point": 0.01477202464492958,
+          "lower": -0.023601483225451542,
+          "upper": 0.06005435483931718,
+          "valid_repeats": 1000
+        },
+        "macro": {
+          "point": -0.012247822395529191,
+          "lower": -0.027633200192245747,
+          "upper": 0.0029548269001802283,
+          "valid_repeats": 1000
+        }
+      }
+    },
+    "continuum-snr-ion": {
+      "definition": "after minus before Brier; equal physical weight, unknown truth excluded",
+      "method": "paired connected-cluster percentile 95% bootstrap of fixed OOF predictions",
+      "repeats": 1000,
+      "seed": 20261019,
+      "differences": {
+        "Na": {
+          "point": -0.041897661073126424,
+          "lower": -0.06770112354737247,
+          "upper": -0.01892395931368364,
+          "valid_repeats": 1000
+        },
+        "Mg": {
+          "point": -0.004170691084204936,
+          "lower": -0.02088877013474732,
+          "upper": 0.009386312016842714,
+          "valid_repeats": 1000
+        },
+        "Ca": {
+          "point": -0.011985236461536236,
+          "lower": -0.02285752335760793,
+          "upper": -0.0024539114720141856,
+          "valid_repeats": 1000
+        },
+        "Fe": {
+          "point": -0.026953369338766353,
+          "lower": -0.046334061685821916,
+          "upper": -0.007236089804637808,
+          "valid_repeats": 1000
+        },
+        "macro": {
+          "point": -0.021251739489408488,
+          "lower": -0.03069876780081242,
+          "upper": -0.011434791776107164,
+          "valid_repeats": 1000
+        }
+      }
+    }
+  },
+  "completed_at": "2026-10-19T17:23:01.473446+00:00",
+  "seconds": 25.6765091670095,
+  "profile": {
+    "path": "/Users/stepansivitskii/Desktop/SpectraLab/reports/adaptation_v3/development-20261019T172235-da8f0847/profile.json",
+    "sha256": "8ffb76657c9618ff5c393b8be99690b2ceb41528d65529ebab31437caaf37c80",
+    "training_fit_only": true,
+    "selected_by_outer_metrics": false
+  },
+  "result_path": "reports/adaptation_v3/development-20261019T172235-da8f0847/result.json",
+  "result_sha256": "0624d4795fe390d9fabe6e8f06cb28b1af26da529256272160ceba4dcbf3a61d",
+  "protocol_path": "reports/adaptation_v3/development-20261019T172235-da8f0847/protocol.json",
+  "source_plan": {
+    "path": "/Users/stepansivitskii/Desktop/SpectraLab/data/reference/development_v4_source_plan.json",
+    "sha256": "b679a367433deee6351a0988428ae14b6d1cb5b74b35a7ac869cab71cc97ada7"
+  },
+  "implementation_sha256": {
+    "ml/src/spectralab_ml/evaluation/development_v3.py": "117e3e05c4ce0386b3edc3d36063014604f9d13ac2274f8448fb05188ce3d1c2",
+    "ml/src/spectralab_ml/models/line_adapter_v3.py": "497c601766526fa478858a2346877a6799d8f4db24b33a8d2c47d445c9a3a62c",
+    "ml/src/spectralab_ml/models/line_adapter_v2.py": "2b363ff02d32b066bde2f94f6076d81e29450b4bbb566f7dd3b3f637d71a26c4",
+    "ml/src/spectralab_ml/evaluation/instrument_selection.py": "b67daa8338bac4a8487d91522e55a551a163fbbb8d69ec5fce0242ea989d8e5c",
+    "ml/src/spectralab_ml/evaluation/campaign_shift_v2.py": "051fa84d71c85950fa23a515bf746e0aa1bae2040af928084b74c64bc781c0de",
+    "ml/src/spectralab_ml/data/chemcam_measurements.py": "4a4a52a05f7e1430dca02c5d10031652887ad607dad7413c6c26d480f89aaf0d",
+    "ml/src/spectralab_ml/data/reference.py": "de4eb9edccc99c54b72398e6aa9f8b5c676e737369369565da51c3b9051ba224",
+    "ml/src/spectralab_ml/evaluation/real_validation.py": "2e6ff5a038d7aea41788651bb3bf554029d07c4e0df8e5077bd304fcf87ae584",
+    "scripts/study_development_v3.py": "b98f048f44922b7b3547cd18ff75d45e29a111026c98651a06fa0a3877011400"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.3",
+    "scipy": "1.16.2",
+    "scikit-learn": "1.7.2"
+  },
+  "post_primary_sensitivity": {
+    "audit_path": "data/reference/development_v3_sensitivity_audit.json",
+    "audit_sha256": "400f402dc8649c657db97b73d2df2931bfd7f152912ab0b51e258924851e0888",
+    "post_primary": true,
+    "deployment_selection": false,
+    "interpretation": "Seed variability on the same development records; not independent data",
+    "runs": [
+      {
+        "path": "reports/adaptation_v3/development-20261019T172235-da8f0847",
+        "result_sha256": "0624d4795fe390d9fabe6e8f06cb28b1af26da529256272160ceba4dcbf3a61d",
+        "seed": 20261019,
+        "run_id": "development-20261019T172235-da8f0847",
+        "macro": {
+          "v2-line-baseline": {
+            "raw_brier": 0.07177755670167094,
+            "calibrated_brier": 0.07407172542129767,
+            "calibrated_ece": 0.08171674312858794,
+            "coverage_known": 0.9982014388489209,
+            "selective_fpr": 0.031312217194570134,
+            "selective_recall": 0.818900501237495,
+            "positive_capture_including_refusals": 0.818900501237495
+          },
+          "continuum-snr-neutral": {
+            "raw_brier": 0.06512946604343187,
+            "calibrated_brier": 0.061823903025768484,
+            "calibrated_ece": 0.06363197746249813,
+            "coverage_known": 0.9910696442845723,
+            "selective_fpr": 0.07833333333333334,
+            "selective_recall": 0.8740155501480141,
+            "positive_capture_including_refusals": 0.8740155501480141
+          },
+          "continuum-snr-ion": {
+            "raw_brier": 0.05341767459958073,
+            "calibrated_brier": 0.05281998593188919,
+            "calibrated_ece": 0.053732936270720164,
+            "coverage_known": 0.9982014388489209,
+            "selective_fpr": 0.03357609710550887,
+            "selective_recall": 0.8933069889006746,
+            "positive_capture_including_refusals": 0.8933069889006746
+          }
+        }
+      },
+      {
+        "path": "reports/adaptation_v3/development-20261019T172516-562e7b55",
+        "result_sha256": "847dca5aa196535930d78a338a49822f57b00be5a4d58349cc35aee4e5396a4e",
+        "seed": 20261020,
+        "run_id": "development-20261019T172516-562e7b55",
+        "macro": {
+          "v2-line-baseline": {
+            "raw_brier": 0.0784850329275883,
+            "calibrated_brier": 0.07026612233519552,
+            "calibrated_ece": 0.07433539991405128,
+            "coverage_known": 0.9982014388489209,
+            "selective_fpr": 0.0,
+            "selective_recall": 0.7201925570044994,
+            "positive_capture_including_refusals": 0.7201925570044994
+          },
+          "continuum-snr-neutral": {
+            "raw_brier": 0.06066888079066964,
+            "calibrated_brier": 0.06633666040571937,
+            "calibrated_ece": 0.07414985336860694,
+            "coverage_known": 0.9964653277378097,
+            "selective_fpr": 0.05380952380952381,
+            "selective_recall": 0.8143947713233919,
+            "positive_capture_including_refusals": 0.8143947713233919
+          },
+          "continuum-snr-ion": {
+            "raw_brier": 0.0645227980562868,
+            "calibrated_brier": 0.06617567198947748,
+            "calibrated_ece": 0.07305424134253972,
+            "coverage_known": 0.9982014388489209,
+            "selective_fpr": 0.018870214752567692,
+            "selective_recall": 0.840778893949793,
+            "positive_capture_including_refusals": 0.840778893949793
+          }
+        }
+      },
+      {
+        "path": "reports/adaptation_v3/development-20261019T172542-10651dbf",
+        "result_sha256": "8172e3c2c26b25fe254aa655ef1cef71ae1ee465d2747169d2ed58d2dbb990b2",
+        "seed": 20261021,
+        "run_id": "development-20261019T172542-10651dbf",
+        "macro": {
+          "v2-line-baseline": {
+            "raw_brier": 0.08027022196876632,
+            "calibrated_brier": 0.10134640250247068,
+            "calibrated_ece": 0.11145378753822649,
+            "coverage_known": 1.0,
+            "selective_fpr": 0.019124717194570137,
+            "selective_recall": 0.7954319447044224,
+            "positive_capture_including_refusals": 0.7954319447044224
+          },
+          "continuum-snr-neutral": {
+            "raw_brier": 0.07634446300306102,
+            "calibrated_brier": 0.07150150937153443,
+            "calibrated_ece": 0.06440089883590379,
+            "coverage_known": 0.9982014388489209,
+            "selective_fpr": 0.03,
+            "selective_recall": 0.7995636492547955,
+            "positive_capture_including_refusals": 0.7975366222277684
+          },
+          "continuum-snr-ion": {
+            "raw_brier": 0.07583909545871093,
+            "calibrated_brier": 0.0690286269886695,
+            "calibrated_ece": 0.06518699259370461,
+            "coverage_known": 1.0,
+            "selective_fpr": 0.029531250000000002,
+            "selective_recall": 0.7985514375047662,
+            "positive_capture_including_refusals": 0.7985514375047662
+          }
+        }
+      },
+      {
+        "path": "reports/adaptation_v3/development-20261019T172608-dd27d703",
+        "result_sha256": "8d4173a2677e4cb8ce5e577ed293978ee42f68c5d9501563df96d9270eb154fe",
+        "seed": 20261022,
+        "run_id": "development-20261019T172608-dd27d703",
+        "macro": {
+          "v2-line-baseline": {
+            "raw_brier": 0.07897708514217788,
+            "calibrated_brier": 0.0739213543324235,
+            "calibrated_ece": 0.07423759122186689,
+            "coverage_known": 1.0,
+            "selective_fpr": 0.019124717194570137,
+            "selective_recall": 0.7607454087893346,
+            "positive_capture_including_refusals": 0.7607454087893346
+          },
+          "continuum-snr-neutral": {
+            "raw_brier": 0.07646503437384901,
+            "calibrated_brier": 0.07092363222340738,
+            "calibrated_ece": 0.07391685280813262,
+            "coverage_known": 0.9869062581260293,
+            "selective_fpr": 0.04793650793650794,
+            "selective_recall": 0.8548603834649504,
+            "positive_capture_including_refusals": 0.8428574350228434
+          },
+          "continuum-snr-ion": {
+            "raw_brier": 0.07426618309675785,
+            "calibrated_brier": 0.05696160296071992,
+            "calibrated_ece": 0.06300389058404546,
+            "coverage_known": 0.9939759036144579,
+            "selective_fpr": 0.02017184714795009,
+            "selective_recall": 0.8361404366243076,
+            "positive_capture_including_refusals": 0.8345446919434565
+          }
+        }
+      },
+      {
+        "path": "reports/adaptation_v3/development-20261019T172635-e969bcd7",
+        "result_sha256": "cf3ee657a13b9859963cd310bcb708b0849b41fd6ee26e5412d413d39c9dc35b",
+        "seed": 20261023,
+        "run_id": "development-20261019T172635-e969bcd7",
+        "macro": {
+          "v2-line-baseline": {
+            "raw_brier": 0.09380633878842436,
+            "calibrated_brier": 0.10208676691595307,
+            "calibrated_ece": 0.12024201116090982,
+            "coverage_known": 0.9930555555555556,
+            "selective_fpr": 0.05667302978883862,
+            "selective_recall": 0.8564549873586449,
+            "positive_capture_including_refusals": 0.8483602670493542
+          },
+          "continuum-snr-neutral": {
+            "raw_brier": 0.07308769367162896,
+            "calibrated_brier": 0.07535986039044534,
+            "calibrated_ece": 0.07493362120337821,
+            "coverage_known": 0.9741917309525874,
+            "selective_fpr": 0.03869047619047619,
+            "selective_recall": 0.8011323791916358,
+            "positive_capture_including_refusals": 0.7898862336473866
+          },
+          "continuum-snr-ion": {
+            "raw_brier": 0.07095206163742843,
+            "calibrated_brier": 0.08340545465430284,
+            "calibrated_ece": 0.07028586171092496,
+            "coverage_known": 0.9909420289855072,
+            "selective_fpr": 0.038339460784313724,
+            "selective_recall": 0.8687871161858807,
+            "positive_capture_including_refusals": 0.8687871161858807
+          }
+        }
+      }
+    ],
+    "aggregate": {
+      "v2-line-baseline": {
+        "calibrated_brier": {
+          "mean": 0.0843384743014681,
+          "sample_sd": 0.01593914303923242,
+          "count": 5
+        },
+        "calibrated_ece": {
+          "mean": 0.09239710659272848,
+          "sample_sd": 0.021843529988573918,
+          "count": 5
+        },
+        "coverage_known": {
+          "mean": 0.9978916866506795,
+          "sample_sd": 0.0028491238642651736,
+          "count": 5
+        },
+        "selective_fpr": {
+          "mean": 0.02524693627450981,
+          "sample_sd": 0.02083721376759199,
+          "count": 5
+        },
+        "selective_recall": {
+          "mean": 0.7903450798188792,
+          "sample_sd": 0.05246266563937214,
+          "count": 5
+        },
+        "positive_capture_including_refusals": {
+          "mean": 0.7887261357570211,
+          "sample_sd": 0.049978651239923934,
+          "count": 5
+        }
+      },
+      "continuum-snr-neutral": {
+        "calibrated_brier": {
+          "mean": 0.069189113083375,
+          "sample_sd": 0.005215761234932084,
+          "count": 5
+        },
+        "calibrated_ece": {
+          "mean": 0.07020664073570393,
+          "sample_sd": 0.005669915784109844,
+          "count": 5
+        },
+        "coverage_known": {
+          "mean": 0.9893668799899838,
+          "sample_sd": 0.009587447590053994,
+          "count": 5
+        },
+        "selective_fpr": {
+          "mean": 0.04975396825396826,
+          "sample_sd": 0.018365394902010074,
+          "count": 5
+        },
+        "selective_recall": {
+          "mean": 0.8287933466765576,
+          "sample_sd": 0.03373188921299731,
+          "count": 5
+        },
+        "positive_capture_including_refusals": {
+          "mean": 0.823738122473881,
+          "sample_sd": 0.03468838079552833,
+          "count": 5
+        }
+      },
+      "continuum-snr-ion": {
+        "calibrated_brier": {
+          "mean": 0.06567826850501178,
+          "sample_sd": 0.011906312715407588,
+          "count": 5
+        },
+        "calibrated_ece": {
+          "mean": 0.06505278450038698,
+          "sample_sd": 0.007479360780235655,
+          "count": 5
+        },
+        "coverage_known": {
+          "mean": 0.9962641620595614,
+          "sample_sd": 0.0037089012862278905,
+          "count": 5
+        },
+        "selective_fpr": {
+          "mean": 0.028097773958068072,
+          "sample_sd": 0.008439893242924256,
+          "count": 5
+        },
+        "selective_recall": {
+          "mean": 0.8475129746330845,
+          "sample_sd": 0.035782661384134426,
+          "count": 5
+        },
+        "positive_capture_including_refusals": {
+          "mean": 0.8471938256969143,
+          "sample_sd": 0.035916318985477334,
+          "count": 5
+        }
+      }
+    }
+  }
+}

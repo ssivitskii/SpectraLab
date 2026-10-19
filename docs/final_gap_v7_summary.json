@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "audit_id": "BAM310_GOE100_targeted_gap_v7",
+  "created_at": "2026-10-19T20:07:41.040082+00:00",
+  "status": "partially_resolved_not_admitted",
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "qualified_final_controls": 0,
+  "predictions_run": 0,
+  "new_final_numeric_rows_opened": 0,
+  "receipts_consumed": 0,
+  "authors_contacted": false,
+  "resolved_since_v6": [
+    "Actual public RSC six-page ESI retrieved and read; no BAM310 numeric data or provenance found.",
+    "Public author SharePoint folder fully listed: four ChemCam files, no separate BAM310 file identified.",
+    "Actual Zenodo3902232 ZIP inventory:160 CSV; five GOE100 members; header-only access to member#1; no numerical rows decoded.",
+    "GOE100 CC-BY-4.0 and documentary vacuum/nm LANL CCS calibration lineage supported; source-campaign grouping does not require an invented acquisition date.",
+    "Conditional material-mean MgO bound computed with explicit assumptions; no requirement for a branded CoA.",
+    "GOE Fe oxide basis discrepancy independently checked and preserved without changing the source or older artifacts.",
+    "Actual frozen ensemble loaded, identity and 9 implementation pins matched; no quality measured."
+  ],
+  "controls": [
+    {
+      "physical_id": "BAM310",
+      "admission": "not_admitted",
+      "axis_medium": null,
+      "FeOT_wt_percent_certified_interval_endpoints": [
+        0.08915371474617242,
+        0.09224128928283641
+      ],
+      "MgO_wt_percent_certified_interval_endpoints": [
+        1.6234361653980662,
+        1.6731839539189466
+      ],
+      "interval_kind": "Converted endpoints of source-certified 95 percent intervals, conditional on certified region; not bounds on every local crater",
+      "role_candidates": {
+        "Fe": "operational low-Fe matrix control",
+        "Mg": "positive"
+      },
+      "unresolved": [
+        "Licensed numeric BAM310 source manifest",
+        "Actual export axis convention",
+        "Link actual specimen and ablated region/preparation to certificate and source session",
+        "Resolve actual material/family/assay overlap against previously seen registry"
+      ],
+      "instrument_domain": "different instrument; separately locked unchanged-model OOD challenge required if data qualify"
+    },
+    {
+      "physical_id": "GOE100",
+      "admission": "not_admitted",
+      "license": "CC-BY-4.0",
+      "axis_medium": "vacuum",
+      "axis_units": "nm",
+      "axis_evidence_status": "supported_documentary_LANL_CCS_lineage_not_numeric_axis_verification",
+      "campaign_group": "source-campaign:zenodo3902232/LANL",
+      "acquisition_date": null,
+      "physical_material_count": 1,
+      "acquisition_positions": 5,
+      "MgO_wt_percent_mean_from_8_rounded_assay_spots": 0.00732081375,
+      "MgO_wt_percent_conditional_one_sided_95_mean_upper": 0.007867255278508728,
+      "MgO_bound_status": "conditional; no unmeasured systematic bias or all-grain guarantee; not certified",
+      "FeOT_wt_percent_as_reported": 79.88726962654403,
+      "FeOT_wt_percent_stoichiometric_from_FigureC3_mean": 80.76784760899132,
+      "Fe_role": "positive under either oxide basis",
+      "unresolved": [
+        "Physical stock/family relationship to already disclosed GoeDV",
+        "Independent evidence or explicitly conditional scope for quantitative Mg assay applicability/bias"
+      ],
+      "pending_structural_checks": [
+        "Numerical wavelength coverage and formatting under a locked protocol; not yet read"
+      ],
+      "member_to_CE5_mapping": "not established; do not invent. All five positions can be treated as one predeclared material group."
+    }
+  ],
+  "profile": {
+    "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json",
+    "bytes": 260251,
+    "sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5"
+  },
+  "profile_check": {
+    "path": "docs/final_gap_v7_profile_check.json",
+    "bytes": 4741,
+    "sha256": "3891e565cf8887c4021864a4929f1a64df4d69d1bd12ab6f8a5a4ecc8da75f70"
+  },
+  "audits": [
+    {
+      "path": "data/reference/final_gap_v7_bam310.json",
+      "bytes": 19412,
+      "sha256": "b016803d7a6e5df9e7635779ae9c469f512be4d249853892363383dd55c3271e"
+    },
+    {
+      "path": "data/reference/final_gap_v7_goe100.json",
+      "bytes": 27488,
+      "sha256": "a131c2d818e3996980c3223374e04b7a17cf149c5ed1c9eaa3d030794b8eb4cf"
+    },
+    {
+      "path": "data/reference/final_gap_v7_admission.json",
+      "bytes": 14643,
+      "sha256": "22ae6deb095838e3e8002c1a510b855f4cb63c1a32679f04c1ea102d6df71b91"
+    },
+    {
+      "path": "data/reference/final_gap_v7_gasda_provenance.json",
+      "bytes": 7192,
+      "sha256": "5e2c641839dda30a8e1b09f164b626f93a8a029ade63c4629e1586fa34634e40"
+    },
+    {
+      "path": "data/reference/final_gap_v7_root.json",
+      "bytes": 6422,
+      "sha256": "d9d4e43bf7142d8d4c692d8818ea6cd6a834cbc85dc62393caab1567bb239167"
+    }
+  ],
+  "scope_limits": [
+    "The narrow two-material challenge is possible only after its source gates qualify and a separate protocol is fixed; it does not estimate population FPR/recall or independently validate Ca.",
+    "The full older final protocol is preserved and remains incomplete; no empty replacement campaign is presented as a new validation.",
+    "No published graph or spectral model output is used as chemical ground truth.",
+    "Snapshots include derived documents, metadata, code-only extracts and explicit failed responses; counts are not counts of independent samples."
+  ],
+  "report": "docs/final_gap_v7.md",
+  "verification": "docs/final_gap_v7_verification.json",
+  "next_required_records": {
+    "BAM310": [
+      "actual numeric files and license",
+      "axis convention",
+      "actual specimen, certified surface and session linkage"
+    ],
+    "GOE100": [
+      "stock/preparation relation to GoeDV",
+      "applicable independent assay quantification/QA evidence"
+    ]
+  }
+}

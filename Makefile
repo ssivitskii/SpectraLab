@@ -71,6 +71,22 @@ campaign-shift-v2:
 	$(RUN) python scripts/campaign_shift_v2.py --reference data/reference/nist_uv_visible_v2/catalog.json --reference-sha256 504072fb7469e4bd1ae18f07ec2576b56267676dcfb58f8a3fea8ad60790ac6c
 instrument-v2-development:
 	$(RUN) python scripts/improve_chemcam_v2.py --additional-intake data/reference/chemcam_adaptation_v2_intake.json
+.PHONY: ml-check assay-normalization instrument-v3-development final-preflight
+ml-check:
+	$(RUN) spectralab ml-check --verify-sources --output reports/ml_environment.json
+assay-normalization:
+	$(RUN) spectralab normalize-assays --input data/reference/assay_normalization_examples.json --output reports/assay_normalization.json
+instrument-v3-development:
+	$(RUN) spectralab study-development
+final-preflight:
+	$(RUN) spectralab final-preflight --manifest data/reference/final_campaign_v6_manifest.json --registry data/reference/final_seen_registry_v6.json --output reports/final_campaigns/preflight.json
+.PHONY: calcium-development calcium-crossfit calcium-operating
+calcium-development:
+	$(RUN) python scripts/study_calcium_v4.py --protocol data/reference/calcium_v4_round1_verified_protocol.json
+calcium-crossfit:
+	$(RUN) python scripts/study_calcium_crossfit_v4.py
+calcium-operating:
+	$(RUN) python scripts/study_calcium_operating_v4.py
 build:
 	$(NPM) --prefix frontend run build
 analytics:

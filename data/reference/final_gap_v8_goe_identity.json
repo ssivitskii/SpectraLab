@@ -1,0 +1,866 @@
+{
+  "schema_version": 1,
+  "audit_id": "final_gap_v8_goe_identity",
+  "created_at": "2026-10-19T20:23:21.279854+00:00",
+  "status": "blocked_identity_unresolved",
+  "scope": "New primary metadata routes for GOE100 versus previously seen GoeDV; no new spectral values or predictions.",
+  "candidate_id": "GOE100:zenodo3902232:LANL",
+  "previously_seen_possible_alias": "test:goedv:2018_07_30_134057_ccs",
+  "conclusion": {
+    "independence_established": false,
+    "same_stock_established": false,
+    "dv_expansion_established": false,
+    "goe100_equals_supercam_100_goethite_established": false,
+    "new_controls_admitted": 0,
+    "final_evaluation_performed": false,
+    "final_metrics": null
+  },
+  "new_primary_findings": [
+    {
+      "id": "GoeDV_composition_source",
+      "status": "verified_metadata",
+      "evidence": "exact_metadata_prefixes.json",
+      "fact": "All three original SuperCam GoeDV observations name Fe-Oxide / Goethite and composition_source LANL EES; geology and location are blank.",
+      "interpretation_limit": "The XML defines composition source as the source of compositional information (publication/instrument/other source), not a procurement or lot field. LANL EES does not prove a natural specimen or a stock distinct from Sigma GOE100."
+    },
+    {
+      "id": "100-Goethite_assumed_purity",
+      "status": "verified_metadata",
+      "evidence": "exact_metadata_prefixes.json",
+      "fact": "All three original SuperCam 100-Goethite observations name goethite / Pure chemical, blank composition_source and geology, and location text Assuming pure (no independent chemistry).",
+      "interpretation_limit": "This is the SuperCam target label, not an established alias for David GOE100. Do not transfer the David assay, infer Sigma stock, or use its nominal purity as an analytical bound."
+    },
+    {
+      "id": "DV_family_context",
+      "status": "verified_metadata_not_identity",
+      "evidence": "supercam_metadata_range_access.json",
+      "fact": "Two extracted shifted HemDV metadata rows list LANL EES and a hematite/chlorite/quartz mixture, with Oolitic in location.",
+      "interpretation_limit": "Information about another DV target does not establish GoeDV mineral origin or expand the suffix DV."
+    },
+    {
+      "id": "individual_xml_conflict",
+      "status": "unresolved_metadata_inconsistency",
+      "evidence": [
+        "supercam_goedv_label.xml",
+        "supercam_100goethite_label.xml"
+      ],
+      "fact": "Both individual XML descriptions read Mixture / SCCT / Basalt despite target names GoeDV and 100-Goethite and the reference-table descriptions above.",
+      "interpretation_limit": "These repeated descriptions are not reliable evidence of stock origin. Their dates and instrument configuration remain metadata; none are used to establish independence."
+    },
+    {
+      "id": "repository_versions",
+      "status": "verified_inventory",
+      "fact": "The LANL, IRAP, tables and Mn records each expose one published version. No newly attached preparation/lot document was found in these inventories.",
+      "interpretation_limit": "This bounded check does not prove that documents do not exist elsewhere."
+    },
+    {
+      "id": "2026_DV_reuse",
+      "status": "bounded_cross_publication_check",
+      "evidence": [
+        "manelski_web_extract.json",
+        "manelski2026_metadata.json"
+      ],
+      "fact": "Manelski2026 (10.1029/2026JE009769) uses IlmDV as an ilmenite endmember. Its dataset inventory supplies separate calibration metadata plus spectra.",
+      "interpretation_limit": "The inspected paper and inventory do not link IlmDV or GoeDV to GOE100, and a general Brammer statement is not assigned to GoeDV. No spectrum files from this record were opened."
+    }
+  ],
+  "original_observation_metadata": [
+    {
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "range": "185569639-185569748",
+      "path": "data/raw/final_gap_v8_goe_identity/goedv_421211751.metadata-prefix.txt",
+      "sha256": "a07f2ead4387902e51566d2fa3c5ec23cdf44e87efc2755abed563cda00b36b5",
+      "bytes": 110,
+      "fields": {
+        "filename": "SFC_2019_0421211751_01_GOEDV________________LCD0_FMEQM_01L01.fits",
+        "sclock": "421211751",
+        "target": "GoeDV",
+        "composition_type": "Fe-Oxide",
+        "composition_details": "Goethite",
+        "composition_source": "LANL EES",
+        "geology": "",
+        "location": ""
+      },
+      "fetched_at": "2026-10-19T20:22:01.825778+00:00",
+      "spectral_bytes_in_this_response": 0
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "range": "184972684-184972793",
+      "path": "data/raw/final_gap_v8_goe_identity/goedv_421211651.metadata-prefix.txt",
+      "sha256": "dc04479935ce3a1b1db51af878c64a148c7d04565d5d0976e841b0d666820f11",
+      "bytes": 110,
+      "fields": {
+        "filename": "SFC_2019_0421211651_01_GOEDV________________LCD0_FMEQM_01L01.fits",
+        "sclock": "421211651",
+        "target": "GoeDV",
+        "composition_type": "Fe-Oxide",
+        "composition_details": "Goethite",
+        "composition_source": "LANL EES",
+        "geology": "",
+        "location": ""
+      },
+      "fetched_at": "2026-10-19T20:22:01.824150+00:00",
+      "spectral_bytes_in_this_response": 0
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "range": "186165749-186165858",
+      "path": "data/raw/final_gap_v8_goe_identity/goedv_421211849.metadata-prefix.txt",
+      "sha256": "1bf08334f85875c62e58339723cec5160f4e7e7a2c425dd24cff27989f1aa20a",
+      "bytes": 110,
+      "fields": {
+        "filename": "SFC_2019_0421211849_01_GOEDV________________LCD0_FMEQM_01L01.fits",
+        "sclock": "421211849",
+        "target": "GoeDV",
+        "composition_type": "Fe-Oxide",
+        "composition_details": "Goethite",
+        "composition_source": "LANL EES",
+        "geology": "",
+        "location": ""
+      },
+      "fetched_at": "2026-10-19T20:22:01.815090+00:00",
+      "spectral_bytes_in_this_response": 0
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "range": "18299202-18299355",
+      "path": "data/raw/final_gap_v8_goe_identity/100goethite_421213011.metadata-prefix.txt",
+      "sha256": "f80534b7ef9ec80129ba185abe0aecde7a126508a889d2b7b873d04878a2aa82",
+      "bytes": 154,
+      "fields": {
+        "filename": "SFC_2019_0421213011_01_100GOETHITE__________LCD0_FMEQM_01L01.fits",
+        "sclock": "421213011",
+        "target": "100-Goethite",
+        "composition_type": "goethite",
+        "composition_details": "Pure chemical",
+        "composition_source": "",
+        "geology": "",
+        "location": "Assuming pure (no independent chemistry)"
+      },
+      "fetched_at": "2026-10-19T20:22:02.715191+00:00",
+      "spectral_bytes_in_this_response": 0
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "range": "18896169-18896322",
+      "path": "data/raw/final_gap_v8_goe_identity/100goethite_421213111.metadata-prefix.txt",
+      "sha256": "0d2a1970a711b2bde37c2b33f697a45c4526e8fcf422acabb1b508fd0e5065d8",
+      "bytes": 154,
+      "fields": {
+        "filename": "SFC_2019_0421213111_01_100GOETHITE__________LCD0_FMEQM_01L01.fits",
+        "sclock": "421213111",
+        "target": "100-Goethite",
+        "composition_type": "goethite",
+        "composition_details": "Pure chemical",
+        "composition_source": "",
+        "geology": "",
+        "location": "Assuming pure (no independent chemistry)"
+      },
+      "fetched_at": "2026-10-19T20:22:02.695476+00:00",
+      "spectral_bytes_in_this_response": 0
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "range": "19492881-19493034",
+      "path": "data/raw/final_gap_v8_goe_identity/100goethite_421213213.metadata-prefix.txt",
+      "sha256": "d8f58c55cdf8c2550cace808b90f0bcca127bb11c8014577d4b44fe51b78e6d1",
+      "bytes": 154,
+      "fields": {
+        "filename": "SFC_2019_0421213213_01_100GOETHITE__________LCD0_FMEQM_01L01.fits",
+        "sclock": "421213213",
+        "target": "100-Goethite",
+        "composition_type": "goethite",
+        "composition_details": "Pure chemical",
+        "composition_source": "",
+        "geology": "",
+        "location": "Assuming pure (no independent chemistry)"
+      },
+      "fetched_at": "2026-10-19T20:22:02.702661+00:00",
+      "spectral_bytes_in_this_response": 0
+    }
+  ],
+  "related_record_versions": [
+    {
+      "snapshot_path": "data/raw/final_gap_v8_goe_identity/david_lanl_versions.json",
+      "version_count": 1,
+      "records": [
+        {
+          "record_id": 3902232,
+          "title": "LIBS laboratory spectra LANL",
+          "files": [
+            {
+              "name": "LIBS laboratory spectra LANL.zip",
+              "bytes": 270354229
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "snapshot_path": "data/raw/final_gap_v8_goe_identity/david_tables_versions.json",
+      "version_count": 1,
+      "records": [
+        {
+          "record_id": 3903074,
+          "title": "Fe quantification model samples informations -- VRR targets",
+          "files": [
+            {
+              "name": "Tables SM.zip",
+              "bytes": 4167558
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "snapshot_path": "data/raw/final_gap_v8_goe_identity/david_irap_versions.json",
+      "version_count": 1,
+      "records": [
+        {
+          "record_id": 3772349,
+          "title": "LIBS laboratory spectra IRAP",
+          "files": [
+            {
+              "name": "LIBS laboratory spectra IRAP.zip",
+              "bytes": 192112702
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "snapshot_path": "data/raw/final_gap_v8_goe_identity/gasda_mn_versions.json",
+      "version_count": 1,
+      "records": [
+        {
+          "record_id": 4507630,
+          "title": "Supplemental Data for the Manuscript: Quantification of Manganese for ChemCam Mars and Laboratory Spectra Using a Multivariate Model",
+          "files": [
+            {
+              "name": "Supplement_Model_Regression_Vectors.csv",
+              "bytes": 19726
+            },
+            {
+              "name": "CVpredict_ARD_BRR.csv",
+              "bytes": 821
+            },
+            {
+              "name": "CVpredict_1-10.csv",
+              "bytes": 238137
+            },
+            {
+              "name": "Supplement_Test_Set_Predictions.csv",
+              "bytes": 180296
+            },
+            {
+              "name": "CVpredict_10-max Ridge.csv",
+              "bytes": 22237
+            },
+            {
+              "name": "CVpredict_ARD.csv",
+              "bytes": 513
+            },
+            {
+              "name": "CVpredict_10-max.csv",
+              "bytes": 213947
+            },
+            {
+              "name": "CVpredict_0-5.csv",
+              "bytes": 239396
+            },
+            {
+              "name": "CVpredict_BRR.csv",
+              "bytes": 488
+            },
+            {
+              "name": "CVpredict_0-2.csv",
+              "bytes": 240591
+            },
+            {
+              "name": "Supplement_Model_Means.csv",
+              "bytes": 19476
+            },
+            {
+              "name": "Supplement_MnO_Cal_Input_outliers_wvl.csv",
+              "bytes": 176884180
+            },
+            {
+              "name": "CVpredict_0-10.csv",
+              "bytes": 238835
+            },
+            {
+              "name": "Supplement_CV_summary_results.xlsx",
+              "bytes": 16517
+            },
+            {
+              "name": "CVpredict_0-15.csv",
+              "bytes": 237972
+            },
+            {
+              "name": "CVpredict_0-15 EN focused search 2.csv",
+              "bytes": 242809
+            },
+            {
+              "name": "CVpredict_0-15 PLS 30.csv",
+              "bytes": 5999
+            },
+            {
+              "name": "CVpredict_full.csv",
+              "bytes": 245318
+            },
+            {
+              "name": "CVpredict_0-15 EN focused search.csv",
+              "bytes": 260189
+            },
+            {
+              "name": "CVpredict_full PLS 30.csv",
+              "bytes": 5937
+            },
+            {
+              "name": "CVpredict_0-0.1.csv",
+              "bytes": 244574
+            },
+            {
+              "name": "CVpredict_1-max.csv",
+              "bytes": 236603
+            },
+            {
+              "name": "CVpredict_0-1.csv",
+              "bytes": 241441
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "required_missing_evidence": [
+    "An applicable primary procurement/preparation/collection record for GoeDV identifying the underlying stock, or another direct provenance statement excluding reuse of the Sigma GOE100 stock/family.",
+    "A direct alias/preparation link is required before treating SuperCam 100-Goethite as David GOE100. Different labels, composition numbers, observation times and instruments do not supply it."
+  ],
+  "out_of_scope_unchanged": "Mg assay uncertainty is reviewed separately by the root team. This audit neither certifies nor rejects its analytical bound. SuperCam observations are inspected only for provenance; they are not used as ChemCam model validation data.",
+  "access_boundary": {
+    "library_url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+    "library_total_bytes_from_headers": 721084841,
+    "library_record_count_from_xml": 8351,
+    "first_data_offset_from_xml": 127597,
+    "first_fields_decoded": [
+      "Filename",
+      "sclock",
+      "Target_Name",
+      "composition_type",
+      "composition_details",
+      "composition source",
+      "geology",
+      "location"
+    ],
+    "successful_probe_requests": 28,
+    "successful_probe_transport_bytes": 5040000,
+    "unique_probe_bytes": 4808750,
+    "earlier_duplicate_decode_failure_transport_bytes": 180000,
+    "exact_prefix_requests": 6,
+    "exact_prefix_transport_bytes": 792,
+    "exact_prefix_spectral_bytes": 0,
+    "spectral_bytes_may_have_been_transported_in_probe_buffers": true,
+    "spectral_values_text_decoded": 0,
+    "spectral_values_numeric_parsed": 0,
+    "spectral_values_saved": 0,
+    "new_spectral_arrays_opened": 0,
+    "model_predictions": 0,
+    "full_csv_downloaded_or_saved": false,
+    "fits_opened": 0,
+    "method": "After XML inspection, HTTP ranges were held only as bytes. A CSV-aware quoted-field scanner decodes only the first eight fields; all later columns are discarded without text decoding, numeric parsing, printing or persistence. Byte hashes cover transport integrity, not spectral analysis. Exact six metadata prefixes were then fetched separately and matched to their prefix SHA256s. Shifted copies are not counted as independent observations.",
+    "limitations": "The full CSV checksum, global ordering, full row count and content of unvisited fields were not verified. The binary-search-style probing only locates known positive metadata records and is not an absence census. Failed UTF-8 decoding occurred solely in non-target metadata and was recovered with recorded cp1252 fallback."
+  },
+  "access_errors": [
+    {
+      "url": "https://zenodo.org/api/records?q=creators.name:%22Gael%20David%22&size=100",
+      "path": "data/raw/final_gap_v8_goe_identity/david_related_search.json",
+      "fetched_at": "2026-10-19T20:11:34.705749+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 22,
+      "error": "curl: (22) The requested URL returned error: 400"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/document/SuperCam_PDS_Userguide.pdf",
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_userguide.pdf",
+      "fetched_at": "2026-10-19T20:13:07.428603+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 28,
+      "error": "curl: (28) Operation timed out after 40002 milliseconds with 990692 out of 2447812 bytes received"
+    },
+    {
+      "url": "https://zenodo.org/api/records?q=%22Ga%C3%ABl+David%22&size=100",
+      "path": "data/raw/final_gap_v8_goe_identity/david_related_search_corrected.json",
+      "fetched_at": "2026-10-19T20:12:28.023555+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 22,
+      "error": "curl: (22) The requested URL returned error: 400"
+    },
+    {
+      "url": "https://zenodo.org/api/records?q=SuperCam+calibration+library&size=50",
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_reference_zenodo_search.json",
+      "fetched_at": "2026-10-19T20:12:28.626953+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 22,
+      "error": "curl: (22) The requested URL returned error: 400"
+    },
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2026JE009769",
+      "path": "data/raw/final_gap_v8_goe_identity/manelski2026.html",
+      "fetched_at": "2026-10-19T20:19:16.972700+00:00",
+      "kind": "document_or_metadata_only",
+      "exit_code": 56,
+      "error": "curl: (56) The requested URL returned error: 403"
+    },
+    {
+      "kind": "metadata_prefix_decoding",
+      "range": "24307500-24487499",
+      "transport_bytes": 180000,
+      "error": "A non-target location field contains byte 0xb0; strict UTF-8 decoding failed after a successful 206 transfer. Only a first-eight-field metadata prefix was being decoded. Retried using explicit cp1252 fallback; no spectral value was decoded. The failed in-memory body was not retained.",
+      "recovered": true
+    },
+    {
+      "kind": "web_supplement_access",
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2026JE009769&file=2026JE009769-sup-0001-Supporting+Information+SI-S01.docx",
+      "error": "Web tool returned HTTP 403; no contents inspected."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/david_lanl_versions.json",
+      "sha256": "59336d713f21102ea009e677e68231c7535ef73baf345abb9b822e77b4982b15",
+      "bytes": 3977,
+      "kind": "primary_metadata",
+      "url": "https://zenodo.org/api/records/3902232/versions",
+      "fetched_at": "2026-10-19T20:11:34.790171+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/david_tables_versions.json",
+      "sha256": "fb4bf98b6178e8c0a1f15ab1b778182a3403ee3790dca56091eed91de6d69c78",
+      "bytes": 3946,
+      "kind": "primary_metadata",
+      "url": "https://zenodo.org/api/records/3903074/versions",
+      "fetched_at": "2026-10-19T20:11:34.818728+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/gasda_mn_versions.json",
+      "sha256": "a25ca73dfdfa1cf9898c7895d890fc3eb284ac28b070cf77efdece9f648ab5c6",
+      "bytes": 13482,
+      "kind": "primary_metadata",
+      "url": "https://zenodo.org/api/records/4507630/versions",
+      "fetched_at": "2026-10-19T20:11:34.878232+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_document_index.html",
+      "sha256": "4a3cb3976d856188b2842ed637f5cc1c249a4f07c0be2b2afcb2547850a5775e",
+      "bytes": 2580,
+      "kind": "primary_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/document/",
+      "fetched_at": "2026-10-19T20:11:35.498698+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_libs_reference.xml",
+      "sha256": "f0ec234d517dbddabbb4c4c810cd0d23271d3c3d366886e55925ad3f985963b6",
+      "bytes": 49584,
+      "kind": "primary_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.xml",
+      "fetched_at": "2026-10-19T20:11:35.900982+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_goedv_directory.html",
+      "sha256": "90dfe680ee736061cbbb44f008f1f7ae6dc46c673d80576962fb046de65d604e",
+      "bytes": 1977,
+      "kind": "primary_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/3006mm/3006mm/GoeDV/",
+      "fetched_at": "2026-10-19T20:11:35.689056+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_100goethite_directory.html",
+      "sha256": "7f30c88a5ba7c29daaf7cd53207685c1a15f561d9aa6ed0718e05813968741c1",
+      "bytes": 2033,
+      "kind": "primary_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/3006mm/3006mm/100-Goethite/",
+      "fetched_at": "2026-10-19T20:11:35.757919+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_goedv_label.xml",
+      "sha256": "d04834e60ab279b14380d3333884107b41b27d202c177b3510c036458cfcdff4",
+      "bytes": 103573,
+      "kind": "primary_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/3006mm/3006mm/GoeDV/sfc_2019_0421211651_01_goedv________________lcd0_fmeqm_01l01.xml",
+      "fetched_at": "2026-10-19T20:12:28.857817+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_100goethite_label.xml",
+      "sha256": "3b223c415c8254aeabd55604eca3a14c38f26ce3e7041a3ce80513298f724a3d",
+      "bytes": 103579,
+      "kind": "primary_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/3006mm/3006mm/100-Goethite/sfc_2019_0421213011_01_100goethite__________lcd0_fmeqm_01l01.xml",
+      "fetched_at": "2026-10-19T20:12:28.969889+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_calibration_index.html",
+      "sha256": "45c4c594a3671767a230f4edd91a49c15b362d3bd3bcb0b5dd0351c2c1583dbc",
+      "bytes": 1476,
+      "kind": "primary_metadata",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/",
+      "fetched_at": "2026-10-19T20:12:28.552322+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_calibration_accepted.pdf",
+      "sha256": "0ea70ad9fd329b7c0be8d41d15cd25443c565f9d479ed88c9c08e81a8a0d1469",
+      "bytes": 2964833,
+      "kind": "primary_metadata",
+      "url": "https://ntrs.nasa.gov/api/citations/20220000028/downloads/SuperCam_Calibration_Paper_accepted.pdf",
+      "fetched_at": "2026-10-19T20:17:32.791777+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/david_irap_versions.json",
+      "sha256": "137d1407b69e12feda7e3c28dd83babcd9f89d4396856d0fe2e426ac707bdc70",
+      "bytes": 4055,
+      "kind": "primary_metadata",
+      "url": "https://zenodo.org/api/records/3772349/versions",
+      "fetched_at": "2026-10-19T20:17:33.688611+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/manelski2026_metadata.json",
+      "sha256": "c154df8f16fd2fd045b060d84bc26d9330a4a2da8c470fbce3686d055f095840",
+      "bytes": 4926,
+      "kind": "primary_metadata",
+      "url": "https://zenodo.org/api/records/18392937",
+      "fetched_at": "2026-10-19T20:19:17.348201+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/wiens2021.html",
+      "sha256": "3bf4ce508723d76a83e25248ce1e141139f40da120fd3145b78607d1143d157c",
+      "bytes": 621350,
+      "kind": "primary_metadata",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7752893/",
+      "fetched_at": "2026-10-19T20:19:17.664832+00:00"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/goedv_421211751.metadata-prefix.txt",
+      "sha256": "a07f2ead4387902e51566d2fa3c5ec23cdf44e87efc2755abed563cda00b36b5",
+      "bytes": 110,
+      "kind": "exact_primary_metadata_prefix",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "http_range": "185569639-185569748"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/goedv_421211651.metadata-prefix.txt",
+      "sha256": "dc04479935ce3a1b1db51af878c64a148c7d04565d5d0976e841b0d666820f11",
+      "bytes": 110,
+      "kind": "exact_primary_metadata_prefix",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "http_range": "184972684-184972793"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/goedv_421211849.metadata-prefix.txt",
+      "sha256": "1bf08334f85875c62e58339723cec5160f4e7e7a2c425dd24cff27989f1aa20a",
+      "bytes": 110,
+      "kind": "exact_primary_metadata_prefix",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "http_range": "186165749-186165858"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/100goethite_421213011.metadata-prefix.txt",
+      "sha256": "f80534b7ef9ec80129ba185abe0aecde7a126508a889d2b7b873d04878a2aa82",
+      "bytes": 154,
+      "kind": "exact_primary_metadata_prefix",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "http_range": "18299202-18299355"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/100goethite_421213111.metadata-prefix.txt",
+      "sha256": "0d2a1970a711b2bde37c2b33f697a45c4526e8fcf422acabb1b508fd0e5065d8",
+      "bytes": 154,
+      "kind": "exact_primary_metadata_prefix",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "http_range": "18896169-18896322"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/100goethite_421213213.metadata-prefix.txt",
+      "sha256": "d8f58c55cdf8c2550cace808b90f0bcca127bb11c8014577d4b44fe51b78e6d1",
+      "bytes": 154,
+      "kind": "exact_primary_metadata_prefix",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv",
+      "http_range": "19492881-19493034"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/retrievals.json",
+      "sha256": "2002cebd9826481381939be024376252cfb925d63940241a7c41dc029db486d3",
+      "bytes": 7550,
+      "kind": "derived_extraction_or_access_record"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_metadata_range_access.json",
+      "sha256": "f4642eaf4e8aac8e05499c311129fcc2b42a19d63a64bc1f3d83189bae3b7def",
+      "bytes": 47273,
+      "kind": "derived_extraction_or_access_record",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/exact_metadata_prefixes.json",
+      "sha256": "650acf5648953e2109950d1ce1c2a7c7aef450b7dc485e79b900af3ceefae5a9",
+      "bytes": 4905,
+      "kind": "derived_extraction_or_access_record",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/metadata_ranges.py",
+      "sha256": "c9e1e502128ecfeecff846d98e09efd9665c94a84b53698d6e71188f1c01d145",
+      "bytes": 3138,
+      "kind": "derived_extraction_or_access_record"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/supercam_calibration_accepted.txt",
+      "sha256": "6a5c28c976e07b7426b09bc74e0ea8500ede45590dc4df2fb66853a25c0c7623",
+      "bytes": 179783,
+      "kind": "derived_extraction_or_access_record"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/manelski_web_extract.json",
+      "sha256": "402ff5004b607fa03ce72f68d904a11d24178a34cc334fdd68260d2e587c8e2f",
+      "bytes": 17121,
+      "kind": "derived_extraction_or_access_record"
+    },
+    {
+      "path": "data/reference/final_gap_v7_goe100.json",
+      "sha256": "a131c2d818e3996980c3223374e04b7a17cf149c5ed1c9eaa3d030794b8eb4cf",
+      "bytes": 27488,
+      "kind": "prior_audit_context"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/100goethite_421213011.headers.txt",
+      "sha256": "30a56c9df2bd09f36fb1d2945c9663be26b4afd9402a880b299b4d2963102c1e",
+      "bytes": 411,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/100goethite_421213111.headers.txt",
+      "sha256": "6b3b84f21b4e52c9711a2a5c4bc41d2b9a63bfa5486f6c168eb871dc228360db",
+      "bytes": 411,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/100goethite_421213213.headers.txt",
+      "sha256": "baca600314c0526998517f48df2d13519bb0512bd0522709bbfbc5b8308eb6eb",
+      "bytes": 411,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/goedv_421211651.headers.txt",
+      "sha256": "e80168a9d94c128bce5e2f7ceab01a262e4102855131c573f79b2ea48d5628ea",
+      "bytes": 413,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/goedv_421211751.headers.txt",
+      "sha256": "b932024a4e1194078ac352563c99bd644cfe5eae2eac7e00c46aa1a7a67683d7",
+      "bytes": 413,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/goedv_421211849.headers.txt",
+      "sha256": "ad204023a09b72b0b7f008744e92ffd7fda55b2f8bb8f9f618c22cf9b7b4feb6",
+      "bytes": 413,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_10000000_10179999.headers.txt",
+      "sha256": "6920f49ecf52dd28b716dafc0c3563f55d09e718bda3733883f8157184e23c23",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_12000000_12179999.headers.txt",
+      "sha256": "dafe3b52ae79a625698113375f44888fc436595f43d5ca7e153c5bec1351f73d",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_127597_307596.headers.txt",
+      "sha256": "c01fef624e98321904b9abf9591263dde2c8cd98c5b166a1a5f5798b2dfbd2ea",
+      "bytes": 410,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_15000000_15179999.headers.txt",
+      "sha256": "ba3bb591ee11e8c42a3f7dcd462035f9d98a8c5057d7bef9c82748a88583794b",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_180000000_180179999.headers.txt",
+      "sha256": "cb0e1d02d8268a8efc6866ce1d6751bea0a53e4b22fe9b1a2c6207ce5ef73dac",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_18280000_18459999.headers.txt",
+      "sha256": "15dda94e764dd23762ac50b055ed3ad0f3eef9b80fdb685699290372b2f603f5",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_184900000_185079999.headers.txt",
+      "sha256": "c1ea16b5ae201baf03446f7cfe3c22321d965bc1919924c23ba81b35448a0265",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_185546250_185726249.headers.txt",
+      "sha256": "e8118f3625493c7f861eb1179a1ccba40bbbe70d7e61d830d33085ece239457f",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_186000000_186179999.headers.txt",
+      "sha256": "76bf0bd15e3886fb3a237f762e131fd7cb41e9db0f02d610de3d344f4cffb2af",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_18880000_19059999.headers.txt",
+      "sha256": "1c8183f77b764dfa070f8a05868a8d965e6fb060391d769ee05def02b0c71437",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_191182500_191362499.headers.txt",
+      "sha256": "6685475c0e7dfbed61e8a2ebab6ef3144d8c8842e94a4a1a25f40b338a022e12",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_19480000_19659999.headers.txt",
+      "sha256": "405accd6836b9a00b26af5fdfc5b5b2d9e51b7216f7ce779d6c106b2dcb56037",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_19608750_19788749.headers.txt",
+      "sha256": "44c109f2c721043b010591c6ee22f7f433edbdb1f1fec3bfb991fe7ca82836e0",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_202455000_202634999.headers.txt",
+      "sha256": "3069bf6ee80e63807901723bf4069b6614ec774ec580e2cc57dcdf53b9c85112",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_225000000_225179999.headers.txt",
+      "sha256": "a92c0076d32a06d7b4742b1d3b9229c2e891cca693263ff6e5046d2a478d8e0f",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_24307500_24487499.headers.txt",
+      "sha256": "94675bded28dc7e642b414d1ae80c76e88a462f00a35c0614399ddd3d7960e69",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_270000000_270179999.headers.txt",
+      "sha256": "126892730eb93a3894eb96b846c5b7ffb8aa7951ea4c2231a2012fd7f21481b0",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_300000000_300179999.headers.txt",
+      "sha256": "6764fbe58a28b0c31e907d827dab3e8ed77ec19a3e7e1f438095131d4da9f158",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_3000000_3179999.headers.txt",
+      "sha256": "ccb360ad037d4d723b01a4441bf9f45e5829e4be3d3c5b9d2765219cc0df4c64",
+      "bytes": 412,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_33705000_33884999.headers.txt",
+      "sha256": "cb46773cd0e7dacfb5f6bf9e77549b3de2ce1d955f04bc235e744dd3c169373a",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_360000000_360179999.headers.txt",
+      "sha256": "96974dbe634bc3f898511bae3b2616bbb3e70a8150c0d65d01923d4d76caf515",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_4000000_4179999.headers.txt",
+      "sha256": "1040c7fb43f3f1200e67b956b657ff26c15b6a53cfbceac499d06c376b862468",
+      "bytes": 412,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_5000000_5179999.headers.txt",
+      "sha256": "a5184c1c2e8691b743afabdd0c5f59161c138d8d6629d5d0461c4e8e99ec9e7c",
+      "bytes": 412,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_52500000_52679999.headers.txt",
+      "sha256": "ec1dbb6fa16b977048445f4200b9f58b395fe8f38ab4ed1b5343805e55a8a07c",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_7000000_7179999.headers.txt",
+      "sha256": "29f44c3b00b251989f78eef93639cc328b3eeccd84ec82d653b450706660cf60",
+      "bytes": 412,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_720000000_720179999.headers.txt",
+      "sha256": "11e9ddfaabb3a102ef22297558b55a2f2faa507664d18fe4f1018e0baaea8d05",
+      "bytes": 416,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    },
+    {
+      "path": "data/raw/final_gap_v8_goe_identity/range_90000000_90179999.headers.txt",
+      "sha256": "452a918bce38f797807b5dcd124524cb635a79f00f6045e8f62edc7d25a04a5c",
+      "bytes": 414,
+      "kind": "http_headers_only",
+      "url": "https://pds-geosciences.wustl.edu/m2020/urn-nasa-pds-mars2020_supercam/calibration_supercam/libs_spectral_library_reference.csv"
+    }
+  ]
+}

@@ -10,6 +10,7 @@ from typing import Any
 import numpy as np
 
 from spectralab_ml.data.reference import ReferenceCatalog
+from spectralab_ml.models.validation import training_arrays
 from spectralab_ml.preprocessing import SpectrumPreprocessor
 from spectralab_ml.simulation import GenerationConfig, generate_spectrum
 
@@ -31,6 +32,38 @@ class DatasetBundle:
     split_hash: str
     records: list[dict[str, Any]]
     reference_metadata: dict[str, Any]
+
+    def validate(self, *, expected_features: int | None = None) -> None:
+        """Reject leaked or malformed caller-supplied splits before any fitting."""
+        if (
+            not self.class_order
+            or any(not isinstance(name, str) or not name.strip() for name in self.class_order)
+            or len(set(self.class_order)) != len(self.class_order)
+        ):
+            raise ValueError("Dataset class_order must contain unique nonempty names")
+        seen: set[str] = set()
+        feature_count = expected_features
+        for name in ("train", "validation", "test"):
+            split = getattr(self, name)
+            X, y = training_arrays(split.X, split.y)
+            if feature_count is None:
+                feature_count = X.shape[1]
+            if X.shape[1] != feature_count or y.shape[1] != len(self.class_order):
+                raise ValueError(f"Dataset {name} feature/class dimensions are incompatible")
+            ids = split.base_sample_ids
+            if len(ids) != len(X) or any(
+                not isinstance(value, str) or not value.strip() for value in ids
+            ):
+                raise ValueError(f"Dataset {name} requires one nonempty base ID per row")
+            groups = set(ids)
+            if seen & groups:
+                raise ValueError("Dataset base sample groups overlap across splits")
+            seen.update(groups)
+            group_labels: dict[str, np.ndarray] = {}
+            for base_id, label in zip(ids, y, strict=True):
+                if base_id in group_labels and not np.array_equal(group_labels[base_id], label):
+                    raise ValueError("Variations of a base sample have inconsistent labels")
+                group_labels[base_id] = label
 
     @property
     def split_ids(self) -> dict[str, list[str]]:
@@ -114,12 +147,23 @@ def build_demo_dataset(
     combinations: list[tuple[str, ...]] | None = None,
     ion_stage: int = 1,
 ) -> DatasetBundle:
+    if (
+        not class_order
+        or len(set(class_order)) != len(class_order)
+        or any(not isinstance(element, str) or not element.strip() for element in class_order)
+    ):
+        raise ValueError("class_order must contain unique nonempty element names")
     if base_samples < max(12, 2 * len(class_order)) or not 1 <= variations <= 100:
         raise ValueError("Insufficient base samples or invalid variation count")
-    all_combinations = combinations or [
-        combo for size in (1, 2, 3) for combo in itertools.combinations(class_order, size)
-    ]
-    if not all_combinations or any(not set(c) <= set(class_order) for c in all_combinations):
+    all_combinations = (
+        combinations
+        if combinations is not None
+        else [combo for size in (1, 2, 3) for combo in itertools.combinations(class_order, size)]
+    )
+    if not all_combinations or any(
+        not 1 <= len(c) <= 3 or len(set(c)) != len(c) or not set(c) <= set(class_order)
+        for c in all_combinations
+    ):
         raise ValueError("Invalid configured combinations")
     rng = np.random.default_rng(seed)
     # Cycle mixture sizes so even the smoke dataset includes triples.

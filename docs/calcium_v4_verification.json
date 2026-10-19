@@ -1,0 +1,1207 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-19T19:10:34.955383+00:00",
+  "scope": "calcium_adaptive_development_implementation_and_bounded_blank_evidence_search",
+  "checks": [
+    {
+      "command": "make lint test",
+      "exit_code": 0,
+      "python_tests": 522,
+      "dependency_warnings": 15,
+      "python_seconds": 128.48,
+      "ui_tests": 33,
+      "ruff_files": 140,
+      "log": ".cache/ca-v4-final-all-checks.log",
+      "log_sha256": "4fb19e40d98c9cbaf9c978814be368852e5ba271ff3cfdf6701af455371d3205"
+    },
+    {
+      "command": "make demo",
+      "exit_code": 0,
+      "demo_fixture": true,
+      "scientific_validation": false,
+      "log": ".cache/ca-v4-api-smoke.log",
+      "log_sha256": "72fd128f30cac373c6e4efe0b60e7b0b343a71e0773e69350ca24f696a4428b4"
+    },
+    {
+      "command": "spectralab ml-check --verify-sources",
+      "exit_code": 0,
+      "status": "ready",
+      "counts": {
+        "passed": 175,
+        "failed": 0,
+        "not_downloaded": 0,
+        "optional_dependency_missing": 0
+      },
+      "numerical_spectra_opened": false
+    },
+    {
+      "test": "ml/tests/test_final_workflow_integration.py",
+      "included_in_final_full_suite": true,
+      "profile_cases": [
+        3,
+        4,
+        "calcium_ensemble_v4"
+      ],
+      "passed": 3,
+      "fictional_data_only": true,
+      "scientific_validation": false,
+      "actual_implementation_and_threshold_binding": true,
+      "freeze_consume_replay_guards": true
+    },
+    {
+      "command": "spectralab instrument-predict",
+      "exit_code": 0,
+      "result_path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/prediction-smoke-macusanite.json",
+      "result_sha256": "43684d31f46aec80cccc752cb48209c31930d67de580bbe79883cb1600d455e8",
+      "input": {
+        "input_sha256": "2edb3ad597980dd5751c5ad99ef9ec8ec36ce9644bb69f59507d463656694959",
+        "input_points": 6144,
+        "aggregation": {
+          "shot_count": 50,
+          "discarded_shots": 5,
+          "retained_shots": 45,
+          "aggregation": "arithmetic_mean_of_retained_shots"
+        },
+        "format": "chemcam-ccs",
+        "metadata_sha256": "0641b4b7364cd0613150fa3ca838b5ea28aff0ad7ce8abfc2dd676c7cac8e787"
+      },
+      "scope": "research_application_not_final_validation",
+      "unchanged_v3_prediction_rows": [
+        "Na",
+        "Mg",
+        "Fe"
+      ],
+      "compared_to": "reports/adaptation_v3/development-20261019T172235-da8f0847/prediction-smoke-macusanite-v4.json"
+    },
+    {
+      "check": "report wording only after full suite",
+      "reporter_ruff_check_and_format": true,
+      "regeneration_exit_code": 0,
+      "numeric_results_changed": false,
+      "log": ".cache/ca-v4-final-reporter.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "check": "current Markdown local links",
+      "files_checked": 10,
+      "missing": 0
+    },
+    {
+      "check": "strict JSON and verification hash maps",
+      "finite_json": true,
+      "all_hashes_match": true
+    }
+  ],
+  "calcium": {
+    "scope": "adaptive_development_only",
+    "source_spectra": 202,
+    "physical_materials": 199,
+    "connected_groups": 46,
+    "independent_final": false,
+    "rounds": {
+      "verified_round1": {
+        "path": "reports/adaptation_v4/calcium-20261019T185637-c112f8e0",
+        "result_sha256": "80167ef3117f479c5f8f60865490d39ac3a0be309f12710e96b8d8f5a6072d14",
+        "lock_sha256": "7307b3b84c8b1f5632b5d269ea49a36f390885b0e684794afae5451ab00f1c06",
+        "profile_sha256": "196a3b9d787c494849c833c9686fa6dd125a2741426832606e60d0c1ae3cf365",
+        "implementation_pins_verified": 12,
+        "input_pins_verified": 0,
+        "strict_absolute_recall_target_all_seeds": false,
+        "secondary_matched_target_all_seeds": false,
+        "seeds": [
+          {
+            "seed": 20261019,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 84.0,
+              "false_negative": 9.0,
+              "false_positive": 4.0,
+              "true_negative": 47.0,
+              "recall": 0.9032258064516129,
+              "fpr": 0.0784313725490196,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 86.0,
+              "false_negative": 7.0,
+              "false_positive": 3.0,
+              "true_negative": 48.0,
+              "recall": 0.9247311827956989,
+              "fpr": 0.058823529411764705,
+              "meets_point_target": false,
+              "false_positive_measurement_ids": [
+                "development:oreas170a:2013_08_15_194519_ccs",
+                "test:dv15:2018_07_30_155801_ccs",
+                "test:goedv:2018_07_30_134057_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.16666666666666666,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7716764214046823,
+                  "upper": 1.0,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": -0.13336538461538458,
+                  "upper": 0.10205389848246983,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.0,
+                  "upper": 0.07767620728785782,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261020,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 80.5,
+              "false_negative": 12.5,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.8655913978494624,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 81.0,
+              "false_negative": 12.0,
+              "false_positive": 3.0,
+              "true_negative": 48.0,
+              "recall": 0.8709677419354839,
+              "fpr": 0.058823529411764705,
+              "meets_point_target": false,
+              "false_positive_measurement_ids": [
+                "development:mix1o:2013_09_25_183002_ccs",
+                "development:oreas170a:2013_08_15_194519_ccs",
+                "test:dv15:2018_07_30_155801_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "development:152769:2013_11_06_152615_ccs",
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:ncs_dc_11023:2018_07_11_100713_ccs",
+                "test:srm201a:2017_05_16_082426_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs",
+                "test:wmb24a:2019_06_28_151319_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.14285714285714285,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7142316017316017,
+                  "upper": 0.9753086419753086,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": 0.0,
+                  "upper": 0.10344827586206896,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": -0.028575533661740565,
+                  "upper": 0.0393258426966292,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261021,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 75.0,
+              "false_negative": 18.0,
+              "false_positive": 0.0,
+              "true_negative": 51.0,
+              "recall": 0.8064516129032258,
+              "fpr": 0.0,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 78.0,
+              "false_negative": 15.0,
+              "false_positive": 0.0,
+              "true_negative": 51.0,
+              "recall": 0.8387096774193549,
+              "fpr": 0.0,
+              "meets_point_target": false,
+              "false_positive_measurement_ids": [],
+              "false_negative_measurement_ids": [
+                "development:sarm16:2013_08_15_184636_ccs",
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dv13:2018_07_30_143534_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:hemdv:2018_07_30_111642_ccs",
+                "test:ncs_dc_11023:2018_07_11_100713_ccs",
+                "test:ncs_dc_28043:2018_07_11_103002_ccs",
+                "test:purpdv:2018_07_30_115823_ccs",
+                "test:srm201a:2017_05_16_082426_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.6808297872340425,
+                  "upper": 0.9661064559131594,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": 0.0,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": -0.017707087618592066,
+                  "upper": 0.09333333333333327,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261022,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 69.0,
+              "false_negative": 24.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.7419354838709677,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 69.0,
+              "false_negative": 24.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.7419354838709677,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false,
+              "false_positive_measurement_ids": [
+                "development:oreas170a:2013_08_15_194519_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "development:132:2013_10_01_141736_ccs",
+                "development:152769:2013_11_06_152615_ccs",
+                "development:201424:2013_11_06_155107_ccs",
+                "development:221123:2013_11_07_143449_ccs",
+                "development:g6mt:2013_10_16_153546_ccs",
+                "development:trond:2013_09_03_153324_ccs",
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dc71301:2017_05_16_090929_ccs",
+                "test:dv13:2018_07_30_143534_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:hemdv:2018_07_30_111642_ccs",
+                "test:ncs_dc_11023:2018_07_11_100713_ccs",
+                "test:ncs_dc_28043:2018_07_11_103002_ccs",
+                "test:pacmnnod:2018_07_30_124338_ccs",
+                "test:purpdv:2018_07_30_115823_ccs",
+                "test:srm201a:2017_05_16_082426_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs",
+                "test:wmb24a:2019_06_28_151319_ccs",
+                "test:wmb24b:2019_06_27_160345_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.06898556535685635,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.5749814356435643,
+                  "upper": 0.8850664511494253,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": 0.0,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": -0.046162790697674476,
+                  "upper": 0.04505528255528248,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261023,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 69.0,
+              "false_negative": 24.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.7419354838709677,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 76.0,
+              "false_negative": 17.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.8172043010752689,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false,
+              "false_positive_measurement_ids": [
+                "development:oreas170a:2013_08_15_194519_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "development:agv2:2013_08_06_164544_ccs",
+                "development:sarm17:2013_08_06_160434_ccs",
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dc71301:2017_05_16_090929_ccs",
+                "test:dv11:2018_02_20_144636_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:dv6:2018_02_20_114503_ccs",
+                "test:hemdv:2018_07_30_111642_ccs",
+                "test:ncs_dc_28211:2018_07_10_141856_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs",
+                "test:wmb24a:2019_06_28_151319_ccs",
+                "test:wmb24b:2019_06_27_160345_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.07142857142857142,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.6698220064724919,
+                  "upper": 0.939416553595658,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": -0.057692307692307696,
+                  "upper": 0.06,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": -0.05458631256384056,
+                  "upper": 0.21177361853832438,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          }
+        ]
+      },
+      "crossfit_round2": {
+        "path": "reports/adaptation_v4/calcium-crossfit-20261019T185637-810e1148",
+        "result_sha256": "626a55837ab4cf5199ea516d77625ece6bccbc2caf102883e7c3b651352eda79",
+        "lock_sha256": "e50d1d0971acaea844da0f043d97b2dc75164fd35fc1ae334e92a426e993af8e",
+        "profile_sha256": "8962caa56767d2399aee2c223b33903aead59b02123e6da12110ff4ea0f17738",
+        "implementation_pins_verified": 15,
+        "input_pins_verified": 0,
+        "strict_absolute_recall_target_all_seeds": false,
+        "secondary_matched_target_all_seeds": false,
+        "seeds": [
+          {
+            "seed": 20261019,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 84.0,
+              "false_negative": 9.0,
+              "false_positive": 4.0,
+              "true_negative": 47.0,
+              "recall": 0.9032258064516129,
+              "fpr": 0.0784313725490196,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 86.0,
+              "false_negative": 7.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.9247311827956989,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": true,
+              "matched_recall_delta": 0.021505376344086002,
+              "matched_noninferiority_and_fpr": true,
+              "false_positive_measurement_ids": [
+                "development:s3b:2013_11_05_152627_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.06384694577899784,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7716764214046823,
+                  "upper": 1.0,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": -0.15151515151515152,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.0,
+                  "upper": 0.07767620728785782,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261020,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 80.5,
+              "false_negative": 12.5,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.8655913978494624,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 84.0,
+              "false_negative": 9.0,
+              "false_positive": 3.0,
+              "true_negative": 48.0,
+              "recall": 0.9032258064516129,
+              "fpr": 0.058823529411764705,
+              "meets_point_target": false,
+              "matched_recall_delta": 0.037634408602150504,
+              "matched_noninferiority_and_fpr": false,
+              "false_positive_measurement_ids": [
+                "development:oreas170a:2013_08_15_194519_ccs",
+                "development:s3b:2013_11_05_152627_ccs",
+                "test:dv15:2018_07_30_155801_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:srm201a:2017_05_16_082426_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.13561248073959928,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7444379844961241,
+                  "upper": 1.0,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": 0.0,
+                  "upper": 0.09523809523809523,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.004901960784313708,
+                  "upper": 0.0802522349936142,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261021,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 75.0,
+              "false_negative": 18.0,
+              "false_positive": 0.0,
+              "true_negative": 51.0,
+              "recall": 0.8064516129032258,
+              "fpr": 0.0,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 83.0,
+              "false_negative": 10.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.8924731182795699,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": true,
+              "matched_recall_delta": 0.08602150537634412,
+              "matched_noninferiority_and_fpr": true,
+              "false_positive_measurement_ids": [
+                "development:s3b:2013_11_05_152627_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:hemdv:2018_07_30_111642_ccs",
+                "test:ncs_dc_11023:2018_07_11_100713_ccs",
+                "test:ncs_dc_28043:2018_07_11_103002_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.06382978723404255,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7355958096900916,
+                  "upper": 1.0,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": 0.0,
+                  "upper": 0.06382978723404255,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.022471910112359602,
+                  "upper": 0.16508899676375374,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261022,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 69.0,
+              "false_negative": 24.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.7419354838709677,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 85.0,
+              "false_negative": 8.0,
+              "false_positive": 0.0,
+              "true_negative": 51.0,
+              "recall": 0.9139784946236559,
+              "fpr": 0.0,
+              "meets_point_target": true,
+              "matched_recall_delta": 0.17204301075268813,
+              "matched_noninferiority_and_fpr": true,
+              "false_positive_measurement_ids": [],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7471229746572496,
+                  "upper": 1.0,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": -0.06898556535685646,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.0736842105263158,
+                  "upper": 0.2838320463320462,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261023,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 69.0,
+              "false_negative": 24.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.7419354838709677,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 82.0,
+              "false_negative": 11.0,
+              "false_positive": 0.0,
+              "true_negative": 51.0,
+              "recall": 0.8817204301075269,
+              "fpr": 0.0,
+              "meets_point_target": false,
+              "matched_recall_delta": 0.13978494623655913,
+              "matched_noninferiority_and_fpr": true,
+              "false_positive_measurement_ids": [],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:hemdv:2018_07_30_111642_ccs",
+                "test:ncs_dc_11023:2018_07_11_100713_ccs",
+                "test:ncs_dc_28043:2018_07_11_103002_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7264126117179741,
+                  "upper": 0.9883720930232558,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": -0.06818181818181818,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.05100752422180988,
+                  "upper": 0.24242424242424243,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          }
+        ]
+      },
+      "zero_budget_round3": {
+        "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb",
+        "result_sha256": "688ffc0f80ab58263d2f6cfea92feb6144051de001c7364ff63acb7331377d66",
+        "lock_sha256": "c40daa3c214f82758bbae1bce2827e50591678c266faaed685d3bdafa2959134",
+        "profile_sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5",
+        "implementation_pins_verified": 17,
+        "input_pins_verified": 106,
+        "strict_absolute_recall_target_all_seeds": false,
+        "secondary_matched_target_all_seeds": true,
+        "seeds": [
+          {
+            "seed": 20261019,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 84.0,
+              "false_negative": 9.0,
+              "false_positive": 4.0,
+              "true_negative": 47.0,
+              "recall": 0.9032258064516129,
+              "fpr": 0.0784313725490196,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 85.0,
+              "false_negative": 8.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.9139784946236559,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": true,
+              "matched_recall_delta": 0.010752688172043001,
+              "matched_noninferiority_and_fpr": true,
+              "false_positive_measurement_ids": [
+                "development:s3b:2013_11_05_152627_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:ncs_dc_11023:2018_07_11_100713_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.06384694577899784,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7583310439560439,
+                  "upper": 1.0,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": -0.15151515151515152,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.0,
+                  "upper": 0.03883810364392896,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261020,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 80.5,
+              "false_negative": 12.5,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.8655913978494624,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 84.0,
+              "false_negative": 9.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.9032258064516129,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": true,
+              "matched_recall_delta": 0.037634408602150504,
+              "matched_noninferiority_and_fpr": true,
+              "false_positive_measurement_ids": [
+                "development:s3b:2013_11_05_152627_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:srm201a:2017_05_16_082426_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.06384694577899784,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7444379844961241,
+                  "upper": 1.0,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": -0.06062152133580705,
+                  "upper": 0.05405405405405406,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.004901960784313708,
+                  "upper": 0.0802522349936142,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261021,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 75.0,
+              "false_negative": 18.0,
+              "false_positive": 0.0,
+              "true_negative": 51.0,
+              "recall": 0.8064516129032258,
+              "fpr": 0.0,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 83.0,
+              "false_negative": 10.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.8924731182795699,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": true,
+              "matched_recall_delta": 0.08602150537634412,
+              "matched_noninferiority_and_fpr": true,
+              "false_positive_measurement_ids": [
+                "development:s3b:2013_11_05_152627_ccs"
+              ],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:hemdv:2018_07_30_111642_ccs",
+                "test:ncs_dc_11023:2018_07_11_100713_ccs",
+                "test:ncs_dc_28043:2018_07_11_103002_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.06382978723404255,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7355958096900916,
+                  "upper": 1.0,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": 0.0,
+                  "upper": 0.06382978723404255,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.022471910112359602,
+                  "upper": 0.16508899676375374,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261022,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 69.0,
+              "false_negative": 24.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.7419354838709677,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 85.0,
+              "false_negative": 8.0,
+              "false_positive": 0.0,
+              "true_negative": 51.0,
+              "recall": 0.9139784946236559,
+              "fpr": 0.0,
+              "meets_point_target": true,
+              "matched_recall_delta": 0.17204301075268813,
+              "matched_noninferiority_and_fpr": true,
+              "false_positive_measurement_ids": [],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7471229746572496,
+                  "upper": 1.0,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": -0.06898556535685646,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.0736842105263158,
+                  "upper": 0.2838320463320462,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          },
+          {
+            "seed": 20261023,
+            "baseline": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 69.0,
+              "false_negative": 24.0,
+              "false_positive": 1.0,
+              "true_negative": 50.0,
+              "recall": 0.7419354838709677,
+              "fpr": 0.0196078431372549,
+              "meets_point_target": false
+            },
+            "primary": {
+              "positive_support": 93.0,
+              "negative_support": 51.0,
+              "true_positive": 82.0,
+              "false_negative": 11.0,
+              "false_positive": 0.0,
+              "true_negative": 51.0,
+              "recall": 0.8817204301075269,
+              "fpr": 0.0,
+              "meets_point_target": false,
+              "matched_recall_delta": 0.13978494623655913,
+              "matched_noninferiority_and_fpr": true,
+              "false_positive_measurement_ids": [],
+              "false_negative_measurement_ids": [
+                "test:cgl006:2017_04_06_142627_ccs",
+                "test:cgl015:2017_04_06_130651_ccs",
+                "test:crm212281:2017_04_06_124221_ccs",
+                "test:crm212481:2017_04_06_105619_ccs",
+                "test:dv3:2018_02_16_120534_ccs",
+                "test:hemdv:2018_07_30_111642_ccs",
+                "test:ncs_dc_11023:2018_07_11_100713_ccs",
+                "test:ncs_dc_28043:2018_07_11_103002_ccs",
+                "test:vs212381:2017_04_06_145652_ccs",
+                "test:vs72875:2017_04_06_151031_ccs",
+                "test:vsstm2:2017_04_06_132103_ccs"
+              ],
+              "paired_cluster_intervals": {
+                "fpr": {
+                  "lower": 0.0,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall": {
+                  "lower": 0.7264126117179741,
+                  "upper": 0.9883720930232558,
+                  "valid_repeats": 2000
+                },
+                "fpr_delta": {
+                  "lower": -0.06818181818181818,
+                  "upper": 0.0,
+                  "valid_repeats": 2000
+                },
+                "recall_delta": {
+                  "lower": 0.05100752422180988,
+                  "upper": 0.24242424242424243,
+                  "valid_repeats": 2000
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "deployment_profile": {
+      "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json",
+      "sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5",
+      "identity": "5be343aacc7d356911e3490ee9b2c22d38f5f62ea2ba7f3e2ccc39c30eabf933",
+      "artifact_type": "calcium_ensemble_v4",
+      "calcium_threshold": 0.6795050836572871,
+      "ensemble_members": 4,
+      "automatic_promotion": false,
+      "calcium_unconditional_decisions": true
+    },
+    "independent_numeric_audit": {
+      "scope": "separate_reviewer_recomputed_saved_numeric_results_not_independent_data",
+      "round2_passed": true,
+      "round3_passed": true,
+      "outer_folds_per_round": 25,
+      "candidates_per_fold": 45,
+      "checks": [
+        "group_disjoint_partitions",
+        "numeric_member_predictions",
+        "inner_threshold_candidate_selection",
+        "physical_weighted_metrics",
+        "paired_conditional_bootstrap",
+        "deployment_selection",
+        "artifact_and_source_hashes",
+        "unchanged_Na_Mg_Fe"
+      ],
+      "new_final_spectra_used": false
+    }
+  },
+  "blank_evidence_search": {
+    "summary": "docs/final_validation_v5_summary.json",
+    "candidate_audit_entries": 24,
+    "evidence_files_verified": 78,
+    "new_evidence_paths": 77,
+    "admitted_datasets": 0,
+    "qualified_Fe_blank_families": 0,
+    "qualified_Mg_blank_families": 0,
+    "authors_contacted": false
+  },
+  "pinned_unchanged_sha256": {
+    "scripts/improve_chemcam_v2.py": "85c0ecae303a3a205f79e09075f30afe0d6f24d2848253277300a5e49a02c906",
+    "ml/src/spectralab_ml/models/line_adapter_v2.py": "2b363ff02d32b066bde2f94f6076d81e29450b4bbb566f7dd3b3f637d71a26c4",
+    "ml/src/spectralab_ml/models/instrument_adaptation.py": "852727e1b770446560b7bfffcbc5ae090a4f5a4f5bea06776886563f772e1041",
+    "ml/src/spectralab_ml/evaluation/instrument_selection.py": "b67daa8338bac4a8487d91522e55a551a163fbbb8d69ec5fce0242ea989d8e5c",
+    "ml/src/spectralab_ml/models/line_adapter_v3.py": "497c601766526fa478858a2346877a6799d8f4db24b33a8d2c47d445c9a3a62c",
+    "ml/src/spectralab_ml/evaluation/development_v3.py": "117e3e05c4ce0386b3edc3d36063014604f9d13ac2274f8448fb05188ce3d1c2",
+    "scripts/study_development_v3.py": "b98f048f44922b7b3547cd18ff75d45e29a111026c98651a06fa0a3877011400",
+    "data/reference/development_v4_source_plan.json": "b679a367433deee6351a0988428ae14b6d1cb5b74b35a7ac869cab71cc97ada7",
+    "reports/adaptation_v3/development-20261019T172235-da8f0847/profile.json": "8ffb76657c9618ff5c393b8be99690b2ceb41528d65529ebab31437caaf37c80",
+    "reports/adaptation_v2/development-20261013T164342-b37a6ab8/profile.json": "22d3cf0ceb3e7702f166583b11ff001d310e0fbb9aa70b6fd81c174349051fdf"
+  },
+  "implementation_sha256": {
+    "ml/src/spectralab_ml/data/chemcam_measurements.py": "4a4a52a05f7e1430dca02c5d10031652887ad607dad7413c6c26d480f89aaf0d",
+    "ml/src/spectralab_ml/data/reference.py": "de4eb9edccc99c54b72398e6aa9f8b5c676e737369369565da51c3b9051ba224",
+    "ml/src/spectralab_ml/diagnostics.py": "a8a50ec3d7d09a2151013db1ee0c8c9d1ec8588ccda646653f2fe5654ed99feb",
+    "ml/src/spectralab_ml/evaluation/calcium_crossfit_v4.py": "7a08e4b1041009ada9dd34311989ef299fc3a83b646491c698b9ad2889bee895",
+    "ml/src/spectralab_ml/evaluation/calcium_operating_v4.py": "ab101bdb139cfe13fa13638c091573800c9dccf6dea92283d5b0e658ea24cc59",
+    "ml/src/spectralab_ml/evaluation/calcium_v4.py": "1f405d25044306e2c97c168c67613bd1f806f0c492bf6d21515d1cfaeabbc96c",
+    "ml/src/spectralab_ml/evaluation/campaign_shift_v2.py": "051fa84d71c85950fa23a515bf746e0aa1bae2040af928084b74c64bc781c0de",
+    "ml/src/spectralab_ml/evaluation/development_v3.py": "117e3e05c4ce0386b3edc3d36063014604f9d13ac2274f8448fb05188ce3d1c2",
+    "ml/src/spectralab_ml/evaluation/instrument_selection.py": "b67daa8338bac4a8487d91522e55a551a163fbbb8d69ec5fce0242ea989d8e5c",
+    "ml/src/spectralab_ml/evaluation/real_validation.py": "2e6ff5a038d7aea41788651bb3bf554029d07c4e0df8e5077bd304fcf87ae584",
+    "ml/src/spectralab_ml/inference/measured.py": "c4bd3f5de761bda6d9c3f94836362b6e0e7752cc78112d52c5429a09832610cc",
+    "ml/src/spectralab_ml/models/calcium_adapter_v4.py": "e393db45efc85a24f08b0dce04fc4bab998f0a9c9685853e107078ed01e6c460",
+    "ml/src/spectralab_ml/models/calcium_ensemble_v4.py": "9de2f7aaafc75eb4065c6f2333faa548032b56f6b5802c6bca7210afb13ebf9d",
+    "ml/src/spectralab_ml/models/line_adapter_v2.py": "2b363ff02d32b066bde2f94f6076d81e29450b4bbb566f7dd3b3f637d71a26c4",
+    "ml/src/spectralab_ml/models/line_adapter_v3.py": "497c601766526fa478858a2346877a6799d8f4db24b33a8d2c47d445c9a3a62c",
+    "ml/src/spectralab_ml/workflow_cli.py": "d56d8efa38c2d319470f587ec05ab35beeb196d70bd11f167ef758820c5b4f13",
+    "scripts/report_calcium_v4.py": "2337de25bda67f901278204eb68ea6b3f10821ce06ec9841a457182337bd0a37",
+    "scripts/study_calcium_crossfit_v4.py": "64d2a8802c5136286f7211686cb20ec381d88ec36bc7b76eff08f9a8e0ff8649",
+    "scripts/study_calcium_operating_v4.py": "03687b947853c1b52cccef873f77ed68c6e385ee898e35a35296f3081181d4ec",
+    "scripts/study_calcium_v4.py": "e3886a24f566d5dc3b173636faf937526804a12c026277d5bd3b8b689f756e8b",
+    "scripts/study_development_v3.py": "b98f048f44922b7b3547cd18ff75d45e29a111026c98651a06fa0a3877011400"
+  },
+  "compact_artifact_sha256": {
+    "docs/calcium_v4_summary.json": "c43a5c8818d30f3e6cd9703364f22b7dc6a9e46d3050a80487df7cbbc4cdaf17",
+    "docs/final_validation_v5_summary.json": "66eb5e2d6e2c2b35392cfe4a6123f962151ca5989fc9dd31880a5ab37b9dff22",
+    "docs/ml_environment_v5_summary.json": "289cc00d44de1b382a660d27ef230408e00f96cb19956c97bbf82396302502a3",
+    "data/reference/calcium_v4_round1_protocol.json": "2cc424177197455ac9a76906cf90ebb9bd1eebb8524b5ecb94d50be5d3d3dc6a",
+    "data/reference/calcium_v4_round1_verified_protocol.json": "0e31c6acc64006fd732a4aef7921c7364b40409995155d364431b3e96726a8a5",
+    "data/reference/calcium_v4_round2_protocol.json": "976a4e868363d0724fab90927ddf60f332359539831730be54e8ef93abed69dc",
+    "data/reference/calcium_v4_round3_protocol.json": "5cf9f965f95be381a8dc517fe4ce3de9efe0376fa658da17c82b8e332290a59a",
+    "data/reference/final_search_v5_pds.json": "24c8073e8ecd547e236f6ebecfa9fa1a540f7db56065caef86e35284a5469a8b",
+    "data/reference/final_search_v5_other.json": "6613bb8e6b88d1771366208aa679ae83eb8ea19477cf528163ca2650ba2ff9b6",
+    "data/reference/final_search_v5_root.json": "3563b87e80a1931d93e5a159d7ec6abc406691817bbc117461b489c1561b2953"
+  },
+  "independent_final": {
+    "performed": false,
+    "final_metrics": null,
+    "new_final_intensities_downloaded": 0,
+    "new_final_intensities_opened": 0,
+    "final_predictions_run": 0,
+    "final_receipts_consumed": 0
+  },
+  "limits": [
+    "Three adaptive rounds reuse disclosed materials, including the former v1 final; five seeds are not new datasets.",
+    "The matched secondary five-seed point target passed; the original absolute recall target on all seeds did not.",
+    "Primary conditional FPR interval reaches 6.3847%; point FPR under 5% is not a population guarantee.",
+    "Four-member mean Platt-calibrated scores have no independent final calibration qualification.",
+    "Research reproduction requires pinned ignored local raw data and historical runs; fresh checkout alone is insufficient.",
+    "No suitable independent campaign with certified Fe/Mg blanks was established in this bounded search.",
+    "No author messages, new browser E2E, production build, remote CI or GitHub publication were performed this iteration."
+  ]
+}

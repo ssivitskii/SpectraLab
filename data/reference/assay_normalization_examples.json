@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "assays": [
+    {
+      "sample_id": "CSA:Graphite KD2",
+      "element": "Fe",
+      "reported_species": "Fe",
+      "total_element": true,
+      "units": "mg_per_kg",
+      "value": 180,
+      "source": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/Sample_Composition_Data_SubSet.csv",
+      "source_sha256": "ea3b049a4b34cc08bfbc41ce6eb15e66aaf3847cd034e301241b1d8222806db0",
+      "qualifier": "measured"
+    },
+    {
+      "sample_id": "CSA:Graphite KD2",
+      "element": "Mg",
+      "reported_species": "Mg",
+      "units": "mg_per_kg",
+      "value": 21,
+      "source": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/Sample_Composition_Data_SubSet.csv",
+      "source_sha256": "ea3b049a4b34cc08bfbc41ce6eb15e66aaf3847cd034e301241b1d8222806db0",
+      "qualifier": "informational"
+    },
+    {
+      "sample_id": "PDS:T12CT135",
+      "element": "Fe",
+      "reported_species": "Fe2O3T",
+      "units": "wt_percent",
+      "value": 0.03,
+      "source": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+      "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+      "qualifier": "measured"
+    },
+    {
+      "sample_id": "PDS:T12CT135",
+      "element": "Mg",
+      "reported_species": "MgO",
+      "units": "wt_percent",
+      "value": 0.02,
+      "source": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+      "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+      "qualifier": "measured"
+    }
+  ]
+}

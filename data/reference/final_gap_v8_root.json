@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "audit_id": "final_gap_v8_root",
+  "created_at": "2026-10-19T20:27:52.932920+00:00",
+  "status": "source_gates_unresolved",
+  "scope": "Public repository issue checks, explicitly authorized BAM310 publication and bounded public publisher SI access; no final inference",
+  "sources": [
+    {
+      "path": "data/raw/final_gap_v8_root/github_issue_checks.json",
+      "bytes": 1294,
+      "sha256": "7b7230a6f14ea7c2c9fad0d00a62130465a4e9a6b89d3668cc0487870088bf6a"
+    },
+    {
+      "path": "data/raw/final_gap_v8_root/github_issue_published_snapshot.json",
+      "bytes": 1848,
+      "sha256": "f960fda60714f8b9944e427ac79fb3b293c66ba92d59def62530243c0e4eafce"
+    },
+    {
+      "path": "data/raw/final_gap_v8_root/wiley_si_browser_attempt.json",
+      "bytes": 983,
+      "sha256": "18e3fa12aaa01d9f354f8848a678b314412e70961d23fd7a374bdf140b719501"
+    },
+    {
+      "path": "data/reference/bam310_author_request_v8.json",
+      "bytes": 2232,
+      "sha256": "d6b6b2b65f4f5c860e53b79ce4316104f349c34a2041dba48c66b0f15f8474f0"
+    }
+  ],
+  "public_communication": {
+    "BAM310": "Published with direct human authorization; exact approved body verified",
+    "url": "https://github.com/JVrabel/PAPER_distanceLIBS/issues/1",
+    "comments_at_2026_10_19_2025_UTC": 0,
+    "GOE100": "Unsent draft; no authorization to send"
+  },
+  "wiley_si": {
+    "retrieved": false,
+    "contents_reviewed": false,
+    "identity_with_zenodo_zip": null
+  },
+  "limitations": [
+    "Issue search snapshot precedes publication; its then-empty repository issue list is historical, not current.",
+    "A visible publisher supplement link does not establish its contents; failed download is an access gap.",
+    "Zero matching indexed results does not prove global absence."
+  ],
+  "spectral_intensity_values_decoded": 0,
+  "predictions_run": 0,
+  "receipts_consumed": 0,
+  "final_metrics": null
+}

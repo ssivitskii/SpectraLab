@@ -1,0 +1,931 @@
+{
+  "schema_version": 1,
+  "artifact_type": "independent_final_metadata_search",
+  "reviewed_at": "2026-10-19",
+  "scope": "Outside PDS: CSA, INPTDAT, open scientific repositories, linked chemical evidence",
+  "status": "blocked",
+  "qualified_new_final_datasets": 0,
+  "qualified_Fe_blank_families": 0,
+  "qualified_Mg_blank_families": 0,
+  "final_metrics": null,
+  "final_metrics_status": "pending_not_evaluated",
+  "new_final_intensities_downloaded_or_read": false,
+  "predictions_run": false,
+  "authors_contacted": false,
+  "campaign_frozen": false,
+  "protocol": "Existing schema 3 permits separate Fe/Mg blank controls; this search does not amend scientific admission rules.",
+  "admission_requirements": [
+    "numeric raw hashes and explicit licence",
+    "wavelength medium vacuum or documented air conversion",
+    "independent physical/family/session/material-assay IDs against all previously seen materials",
+    "per-element certified total FeOT/MgO upper <= 0.1 wt% with source hash and sample lot/preparation link",
+    "positive support and coverage sufficient for each tested element",
+    "instrument-matched development and frozen profile before first final intensity read"
+  ],
+  "purity_route": {
+    "accepted_in_principle": true,
+    "rule": "Independently certified lower purity bound for actual material permits conservative total impurity upper=100-purity_lower. Individual element≤total impurities, then convert elemental mass to FeOT/MgO. Include preparation/matrix additions.",
+    "not_accepted": [
+      "nominal vendor grade",
+      "unlinked certificate",
+      "point purity without lower bound",
+      "unbounded binder/tape/water",
+      "formula or dark/no-laser control"
+    ],
+    "example_only": {
+      "purity_lower_wt_percent": 99.99,
+      "total_impurity_upper_wt_percent": 0.01,
+      "FeOT_upper_wt_percent": 0.012864893902766586,
+      "MgO_upper_wt_percent": 0.016582596173626826
+    }
+  },
+  "catalog_scope": {
+    "inptdat_DCAT_total_records": 64,
+    "inptdat_LIBS_deposits": [
+      "10.34711/inptdat.728",
+      "10.34711/inptdat.815",
+      "10.34711/inptdat.1012"
+    ],
+    "inptdat_pure_metal_or_boric_acid_blank_dataset_found": false,
+    "interpretation": "Bounded current catalog check, not a claim of worldwide absence.",
+    "DataCite_latest_LIBS_search": "100 of 1216 metadata results; not exhaustive.",
+    "DataCite_targeted_blank_copper_purity_search": "43 metadata results, includes unrelated lithium-ion battery false matches."
+  },
+  "priority_followup": [
+    "C14500 paper/repository: secure independent lot CoA supporting exhaustive Fe/Mg upper bounds, exact physical/session/optimization mapping and air/vac calibration; then build matched development profile with Fe/Mg positive controls before final.",
+    "CSA KD2: retrieve actuallot CoA with Fe/Mg upper bounds, preparation and spectrometer axis record; independent lot/session audit and matched development required.",
+    "Certified purity powders: possible chemistry route, butexisting 400–410 nm measurement does not enable a Mg test; needs fresh broad-range measurement campaign."
+  ],
+  "candidates": [
+    {
+      "candidate_id": "csa_kd2",
+      "title": "CSA Graphite KD2 / CIBA KD-2",
+      "primary_urls": [
+        "https://open.canada.ca/data/en/dataset/137bdc17-2f46-4d70-98e7-acc46f602e9f",
+        "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/",
+        "https://brammerstandard.com/pdf/geological.pdf",
+        "https://www.brammerstandard.com/certificates.html"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": true,
+        "name": "Open Government Licence - Canada"
+      },
+      "numeric_LIBS": {
+        "availability": "archive member indexed in prior metadata-only v3 audit",
+        "member": "Certified Samples Subset 1000pulseaverage/Graphite_1000AVG.txt",
+        "read": false,
+        "raw_sha256": null
+      },
+      "wavelength_medium": {
+        "value": "unknown",
+        "reason": "Ambient atmosphere and OceanOptics calibration references do not explicitly identify wavelength convention for this unit."
+      },
+      "chemical_evidence": {
+        "kind": "low point estimates, not certified upper bounds",
+        "material_aliases": [
+          "Graphite KD2",
+          "CIBA KD-2",
+          "CB KD2"
+        ],
+        "source_units": "mg/kg elemental",
+        "Fe_point": 180,
+        "Mg_point": 21,
+        "Mg_value_in_parentheses": true,
+        "converted_point_wt_percent": {
+          "FeOT": 0.023156809024979852,
+          "MgO": 0.0034823451964616334
+        },
+        "certified_upper_bounds": null,
+        "new_check": "Current Brammer catalogue changed SHA; these KD-2 values remain unchanged. Current certificate index contains no KD-2/CIBA certificate."
+      },
+      "independence": {
+        "physical_material": "KD-2",
+        "lot": null,
+        "acquisition_session": null,
+        "alias_audit": "pending; old v3 spectrum member metadata only, not a final measurement"
+      },
+      "instrument_compatibility": "Different OceanOptics LIBS2000 domain; matching development and frozen mapping required before final.",
+      "blockers": [
+        "missing_independent_certified_Fe_Mg_upper_bounds",
+        "missing_lot_and_preparation_link",
+        "unknown_wavelength_medium",
+        "session_and_alias_audit_pending",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/csa_package.json",
+          "sha256": "833ecc613b79a4393a404fd218a3e061db9b6d359d337ed41ca167738ac85279"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/csa_directory.html",
+          "sha256": "6f9950cf3043cf5171e8c88aa42155aff94af57c17e6322d6a9dbcb6d0dcfdd2"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/brammer_geological_current.pdf",
+          "sha256": "9bdffdd358d6797df51c5d864c615dc0d1bf67ef2ef63654cc2af3aa37aa29d7"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/brammer_certificates.html",
+          "sha256": "8ab6c0a53e9f66b676855530afb77feb103b6be76fcc6a4d4387d7d1a99aace7"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "inptdat_728",
+      "title": "INPTDAT 728: underwater Cu / Cu-Zn",
+      "primary_urls": [
+        "https://doi.org/10.34711/inptdat.728"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": true,
+        "name": "CC-BY-4.0"
+      },
+      "numeric_LIBS": {
+        "availability": "measured spectral archives listed separately from simulations",
+        "read": false,
+        "raw_sha256": null
+      },
+      "wavelength_medium": {
+        "value": "unknown",
+        "reason": "Metadata names water as plasma/sample medium, not wavelength convention."
+      },
+      "chemical_evidence": {
+        "kind": "copper label / Cu-Zn composition; no independently certified Fe/Mg impurity bounds",
+        "metadata_records": 31,
+        "material": "copper/Kupfer",
+        "lot_or_CoA": null
+      },
+      "independence": {
+        "measurement_identifiers": "m-numbers in XML",
+        "independent_physical_families": null,
+        "session_split": null
+      },
+      "instrument_compatibility": "Underwater plasma; 728 spectrometer centred515nm, 1012 analysis452–537nm. Neither establishes current full-profile coverage/response.",
+      "blockers": [
+        "missing_certified_Fe_Mg_bounds",
+        "unbounded_water_or_preparation_contribution",
+        "unknown_wavelength_medium",
+        "physical_lot_family_session_unknown",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/inptdat728_datacite.json",
+          "sha256": "70d74ae3a1079d89830ad86a8621fc0fbe412d7d026ed1c51e2b4e153286df20"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/inptdat728_metadata.xml",
+          "sha256": "4c2df8096605ba8197e9147aefcb362437040898d4c0b9cf67bbcc89c607aee5"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "inptdat_815",
+      "title": "INPTDAT 815: underwater Cu / Cu-Zn",
+      "primary_urls": [
+        "https://doi.org/10.34711/inptdat.815"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": true,
+        "name": "CC-BY-4.0"
+      },
+      "numeric_LIBS": {
+        "availability": "measured spectral archives listed separately from simulations",
+        "read": false,
+        "raw_sha256": null
+      },
+      "wavelength_medium": {
+        "value": "unknown",
+        "reason": "Metadata names water as plasma/sample medium, not wavelength convention."
+      },
+      "chemical_evidence": {
+        "kind": "copper label / Cu-Zn composition; no independently certified Fe/Mg impurity bounds",
+        "metadata_records": 38,
+        "material": "copper/Kupfer",
+        "lot_or_CoA": null
+      },
+      "independence": {
+        "measurement_identifiers": "m-numbers in XML",
+        "independent_physical_families": null,
+        "session_split": null
+      },
+      "instrument_compatibility": "Underwater plasma; 728 spectrometer centred515nm, 1012 analysis452–537nm. Neither establishes current full-profile coverage/response.",
+      "blockers": [
+        "missing_certified_Fe_Mg_bounds",
+        "unbounded_water_or_preparation_contribution",
+        "unknown_wavelength_medium",
+        "physical_lot_family_session_unknown",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/inptdat815_datacite.json",
+          "sha256": "05aae61989c70ad2e30babd2bccc0e4f5714912098a580386fa7ea7b21b52c74"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/inptdat815_metadata.xml",
+          "sha256": "e860c0915b73ca6d0b4a3742824a9358e6752057816855e9fe63bf97faca3a00"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "inptdat_1012",
+      "title": "INPTDAT 1012: underwater Cu / Cu-Zn",
+      "primary_urls": [
+        "https://doi.org/10.34711/inptdat.1012"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": true,
+        "name": "CC-BY-4.0"
+      },
+      "numeric_LIBS": {
+        "availability": "measured spectral archives listed separately from simulations",
+        "read": false,
+        "raw_sha256": null
+      },
+      "wavelength_medium": {
+        "value": "unknown",
+        "reason": "Metadata names water as plasma/sample medium, not wavelength convention."
+      },
+      "chemical_evidence": {
+        "kind": "copper label / Cu-Zn composition; no independently certified Fe/Mg impurity bounds",
+        "metadata_records": null,
+        "material": "Cu-Zn alloy CW612N discussed in paper",
+        "lot_or_CoA": null
+      },
+      "independence": {
+        "measurement_identifiers": "archive/file grouping pending",
+        "independent_physical_families": null,
+        "session_split": null
+      },
+      "instrument_compatibility": "Underwater plasma; 728 spectrometer centred515nm, 1012 analysis452–537nm. Neither establishes current full-profile coverage/response.",
+      "blockers": [
+        "missing_certified_Fe_Mg_bounds",
+        "unbounded_water_or_preparation_contribution",
+        "unknown_wavelength_medium",
+        "physical_lot_family_session_unknown",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/inptdat1012_datacite.json",
+          "sha256": "76996ed72afd82aaff98cf656ec57cdd82b0aa328611baf4370456edf37e128b"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "charging_plug_c14500",
+      "title": "PLOS2026 C14500 tellurium copper",
+      "primary_urls": [
+        "https://doi.org/10.1371/journal.pone.0342086",
+        "https://github.com/ptthoshi-web/LIBS-Charging-pile-plug"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": true,
+        "name": "CC0-1.0",
+        "basis": "repository licence API"
+      },
+      "numeric_LIBS": {
+        "availability": "Dataset_full_spectra.rar listed, 9348877 bytes; not fetched",
+        "read": false,
+        "raw_sha256": null
+      },
+      "wavelength_medium": {
+        "value": "unknown",
+        "reason": "Paper gives instrument and NIST line assignment; neither identifies calibrated air/vacuum axis."
+      },
+      "chemical_evidence": {
+        "kind": "reported composition specification, not linked independent certificate",
+        "material": "C14500 tellurium copper pellets",
+        "table": "Table1",
+        "reported_other_elements_max_wt_percent": 0.02,
+        "reported_Cu_min_wt_percent": 99.3,
+        "reported_Te_wt_percent": 0.625,
+        "certified_upper_bounds": null,
+        "hypothesis_only_if_total_cap_certified_and_linked": {
+          "FeOT_upper_wt_percent": 0.025729787805533172,
+          "MgO_upper_wt_percent": 0.03316519234725365
+        },
+        "caveat": "Other-element note names Pb/Fe/Ni/P et al.; exhaustive Mg-inclusive total bound, source certificate, lot and preparation traceability not provided. Grade alone does not certify measured material."
+      },
+      "independence": {
+        "reported_final_classification_materials": "40 C14500 pellets, 60 H62 brass pins, 20 T2 red-copper pins",
+        "optimization_materials": "40 C14500 pellets used for acquisition parameter selection; overlap with classification pellets unresolved",
+        "lot": null,
+        "physical_family_session_split": "unresolved"
+      },
+      "instrument_compatibility": "ME5000 echelle199–1031nm/0.03nm nominal coverage promising; SR500i monochromator189–210nm unusable. Must audit channel export geometry and fit/freeze a new matching development profile with positive support.",
+      "blockers": [
+        "missing_independent_lot_CoA",
+        "total_impurity_cap_scope_unconfirmed",
+        "unknown_wavelength_medium",
+        "optimization_physical_overlap_unresolved",
+        "no_compatible_frozen_profile_or_positive_support"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/charging_plug_paper.xml",
+          "sha256": "a2e8b242c53b452517c662d1f385915cb852db871fc08a6fb49c2d53b09af626"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/charging_plug_repo.json",
+          "sha256": "13df95aea5eb2a33ad81bd5bf8876763b9d46bc35786f997e4a20e0c91d3fbf8"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/charging_plug_contents.json",
+          "sha256": "1eb2e3be047af3f4d6a3dddfa6e1d8ba1f90b47fbdc928cc0dca2bf2f69b06e2"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "water_blank_21965952",
+      "title": "Zenodo2026 mining brines: actual tap-water method blank",
+      "primary_urls": [
+        "https://zenodo.org/records/21965952",
+        "https://api.datacite.org/dois/10.5281/zenodo.21965952"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": true,
+        "name": "CC-BY-4.0"
+      },
+      "numeric_LIBS": {
+        "availability": "water_blank.csv explicitly described within raw_data/scoria_slurry; not retrieved",
+        "read": false,
+        "raw_sha256": null
+      },
+      "wavelength_medium": {
+        "value": "unknown"
+      },
+      "chemical_evidence": {
+        "kind": "measured method blank, not certified Fe/Mg blank",
+        "description": "Tap-water spectrum before scoria, same rig, averaged and dark-corrected. This is a material measurement, not a dark/no-laser control.",
+        "certified_upper_bounds": null,
+        "water_assay": null
+      },
+      "independence": {
+        "relationship": "blank precedes scoria on same rig",
+        "physical_water_batch_and_session_ids": null
+      },
+      "instrument_compatibility": "Ibsen UV188–445nm lacks current full-profile coverage. Separate brine data438–980nm are another channel/series and cannot be spliced into the blank.",
+      "blockers": [
+        "missing_certified_water_Fe_Mg_upper_bounds",
+        "missing_water_batch_preparation_identity",
+        "unknown_wavelength_medium",
+        "insufficient_coverage",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/zenodo21965952_datacite.json",
+          "sha256": "90881e728bf0409ce8b108afde62cc8fee149cf089d64cf0d7acf61176fc5f23"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "libs2022_steel",
+      "title": "LIBS2022 metal-alloy challenge",
+      "primary_urls": [
+        "https://figshare.com/articles/dataset/train_dataset_csv/20141213",
+        "https://www.sciencedirect.com/science/article/pii/S0584854723000976"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": true,
+        "name": "CC-BY-4.0"
+      },
+      "numeric_LIBS": {
+        "availability": "train_dataset.csv metadata lists1271027390bytes,42targets×50shots",
+        "file_md5": "5fa47ecdcf83e47890762a5adf79b318",
+        "read": false,
+        "raw_sha256": null
+      },
+      "wavelength_medium": {
+        "value": "unknown"
+      },
+      "chemical_evidence": {
+        "kind": "four regression labels Cr/Mn/Mo/Ni; no linked Fe/Mg certificates",
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "physical_target_count": 42,
+        "lot_assay_material_ids": null,
+        "session": null
+      },
+      "instrument_compatibility": "Echelle240–1000nm/40002 wavelengths nominally broad; no intensity calibration. Matching development/profile required.",
+      "blockers": [
+        "missing_Fe_Mg_truth",
+        "missing_lot_certificate_and_target_identity",
+        "unknown_wavelength_medium",
+        "session_and_alias_audit_pending",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/figshare20141213.json",
+          "sha256": "e2e5a14afca8be25a0fe1b2df8b922b08b111ae29746c646426b7bacc95ad66c"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "sarm21_2026",
+      "title": "SARM21 reference rocks with two handheld instruments",
+      "primary_urls": [
+        "https://doi.org/10.3390/s26031076",
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12900111/fullTextXML"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": false,
+        "article_license": "CC-BY-4.0",
+        "reason": "No separately identified numeric raw release; article rights do not certify absent raw release."
+      },
+      "numeric_LIBS": {
+        "availability": "SI ZIP inventory:3 chemical/hyperparameter tables and 2 PDF figure documents, no raw numerical spectrum files",
+        "read": false,
+        "raw_sha256": null
+      },
+      "wavelength_medium": {
+        "value": "unknown",
+        "reason": "Z300 internal316steel/NIST calibration described, no explicit air/vacuum output selection."
+      },
+      "chemical_evidence": {
+        "kind": "chemical point composition, no uncertainties in TableS2",
+        "low_candidates": [
+          {
+            "sample": "AL-I",
+            "sheet": "Foglio1",
+            "row": 4,
+            "Fe2O3T_wt_percent": 0.075,
+            "MgO_wt_percent": 0.035
+          },
+          {
+            "sample": "FK-N",
+            "sheet": "Foglio1",
+            "row": 9,
+            "Fe2O3T_wt_percent": 0.09,
+            "MgO_wt_percent": 0.01
+          }
+        ],
+        "certified_upper_bounds": null,
+        "preparation": "5 g CRM powder + 2 mL 2% w/v Elvacite 2046 acetone solution, aluminium cups; binder contamination needs a bound"
+      },
+      "independence": {
+        "sample_aliases_to_audit": [
+          "AL-I/ALI",
+          "FK-N/FKN"
+        ],
+        "warning": "Old named reference materials are not automatically independent of previously used ChemCam/PDS standards.",
+        "lot_session": null
+      },
+      "instrument_compatibility": "NanoLIBS 180–800 nm incomplete; Z300 190–950 nm, 0.18–0.35 nm different response; new matching development/profile required.",
+      "blockers": [
+        "numeric_raw_release_not_identified",
+        "missing_certified_upper_bounds",
+        "unbounded_binder",
+        "possible_previously_seen_material_aliases",
+        "unknown_wavelength_medium",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/sarm2026_fulltext.xml",
+          "sha256": "5fec41a6b2bb18f6b0fc9f6e8025b0c94fdbae635afdd1e80c4aeaf5c904db89"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/sarm2026_supplement_inventory.json",
+          "sha256": "9c289303419ae94d81e5a578490dfe02a4e53dd12c08f3aae70b3ac02fe507d1"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/sarm2026_Table_S2.xlsx",
+          "sha256": "d051c9d3fb2994abf6d67de5450054ffb604a36d4888c278af909cfeb37ef62a"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/sarm2026_Table_S1.pdf",
+          "sha256": "430fa855f8b9b9d553b42d22b73c0c7ccef8162c67b276d35de73a41874c7e2c"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "swerim27_al_2023",
+      "title": "27 Swerim aluminium CRMs / scrap study",
+      "primary_urls": [
+        "https://doi.org/10.1016/j.sab.2023.106634",
+        "https://upcommons.upc.edu/entities/publication/a25c2852-4ded-481f-afba-c70262109c43"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": false,
+        "reason": "Public accepted manuscript; no licensed numeric raw dataset identified."
+      },
+      "numeric_LIBS": {
+        "availability": "27 CRM measured, no raw datasetURL in inspected manuscript",
+        "read": false
+      },
+      "wavelength_medium": {
+        "value": "unknown"
+      },
+      "chemical_evidence": {
+        "kind": "Swerim certified element concentrations asserted; per-lot certificates and Fe/Mg upper bounds not provided in inspected manuscript",
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "physical_materials": "27 CRM asserted",
+        "sample_certificate_mapping": null,
+        "session": null
+      },
+      "instrument_compatibility": "Custom SPECTRALIndustries/Redwave UV190–440nm. Cannot supply current full coverage.",
+      "blockers": [
+        "raw_dataset_and_licence_unresolved",
+        "missing_specific_certified_bounds",
+        "unknown_wavelength_medium",
+        "insufficient_coverage",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/al27_2023_paper.pdf",
+          "sha256": "3c5e3b0ff912dcb8f8e0561a2672d44e606bf21816c316c04d6a0adca46e5c34"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "sciencedb_al10911",
+      "title": "ScienceDB aluminium focusing/detection dataset",
+      "primary_urls": [
+        "https://doi.org/10.57760/sciencedb.10911",
+        "https://www.scidb.cn/detail?dataSetId=2037fed3111c4e0eade4f9e47ab3803c"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": true,
+        "name": "CC-BY-4.0"
+      },
+      "numeric_LIBS": {
+        "availability": "public data.xlsx 44844 bytes; metadata fields D1, D2, angles; raw-vs-derived curve status unresolved; not fetched",
+        "file_md5": "734f932b62604fac1c6e59315227fda1",
+        "read": false
+      },
+      "wavelength_medium": {
+        "value": "unknown"
+      },
+      "chemical_evidence": {
+        "kind": "aluminium target; no sample lot/purity certificate/Fe/Mg assay in dataset metadata",
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "lot": null,
+        "family_session": null
+      },
+      "instrument_compatibility": "No verified full wavelength range or compatible response in inspected metadata.",
+      "blockers": [
+        "raw_spectrum_geometry_unverified",
+        "missing_certified_Fe_Mg_bounds",
+        "unknown_wavelength_medium",
+        "lot_session_unknown",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/sciencedb10911.html",
+          "sha256": "8097c525e982ec7738d5020181aa071d030062c349e37e0b011c737a213b225e"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/sciencedb10911_croissant_0.json",
+          "sha256": "1bd8855f6440a880f5aab952331e9a8e4456c779ffb1832b854e06a6f630993e"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/sciencedb10911_datacite.json",
+          "sha256": "51f367a743d8d9662808981df24475579fb54d5399ec22b242813daa26c6a408"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "steel_purity2022",
+      "title": "Pure Fe/Mn powders: conditional purity mass-balance route",
+      "primary_urls": [
+        "https://doi.org/10.2355/isijinternational.ISIJINT-2021-476"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": false,
+        "reason": "Open article; no licensed numerical raw release identified."
+      },
+      "numeric_LIBS": {
+        "availability": "spectral figures and line tables only in inspected publication",
+        "read": false
+      },
+      "wavelength_medium": {
+        "value": "unknown"
+      },
+      "chemical_evidence": {
+        "kind": "paper states certified purity Fe 99.995%, Mn 99.99%; certificate file, lot, exact confidence/limit semantics absent",
+        "conditional_MgO_upper_wt_percent_from_Fe_purity": 0.008291298086813413,
+        "admissible_upper_bound": null,
+        "preparation": "ball mill; pressed pellet or conductive copper tape on aluminium substrate; additional contributions unbounded"
+      },
+      "independence": {
+        "physical_material": "S0 pure Fe branch; mixture samplesS1–S10 share powder lots",
+        "lot_session": null
+      },
+      "instrument_compatibility": "Only400–410nm: does not support Mg detection or current complete profile.",
+      "blockers": [
+        "lot_certificate_not_available",
+        "purity_lower_bound_semantics_unverified",
+        "unbounded_preparation",
+        "numeric_raw_licence_unresolved",
+        "insufficient_coverage",
+        "unknown_wavelength_medium"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/steel_purity2022.html",
+          "sha256": "18bbb7d2616d0d765ce4730fbf34ade7bf72d0e3da20a25efd0c29af13e57a25"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "boric_acid2023",
+      "title": "Boric-acid substrate control in blood LIBS",
+      "primary_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10278612/"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": false,
+        "reason": "Article is public, raw available only upon request according to data statement."
+      },
+      "numeric_LIBS": {
+        "availability": "not publicly available; no request sent",
+        "read": false
+      },
+      "wavelength_medium": {
+        "value": "unknown"
+      },
+      "chemical_evidence": {
+        "kind": "nominal 99.7% boric acid; no independent lot CoA or Fe/Mg bound",
+        "certified_upper_bounds": null,
+        "reason": "Even a 99.7% total lower-purity guarantee permits0.3 wt% elemental impurity before oxide conversion."
+      },
+      "independence": {
+        "lot_session": null
+      },
+      "instrument_compatibility": "New instrument profile required; absence of visible lines is not chemical evidence.",
+      "blockers": [
+        "raw_not_public",
+        "missing_CoA",
+        "purity_not_sufficient_as_total_mass_bound",
+        "unknown_wavelength_medium",
+        "lot_session_unknown"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/boric2023_fulltext.xml",
+          "sha256": "bfbb1dfe8c88cbab0f7fec4dd8c71909d7bbb7468c7d6d2292d03b0a3394940b"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "gbw_marscode2025",
+      "title": "37 GBW standards measured with MarSCoDe duplicate",
+      "primary_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12630780/"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": false,
+        "reason": "Data statement explicitly says confidential/not public; authorrequest required."
+      },
+      "numeric_LIBS": {
+        "availability": "not public",
+        "read": false
+      },
+      "wavelength_medium": {
+        "value": "unknown"
+      },
+      "chemical_evidence": {
+        "kind": "named GBW standards; no separately qualified Fe/Mg blank linked CoA in inspected record",
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "material_names": "GBW codes supplied; many potentially previouslyseen standards",
+        "session": "8 distances, same37 materials; these are not independent material groups"
+      },
+      "instrument_compatibility": "240–340/340–540/540–850nm; currentprofile response/coverage not matched.",
+      "blockers": [
+        "raw_not_public",
+        "no_admitted_blank_CoA",
+        "alias_overlap_pending",
+        "unknown_wavelength_medium",
+        "unfrozen_instrument_mapping"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/gbw2025_fulltext.xml",
+          "sha256": "a161013977bbe77765e931d277e00e2bf5de3224fe64a28c5389be1c1ac4a7c6"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    },
+    {
+      "candidate_id": "acs_underwater2024",
+      "title": "ACS high-throughput CF-LIBS metal/rock study",
+      "primary_urls": [
+        "https://doi.org/10.1021/acsearthspacechem.4c00067",
+        "https://acs.figshare.com/articles/journal_contribution/25962644"
+      ],
+      "status": "blocked",
+      "license": {
+        "confirmed": false,
+        "supplement_license": "CC-BY-NC-4.0",
+        "reason": "Only PDF support package identified; no licensed numeric raw dataset."
+      },
+      "numeric_LIBS": {
+        "availability": "one PDF sp4c00067_si_001.pdf with algorithms/plots; not numeric raw release",
+        "read": false
+      },
+      "wavelength_medium": {
+        "value": "unknown"
+      },
+      "chemical_evidence": {
+        "kind": "certified alloys mentioned; no linked certified Fe/Mg negative limits in inspected SI",
+        "certified_upper_bounds": null
+      },
+      "independence": {
+        "material_lot_session": null
+      },
+      "instrument_compatibility": "Underwater plasma; new matched profile needed.",
+      "blockers": [
+        "numeric_raw_not_identified",
+        "Fe_Mg_blank_not_established",
+        "unknown_wavelength_medium",
+        "identity_and_domain_unresolved"
+      ],
+      "evidence_snapshots": [
+        {
+          "path": "data/raw/final_search_v5_other/acs25962644.json",
+          "sha256": "f2da10974ccb959c707fff7635107dacd0818c48989e2b64fb374dfd61b01d0b"
+        },
+        {
+          "path": "data/raw/final_search_v5_other/acs25962644_support.pdf",
+          "sha256": "5986107e31425f18bc86ce95945d3d5c92a068dad220031ce48a9a2964ec69f0"
+        }
+      ],
+      "admissible_labels": {
+        "Fe": "unknown",
+        "Mg": "unknown"
+      },
+      "admitted_blank_elements": []
+    }
+  ],
+  "additional_metadata_screens": [
+    {
+      "candidate_id": "regolith21639060",
+      "url": "https://zenodo.org/records/21639060",
+      "status": "metadata_screened_not_admitted",
+      "license": "CC-BY-4.0",
+      "finding": "Newer2026release has numericalLIBS archive plus separateXRFcompositionfiles and acquisition-order metadata. No certifiedblank/upperbound asserted in description. Raw notfetched.",
+      "blockers": [
+        "no_certified_Fe_Mg_blank",
+        "axis_medium_unresolved",
+        "independence_and_instrument_mapping_pending"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v5_other/zenodo21639060_datacite.json",
+          "sha256": "8943d2296b375deb8e0ef62303ce54710dc3a84278c6ab29e5ce0c9b624d7324"
+        }
+      ]
+    },
+    {
+      "candidate_id": "graphite_poster22130335",
+      "url": "https://zenodo.org/records/22130335",
+      "status": "not_numeric_dataset",
+      "finding": "2026deposit is2024conference posterPDF only, no numericLIBSfiles; no candidate final admitted.",
+      "evidence": [
+        {
+          "path": "data/raw/final_search_v5_other/zenodo22130335_datacite.json",
+          "sha256": "cb3c97778b9255ab00df0e6c73c88c541dcb164a78c4e202a2c579663de414de"
+        }
+      ]
+    }
+  ],
+  "prior_audits": [
+    "docs/final_validation_search_v3.md",
+    "data/reference/final_search_v3_csa_aalto.json",
+    "data/reference/final_search_v3_blanks.json",
+    "data/reference/blank_candidates_v2.json"
+  ],
+  "snapshot_manifest": "data/raw/final_search_v5_other/snapshot_manifest.json",
+  "snapshot_manifest_sha256": "03eea8e9bb46615eafc37b0d12db2994956ec26d5c31015480a23e9c9bae60b1",
+  "retrieval_failures": [
+    {
+      "path": "data/raw/final_search_v5_other/zenodo_laser_search.json",
+      "url": "https://zenodo.org/api/records?q=%22laser-induced+breakdown%22&size=100",
+      "returncode": 22,
+      "http_status": "400",
+      "error": "curl: (22) The requested URL returned error: 400\n",
+      "sha256": null
+    },
+    {
+      "path": "data/raw/final_search_v5_other/inptdat1012_paper.html",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2026/ja/d5ja00260e",
+      "returncode": 56,
+      "http_status": "403",
+      "error": "curl: (56) The requested URL returned error: 403\n",
+      "sha256": null
+    },
+    {
+      "path": "data/raw/final_search_v5_other/figshare20141213_collections.json",
+      "url": "https://api.figshare.com/v2/articles/20141213/collections",
+      "returncode": 56,
+      "http_status": "404",
+      "error": "curl: (56) The requested URL returned error: 404\n",
+      "sha256": null
+    },
+    {
+      "path": "data/raw/final_search_v5_other/zenodo_laser_search_v2.json",
+      "url": "https://zenodo.org/api/records/?q=LIBS&size=100",
+      "returncode": 22,
+      "http_status": "400",
+      "error": "curl: (22) The requested URL returned error: 400\n",
+      "sha256": null
+    }
+  ],
+  "limitations": [
+    "No unseen final numeric spectrum payload was opened or downloaded; article figures were not digitized.",
+    "Metadata-only inventories cannot establish numeric integrity, actual wavelength coverage or unique physical independence.",
+    "Restricted repository/endpoints are documented; inaccessible content is not interpreted as absent.",
+    "Root separately audits Capella 2026 / robot datasets; PDS handled by sibling agent."
+  ]
+}

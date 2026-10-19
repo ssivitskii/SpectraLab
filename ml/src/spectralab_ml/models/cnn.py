@@ -9,6 +9,8 @@ from pathlib import Path
 
 import numpy as np
 
+from spectralab_ml.models.validation import finite_matrix, training_arrays
+
 CHECKPOINT_FORMAT = "cnn-state-npz-v1"
 CNN_ARCHITECTURE = "conv8-pool4-conv16-adapt64-linear-v1"
 
@@ -88,10 +90,13 @@ class CNN1D:
         ).cpu()
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> CNN1D:
-        torch = _torch()
-        if X.ndim != 2 or y.ndim != 2 or len(X) != len(y) or X.shape[1] < 4:
+        X, y = training_arrays(X, y)
+        if X.shape[1] < 4:
             raise ValueError("CNN requires aligned N×L spectra and N×C labels")
+        if np.any(np.abs(X) > np.finfo(np.float32).max):
+            raise ValueError("CNN features exceed the finite float32 range")
         self.configuration()
+        torch = _torch()
         torch.set_num_threads(1)
         with torch.random.fork_rng(devices=[]):
             torch.manual_seed(self.seed)
@@ -114,9 +119,12 @@ class CNN1D:
         return self
 
     def scores(self, X: np.ndarray) -> np.ndarray:
-        torch = _torch()
-        if X.ndim != 2 or X.shape[1] != self.input_points:
+        X = finite_matrix(X, "CNN features")
+        if X.shape[1] != self.input_points:
             raise ValueError("CNN input grid mismatch")
+        if np.any(np.abs(X) > np.finfo(np.float32).max):
+            raise ValueError("CNN features exceed the finite float32 range")
+        torch = _torch()
         self.network.eval()
         with torch.no_grad():
             features = torch.from_numpy(np.asarray(X, dtype=np.float32)).unsqueeze(1)

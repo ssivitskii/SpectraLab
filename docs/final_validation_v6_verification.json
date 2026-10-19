@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-19T19:37:51.096450+00:00",
+  "scope": "new_evidence_search_registry_exclusions_and_frozen_profile_binding_not_scientific_final",
+  "checks": [
+    {
+      "command": "make lint",
+      "exit_code": 0,
+      "ruff_files": 142,
+      "eslint_passed": true,
+      "typescript_passed": true,
+      "log": {
+        "path": ".cache/final-v6-lint.log",
+        "sha256": "85626e065f4e8677df63ef60dc5d331be8deb0aba83d82481f21a9325fd910f3",
+        "bytes": 396
+      }
+    },
+    {
+      "command": "pytest ml/tests/test_final_seen_registry_v6.py ml/tests/test_final_campaign_v3.py ml/tests/test_workflow_cli.py",
+      "exit_code": 0,
+      "tests_passed": 72,
+      "all_collected_tests_passed": true,
+      "log": {
+        "path": ".cache/final-v6-tests.log",
+        "sha256": "b701e7dd8d0f0fd498c8169c56e853fee0a80dbdcc9c7fda669fb3106e46d96b",
+        "bytes": 80
+      },
+      "collection_log": {
+        "path": ".cache/final-v6-collected-tests.log",
+        "sha256": "9153a2eccd4d0e601d699256d3ccdf91576ac44bd3e1b0a32091cd47845ded63",
+        "bytes": 157705
+      },
+      "new_registry_tests": 5
+    },
+    {
+      "command": "pytest -o addopts= -q ml/tests/test_workflow_cli.py",
+      "exit_code": 0,
+      "tests_passed": 18,
+      "subset_of_previous_72": true,
+      "reason": "Repeat after adding v6-only checksum coverage to diagnostics",
+      "log": {
+        "path": ".cache/final-v6-workflow-tests.log",
+        "sha256": "e9e74f858424c916f5a85e2343e672052211bef02ebbc9e2b7575dedc4a24ab7",
+        "bytes": 99
+      }
+    },
+    {
+      "command": "ruff check + format --check diagnostics.py test_workflow_cli.py",
+      "exit_code": 0,
+      "files": 2,
+      "after_final_diagnostics_edit": true
+    },
+    {
+      "command": "spectralab ml-check --verify-sources",
+      "exit_code": 0,
+      "status": "ready",
+      "counts": {
+        "passed": 274,
+        "failed": 0,
+        "not_downloaded": 0,
+        "optional_dependency_missing": 0
+      },
+      "numerical_spectra_opened": false,
+      "log": {
+        "path": ".cache/final-v6-environment.log",
+        "sha256": "d534ca67c5efcaaf7794a18b9d83fd65c56c26126ecda0625d703b1e485383f5",
+        "bytes": 83301
+      }
+    },
+    {
+      "command": "spectralab final-preflight",
+      "exit_code": 2,
+      "expected_blocked": true,
+      "status": "blocked",
+      "blocker_count": 15,
+      "numerical_files_read": 0,
+      "final_metrics": null,
+      "log": {
+        "path": ".cache/final-v6-preflight.log",
+        "sha256": "95fbee0efce52dc32cf9f8306278fabb9475a21e4ddb50d094625f1aea5f77ba",
+        "bytes": 5855
+      }
+    },
+    {
+      "command": "make final-preflight",
+      "exit_code": 2,
+      "expected_blocked": true,
+      "uses_current_v6_manifest_and_registry": true,
+      "log": {
+        "path": ".cache/final-v6-make-preflight.log",
+        "sha256": "578059d987b5177bb36af63ef1fb3fee01ba6ef3d9336b1aa94e80f3436d8553",
+        "bytes": 6130
+      }
+    },
+    {
+      "check": "source snapshots",
+      "files_verified": 99,
+      "size_and_sha256_match": true,
+      "count_includes_derived_and_explicit_error_artifacts": true
+    },
+    {
+      "check": "current Markdown links",
+      "files_checked": 9,
+      "missing_local_targets": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "model": {
+    "profile": {
+      "identity": "5be343aacc7d356911e3490ee9b2c22d38f5f62ea2ba7f3e2ccc39c30eabf933",
+      "instrument_id": "chemcam-lanl-testbed",
+      "class_order": [
+        "Na",
+        "Mg",
+        "Ca",
+        "Fe"
+      ],
+      "thresholds": {
+        "Na": 0.10825272614392062,
+        "Mg": 0.9945672395383269,
+        "Ca": 0.6795050836572871,
+        "Fe": 0.7185455426436053
+      },
+      "artifact_files": [
+        {
+          "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json",
+          "sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5"
+        }
+      ],
+      "units": "nm",
+      "medium": "vacuum",
+      "required_intervals_nm": [
+        [
+          241.0,
+          340.0
+        ],
+        [
+          383.0,
+          468.0
+        ],
+        [
+          474.0,
+          900.0
+        ]
+      ],
+      "max_sampling_step_nm": 0.5,
+      "max_resolution_fwhm_nm": 0.65,
+      "require_positive_signal": true
+    },
+    "weights_unchanged": true,
+    "thresholds_unchanged": true,
+    "actual_model_binder_passed": true,
+    "existing_model_only_no_new_spectra_or_predictions": true,
+    "old_pinned_unchanged_sha256": {
+      "scripts/improve_chemcam_v2.py": "85c0ecae303a3a205f79e09075f30afe0d6f24d2848253277300a5e49a02c906",
+      "ml/src/spectralab_ml/models/line_adapter_v2.py": "2b363ff02d32b066bde2f94f6076d81e29450b4bbb566f7dd3b3f637d71a26c4",
+      "ml/src/spectralab_ml/models/instrument_adaptation.py": "852727e1b770446560b7bfffcbc5ae090a4f5a4f5bea06776886563f772e1041",
+      "ml/src/spectralab_ml/evaluation/instrument_selection.py": "b67daa8338bac4a8487d91522e55a551a163fbbb8d69ec5fce0242ea989d8e5c",
+      "ml/src/spectralab_ml/models/line_adapter_v3.py": "497c601766526fa478858a2346877a6799d8f4db24b33a8d2c47d445c9a3a62c",
+      "ml/src/spectralab_ml/evaluation/development_v3.py": "117e3e05c4ce0386b3edc3d36063014604f9d13ac2274f8448fb05188ce3d1c2",
+      "scripts/study_development_v3.py": "b98f048f44922b7b3547cd18ff75d45e29a111026c98651a06fa0a3877011400",
+      "data/reference/development_v4_source_plan.json": "b679a367433deee6351a0988428ae14b6d1cb5b74b35a7ac869cab71cc97ada7",
+      "reports/adaptation_v3/development-20261019T172235-da8f0847/profile.json": "8ffb76657c9618ff5c393b8be99690b2ceb41528d65529ebab31437caaf37c80",
+      "reports/adaptation_v2/development-20261013T164342-b37a6ab8/profile.json": "22d3cf0ceb3e7702f166583b11ff001d310e0fbb9aa70b6fd81c174349051fdf"
+    },
+    "frozen_study_implementation_unchanged_sha256": {
+      "ml/src/spectralab_ml/evaluation/calcium_v4.py": "1f405d25044306e2c97c168c67613bd1f806f0c492bf6d21515d1cfaeabbc96c",
+      "ml/src/spectralab_ml/models/calcium_adapter_v4.py": "e393db45efc85a24f08b0dce04fc4bab998f0a9c9685853e107078ed01e6c460",
+      "scripts/study_calcium_v4.py": "e3886a24f566d5dc3b173636faf937526804a12c026277d5bd3b8b689f756e8b",
+      "ml/src/spectralab_ml/evaluation/development_v3.py": "117e3e05c4ce0386b3edc3d36063014604f9d13ac2274f8448fb05188ce3d1c2",
+      "ml/src/spectralab_ml/models/line_adapter_v3.py": "497c601766526fa478858a2346877a6799d8f4db24b33a8d2c47d445c9a3a62c",
+      "ml/src/spectralab_ml/models/line_adapter_v2.py": "2b363ff02d32b066bde2f94f6076d81e29450b4bbb566f7dd3b3f637d71a26c4",
+      "ml/src/spectralab_ml/evaluation/instrument_selection.py": "b67daa8338bac4a8487d91522e55a551a163fbbb8d69ec5fce0242ea989d8e5c",
+      "ml/src/spectralab_ml/evaluation/campaign_shift_v2.py": "051fa84d71c85950fa23a515bf746e0aa1bae2040af928084b74c64bc781c0de",
+      "ml/src/spectralab_ml/data/chemcam_measurements.py": "4a4a52a05f7e1430dca02c5d10031652887ad607dad7413c6c26d480f89aaf0d",
+      "ml/src/spectralab_ml/data/reference.py": "de4eb9edccc99c54b72398e6aa9f8b5c676e737369369565da51c3b9051ba224",
+      "ml/src/spectralab_ml/evaluation/real_validation.py": "2e6ff5a038d7aea41788651bb3bf554029d07c4e0df8e5077bd304fcf87ae584",
+      "scripts/study_development_v3.py": "b98f048f44922b7b3547cd18ff75d45e29a111026c98651a06fa0a3877011400",
+      "ml/src/spectralab_ml/models/calcium_ensemble_v4.py": "9de2f7aaafc75eb4065c6f2333faa548032b56f6b5802c6bca7210afb13ebf9d",
+      "ml/src/spectralab_ml/evaluation/calcium_crossfit_v4.py": "7a08e4b1041009ada9dd34311989ef299fc3a83b646491c698b9ad2889bee895",
+      "scripts/study_calcium_crossfit_v4.py": "64d2a8802c5136286f7211686cb20ec381d88ec36bc7b76eff08f9a8e0ff8649",
+      "ml/src/spectralab_ml/evaluation/calcium_operating_v4.py": "ab101bdb139cfe13fa13638c091573800c9dccf6dea92283d5b0e658ea24cc59",
+      "scripts/study_calcium_operating_v4.py": "03687b947853c1b52cccef873f77ed68c6e385ee898e35a35296f3081181d4ec"
+    }
+  },
+  "registry": {
+    "path": "data/reference/final_seen_registry_v6.json",
+    "sha256": "b98754917035dead10f2e5f2302139eae21eefff7dbaf9b40b799d3f6c1b3ef8",
+    "bytes": 642491,
+    "review_status": "incomplete",
+    "complete_independence_review": false,
+    "alias_edges": 1601,
+    "counts": {
+      "measurement_ids": 204,
+      "physical_sample_ids": 248,
+      "family_ids": 249,
+      "session_ids": 54,
+      "input_sha256s": 210,
+      "assay_ids": 244
+    },
+    "historical_preserved": true,
+    "prior_numeric_artifact_byte_hashes_verified": 4,
+    "new_or_old_spectral_arrays_not_parsed_for_this_check": true
+  },
+  "search": {
+    "candidate_audit_entries": 22,
+    "entries_include_revisits_and_are_not_unique_datasets": true,
+    "snapshot_files": 99,
+    "admitted_datasets": 0,
+    "qualified_Fe_blank_families": 0,
+    "qualified_Mg_blank_families": 0,
+    "authors_contacted": false
+  },
+  "implementation_sha256": {
+    "scripts/prepare_final_seen_registry_v6.py": "ea6d8972f99c3af99f8a883f9155f19c4adad90c86c130c6182aef607ba45792",
+    "ml/tests/test_final_seen_registry_v6.py": "ab14c69d70f7a744eea98d640509256450aeca2937c9879c3b536773c3b98b66",
+    "ml/src/spectralab_ml/diagnostics.py": "28263755d9715d7198ccb40525dc2d74ab207591c5f2d5400bcf71204160ae5b",
+    "ml/tests/test_workflow_cli.py": "0e45218472f81afbaf8ff1758f434801c0ae89d2c2f025379ec3795bd8bd7530"
+  },
+  "compact_artifact_sha256": {
+    "docs/final_validation_v6.md": "e8771bba9bbead7bd2da937727a49a28478cf4fdf290a1837a098f6e9808cff2",
+    "docs/final_search_v6_pds.md": "1c064ff7056fe4fb5ddbe289d9d474a498203a259f52028d5987fd1508d0886d",
+    "docs/final_search_v6_other.md": "55a8503d9c013361bcee2dcc27924d32facba2c83b76876e75587310070544aa",
+    "docs/final_search_v6_root.md": "9677cf3c522edbf6c27838dcfef97fb598cdc81c85835de8e008026968717967",
+    "docs/final_validation_v6_feasibility.md": "453e3de305fcded0d966e949411e9b6ee5a61bb14ce55f512f8367e6aa3552d7",
+    "docs/final_validation_v6_summary.json": "bc4b15a2594fb684dd16d3b48b766be66b09b0b3f6d4b9d86ec773c2addf2d4a",
+    "docs/final_profile_v6_binding.json": "80ac314c5f4651b98c1a731294eecf6fc27073af0107fa4423c7be75742aeb39",
+    "docs/ml_environment_v6_summary.json": "d534ca67c5efcaaf7794a18b9d83fd65c56c26126ecda0625d703b1e485383f5",
+    "docs/final_campaign_v6_preflight.json": "95fbee0efce52dc32cf9f8306278fabb9475a21e4ddb50d094625f1aea5f77ba",
+    "data/reference/final_seen_registry_v6.json": "b98754917035dead10f2e5f2302139eae21eefff7dbaf9b40b799d3f6c1b3ef8",
+    "data/reference/final_campaign_v6_manifest.json": "202a8fdc977ec0737711a21635f07cf7a7a5e68185bc9eb5ac2a37b9fc6c3337",
+    "data/reference/final_search_v6_pds.json": "c1944417ca2dd32fc31e93730d9391c68e62614a24b3b04eb432b1a04f615bd7",
+    "data/reference/final_search_v6_other.json": "45656092a573d07e4f1bb221ed9fab1f313be2579984fa35a9a1f3edcc5e5992",
+    "data/reference/final_search_v6_root.json": "e8b61a7c51a843eb0bc7041673d88967ebb84e1cc6012d21c720348a4a99ee71",
+    "data/reference/final_search_v6_feasibility.json": "01a5e1ca5a83a265ba58e2c7f517a900fa2ef717e6605fa5e82a05d01ac8330a"
+  },
+  "independent_final": {
+    "performed": false,
+    "final_metrics": null,
+    "new_final_intensities_downloaded": 0,
+    "new_final_intensities_opened": 0,
+    "new_final_predictions": 0,
+    "final_receipts_consumed": 0,
+    "data_selection_frozen": false,
+    "support_policy_frozen": false
+  },
+  "limitations": [
+    "No admitted final dataset was established in this bounded search.",
+    "Low assay point values and maxima across eight spots are not certified systematic-bias bounds.",
+    "GOE100 versus prior GOEDV stock relationship remains unresolved; independence was not asserted.",
+    "Another instrument can support explicit OOD assessment, but no candidate met all remaining prerequisites.",
+    "The seen registry is deliberately incomplete; structural validity does not certify review completeness.",
+    "Fe/Mg are unchanged from embedded v3; a future Fe/Mg blank check alone would not independently validate Ca.",
+    "Metadata integrity readiness is not scientific model qualification.",
+    "Full suite, browser E2E, production build, remote CI and GitHub publication were not repeated this search iteration."
+  ]
+}

@@ -133,7 +133,7 @@ def command_generate(args: argparse.Namespace) -> None:
     print(output)
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(prog="spectralab")
     subparsers = parser.add_subparsers(required=True)
     demo = subparsers.add_parser("demo", help="Train small trusted local demo artifacts")
@@ -166,8 +166,14 @@ def main() -> None:
         "--reference-cache", help="Optional imported catalog cache; default demo_fixture"
     )
     generator.set_defaults(handler=command_generate)
-    args = parser.parse_args()
-    args.handler(args)
+    from spectralab_ml.workflow_cli import register_workflows
+
+    register_workflows(subparsers)
+    args = parser.parse_args(argv)
+    try:
+        args.handler(args)
+    except (OSError, ValueError) as exc:
+        parser.error(str(exc))
 
 
 if __name__ == "__main__":

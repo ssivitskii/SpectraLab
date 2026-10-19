@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "audit_id": "BAM310_GOE100_targeted_gap_v8",
+  "created_at": "2026-10-19T20:27:52.935580+00:00",
+  "status": "partially_resolved_not_admitted",
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "qualified_final_controls": 0,
+  "predictions_run": 0,
+  "new_final_spectral_intensity_values_decoded": 0,
+  "new_final_spectral_arrays_opened": 0,
+  "receipts_consumed": 0,
+  "authors_contacted": {
+    "BAM310_public_GitHub_issue": true,
+    "GOE100": false
+  },
+  "author_request": {
+    "path": "data/reference/bam310_author_request_v8.json",
+    "bytes": 2232,
+    "sha256": "d6b6b2b65f4f5c860e53b79ce4316104f349c34a2041dba48c66b0f15f8474f0"
+  },
+  "new_findings": [
+    "PDS SuperCam GoeDV first-eight-field metadata confirms LANL EES as composition information source, not stock/lot. Independence from GOE100 and same-stock identity both remain unestablished.",
+    "SuperCam100-Goethite states Assuming pure (no independent chemistry); no documented alias to David GOE100. Do not transfer nominal purity or invalidate the independent David assay.",
+    "Independent Mg LA-ICP-MS confirmed; no applicable bias/recovery/total uncertainty in reviewed documents. Conditional material-mean bound retained without upgrading its scope.",
+    "Figshare20713504 CC-BY-4.0 numerical release traces to pegmatite; BAM310 not identified. Numeric archive not downloaded.",
+    "Approved BAM310 request published and read back; zero comments at verification.",
+    "Publisher-specific David SI ZIP remains unreviewed after failed public browser download; equality with Zenodo tables ZIP not assumed."
+  ],
+  "controls": [
+    {
+      "physical_id": "BAM310",
+      "admission": "not_admitted",
+      "axis_medium": null,
+      "FeOT_wt_percent_certified_interval_endpoints": [
+        0.08915371474617242,
+        0.09224128928283641
+      ],
+      "MgO_wt_percent_certified_interval_endpoints": [
+        1.6234361653980662,
+        1.6731839539189466
+      ],
+      "interval_kind": "Converted endpoints of source-certified 95 percent intervals, conditional on certified region; not bounds on every local crater",
+      "role_candidates": {
+        "Fe": "operational low-Fe matrix control",
+        "Mg": "positive"
+      },
+      "unresolved": [
+        "Licensed numeric BAM310 source manifest",
+        "Actual export axis convention",
+        "Link actual specimen and ablated region/preparation to certificate and source session",
+        "Resolve actual material/family/assay overlap against previously seen registry"
+      ],
+      "instrument_domain": "different instrument; separately locked unchanged-model OOD challenge required if data qualify",
+      "v8_new_source_routes": "Licensed Figshare20713504 maps to pegmatite, not identified BAM310; related SI and substrate paper do not supply qualifying raw/axis/region linkage."
+    },
+    {
+      "physical_id": "GOE100",
+      "admission": "not_admitted",
+      "license": "CC-BY-4.0",
+      "axis_medium": "vacuum",
+      "axis_units": "nm",
+      "axis_evidence_status": "supported_documentary_LANL_CCS_lineage_not_numeric_axis_verification",
+      "campaign_group": "source-campaign:zenodo3902232/LANL",
+      "acquisition_date": null,
+      "physical_material_count": 1,
+      "acquisition_positions": 5,
+      "MgO_wt_percent_mean_from_8_rounded_assay_spots": 0.00732081375,
+      "MgO_wt_percent_conditional_one_sided_95_mean_upper": 0.007867255278508728,
+      "MgO_bound_status": "conditional; no unmeasured systematic bias or all-grain guarantee; not certified",
+      "FeOT_wt_percent_as_reported": 79.88726962654403,
+      "FeOT_wt_percent_stoichiometric_from_FigureC3_mean": 80.76784760899132,
+      "Fe_role": "positive under either oxide basis",
+      "unresolved": [
+        "Physical stock/family relationship to already disclosed GoeDV",
+        "Independent evidence or explicitly conditional scope for quantitative Mg assay applicability/bias"
+      ],
+      "pending_structural_checks": [
+        "Numerical wavelength coverage and formatting under a locked protocol; not yet read"
+      ],
+      "member_to_CE5_mapping": "not established; do not invent. All five positions can be treated as one predeclared material group.",
+      "v8_new_provenance": "GoeDV composition information source LANL EES; no stock/lot. SuperCam100-Goethite nominal purity is not an established alias for David GOE100.",
+      "applicable_Mg_total_measurement_uncertainty": null
+    }
+  ],
+  "profile": {
+    "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json",
+    "bytes": 260251,
+    "sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5"
+  },
+  "prior_actual_profile_binding": {
+    "path": "docs/final_gap_v7_profile_check.json",
+    "bytes": 4741,
+    "sha256": "3891e565cf8887c4021864a4929f1a64df4d69d1bd12ab6f8a5a4ecc8da75f70"
+  },
+  "audits": [
+    {
+      "path": "data/reference/final_gap_v8_bam310.json",
+      "bytes": 18087,
+      "sha256": "2672806ad3f2326180d3faf0cd232bdfee3193d8acc92e59f4cc21d557da32ec"
+    },
+    {
+      "path": "data/reference/final_gap_v8_goe_identity.json",
+      "bytes": 41235,
+      "sha256": "f440b13bb13f412ba1642e732d14f97c078a741000764ed26d40445b4b91f818"
+    },
+    {
+      "path": "data/reference/final_gap_v8_mg_assay.json",
+      "bytes": 9563,
+      "sha256": "a37eedfc5590e737d878b32af22405c3db05b9548571d7a1939f0b2fb88e3342"
+    },
+    {
+      "path": "data/reference/final_gap_v8_root.json",
+      "bytes": 1906,
+      "sha256": "6132aa4ec755f8291d7ca734aeea1ce80116402d9fc74df31587d2fd88998f9e"
+    }
+  ],
+  "reports": [
+    {
+      "path": "docs/final_gap_v8.md",
+      "bytes": 9787,
+      "sha256": "9a90af1c6eba0c34f0043f6839488bf575a46b5a0f221bbd22d9e68c2e1bde92"
+    },
+    {
+      "path": "docs/final_gap_v8_bam310.md",
+      "bytes": 9034,
+      "sha256": "baa0acccb49ae00988eb01486616cad5c12e92ed5e23da5210ad7524591592cc"
+    },
+    {
+      "path": "docs/final_gap_v8_goe_identity.md",
+      "bytes": 8988,
+      "sha256": "f73fe311a3434ffcfb2b008a1aaa3faf1a6b27393a5ee6488a4fa365bc58a511"
+    },
+    {
+      "path": "docs/final_gap_v8_mg_assay.md",
+      "bytes": 8339,
+      "sha256": "f997b62ebb5f8cabc345a6ef815a4ba0baf22e4a07b4013254fffa17c552676d"
+    },
+    {
+      "path": "docs/data_requests_v8.md",
+      "bytes": 5192,
+      "sha256": "d3aadbae5e2094aef0fc2ba2920d1e1b77c3ac084caf5bb5bad6db9a12bac237"
+    }
+  ],
+  "access_boundary": {
+    "full_PDS_reference_CSV_saved": false,
+    "search_range_transport_may_contain_spectral_bytes": true,
+    "only_first_eight_metadata_fields_decoded": true,
+    "exact_metadata_prefixes_verified": 6,
+    "exact_metadata_prefix_total_bytes": 792,
+    "new_final_intensity_values_decoded": 0
+  },
+  "scope_limits": [
+    "No current final metrics; narrow independent two-control challenge remains unperformed.",
+    "A narrow test of qualified controls would not estimate population FPR/recall or independently validate Ca.",
+    "Some raw snapshots are gitignored; a clean clone does not include all local audit bytes.",
+    "Counts of bound files include derived extracts, code, metadata, failures and prior context; they are not independent-source or material counts."
+  ],
+  "report": "docs/final_gap_v8.md",
+  "verification": "docs/final_gap_v8_verification.json",
+  "next_required_records": {
+    "BAM310": [
+      "actual numeric files and license",
+      "axis convention",
+      "actual specimen, certified surface and session linkage"
+    ],
+    "GOE100": [
+      "stock/preparation relation to GoeDV",
+      "applicable independent assay quantification/QA evidence"
+    ]
+  }
+}

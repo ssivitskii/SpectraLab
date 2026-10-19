@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "audit_id": "final_gap_v8_bam310",
+  "audit_date": "2026-10-19",
+  "status": "blocked",
+  "admitted_controls": 0,
+  "final_metrics_status": "pending_no_final_score",
+  "scope": {
+    "new_spectral_payloads_downloaded": false,
+    "new_final_intensity_rows_read": 0,
+    "predictions_run": 0,
+    "model_changed": false,
+    "authors_contacted": false,
+    "previous_evidence_modified": false,
+    "notebook_boundary": "Only cells[].source retained by a streaming parser; outputs and attachments discarded before exposure, numerical array literals excluded. No raw notebook saved and no source executed."
+  },
+  "new_routes": [
+    {
+      "id": "BAM8-TRANSFER-2023",
+      "publication_doi": "10.1039/D2JA00406B",
+      "primary_urls": [
+        "https://doi.org/10.1039/D2JA00406B",
+        "https://doi.org/10.6084/m9.figshare.20713504",
+        "https://github.com/LIBS-ML-team/libs-transfer-library"
+      ],
+      "finding": "The publication explicitly links the Figshare release and canonical source repository. The linked experiment uses a heterogeneous granitic pegmatite from Maršíkov D6e and simultaneous paired spectrometers. It does not identify BAM310 as a measured target. Metal-standard fine-tuning is described as a possible extension, not as an included BAM310 release.",
+      "dataset_license": {
+        "value": 1,
+        "name": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "numeric_release_announced": true,
+      "BAM310_release_identified": false,
+      "archive_metadata_only": {
+        "name": "datasets.7z",
+        "size_bytes": 12282348027,
+        "file_id": 36930076,
+        "download_url": "https://ndownloader.figshare.com/files/36930076",
+        "provider_md5": "477bed1525161dd6eed28b524ae61d88",
+        "downloaded": false,
+        "archive_contents_inspected": false
+      },
+      "repository_commit": "4493e731bb3479cc511ba08e8c7584966623a820",
+      "source_loader_paths": [
+        "datasets/s1_wavelengths.npy",
+        "datasets/s2_wavelengths.npy",
+        "datasets/s1_train.npy",
+        "datasets/s2_train.npy",
+        "datasets/s1_val.npy",
+        "datasets/s2_val.npy",
+        "datasets/s1_test.npy",
+        "datasets/s2_test.npy"
+      ],
+      "source_scope": "One filtered notebook, 397 source lines. These filenames are code references, not a verified listing of the unopened 7z archive.",
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v8_bam310/transfer_simultaneous_full.pdf",
+          "bytes": 3239815,
+          "sha256": "0bd601b341693d19b2b518e81de3f73c9f30a68678e60fde1441e150334dafea"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/transfer_simultaneous_full.txt",
+          "bytes": 131847,
+          "sha256": "2583a9c75a8bfe03dd2d3f12b2768d4b277b8aa88d6e76c18eab92dd28e958d8"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/figshare_20713504.json",
+          "bytes": 3696,
+          "sha256": "ab37f6a00c458086126d900c2ea74dfd3a2fa3a081b2015e52308c6850664e00"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/transfer_canonical_repo.json",
+          "bytes": 19094,
+          "sha256": "e3b49ab382f8445e82ffac936f5b315b5146f88bfa5b0eee7637eae17fcc0355"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/transfer_canonical_tree.json",
+          "bytes": 3524,
+          "sha256": "ff75d94c223dca7744b7abc77c13d947dda3deb6d204e2958b3c2cec684dc499"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/transfer_jvrabel_readme.md",
+          "bytes": 230,
+          "sha256": "4745a1a31371b571ae20f830306312d3eac77003ace448069845f6a896aa9710"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/transfer_TFL.source_only.json",
+          "bytes": 33328,
+          "sha256": "c7fdabed0e4cfa82b129f0c274e629fd72295e97ca60e745d98a59597aa05361"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/transfer_license.txt",
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ]
+    },
+    {
+      "id": "BAM8-REGRESSION-2022",
+      "publication_doi": "10.1039/D2JA00180B",
+      "primary_urls": [
+        "https://pubs.rsc.org/ja/article/37/9/1883-1893/770613",
+        "https://pubs.rsc.org/ja/article-supplement/770613/pdf/d2ja00180b1_suppl/"
+      ],
+      "finding": "The public publisher view exposes the abstract and supplementary link; the full text requires access. The six-page supplement contains network architectures, composition histograms and a ChemCam-to-SuperCam transformation figure. No BAM310 release, certified region or measured-axis convention is identified in the inspected public material.",
+      "full_text_accessed": false,
+      "full_text_data_availability_checked": false,
+      "supplement_pages": 6,
+      "limitation": "The unavailable full-text body was not treated as evidence that no data statement or additional author archive exists.",
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v8_bam310/crossref_regression.json",
+          "bytes": 22815,
+          "sha256": "b72a3a384646e6a39416614d8e1606aaea3249a870955aa6ae8d705159be3c4c"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/rsc_browser_observations.json",
+          "bytes": 1847,
+          "sha256": "db07602691db3d135995c9fd7b0444e50d5441d3beaf646abd4ce2c78dd396e5"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/d2ja00180b1_suppl.pdf",
+          "bytes": 1402442,
+          "sha256": "95a42835ded33d2545cbf75d2e78fbcaab4a72ea90896fd3aaa926f1e28d33ba"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/d2ja00180b1_suppl.txt",
+          "bytes": 2729,
+          "sha256": "55892edcaebbf78905156e59212c679367a351b27e6fb3e3d934135863bef2b9"
+        }
+      ]
+    },
+    {
+      "id": "BAM8-AUTHOR-ORGANIZATION",
+      "primary_url": "https://github.com/LIBS-ML-team",
+      "finding": "A newly followed canonical author organization exposes four repositories. The transfer repository resolves to the Figshare pegmatite release. libs-library-article lists only article_preview.pdf; data_merge_beta has object-detection merge code. No new BAM310 manifest is identified in these inspected trees.",
+      "scope_limit": "The 23 MB article preview, object-detection notebooks and unrelated numerical files were not downloaded. Repository-tree inspection does not prove the absence of private or unindexed data.",
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v8_bam310/libs_ml_org_repos.json",
+          "bytes": 23261,
+          "sha256": "7c90b68c9f3dd03fdcb78e1bf6bd89bb5574d1f2076b68287e1c28f5fce8eacd"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/library_article_tree.json",
+          "bytes": 447,
+          "sha256": "724705a2850848d1cadbd6b302bdf899069a8243d9b4dd321681bfacfe47d320"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/merge_beta_tree.json",
+          "bytes": 4062,
+          "sha256": "f40a666255807e8cfde22d4c10698ae75defdd34012331b8926b8ba0726089d0"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/merge_config.yaml",
+          "bytes": 2365,
+          "sha256": "84e9f2d4deb03e59779314db76ecbf98aeef97eb0854cfcec6b985c27c0c252d"
+        }
+      ]
+    },
+    {
+      "id": "BAM8-SUBSTRATE-2021",
+      "publication_doi": "10.3390/s21030900",
+      "primary_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7866291/",
+      "finding": "This related LIBS publication names BAM310 as a substrate for deposited zinc droplets. Its data statement provides graphs in the manuscript and raw data on request. No public numerical BAM310 release or its licence was established.",
+      "qualification_limit": "Added droplets and preparation must be linked to the measured material. The paper parenthesis gives Al 99.85 and Mg 0.1, which does not match the retained BAM310 certificate value for Mg; the certificate cannot be attached automatically from the name alone. Article CC BY 4.0 does not establish permission for the unavailable raw data.",
+      "article_license": "CC BY 4.0",
+      "raw_availability": "on_request",
+      "authors_contacted": false,
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v8_bam310/pmc_bam_substrate.xml",
+          "bytes": 114789,
+          "sha256": "e76e6060ffd30ca0ab051164802f66f1b7d48d8dade3d00ffb8efec2037887a0"
+        }
+      ]
+    }
+  ],
+  "targeted_revisits": [
+    {
+      "id": "BAM8-NORMALIZATION-2017",
+      "publication_doi": "10.1039/C6JA00322B",
+      "classification": "previously_reviewed_historical_measurements",
+      "new_check": "The current public publisher page exposes only an abstract and no visible supplementary section. This is not proof that no supplement exists. Preparation evidence from the 2016 first-online publication remains as recorded in v7; no new raw release was identified.",
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v8_bam310/crossref_normalization.json",
+          "bytes": 16265,
+          "sha256": "c3603e89e23256f7d0bd84742e63858dbc4e8ed228248fccd8b79548f8ee3c35"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/rsc_browser_observations.json",
+          "bytes": 1847,
+          "sha256": "db07602691db3d135995c9fd7b0444e50d5441d3beaf646abd4ce2c78dd396e5"
+        },
+        {
+          "path": "data/reference/final_gap_v7_bam310.json",
+          "bytes": 19412,
+          "sha256": "b016803d7a6e5df9e7635779ae9c469f512be4d249853892363383dd55c3271e"
+        }
+      ]
+    },
+    {
+      "id": "BAM8-LIBS2022-RAW",
+      "classification": "previously_reviewed_dataset_with_additional_metadata_variant",
+      "primary_urls": [
+        "https://doi.org/10.6084/m9.figshare.20297118",
+        "https://doi.org/10.6084/m9.figshare.20297136",
+        "https://doi.org/10.6084/m9.figshare.20166377"
+      ],
+      "new_check": "The separately published RAW training description lists eight element labels (C, Si, Mn, Cr, Mo, Ni, Cu, Fe), whereas the contest version describes four. Both describe 42 training targets and 15 test targets, with 50 spectra per target. No inspected metadata maps these targets to BAM310 or supplies a Mg assay or a measured air/vacuum convention.",
+      "dataset_license": "CC BY 4.0",
+      "spectral_csvs_downloaded": false,
+      "wavelength_csv_downloaded": false,
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v8_bam310/figshare_20297118.json",
+          "bytes": 4352,
+          "sha256": "219b17a0f1b99bdf8e9093dc75c49bdbc3867739d759aace87354131a949d642"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/figshare_20297136.json",
+          "bytes": 4616,
+          "sha256": "61b76fddd679400f6646e991cfa5fcf9e66bb449e355855a6760c0a4832b2e79"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/figshare_20166377.json",
+          "bytes": 2457,
+          "sha256": "17633009a08c8a12e61c25fe2e13b8560f0d11d2e2a4369d33c2d4f366a8a883"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/libs2022_readme.txt",
+          "bytes": 3350,
+          "sha256": "7b251fdbb9e29d9f7238a6eb2e43c68836adc7eadc058b5c2815f952ab30b16f"
+        }
+      ]
+    },
+    {
+      "id": "BAM8-SUS1R",
+      "classification": "previously_reviewed_other_material",
+      "primary_urls": [
+        "https://doi.org/10.5281/zenodo.12527742",
+        "https://doi.org/10.1039/D4JA00126E"
+      ],
+      "new_check": "Reconfirmed that the linked publication explicitly describes a standardized steel sample SUS-1R, BAM. This is not BAM310 and not a silica blank. The steel/material identity issue was already documented in v6; no new control is claimed.",
+      "archive_downloaded": false,
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v8_bam310/zenodo_plasma_statistics.json",
+          "bytes": 4901,
+          "sha256": "084e33f6935e6a27d290c0e9cb4115723f3fe3b2726ab638f5f513f8284e628d"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/plasma_statistics_article.pdf",
+          "bytes": 768610,
+          "sha256": "6ebb0df7191ed1caddcc92f080407fd2c2e90496da2a70e34014bed7a8bb0bfa"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/plasma_statistics_article.txt",
+          "bytes": 55155,
+          "sha256": "24d63bf8fd70e8f17b358227bd5e772e041f178f74750629004dd2afd4a10d10"
+        }
+      ]
+    },
+    {
+      "id": "BAM8-HU-THESIS",
+      "classification": "previously_reviewed_institutional_record",
+      "primary_url": "https://edoc.hu-berlin.de/items/741cf201-d5e6-47d7-acec-fc340e1381c3",
+      "new_check": "The bitstream metadata and title search rediscovered the Kadenkin thesis already inspected in v7. No new PDF was downloaded and the route was stopped rather than counted as a new candidate.",
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v8_bam310/hu_thesis_bitstream.json",
+          "bytes": 1610,
+          "sha256": "43fb1418d242e9cd0739d4c129050a45445a1ed7e1faac729e1df086547592a4"
+        },
+        {
+          "path": "data/raw/final_gap_v8_bam310/hu_thesis_search.json",
+          "bytes": 22937,
+          "sha256": "2b76fa77bf723f562a44831f7f0b661dba224faff07ed6b7ad8a0c27fd7bfe0c"
+        },
+        {
+          "path": "data/raw/final_gap_v7_root/high_throughput_original.json",
+          "bytes": 2136,
+          "sha256": "ecdcb57c4791e52e2c774070c8ed345c5cbcd5e2e8bb830c08f63344a02a0dea"
+        }
+      ]
+    }
+  ],
+  "repository_search_scope": {
+    "exact_name_queries": [
+      "BAM310",
+      "BAM 310",
+      "BAM-310"
+    ],
+    "observed_result": "The recorded exact-name Figshare, Zenodo and DataCite metadata queries returned no matching release. Author-based queries yielded the linked pegmatite dataset, known FeCo and contest records, and unrelated research records.",
+    "limitation": "Metadata search can miss material names embedded only inside archives. Empty results do not establish global nonexistence. Broad DSpace DOI queries returned unrelated hits and were not interpreted as reliable negative results.",
+    "evidence": [
+      {
+        "path": "data/raw/final_gap_v8_bam310/figshare_search_bam310.json",
+        "bytes": 2,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/figshare_search_bam_spaced.json",
+        "bytes": 2,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/datacite_bam_search.json",
+        "bytes": 169,
+        "sha256": "9d88431c309ab3958cba9dbb73767447652ef2185b90c5ff6281bfe7609c2bf7"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/datacite_bam_hyphen_search.json",
+        "bytes": 147,
+        "sha256": "68f7b5dbea75f766312ea12ef49893e602c1e5fc1271e6ea74e500ebf2578697"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/zenodo_bam_search25.json",
+        "bytes": 455,
+        "sha256": "76c187a9c4f9cc89f61fc920fe5376856dcf00c0596ce8edfecd6bf69424d3a2"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/zenodo_bam_hyphen_search.json",
+        "bytes": 439,
+        "sha256": "86422ca96e988a79a4e9c6dd28c7be5340639daac97dffb0426e07ab675eb673"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/datacite_nedelnik.json",
+        "bytes": 10335,
+        "sha256": "17d19e809f020eddffdad5f8999d598abb980d0fb9fc42d28164f06343228c4d"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/datacite_kepes.json",
+        "bytes": 56524,
+        "sha256": "bba8cefa175e6efeffba4dae74ca91dce35cea526e9b5b1cc7f7675e28c61f46"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/datacite_porizka.json",
+        "bytes": 379252,
+        "sha256": "e68dd94199606d3a60b576eb564977cdf61127bc93d36aca8322da992191a74b"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/figshare_search_kepes.json",
+        "bytes": 91834,
+        "sha256": "f1bf58ab309f44d349ce31192219d55179ae55131ea96e1b1da2719c6e884641"
+      },
+      {
+        "path": "data/raw/final_gap_v8_bam310/figshare_search_porizka.json",
+        "bytes": 8878,
+        "sha256": "5b2ae9f728a8f8387498835bb41bf3d9329d52ac657f6df84b76242049305a6f"
+      }
+    ]
+  },
+  "remaining_BAM310_gates": [
+    {
+      "gate": "raw_and_licence",
+      "status": "not_established",
+      "requirement": "An identified numerical BAM310 release with a file manifest, checksums and an applicable licence."
+    },
+    {
+      "gate": "certified_region_and_preparation",
+      "status": "not_established",
+      "requirement": "An existing record linking the measured physical material, preparation and crater region to the applicable certificate or independent assay."
+    },
+    {
+      "gate": "wavelength_medium",
+      "status": "not_established",
+      "requirement": "The actual measured axis convention and any documented air/vacuum conversion."
+    },
+    {
+      "gate": "identity_and_independence",
+      "status": "not_cleared",
+      "requirement": "Physical, family, session, measurement and assay identifiers checked against all previously seen records."
+    },
+    {
+      "gate": "geometry_and_frozen_protocol",
+      "status": "not_checked",
+      "requirement": "File-level usable coverage and a preregistered mapping for the unchanged model and thresholds."
+    }
+  ],
+  "domain_note": "A different instrument alone is not a scientific prohibition on a separately preregistered fixed-weight, fixed-threshold OOD campaign. The missing BAM310 raw, chemistry applicability, axis and identity chain prevents admission before that question can be resolved.",
+  "snapshot_manifest": {
+    "path": "data/raw/final_gap_v8_bam310/snapshot_manifest.json",
+    "bytes": 38319,
+    "sha256": "77247fa0859869b0bd2ff6e33a683fdaa14d4b9881d3828601c0854a50e53157"
+  },
+  "snapshot_count": 64,
+  "direct_http_requests": 56
+}

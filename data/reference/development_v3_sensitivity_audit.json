@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "primary_seed": 20261019,
+  "primary_run": "development-20261019T172235-da8f0847",
+  "sensitivity_seeds": [
+    20261020,
+    20261021,
+    20261022,
+    20261023
+  ],
+  "scope": "post_primary_development_partition_sensitivity",
+  "created_at": "2026-10-19T17:26:17.739034+00:00",
+  "decision_timing": "After primary results; exact four-seed list declared in coordination message before executing additional runs. This file was materialized after execution started, before inspecting any additional-seed results.",
+  "additional_seed_results_inspected_at_lock": false,
+  "model_or_threshold_changes": false,
+  "deployment_profile_remains_primary_seed": true,
+  "statistics": "Mean and sample SD across matched seeds describe split variability, not independent datasets or inferential CI.",
+  "selection_by_sensitivity_results": false
+}

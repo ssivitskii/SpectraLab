@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "status": "normalized",
+  "scope": "chemistry_normalization_only_not_final_admission",
+  "rows": [
+    {
+      "row_index": 0,
+      "status": "normalized",
+      "schema_version": 1,
+      "element": "Fe",
+      "oxide": "FeOT",
+      "units": "oxide_wt_percent",
+      "value": 0.023156809024979852,
+      "reported_interval_oxide_wt_percent": null,
+      "operational_state": "negative",
+      "reason": "entire_reported_interval_in_low_content_region",
+      "conversion_factor_to_oxide_wt_percent": 0.00012864893902766585,
+      "thresholds": {
+        "negative_max": 0.1,
+        "positive_min": 1.0
+      },
+      "input_sha256": "2ca9ee26ad4a461097d64e1e226721244f3a321427750558f01e783b743b2442",
+      "input": {
+        "sample_id": "CSA:Graphite KD2",
+        "element": "Fe",
+        "reported_species": "Fe",
+        "total_element": true,
+        "units": "mg_per_kg",
+        "value": 180,
+        "source": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/Sample_Composition_Data_SubSet.csv",
+        "source_sha256": "ea3b049a4b34cc08bfbc41ce6eb15e66aaf3847cd034e301241b1d8222806db0",
+        "qualifier": "measured"
+      },
+      "qualification": "chemistry_normalization_only_not_final_admission",
+      "qualified_blank": false,
+      "assumptions": [
+        "Mass content refers to the original sample, not surface loading or solution volume.",
+        "Zero is unknown; oxide-equivalent values can exceed 100 wt% for pure metals.",
+        "A reported interval is not a certified impurity bound or an inferred confidence level."
+      ]
+    },
+    {
+      "row_index": 1,
+      "status": "normalized",
+      "schema_version": 1,
+      "element": "Mg",
+      "oxide": "MgO",
+      "units": "oxide_wt_percent",
+      "value": 0.0034823451964616334,
+      "reported_interval_oxide_wt_percent": null,
+      "operational_state": "unknown",
+      "reason": "reported_qualifier_does_not_establish_a_fixed_label",
+      "conversion_factor_to_oxide_wt_percent": 0.00016582596173626827,
+      "thresholds": {
+        "negative_max": 0.1,
+        "positive_min": 1.0
+      },
+      "input_sha256": "9ab0563a6b5dc9bbab9a9792e266e80fa2a08188404b61e48e56b470f546c33f",
+      "input": {
+        "sample_id": "CSA:Graphite KD2",
+        "element": "Mg",
+        "reported_species": "Mg",
+        "units": "mg_per_kg",
+        "value": 21,
+        "source": "https://donnees-data.asc-csa.gc.ca/users/OpenData_DonneesOuvertes/pub/LIBS/Sample_Composition_Data_SubSet.csv",
+        "source_sha256": "ea3b049a4b34cc08bfbc41ce6eb15e66aaf3847cd034e301241b1d8222806db0",
+        "qualifier": "informational"
+      },
+      "qualification": "chemistry_normalization_only_not_final_admission",
+      "qualified_blank": false,
+      "assumptions": [
+        "Mass content refers to the original sample, not surface loading or solution volume.",
+        "Zero is unknown; oxide-equivalent values can exceed 100 wt% for pure metals.",
+        "A reported interval is not a certified impurity bound or an inferred confidence level."
+      ]
+    },
+    {
+      "row_index": 2,
+      "status": "normalized",
+      "schema_version": 1,
+      "element": "Fe",
+      "oxide": "FeOT",
+      "units": "oxide_wt_percent",
+      "value": 0.02699430761427041,
+      "reported_interval_oxide_wt_percent": null,
+      "operational_state": "negative",
+      "reason": "entire_reported_interval_in_low_content_region",
+      "conversion_factor_to_oxide_wt_percent": 0.8998102538090137,
+      "thresholds": {
+        "negative_max": 0.1,
+        "positive_min": 1.0
+      },
+      "input_sha256": "7382f4528fb98072a6f56173c8f5ff6a80e08d85370527a88cf44dbef61510bb",
+      "input": {
+        "sample_id": "PDS:T12CT135",
+        "element": "Fe",
+        "reported_species": "Fe2O3T",
+        "units": "wt_percent",
+        "value": 0.03,
+        "source": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "qualifier": "measured"
+      },
+      "qualification": "chemistry_normalization_only_not_final_admission",
+      "qualified_blank": false,
+      "assumptions": [
+        "Mass content refers to the original sample, not surface loading or solution volume.",
+        "Zero is unknown; oxide-equivalent values can exceed 100 wt% for pure metals.",
+        "A reported interval is not a certified impurity bound or an inferred confidence level."
+      ]
+    },
+    {
+      "row_index": 3,
+      "status": "normalized",
+      "schema_version": 1,
+      "element": "Mg",
+      "oxide": "MgO",
+      "units": "oxide_wt_percent",
+      "value": 0.02,
+      "reported_interval_oxide_wt_percent": null,
+      "operational_state": "negative",
+      "reason": "entire_reported_interval_in_low_content_region",
+      "conversion_factor_to_oxide_wt_percent": 1.0,
+      "thresholds": {
+        "negative_max": 0.1,
+        "positive_min": 1.0
+      },
+      "input_sha256": "8cd11eebd1910326367fee7e318f77d692a0984fb9fb6dee0f4e43117e98e4a8",
+      "input": {
+        "sample_id": "PDS:T12CT135",
+        "element": "Mg",
+        "reported_species": "MgO",
+        "units": "wt_percent",
+        "value": 0.02,
+        "source": "https://pds-geosciences.wustl.edu/speclib/urn-nasa-pds-libs_reference_database/document/libs_metadata.xlsx",
+        "source_sha256": "3f7a9680c9c6fd00cfc45966da81802b18ae94baf5400605e274cd9372e33a42",
+        "qualifier": "measured"
+      },
+      "qualification": "chemistry_normalization_only_not_final_admission",
+      "qualified_blank": false,
+      "assumptions": [
+        "Mass content refers to the original sample, not surface loading or solution volume.",
+        "Zero is unknown; oxide-equivalent values can exceed 100 wt% for pure metals.",
+        "A reported interval is not a certified impurity bound or an inferred confidence level."
+      ]
+    }
+  ],
+  "normalized_count": 4,
+  "blocked_count": 0,
+  "qualified_blank_count": 0
+}

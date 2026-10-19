@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+from numbers import Real
 
 import numpy as np
 
@@ -33,6 +34,28 @@ class SpectrumPreprocessor:
     wavelength_end_nm: float = 800.0
     model_step_nm: float = 0.05
     normalization: str = "max_abs"
+
+    def __post_init__(self) -> None:
+        values = (self.wavelength_start_nm, self.wavelength_end_nm, self.model_step_nm)
+        if any(isinstance(v, bool) or not isinstance(v, Real) for v in values):
+            raise ValueError("Preprocessing grid values must be finite numbers")
+        try:
+            start, end, step = (float(v) for v in values)
+        except OverflowError as exc:
+            raise ValueError("Preprocessing grid values exceed the finite numeric range") from exc
+        if not np.isfinite([start, end, step]).all() or not 0 < start < end or step <= 0:
+            raise ValueError("Preprocessing grid requires a positive ordered range and step")
+        intervals = (end - start) / step
+        if (
+            not np.isfinite(intervals)
+            or not 1 <= intervals <= 99_999
+            or not np.isclose(intervals, round(intervals), rtol=0, atol=1e-8)
+        ):
+            raise ValueError(
+                "Preprocessing grid needs 2..100000 points and an exactly dividing step"
+            )
+        if not isinstance(self.normalization, str) or self.normalization not in {"max_abs", "l2"}:
+            raise ValueError("Unsupported preprocessing normalization")
 
     @property
     def model_grid(self) -> np.ndarray:

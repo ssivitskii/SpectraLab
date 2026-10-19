@@ -1,0 +1,175 @@
+{
+  "schema_version": 3,
+  "artifact_type": "final_campaign_preflight",
+  "status": "blocked",
+  "campaign_id": "pending-independent-fe-mg-final-v6",
+  "manifest_sha256": "a812b3a054f2d8412eaaf94e38da790869a88956bf13abe1a2204c495492b0ef",
+  "seen_registry_sha256": "425a8a8d76401fa16e275ff3d997c27ab7414c4f6af52cc14f778cb68d272e17",
+  "profile_identity": "5be343aacc7d356911e3490ee9b2c22d38f5f62ea2ba7f3e2ccc39c30eabf933",
+  "data_source_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "blockers": [
+    {
+      "code": "data_source_missing",
+      "path": "data_source.id",
+      "message": "Freeze the campaign data-source identity."
+    },
+    {
+      "code": "source_evidence_missing",
+      "path": "data_source",
+      "message": "An attributable source and its SHA-256 are required."
+    },
+    {
+      "code": "selection_not_frozen",
+      "path": "selection_frozen_before_predictions",
+      "message": "Freeze selection before final predictions."
+    },
+    {
+      "code": "no_final_samples",
+      "path": "samples",
+      "message": "No independently admissible numerical final spectra have been selected."
+    },
+    {
+      "code": "precision_estimand_missing",
+      "path": "support_policy.ci_estimand",
+      "message": "Declare cluster_any_error CI separately from physical point metrics."
+    },
+    {
+      "code": "confidence_invalid",
+      "path": "support_policy.confidence_level",
+      "message": "Predeclare confidence strictly between .5 and 1."
+    },
+    {
+      "code": "precision_policy_missing",
+      "path": "support_policy.max_wilson_half_width",
+      "message": "Predeclare a worst-case cluster Wilson half width between 0 and .5."
+    },
+    {
+      "code": "support_policy_missing",
+      "path": "support_policy.min_support.Fe.positive",
+      "message": "Predeclare positive minimum physical/family/session/independent-cluster support."
+    },
+    {
+      "code": "support_policy_missing",
+      "path": "support_policy.min_support.Fe.negative",
+      "message": "Predeclare positive minimum physical/family/session/independent-cluster support."
+    },
+    {
+      "code": "support_policy_missing",
+      "path": "support_policy.min_support.Fe.blank",
+      "message": "Predeclare positive minimum physical/family/session/independent-cluster support."
+    },
+    {
+      "code": "support_policy_missing",
+      "path": "support_policy.min_support.Mg.positive",
+      "message": "Predeclare positive minimum physical/family/session/independent-cluster support."
+    },
+    {
+      "code": "support_policy_missing",
+      "path": "support_policy.min_support.Mg.negative",
+      "message": "Predeclare positive minimum physical/family/session/independent-cluster support."
+    },
+    {
+      "code": "support_policy_missing",
+      "path": "support_policy.min_support.Mg.blank",
+      "message": "Predeclare positive minimum physical/family/session/independent-cluster support."
+    },
+    {
+      "code": "certified_element_blank_missing",
+      "path": "support.Fe.blank",
+      "message": "Need a certified independent method/matrix blank specifically for Fe."
+    },
+    {
+      "code": "certified_element_blank_missing",
+      "path": "support.Mg.blank",
+      "message": "Need a certified independent method/matrix blank specifically for Mg."
+    }
+  ],
+  "support": {
+    "Fe": {
+      "positive": {
+        "physical": 0,
+        "family": 0,
+        "session": 0,
+        "independent_clusters": 0
+      },
+      "negative": {
+        "physical": 0,
+        "family": 0,
+        "session": 0,
+        "independent_clusters": 0
+      },
+      "blank": {
+        "physical": 0,
+        "family": 0,
+        "session": 0,
+        "independent_clusters": 0
+      }
+    },
+    "Mg": {
+      "positive": {
+        "physical": 0,
+        "family": 0,
+        "session": 0,
+        "independent_clusters": 0
+      },
+      "negative": {
+        "physical": 0,
+        "family": 0,
+        "session": 0,
+        "independent_clusters": 0
+      },
+      "blank": {
+        "physical": 0,
+        "family": 0,
+        "session": 0,
+        "independent_clusters": 0
+      }
+    }
+  },
+  "precision": {
+    "Fe": {
+      "positive": {
+        "independent_clusters": 0,
+        "worst_case_wilson_half_width": null
+      },
+      "negative": {
+        "independent_clusters": 0,
+        "worst_case_wilson_half_width": null
+      },
+      "blank": {
+        "independent_clusters": 0,
+        "worst_case_wilson_half_width": null
+      }
+    },
+    "Mg": {
+      "positive": {
+        "independent_clusters": 0,
+        "worst_case_wilson_half_width": null
+      },
+      "negative": {
+        "independent_clusters": 0,
+        "worst_case_wilson_half_width": null
+      },
+      "blank": {
+        "independent_clusters": 0,
+        "worst_case_wilson_half_width": null
+      }
+    }
+  },
+  "canonical_clusters": {},
+  "numerical_files_read": 0,
+  "numerical_spectra_verified": 0,
+  "numerical_verification": "not_completed",
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "limitations": [
+    "Evidence attestations and alias-registry completeness require independent human review.",
+    "Instrument resolution is independently documented; numerical spacing is not resolution.",
+    "Use one permanent receipt directory across campaigns; deleting it defeats local reuse guards.",
+    "The predictor callback and runtime identity are trusted integration code, not a sandbox.",
+    "Cluster Wilson intervals assume independent clusters; residual unrecorded dependence remains.",
+    "Physical point metrics have no binomial CI; cluster-any-error CI has a different estimand.",
+    "Air conversion binds original/output hashes; their conversion relationship is attested.",
+    "No automatic scientific qualification follows from successful software evaluation."
+  ]
+}

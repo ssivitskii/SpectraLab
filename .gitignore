@@ -44,4 +44,11 @@ artifacts/predictions/
 reports/external/
 reports/adaptation/
 reports/adaptation_v2/
+reports/adaptation_v3/
+reports/adaptation_v4/*
+!reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/
+reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/*
+!reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json
+reports/final_campaigns/
+artifacts/final_receipts/
 reports/campaign_shift_v2/

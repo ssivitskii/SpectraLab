@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "audit_id": "final-gap-v7-admission",
+  "reviewed_date": "2026-10-19",
+  "status": "candidate_evidence_review_not_final_admission",
+  "new_final_numerical_spectra_downloaded": false,
+  "new_final_numerical_spectra_opened": false,
+  "new_final_predictions_generated": false,
+  "final_evaluation_performed": false,
+  "qualified_final_controls": 0,
+  "final_metrics": null,
+  "current_frozen_profile": {
+    "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json",
+    "sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5",
+    "bytes": 260251,
+    "kind": "existing_frozen_model",
+    "identity": "5be343aacc7d356911e3490ee9b2c22d38f5f62ea2ba7f3e2ccc39c30eabf933",
+    "instrument_id": "chemcam-lanl-testbed",
+    "class_order": [
+      "Na",
+      "Mg",
+      "Ca",
+      "Fe"
+    ],
+    "thresholds": {
+      "Na": 0.10825272614392062,
+      "Mg": 0.9945672395383269,
+      "Ca": 0.6795050836572871,
+      "Fe": 0.7185455426436053
+    },
+    "bands_nm": [
+      [
+        241.0,
+        340.0
+      ],
+      [
+        383.0,
+        468.0
+      ],
+      [
+        474.0,
+        900.0
+      ]
+    ],
+    "axis": "vacuum_nm",
+    "weights_and_thresholds_changed": false,
+    "Fe_Mg_unchanged_from_embedded_v3": true
+  },
+  "decision": {
+    "two_fully_qualified_controls_suffice_for": "a separately preregistered one-shot conditional control challenge reporting individual material outcomes",
+    "two_controls_do_not_establish": [
+      "full schema3 final-campaign completion",
+      "population FPR <=0.05",
+      "population recall or calibrated probability validity",
+      "within-ChemCam performance of the different-instrument BAM measurement",
+      "independent calcium validation"
+    ],
+    "current_go_no_go": "Do not open final intensities or score yet: GOE100 family overlap/assay applicability and BAM310 numeric source, axis and certified-region linkage remain unresolved. GOE documentary vacuum/nm is supported.",
+    "ordinary_negative_stratum": "separate ordinary negatives plus positives and >=2 independent clusters per each group are chosen full-campaign software requirements, not logical prerequisites to a material-specific control outcome",
+    "old_protocols_preserved": true,
+    "new_limited_protocol_required": true,
+    "unsupported_certified_fields_must_remain_false_or_absent": true,
+    "conditional_challenge_vs_independent_final": "One-shot conditional score challenge is not evidence of independent final validation unless physical/family overlap is excluded and chemistry applicability is independently established. A narrow qualified control validation still does not complete the old full campaign.",
+    "new_runtime_or_protocol_created": false
+  },
+  "goe100": {
+    "source_candidate_id": "david2020_goe100_lanl",
+    "chemistry_kind": "independent LA-ICP-MS spot assay, not LIBS model-derived labels",
+    "actual_preparation_evidence": "Commercial Sigma Aldrich goethite independently analyzed; 100% endmember in mixture table; mixtures pressed into 13 mm pellets under 10 ton, 5 LIBS positions. Source-campaign grouping is acceptable without guessed date; stock/family relation remains unresolved.",
+    "assay_values_MgO_wt_percent": [
+      0.00607389,
+      0.00656981,
+      0.00698923,
+      0.00744733,
+      0.00697457,
+      0.00818041,
+      0.00791312,
+      0.00841815
+    ],
+    "n_assay_spots": 8,
+    "n_physical_materials": 1,
+    "mean": 0.00732081375,
+    "sd_ddof1": 0.0008157856513279085,
+    "min": 0.00607389,
+    "max": 0.00841815,
+    "one_sided_mean_upper": {
+      "formula": "mean + t.ppf(0.95,7)*s_ddof1/sqrt(8)",
+      "confidence_if_assumptions_hold": 0.95,
+      "value": 0.007867255278508728,
+      "status": "audit_derived_conditional_bound_not_published_or_certified",
+      "assumptions": [
+        "Eight locations represent the same prepared material and target measurand.",
+        "Errors/spot values are independent with a suitable normal sampling model; eight spots do not verify this assumption.",
+        "Assay scale/calibration and matrix effects are acceptably unbiased or separately bounded.",
+        "No change of physical stock or preparation invalidates the chemistry-to-spectrum link."
+      ],
+      "does_not_bound": [
+        "all grains or all future local spots",
+        "unquantified systematic assay bias",
+        "unobserved lot differences",
+        "LIBS false-positive probability"
+      ]
+    },
+    "sensitivity_only": {
+      "one_sided_99_mean_upper": 0.008185494282239922,
+      "one_sided_95_future_single_spot_prediction_upper_under_normal_iid": 0.008960138335526186,
+      "headroom_additive_unmodelled_underestimate": 0.09213274472149127,
+      "minimum_recovery_fraction_under_pure_multiplicative_underrecovery": 0.07867255278508728,
+      "headroom_is_not_evidence_of_actual_bias_or_recovery": true,
+      "sample_max_probability_covering95pct_population_if_iid_continuous": 0.33657956871093775,
+      "not_distribution_free95_95_tolerance_bound": true
+    },
+    "operational_roles": {
+      "Mg": "candidate low-content matrix control conditional on independent assay applicability and scope; not strict absence or historical method blank",
+      "Fe": "positive composition control if same-material linkage is confirmed"
+    },
+    "independence_blocker": "GOE100 versus previously seen GOEDV stock/family unresolved; different chemistry/name alone does not clear overlap",
+    "minimum_extra_evidence": [
+      "Trace same assayed stock/prepared endmember to archived GOE100 measurement and resolve GOEDV parent-family relation.",
+      "Evidence that reported quantitative method/standards or independent assay validation support the scale in this matrix; formal CoA or new interlaboratory study is not inherently required. A conditional challenge may explicitly retain the unverified residual bias assumption, but cannot call it a certified bound.",
+      "GOE vacuum/nm and LANL processing are supported by David2020 to Clegg2017 documentation; numerical coverage must still be checked under a locked manifest. Source-campaign grouping is sufficient without invented acquisition date; per-spot CE5 to #n mapping is not established.",
+      "Predeclare material-level mean composition/score aggregation and narrow conditional claim before numerical access."
+    ]
+  },
+  "bam310": {
+    "source_candidate_id": "rsc2025-bam310",
+    "Fe_wt_percent": 0.0705,
+    "published_95pct_interval_halfwidth": 0.0012,
+    "FeOT_interval_upper": 0.09224128928283643,
+    "MgO_interval_lower": 1.6234361653980662,
+    "upper_kind": "upper endpoint of published certified mass-fraction interval; not maximum every microspot",
+    "certificate_applies_outside": [
+      "outer5mm mantle",
+      "central20mm-diameter zone"
+    ],
+    "candidate_roles": {
+      "Fe": "prospective operational low-Fe matrix control after actual surface/material linkage",
+      "Mg": "positive control; not blank"
+    },
+    "minimum_extra_evidence": [
+      "Licensed actual numerical file manifest identifying the measured BAM310 material and preparation.",
+      "Attributable statement or mapped positions establishing applicability of certificate to sampled surface/region; coordinate log is one option, not the only valid form.",
+      "Explicit air/vacuum export convention, actual coverage and resolution; air atmosphere and manufacturer line examples do not establish axis.",
+      "Review of sample/family/session/checksum independence.",
+      "Explicit OOD scope for unchanged ChemCam profile; do not relabel instrument_id or fit response/thresholds on final."
+    ]
+  },
+  "minimal_limited_protocol": {
+    "name_suggestion": "locked Fe/Mg operational matrix-control challenge",
+    "selection": "both materials and all metadata-eligible replicate locations fixed before intensities; no best-spectrum selection",
+    "predeclared_primary_aggregation": "mean frozen score across all preselected valid replicate measurements per material, then compare actual frozen threshold; report every replicate too",
+    "negative_primary_outcomes": {
+      "BAM310": "Fe false-detection indicator on this physical material, OOD instrument",
+      "GOE100": "Mg false-detection indicator on this physical material, LANL if verified"
+    },
+    "secondary_outcomes": {
+      "BAM310": "Mg detection indicator",
+      "GOE100": "Fe detection indicator"
+    },
+    "statistical_reporting": "individual material outcomes, scores and counts; no useful population FPR/recall CI or pooling instruments/elements",
+    "quality_failures": "report predeclared structural/axis/coverage failures with reasons; do not replace materials or adjust processing using scores",
+    "receipt_policy": "persistent one-shot receipt and replay of exact result; no adaptive retraining/recalibration",
+    "claim": "independent final holdout for these named controls only, conditional on stated chemistry assumptions; does not close full schema3 final",
+    "execution_requires_reviewed_new_adapter_contract": true
+  },
+  "evidence": [
+    {
+      "path": "data/reference/final_search_v6_pds.json",
+      "sha256": "c1944417ca2dd32fc31e93730d9391c68e62614a24b3b04eb432b1a04f615bd7",
+      "bytes": 29474,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "data/reference/final_search_v6_other.json",
+      "sha256": "45656092a573d07e4f1bb221ed9fab1f313be2579984fa35a9a1f3edcc5e5992",
+      "bytes": 32919,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "data/reference/final_seen_registry_v6.json",
+      "sha256": "b98754917035dead10f2e5f2302139eae21eefff7dbaf9b40b799d3f6c1b3ef8",
+      "bytes": 642491,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david_thesis.txt",
+      "sha256": "2cb52857dd7b1cee4f42d4a55af3e9b352889911d4628322591e6565834232fd",
+      "bytes": 1072766,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david_thesis_assay_C3.png",
+      "sha256": "4597d28f3bd26bf2ddb681d0e6fda84f3f4623fd1729f09937c90e42316aa14a",
+      "bytes": 1276284,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_hal_paper.txt",
+      "sha256": "ae4a357a7805055e9bd05ce7306b4f565fc0da9a11826a09d2064316f6a9e1c8",
+      "bytes": 135961,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_chemistry_Table_S2.xlsx",
+      "sha256": "754efd08945f448b623084d84402691a6416173707f9236d2ecdd5f5c8cc41ed",
+      "bytes": 238978,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/bam310_certificate.pdf",
+      "sha256": "743237a611566d3b09c7c542448a3818bd7efaf87566af82cca0a29a3b3f8dc0",
+      "bytes": 21283,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/bam310_certificate.txt",
+      "sha256": "db72143f74fdc9cf920243949ccd924922e58ad7b2d7cb02352612ba08655e35",
+      "bytes": 6129,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "ml/src/spectralab_ml/evaluation/final_campaign_v3.py",
+      "sha256": "787298554042386e447cd187b9abb672bddde19623517f466c15a7631850ff30",
+      "bytes": 49224,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "ml/src/spectralab_ml/inference/measured.py",
+      "sha256": "c4bd3f5de761bda6d9c3f94836362b6e0e7752cc78112d52c5429a09832610cc",
+      "bytes": 9746,
+      "kind": "local_metadata_or_document"
+    },
+    {
+      "path": "data/raw/final_gap_v7_goe100/archive_inventory.json",
+      "sha256": "bf6c573a6c10e30c1b4e4a61d2acd222213a253ff279c0a3b78c7d75fda8294a",
+      "bytes": 56793,
+      "kind": "archive_directory_metadata_only"
+    }
+  ],
+  "primary_references": [
+    {
+      "url": "https://utheme.utoulouse.fr/files/original/6881e73d8a132a8993d9e6ff378cbe77fdd8653f.pdf",
+      "locator": "David thesis section4.4 and FigureC.3 printedp255/PDFp271",
+      "role": "independent spot assay and preparation"
+    },
+    {
+      "url": "https://doi.org/10.1029/2019JE006314",
+      "locator": "sample preparation section3.1",
+      "role": "pellet and replicate protocol"
+    },
+    {
+      "url": "https://zenodo.org/records/3903074",
+      "role": "TableS2 chemistry and file mapping"
+    },
+    {
+      "url": "https://rrr.bam.de/RRR/Content/DE/Downloads/RM-Zertifikate/RM-Nichteisenmetalle/Aluminium/bam_310.pdf?__blob=publicationFile",
+      "role": "certified composition and spatial exclusions"
+    },
+    {
+      "url": "https://itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+      "role": "mean confidence formula"
+    },
+    {
+      "url": "https://itl.nist.gov/div898/handbook/prc/section2/prc263.htm",
+      "role": "mean confidence versus tolerance distinction"
+    },
+    {
+      "url": "https://itl.nist.gov/div898/handbook/prc/section2/prc264.htm",
+      "role": "nonparametric order-statistic limits"
+    },
+    {
+      "url": "https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf",
+      "locator": "F.2.5-F.2.6",
+      "role": "method bias and sample uncertainty cannot be removed by repeatability alone"
+    }
+  ],
+  "review_limit": "No new numerical final spectra, no predictions, no evidence attestation upgrades. Source-specific v7 findings from parallel metadata investigations require a final independent review before admission.",
+  "v7_metadata_update": {
+    "GOE100_archive_entries": 160,
+    "GOE100_actual_member_names": [
+      "GOE100_#1 LIBS laboratory spectra LANL.csv",
+      "GOE100_#2 LIBS laboratory spectra LANL.csv",
+      "GOE100_#3 LIBS laboratory spectra LANL.csv",
+      "GOE100_#4 LIBS laboratory spectra LANL.csv",
+      "GOE100_#5 LIBS laboratory spectra LANL.csv"
+    ],
+    "all_archive_entries_csv": true,
+    "zip_timestamps_are_acquisition_dates": false,
+    "TableS2_original_to_archived_name_mapping_pending": true,
+    "BAM_author_sharepoint_pointer": "Publicly accessible folder contains 4 ChemCam files; no BAM310 raw release identified. Official 6-page ESI retrieved: distance/normalization figures only.",
+    "not_admission": true,
+    "GOE100_axis_medium": "vacuum_by_documented_LANL_CCS_lineage",
+    "GOE100_axis_units": "nm_by_documented_LANL_CCS_lineage",
+    "GOE100_documentary_axis_status": "supported_inference_not_numeric_axis_verification",
+    "GOE100_numerical_coverage_checked": false,
+    "GOE100_session_group": "source-campaign:zenodo3902232/LANL; acquisition date unknown",
+    "all_five_material_group_manifest_possible": true
+  }
+}

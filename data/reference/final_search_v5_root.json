@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "searched_at": "2026-10-19T18:41:38.593861+00:00",
+  "scope": "metadata_only_source_admission_research",
+  "new_spectrum_intensities_opened": false,
+  "final_metrics": null,
+  "evidence_snapshots": [
+    {
+      "path": "data/raw/final_search_v5_root/zenodo15967233.json",
+      "url": "https://zenodo.org/api/records/15967233",
+      "sha256": "3dd178a7fdd062e4b1376b36e3336c26007319fb218a56995f32f4376e44f070",
+      "bytes": 5558
+    },
+    {
+      "path": "data/raw/final_search_v5_root/zenodo17796049.json",
+      "url": "https://zenodo.org/api/records/17796049",
+      "sha256": "6ea89de1edf5e692647556bbe1c55f66fd5eb457819d1f4a87752680e844dbd9",
+      "bytes": 4055
+    },
+    {
+      "path": "data/raw/final_search_v5_root/capella2026.html",
+      "url": "https://www.nature.com/articles/s41598-026-46449-2",
+      "sha256": "d863c2e9b3e13d34504484e6fa5a7ab407dece9df4246e63518e271b4850adfa",
+      "bytes": 440960
+    },
+    {
+      "path": "data/raw/final_search_v5_root/capella_table2.html",
+      "url": "https://www.nature.com/articles/s41598-026-46449-2/tables/2",
+      "sha256": "5f875975d06f73892026a252c4ab8cdcca39cdeb89a3ddf90f8c6675ac2e4590",
+      "bytes": 172302
+    },
+    {
+      "path": "data/raw/final_search_v5_root/paddy2026.html",
+      "url": "https://www.nature.com/articles/s41598-026-56519-0",
+      "sha256": "6103afb0b90cdad1a0de5780802dba4700bc7749adf221059766a64305f133ef",
+      "bytes": 342863
+    },
+    {
+      "path": "data/raw/final_search_v5_root/zenodo20437121.json",
+      "url": "https://zenodo.org/api/records/20437121",
+      "sha256": "586cb4aab1278352995d24db34e8511cd8637372850ebdef9e248c50419f24aa",
+      "bytes": 6612
+    },
+    {
+      "path": "data/raw/final_search_v5_root/code_metadata/zip_inventory.json",
+      "url": "https://zenodo.org/records/15967233/files/alinecapella/libs-quantification-pipeline-v1.0.0.zip",
+      "sha256": "d692110df7d7dff4a13bc67cbe56578fed7fe6da1fd02897e5dc7ff635b3ebb2",
+      "bytes": 498,
+      "retrieval_method": "HTTP206 ZIP central-directory/README member only; no spectral members"
+    },
+    {
+      "path": "data/raw/final_search_v5_root/code_metadata/README.md",
+      "url": "https://zenodo.org/records/15967233/files/alinecapella/libs-quantification-pipeline-v1.0.0.zip",
+      "sha256": "fd7bcdfd8cdb426930e732aa76b675040e70ae39943809da0c3da6eeae5b673f",
+      "bytes": 1688,
+      "retrieval_method": "HTTP206 ZIP central-directory/README member only; no spectral members"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "capella-2026-mbh-al-crm",
+      "publication": "https://doi.org/10.1038/s41598-026-46449-2",
+      "dataset_or_software": "https://doi.org/10.5281/zenodo.15967233",
+      "article_license": "CC-BY-4.0",
+      "deposit_license": "MIT",
+      "deposit_type": "software",
+      "instrument": "CENIM-CSIC Ocean Optics USB4000",
+      "coverage_nm": [
+        250,
+        850
+      ],
+      "chemistry_candidates": [
+        {
+          "sample": "G77J6",
+          "element": "Fe",
+          "value_element_wt_percent": 0.054,
+          "reported_plus_minus": 0.007,
+          "assay_origin": "MBH certified composition as reproduced in Table2",
+          "upper_confidence_bound_qualified": false
+        },
+        {
+          "sample": "cp-Al-11697",
+          "element": "Mg",
+          "value_element_wt_percent": 0.01,
+          "reported_plus_minus": 0.001,
+          "assay_origin": "MBH certified composition as reproduced in Table2",
+          "upper_confidence_bound_qualified": false
+        }
+      ],
+      "blockers": [
+        "Verified ZIP central directory contains only .gitignore, LICENSE, README, ipynb and py; README requires user-provided CSV and supplies no raw-data download.",
+        "Exported air/vacuum convention not explicitly documented in checked article.",
+        "Current ChemCam-domain profile requires another instrument and full 241–900 bands.",
+        "Reported plus/minus semantics/coverage and actual lot certificate must be independently checked before certifying an upper bound.",
+        "Article does not identify these two CRM measurements as method/matrix blanks.",
+        "Acquisition session independence and development-versus-final partition not established."
+      ],
+      "status": "blocked",
+      "code_archive_inventory_verified": [
+        "alinecapella-libs-quantification-pipeline-fdfae84/",
+        "alinecapella-libs-quantification-pipeline-fdfae84/.gitignore",
+        "alinecapella-libs-quantification-pipeline-fdfae84/LICENSE",
+        "alinecapella-libs-quantification-pipeline-fdfae84/README.md",
+        "alinecapella-libs-quantification-pipeline-fdfae84/libs_ml_quantification_pipeline.ipynb",
+        "alinecapella-libs-quantification-pipeline-fdfae84/libs_ml_quantification_pipeline.py"
+      ]
+    },
+    {
+      "id": "cao-2026-robot-libs",
+      "publication": "https://doi.org/10.1039/D5DD00263J",
+      "dataset": "https://doi.org/10.5281/zenodo.17796049",
+      "dataset_license": "CC-BY-4.0",
+      "instrument": "handheld LIBS",
+      "coverage_nm": [
+        190,
+        950
+      ],
+      "blockers": [
+        "Paper describes spatial chemical mapping, not independently assayed certified Fe/Mg controls.",
+        "Air/vacuum export convention not established.",
+        "Other instrument; no frozen transfer profile.",
+        "Numeric inventory alone does not establish physical or assay identity independence."
+      ],
+      "numeric_files_downloaded": false,
+      "status": "blocked"
+    },
+    {
+      "id": "sarawak-paddy-2026",
+      "publication": "https://doi.org/10.1038/s41598-026-56519-0",
+      "dataset": "https://doi.org/10.5281/zenodo.20437121",
+      "dataset_license": "CC-BY-4.0",
+      "measurements": 450,
+      "physical_samples": 15,
+      "blockers": [
+        "Published labels are cultivation-system categories, not independent Fe/Mg concentrations or certified blank bounds.",
+        "No certified method/matrix blanks established by metadata.",
+        "Axis convention and frozen instrument transfer remain unestablished."
+      ],
+      "numeric_files_downloaded": false,
+      "status": "blocked"
+    }
+  ],
+  "failed_retrievals": [
+    {
+      "url": "https://api.github.com/repos/alinecapella/libs-quantification-pipeline/git/trees/v1.0.0?recursive=1",
+      "http_status": 404,
+      "meaning": "Linked public source tree unavailable at checked URL; not proof that raw data cannot exist."
+    },
+    {
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2026/dd/d5dd00263j",
+      "http_status": 403
+    },
+    {
+      "url": "https://www.preprints.org/manuscript/202607.1201",
+      "http_status": 403,
+      "meaning": "Search-index-only boric acid substrate lead; nominal99.7purity not a certified impurity bound; not counted as fully checked candidate."
+    }
+  ]
+}

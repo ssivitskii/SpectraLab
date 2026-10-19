@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from numbers import Real
 from typing import Protocol
 
 import numpy as np
@@ -8,6 +9,8 @@ from scipy.optimize import nnls
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.multiclass import OneVsRestClassifier
+
+from spectralab_ml.models.validation import binary_labels, finite_matrix, training_arrays
 
 
 class MultiLabelEstimator(Protocol):
@@ -80,13 +83,18 @@ class RandomForestMultiLabel:
         )
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> RandomForestMultiLabel:
-        self.estimator.fit(X, y)
+        X, y = training_arrays(X, y)
+        self.estimator.fit(X, y[:, 0] if y.shape[1] == 1 else y)
         return self
 
     def scores(self, X: np.ndarray) -> np.ndarray:
         probabilities = self.estimator.predict_proba(X)
+        classes_by_output = self.estimator.classes_
+        if isinstance(probabilities, np.ndarray):
+            probabilities = [probabilities]
+            classes_by_output = [classes_by_output]
         columns: list[np.ndarray] = []
-        for class_values, values in zip(self.estimator.classes_, probabilities, strict=True):
+        for class_values, values in zip(classes_by_output, probabilities, strict=True):
             classes = np.asarray(class_values)
             positive = np.flatnonzero(classes == 1)
             columns.append(values[:, positive[0]] if positive.size else np.zeros(len(X)))
@@ -96,12 +104,17 @@ class RandomForestMultiLabel:
 def select_thresholds(
     scores: np.ndarray, y_true: np.ndarray, *, default: float
 ) -> tuple[np.ndarray, dict[str, object]]:
-    if scores.ndim != 2 or scores.shape != y_true.shape or not np.all(np.isfinite(scores)):
+    scores, y_true = finite_matrix(scores, "Scores"), binary_labels(y_true)
+    if scores.shape != y_true.shape:
         raise ValueError("Finite scores and matching two-dimensional labels are required")
-    candidates = np.r_[
-        np.linspace(float(np.min(scores)), float(np.max(scores)), 51),
-        np.nextafter(np.max(scores), np.inf),
-    ]
+    if isinstance(default, bool) or not isinstance(default, Real):
+        raise ValueError("Default threshold must be finite")
+    try:
+        default = float(default)
+    except OverflowError as exc:
+        raise ValueError("Default threshold exceeds the finite numeric range") from exc
+    if not np.isfinite(default):
+        raise ValueError("Default threshold must be finite")
     thresholds = np.full(scores.shape[1], default, dtype=float)
     chosen_f1: list[float | None] = []
     for column in range(scores.shape[1]):
@@ -109,20 +122,22 @@ def select_thresholds(
         if len(np.unique(truth)) < 2:
             chosen_f1.append(None)
             continue
-        best = (-1.0, default)
-        for threshold in candidates:
-            predicted = scores[:, column] >= threshold
-            tp = int(np.sum(predicted & (truth == 1)))
-            fp = int(np.sum(predicted & (truth == 0)))
-            fn = int(np.sum(~predicted & (truth == 1)))
-            f1 = 2 * tp / (2 * tp + fp + fn) if (2 * tp + fp + fn) else 0.0
-            if f1 > best[0]:
-                best = (f1, float(threshold))
-        chosen_f1.append(best[0])
-        thresholds[column] = best[1]
+        # Every distinct score is one realizable >= decision boundary. Sort once,
+        # including all tied rows together, rather than using another class's scale.
+        order = np.argsort(scores[:, column], kind="stable")[::-1]
+        ordered_scores = scores[order, column]
+        ends = np.r_[np.flatnonzero(ordered_scores[:-1] != ordered_scores[1:]), len(truth) - 1]
+        tp = np.cumsum(truth[order], dtype=np.int64)[ends]
+        predicted_count = ends + 1
+        f1 = 2 * tp / (predicted_count + int(truth.sum()))
+        # Match the previous tie policy: prefer the lowest threshold with maximum F1.
+        best = np.flatnonzero(f1 == np.max(f1))[-1]
+        chosen_f1.append(float(f1[best]))
+        thresholds[column] = ordered_scores[ends[best]]
     return thresholds, {
         "split": "validation",
-        "criterion": "per-class F1 over 51 evenly spaced score thresholds",
+        "schema_version": 2,
+        "criterion": "per-class F1 over every distinct score threshold; lowest threshold on ties",
         "validation_f1": chosen_f1,
         "fallback_columns": [i for i, value in enumerate(chosen_f1) if value is None],
         "fallback_reason": "Single-class validation: fixed default retained, not tuned",

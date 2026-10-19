@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "audit_id": "final-gap-v7-gasda-provenance",
+  "created_at": "2026-10-19T20:03:16.194963+00:00",
+  "scope": "metadata_and_methods_only; no new final numerical spectra or predictions",
+  "new_final_numerical_spectra_downloaded": false,
+  "new_final_numerical_spectra_opened": false,
+  "new_final_predictions_generated": false,
+  "models_thresholds_manifests_modified": false,
+  "status": "official_SI_retrieved_but_stock_and_assay_QA_not_resolved",
+  "sources": [
+    {
+      "path": "data/raw/final_gap_v7_gasda/pds_readme.txt",
+      "sha256": "a26ccb7dd4baf2d3074705e1ffe893d8a4631c4d70131c90f5cb6a33b1d268b6",
+      "bytes": 3486,
+      "url": "https://pds.nasa.gov/data/pds4/releases/geo/msl_gt_diagenesis_supplement-20230220/readme.txt",
+      "kind": "official_bundle_readme"
+    },
+    {
+      "path": "data/raw/final_gap_v7_gasda/pds_bundle_listing.html",
+      "sha256": "2319997efc89664bd793165e30179432bffc83ba7ae75c1f65ac398e2ecdc6ce",
+      "bytes": 1006,
+      "url": "https://pds-geosciences.wustl.edu/msl/urn-nasa-pds-msl_gt_diagenesis_supplement/",
+      "kind": "official_directory_metadata"
+    },
+    {
+      "path": "data/raw/final_gap_v7_gasda/pds_document_listing.html",
+      "sha256": "b1636aa1f55ba3be0585151bbfab38b286e31d90baf204f62d74fde0fc1dbeb0",
+      "bytes": 1001,
+      "url": "https://pds-geosciences.wustl.edu/msl/urn-nasa-pds-msl_gt_diagenesis_supplement/document/",
+      "kind": "official_directory_metadata"
+    },
+    {
+      "path": "data/raw/final_gap_v7_gasda/Gasda_Supplement_01.pdf",
+      "sha256": "00ca6653d5b965600c70b420e69af340b183a0edf1e88526ab689d4106fad847",
+      "bytes": 14494970,
+      "url": "https://pds-geosciences.wustl.edu/msl/urn-nasa-pds-msl_gt_diagenesis_supplement/document/Gasda_Supplement_01.pdf",
+      "kind": "official_methods_supplement"
+    },
+    {
+      "path": "data/raw/final_gap_v7_gasda/Gasda_Supplement_01.xml",
+      "sha256": "6c96d784726b24bc36595ac4fc93d72357c3a60b3b87c226108380068b000145",
+      "bytes": 4148,
+      "url": "https://pds-geosciences.wustl.edu/msl/urn-nasa-pds-msl_gt_diagenesis_supplement/document/Gasda_Supplement_01.xml",
+      "kind": "official_document_label"
+    },
+    {
+      "path": "data/raw/final_gap_v7_gasda/Gasda_Supplement_01.txt",
+      "sha256": "4146c627f9e51d60d7878f71faa2a876b7e1de31d10f131908815664ed3172b5",
+      "bytes": 90250,
+      "url": "https://pds-geosciences.wustl.edu/msl/urn-nasa-pds-msl_gt_diagenesis_supplement/document/Gasda_Supplement_01.pdf",
+      "kind": "local_pypdf_text_extraction"
+    },
+    {
+      "path": "data/raw/final_gap_v7_gasda/gasda_s7_page84.png",
+      "sha256": "db0d74ae16458e6863e1ab899ee396950df9e0fd777da15cb84e423c785640d2",
+      "bytes": 198618,
+      "url": "https://pds-geosciences.wustl.edu/msl/urn-nasa-pds-msl_gt_diagenesis_supplement/document/Gasda_Supplement_01.pdf",
+      "kind": "local_visual_verification_render_page84"
+    },
+    {
+      "path": "data/raw/final_gap_v7_root/calinfo.txt",
+      "sha256": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf",
+      "bytes": 3706,
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calinfo.txt",
+      "kind": "previously_saved_official_calibration_information"
+    },
+    {
+      "path": "data/raw/chemcam_v2_candidates/gasda2021_zenodo.json",
+      "sha256": "ff8268e0c12478821201fbf5601b36c83eaef8b0c382a8d85765f4fcc6e9ffc5",
+      "bytes": 13348,
+      "url": "https://zenodo.org/api/records/4507630",
+      "kind": "previously_saved_official_record_metadata"
+    },
+    {
+      "path": "data/raw/final_gap_v7_gasda/calinfo_verified.txt",
+      "url": "https://pds-geosciences.wustl.edu/msl/msl-m-chemcam-libs-4_5-rdr-v1/mslccm_1xxx/calib/calinfo.txt",
+      "sha256": "a83299159b77348e0c8a7ef9323e3fb5e8cb296a9bfa476e53c5c353e4cb07cf",
+      "bytes": 3706,
+      "kind": "official_catalog_URL_retrieval_verified_against_prior_snapshot",
+      "matches_prior_snapshot": true
+    }
+  ],
+  "pdf_review": {
+    "pages": 96,
+    "document_lid": "urn:nasa:pds:msl_gt_diagenesis_supplement:document:gasda_supplement_01",
+    "document_version": "1.0",
+    "label_publication_date": "2022-02-09",
+    "article_doi": "10.1029/2021JE007097",
+    "bundle_doi": "10.17189/dw9v-xe39",
+    "publisher_byte_identity_checked": false,
+    "methods_pages_read": [
+      83,
+      84,
+      85,
+      86,
+      87
+    ],
+    "visually_verified_pages": [
+      84
+    ],
+    "case_insensitive_text_search_page_hits": {
+      "GoeDV": [],
+      "GoethiteDV": [],
+      "GOE100": [],
+      "DV": [],
+      "goethite": [
+        75
+      ],
+      "David": [
+        1
+      ],
+      "Sigma": [
+        85,
+        86,
+        87
+      ],
+      "Aldric": [],
+      "ACTLabs": [],
+      "certif": []
+    },
+    "hit_interpretation": {
+      "goethite": "generic modeled mineral equilibrium; not laboratory material provenance",
+      "David": "coauthor listing only",
+      "Sigma": "Gaussian smoothing and uncertainty notation, not supplier"
+    },
+    "S7_findings": [
+      "139 lithium-bearing standards spanning 0.4 to 530 ppm",
+      "15 mixtures; OU9 and NCSDC86303 high-Li dopants",
+      "sample composition list referred to PDS ChemCam Calibration Database",
+      "no GoeDV/GOE100 lot or source linkage established",
+      "no GOE100 independent assay bias/recovery QA established"
+    ]
+  },
+  "associated_zenodo": {
+    "record_id": 4507630,
+    "metadata_reviewed": true,
+    "mixed_spectrum_csv_opened": false,
+    "mixed_spectrum_csv_bytes_declared": 176884180,
+    "metadata_description_scope": "new Mn-bearing standards/minerals/mixtures  >2.9 wt% MnO",
+    "limitation": "No conclusion about unreviewed row-level metadata inside the spectral CSV."
+  },
+  "retrieval_limitations": [
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2021JE007097&file=2021JE007097-sup-0001-Supporting%20Information%20SI-S01.pdf",
+      "status": "HTTP403 from direct curl; access solved through official PDS document mirror, not proven byte-identical"
+    }
+  ],
+  "admission_implications": {
+    "stock_independence": "unresolved; neither identity nor independence is proved",
+    "DV_suffix_definition": "unresolved",
+    "GOE100_assay_systematic_bias_QA": "unresolved in reviewed sources",
+    "coauthorship_proves_same_stock": false,
+    "formal_certificate_required_by_this_review": false,
+    "no_qualified_final_admission_created": true,
+    "GOE100_axis_status": "documentary-supported inference from David LANL and Clegg processing lineage; not explicit CSV header",
+    "GOE100_session_status": "source-campaign:zenodo3902232/LANL allowed; no invented acquisition date",
+    "GOE100_physical_replication": "five LIBS positions grouped as one physical material",
+    "BAM310_remaining_metadata_gates": [
+      "actual raw data source",
+      "axis convention applicability",
+      "certified material region applicability"
+    ]
+  },
+  "next_stage": "Retain no-score status until stock linkage and assay applicability are independently resolved; do not weaken frozen full campaign or call conditional challenge independent final."
+}

@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "audit_id": "final-gap-v8-mg-assay",
+  "created_at": "2026-10-19T20:18:31.725994+00:00",
+  "status": "quantitative_independent_assay_confirmed_but_applicable_method_error_bound_not_found",
+  "scope": "new metadata and methods review only; not admission or final validation",
+  "new_final_spectral_intensities_opened": false,
+  "predictions_generated": false,
+  "models_thresholds_historical_protocols_modified": false,
+  "GOE100_GoeDV_identity_link_inferred": false,
+  "sources": [
+    {
+      "path": "data/raw/final_search_v6_pds/david_thesis.pdf",
+      "sha256": "d5790ccde624fce8736a0711d09c56740cf20ffe1eb6b7dd6a34d3f1e867a1d8",
+      "bytes": 14323626,
+      "url": "https://utheme.utoulouse.fr/files/original/6881e73d8a132a8993d9e6ff378cbe77fdd8653f.pdf",
+      "kind": "primary_thesis"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david_thesis_assay_C3.png",
+      "sha256": "4597d28f3bd26bf2ddb681d0e6fda84f3f4623fd1729f09937c90e42316aa14a",
+      "bytes": 1276284,
+      "url": "https://utheme.utoulouse.fr/files/original/6881e73d8a132a8993d9e6ff378cbe77fdd8653f.pdf",
+      "kind": "previous_render_pdf271_print255_visually_reviewed"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_hal_paper.pdf",
+      "sha256": "86f81e40dc6c9fbb877f7b751ae0d3505fb33478878538e754f132b163e7f42f",
+      "bytes": 2614085,
+      "url": "https://hal.science/hal-03093150/file/2019JE006314.pdf",
+      "kind": "primary_author_paper"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_chemistry_Table_S2.xlsx",
+      "sha256": "754efd08945f448b623084d84402691a6416173707f9236d2ecdd5f5c8cc41ed",
+      "bytes": 238978,
+      "url": "https://zenodo.org/api/records/3903074/files/Tables%20SM.zip/content",
+      "kind": "previous_assay_and_metadata_workbook"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/GDavid_LIBS_Icarus_2021.pdf",
+      "sha256": "3312c37ff94380721a3e6897c6bd5d259e740319dfca5f0a93122e0cb68826b5",
+      "bytes": 1190436,
+      "url": "https://hal.science/hal-03441476/file/GDavid_LIBS_Icarus_2021.pdf",
+      "kind": "downloaded_primary_source"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/GDavid_LIBS_Icarus_2021.txt",
+      "sha256": "49bc8bfdadecf47d5ac568ef2fafef75992f5cd87e25f9f8c12c84bae3ed3cfe",
+      "bytes": 116066,
+      "url": null,
+      "kind": "local_review_or_extraction"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/Tables_SM.zip",
+      "sha256": "c929f6c4f8a608428767b6529f6683ec860e20c5cda10bb365e6e3a4775f0c79",
+      "bytes": 4167558,
+      "url": "https://zenodo.org/api/records/3903074/files/Tables%20SM.zip/content",
+      "kind": "downloaded_primary_source"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/conditional_bound_recalculation.json",
+      "sha256": "6eb766f3b4619be9ad51dc5687eb47b1867840773e52c31f45520b9390b250c5",
+      "bytes": 1008,
+      "url": null,
+      "kind": "local_review_or_extraction"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/david2020_hal_metadata.json",
+      "sha256": "6e2596e3d8268649d985a7febc731cf70594bbedddec78109a9421e9183ebc3a",
+      "bytes": 600,
+      "url": "https://api.archives-ouvertes.fr/search/?q=doiId_s%3A10.1029%2F2019JE006314&fl=title_s%2Curi_s%2CfileMain_s%2Cfiles_s%2Cdocid%2ChalId_s%2CdoiId_s&wt=json",
+      "kind": "downloaded_primary_source"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/get_marquet_service.html",
+      "sha256": "d2fb4708ea0f4c1c61d96f287ac3031730e68754f0a86d148daa459853774ef8",
+      "bytes": 83396,
+      "url": "https://www.get.omp.eu/event/seminaire-pole-geochimie-experimentation-30-novembre-2021-14h00-hr-icpms-par-aurelie-marquet/",
+      "kind": "downloaded_primary_source"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/icarus2021_hal_metadata.json",
+      "sha256": "532b6aed7dbf89b5932820f99063182fd24156141cffe0c54ffda2c0f99a46ed",
+      "bytes": 2669,
+      "url": "https://api.archives-ouvertes.fr/search/?q=doiId_s%3A10.1016%2Fj.icarus.2021.114481&fl=title_s%2Curi_s%2CfileMain_s%2Cfiles_s%2Cdocid%2ChalId_s%2CdoiId_s%2Cabstract_s&wt=json",
+      "kind": "downloaded_primary_source"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/icarus_methods_page9.png",
+      "sha256": "c846201f21576382f345aaf8e89149eb1fbdeee39e78ec70e9715ca9e11d9091",
+      "bytes": 268889,
+      "url": null,
+      "kind": "local_review_or_extraction"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/search_scope.json",
+      "sha256": "2debdccefdbc3827f77feda57b9c5c135c38119f9ea0a1172fa9f3fec3fb2f2f",
+      "bytes": 1016,
+      "url": null,
+      "kind": "local_review_or_extraction"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/table_s2_metadata_review.json",
+      "sha256": "36cdb31256fc64aeab11bbd490d127a99530769c70c0ccd9e44ade88b6bbd65e",
+      "bytes": 1143,
+      "url": null,
+      "kind": "local_review_or_extraction"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/tables_archive_inventory.json",
+      "sha256": "0e61fa664637762812b09749c1504d464cd3dded18154144b9c222419abe9012",
+      "bytes": 274,
+      "url": null,
+      "kind": "local_review_or_extraction"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/thesis_assay_context.txt",
+      "sha256": "3025097f038d0fff6a67fc9e83400adf21039baa7e6653d88b2f88d689261e40",
+      "bytes": 21373,
+      "url": null,
+      "kind": "local_review_or_extraction"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/thesis_text_search.json",
+      "sha256": "ebedf750b32fc81caa0cdff64330d82b34371ae4a551d67a48118efbabbe25b6",
+      "bytes": 455,
+      "url": null,
+      "kind": "local_review_or_extraction"
+    },
+    {
+      "path": "data/raw/final_gap_v8_mg_assay/zenodo_3903074_metadata.json",
+      "sha256": "a1c145932de04c6855320b7e07b06cfaf2323e7780d95133da83102b3af85f39",
+      "bytes": 3812,
+      "url": "https://zenodo.org/api/records/3903074",
+      "kind": "downloaded_primary_source"
+    }
+  ],
+  "applicability": {
+    "assay_method": "LA-ICP-MS",
+    "assay_spots": 8,
+    "approximate_spot_diameter_um": 60,
+    "quantitative_MgO_values_confirmed": true,
+    "point_value_is_absence": false,
+    "specific_instrument": null,
+    "facility_assignment_to_this_assay": "not established; thesis broadly thanks OMP staff, including Chmeleff and Marquet",
+    "external_standard": null,
+    "internal_standard_or_normalization": null,
+    "Mg_isotope_or_interference_correction": null,
+    "recovery_or_accuracy_bound": null,
+    "total_uncertainty": null,
+    "reported_scatter_can_include_heterogeneity": true,
+    "generic_GET_capability_transferred": false,
+    "formal_branded_CoA_required": false
+  },
+  "conditional_calculation": {
+    "unit": "MgO_wt_percent",
+    "values": [
+      0.00607389,
+      0.00656981,
+      0.00698923,
+      0.00744733,
+      0.00697457,
+      0.00818041,
+      0.00791312,
+      0.00841815
+    ],
+    "n": 8,
+    "mean": 0.00732081375,
+    "std_ddof1": 0.0008157856513279085,
+    "conditional_one_sided_95_mean_upper": 0.007867255278508728,
+    "formula": "mean + t.ppf(0.95, 7) * sample_std / sqrt(8)",
+    "total_measurement_uncertainty": null,
+    "applicable_Mg_systematic_bias_bound": null,
+    "assumed_zero_method_bias": false,
+    "conditional_assumptions": [
+      "independent representative observations",
+      "appropriate normal sampling model for t bound",
+      "quantitative scale and common method bias not independently bounded here"
+    ],
+    "operational_negative_max": 0.1,
+    "sensitivity_only": {
+      "additive_underestimation_to_reach_cutoff": 0.09213274472149127,
+      "multiplicative_factor_to_reach_cutoff": 12.71091333125718,
+      "recovery_fraction_to_reach_cutoff": 0.07867255278508728,
+      "not_empirical_recovery": true
+    }
+  },
+  "archive_review": {
+    "record": 3903074,
+    "published_MD5": "788dcb0f4b74b050c0ce27f14d242981",
+    "MD5_verified": true,
+    "members": [
+      "Table S2.xlsx",
+      "Table S3.xlsx",
+      "Table S4.xlsx"
+    ],
+    "members_decompressed": [
+      "Table S2.xlsx"
+    ],
+    "S2_matches_existing_bytes": true,
+    "S2_metadata_comments": [],
+    "S3_S4_opened": false,
+    "publisher_SI_zip_access": "HTTP403; unreviewed; no assumption of identity with Zenodo tables archive"
+  },
+  "related_work": {
+    "doi": "10.1016/j.icarus.2021.114481",
+    "author_HAL": "hal-03441476v1",
+    "pages": 34,
+    "relevant_methods_pdf_pages": [
+      9,
+      10
+    ],
+    "conclusion": "References literature JSC compositions and does not establish GOE100 Mg calibration, recovery or error. Normalized JSC table values cannot establish LA-ICP-MS normalization for GOE100."
+  },
+  "limitations": [
+    "Negative search finding is restricted to reviewed sources, not proof that no laboratory QA exists.",
+    "Thesis PDF text extraction was supplemented by visual review of assay FigureC3; other raster-only content may not be covered by keyword search.",
+    "Original publisher supplementary ZIP remained unavailable.",
+    "No assumption that near-stoichiometric Fe proves independently calibrated Mg or a particular data reduction algorithm."
+  ],
+  "minimum_useful_next_evidence": [
+    "Applied calibration/internal standard with an applicable control-material accuracy or recovery check",
+    "An applicable independent quantitative assay of the same prepared material with stated uncertainty",
+    "A method-specific accuracy bound demonstrably linked to this assay rather than generic facility capability"
+  ],
+  "admission_change": null
+}

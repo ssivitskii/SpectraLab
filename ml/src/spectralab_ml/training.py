@@ -85,6 +85,7 @@ def make_estimators(
 
 def calibration_partition(dataset: DatasetBundle, seed: int) -> tuple[np.ndarray, np.ndarray, dict]:
     """Split development by base ID; variations of a sample never cross roles."""
+    dataset.validate()
     ids = np.asarray(dataset.validation.base_sample_ids)
     unique = np.asarray(sorted(set(ids)))
     if len(unique) < 2:
@@ -151,6 +152,12 @@ def train_and_save_models(
         reliability_metrics,
     )
 
+    dataset.validate(expected_features=len(preprocessor.model_grid))
+    if not dataset.records:
+        raise ValueError("Training dataset requires generation provenance records")
+    stages = {record["parameters"].get("ion_stage", 1) for record in dataset.records}
+    if len(stages) != 1:
+        raise ValueError("Training dataset must use a single declared ion stage")
     for key in (
         "source",
         "checksum_sha256",

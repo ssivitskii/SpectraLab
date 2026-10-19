@@ -1,0 +1,392 @@
+{
+  "schema_version": 1,
+  "audit_id": "final_gap_v7_bam310",
+  "audit_date": "2026-10-19",
+  "candidate": "BAM310 measured in RSC D4JA00377B",
+  "status": "blocked",
+  "admitted_controls": 0,
+  "final_metrics_status": "pending_no_final_score",
+  "scope": {
+    "new_standalone_measurement_payloads_requested": false,
+    "numeric_final_spectra_inspected": false,
+    "numeric_final_spectra_retained": false,
+    "model_executed_or_changed": false,
+    "authors_contacted": false,
+    "notebook_transport": "Source-only streaming inspection; outputs and attachments discarded and never exposed. Six filtered source extracts saved, no raw notebook payload saved. Code not executed."
+  },
+  "prior_chemistry": {
+    "evidence": {
+      "path": "data/raw/final_search_v6_other/bam310_certificate.pdf",
+      "bytes": 21283,
+      "sha256": "743237a611566d3b09c7c542448a3818bd7efaf87566af82cca0a29a3b3f8dc0"
+    },
+    "FeOT_interval_upper_wt_pct": 0.09224128928283643,
+    "interval_semantics": "95% confidence interval of certified mass fraction, not a pointwise absolute maximum",
+    "prospective_role": "operational low-Fe matrix control if linked certified material/region applicability is established; not strict absence and not historical reagent blank",
+    "Mg_role": "positive material, not Mg blank",
+    "certified_region_exclusions": "Outer mantle 5 mm wide and central region 20 mm in diameter",
+    "certificate_refetched": false
+  },
+  "closures_since_v6": [
+    {
+      "id": "BAM7-PUBLISHER",
+      "status": "closed_access_only",
+      "finding": "Main article retrieved via the institutional ORIGINAL bundle; the sole listed publisher supplement was retrieved via its current browser link and examined. The supplement contains 6 pages, figures S1–S11, showing distance and normalization results. It provides no raw manifest, wavelength medium, specimen region or session mapping.",
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v7_bam310/institution_bundles.json",
+          "bytes": 3167,
+          "sha256": "5889d0f6fc5c0619a02efe034fe9b6c50afa1a70b5d3a4dfe71c76ec30ed0a0b"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/institution_original.json",
+          "bytes": 2034,
+          "sha256": "cd91f2c1e54c060e9ab5febc2c3319194ed071568d5042c16dfa8990fa2f411c"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/institution_article.pdf",
+          "bytes": 1258469,
+          "sha256": "4069e54e2b424481329379b1dd58c926060f6fd0e5efaec6501bb5d64067bb21"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/institution_article.txt",
+          "bytes": 77875,
+          "sha256": "2286b01ff696ba4fe536e6b740d9b2dac9e981b37bdae137e97d2e588a129285"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/rsc_supplement.pdf",
+          "bytes": 1297507,
+          "sha256": "c88c2dce0c352b7d314ee021a572c859e0c730a2ab8cf0b4b152a3083316328a"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/rsc_supplement.txt",
+          "bytes": 3202,
+          "sha256": "7cf1a5d5789bc68157f77419e6ed6575201b648da2ee032aa11b709aac12d98d"
+        }
+      ],
+      "browser_record": {
+        "path": "data/raw/final_gap_v7_root/rsc_supplement_browser_record.json",
+        "bytes": 897,
+        "sha256": "8322fa1e2b8a7cb3d548b1cf8b7f53c4b9838facf4af34d2eef43c7276235468"
+      },
+      "primary_urls": [
+        "https://dspace.vut.cz/items/f4f95ec4-4bb5-40fe-8b32-c7a81b1b6955",
+        "https://pubs.rsc.org/ja/article/40/6/1552/852818/On-the-non-universality-of-distance-metrics-in",
+        "https://pubs.rsc.org/ja/article-supplement/852818/pdf/d4ja00377b1_suppl/"
+      ]
+    },
+    {
+      "id": "BAM7-AUTHOR-REPOS",
+      "status": "inspected",
+      "finding": "The author-site route yielded 28 JVrabel repositories and 9 PavelNedelnik repositories. Relevant current trees, branches, forks and six source-only notebooks were inspected; no BAM310 raw URL or acquisition map was found. Relevance is inferred from project names and code, not asserted as a publication-designated source of truth.",
+      "repositories": [
+        {
+          "name": "JVrabel/PAPER_distanceLIBS",
+          "commit": "fefbd37dd87dd2c761e1e3741852759a19a1ea00",
+          "finding": "One initial commit on 2024-10-17; only .gitignore and an empty README; master is the only branch."
+        },
+        {
+          "name": "JVrabel/similarity_metrics",
+          "commit": "7309fbb3029a93640d2199dbc0b12056df67a8af",
+          "finding": "Master is the only branch; no forks; latest commit dated 2023-04-17. The README links a public SharePoint folder; inspected source concerns ChemCam and the LIBS contest."
+        },
+        {
+          "name": "JVrabel/libs-metrics",
+          "commit": "582d001df11ee2993baeb155b5285146a9883cb6",
+          "finding": "Fork of PavelNedelnik/libs-metrics. The data README contains the placeholder {TODO}; no measured arrays appear in the current tree."
+        },
+        {
+          "name": "PavelNedelnik/libs-metrics",
+          "commit": "75102b739f460d52096baec2480093562e8b7356",
+          "finding": "The only listed fork is JVrabel/libs-metrics. The data README is a placeholder. The MIT software licence does not establish a licence for absent raw files."
+        }
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v7_bam310/author_home.html",
+          "bytes": 8388,
+          "sha256": "0c8e3d253d3d81852e986ab96eb696405e7fdbe2869b7cda3bba5a34cd235032"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/author_repos.json",
+          "bytes": 165053,
+          "sha256": "324dfcec5ea2708d76766f6070d22995631d82f2f45d03f5f4c2c037419479cd"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/nedelnik_repos.json",
+          "bytes": 58431,
+          "sha256": "0ae3d0026d92f92b5886d40fc0d417853660c632e1a473e046bd32115b598ade"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/paper_tree.json",
+          "bytes": 779,
+          "sha256": "9ddc868f1febdb64e502d6b073200f67147ac240c3d37ed298acf58e0c9fe067"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/paper_branches.json",
+          "bytes": 257,
+          "sha256": "ee5e9b2950a8199cc17450e2c76b943391bbdc582b9d1d6f59c5fa25d1b79ae2"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/paper_commits.json",
+          "bytes": 3596,
+          "sha256": "5559be182d1e24b1f0dea4e762c918e69d9a6e157d78a555e84ee5afd44de8ff"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/metrics_fork_repo.json",
+          "bytes": 18060,
+          "sha256": "99a3cb1d41af9bfd8c73d55d16ee44a9960c63e6054764474a286ff3954bbc20"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/metrics_fork_tree.json",
+          "bytes": 7347,
+          "sha256": "e2696ca11d290b8b2abceaebb0dae1672174aeee8e2e96388a89597a38c311cc"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/metrics_source_tree.json",
+          "bytes": 7211,
+          "sha256": "faf99f6a4b3f326a0a213daa54e7d2c54946c7f605543190ef49c87f2f6a0726"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/metrics_source_forks.json",
+          "bytes": 5850,
+          "sha256": "9640be7769c4adc575ea3e6f89543d49d3212245ee0e4db43050591bc3cb8ac3"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/similarity_tree.json",
+          "bytes": 6302,
+          "sha256": "7b06b6b9e1e1dc0a56cc86a5715420b07353c410ab27773cd741701e86203721"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/similarity_branches.json",
+          "bytes": 257,
+          "sha256": "9b0cf50f6825430644775c5f6cb836d58125d6f47626cc19e12549d47eada125"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/similarity_forks.json",
+          "bytes": 5,
+          "sha256": "2ba33ca0557f1bb5b7ba88d67f9d0093c7185a36ec51fe2b7bd9372d3e001d6d"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/similarity_readme.md",
+          "bytes": 394,
+          "sha256": "2eb4d9676fe3da76a16a24013ba15b1d90516bc635861a6ff12f594502f6a000"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/metrics_data_readme.txt",
+          "bytes": 75,
+          "sha256": "d0a27b87434e4529b3a044fcb1fdce67e42bfee8e352cfa81f89d5373ea5bdfb"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/metrics_license.txt",
+          "bytes": 1073,
+          "sha256": "645f93191c206dfdfbff968c11e93f6156f6fb66b4d44fb745e607cb17fbf7cb"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/similarity_license_commits.json",
+          "bytes": 5,
+          "sha256": "2ba33ca0557f1bb5b7ba88d67f9d0093c7185a36ec51fe2b7bd9372d3e001d6d"
+        }
+      ],
+      "code_only_extracts": [
+        {
+          "path": "data/raw/final_gap_v7_bam310/author_teaching_colab_source_only.json",
+          "bytes": 50582,
+          "sha256": "a4d71d86bde68c00e86784aedd087062fa449c5929a2442cd16806a004f17842"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/libs-metrics_example.ipynb.source_only.json",
+          "bytes": 3240,
+          "sha256": "0212a2829cc12c2dac118d17fb81171b0193b5a8f6994e37403eaa6a9e67cffa"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/similarity_comment_colab_source_only.json",
+          "bytes": 54582,
+          "sha256": "a0f4bacc1e7866454a3ef6a44f399484c2ed69dd47710551472105d384a36ce2"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/similarity_metrics_example.ipynb.source_only.json",
+          "bytes": 48408,
+          "sha256": "aa4921c8131d607c9200f071fb3a4ab3c5ff1f07f4a8855461d0dbf6c45d27fd"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/similarity_metrics_modularize.ipynb.source_only.json",
+          "bytes": 52398,
+          "sha256": "2db2a9463c87a66a3bae5354c8fdcbec4e2c1edae9dea17d49996fbab9d66f87"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/similarity_metrics_triplets_test.ipynb.source_only.json",
+          "bytes": 3522,
+          "sha256": "583792aa0529741be9be7e5e77bd5f32031f10424ad99aff9ad8ea3425c6d490"
+        }
+      ]
+    },
+    {
+      "id": "BAM7-SHAREPOINT",
+      "status": "closed_access_only_wrong_dataset",
+      "finding": "The initial HTTP 403 was resolved using an ordinary anonymous public-link cookie session. The metadata API lists four files associated with ChemCam; it does not identify a BAM310 manifest. None of the listed files was downloaded.",
+      "url": "https://vutbr-my.sharepoint.com/:f:/g/personal/vrabelj_vutbr_cz/Ev81fe8mqOhIkbQtf0XHKlEBgVrY1wo33dSv1Mzf1fwdiA?e=B7Y46h",
+      "resolved_folder": "/personal/vrabelj_vutbr_cz/Documents/spectra_similarity_datasets",
+      "files": [
+        {
+          "name": "labels.npy",
+          "bytes": 7660,
+          "unique_id": "8f2a8402-7a51-40ec-968d-413365e49bc3",
+          "created_at": "2023-03-21T13:45:20Z",
+          "modified_at": "2023-03-21T13:45:20Z"
+        },
+        {
+          "name": "corrected_chemcam_spectra.npy",
+          "bytes": 462992168,
+          "unique_id": "c167f245-a720-4685-805c-5c58a15d891b",
+          "created_at": "2023-03-21T13:45:19Z",
+          "modified_at": "2023-03-21T13:45:31Z"
+        },
+        {
+          "name": "chemcam_extended2015_v_a.h5",
+          "bytes": 95396878,
+          "unique_id": "c2ec17c9-9eaa-4d3e-a180-9c8822bbd3c2",
+          "created_at": "2023-03-21T13:45:19Z",
+          "modified_at": "2023-03-21T13:45:22Z"
+        },
+        {
+          "name": "ech_grid_reduced.npy",
+          "bytes": 246008,
+          "unique_id": "3407ac3c-2b87-4640-a392-a9830bb59fd2",
+          "created_at": "2023-03-21T13:45:19Z",
+          "modified_at": "2023-03-21T13:45:19Z"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v7_bam310/sharepoint_with_public_session.html",
+          "bytes": 399529,
+          "sha256": "7fddecd9aea8573bcbd3f5cf09fb13068fa26a94af8205f684bcb1f1b7524b61"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/sharepoint_file_metadata.json",
+          "bytes": 2901,
+          "sha256": "cd946f38b435f4d27ec8b1b12988ffe5201764df226979cd524a608319dec06f"
+        }
+      ]
+    },
+    {
+      "id": "BAM7-PREPARATION",
+      "status": "new_historical_evidence_not_linked_to_2025",
+      "finding": "The habilitation embeds article C6JA00322B (2016), not the 2025 article D4JA00377B. PDF page 174 describes BAM310 among aluminium CRMs: 3 µm and 1 µm diamond polishing, an ethanol wipe, 200 shots with one pulse per spot, and a 200 µm step. The aluminium settings table gives 50 mJ, a 1.5 µs delay and a 50 µs gate. It does not locate craters within the region covered by the BAM certificate or link these records to the 2025 sessions and files.",
+      "url": "https://www.vut.cz/en/board/habilitation?action=priloha&priloha=192931",
+      "article_doi": "10.1039/C6JA00322B",
+      "same_session_as_2025": null,
+      "identity_relation": "Unknown. Do not transfer the historical preparation procedure to the 2025 data or assume an independent physical disk.",
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v7_bam310/porizka_habilitation.pdf",
+          "bytes": 5029723,
+          "sha256": "99100369d01763a0b8a442c48fe794fa9df8deece611b617ce9f63eae7e4b914"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/porizka_habilitation.txt",
+          "bytes": 1050462,
+          "sha256": "f9014d363d0417468d6d5b23bf7248de74042125cbfdf9697c8760a3f854faa1"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/porizka_habilitation_p174.png",
+          "bytes": 544239,
+          "sha256": "bdfac31a182b7996c7180d206d2a350a9d629e9a4938341c8668522404365710"
+        }
+      ]
+    },
+    {
+      "id": "BAM7-AXIS",
+      "status": "manufacturer_route_inspected_specific_session_unresolved",
+      "finding": "The official Catalina FAQ describes EMU120/65 Hg/Ar three-point KestrelCal calibration with reference values including 253.652 nm and 811.531 nm; KestrelSpec export and DLL options are documented. The inspected manufacturer pages and LIBSoft manual do not establish the actual calibration file, selected line convention or post-export conversion used for the 2025 BAM data. Do not infer the measured-axis medium from the atmosphere or default reference values alone.",
+      "primary_urls": [
+        "https://www.catalinasci.com/frequently_asked_questions.cfm",
+        "https://www.catalinasci.com/kestrelspec.cfm",
+        "https://www.catalinasci.com/emu.cfm",
+        "https://www.appliedphotonics.co.uk/images/PDFs/User%27s%20manuals/LIBSoft%202020%20Software%20User%27s%20Manual%20%28Rev%2011%29.pdf"
+      ],
+      "evidence": [
+        {
+          "path": "data/raw/final_gap_v7_bam310/catalina_faq.html",
+          "bytes": 14762,
+          "sha256": "192eabf38cea9d35ab90165789fe6a30493ab22b350e666537f434a4391aecb0"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/catalina_kestrelspec.html",
+          "bytes": 8913,
+          "sha256": "b9da27729c6f58c7993089ab0092a224ce085bf841c7ad36791f902f5885f5b7"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/catalina_emu.html",
+          "bytes": 9352,
+          "sha256": "4b90b234e710d427d11103e39e73c3eea88956a37d24056127ba5d51358a881a"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/catalina_libsoft_manual.pdf",
+          "bytes": 9842821,
+          "sha256": "ba6e562378b3777707d7571718464b25f14c8dcdeba2eb398a13c917122fd191"
+        },
+        {
+          "path": "data/raw/final_gap_v7_bam310/catalina_libsoft_manual.txt",
+          "bytes": 250013,
+          "sha256": "418954eae9c592a340b6ec91e0dcaef62b181b330c3205d18329ffba9de3676d"
+        }
+      ]
+    }
+  ],
+  "licence_assessment": {
+    "historic_article_pdf": "CC BY 3.0",
+    "current_publisher_HTML": "CC BY 4.0, observed in the browser record",
+    "version_discrepancy_preserved": true,
+    "libs_metrics_software": "An MIT licence file is present.",
+    "similarity_metrics_software": "The README declares MIT, but its LICENSE target is absent from the current tree and the queried history for that path is empty.",
+    "BAM310_numeric_files": "Files are not identified and their licence is not established. Article and software permissions cannot establish permission for an absent measurement archive."
+  },
+  "blocking_gates": [
+    {
+      "id": "BAM7-RAW",
+      "requirement": "Numerical BAM310 spectra and a licensed file manifest",
+      "status": "not_established",
+      "reason": "The official article and supplement do not identify a FeAl raw release. The public author folder lists ChemCam-related files; inspected source code contains a data placeholder or contest paths."
+    },
+    {
+      "id": "BAM7-REGION",
+      "requirement": "Applicability of the certificate to the prepared, measured material",
+      "status": "not_established",
+      "reason": "The certificate excludes specified regions. No record links the actual disk, lot or independent assay, preparation and crater locations to measurement files. The 2016 preparation record is not linked to the 2025 measurements."
+    },
+    {
+      "id": "BAM7-MEDIUM",
+      "requirement": "Air or vacuum convention of the measured axis, or a fully documented conversion",
+      "status": "not_established",
+      "reason": "A manufacturer calibration procedure and the acquisition atmosphere do not establish the convention of the actual BAM export. Its selected calibration record is unavailable."
+    },
+    {
+      "id": "BAM7-INDEPENDENCE",
+      "requirement": "Physical, family, session and measurement identities checked against all previously seen records",
+      "status": "not_cleared",
+      "reason": "The identity chain is missing. A different publication year or a new filename does not establish independence."
+    },
+    {
+      "id": "BAM7-GEOMETRY",
+      "requirement": "Usable wavelength grid, coverage and a preregistered mapping",
+      "status": "not_checked",
+      "reason": "The standalone BAM measurement files have not been identified. A nominal paper grid does not verify each file or the instrument response."
+    }
+  ],
+  "domain_note": "A different instrument alone would permit a separately preregistered campaign using fixed weights and thresholds, with explicitly limited out-of-domain claims. The within-domain guard must not be silently bypassed. BAM310 is not blocked solely by the instrument difference.",
+  "required_next_existing_records": [
+    "A licensed FeAl dataset manifest with BAM310 filenames and checksums.",
+    "An existing laboratory record linking the BAM310 disk, prepared certified region, spot coordinates and measurement sessions to those files.",
+    "The actual instrument calibration or export record specifying air or vacuum wavelengths and any conversion.",
+    "Material, family, session and assay identifiers sufficient to check overlap with the history of previously seen records."
+  ],
+  "no_new_measurements_or_purchase_required_by_this_request": true,
+  "snapshot_manifest": {
+    "path": "data/raw/final_gap_v7_bam310/snapshot_manifest.json",
+    "bytes": 36688,
+    "sha256": "204ced7ee97faa1cf7ebf521bc44c40679b743d82db0e8b61176cc6985fb3fde"
+  },
+  "snapshot_count": 66
+}

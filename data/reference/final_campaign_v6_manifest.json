@@ -1,0 +1,91 @@
+{
+  "schema_version": 3,
+  "campaign_id": "pending-independent-fe-mg-final-v6",
+  "evaluation_role": "independent_final",
+  "assessment_mode": "binary_score_threshold_only",
+  "selection_basis": "metadata_only_before_scores",
+  "selection_frozen_before_predictions": false,
+  "estimand": "operational_above_threshold",
+  "data_source": {},
+  "profile": {
+    "identity": "5be343aacc7d356911e3490ee9b2c22d38f5f62ea2ba7f3e2ccc39c30eabf933",
+    "instrument_id": "chemcam-lanl-testbed",
+    "class_order": [
+      "Na",
+      "Mg",
+      "Ca",
+      "Fe"
+    ],
+    "thresholds": {
+      "Na": 0.10825272614392062,
+      "Mg": 0.9945672395383269,
+      "Ca": 0.6795050836572871,
+      "Fe": 0.7185455426436053
+    },
+    "artifact_files": [
+      {
+        "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json",
+        "sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5"
+      }
+    ],
+    "units": "nm",
+    "medium": "vacuum",
+    "required_intervals_nm": [
+      [
+        241.0,
+        340.0
+      ],
+      [
+        383.0,
+        468.0
+      ],
+      [
+        474.0,
+        900.0
+      ]
+    ],
+    "max_sampling_step_nm": 0.5,
+    "max_resolution_fwhm_nm": 0.65,
+    "require_positive_signal": true
+  },
+  "support_policy": {},
+  "implementation_files": [
+    {
+      "path": "ml/src/spectralab_ml/workflow_cli.py",
+      "sha256": "d56d8efa38c2d319470f587ec05ab35beeb196d70bd11f167ef758820c5b4f13"
+    },
+    {
+      "path": "ml/src/spectralab_ml/inference/measured.py",
+      "sha256": "c4bd3f5de761bda6d9c3f94836362b6e0e7752cc78112d52c5429a09832610cc"
+    },
+    {
+      "path": "ml/src/spectralab_ml/data/measured_spectra.py",
+      "sha256": "7f81222d772a39da5c2334caaa1314bbdcd812d3130a9f2d9dc193cf41a1a284"
+    },
+    {
+      "path": "ml/src/spectralab_ml/models/line_adapter_v3.py",
+      "sha256": "497c601766526fa478858a2346877a6799d8f4db24b33a8d2c47d445c9a3a62c"
+    },
+    {
+      "path": "ml/src/spectralab_ml/models/line_adapter_v2.py",
+      "sha256": "2b363ff02d32b066bde2f94f6076d81e29450b4bbb566f7dd3b3f637d71a26c4"
+    },
+    {
+      "path": "ml/src/spectralab_ml/evaluation/real_validation.py",
+      "sha256": "2e6ff5a038d7aea41788651bb3bf554029d07c4e0df8e5077bd304fcf87ae584"
+    },
+    {
+      "path": "ml/src/spectralab_ml/preprocessing/pipeline.py",
+      "sha256": "acbee9a0de503fb254e79df8238e98fcc13525b7b2724904f6f57c3f74a16c60"
+    },
+    {
+      "path": "ml/src/spectralab_ml/models/calcium_adapter_v4.py",
+      "sha256": "e393db45efc85a24f08b0dce04fc4bab998f0a9c9685853e107078ed01e6c460"
+    },
+    {
+      "path": "ml/src/spectralab_ml/models/calcium_ensemble_v4.py",
+      "sha256": "9de2f7aaafc75eb4065c6f2333faa548032b56f6b5802c6bca7210afb13ebf9d"
+    }
+  ],
+  "samples": []
+}

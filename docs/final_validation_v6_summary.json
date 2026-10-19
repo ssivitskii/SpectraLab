@@ -1,0 +1,1140 @@
+{
+  "schema_version": 1,
+  "artifact_type": "independent_final_source_search_summary",
+  "reviewed_at": "2026-10-19T19:35:49.749389+00:00",
+  "status": "blocked_no_qualified_independent_campaign",
+  "scope": "bounded_primary_evidence_search_and_existing_profile_binding_not_final_evaluation",
+  "candidate_audit_entries": 22,
+  "entries_are_not_unique_datasets": true,
+  "entries_include_explicit_revisits": true,
+  "candidate_audits": [
+    {
+      "path": "data/reference/final_search_v6_pds.json",
+      "sha256": "c1944417ca2dd32fc31e93730d9391c68e62614a24b3b04eb432b1a04f615bd7",
+      "bytes": 29474,
+      "candidate_entries": 8
+    },
+    {
+      "path": "data/reference/final_search_v6_other.json",
+      "sha256": "45656092a573d07e4f1bb221ed9fab1f313be2579984fa35a9a1f3edcc5e5992",
+      "bytes": 32919,
+      "candidate_entries": 8
+    },
+    {
+      "path": "data/reference/final_search_v6_root.json",
+      "sha256": "e8b61a7c51a843eb0bc7041673d88967ebb84e1cc6012d21c720348a4a99ee71",
+      "bytes": 15434,
+      "candidate_entries": 6
+    }
+  ],
+  "additional_feasibility_audit": {
+    "path": "data/reference/final_search_v6_feasibility.json",
+    "sha256": "01a5e1ca5a83a265ba58e2c7f517a900fa2ef717e6605fa5e82a05d01ac8330a",
+    "bytes": 23144
+  },
+  "snapshot_files": 99,
+  "snapshot_count_includes": [
+    "primary_metadata",
+    "papers",
+    "certificates",
+    "chemical_tables",
+    "derived_text",
+    "document_renders",
+    "explicit_access_errors"
+  ],
+  "snapshot_count_is_not_source_or_sample_count": true,
+  "evidence_snapshots": [
+    {
+      "path": "data/raw/final_search_v6_feasibility/aalto_calibration.html",
+      "sha256": "9de776ea7b0d8aa6bd947a72676051f9ee74114a97cd6c25d491aab9324351cd",
+      "bytes": 5952,
+      "url": "https://users.aalto.fi/~lainei1/pages/calibration/",
+      "findings": {
+        "calibration": "quadratic matching of theoretical element and ambient O/N lines",
+        "axis_medium_explicit": false,
+        "atmosphere_not_axis_convention": true
+      }
+    },
+    {
+      "path": "data/raw/final_search_v6_feasibility/aalto_datasets.html",
+      "sha256": "002c40fa5659cab2d86a3afc2b38facc2c72147eb822701a1955795edef7a2c8",
+      "bytes": 5912,
+      "url": "https://users.aalto.fi/~lainei1/pages/datasets/",
+      "findings": {
+        "pure_elements_license": "CC0",
+        "raw_pure_elements_dataset_link": "TODO",
+        "new_lot_evidence_found": false
+      }
+    },
+    {
+      "path": "data/raw/final_search_v6_feasibility/aalto_hardware.html",
+      "sha256": "e05b57875d27ef7ed06c4537ff694f32f46484043130dda20d48c34368659fbe",
+      "bytes": 6882,
+      "url": "https://users.aalto.fi/~lainei1/pages/LASOLIBS/",
+      "findings": {
+        "nominal_channels_nm": [
+          [
+            200,
+            400
+          ],
+          [
+            350,
+            950
+          ]
+        ],
+        "spectrometer": "AvaSpec-ULS-4096CL-EVO",
+        "configuration_year": 2023,
+        "not_actual_export_coverage": true
+      }
+    },
+    {
+      "path": "data/raw/final_search_v6_other/atomic_cu_metadata.json",
+      "bytes": 10789,
+      "sha256": "4d2ce4a0bceddbc3c504bb6f95946381c8902122d14a7712f154e9c315b762bc",
+      "url": "https://api.datacite.org/dois/10.25583/1616321",
+      "kind": "repository_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:25:12.462150+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/bam310_certificate.pdf",
+      "bytes": 21283,
+      "sha256": "743237a611566d3b09c7c542448a3818bd7efaf87566af82cca0a29a3b3f8dc0",
+      "url": "https://rrr.bam.de/RRR/Content/DE/Downloads/RM-Zertifikate/RM-Nichteisenmetalle/Aluminium/bam_310.pdf?__blob=publicationFile",
+      "kind": "certificate",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:14.148145+00:00",
+      "content_validation": "pdf",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/bam310_certificate.txt",
+      "bytes": 6129,
+      "sha256": "db72143f74fdc9cf920243949ccd924922e58ad7b2d7cb02352612ba08655e35",
+      "kind": "derived_metadata_or_document_render",
+      "derived_from": "data/raw/final_search_v6_other/bam310_certificate.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/bam310_certificate_p1.png",
+      "bytes": 155787,
+      "sha256": "254f4ae3790cd553d87f94d000c22506dfcc0924f28c788b55d547c143aeb282",
+      "kind": "derived_metadata_or_document_render",
+      "derived_from": "data/raw/final_search_v6_other/bam310_certificate.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/bam310_certificate_page.html",
+      "bytes": 25194,
+      "sha256": "6787561c8482c67ef3d056f6a93268ffeeb68174c0681015fdc2d890e73259cb",
+      "url": "https://rrr.bam.de/RRR/Content/DE/Downloads/RM-Zertifikate/RM-Nichteisenmetalle/Aluminium/bam_310.html",
+      "kind": "certificate_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:32.876985+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/darus_search.json",
+      "bytes": 144,
+      "sha256": "49f9a5a0307d7622b949e8d661180ed142a7b70f5623ccf0c08790ee87fb817c",
+      "url": "https://darus.uni-stuttgart.de/api/search?q=%22laser-induced+breakdown%22&type=dataset&per_page=100",
+      "kind": "search_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:33.719251+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/datacite_search_axis.json",
+      "bytes": 191502,
+      "sha256": "371998d805dc302a9f365a67e11baaf86a3be31d340e90b4b430a6506e06d243",
+      "url": "https://api.datacite.org/dois?query=%22LIBS%22+AND+%28%22air+wavelength%22+OR+%22vacuum+wavelength%22%29&page%5Bsize%5D=100",
+      "kind": "search_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:34.029504+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/datacite_search_certified.json",
+      "bytes": 836059,
+      "sha256": "2e984212e60a957ac46b7f503133bf882a727660303667d4c889ddf40e0467ec",
+      "url": "https://api.datacite.org/dois?query=%22laser-induced+breakdown%22+AND+%28certified+OR+NIST+OR+BAM+OR+standard%29&page%5Bsize%5D=100",
+      "kind": "search_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:34.700807+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/datacite_search_certified_p2.json",
+      "bytes": 179286,
+      "sha256": "a9fb8072be98a9c7e05aaceb042a44dd3b652457564a10b0725f31f95cd6c1eb",
+      "url": "https://api.datacite.org/dois?query=%22laser-induced+breakdown%22+AND+%28certified+OR+NIST+OR+BAM+OR+standard%29&page%5Bsize%5D=100&page%5Bnumber%5D=2",
+      "kind": "search_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:16.405081+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/datacite_search_metals.json",
+      "bytes": 697240,
+      "sha256": "f7bd224a1d3434cbb55a56f65f92fee467a2c7e300d59a151a41a31e3b8d8010",
+      "url": "https://api.datacite.org/dois?query=%22laser-induced+breakdown%22+AND+%28aluminium+OR+aluminum+OR+copper+OR+zinc+OR+graphite+OR+blank%29&page%5Bsize%5D=100",
+      "kind": "search_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:34.437693+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/datacite_search_metals_p2.json",
+      "bytes": 263678,
+      "sha256": "fac2b6a8b6c09379a98c1531acc41e39b159383066929fa9dfb5bdda94dce089",
+      "url": "https://api.datacite.org/dois?query=%22laser-induced+breakdown%22+AND+%28aluminium+OR+aluminum+OR+copper+OR+zinc+OR+graphite+OR+blank%29&page%5Bsize%5D=100&page%5Bnumber%5D=2",
+      "kind": "search_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:16.306193+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/distance_metrics_es.pdf",
+      "bytes": 5512,
+      "sha256": "a00209849071967aaafd39b75d4706ac7da0c0e7dab9f3d01c8ff9adcadead8d",
+      "url": "https://pubs.rsc.org/es/content/articlepdf/2025/ja/d4ja00377b",
+      "kind": "paper",
+      "http_status": "403",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:13.923252+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/distance_metrics_page.html",
+      "bytes": 5515,
+      "sha256": "8c9675eed5e2126b1812c85eb5fd02431df2f172cb4bb5c73d0168d9c74c38e2",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2025/ja/d4ja00377b",
+      "kind": "paper",
+      "http_status": "403",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:33.103483+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/distance_metrics_paper.pdf",
+      "bytes": 5512,
+      "sha256": "8f99f69e9888ac29d93f3b2b5f6de80ad55c152be3e13f972741914ac5cf9635",
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2025/ja/d4ja00377b",
+      "kind": "paper",
+      "http_status": "403",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:32.779599+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/distance_metrics_supplement.pdf",
+      "bytes": 155266,
+      "sha256": "8ccb4077a77ebd6e7e657a0187bbe683b26f3505302c384aa4de2ce786a483f6",
+      "url": "https://www.rsc.org/suppdata/d4/ja/d4ja00377b/d4ja00377b1.pdf",
+      "kind": "paper_supplement",
+      "http_status": "404",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:14.502304+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/empirical_models_zenodo10557230.json",
+      "bytes": 4585,
+      "sha256": "1626af9e029d2755d803e1813fd7af66b01b97fa62d630016de0cdbea696c098",
+      "url": "https://zenodo.org/api/records/10557230",
+      "kind": "repository_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:15.087059+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/feature_detection_fi.pdf",
+      "bytes": 5512,
+      "sha256": "1af6fb48e3377d697a35957d26cbc0ced9804d9c0cf47a3d6a8f98383946c40c",
+      "url": "https://pubs.rsc.org/fi/content/articlepdf/2024/ja/d4ja00247d",
+      "kind": "paper",
+      "http_status": "403",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:14.042753+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/feature_detection_page.html",
+      "bytes": 5515,
+      "sha256": "87201dc17d08f741ba24d65b42e155da2ec07cc1b7d221f6f52810cbceb3b4f4",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2024/ja/d4ja00247d",
+      "kind": "paper",
+      "http_status": "403",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:33.150274+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/feature_detection_paper.pdf",
+      "bytes": 5512,
+      "sha256": "363e8aa50dc0b9f6306063b3b84569af9002e176cdddb482e569935c0413c12d",
+      "url": "https://pubs.rsc.org/en/content/articlepdf/2024/ja/d4ja00247d",
+      "kind": "paper",
+      "http_status": "403",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:32.774431+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/feature_detection_supplement.pdf",
+      "bytes": 155266,
+      "sha256": "e1bd4398da920ccf5c2c2899d21009b1dc9135dc4a236092f09f253f1193b257",
+      "url": "https://www.rsc.org/suppdata/d4/ja/d4ja00247d/d4ja00247d1.pdf",
+      "kind": "paper_supplement",
+      "http_status": "404",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:14.476728+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/feature_detection_tuwien_page.html",
+      "bytes": 30045,
+      "sha256": "3de12354cee214e00791f3420845cf63a015ffd3d14def84e458637a7ccfefd9",
+      "url": "https://repositum.tuwien.at/handle/20.500.12708/207959",
+      "kind": "repository_or_paper_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:21:56.643497+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/feature_detection_zenodo13762624.json",
+      "bytes": 4857,
+      "sha256": "4bafb50708dc655c4501f35e4db83107e69bee57dbb92ec7c01528183b04dcc3",
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.13762624",
+      "kind": "repository_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:32.873444+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/feature_detection_zenodo_api.json",
+      "bytes": 3625,
+      "sha256": "4958a112031d9c0d93ca10aaa1aff8d86b8845097b86c33179ff312bd57d0931",
+      "url": "https://zenodo.org/api/records/13762624",
+      "kind": "repository_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:33.196708+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/focused_medium_code_search.json",
+      "bytes": 32464,
+      "sha256": "dece8f7fec19b63bfd9ed58145008507012b0739cb6e398147870f8c4db477b6",
+      "kind": "web_search_primary_source_extract_with_other_hits_not_used_as_evidence"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/fsal_figshare_collection.json",
+      "bytes": 4917,
+      "sha256": "43989b97dd804741cdf36532a2d96bb3f8c7fc6dd905bb60f7c7865bd52a5a0b",
+      "url": "https://api.figshare.com/v2/collections/6759861",
+      "kind": "repository_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:15.470545+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/fsal_figshare_items.json",
+      "bytes": 1210,
+      "sha256": "fb9a0bc9212418b7dc1a3ab2423b12331c4612648bf2ca1a3351c062be28855d",
+      "url": "https://api.figshare.com/v2/collections/6759861/articles",
+      "kind": "repository_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:15.367456+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/fsal_figshare_supplement_metadata.json",
+      "bytes": 3824,
+      "sha256": "1816f96883c67fbfb89d8e538894c1f7339c12a4c48aabcd38c1bdcefd9235aa",
+      "url": "https://api.figshare.com/v2/articles/23757846",
+      "kind": "repository_or_paper_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:21:55.308875+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/fsal_supplement.pdf",
+      "bytes": 731133,
+      "sha256": "4956bc60bb19ef7b672374d0c8c4e2acfcf603ecc0250e9d7282eea5ccf6ac00",
+      "url": "https://ndownloader.figshare.com/files/52764965",
+      "kind": "paper_supplement",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:25:13.789949+00:00",
+      "content_validation": "pdf",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/fsal_supplement.txt",
+      "bytes": 4033,
+      "sha256": "4e75bae76051dc7c7d176c3e11a148b7fc1e63ec6074f660025c36b1a7056ba0",
+      "kind": "derived_metadata_or_document_render",
+      "derived_from": "data/raw/final_search_v6_other/fsal_supplement.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/libs_featex_repo.json",
+      "bytes": 132,
+      "sha256": "a298fd3d1a255b0eb21a952212460852e05ba9721d3445fb42d7ad054d88f94a",
+      "url": "https://api.github.com/repos/gajzuz/libs-featex",
+      "kind": "official_author_code_repository_metadata",
+      "http_status": "404",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:26:49.898834+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/libs_featex_tree.json",
+      "bytes": 124,
+      "sha256": "f7a7b61452f5bb2dfd8b3bf5048fddd43402ba6f148d6949bf4a4ddf6a56b91b",
+      "url": "https://api.github.com/repos/gajzuz/libs-featex/git/trees/main?recursive=1",
+      "kind": "official_author_code_repository_metadata",
+      "http_status": "404",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:26:49.640874+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/marburg_libs_metadata.json",
+      "bytes": 5556,
+      "sha256": "69a36ae5ae4ff5a6773c1c66b108c7a26c3bc66111115de29c1f03c795b262e0",
+      "url": "https://api.datacite.org/dois/10.17192/fdr/56",
+      "kind": "repository_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:14.741748+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/marburg_libs_page.html",
+      "bytes": 817046,
+      "sha256": "91345c861aa587a68e37941d9e3396126272d15b530ecda680d930dffa0a994c",
+      "url": "https://data.uni-marburg.de/handle/dataumr/121",
+      "kind": "repository_or_paper_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:21:57.769478+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/mendeley_salts_metadata.json",
+      "bytes": 5239,
+      "sha256": "e8354c5165f8c158bbf7ca1181b3de17d582221661f02ccd3b27c4859c5b39f7",
+      "url": "https://api.datacite.org/dois/10.17632/73jr9wpp3f.1",
+      "kind": "repository_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:15.278601+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/mendeley_salts_page.html",
+      "bytes": 119109,
+      "sha256": "9721c4854518bbe898b51683c4fb373c84cf47eaabd49d38a8b9fbd308201377",
+      "url": "https://data.mendeley.com/datasets/73jr9wpp3f/1",
+      "kind": "repository_or_paper_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:21:55.283640+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/nist1411_certificate.pdf",
+      "bytes": 177225,
+      "sha256": "d1071616a5c431ac6c2d286e2dff48c2a6aaaa9f580d73e928bb645800700a63",
+      "url": "https://www-s.nist.gov/srmors/certificates/1411.pdf",
+      "kind": "certificate",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:17:35.562104+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": false
+    },
+    {
+      "path": "data/raw/final_search_v6_other/nist1411_certificate_p1.png",
+      "bytes": 190217,
+      "sha256": "a672c7607ef4910492f6c0c842da6b0d95abac85bc56207c67467ecfe92965a6",
+      "kind": "derived_metadata_or_document_render",
+      "derived_from": "data/raw/final_search_v6_other/nist1411_official_certificate.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/nist1411_official_certificate.pdf",
+      "bytes": 220361,
+      "sha256": "42c25af08dc0e4e256f61e71f26ff3d43e3ae6d616a78abc644d5132e6086658",
+      "url": "https://tsapps.nist.gov/srmext/certificates/1411.pdf",
+      "kind": "certificate",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:15.563521+00:00",
+      "content_validation": "pdf",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/nist1411_official_certificate_p2.png",
+      "bytes": 63477,
+      "sha256": "b8ed95fd75fddc2010d15033264f527770330bfa2dd7feb75e34b47479b522f8",
+      "kind": "derived_metadata_or_document_render",
+      "derived_from": "data/raw/final_search_v6_other/nist1411_official_certificate.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/retrieval_manifest.json",
+      "bytes": 15731,
+      "sha256": "0a3f912a13c77c3fa7ec803a4bee293b806e5751de4c21bafd7708be841ab257",
+      "kind": "retrieval_log"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/rsc_feature_thesis.pdf",
+      "bytes": 7910687,
+      "sha256": "d3129e7898bbc4fa44c8482397fb27e27db554547bc461bfd1659e8a40734d02",
+      "url": "https://repositum.tuwien.at/bitstream/20.500.12708/200510/1/Gajarska%20Zuzana%20-%202024%20-%20Development%20of%20chemometric%20methods%20for%20the...pdf",
+      "kind": "primary_author_thesis",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:25:13.245137+00:00",
+      "content_validation": "pdf",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/rsc_feature_thesis.txt",
+      "bytes": 549134,
+      "sha256": "43169ef6a78925f6b3cdcb444640f5e0bf83494924bb374c62d1bb9924b739bf",
+      "kind": "derived_metadata_or_document_render",
+      "derived_from": "data/raw/final_search_v6_other/rsc_feature_thesis.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/rsc_primary_search_extract.json",
+      "bytes": 31560,
+      "sha256": "9a85ba785b3c3f1ea058cd71dda75c1e40b703142f4d975f35d5a3a1b2240e73",
+      "kind": "web_search_primary_source_extract_with_other_hits_not_used_as_evidence"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/sciencedb_graphite_croissant_0.json",
+      "bytes": 5093,
+      "sha256": "8e550bb9d06cd3bbf3b4b468a47f18320051a8130fb6bf739ab47bd2c10836f5",
+      "kind": "derived_metadata_or_document_render",
+      "derived_from": "data/raw/final_search_v6_other/sciencedb_graphite_page.html"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/sciencedb_graphite_metadata.json",
+      "bytes": 10858,
+      "sha256": "3d978f926d3588ef254bae13bcfefc2facad7beb09593417f2d0d527a5d12d99",
+      "url": "https://api.datacite.org/dois/10.57760/sciencedb.12638",
+      "kind": "repository_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:19:14.798576+00:00",
+      "content_validation": "json",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/sciencedb_graphite_page.html",
+      "bytes": 795588,
+      "sha256": "8f7d0a0341a0b2bdda88d28618082149f585d78a5f352d3f9f58e66946afd0f9",
+      "url": "https://www.scidb.cn/detail?dataSetId=74edeee5e913457181d03cb693ff79fe",
+      "kind": "repository_or_paper_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:21:56.322439+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/sus1r_certificate.pdf",
+      "bytes": 141481,
+      "sha256": "0a13e0663abb89f1132cd0fe7bcd1a8d2d6dee45b108ac5e25b6879a44639028",
+      "url": "https://webshop.bam.de/media/wysiwyg/Kategorien/Referenzmaterialien/Eisen_Stahl/Spektrometer_Einstellprobe/Zertifikate/sus_1rde.pdf",
+      "kind": "certificate",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:25:12.476676+00:00",
+      "content_validation": "pdf",
+      "successful_evidence_response": true
+    },
+    {
+      "path": "data/raw/final_search_v6_other/sus1r_certificate.txt",
+      "bytes": 4125,
+      "sha256": "13072cd96372cdfbd76d415ef146f783536e08da9971a7a405e0ed7dffa19ea5",
+      "kind": "derived_metadata_or_document_render",
+      "derived_from": "data/raw/final_search_v6_other/sus1r_certificate.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/sus1r_certificate_p2.png",
+      "bytes": 180841,
+      "sha256": "46febe403794e8b1a055712c89f9cde21ac39200c9faef9df318ce4085c836b0",
+      "kind": "derived_metadata_or_document_render",
+      "derived_from": "data/raw/final_search_v6_other/sus1r_certificate.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_other/sus1r_product.html",
+      "bytes": 72499,
+      "sha256": "144fb41bc36d000a600aec5d486d565e54763666613d089798a6acf5c65f453f",
+      "url": "https://webshop.bam.de/webshop_en/reference-material/iron-steel/sample-for-spectrometric-analysis/bam-sus-1r.html",
+      "kind": "primary_product_metadata",
+      "http_status": "200",
+      "curl_exit": 0,
+      "retrieved_at": "2026-10-19T19:25:12.891506+00:00",
+      "content_validation": "html_or_text",
+      "successful_evidence_response": true
+    },
+    {
+      "url": "https://actlabs.com/geochemistry-analysis/lithogeochemistry-and-whole-rock-analysis/lithogeochemistry-litho/",
+      "path": "data/raw/final_search_v6_pds/actlabs_lithogeochemistry.html",
+      "fetched_at": "2026-10-19T19:19:42.357949+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "3418f8723d7feba64d4358bcf08d2159d4d3eac812862b89210c425ed72a225a",
+      "bytes": 405896,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://actlabs.com/geochemistry-analysis/quality-assurance/",
+      "path": "data/raw/final_search_v6_pds/actlabs_quality.html",
+      "fetched_at": "2026-10-19T19:19:40.700249+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "d4c742f1787bd3a8412c65c4b9d6fa47a5b4a151d637ceedb69d35f2dd27c907",
+      "bytes": 128603,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://authors.library.caltech.edu/api/records/he2eq-rm869",
+      "path": "data/raw/final_search_v6_pds/anderson_record.json",
+      "fetched_at": "2026-10-19T19:22:31.642156+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "3fe6ae3d50439bc5ae8cb6d4b9a6f07b88fd0b4789efd801cdfffc48ebeef73a",
+      "bytes": 20667,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://thesis.caltech.edu/11803/14/anderson_dana_2020_thesis.pdf",
+      "path": "data/raw/final_search_v6_pds/anderson_thesis.pdf",
+      "fetched_at": "2026-10-19T19:22:33.850263+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "0c6b42e2d3af32fb866092d42303e28ca668a13792fa64570afbb5889b19e5dc",
+      "bytes": 9590307,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://thesis.caltech.edu/11803/",
+      "path": "data/raw/final_search_v6_pds/anderson_thesis_record.html",
+      "fetched_at": "2026-10-19T19:22:31.131651+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "f07c318e74034e638a8c42fe8b7629b87450234ea680bd3e68263ba78e82d054",
+      "bytes": 7530,
+      "source_status": "retrieved"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_chemistry_Table_S2.xlsx",
+      "sha256": "754efd08945f448b623084d84402691a6416173707f9236d2ecdd5f5c8cc41ed",
+      "bytes": 238978,
+      "kind": "chemical_compositions_and_filename_metadata",
+      "source_status": "derived_from_pinned_source",
+      "parent_path": "data/raw/final_search_v6_pds/david2020_tables.zip"
+    },
+    {
+      "url": "https://api.archives-ouvertes.fr/search/?q=doiId:10.1029/2019JE006314&fl=title_s,uri_s,fileMain_s,files_s,docid,halId_s&wt=json",
+      "path": "data/raw/final_search_v6_pds/david2020_hal_metadata.json",
+      "fetched_at": "2026-10-19T19:23:54.779165+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "b06688a7b8b577f623be74935e8fc7e333dd36cdafa51fa4fe1c3d6157118f24",
+      "bytes": 44,
+      "source_status": "API_error_response_not_evidence"
+    },
+    {
+      "url": "https://hal.science/hal-03093150/document",
+      "path": "data/raw/final_search_v6_pds/david2020_hal_paper.pdf",
+      "fetched_at": "2026-10-19T19:29:53.662911+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "86f81e40dc6c9fbb877f7b751ae0d3505fb33478878538e754f132b163e7f42f",
+      "bytes": 2614085,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://hal.science/hal-03093150",
+      "path": "data/raw/final_search_v6_pds/david2020_hal_record.html",
+      "fetched_at": "2026-10-19T19:29:53.258568+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "33055c7d2dce9e16122d4567f24f86757be26f49d59beafb95b09c502229d761",
+      "bytes": 117763,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://zenodo.org/api/records/3902232",
+      "path": "data/raw/final_search_v6_pds/david2020_lanl.json",
+      "fetched_at": "2026-10-19T19:21:31.386946+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "6a11626d4b02d9df6af0d3daa7620fd30a8c0f3e9f52193a2d3205476a4e75bf",
+      "bytes": 3843,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://zenodo.org/api/records/3903074",
+      "path": "data/raw/final_search_v6_pds/david2020_samples.json",
+      "fetched_at": "2026-10-19T19:21:31.319403+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "a1c145932de04c6855320b7e07b06cfaf2323e7780d95133da83102b3af85f39",
+      "bytes": 3812,
+      "source_status": "retrieved"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david2020_table_inventory.json",
+      "sha256": "454c0fa1845179c220b94ee7dfe6dbe5b64626fec4d2be8051c1e87273c9a411",
+      "bytes": 388,
+      "kind": "derived_archive_inventory",
+      "source_status": "derived_from_pinned_source",
+      "parent_path": "data/raw/final_search_v6_pds/david2020_tables.zip"
+    },
+    {
+      "url": "https://zenodo.org/api/records/3903074/files/Tables%20SM.zip/content",
+      "path": "data/raw/final_search_v6_pds/david2020_tables.zip",
+      "fetched_at": "2026-10-19T19:22:32.467584+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "c929f6c4f8a608428767b6529f6683ec860e20c5cda10bb365e6e3a4775f0c79",
+      "bytes": 4167558,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://utheme.utoulouse.fr/files/original/6881e73d8a132a8993d9e6ff378cbe77fdd8653f.pdf",
+      "path": "data/raw/final_search_v6_pds/david_thesis.pdf",
+      "fetched_at": "2026-10-19T19:27:58.742136+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "d5790ccde624fce8736a0711d09c56740cf20ffe1eb6b7dd6a34d3f1e867a1d8",
+      "bytes": 14323626,
+      "source_status": "retrieved"
+    },
+    {
+      "path": "data/raw/final_search_v6_pds/david_thesis_assay_C3.png",
+      "sha256": "4597d28f3bd26bf2ddb681d0e6fda84f3f4623fd1729f09937c90e42316aa14a",
+      "bytes": 1276284,
+      "kind": "rendered_assay_table_pdf_page_271",
+      "source_status": "derived_from_pinned_source",
+      "parent_path": "data/raw/final_search_v6_pds/david_thesis.pdf"
+    },
+    {
+      "url": "https://authors.library.caltech.edu/records/9mqje-rbz59/files/Gasda_et_al-2017-Geophysical_Research_Letters.pdf?download=1",
+      "path": "data/raw/final_search_v6_pds/gasda2017_paper.pdf",
+      "fetched_at": "2026-10-19T19:19:42.873185+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "6ca68caf72fbeb6ef130d5c96f1e22e0bda6df055260df014a4bda5ff04be1dd",
+      "bytes": 585300,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://authors.library.caltech.edu/records/9mqje-rbz59/files/grl56315-sup-0001-2017GL074480-SI.pdf?download=1",
+      "path": "data/raw/final_search_v6_pds/gasda2017_supplement.pdf",
+      "fetched_at": "2026-10-19T19:19:48.235580+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "c17bc0e8d1df5c5a3a45cc0876938b4775072031b507f0566e26d1697cc0cd9f",
+      "bytes": 648758,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://www.ncrm.org.cn/English/CRM/pdf/GBW07701_20160301_141325746_1741800.pdf",
+      "path": "data/raw/final_search_v6_pds/gbw07701_certificate.pdf",
+      "fetched_at": "2026-10-19T19:19:51.099803+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "e6f422b12e97caaa057ab8be91dafc05b832cc4cf743a436869a9050f8bb92f1",
+      "bytes": 1741800,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://www.ncrm.org.cn/Web/Ordering/MaterialDetail?autoID=7541",
+      "path": "data/raw/final_search_v6_pds/gbw07701_material.html",
+      "fetched_at": "2026-10-19T19:19:43.299930+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "a3d0da3cb330432b60a7dc5b1e9135b18aa2f848496372d33900f203ccf882ae",
+      "bytes": 81769,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://hal.science/hal-04267058/document",
+      "path": "data/raw/final_search_v6_pds/goetz2023_hal.pdf",
+      "fetched_at": "2026-10-19T19:30:22.436114+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "57b718727b3c47950faeabc6aecd7e8046bc62857782f157b54b2f0e3dfcc0b9",
+      "bytes": 5895851,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://www.hou.usra.edu/meetings/lpsc2021/pdf/2413.pdf",
+      "path": "data/raw/final_search_v6_pds/nellessen2021_abstract.pdf",
+      "fetched_at": "2026-10-19T19:21:33.310449+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "9417942ffd6c4679b6dbb381441984f373fecf9e02f461c67917f121b500939a",
+      "bytes": 212795,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://api.crossref.org/works/10.1016%2Fj.icarus.2023.115599",
+      "path": "data/raw/final_search_v6_pds/nellessen2023_crossref.json",
+      "fetched_at": "2026-10-19T19:22:32.063427+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "f54278b0866669afcbb0cfffe7a1f4580f6ae63ce5fc70e41ae6898bbce62892",
+      "bytes": 42136,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://laro.lanl.gov/esploro/outputs/journalArticle/Boron-adsorption-in-clay-minerals-Implications/9916458353503761",
+      "path": "data/raw/final_search_v6_pds/nellessen2023_lanl.html",
+      "fetched_at": "2026-10-19T19:21:32.520792+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "af1743206dc653d1e48304d896aa243be2755efd6ca1937752ee5f90cf72a52f",
+      "bytes": 2328,
+      "source_status": "HTML_shell_not_full_article"
+    },
+    {
+      "url": "https://authors.library.caltech.edu/api/records/20rt7-cvf02",
+      "path": "data/raw/final_search_v6_pds/thomas_record.json",
+      "fetched_at": "2026-10-19T19:22:31.635999+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "755759d8e9d137c6e365450fea742bcceeac3e1341ecd6ca6f484f974e7c3208",
+      "bytes": 20197,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://thesis.caltech.edu/11711/1/NThomas_Thesis_revised_submitted_compressed.pdf",
+      "path": "data/raw/final_search_v6_pds/thomas_thesis.pdf",
+      "fetched_at": "2026-10-19T19:19:46.189929+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "a45b29a94ecfe6958af7d673f6c4ec50da4166b9539bce66c320857dc5fc6e35",
+      "bytes": 9940420,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://thesis.caltech.edu/11711/",
+      "path": "data/raw/final_search_v6_pds/thomas_thesis_record.html",
+      "fetched_at": "2026-10-19T19:19:43.185340+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "97a1f4ecf1c20d0fd508586e843be7f06d9346a3e18bdc57509277245b2b3c85",
+      "bytes": 6825,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s11214-012-9886-0",
+      "path": "data/raw/final_search_v6_pds/vaniman2012.html",
+      "fetched_at": "2026-10-19T19:21:32.525517+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "61417ba020957e1446d3cfb55dbf6b53164c85eae2dda181d8299bd6f38e250b",
+      "bytes": 402816,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s11214-012-9886-0/tables/1",
+      "path": "data/raw/final_search_v6_pds/vaniman2012_table1.html",
+      "fetched_at": "2026-10-19T19:21:32.551336+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "1dba6e39777fb14ddae5b5b48cf99cd6fc2cf2ee27e19ea7c282b4325e26065e",
+      "bytes": 217309,
+      "source_status": "retrieved"
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s11214-012-9886-0/tables/2",
+      "path": "data/raw/final_search_v6_pds/vaniman2012_table2.html",
+      "fetched_at": "2026-10-19T19:21:32.527877+00:00",
+      "kind": "document_or_metadata_only",
+      "sha256": "cb3ebebfece9d231d7ca4ebb327920f311c61c527c5bacb7665535e75105f072",
+      "bytes": 248678,
+      "source_status": "retrieved"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/algae_datacite.json",
+      "sha256": "35aa1027632db0cacf8f93136f8daa7433ef70c1419074762af060b018277e7b",
+      "bytes": 16383,
+      "url": "https://api.datacite.org/dois/10.5281/zenodo.15650002",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ashfree_filter_paper.html",
+      "sha256": "09f4ce7d76efbb967b37156d325c4a2fa13067566af9daf3d4ad3d9144c0a84c",
+      "bytes": 469029,
+      "url": "https://www.nature.com/articles/s41598-022-20825-0",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ashfree_filter_paper.pdf",
+      "sha256": "0ca27265df863e4871a423ad5f2cddc23e3e7ce3eb90b19f2590e5b88eab6211",
+      "bytes": 1718768,
+      "url": "https://www.nature.com/articles/s41598-022-20825-0.pdf",
+      "kind": "article_pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ashfree_filter_paper_text.txt",
+      "sha256": "d93a16321d36bd73d980d21c907f836bfd1e6159d779d640db636245b42e5bfb",
+      "bytes": 54642,
+      "url": "https://www.nature.com/articles/s41598-022-20825-0.pdf",
+      "kind": "derived_article_text",
+      "derived_from": "data/raw/final_search_v6_root/ashfree_filter_paper.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/bacteria_paper.pdf",
+      "sha256": "1a0273e10b58890fb7ab00e103c6c78aa60fb203d5b26ca1f77d8d3c2b6c8a09",
+      "bytes": 1333167,
+      "url": "https://www.uwindsor.ca/people/rehse/sites/uwindsor.ca.people.rehse/files/blanchette_bacteria_appl_spect_2022.pdf",
+      "kind": "article_pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/bacteria_paper_text.txt",
+      "sha256": "53dee41bf9ea311d438082efc2fb7e66b9a3509c78316656faa4a22c6b141b3c",
+      "bytes": 58329,
+      "url": "https://www.uwindsor.ca/people/rehse/sites/uwindsor.ca.people.rehse/files/blanchette_bacteria_appl_spect_2022.pdf",
+      "kind": "derived_article_text",
+      "derived_from": "data/raw/final_search_v6_root/bacteria_paper.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/benchmark2020.html",
+      "sha256": "da7f599b4872fcb4e46df5baff2a23c2e593f98208359d1ba944222855e96a0e",
+      "bytes": 271352,
+      "url": "https://www.nature.com/articles/s41597-020-0396-8",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/brines_crossref.json",
+      "sha256": "dfe43b26d4ea02b288671550ff000b6d2b725e778e282fc860a56770d8393056",
+      "bytes": 17257,
+      "url": "https://api.crossref.org/works/10.3390/atoms13060056",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/datacite_blank_search.json",
+      "sha256": "572425dd8f7b2cd6c8ef0f8ee64ecdc364f89a3aa69c7328353419c48cb542a0",
+      "bytes": 38205,
+      "url": "https://api.datacite.org/dois?query=%22laser-induced%20breakdown%22%20AND%20blank&page%5Bsize%5D=100",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/datacite_crm_search.json",
+      "sha256": "7a1596fc2b9ce14a9328194a0f37c74b45b8b665dd2d6ff5dfd0f9866b94bcef",
+      "bytes": 100172,
+      "url": "https://api.datacite.org/dois?query=%22LIBS%22%20AND%20%22reference%20materials%22&page%5Bsize%5D=100",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/datacite_vacuum_search.json",
+      "sha256": "a89313bca0a7677fa87daad42cfa62ace33622888fb927c54eda6743305a93ec",
+      "bytes": 195396,
+      "url": "https://api.datacite.org/dois?query=%22laser-induced%20breakdown%22%20AND%20%22vacuum%22&page%5Bsize%5D=100",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/myhre2018.pdf",
+      "sha256": "223f910b814d63d7fb821f0d62ae3726da6ef6deb664380fdf52ae8f2f23a3fd",
+      "bytes": 289809,
+      "url": "https://www.osti.gov/servlets/purl/1461071",
+      "kind": "article_pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/myhre2018_text.txt",
+      "sha256": "f0213b53f3ed1c1634797ff218850ae8821381be4596fabe71bd26dffd0ac392",
+      "bytes": 26617,
+      "url": "https://www.osti.gov/servlets/purl/1461071",
+      "kind": "derived_article_text",
+      "derived_from": "data/raw/final_search_v6_root/myhre2018.pdf"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ordar165_datacite.json",
+      "sha256": "7f290b1628db333e4aaa50e83ad0aa5b7c18315b1ebdba82ef8829907022421a",
+      "bytes": 5016,
+      "url": "https://api.datacite.org/dois/10.24396/ORDAR-165",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ordar165_metadata.xlsx",
+      "sha256": "eeeec24afa88a66103392fd7dc659900431c4db64e3102557fb7f00bac083982",
+      "bytes": 21996,
+      "url": "https://ordar.otelo.univ-lorraine.fr/files/ORDAR-165/ReadMe_Metadata_HandheldLIBS_Spectra.xlsx",
+      "kind": "metadata_workbook_no_spectral_columns"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/ordar165_record.html",
+      "sha256": "55b9a7f4a293501367ae8c92412c0a8d279232e80368958e8bc40eed229aeec2",
+      "bytes": 21706,
+      "url": "https://ordar.otelo.univ-lorraine.fr/record?id=10.24396/ORDAR-165",
+      "kind": "primary_metadata_or_article_html"
+    },
+    {
+      "path": "data/raw/final_search_v6_root/plant_matrix_crossref.json",
+      "sha256": "e5c556f1cab711baaa37093985a11c0cd51c6ce56e06f87069b96871f3dd70a5",
+      "bytes": 15282,
+      "url": "https://api.crossref.org/works/10.1039/D4JA00105B",
+      "kind": "primary_metadata_or_article_html"
+    }
+  ],
+  "admitted_new_final_datasets": 0,
+  "qualified_Fe_blank_families": 0,
+  "qualified_Mg_blank_families": 0,
+  "new_final_intensities_downloaded": 0,
+  "new_final_intensities_opened": 0,
+  "new_final_predictions_run": 0,
+  "authors_contacted": false,
+  "new_measurements_requested": false,
+  "new_primary_findings": [
+    {
+      "id": "BAM310",
+      "finding": "Official certificate provides95%Fe interval; conditional FeOT endpoint0.0922412893wt%; exact certified region, processed sample, licensed file and wavelength-medium links unresolved."
+    },
+    {
+      "id": "NIST1411",
+      "finding": "Official Fe2O3 uncertainty endpoint converts to0.0521889947wt%FeOT; coverage not specified. MgO not blank; licensed numeric-file mapping and axis unresolved."
+    },
+    {
+      "id": "David2020-GOE100",
+      "finding": "CC-BY4.0 archives, exact5LANL filenames, eight independent LA-ICP-MS MgO points. Mean0.0073208146843wt%; no independently justified analytical bias upper bound or resolved relationship to historical GOEDV stock/session."
+    },
+    {
+      "id": "SUS1R",
+      "finding": "Official BAM document explicitly uncertified steel setup material; Mg not listed. Not a confirmed Fe/Mg blank."
+    }
+  ],
+  "existing_model": {
+    "profile": {
+      "identity": "5be343aacc7d356911e3490ee9b2c22d38f5f62ea2ba7f3e2ccc39c30eabf933",
+      "instrument_id": "chemcam-lanl-testbed",
+      "class_order": [
+        "Na",
+        "Mg",
+        "Ca",
+        "Fe"
+      ],
+      "thresholds": {
+        "Na": 0.10825272614392062,
+        "Mg": 0.9945672395383269,
+        "Ca": 0.6795050836572871,
+        "Fe": 0.7185455426436053
+      },
+      "artifact_files": [
+        {
+          "path": "reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json",
+          "sha256": "c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5"
+        }
+      ],
+      "units": "nm",
+      "medium": "vacuum",
+      "required_intervals_nm": [
+        [
+          241.0,
+          340.0
+        ],
+        [
+          383.0,
+          468.0
+        ],
+        [
+          474.0,
+          900.0
+        ]
+      ],
+      "max_sampling_step_nm": 0.5,
+      "max_resolution_fwhm_nm": 0.65,
+      "require_positive_signal": true
+    },
+    "binding_report": {
+      "path": "docs/final_profile_v6_binding.json",
+      "sha256": "80ac314c5f4651b98c1a731294eecf6fc27073af0107fa4423c7be75742aeb39",
+      "bytes": 2570
+    },
+    "weights_and_thresholds_unchanged": true,
+    "Ca_independent_validation_not_implied_by_Fe_Mg_test": true
+  },
+  "seen_registry": {
+    "path": "data/reference/final_seen_registry_v6.json",
+    "sha256": "b98754917035dead10f2e5f2302139eae21eefff7dbaf9b40b799d3f6c1b3ef8",
+    "bytes": 642491,
+    "review_status": "incomplete",
+    "complete_independence_review": false,
+    "counts": {
+      "measurement_ids": 204,
+      "physical_sample_ids": 248,
+      "family_ids": 249,
+      "session_ids": 54,
+      "input_sha256s": 210,
+      "assay_ids": 244
+    },
+    "alias_edges": 1601,
+    "old_registry_preserved": true,
+    "source_qualified_quarantine_preserved": true
+  },
+  "campaign_state": {
+    "manifest": {
+      "path": "data/reference/final_campaign_v6_manifest.json",
+      "sha256": "202a8fdc977ec0737711a21635f07cf7a7a5e68185bc9eb5ac2a37b9fc6c3337",
+      "bytes": 2785
+    },
+    "preflight": {
+      "path": "docs/final_campaign_v6_preflight.json",
+      "sha256": "95fbee0efce52dc32cf9f8306278fabb9475a21e4ddb50d094625f1aea5f77ba",
+      "bytes": 5855
+    },
+    "preflight_status": "blocked",
+    "blocker_count": 15,
+    "numerical_files_read": 0,
+    "support_policy_frozen": false,
+    "data_selection_frozen": false,
+    "no_specific_final_N_claimed": true
+  },
+  "final_evaluation_performed": false,
+  "final_metrics": null,
+  "final_receipts_consumed": 0,
+  "admission_clarifications": [
+    "A brandedCoA is not the only scientific evidence; independently assayed prepared controls with defensible bounds may qualify.",
+    "SeparateFe/Mg controls allowed.",
+    "Explicit unchanged-weight cross-instrument OOD test is scientifically possible but needs a separately declared contract and limited claim.",
+    "Do not infer air/vac from atmosphere or composition from missing LIBS peaks.",
+    "NeitherGOE100=GOEDV nor their independence has been established.",
+    "Source/metadata integrity is distinct from scientific eligibility."
+  ],
+  "limitations": [
+    "Boundedsearch does not prove worldwide data absence.",
+    "No candidate had instrument difference as its only unresolved requirement.",
+    "No external author messages sent.",
+    "A successful structuralpreflight would not by itself establish completeness of the seen registry.",
+    "Metadata/raw research artifacts remain ignored local inputs; freshcheckout is not a complete replication environment."
+  ],
+  "predictions_run": 0,
+  "data_selection_frozen": false
+}
