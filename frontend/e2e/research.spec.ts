@@ -208,14 +208,14 @@ test("actual experiments, empty filter and job idempotency/cancellation", async 
   page,
 }) => {
   await page.goto("/experiments");
-  await page.getByRole("button", { name: /e2e-fixture/ }).click();
+  await page.locator('button[data-run-id="e2e-fixture"]').click();
   await expect(page).toHaveURL(/run=e2e-fixture/);
   await expect(
-    page.getByRole("heading", { name: "e2e-fixture" }),
+    page.locator('article[data-run-id="e2e-fixture"]').getByRole("heading"),
   ).toBeVisible();
   await page.reload();
   await expect(
-    page.getByRole("heading", { name: "e2e-fixture" }),
+    page.locator('article[data-run-id="e2e-fixture"]').getByRole("heading"),
   ).toBeVisible();
   await page
     .getByLabel("Протокол", { exact: true })

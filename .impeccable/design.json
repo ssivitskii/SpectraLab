@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-20T16:36:00.261312+00:00",
+  "title": "Design System: SpectraLab",
+  "extensions": {
+    "colorMeta": {
+      "rail": {
+        "role": "neutral",
+        "displayName": "Глубокий графит навигации",
+        "canonical": "#10191f",
+        "tonalRamp": [
+          "oklch(15% 0.0178 237.93)",
+          "oklch(25% 0.0178 237.93)",
+          "oklch(35% 0.0178 237.93)",
+          "oklch(45% 0.0178 237.93)",
+          "oklch(55% 0.0178 237.93)",
+          "oklch(65% 0.0178 237.93)",
+          "oklch(80% 0.0178 237.93)",
+          "oklch(95% 0.0178 237.93)"
+        ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Графит рабочей среды",
+        "canonical": "#142029",
+        "tonalRamp": [
+          "oklch(15% 0.0243 241.44)",
+          "oklch(25% 0.0243 241.44)",
+          "oklch(35% 0.0243 241.44)",
+          "oklch(45% 0.0243 241.44)",
+          "oklch(55% 0.0243 241.44)",
+          "oklch(65% 0.0243 241.44)",
+          "oklch(80% 0.0243 241.44)",
+          "oklch(95% 0.0243 241.44)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Рабочий графит",
+        "canonical": "#18262d",
+        "tonalRamp": [
+          "oklch(15% 0.0232 230.43)",
+          "oklch(25% 0.0232 230.43)",
+          "oklch(35% 0.0232 230.43)",
+          "oklch(45% 0.0232 230.43)",
+          "oklch(55% 0.0232 230.43)",
+          "oklch(65% 0.0232 230.43)",
+          "oklch(80% 0.0232 230.43)",
+          "oklch(95% 0.0232 230.43)"
+        ]
+      },
+      "surface-raised": {
+        "role": "neutral",
+        "displayName": "Приподнятый графит",
+        "canonical": "#20323c",
+        "tonalRamp": [
+          "oklch(15% 0.0296 233.36)",
+          "oklch(25% 0.0296 233.36)",
+          "oklch(35% 0.0296 233.36)",
+          "oklch(45% 0.0296 233.36)",
+          "oklch(55% 0.0296 233.36)",
+          "oklch(65% 0.0296 233.36)",
+          "oklch(80% 0.0296 233.36)",
+          "oklch(95% 0.0296 233.36)"
+        ]
+      },
+      "surface-hover": {
+        "role": "neutral",
+        "displayName": "Графит наведения",
+        "canonical": "#263b46",
+        "tonalRamp": [
+          "oklch(15% 0.0329 231.83)",
+          "oklch(25% 0.0329 231.83)",
+          "oklch(35% 0.0329 231.83)",
+          "oklch(45% 0.0329 231.83)",
+          "oklch(55% 0.0329 231.83)",
+          "oklch(65% 0.0329 231.83)",
+          "oklch(80% 0.0329 231.83)",
+          "oklch(95% 0.0329 231.83)"
+        ]
+      },
+      "input": {
+        "role": "neutral",
+        "displayName": "Графит ввода",
+        "canonical": "#111e26",
+        "tonalRamp": [
+          "oklch(15% 0.0240 236.29)",
+          "oklch(25% 0.0240 236.29)",
+          "oklch(35% 0.0240 236.29)",
+          "oklch(45% 0.0240 236.29)",
+          "oklch(55% 0.0240 236.29)",
+          "oklch(65% 0.0240 236.29)",
+          "oklch(80% 0.0240 236.29)",
+          "oklch(95% 0.0240 236.29)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Структурная линия",
+        "canonical": "#30434e",
+        "tonalRamp": [
+          "oklch(15% 0.0306 234.07)",
+          "oklch(25% 0.0306 234.07)",
+          "oklch(35% 0.0306 234.07)",
+          "oklch(45% 0.0306 234.07)",
+          "oklch(55% 0.0306 234.07)",
+          "oklch(65% 0.0306 234.07)",
+          "oklch(80% 0.0306 234.07)",
+          "oklch(95% 0.0306 234.07)"
+        ]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Контур контрола",
+        "canonical": "#506976",
+        "tonalRamp": [
+          "oklch(15% 0.0361 230.98)",
+          "oklch(25% 0.0361 230.98)",
+          "oklch(35% 0.0361 230.98)",
+          "oklch(45% 0.0361 230.98)",
+          "oklch(55% 0.0361 230.98)",
+          "oklch(65% 0.0361 230.98)",
+          "oklch(80% 0.0361 230.98)",
+          "oklch(95% 0.0361 230.98)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Холодный белый",
+        "canonical": "#e4edf1",
+        "tonalRamp": [
+          "oklch(15% 0.0111 225.98)",
+          "oklch(25% 0.0111 225.98)",
+          "oklch(35% 0.0111 225.98)",
+          "oklch(45% 0.0111 225.98)",
+          "oklch(55% 0.0111 225.98)",
+          "oklch(65% 0.0111 225.98)",
+          "oklch(80% 0.0111 225.98)",
+          "oklch(95% 0.0111 225.98)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Серебристая подпись",
+        "canonical": "#a7b8c2",
+        "tonalRamp": [
+          "oklch(15% 0.0237 233.47)",
+          "oklch(25% 0.0237 233.47)",
+          "oklch(35% 0.0237 233.47)",
+          "oklch(45% 0.0237 233.47)",
+          "oklch(55% 0.0237 233.47)",
+          "oklch(65% 0.0237 233.47)",
+          "oklch(80% 0.0237 233.47)",
+          "oklch(95% 0.0237 233.47)"
+        ]
+      },
+      "subtle": {
+        "role": "neutral",
+        "displayName": "Вторичная серебристая подпись",
+        "canonical": "#91a9b6",
+        "tonalRamp": [
+          "oklch(15% 0.0327 231.52)",
+          "oklch(25% 0.0327 231.52)",
+          "oklch(35% 0.0327 231.52)",
+          "oklch(45% 0.0327 231.52)",
+          "oklch(55% 0.0327 231.52)",
+          "oklch(65% 0.0327 231.52)",
+          "oklch(80% 0.0327 231.52)",
+          "oklch(95% 0.0327 231.52)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Сигнальный циан",
+        "canonical": "#67d5db",
+        "tonalRamp": [
+          "oklch(15% 0.1009 200.15)",
+          "oklch(25% 0.1009 200.15)",
+          "oklch(35% 0.1009 200.15)",
+          "oklch(45% 0.1009 200.15)",
+          "oklch(55% 0.1009 200.15)",
+          "oklch(65% 0.1009 200.15)",
+          "oklch(80% 0.1009 200.15)",
+          "oklch(95% 0.1009 200.15)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Светлый сигнальный циан",
+        "canonical": "#92e5e9",
+        "tonalRamp": [
+          "oklch(15% 0.0809 199.68)",
+          "oklch(25% 0.0809 199.68)",
+          "oklch(35% 0.0809 199.68)",
+          "oklch(45% 0.0809 199.68)",
+          "oklch(55% 0.0809 199.68)",
+          "oklch(65% 0.0809 199.68)",
+          "oklch(80% 0.0809 199.68)",
+          "oklch(95% 0.0809 199.68)"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Тёмный текст на циане",
+        "canonical": "#102b31",
+        "tonalRamp": [
+          "oklch(15% 0.0345 214.26)",
+          "oklch(25% 0.0345 214.26)",
+          "oklch(35% 0.0345 214.26)",
+          "oklch(45% 0.0345 214.26)",
+          "oklch(55% 0.0345 214.26)",
+          "oklch(65% 0.0345 214.26)",
+          "oklch(80% 0.0345 214.26)",
+          "oklch(95% 0.0345 214.26)"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Мягкий циановый выбор",
+        "canonical": "#1c373e",
+        "tonalRamp": [
+          "oklch(15% 0.0352 216.40)",
+          "oklch(25% 0.0352 216.40)",
+          "oklch(35% 0.0352 216.40)",
+          "oklch(45% 0.0352 216.40)",
+          "oklch(55% 0.0352 216.40)",
+          "oklch(65% 0.0352 216.40)",
+          "oklch(80% 0.0352 216.40)",
+          "oklch(95% 0.0352 216.40)"
+        ]
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Мятное подтверждение",
+        "canonical": "#97d9bb",
+        "tonalRamp": [
+          "oklch(15% 0.0793 164.59)",
+          "oklch(25% 0.0793 164.59)",
+          "oklch(35% 0.0793 164.59)",
+          "oklch(45% 0.0793 164.59)",
+          "oklch(55% 0.0793 164.59)",
+          "oklch(65% 0.0793 164.59)",
+          "oklch(80% 0.0793 164.59)",
+          "oklch(95% 0.0793 164.59)"
+        ]
+      },
+      "success-soft": {
+        "role": "semantic",
+        "displayName": "Мятная поверхность",
+        "canonical": "#1c3531",
+        "tonalRamp": [
+          "oklch(15% 0.0321 182.81)",
+          "oklch(25% 0.0321 182.81)",
+          "oklch(35% 0.0321 182.81)",
+          "oklch(45% 0.0321 182.81)",
+          "oklch(55% 0.0321 182.81)",
+          "oklch(65% 0.0321 182.81)",
+          "oklch(80% 0.0321 182.81)",
+          "oklch(95% 0.0321 182.81)"
+        ]
+      },
+      "warning": {
+        "role": "semantic",
+        "displayName": "Янтарное предупреждение",
+        "canonical": "#edc485",
+        "tonalRamp": [
+          "oklch(15% 0.0929 77.71)",
+          "oklch(25% 0.0929 77.71)",
+          "oklch(35% 0.0929 77.71)",
+          "oklch(45% 0.0929 77.71)",
+          "oklch(55% 0.0929 77.71)",
+          "oklch(65% 0.0929 77.71)",
+          "oklch(80% 0.0929 77.71)",
+          "oklch(95% 0.0929 77.71)"
+        ]
+      },
+      "warning-soft": {
+        "role": "semantic",
+        "displayName": "Янтарная поверхность",
+        "canonical": "#342d24",
+        "tonalRamp": [
+          "oklch(15% 0.0186 73.95)",
+          "oklch(25% 0.0186 73.95)",
+          "oklch(35% 0.0186 73.95)",
+          "oklch(45% 0.0186 73.95)",
+          "oklch(55% 0.0186 73.95)",
+          "oklch(65% 0.0186 73.95)",
+          "oklch(80% 0.0186 73.95)",
+          "oklch(95% 0.0186 73.95)"
+        ]
+      },
+      "danger": {
+        "role": "semantic",
+        "displayName": "Мягкая красная ошибка",
+        "canonical": "#f2a5a5",
+        "tonalRamp": [
+          "oklch(15% 0.0916 19.29)",
+          "oklch(25% 0.0916 19.29)",
+          "oklch(35% 0.0916 19.29)",
+          "oklch(45% 0.0916 19.29)",
+          "oklch(55% 0.0916 19.29)",
+          "oklch(65% 0.0916 19.29)",
+          "oklch(80% 0.0916 19.29)",
+          "oklch(95% 0.0916 19.29)"
+        ]
+      },
+      "danger-soft": {
+        "role": "semantic",
+        "displayName": "Красная поверхность",
+        "canonical": "#38282c",
+        "tonalRamp": [
+          "oklch(15% 0.0248 2.14)",
+          "oklch(25% 0.0248 2.14)",
+          "oklch(35% 0.0248 2.14)",
+          "oklch(45% 0.0248 2.14)",
+          "oklch(55% 0.0248 2.14)",
+          "oklch(65% 0.0248 2.14)",
+          "oklch(80% 0.0248 2.14)",
+          "oklch(95% 0.0248 2.14)"
+        ]
+      },
+      "chart-grid": {
+        "role": "neutral",
+        "displayName": "Координатная сетка",
+        "canonical": "#2b3e49",
+        "tonalRamp": [
+          "oklch(15% 0.0309 234.20)",
+          "oklch(25% 0.0309 234.20)",
+          "oklch(35% 0.0309 234.20)",
+          "oklch(45% 0.0309 234.20)",
+          "oklch(55% 0.0309 234.20)",
+          "oklch(65% 0.0309 234.20)",
+          "oklch(80% 0.0309 234.20)",
+          "oklch(95% 0.0309 234.20)"
+        ]
+      },
+      "chart-clean": {
+        "role": "data",
+        "displayName": "Чистый сигнал",
+        "canonical": "#9db6ff",
+        "tonalRamp": [
+          "oklch(15% 0.1082 269.32)",
+          "oklch(25% 0.1082 269.32)",
+          "oklch(35% 0.1082 269.32)",
+          "oklch(45% 0.1082 269.32)",
+          "oklch(55% 0.1082 269.32)",
+          "oklch(65% 0.1082 269.32)",
+          "oklch(80% 0.1082 269.32)",
+          "oklch(95% 0.1082 269.32)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Заголовок страницы",
+        "purpose": "Главный заголовок рабочей страницы; на телефоне 27px."
+      },
+      "title": {
+        "displayName": "Заголовок панели",
+        "purpose": "Название содержательной рабочей области."
+      },
+      "body": {
+        "displayName": "Основной текст",
+        "purpose": "Базовый текст интерфейса."
+      },
+      "label": {
+        "displayName": "Подпись и данные",
+        "purpose": "Подписи, пояснения, таблицы; оси и легенды используют тот же размер."
+      },
+      "control": {
+        "displayName": "Поле ввода",
+        "purpose": "Текст input, select и textarea."
+      },
+      "button": {
+        "displayName": "Вторичное действие",
+        "purpose": "Базовая кнопка; главное действие повышает насыщенность до 600."
+      },
+      "tag": {
+        "displayName": "Метка",
+        "purpose": "Компактная информационная подпись."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "control-state",
+        "value": "160ms ease",
+        "purpose": "Переходы background-color, border-color и color у кнопок; CSS --duration."
+      },
+      {
+        "name": "result-arrive",
+        "value": "180ms ease-out",
+        "purpose": "Появление готового результата: opacity .7 → 1, translateY(4px) → 0."
+      },
+      {
+        "name": "loading-turn",
+        "value": "850ms linear infinite",
+        "purpose": "Вращение индикатора фактически выполняемой загрузки."
+      },
+      {
+        "name": "progress-update",
+        "value": "200ms ease",
+        "purpose": "Изменение ширины заполнения нативного progress."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "prefers-reduced-motion: переходы и анимации практически отключены; spinner не вращается."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-desktop-max",
+        "value": "1200px"
+      },
+      {
+        "name": "single-column-max",
+        "value": "960px"
+      },
+      {
+        "name": "mobile-navigation-max",
+        "value": "760px"
+      },
+      {
+        "name": "wide-desktop-min",
+        "value": "1700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Циановое главное действие для явного запуска операции.",
+      "html": "<button class=\"ds-button-primary\" type=\"button\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m8 4 12 8-12 8V4Z\"/></svg>Сгенерировать спектр</button>",
+      "css": ".ds-button-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 15px;border:1px solid var(--border-strong,#506976);border-radius:var(--radius-control,6px);font-size:14px;font-weight:500;line-height:1.4;cursor:pointer;text-decoration:none;transition:background-color var(--duration,160ms),border-color var(--duration,160ms),color var(--duration,160ms);font-family:var(--font-ui,\"Golos Text\",\"Segoe UI\",sans-serif);background:var(--accent,#67d5db);color:var(--accent-ink,#102b31);border-color:var(--accent,#67d5db);font-weight:600}.ds-button-primary:hover{background:var(--accent-hover,#92e5e9);border-color:var(--accent-hover,#92e5e9)}.ds-button-primary:active{background:var(--accent,#67d5db)}.ds-button-primary:focus-visible{outline:2px solid var(--accent,#67d5db);outline-offset:4px;}.ds-button-primary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button-primary{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Плоское вторичное действие на приподнятом графите.",
+      "html": "<button class=\"ds-button-secondary\" type=\"button\">Обновить очереди</button>",
+      "css": ".ds-button-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 15px;border:1px solid var(--border-strong,#506976);border-radius:var(--radius-control,6px);font-size:14px;font-weight:500;line-height:1.4;cursor:pointer;text-decoration:none;transition:background-color var(--duration,160ms),border-color var(--duration,160ms),color var(--duration,160ms);font-family:var(--font-ui,\"Golos Text\",\"Segoe UI\",sans-serif);background:var(--surface-raised,#20323c);color:var(--ink,#e4edf1)}.ds-button-secondary:hover{background:var(--surface-hover,#263b46);border-color:var(--subtle,#91a9b6)}.ds-button-secondary:active{background:var(--input,#111e26)}.ds-button-secondary:focus-visible{outline:2px solid var(--accent,#67d5db);outline-offset:4px;}.ds-button-secondary:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-button-secondary{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Input field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Подпись над утопленным полем; циановый клавиатурный фокус.",
+      "html": "<label class=\"ds-field\">Название очереди<input class=\"ds-input\" type=\"text\" placeholder=\"Название\" value=\"Спектры образца\" /></label>",
+      "css": ".ds-field{display:grid;gap:7px;min-width:0;font-size:12px;line-height:1.55;color:var(--muted,#a7b8c2);font-family:var(--font-ui,\"Golos Text\",\"Segoe UI\",sans-serif);}.ds-input{width:100%;min-width:0;min-height:44px;padding:10px 11px;border:1px solid var(--border-strong,#506976);border-radius:var(--radius-control,6px);background:var(--input,#111e26);color:var(--ink,#e4edf1);font-size:13px;font-weight:400;line-height:1.4;caret-color:var(--accent,#67d5db);font-family:var(--font-ui,\"Golos Text\",\"Segoe UI\",sans-serif);}.ds-input::placeholder{color:var(--subtle,#91a9b6)}.ds-input:focus-visible{outline:2px solid var(--accent,#67d5db);outline-offset:4px;}.ds-field:has(.ds-input:disabled){color:var(--subtle,#91a9b6)}"
+    },
+    {
+      "name": "Navigation item",
+      "kind": "nav",
+      "refersTo": "navigation-item",
+      "description": "Название, подпись и контурная пиктограмма; активность выделяется тоном и циановой пиктограммой.",
+      "html": "<nav class=\"ds-navigation\" aria-label=\"Основная навигация\"><a class=\"ds-nav-item\" href=\"/analysis\" aria-current=\"page\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 18h3l3-7 3 5 4-12 3 14h2M3 21h18\"/></svg><span>Анализ спектра<small>Сигнал и элементы</small></span></a><a class=\"ds-nav-item\" href=\"/generator\"><span>Генератор<small>Синтетические образцы</small></span></a></nav>",
+      "css": ".ds-navigation{display:grid;gap:5px;max-width:218px;background:var(--rail,#10191f);padding:16px;font-family:var(--font-ui,\"Golos Text\",\"Segoe UI\",sans-serif);}.ds-nav-item{display:flex;gap:12px;align-items:center;padding:13px 10px;min-height:64px;border:1px solid transparent;border-radius:7px;color:var(--muted,#a7b8c2);text-decoration:none;font-size:13px;line-height:1.55}.ds-nav-item small{display:block;font-size:11px;margin-top:3px;color:var(--subtle,#91a9b6)}.ds-nav-item:hover{background:var(--surface,#18262d);color:var(--ink,#e4edf1)}.ds-nav-item[aria-current=\"page\"]{background:var(--surface-raised,#20323c);color:var(--ink,#e4edf1);border-color:var(--border,#30434e)}.ds-nav-item[aria-current=\"page\"]>svg{color:var(--accent,#67d5db);flex-shrink:0}.ds-nav-item:focus-visible{outline:2px solid var(--accent,#67d5db);outline-offset:4px;}"
+    },
+    {
+      "name": "Status tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Нейтральная информационная метка завершённого расчёта.",
+      "html": "<span class=\"ds-tag\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 12 4 4L19 6\"/></svg>Расчёт завершён</span>",
+      "css": ".ds-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;font-size:11px;font-weight:400;line-height:1.5;color:var(--muted,#a7b8c2);background:var(--input,#111e26);border:1px solid var(--border,#30434e);border-radius:4px;overflow-wrap:anywhere;font-family:var(--font-ui,\"Golos Text\",\"Segoe UI\",sans-serif);}.ds-tag>svg{flex-shrink:0}"
+    },
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Плоская рабочая панель с тонкой рамкой и разделителем заголовка.",
+      "html": "<section class=\"ds-panel\"><div class=\"ds-panel-heading\"><h2>Эмиссионный спектр</h2></div><p class=\"ds-panel-copy\">Спектр ещё не выбран</p></section>",
+      "css": ".ds-panel{min-width:0;padding:22px;background:var(--surface,#18262d);border:1px solid var(--border,#30434e);border-radius:var(--radius,12px);color:var(--ink,#e4edf1);font-family:var(--font-ui,\"Golos Text\",\"Segoe UI\",sans-serif);}.ds-panel-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:16px;margin-bottom:14px;border-bottom:1px solid var(--border,#30434e)}.ds-panel-heading h2{margin:0;font-size:17px;font-weight:600;letter-spacing:-.015em;line-height:1.4;overflow-wrap:anywhere}.ds-panel-copy{margin:10px 0 0;color:var(--muted,#a7b8c2);font-size:13px;line-height:1.55}"
+    },
+    {
+      "name": "Element choice",
+      "kind": "button",
+      "refersTo": "element-choice",
+      "description": "Химический символ с названием; выбранное состояние сохраняет aria-pressed.",
+      "html": "<button class=\"ds-element\" type=\"button\" aria-pressed=\"true\"><span class=\"ds-element-symbol\">Ca</span><span class=\"ds-element-name\">Кальций</span></button>",
+      "css": ".ds-element{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 15px;border:1px solid var(--border-strong,#506976);border-radius:var(--radius-control,6px);font-size:14px;font-weight:500;line-height:1.4;cursor:pointer;text-decoration:none;transition:background-color var(--duration,160ms),border-color var(--duration,160ms),color var(--duration,160ms);font-family:var(--font-ui,\"Golos Text\",\"Segoe UI\",sans-serif);position:relative;flex-direction:column;align-items:flex-start;min-height:76px;padding:10px;color:var(--muted,#a7b8c2);background:var(--input,#111e26);border-color:var(--border,#30434e)}.ds-element-symbol{font-size:23px;font-weight:500;line-height:1.2;color:var(--ink,#e4edf1)}.ds-element-name{font-size:10px;font-weight:400;margin-top:6px}.ds-element:hover{background:var(--surface-hover,#263b46);border-color:var(--subtle,#91a9b6);color:var(--ink,#e4edf1)}.ds-element:active{background:var(--input,#111e26)}.ds-element[aria-pressed=\"true\"]{background:var(--accent-soft,#1c373e);border-color:var(--accent,#67d5db);color:var(--accent,#67d5db)}.ds-element[aria-pressed=\"true\"] .ds-element-symbol{color:var(--accent,#67d5db)}.ds-element:focus-visible{outline:2px solid var(--accent,#67d5db);outline-offset:4px;}.ds-element:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-element{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Run choice",
+      "kind": "button",
+      "refersTo": "run-choice",
+      "description": "Полноширинный выбор запуска или очереди с метаданными; имя допускает перенос.",
+      "html": "<button class=\"ds-run-choice\" type=\"button\" aria-pressed=\"true\"><strong>Спектры образца</strong><small>Черновик · 20.10.2026</small></button>",
+      "css": ".ds-run-choice{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 15px;border:1px solid var(--border-strong,#506976);border-radius:var(--radius-control,6px);font-size:14px;font-weight:500;line-height:1.4;cursor:pointer;text-decoration:none;transition:background-color var(--duration,160ms),border-color var(--duration,160ms),color var(--duration,160ms);font-family:var(--font-ui,\"Golos Text\",\"Segoe UI\",sans-serif);display:block;width:100%;padding:14px;text-align:left;white-space:normal;overflow-wrap:anywhere;background:var(--input,#111e26);border-color:var(--border,#30434e);color:var(--ink,#e4edf1);font-size:12px}.ds-run-choice strong{font-weight:500}.ds-run-choice small{display:block;font-size:11px;line-height:1.55;color:var(--muted,#a7b8c2);margin-top:5px}.ds-run-choice:hover{background:var(--surface-hover,#263b46);border-color:var(--subtle,#91a9b6)}.ds-run-choice:active{background:var(--input,#111e26)}.ds-run-choice[aria-pressed=\"true\"]{background:var(--accent-soft,#1c373e);border-color:var(--accent,#67d5db)}.ds-run-choice:focus-visible{outline:2px solid var(--accent,#67d5db);outline-offset:4px;}.ds-run-choice:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-run-choice{transition-duration:.01ms}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Photon",
+    "overview": "Photon — спокойная технологичная среда исследователя: холодный графит, ясная кириллица и тонкий цветовой сигнал. Спектр и данные задают характер интерфейса; оформление помогает читать, сопоставлять и действовать. Плотность рабочая, с отчётливой иерархией заголовков, подписей и числовых значений.\n\nПоверхности плоские, элементы управления привычные, акцент точечный. Образ опирается на научную графику, а не на игровой HUD, свечение или имитацию приборной панели. Единая грамматика сохраняется в анализе, генераторе, экспериментах и очередях.",
+    "keyCharacteristics": [
+      "Холодные графитовые слои и светлый текст.",
+      "Циан для наблюдаемого сигнала, главного действия и выбора.",
+      "Golos Text, табличные цифры и согласованные контурные SVG.",
+      "Плоские панели с тонкой рамкой и умеренно скруглёнными углами.",
+      "Компактные формы, явные состояния и последовательное сжатие сетки."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Rule",
+        "body": "Используйте циан для действия, выбранного состояния и наблюдаемого сигнала. Цветные данные сохраняют подпись, легенду или связь с таблицей.",
+        "section": "colors"
+      },
+      {
+        "name": "The Figures Rule",
+        "body": "Выравнивайте сравниваемые числа по правому краю и используйте `tabular-nums`. Не превращайте научные значения в декоративную типографику.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Разделяйте уровни тоном и рамкой. Панели и действия остаются плоскими; не добавляйте свечение, стекло или декоративный объём.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do сохраняйте Photon: холодный графит, плоские слои и точечный циановый сигнал.",
+      "Do используйте Golos Text и табличные цифры для сравниваемых числовых значений.",
+      "Do сохраняйте явные подписи полей, клавиатурный фокус и последовательность ввода перед результатом на узком экране.",
+      "Do обозначайте состояния текстом и цветом; легенда и единицы остаются частью научного графика.",
+      "Do связывайте активную справочную линию с соответствующей строкой таблицы.",
+      "Do используйте реальные данные состояния для статуса, прогресса и результата."
+    ],
+    "donts": [
+      "Don't добавляйте игровой HUD, декоративное свечение, стеклянные слои или тени к плоским рабочим панелям.",
+      "Don't используйте циан как заливку всех контейнеров: это цвет сигнала, действия и выбора.",
+      "Don't заменяйте контурные SVG символами шрифта или несогласованными пиктограммами.",
+      "Don't приписывайте интерфейсу живой прибор, heartbeat работника или выдуманную точность модели.",
+      "Don't называйте score вероятностью, вклад синтетического компонента концентрацией или справочную линию доказанным объяснением решения модели."
+    ]
+  }
+}

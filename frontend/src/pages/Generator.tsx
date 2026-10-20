@@ -10,6 +10,15 @@ import {
 } from "../api/client";
 import { SpectrumChart } from "../components/Chart";
 import { ErrorNotice, Loading } from "../components/Feedback";
+import { Icon } from "../components/Icon";
+const elementNames: Record<string, string> = {
+  H: "Водород",
+  He: "Гелий",
+  Na: "Натрий",
+  Mg: "Магний",
+  Ca: "Кальций",
+  Fe: "Железо",
+};
 const controls = [
   ["instrumental_fwhm_nm", "Аппаратная FWHM, nm", 0.001, undefined, 0.001],
   ["sampling_step_nm", "Шаг дискретизации, nm", undefined, undefined, 0.001],
@@ -30,7 +39,7 @@ type Physics = Pick<
   | "read_noise_std"
   | "response_slope"
   | "saturation_level"
-> & { ion_stage: number };
+> & { ion_stage: number; };
 type Preset = {
   physics: Physics;
   schema_version: number;
@@ -78,7 +87,7 @@ export function Generator() {
     </>
   );
 }
-function GeneratorForm({ capability }: { capability: Capabilities }) {
+function GeneratorForm({ capability }: { capability: Capabilities; }) {
   const [search, setSearch] = useSearchParams();
   const id = search.get("spectrum") ?? "";
   const elements = useQuery({
@@ -200,314 +209,342 @@ function GeneratorForm({ capability }: { capability: Capabilities }) {
     generate.mutate(input);
   };
   return (
-    <div className="workspace">
-      <form className="panel controls" onSubmit={submit}>
-        <h2>Параметры образца</h2>
-        <p className="muted">
-          Выберите от 1 до {capability.generation.max_components} элементов
-        </p>
-        <ErrorNotice error={elements.error} />
-        {elements.isPending ? (
-          <Loading />
-        ) : (
-          <div className="element-grid">
-            {elements.data?.elements.map((element) => (
-              <button
-                type="button"
-                key={element}
-                aria-label={`${element} · стадия ${elements.data.ion_stage}`}
-                aria-pressed={selected.includes(element)}
-                className={
-                  selected.includes(element) ? "element selected" : "element"
-                }
-                disabled={
-                  !selected.includes(element) &&
-                  selected.length >= capability.generation.max_components
-                }
-                onClick={() =>
-                  setSelected((current) =>
-                    current.includes(element)
-                      ? current.filter((e) => e !== element)
-                      : [...current, element],
-                  )
-                }
-              >
-                {element}
-                <small>{elements.data.ion_stage}</small>
-              </button>
+    <div className="workspace generator-workspace">
+      <form className="panel controls control-form" onSubmit={submit}>
+        <section className="control-section">
+          <div className="section-heading">
+            <Icon name="flask" />
+            <h2>Параметры образца</h2>
+          </div>
+          <p className="muted">
+            Выберите от 1 до {capability.generation.max_components} элементов.
+          </p>
+          <ErrorNotice error={elements.error} />
+          {elements.isPending ? (
+            <Loading />
+          ) : (
+            <div className="element-grid" role="group" aria-label="Элементы образца">
+              {elements.data?.elements.map((element) => (
+                <button
+                  type="button"
+                  key={element}
+                  aria-label={`${element} · стадия ${elements.data.ion_stage}`}
+                  aria-pressed={selected.includes(element)}
+                  className={
+                    selected.includes(element) ? "element selected" : "element"
+                  }
+                  disabled={
+                    !selected.includes(element) &&
+                    selected.length >= capability.generation.max_components
+                  }
+                  onClick={() =>
+                    setSelected((current) =>
+                      current.includes(element)
+                        ? current.filter((e) => e !== element)
+                        : [...current, element],
+                    )
+                  }
+                >
+                  <span className="element-symbol">{element}</span>
+                  <span className="element-name">{elementNames[element] ?? element}</span>
+                </button>
+              ))}
+            </div>
+          )}
+          <p className="selection-summary" aria-live="polite">
+            {selected.length ? `Выбрано: ${selected.join(" + ")}` : "Элементы пока не выбраны"}
+          </p>
+          <div className="weights-grid">
+            {selected.map((element) => (
+              <label key={element}>
+                Вклад {element}
+                <input
+                  type="number"
+                  min="0.000001"
+                  step="any"
+                  value={weights[element] ?? 1}
+                  onChange={(e) =>
+                    setWeights({ ...weights, [element]: Number(e.target.value) })
+                  }
+                  required
+                />
+              </label>
             ))}
           </div>
-        )}
-        <p className="muted">
-          Справочник: {String(capability.reference.source ?? "—")} · стадия
-          ионизации {elements.data?.ion_stage ?? "—"}
-        </p>
-        {selected.map((element) => (
-          <label key={element}>
-            Вклад {element}
+          {selected.length > 0 && <p className="muted">Вклады задают относительную амплитуду компонентов, а не концентрации.</p>}
+          <button
+            className="primary full"
+            disabled={selected.length === 0 || generate.isPending}
+          >
+            <Icon name="play" />
+            {generate.isPending ? "Генерация…" : "Сгенерировать спектр"}
+          </button>
+          <ErrorNotice error={generate.error} />
+          <details className="control-details">
+            <summary>Справочник элементов</summary>
+            <p className="muted">
+              Источник: {String(capability.reference.source ?? "—")} · стадия
+              ионизации {elements.data?.ion_stage ?? "—"}.
+            </p>
+          </details>
+        </section>
+        <section className="control-section">
+          <div className="section-heading">
+            <Icon name="sliders" />
+            <h2>Условия измерения</h2>
+          </div>
+          <label className="check">
             <input
-              type="number"
-              min="0.000001"
-              step="any"
-              value={weights[element] ?? 1}
-              onChange={(e) =>
-                setWeights({ ...weights, [element]: Number(e.target.value) })
-              }
-              required
+              type="checkbox"
+              checked={clean}
+              onChange={(e) => setClean(e.target.checked)}
             />
+            Чистый сигнал, без шума
           </label>
-        ))}
-        <hr />
-        <h3>Условия измерения</h3>
-        <label className="check">
-          <input
-            type="checkbox"
-            checked={clean}
-            onChange={(e) => setClean(e.target.checked)}
-          />
-          Чистый сигнал, без шума
-        </label>
-        {controls.map(([key, label, min, max, step]) => {
-          const error = validationMessages(generate.error).find(
-            (entry) => entry.field === key,
-          );
-          return (
-            <label key={key}>
-              {label}
-              <input
-                id={`generator-${key}`}
-                type="number"
-                disabled={
-                  key === "snr_db" &&
-                  (clean || physics.noise_model === "poisson_read")
-                }
-                min={
-                  key === "seed"
-                    ? capability.generation.seed_min
-                    : key === "sampling_step_nm"
-                      ? capability.generation.min_sampling_step_nm
-                      : (capability.generation.limits?.[key]?.minimum ?? min)
-                }
-                max={
-                  key === "seed"
-                    ? capability.generation.seed_max
-                    : (capability.generation.limits?.[key]?.maximum ?? max)
-                }
-                step={key === "sampling_step_nm" ? "any" : step}
-                value={params[key]}
-                aria-invalid={!!error}
-                aria-describedby={error ? `error-${key}` : undefined}
-                onChange={(e) =>
-                  setParams({ ...params, [key]: Number(e.target.value) })
-                }
-                required
-              />
-              {error && (
-                <span id={`error-${key}`} className="field-error">
-                  {error.message}
-                </span>
-              )}
-            </label>
-          );
-        })}
-        <details>
-          <summary>Профиль линии и детектор</summary>
-          <label>
-            Профиль линии
-            <select
-              value={physics.profile}
-              onChange={(e) =>
-                setPhysics({
-                  ...physics,
-                  profile: e.target.value as Physics["profile"],
-                })
-              }
-            >
-              {capability.generation.profiles.map((value) => (
-                <option key={value}>{value}</option>
-              ))}
-            </select>
-          </label>
-          {physics.profile === "voigt" && (
+          <div className="form-grid">
+            {controls.map(([key, label, min, max, step]) => {
+              const error = validationMessages(generate.error).find(
+                (entry) => entry.field === key,
+              );
+              return (
+                <label key={key}>
+                  {label}
+                  <input
+                    id={`generator-${key}`}
+                    type="number"
+                    disabled={
+                      key === "snr_db" &&
+                      (clean || physics.noise_model === "poisson_read")
+                    }
+                    min={
+                      key === "seed"
+                        ? capability.generation.seed_min
+                        : key === "sampling_step_nm"
+                          ? capability.generation.min_sampling_step_nm
+                          : (capability.generation.limits?.[key]?.minimum ?? min)
+                    }
+                    max={
+                      key === "seed"
+                        ? capability.generation.seed_max
+                        : (capability.generation.limits?.[key]?.maximum ?? max)
+                    }
+                    step={key === "sampling_step_nm" ? "any" : step}
+                    value={params[key]}
+                    aria-invalid={!!error}
+                    aria-describedby={error ? `error-${key}` : undefined}
+                    onChange={(e) =>
+                      setParams({ ...params, [key]: Number(e.target.value) })
+                    }
+                    required
+                  />
+                  {error && (
+                    <span id={`error-${key}`} className="field-error">
+                      {error.message}
+                    </span>
+                  )}
+                </label>
+              );
+            })}
+          </div>
+          <details className="control-details">
+            <summary>Профиль линии и детектор</summary>
             <label>
-              Лоренцева FWHM, nm
-              <input
-                type="number"
-                min="0"
-                step="any"
-                value={physics.lorentzian_fwhm_nm}
+              Профиль линии
+              <select
+                value={physics.profile}
                 onChange={(e) =>
                   setPhysics({
                     ...physics,
-                    lorentzian_fwhm_nm: Number(e.target.value),
+                    profile: e.target.value as Physics["profile"],
+                  })
+                }
+              >
+                {capability.generation.profiles.map((value) => (
+                  <option key={value}>{value}</option>
+                ))}
+              </select>
+            </label>
+            {physics.profile === "voigt" && (
+              <label>
+                Лоренцева FWHM, nm
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  value={physics.lorentzian_fwhm_nm}
+                  onChange={(e) =>
+                    setPhysics({
+                      ...physics,
+                      lorentzian_fwhm_nm: Number(e.target.value),
+                    })
+                  }
+                  required
+                />
+              </label>
+            )}
+            <label>
+              Модель шума
+              <select
+                value={physics.noise_model}
+                onChange={(e) =>
+                  setPhysics({
+                    ...physics,
+                    noise_model: e.target.value as Physics["noise_model"],
+                  })
+                }
+              >
+                {capability.generation.noise_models.map((value) => (
+                  <option key={value}>{value}</option>
+                ))}
+              </select>
+            </label>
+            {physics.noise_model === "poisson_read" && (
+              <>
+                <label>
+                  Масштаб фотонов
+                  <input
+                    type="number"
+                    min="0.000001"
+                    step="any"
+                    value={physics.photon_scale}
+                    onChange={(e) =>
+                      setPhysics({
+                        ...physics,
+                        photon_scale: Number(e.target.value),
+                      })
+                    }
+                    required
+                  />
+                </label>
+                <label>
+                  Шум считывания, std
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    value={physics.read_noise_std}
+                    onChange={(e) =>
+                      setPhysics({
+                        ...physics,
+                        read_noise_std: Number(e.target.value),
+                      })
+                    }
+                    required
+                  />
+                </label>
+                <p className="muted">
+                  Poisson/read noise задаётся масштабом фотонов и шумом
+                  считывания.
+                </p>
+              </>
+            )}
+            <label>
+              Наклон отклика детектора
+              <input
+                type="number"
+                min="-1"
+                max="1"
+                step="any"
+                value={physics.response_slope}
+                onChange={(e) =>
+                  setPhysics({
+                    ...physics,
+                    response_slope: Number(e.target.value),
                   })
                 }
                 required
               />
             </label>
-          )}
-          <label>
-            Модель шума
-            <select
-              value={physics.noise_model}
-              onChange={(e) =>
-                setPhysics({
-                  ...physics,
-                  noise_model: e.target.value as Physics["noise_model"],
-                })
-              }
-            >
-              {capability.generation.noise_models.map((value) => (
-                <option key={value}>{value}</option>
-              ))}
-            </select>
-          </label>
-          {physics.noise_model === "poisson_read" && (
-            <>
-              <label>
-                Масштаб фотонов
-                <input
-                  type="number"
-                  min="0.000001"
-                  step="any"
-                  value={physics.photon_scale}
-                  onChange={(e) =>
-                    setPhysics({
-                      ...physics,
-                      photon_scale: Number(e.target.value),
-                    })
-                  }
-                  required
-                />
-              </label>
-              <label>
-                Шум считывания, std
-                <input
-                  type="number"
-                  min="0"
-                  step="any"
-                  value={physics.read_noise_std}
-                  onChange={(e) =>
-                    setPhysics({
-                      ...physics,
-                      read_noise_std: Number(e.target.value),
-                    })
-                  }
-                  required
-                />
-              </label>
-              <p className="muted">
-                Poisson/read noise задаётся масштабом фотонов и шумом
-                считывания.
-              </p>
-            </>
-          )}
-          <label>
-            Наклон отклика детектора
-            <input
-              type="number"
-              min="-1"
-              max="1"
-              step="any"
-              value={physics.response_slope}
-              onChange={(e) =>
-                setPhysics({
-                  ...physics,
-                  response_slope: Number(e.target.value),
-                })
-              }
-              required
-            />
-          </label>
-          <label>
-            Уровень насыщения (пусто — отключено)
-            <input
-              type="number"
-              min="0.000001"
-              step="any"
-              value={physics.saturation_level ?? ""}
-              onChange={(e) =>
-                setPhysics({
-                  ...physics,
-                  saturation_level:
-                    e.target.value === "" ? null : Number(e.target.value),
-                })
-              }
-            />
-          </label>
-          <label>
-            Стадия ионизации
-            <select
-              value={physics.ion_stage}
-              onChange={(e) =>
-                setPhysics({ ...physics, ion_stage: Number(e.target.value) })
-              }
-            >
-              {capability.generation.ion_stages.map((value) => (
-                <option key={value}>{value}</option>
-              ))}
-            </select>
-          </label>
-          <p className="muted">Доступны только стадии текущего справочника.</p>
-        </details>
-        <button
-          className="primary full"
-          disabled={selected.length === 0 || generate.isPending}
-        >
-          {generate.isPending ? "Генерация…" : "Сгенерировать спектр"}
-        </button>
-        <ErrorNotice error={generate.error} />
-        <details>
-          <summary>Пресет генератора</summary>
-          <p className="muted">
-            Сохраняется в этом браузере вместе с версией схемы и профилем
-            сервиса.
-          </p>
-          <div className="actions">
-            <button
-              type="button"
-              disabled={!selected.length}
-              onClick={() => {
-                try {
-                  const value: Preset = {
-                    physics,
-                    schema_version: 1,
-                    profile: profileKey,
-                    parameters: params,
-                    selected,
-                    weights,
-                    clean,
-                  };
-                  localStorage.setItem(presetKey, JSON.stringify(value));
-                  setPresetError(null);
-                  setPresetMessage("Пресет сохранён.");
-                } catch {
-                  setPresetError(
-                    new ApiError(
-                      "Браузер запретил сохранение пресета.",
-                      "storage_unavailable",
-                    ),
-                  );
+            <label>
+              Уровень насыщения (пусто — отключено)
+              <input
+                type="number"
+                min="0.000001"
+                step="any"
+                value={physics.saturation_level ?? ""}
+                onChange={(e) =>
+                  setPhysics({
+                    ...physics,
+                    saturation_level:
+                      e.target.value === "" ? null : Number(e.target.value),
+                  })
                 }
-              }}
-            >
-              Сохранить пресет
-            </button>
-            <button
-              type="button"
-              disabled={!elements.data}
-              onClick={loadPreset}
-            >
-              Восстановить пресет
-            </button>
-          </div>
-          <p role="status">{presetMessage}</p>
-          <ErrorNotice error={presetError} />
-        </details>
+              />
+            </label>
+            <label>
+              Стадия ионизации
+              <select
+                value={physics.ion_stage}
+                onChange={(e) =>
+                  setPhysics({ ...physics, ion_stage: Number(e.target.value) })
+                }
+              >
+                {capability.generation.ion_stages.map((value) => (
+                  <option key={value}>{value}</option>
+                ))}
+              </select>
+            </label>
+            <p className="muted">Доступны только стадии текущего справочника.</p>
+          </details>
+        </section>
+        <section className="control-section">
+          <details className="control-details">
+            <summary>Пресет генератора</summary>
+            <p className="muted">
+              Сохраняется в этом браузере вместе с версией схемы и профилем
+              сервиса.
+            </p>
+            <div className="actions">
+              <button
+                type="button"
+                disabled={!selected.length}
+                onClick={() => {
+                  try {
+                    const value: Preset = {
+                      physics,
+                      schema_version: 1,
+                      profile: profileKey,
+                      parameters: params,
+                      selected,
+                      weights,
+                      clean,
+                    };
+                    localStorage.setItem(presetKey, JSON.stringify(value));
+                    setPresetError(null);
+                    setPresetMessage("Пресет сохранён.");
+                  } catch {
+                    setPresetError(
+                      new ApiError(
+                        "Браузер запретил сохранение пресета.",
+                        "storage_unavailable",
+                      ),
+                    );
+                  }
+                }}
+              >
+                Сохранить пресет
+              </button>
+              <button
+                type="button"
+                disabled={!elements.data}
+                onClick={loadPreset}
+              >
+                Восстановить пресет
+              </button>
+            </div>
+            <p role="status">{presetMessage}</p>
+            <ErrorNotice error={presetError} />
+          </details>
+        </section>
       </form>
-      <section className="panel spectrum-panel">
+      <section className="panel spectrum-panel generator-canvas">
         <div className="panel-heading">
-          <h2>Сигнал образца</h2>
+          <div>
+            <h2>Сигнал образца</h2>
+            <p className="muted">
+              {spectrum ? <>Сохранённый спектр · <span className="mono" title={spectrum.spectrum_id}>{spectrum.spectrum_id.slice(0, 12)}</span></> : "Синтетическое измерение с известным составом"}
+            </p>
+          </div>
           <span className="tag">
             {spectrum
               ? `${spectrum.wavelength_nm.length.toLocaleString("ru")} точек`
@@ -519,6 +556,9 @@ function GeneratorForm({ capability }: { capability: Capabilities }) {
           <Loading>Генерируем сигнал…</Loading>
         ) : spectrum ? (
           <>
+            <p className="draft-notice">
+              На графике сохранённый спектр. Параметры формы применятся только при новой генерации.
+            </p>
             <SpectrumChart
               key={spectrum.spectrum_id}
               spectrum={spectrum}
@@ -526,43 +566,59 @@ function GeneratorForm({ capability }: { capability: Capabilities }) {
               medium={capability.spectrum.wavelength_medium}
             />
             <div className="truth">
-              <strong>Истинный состав (генератор)</strong>
-              <span>
+              <div>
+                <strong>Истинный состав (генератор)</strong>
+                <p className="muted">Эти метки не передаются распознаванию.</p>
+              </div>
+              <span className="truth-elements">
                 {Object.entries(spectrum.true_labels ?? {})
                   .filter(([, v]) => v)
                   .map(([name]) => name)
                   .join(" + ")}
               </span>
-              <small>Эти метки не передаются распознаванию.</small>
             </div>
-            <details>
+            <details className="source-details">
               <summary>Параметры сохранённого спектра</summary>
+              <dl className="metadata">
+                <dt>ID образца</dt><dd className="mono">{spectrum.spectrum_id}</dd>
+                <dt>Источник сигнала</dt><dd>{spectrum.origin === "uploaded" ? "Загруженный CSV" : "Генератор"}</dd>
+                <dt>Справочник</dt><dd>{spectrum.reference_source}</dd>
+              </dl>
               <pre>{JSON.stringify(spectrum.parameters, null, 2)}</pre>
             </details>
             <div className="actions">
               <Link
                 className="button primary"
                 to={`/analysis?spectrum=${spectrum.spectrum_id}`}
+                aria-label="Передать на анализ →"
               >
-                Передать на анализ →
+                Передать на анализ
+                <Icon name="arrowRight" />
               </Link>
               <button
                 disabled={exportSpectrum.isPending}
                 onClick={() => exportSpectrum.mutate()}
               >
+                <Icon name="download" />
                 Скачать CSV
               </button>
             </div>
             <ErrorNotice error={exportSpectrum.error} />
           </>
         ) : (
-          <div className="empty tall">
+          <div className="empty tall spectrum-empty">
+            <div className="empty-symbol" aria-hidden="true"><Icon name="flask" /></div>
             <h3>Начните с виртуального образца</h3>
             <p>
-              Выберите элементы и условия слева.
-              <br />
-              Здесь появятся чистый и наблюдаемый сигналы.
+              Выберите элементы и условия измерения.
+              После генерации здесь появятся чистый и наблюдаемый сигналы.
             </p>
+            <ol className="empty-steps">
+              <li className="empty-step"><Icon name="plus" /><span>Задайте состав</span></li>
+              <li className="empty-step"><Icon name="sliders" /><span>Настройте измерение</span></li>
+              <li className="empty-step"><Icon name="spectrum" /><span>Сравните сигналы</span></li>
+            </ol>
+            <p className="empty-hint">Меняйте один параметр за раз, чтобы увидеть его влияние на спектр.</p>
           </div>
         )}
       </section>

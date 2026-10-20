@@ -10,6 +10,7 @@ import {
   type BatchResult,
 } from "../api/client";
 import { ErrorNotice, Loading } from "../components/Feedback";
+import { Icon } from "../components/Icon";
 import {
   batchFilePath,
   prepareBatchFile,
@@ -344,6 +345,7 @@ export function BatchAnalysis() {
   const fileInputs = (
     <div className="actions batch-file-inputs">
       <label className="button">
+        <Icon name="folder" />
         Выбрать папку
         <input
           aria-label="Выбрать папку CSV"
@@ -358,6 +360,7 @@ export function BatchAnalysis() {
         />
       </label>
       <label className="button">
+        <Icon name="upload" />
         Выбрать CSV-файлы
         <input
           aria-label="Выбрать CSV-файлы"
@@ -379,12 +382,13 @@ export function BatchAnalysis() {
         <div>
           <h1>Пакетный анализ</h1>
           <p>
-            Общая очередь для папки спектров с отдельным результатом каждого
-            файла и модели.
+            Папка спектров. Зафиксированные модели. Отдельный результат для
+            каждой пары «файл × модель».
           </p>
         </div>
         {id && (
           <button disabled={allBusy} onClick={beginNew}>
+            <Icon name="plus" />
             Новая очередь
           </button>
         )}
@@ -392,9 +396,15 @@ export function BatchAnalysis() {
       <ErrorNotice error={capabilities.error} />
       <ErrorNotice error={models.error} />
       <ErrorNotice error={detail.error} />
-      <div className="workspace">
-        <aside className="panel controls">
-          <h2>Сохранённые очереди</h2>
+      <div className="workspace batch-workspace">
+        <aside className={`panel controls ${history.data?.length === 0 ? "batch-history-empty" : ""}`}>
+          <div className="section-heading">
+            <Icon name="layers" />
+            <h2>Сохранённые очереди</h2>
+          </div>
+          <p className="muted">
+            Вернитесь к загрузке, проверьте выполнение или скачайте отчёт.
+          </p>
           <ErrorNotice error={history.error} />
           {history.isPending && <Loading />}
           {history.data?.length === 0 && (
@@ -409,33 +419,45 @@ export function BatchAnalysis() {
               if (id) void detail.refetch();
             }}
           >
+            <Icon name="refresh" />
             Обновить очереди
           </button>
-          {history.data?.map((item) => (
-            <button
-              className={`run-choice ${item.batch_id === id ? "active" : ""}`}
-              key={item.batch_id}
-              disabled={allBusy}
-              onClick={() => choose(item.batch_id)}
-            >
-              <strong>{item.name}</strong>
-              <small>
-                {statusNames[item.status] ?? item.status} ·{" "}
-                {new Date(item.created_at).toLocaleString("ru")}
-              </small>
-            </button>
-          ))}
+          <div className="run-list">
+            {history.data?.map((item) => (
+              <button
+                className={`run-choice ${item.batch_id === id ? "active" : ""}`}
+                aria-pressed={item.batch_id === id}
+                key={item.batch_id}
+                disabled={allBusy}
+                onClick={() => choose(item.batch_id)}
+              >
+                <strong>{item.name}</strong>
+                <small>
+                  {statusNames[item.status] ?? item.status} ·{" "}
+                  {new Date(item.created_at).toLocaleString("ru")}
+                </small>
+              </button>
+            ))}
+          </div>
         </aside>
         <div className="main-column">
           {!id && (
-            <section className="panel">
-              <h2>Подготовить очередь</h2>
+            <section className="panel stage-panel batch-setup">
+              <div className="section-heading">
+                <div>
+                  <h2>Подготовить очередь</h2>
+                  <p className="muted">
+                    Сначала выберите модели и CSV. После проверки начнётся
+                    загрузка, затем — обработка.
+                  </p>
+                </div>
+              </div>
               <p className="muted">
                 Файлы выбираются в браузере; путь к папке на сервере не нужен.
                 Некорректные CSV попадут в отчёт как ошибки, остальные продолжат
                 обработку.
               </p>
-              <div className="metadata-form">
+              <div className="metadata-form control-section">
                 <label>
                   Название очереди
                   <input
@@ -449,7 +471,7 @@ export function BatchAnalysis() {
                   />
                 </label>
               </div>
-              <fieldset className="batch-models">
+              <fieldset className="batch-models control-section">
                 <legend>Модели для каждого спектра</legend>
                 {models.data?.map((model) => (
                   <label className="check" key={model.model_id}>
@@ -478,21 +500,27 @@ export function BatchAnalysis() {
                   </label>
                 ))}
               </fieldset>
-              {fileInputs}
-              {capabilities.data && (
-                <p className="muted">
-                  До {limits?.max_files ?? 200} файлов; каждый — до{" "}
-                  {(
-                    capabilities.data.spectrum.max_upload_bytes / 1_000_000
-                  ).toLocaleString("ru")}{" "}
-                  MB, {capabilities.data.spectrum.wavelength_medium},{" "}
-                  {capabilities.data.spectrum.units}.
-                  {limits?.max_total_upload_bytes
-                    ? ` Общий объём принятых CSV — до ${(limits.max_total_upload_bytes / 1_000_000).toLocaleString("ru")} MB.`
-                    : ""}{" "}
-                  Изменённый файл требует новой очереди.
-                </p>
-              )}
+              <div className="control-section file-intake">
+                <div className="section-heading">
+                  <Icon name="folder" />
+                  <h3>Спектры для анализа</h3>
+                </div>
+                {fileInputs}
+                {capabilities.data && (
+                  <p className="muted">
+                    До {limits?.max_files ?? 200} файлов; каждый — до{" "}
+                    {(
+                      capabilities.data.spectrum.max_upload_bytes / 1_000_000
+                    ).toLocaleString("ru")}{" "}
+                    MB, {capabilities.data.spectrum.wavelength_medium},{" "}
+                    {capabilities.data.spectrum.units}.
+                    {limits?.max_total_upload_bytes
+                      ? ` Общий объём принятых CSV — до ${(limits.max_total_upload_bytes / 1_000_000).toLocaleString("ru")} MB.`
+                      : ""}{" "}
+                    Изменённый файл требует новой очереди.
+                  </p>
+                )}
+              </div>
               {recovery && !prepared.length && (
                 <div className="notice">
                   <span>
@@ -518,6 +546,7 @@ export function BatchAnalysis() {
                 }
                 onClick={() => create.mutate(undefined)}
               >
+                <Icon name="play" />
                 Загрузить и запустить очередь
               </button>
               {limits?.enabled === false && (
@@ -528,30 +557,43 @@ export function BatchAnalysis() {
           )}
           {id && detail.isPending && <Loading>Загрузка очереди…</Loading>}
           {batch && (
-            <section className="panel" aria-label="Текущая очередь">
-              <div className="panel-heading">
+            <section
+              className="panel stage-panel batch-stage"
+              aria-label="Текущая очередь"
+            >
+              <div className="panel-heading section-heading">
                 <h2>{batch.name}</h2>
-                <span className="tag">
+                <span className="tag" data-status={batch.status}>
                   {statusNames[batch.status] ?? batch.status}
                 </span>
               </div>
               <p className="muted">
                 ID: <code>{batch.batch_id}</code> · {batch.model_ids.join(", ")}
               </p>
-              <div className="batch-progress" aria-live="polite">
-                <p>
-                  Обработано: {batch.progress.completed} · из них ошибок:{" "}
-                  {batch.progress.failed} · всего результатов:{" "}
-                  {batch.progress.total}
-                </p>
-                <progress
-                  aria-label="Готовые результаты очереди"
-                  value={batch.progress.completed}
-                  max={batch.progress.total || 1}
-                />
-              </div>
+              <dl className="stage-summary">
+                <div>
+                  <dt>Файлов в очереди</dt>
+                  <dd>{batch.files.length}</dd>
+                </div>
+                <div>
+                  <dt>Проверка завершена</dt>
+                  <dd>
+                    {batch.files.filter((file) => file.status !== "pending_upload").length}
+                  </dd>
+                </div>
+                <div>
+                  <dt>Файлов отклонено</dt>
+                  <dd>
+                    {batch.files.filter((file) => file.status === "invalid").length}
+                  </dd>
+                </div>
+              </dl>
               {batch.status === "draft" && (
-                <>
+                <div className="control-section file-intake">
+                  <div className="section-heading">
+                    <Icon name="upload" />
+                    <h3>Приём файлов</h3>
+                  </div>
                   <p>
                     Ожидают загрузки:{" "}
                     {
@@ -566,9 +608,11 @@ export function BatchAnalysis() {
                   {fileInputs}
                   <div className="actions">
                     <button
+                      className="primary"
                       disabled={!prepared.length || allBusy}
                       onClick={() => intake.mutate(batch)}
                     >
+                      <Icon name="upload" />
                       Продолжить загрузку
                     </button>
                     {batch.files.every(
@@ -580,12 +624,33 @@ export function BatchAnalysis() {
                           action.mutate({ action: "start", batchId: id })
                         }
                       >
+                        <Icon name="play" />
                         Запустить обработку
                       </button>
                     )}
                   </div>
-                </>
+                </div>
               )}
+              <div className="batch-progress control-section" aria-live="polite">
+                <div className="section-heading">
+                  <Icon name="activity" />
+                  <h3>Расчёт по моделям</h3>
+                </div>
+                <p>
+                  Обработано: {batch.progress.completed} · из них ошибок:{" "}
+                  {batch.progress.failed} · всего результатов:{" "}
+                  {batch.progress.total}
+                </p>
+                <progress
+                  aria-label="Готовые результаты очереди"
+                  value={batch.progress.completed}
+                  max={batch.progress.total || 1}
+                />
+                <p className="muted">
+                  Один результат — один файл и одна модель. Завершённые с
+                  ошибкой результаты также входят в прогресс.
+                </p>
+              </div>
               {["queued", "running"].includes(batch.status) && (
                 <p className="muted">
                   Задание выполняет отдельный worker. Эта страница может быть
@@ -610,6 +675,7 @@ export function BatchAnalysis() {
                       action.mutate({ action: "cancel", batchId: id })
                     }
                   >
+                    <Icon name="close" />
                     Отменить обработку
                   </button>
                 )}
@@ -620,6 +686,7 @@ export function BatchAnalysis() {
                       action.mutate({ action: "resume", batchId: id })
                     }
                   >
+                    <Icon name="refresh" />
                     Повторить незавершённые
                   </button>
                 )}
@@ -629,13 +696,14 @@ export function BatchAnalysis() {
                     disabled={exported.isPending || allBusy}
                     onClick={() => exported.mutate(format)}
                   >
+                    <Icon name="download" />
                     Сводный отчёт {format.toUpperCase()}
                   </button>
                 ))}
               </div>
               <ErrorNotice error={action.error} />
               <ErrorNotice error={exported.error} />
-              <details>
+              <details className="provenance-details">
                 <summary>Зафиксированные модели и источник</summary>
                 <pre>{JSON.stringify(batch.model_snapshots, null, 2)}</pre>
                 <p className="muted">
@@ -644,6 +712,15 @@ export function BatchAnalysis() {
                   общую уверенность.
                 </p>
               </details>
+              <div className="section-heading results-heading">
+                <div>
+                  <h3>Результаты по файлам</h3>
+                  <p className="muted">
+                    Проверка входа, решения моделей и происхождение каждого
+                    результата.
+                  </p>
+                </div>
+              </div>
               <div
                 className="table-scroll"
                 tabIndex={0}
@@ -673,7 +750,7 @@ export function BatchAnalysis() {
                   </tbody>
                 </table>
               </div>
-              <div className="actions">
+              <div className="actions pagination">
                 <button disabled={!page} onClick={() => setPage((p) => p - 1)}>
                   Предыдущие файлы
                 </button>
@@ -723,9 +800,12 @@ export function BatchAnalysis() {
               )}
             </div>
           )}
-          {!!prepared.length && (
-            <section className="panel">
-              <h2>Выбранные файлы</h2>
+          {!!prepared.length && (!batch || batch.status === "draft") && (
+            <section className="panel intake-preview">
+              <div className="section-heading">
+                <Icon name="file" />
+                <h2>Выбранные файлы</h2>
+              </div>
               <p>
                 {prepared.length} файлов, локальных ошибок:{" "}
                 {prepared.filter((file) => file.error).length}.
@@ -735,7 +815,7 @@ export function BatchAnalysis() {
                   <thead>
                     <tr>
                       <th>Файл</th>
-                      <th>Размер</th>
+                      <th className="num">Размер</th>
                       <th>Проверка</th>
                     </tr>
                   </thead>
@@ -743,7 +823,7 @@ export function BatchAnalysis() {
                     {prepared.map((entry) => (
                       <tr key={entry.relative_path}>
                         <th>{entry.relative_path}</th>
-                        <td>{entry.size_bytes.toLocaleString("ru")} байт</td>
+                        <td className="num">{entry.size_bytes.toLocaleString("ru")} байт</td>
                         <td>
                           {entry.error ? (
                             <span className="field-error">
@@ -850,16 +930,16 @@ function BatchFileRow({
                       <thead>
                         <tr>
                           <th>Элемент</th>
-                          <th>Score</th>
-                          <th>Порог</th>
+                          <th className="num">Score</th>
+                          <th className="num">Порог</th>
                         </tr>
                       </thead>
                       <tbody>
                         {result.prediction.scores.map((score) => (
                           <tr key={score.element}>
                             <th>{score.element}</th>
-                            <td>{score.value.toFixed(4)}</td>
-                            <td>
+                            <td className="num">{score.value.toFixed(4)}</td>
+                            <td className="num">
                               {result.prediction!.thresholds[
                                 score.element
                               ]?.toFixed(4) ?? "—"}

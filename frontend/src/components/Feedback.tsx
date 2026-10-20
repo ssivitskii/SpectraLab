@@ -1,4 +1,5 @@
 import { ApiError, validationMessages } from "../api/client";
+import { Icon } from "./Icon";
 export function ErrorNotice({
   error,
   id,
@@ -20,17 +21,19 @@ export function ErrorNotice({
 }
 export function Loading({ children = "Загрузка…" }: { children?: string }) {
   return (
-    <div className="empty" role="status">
-      <span className="loading-dot" />
+    <div className="loading-state" role="status">
+      <span className="loading-spinner" aria-hidden="true" />
       {children}
     </div>
   );
 }
 export function SourceNotice({ source }: { source?: string }) {
   return (
-    <div className="notice">
+    <div className="research-notice">
+      <Icon name="info" size={18} />
+      <div>
       <strong>Исследовательский прототип</strong>
-      <span>
+      <p>
         {source && (
           <>
             Справочник: <code>{source}</code>.{" "}
@@ -38,7 +41,8 @@ export function SourceNotice({ source }: { source?: string }) {
         )}
         Результаты на синтетике не подтверждают качество на реальных измерениях.
         Веса компонентов не являются концентрациями.
-      </span>
+      </p>
+      </div>
     </div>
   );
 }

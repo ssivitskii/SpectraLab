@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { Data, Layout, PlotHoverEvent } from "plotly.js";
+import type { Data, Layout, PlotHoverEvent, PlotRelayoutEvent } from "plotly.js";
 import { displaySeries } from "./plotData";
+import { chartColors, photonChartLayout } from "./chartTheme";
 import type { Spectrum, Prediction } from "../api/client";
 const emptyLayout: Partial<Layout> = {};
 export function Chart({
@@ -8,17 +9,21 @@ export function Chart({
   layout = emptyLayout,
   label = "График",
   onHover,
+  onRelayout,
 }: {
   data: Data[];
   layout?: Partial<Layout>;
   label?: string;
   onHover?: (event: PlotHoverEvent) => void;
+  onRelayout?: (event: PlotRelayoutEvent) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [error, setError] = useState("");
   const [engine, setEngine] = useState<typeof import("plotly.js") | null>(null);
   const hover = useRef(onHover);
+  const relayout = useRef(onRelayout);
   hover.current = onHover;
+  relayout.current = onRelayout;
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
@@ -53,38 +58,32 @@ export function Chart({
     if (!node || !engine) return;
     let cancelled = false;
     void engine
-      .react(
-        node,
-        data,
-        {
-          autosize: true,
-          height: 430,
-          margin: { l: 60, r: 20, t: 35, b: 60 },
-          paper_bgcolor: "#fff",
-          plot_bgcolor: "#fff",
-          font: { family: "system-ui", color: "#334155", size: 12 },
-          hovermode: "closest",
-          legend: { orientation: "h", y: 1.15 },
-          ...layout,
-        },
-        {
-          responsive: true,
-          displaylogo: false,
-          scrollZoom: true,
-          toImageButtonOptions: { format: "png", filename: "spectralab" },
-        },
-      )
+      .react(node, data, photonChartLayout(layout), {
+        responsive: true,
+        displaylogo: false,
+        scrollZoom: true,
+        modeBarButtonsToRemove: ["lasso2d", "select2d"],
+        toImageButtonOptions: { format: "png", filename: "spectralab" },
+      })
       .then(() => {
         if (!cancelled) {
           const plot = node as unknown as {
             removeAllListeners?: (name: string) => void;
-            on?: (
-              name: string,
-              callback: (event: PlotHoverEvent) => void,
-            ) => void;
+            on?: {
+              (
+                name: "plotly_hover",
+                callback: (event: PlotHoverEvent) => void,
+              ): void;
+              (
+                name: "plotly_relayout",
+                callback: (event: PlotRelayoutEvent) => void,
+              ): void;
+            };
           };
           plot.removeAllListeners?.("plotly_hover");
+          plot.removeAllListeners?.("plotly_relayout");
           plot.on?.("plotly_hover", (event) => hover.current?.(event));
+          plot.on?.("plotly_relayout", (event) => relayout.current?.(event));
         }
       })
       .catch(() => {
@@ -98,9 +97,9 @@ export function Chart({
     };
   }, [data, layout, engine]);
   return (
-    <div className="chart" aria-label={label}>
+    <div className="chart" role="region" aria-label={label}>
       {error && <p role="alert">{error}</p>}
-      <div ref={ref} />
+      <div ref={ref} className="chart-plot" />
     </div>
   );
 }
@@ -121,9 +120,24 @@ export function SpectrumChart({
     [page, setPage] = useState(0),
     [active, setActive] = useState<number | null>(null);
   const [range, setRange] = useState<[number, number] | undefined>(),
-    [reset, setReset] = useState(0);
+    [reset, setReset] = useState(0),
+    [dragmode, setDragmode] = useState<"zoom" | "pan">("zoom");
   const [from, setFrom] = useState(String(spectrum.wavelength_nm[0])),
     [to, setTo] = useState(String(spectrum.wavelength_nm.at(-1)));
+  const displayUnits = spectrum.units ?? units;
+  const wavelengthMedium = spectrum.wavelength_medium ?? medium;
+  const displayMedium =
+    wavelengthMedium === "vacuum"
+      ? "вакуум"
+      : wavelengthMedium === "air"
+        ? "воздух"
+        : wavelengthMedium;
+  const validRange =
+    from.trim() !== "" &&
+    to.trim() !== "" &&
+    Number.isFinite(Number(from)) &&
+    Number.isFinite(Number(to)) &&
+    Number(from) < Number(to);
   const lines = useMemo(
     () =>
       (prediction?.matched_reference_lines ?? []).filter(
@@ -141,7 +155,7 @@ export function SpectrumChart({
         name: "Наблюдаемый",
         type: "scatter",
         mode: "lines",
-        line: { color: "#1d4ed8", width: 1.4 },
+        line: { color: chartColors.observed, width: 1.6 },
       },
     ];
     if (clean && spectrum.clean_signal)
@@ -151,7 +165,7 @@ export function SpectrumChart({
         name: "Чистый сигнал",
         type: "scatter",
         mode: "lines",
-        line: { color: "#0f766e", width: 1.4 },
+        line: { color: chartColors.clean, width: 1.4 },
       });
     if (references && lines.length) {
       const top = spectrum.intensity.reduce((a, b) => Math.max(a, b), 0);
@@ -164,7 +178,7 @@ export function SpectrumChart({
         name: "Справочные линии",
         type: "scatter",
         mode: "lines",
-        line: { color: "#b45309", width: 1, dash: "dot" },
+        line: { color: chartColors.reference, width: 1, dash: "dot" },
         hovertemplate: "%{text} · %{x:.4f}<extra>Справочник</extra>",
       });
     }
@@ -172,21 +186,19 @@ export function SpectrumChart({
   }, [spectrum, clean, references, lines]);
   const layout = useMemo<Partial<Layout>>(
     () => ({
+      dragmode,
       xaxis: {
         title: {
-          text: `Длина волны, ${spectrum.units ?? units}${(spectrum.wavelength_medium ?? medium) ? ` · ${spectrum.wavelength_medium ?? medium}` : ""}`,
+          text: `Длина волны, ${displayUnits}${displayMedium ? ` · ${displayMedium}` : ""}`,
         },
-        gridcolor: "#e2e8f0",
         zeroline: false,
         ...(range ? { range, autorange: false } : {}),
       },
       yaxis: {
         title: { text: "Интенсивность, усл. ед." },
-        gridcolor: "#f1f5f9",
-        zerolinecolor: "#cbd5e1",
       },
       shapes:
-        active !== null && lines[active]
+        references && active !== null && lines[active]
           ? [
               {
                 type: "line",
@@ -195,43 +207,101 @@ export function SpectrumChart({
                 y0: 0,
                 y1: 1,
                 yref: "paper",
-                line: { color: "#991b1b", width: 3 },
+                line: { color: chartColors.active, width: 2 },
               },
             ]
           : [],
       uirevision: `${spectrum.spectrum_id}-${reset}`,
     }),
-    [spectrum, units, medium, range, active, lines, reset],
+    [
+      spectrum,
+      displayUnits,
+      displayMedium,
+      range,
+      active,
+      lines,
+      reset,
+      references,
+      dragmode,
+    ],
   );
   return (
     <>
       <div className="chart-toolbar">
-        <span>Zoom: прокрутка или диапазон ниже · pan: панель графика</span>
-        {spectrum.clean_signal && (
-          <label>
-            <input
-              type="checkbox"
-              checked={clean}
-              onChange={(e) => setClean(e.target.checked)}
-            />
-            Чистый сигнал
-          </label>
-        )}
-        {prediction && (
-          <label>
-            <input
-              type="checkbox"
-              checked={references}
-              onChange={(e) => setReferences(e.target.checked)}
-            />
-            Справочные линии ({lines.length})
-          </label>
-        )}
+        <div className="chart-modes" role="group" aria-label="Режим графика">
+          <button
+            type="button"
+            className="chart-mode"
+            aria-pressed={dragmode === "zoom"}
+            onClick={() => setDragmode("zoom")}
+            title="Выделите область мышью или задайте диапазон ниже"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <circle cx="8.5" cy="8.5" r="5.5" />
+              <path d="m13 13 4 4M8.5 6v5M6 8.5h5" />
+            </svg>
+            Масштаб
+          </button>
+          <button
+            type="button"
+            className="chart-mode"
+            aria-pressed={dragmode === "pan"}
+            onClick={() => setDragmode("pan")}
+            title="Перемещайте видимый участок спектра"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <path d="M10 2v16M2 10h16M7 5l3-3 3 3M7 15l3 3 3-3M5 7l-3 3 3 3M15 7l3 3-3 3" />
+            </svg>
+            Перемещение
+          </button>
+        </div>
+        <div className="chart-layers" role="group" aria-label="Слои спектра">
+          {spectrum.clean_signal && (
+            <label className="chart-switch">
+              <input
+                type="checkbox"
+                checked={clean}
+                onChange={(e) => setClean(e.target.checked)}
+              />
+              Чистый сигнал
+            </label>
+          )}
+          {prediction && (
+            <label className="chart-switch">
+              <input
+                type="checkbox"
+                checked={references}
+                onChange={(e) => setReferences(e.target.checked)}
+              />
+              Справочные линии ({lines.length})
+            </label>
+          )}
+        </div>
       </div>
       <Chart
         data={data}
         layout={layout}
         label="Спектр образца"
+        onRelayout={(event) => {
+          if (event.dragmode === "zoom" || event.dragmode === "pan")
+            setDragmode(event.dragmode);
+        }}
         onHover={(event) => {
           const point = event.points?.find(
             (p) => typeof p.customdata === "number",
@@ -246,56 +316,62 @@ export function SpectrumChart({
         className="range-controls"
         onSubmit={(event) => {
           event.preventDefault();
-          if (Number(from) < Number(to)) setRange([Number(from), Number(to)]);
+          if (validRange) setRange([Number(from), Number(to)]);
         }}
       >
-        <label>
-          От, {units}
-          <input
-            aria-label="Начало диапазона"
-            type="number"
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
-            step="any"
-            required
-          />
-        </label>
-        <label>
-          До, {units}
-          <input
-            aria-label="Конец диапазона"
-            type="number"
-            value={to}
-            onChange={(e) => setTo(e.target.value)}
-            min={Number(from)}
-            step="any"
-            required
-          />
-        </label>
-        <button type="submit" disabled={Number(from) >= Number(to)}>
-          Показать диапазон
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setRange(undefined);
-            setReset((v) => v + 1);
-          }}
-        >
-          Сбросить zoom
-        </button>
+        <div className="range-fields" role="group" aria-label="Диапазон спектра">
+          <label>
+            От, {displayUnits}
+            <input
+              aria-label="Начало диапазона"
+              type="number"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+              step="any"
+              required
+            />
+          </label>
+          <label>
+            До, {displayUnits}
+            <input
+              aria-label="Конец диапазона"
+              type="number"
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+              min={Number(from)}
+              step="any"
+              required
+            />
+          </label>
+        </div>
+        <div className="range-actions">
+          <button type="submit" disabled={!validRange}>
+            Показать диапазон
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setRange(undefined);
+              setFrom(String(spectrum.wavelength_nm[0]));
+              setTo(String(spectrum.wavelength_nm.at(-1)));
+              setReset((v) => v + 1);
+            }}
+          >
+            Сбросить масштаб
+          </button>
+        </div>
       </form>
       {spectrum.wavelength_nm.length > 4000 && (
-        <p className="muted">
+        <p className="muted chart-note">
           График показывает огибающую максимумов и минимумов (до 4 000 точек).
           Распознавание и экспорт используют все{" "}
           {spectrum.wavelength_nm.length.toLocaleString("ru")} точек.
         </p>
       )}
       {prediction && (
-        <details>
+        <details className="reference-lines">
           <summary>Таблица справочных линий ({lines.length})</summary>
-          <label>
+          <label className="reference-filter">
             Фильтр элемента
             <select
               aria-label="Фильтр справочных линий"
@@ -329,9 +405,9 @@ export function SpectrumChart({
               <thead>
                 <tr>
                   <th>Элемент</th>
-                  <th>Справочная, {units}</th>
-                  <th>Наблюдаемая, {units}</th>
-                  <th>Δ, {units}</th>
+                  <th>Справочная, {displayUnits}</th>
+                  <th>Наблюдаемая, {displayUnits}</th>
+                  <th>Δ, {displayUnits}</th>
                 </tr>
               </thead>
               <tbody>
@@ -344,8 +420,10 @@ export function SpectrumChart({
                   >
                     <th>
                       <button
+                        type="button"
                         onFocus={() => setActive(page * 50 + index)}
                         onClick={() => setActive(page * 50 + index)}
+                        aria-pressed={active === page * 50 + index}
                         aria-label={`Выделить ${line.element} ${line.wavelength_nm}`}
                       >
                         {line.element}
