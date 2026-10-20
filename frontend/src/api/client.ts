@@ -22,6 +22,19 @@ export type BatchFile = components["schemas"]["BatchFile"];
 export type BatchResult = components["schemas"]["BatchResult"];
 export type Batch = components["schemas"]["BatchResponse"];
 export type BatchInput = components["schemas"]["BatchRequest"];
+export type InstrumentProfileInfo = components["schemas"]["InstrumentProfileInfo"];
+export type MeasuredPredictionResponse = components["schemas"]["MeasuredPredictionResponse"];
+export type MeasuredPredictionElement = components["schemas"]["MeasuredPredictionElement"];
+export type SystemStatusResponse = components["schemas"]["SystemStatusResponse"];
+export type WorkerStatus = components["schemas"]["WorkerStatus"];
+export type QueueStatus = components["schemas"]["QueueStatus"];
+export type StorageStatus = components["schemas"]["StorageStatus"];
+export type StorageCategory = components["schemas"]["StorageCategory"];
+export type BackupStatus = components["schemas"]["BackupStatus"];
+export type AxisMetadata = components["schemas"]["AxisMetadata"];
+export type MeasurementMetadataPayload = components["schemas"]["MeasurementMetadataPayload"];
+export type ScaleRequirements = components["schemas"]["ScaleRequirements"];
+export type CoverageRequirements = components["schemas"]["CoverageRequirements"];
 export type RequestOptions = { signal?: AbortSignal; timeoutMs?: number };
 export class ApiError extends Error {
   readonly code: string;
@@ -229,6 +242,51 @@ export const api = {
     );
     saveBlob(`spectralab-${id}.${format}`, blob);
   },
+  instrumentProfiles: (options?: RequestOptions) =>
+    request<InstrumentProfileInfo[]>("/instrument-profiles", {}, options),
+  instrumentProfile: (profile_id: string, options?: RequestOptions) =>
+    request<InstrumentProfileInfo>(
+      `/instrument-profiles/${encodeURIComponent(profile_id)}`,
+      {},
+      options,
+    ),
+  createMeasuredPrediction: (
+    body: FormData | components["schemas"]["MeasuredPredictionRequestJson"],
+    options?: RequestOptions,
+  ) => {
+    if (body instanceof FormData) {
+      return request<MeasuredPredictionResponse>(
+        "/measured-predictions",
+        { method: "POST", body },
+        options,
+      );
+    }
+    return request<MeasuredPredictionResponse>(
+      "/measured-predictions",
+      json(body),
+      options,
+    );
+  },
+  measuredPrediction: (prediction_id: string, options?: RequestOptions) =>
+    request<MeasuredPredictionResponse>(
+      `/measured-predictions/${encodeURIComponent(prediction_id)}`,
+      {},
+      options,
+    ),
+  exportMeasured: async (
+    id: string,
+    format: "json" | "csv" | "zip" = "zip",
+  ) => {
+    const blob = await request<Blob>(
+      `/measured-predictions/${encodeURIComponent(id)}/export?${queryString({ format })}`,
+      {},
+      {},
+      true,
+    );
+    saveBlob(`spectralab-measured-${id}.${format}`, blob);
+  },
+  systemStatus: (options?: RequestOptions) =>
+    request<SystemStatusResponse>("/system/status", {}, options),
 };
 function saveBlob(name: string, blob: Blob) {
   const url = URL.createObjectURL(blob);
@@ -311,4 +369,125 @@ export async function validateUpload(
         "invalid_csv_value",
       );
   }
+}
+export type ParsedMeasuredCsv = {
+  wavelength_nm: number[];
+  intensity: number[];
+  pointCount: number;
+  minWavelength: number;
+  maxWavelength: number;
+  minIntensity: number;
+  maxIntensity: number;
+};
+export async function computeFileSha256(file: File | Blob): Promise<string> {
+  const buffer = await file.arrayBuffer();
+  const digest = await crypto.subtle.digest("SHA-256", buffer);
+  const hashArray = Array.from(new Uint8Array(digest));
+  return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+export async function validateMeasuredCsv(
+  file: File,
+  maxPoints = 100_000,
+  maxBytes = 16_000_000,
+): Promise<ParsedMeasuredCsv> {
+  if (file.size > maxBytes) {
+    throw new ApiError(
+      `Размер CSV (${(file.size / 1_000_000).toFixed(2)} МБ) превышает лимит ${(maxBytes / 1_000_000).toFixed(0)} МБ.`,
+      "file_too_large",
+    );
+  }
+  if (!file.name.toLowerCase().endsWith(".csv")) {
+    throw new ApiError("Файл спектра должен иметь расширение .csv.", "invalid_csv");
+  }
+  const raw =
+    typeof file.text === "function"
+      ? await file.text()
+      : await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = () =>
+            reject(new ApiError("Не удалось прочитать файл CSV.", "file_read_error"));
+          reader.readAsText(file);
+        });
+  const lines = raw
+    .replace(/^\uFEFF/, "")
+    .trim()
+    .split(/\r?\n/);
+  if (lines.length < 3) {
+    throw new ApiError(
+      "CSV должен содержать заголовок и как минимум 2 строки с данными.",
+      "invalid_point_count",
+    );
+  }
+  const headerLine = lines[0].trim();
+  const headerCells = headerLine.split(",").map((s) => s.trim());
+  if (
+    headerCells.length !== 2 ||
+    headerCells[0] !== "wavelength_nm" ||
+    headerCells[1] !== "intensity"
+  ) {
+    throw new ApiError(
+      `Заголовок CSV должен быть точно 'wavelength_nm,intensity' (получено: '${headerLine}').`,
+      "invalid_csv_header",
+    );
+  }
+  const dataRows = lines.slice(1);
+  if (dataRows.length > maxPoints) {
+    throw new ApiError(
+      `Число точек в CSV (${dataRows.length}) превышает лимит ${maxPoints.toLocaleString("ru")}.`,
+      "too_many_points",
+    );
+  }
+  const wave: number[] = [];
+  const inten: number[] = [];
+  let minW = Infinity;
+  let maxW = -Infinity;
+  let minI = Infinity;
+  let maxI = -Infinity;
+  for (let idx = 0; idx < dataRows.length; idx++) {
+    const row = dataRows[idx].trim();
+    if (!row) continue;
+    const parts = row.split(",");
+    if (parts.length !== 2) {
+      throw new ApiError(
+        `Строка ${idx + 2}: ожидаются ровно 2 значения (длина волны и интенсивность).`,
+        "invalid_csv_row",
+      );
+    }
+    const w = Number(parts[0].trim());
+    const i = Number(parts[1].trim());
+    if (!Number.isFinite(w) || !Number.isFinite(i)) {
+      throw new ApiError(
+        `Строка ${idx + 2}: значения должны быть конечными числами.`,
+        "invalid_csv_value",
+      );
+    }
+    if (wave.length > 0 && w <= wave[wave.length - 1]) {
+      throw new ApiError(
+        `Строка ${idx + 2}: длины волн должны строго возрастать (${w} <= ${wave[wave.length - 1]}).`,
+        "unsorted_wavelengths",
+      );
+    }
+    wave.push(w);
+    inten.push(i);
+    if (w < minW) minW = w;
+    if (w > maxW) maxW = w;
+    if (i < minI) minI = i;
+    if (i > maxI) maxI = i;
+  }
+  if (wave.length < 2) {
+    throw new ApiError(
+      "CSV должен содержать не менее двух строк числовых данных.",
+      "invalid_point_count",
+    );
+  }
+  return {
+    wavelength_nm: wave,
+    intensity: inten,
+    pointCount: wave.length,
+    minWavelength: minW,
+    maxWavelength: maxW,
+    minIntensity: minI,
+    maxIntensity: maxI,
+  };
 }

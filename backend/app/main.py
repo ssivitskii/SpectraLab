@@ -11,14 +11,23 @@ from typing import Any
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.openapi.utils import get_openapi
 from fastapi.responses import JSONResponse
+from pydantic import ValidationError as PydanticValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from app.api.routes import batches, experiments, jobs, predict, spectra, system
+from app.api.routes import batches, experiments, jobs, measured, predict, spectra, system
 from app.core.body_limit import BodyLimitMiddleware
 from app.core.config import settings
 from app.core.logging import configure_logging
-from app.schemas.api import ErrorResponse
+from app.schemas.api import (
+    AxisMetadata,
+    ErrorResponse,
+    MeasuredPredictionFormRequest,
+    MeasuredPredictionPoint,
+    MeasuredPredictionRequestJson,
+    MeasurementMetadataPayload,
+)
 from app.services.container import build_services
 from app.services.exports import public_record
 
@@ -59,10 +68,12 @@ app.add_middleware(
     allow_headers=["Content-Type", "X-Request-ID"],
     expose_headers=["X-Request-ID", "X-Content-SHA256", "Content-Disposition"],
 )
+
 for router in (
     system.router,
     spectra.router,
     predict.router,
+    measured.router,
     experiments.router,
     jobs.router,
     batches.router,
@@ -70,8 +81,51 @@ for router in (
     app.include_router(router, prefix="/api/v1")
 
 
+def custom_openapi() -> dict[str, Any]:
+    if app.openapi_schema:
+        return app.openapi_schema
+    openapi_schema = get_openapi(
+        title=app.title,
+        version=app.version,
+        description=app.description,
+        routes=app.routes,
+    )
+    schemas = openapi_schema.setdefault("components", {}).setdefault("schemas", {})
+    for model in (
+        AxisMetadata,
+        MeasurementMetadataPayload,
+        MeasuredPredictionPoint,
+        MeasuredPredictionRequestJson,
+        MeasuredPredictionFormRequest,
+    ):
+        m_schema = model.model_json_schema(ref_template="#/components/schemas/{model}")
+        if "$defs" in m_schema:
+            for def_name, def_val in m_schema.pop("$defs").items():
+                schemas[def_name] = def_val
+        schemas[model.__name__] = m_schema
+    app.openapi_schema = openapi_schema
+    return app.openapi_schema
+
+
+app.openapi = custom_openapi
+
+
 @app.exception_handler(RequestValidationError)
 async def validation_error(_: Request, exc: RequestValidationError) -> JSONResponse:
+    return JSONResponse(
+        status_code=422,
+        content={
+            "error": {
+                "code": "validation_error",
+                "message": "Request validation failed",
+                "details": _json_safe(exc.errors()),
+            }
+        },
+    )
+
+
+@app.exception_handler(PydanticValidationError)
+async def pydantic_validation_error(_: Request, exc: PydanticValidationError) -> JSONResponse:
     return JSONResponse(
         status_code=422,
         content={

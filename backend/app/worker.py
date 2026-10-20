@@ -20,13 +20,96 @@ import threading
 import time
 from contextlib import suppress
 from pathlib import Path
+from typing import Any
 
 from app.core.config import Settings
 from app.services.batches import BATCH_TERMINAL, BatchStorage
 from app.services.jobs import JobStorage
-from app.services.storage import atomic_json
+from app.services.storage import atomic_json, now_iso
 
 logger = logging.getLogger("spectralab.worker")
+
+
+class WorkerHeartbeatManager:
+    def __init__(
+        self,
+        directory: Path,
+        worker_id: str,
+        mode: str,
+        interval: float = 5.0,
+    ):
+        self.directory = directory
+        self.file_path = directory / ".worker_heartbeat.json"
+        self.worker_id = worker_id
+        self.mode = mode
+        self.pid = os.getpid()
+        self.interval = interval
+        self.started_at = now_iso()
+        self._current_task: dict[str, Any] | None = None
+        self._stop_event = threading.Event()
+        self._lock = threading.Lock()
+        self._thread: threading.Thread | None = None
+
+    def set_task(self, kind: str, task_id: str, description: str | None = None) -> None:
+        with self._lock:
+            self._current_task = {
+                "kind": kind,
+                "task_id": task_id,
+                "description": description,
+                "started_at": now_iso(),
+            }
+        self.write_heartbeat()
+
+    def clear_task(self) -> None:
+        with self._lock:
+            self._current_task = None
+        self.write_heartbeat()
+
+    def write_heartbeat(self, status: str = "running") -> None:
+        with self._lock:
+            payload = {
+                "worker_id": self.worker_id,
+                "pid": self.pid,
+                "mode": self.mode,
+                "status": status,
+                "started_at": self.started_at,
+                "updated_at": now_iso(),
+                "current_task": self._current_task,
+                "interval_seconds": self.interval,
+            }
+        atomic_json(self.file_path, payload)
+
+    def start(self) -> None:
+        self.write_heartbeat(status="running")
+
+        def _loop():
+            while not self._stop_event.wait(self.interval):
+                with suppress(Exception):
+                    self.write_heartbeat(status="running")
+
+        self._thread = threading.Thread(target=_loop, daemon=True)
+        self._thread.start()
+
+    def stop(self) -> None:
+        self._stop_event.set()
+        if self._thread and self._thread.is_alive():
+            self._thread.join(timeout=1.0)
+        try:
+            with self._lock:
+                payload = {
+                    "worker_id": self.worker_id,
+                    "pid": self.pid,
+                    "mode": self.mode,
+                    "status": "stopped",
+                    "started_at": self.started_at,
+                    "updated_at": now_iso(),
+                    "stopped_at": now_iso(),
+                    "current_task": None,
+                    "interval_seconds": self.interval,
+                }
+            atomic_json(self.file_path, payload)
+        except Exception:
+            pass
 
 
 def execute_series(settings: Settings, job_id: str) -> None:
@@ -126,11 +209,18 @@ def finalize_interrupted_report(settings: Settings, job: dict) -> None:
             atomic_json(path, report)
 
 
-def run_job(settings: Settings, jobs: JobStorage, job: dict) -> None:
+def run_job(
+    settings: Settings,
+    jobs: JobStorage,
+    job: dict,
+    heartbeat: WorkerHeartbeatManager | None = None,
+) -> None:
     job_id = job["job_id"]
     run_id = f"job-{job_id}"
     result_path = settings.resolved_reports_dir() / "experiments" / run_id / "result.json"
     jobs.update(job_id, run_id=run_id)
+    if heartbeat:
+        heartbeat.set_task("job", job_id, f"Research series with seeds {job.get('seeds', [])}")
     environment = os.environ.copy()
     environment.update(
         {
@@ -162,6 +252,8 @@ def run_job(settings: Settings, jobs: JobStorage, job: dict) -> None:
                 start_new_session=True,
             )
             while child.poll() is None:
+                if heartbeat:
+                    heartbeat.write_heartbeat()
                 current = jobs.get(job_id)
                 series = read_series(result_path)
                 if series:
@@ -212,13 +304,22 @@ def run_job(settings: Settings, jobs: JobStorage, job: dict) -> None:
         )
         raise
     finally:
+        if heartbeat:
+            heartbeat.clear_task()
         finalize_interrupted_report(settings, jobs.get(job_id))
 
 
-def run_batch(settings: Settings, batches: BatchStorage, batch: dict) -> None:
+def run_batch(
+    settings: Settings,
+    batches: BatchStorage,
+    batch: dict,
+    heartbeat: WorkerHeartbeatManager | None = None,
+) -> None:
     batch_id = batch["batch_id"]
     child = None
     started = time.monotonic()
+    if heartbeat:
+        heartbeat.set_task("batch", batch_id, f"CSV batch {batch.get('name', '')}")
     try:
         with (batches.directory / f"{batch_id}.log").open("wb") as output:
             child = subprocess.Popen(
@@ -230,6 +331,8 @@ def run_batch(settings: Settings, batches: BatchStorage, batch: dict) -> None:
                 start_new_session=True,
             )
             while child.poll() is None:
+                if heartbeat:
+                    heartbeat.write_heartbeat()
                 if batches.get(batch_id)["cancellation_requested"]:
                     stop_child(child)
                     batches.finish(batch_id, "cancelled")
@@ -249,9 +352,14 @@ def run_batch(settings: Settings, batches: BatchStorage, batch: dict) -> None:
             stop_child(child)
         batches.finish(batch_id, "failed", "worker_interrupted")
         raise
+    finally:
+        if heartbeat:
+            heartbeat.clear_task()
 
 
 def main() -> None:
+    import uuid
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--once", action="store_true", help="Process at most one queued job")
     parser.add_argument("--execute", help=argparse.SUPPRESS)
@@ -282,21 +390,34 @@ def main() -> None:
             for record in recovered:
                 finalize_interrupted_report(settings, record)
 
+        mode = "batches_only" if args.batches_only else "once" if args.once else "default"
+        worker_id = uuid.uuid4().hex
+        heartbeat = WorkerHeartbeatManager(
+            jobs.directory,
+            worker_id=worker_id,
+            mode=mode,
+            interval=settings.worker_heartbeat_interval_seconds,
+        )
+        heartbeat.start()
+
         def interrupted(signum, frame):
             raise KeyboardInterrupt
 
         signal.signal(signal.SIGTERM, interrupted)
-        while True:
-            batch = batches.claim()
-            if batch:
-                run_batch(settings, batches, batch)
-            elif not args.batches_only:
-                job = jobs.claim_next()
-                if job:
-                    run_job(settings, jobs, job)
-            if args.once:
-                break
-            time.sleep(1)
+        try:
+            while True:
+                batch = batches.claim()
+                if batch:
+                    run_batch(settings, batches, batch, heartbeat=heartbeat)
+                elif not args.batches_only:
+                    job = jobs.claim_next()
+                    if job:
+                        run_job(settings, jobs, job, heartbeat=heartbeat)
+                if args.once:
+                    break
+                time.sleep(1)
+        finally:
+            heartbeat.stop()
 
 
 if __name__ == "__main__":
