@@ -243,7 +243,10 @@ export function Experiments() {
         >
           <label>
             Статус
-            <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <select value={status} onChange={(e) => {
+              setStatus(e.target.value);
+              setCatalogOpen(true);
+            }}>
               <option value="">Все статусы</option>
               {["completed", "running", "failed", "incomplete"].map((value) => (
                 <option key={value}>{value}</option>
@@ -254,7 +257,10 @@ export function Experiments() {
             Протокол
             <input
               value={protocol}
-              onChange={(e) => setProtocol(e.target.value)}
+              onChange={(e) => {
+                setProtocol(e.target.value);
+                setCatalogOpen(true);
+              }}
               placeholder="Все протоколы"
             />
           </label>
@@ -262,7 +268,10 @@ export function Experiments() {
             Источник
             <input
               value={source}
-              onChange={(e) => setSource(e.target.value)}
+              onChange={(e) => {
+                setSource(e.target.value);
+                setCatalogOpen(true);
+              }}
               placeholder="Все источники"
             />
           </label>
