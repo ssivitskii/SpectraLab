@@ -361,3 +361,143 @@ class PredictionStorage:
             return json.loads(path.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, UnicodeError) as exc:
             raise ValueError("Stored prediction is damaged") from exc
+
+
+class MeasuredPredictionStorage:
+    def __init__(self, directory: Path, max_files: int = 1000, max_bytes: int = 100_000_000):
+        self.directory = directory.resolve()
+        self.max_files = max_files
+        self.max_bytes = max_bytes
+        self.directory.mkdir(parents=True, exist_ok=True)
+
+    def save(
+        self,
+        result: dict[str, Any],
+        profile_id: str,
+        input_provenance: dict[str, Any],
+        raw_csv_bytes: bytes | None = None,
+        *,
+        record_id: str | None = None,
+    ) -> dict[str, Any]:
+        prediction_id = record_id or uuid.uuid4().hex
+        if not SAFE_SPECTRUM_ID.fullmatch(prediction_id):
+            raise ValueError("Invalid prediction_id")
+        record = {
+            "prediction_id": prediction_id,
+            "profile_id": profile_id,
+            "created_at": now_iso(),
+            **result,
+            "input_provenance": input_provenance,
+        }
+        with directory_lock(self.directory):
+            if record_id and (self.directory / f"{record_id}.json").exists():
+                return self.get(record_id)
+
+            inputs_dir = self.directory / "inputs"
+            inputs_dir.mkdir(parents=True, exist_ok=True)
+
+            # Count all stored JSON records and all raw input CSVs
+            json_files = [
+                path
+                for path in self.directory.glob("*.json")
+                if not path.is_symlink() and path.is_file()
+            ]
+            csv_files = [
+                path
+                for path in inputs_dir.glob("*.csv")
+                if not path.is_symlink() and path.is_file()
+            ]
+
+            encoded_bytes = json.dumps(record, ensure_ascii=False, allow_nan=False).encode("utf-8")
+            raw_len = len(raw_csv_bytes) if raw_csv_bytes is not None else 0
+            new_bytes = len(encoded_bytes) + raw_len
+            current_bytes = sum(path.stat().st_size for path in json_files) + sum(
+                path.stat().st_size for path in csv_files
+            )
+
+            if len(json_files) >= self.max_files or (current_bytes + new_bytes > self.max_bytes):
+                raise OSError(errno.ENOSPC, "Configured measured prediction storage quota exceeded")
+
+            final_json = self.directory / f"{prediction_id}.json"
+            final_csv = inputs_dir / f"{prediction_id}.csv" if raw_csv_bytes is not None else None
+
+            tmp_json = self.directory / f".{prediction_id}.{uuid.uuid4().hex}.tmp"
+            tmp_csv = (
+                inputs_dir / f".{prediction_id}.{uuid.uuid4().hex}.tmp"
+                if raw_csv_bytes is not None
+                else None
+            )
+
+            published_csv = False
+            published_json = False
+            try:
+                # 1. Write and publish raw CSV first if provided
+                if raw_csv_bytes is not None and tmp_csv is not None and final_csv is not None:
+                    with tmp_csv.open("wb") as f:
+                        f.write(raw_csv_bytes)
+                        f.flush()
+                        os.fsync(f.fileno())
+                    os.replace(tmp_csv, final_csv)
+                    published_csv = True
+
+                # 2. Write JSON
+                with tmp_json.open("wb") as f:
+                    f.write(encoded_bytes)
+                    f.flush()
+                    os.fsync(f.fileno())
+
+                # 3. Publish JSON as final readiness marker
+                os.replace(tmp_json, final_json)
+                published_json = True
+            except BaseException:
+                if tmp_csv is not None:
+                    tmp_csv.unlink(missing_ok=True)
+                tmp_json.unlink(missing_ok=True)
+                if published_csv and final_csv is not None:
+                    final_csv.unlink(missing_ok=True)
+                if published_json:
+                    final_json.unlink(missing_ok=True)
+                raise
+        return record
+
+    def get(self, prediction_id: str) -> dict[str, Any]:
+        if not SAFE_SPECTRUM_ID.fullmatch(prediction_id):
+            raise ValueError("Invalid prediction_id")
+        path = self.directory / f"{prediction_id}.json"
+        if path.is_symlink() or not path.is_file():
+            raise FileNotFoundError(f"Measured prediction '{prediction_id}' was not found")
+        try:
+            record = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, UnicodeError) as exc:
+            raise ValueError("Stored measured prediction is damaged") from exc
+
+        prov = record.get("input_provenance", {})
+        if prov.get("format") == "csv" or prov.get("raw_csv_sha256") or prov.get("input_sha256"):
+            csv_path = self.directory / "inputs" / f"{prediction_id}.csv"
+            if not csv_path.is_file() or csv_path.is_symlink():
+                raise ValueError("Stored measured prediction is damaged: missing raw CSV")
+            expected_sha = prov.get("raw_csv_sha256") or prov.get("input_sha256")
+            if expected_sha and hashlib.sha256(csv_path.read_bytes()).hexdigest() != expected_sha:
+                raise ValueError("Stored measured prediction is damaged: raw CSV checksum mismatch")
+        return record
+
+    def get_raw_csv(self, prediction_id: str) -> bytes | None:
+        if not SAFE_SPECTRUM_ID.fullmatch(prediction_id):
+            return None
+        path = self.directory / "inputs" / f"{prediction_id}.csv"
+        if path.is_file() and not path.is_symlink():
+            return path.read_bytes()
+        return None
+
+    def list(self) -> list[dict[str, Any]]:
+        records = []
+        for path in self.directory.glob("*.json"):
+            try:
+                records.append(self.get(path.stem))
+            except (ValueError, OSError):
+                continue
+        return sorted(
+            records,
+            key=lambda row: (row.get("created_at", ""), row.get("prediction_id", "")),
+            reverse=True,
+        )

@@ -41,6 +41,7 @@ frontend/playwright-report/
 artifacts/jobs/
 artifacts/batches/
 artifacts/predictions/
+artifacts/measured_predictions/
 reports/external/
 reports/adaptation/
 reports/adaptation_v2/

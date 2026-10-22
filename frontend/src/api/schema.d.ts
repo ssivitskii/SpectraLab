@@ -4,6 +4,23 @@
  */
 
 export interface paths {
+    "/api/v1/system/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** System Status */
+        get: operations["system_status_api_v1_system_status_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health": {
         parameters: {
             query?: never;
@@ -218,6 +235,91 @@ export interface paths {
         };
         /** Export Prediction */
         get: operations["export_prediction_api_v1_predictions__prediction_id__export_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/instrument-profiles": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Instrument Profiles */
+        get: operations["list_instrument_profiles_api_v1_instrument_profiles_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/instrument-profiles/{profile_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Instrument Profile */
+        get: operations["get_instrument_profile_api_v1_instrument_profiles__profile_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/measured-predictions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Measured Prediction */
+        post: operations["create_measured_prediction_api_v1_measured_predictions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/measured-predictions/{prediction_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Measured Prediction */
+        get: operations["get_measured_prediction_api_v1_measured_predictions__prediction_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/measured-predictions/{prediction_id}/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export Measured Prediction Route */
+        get: operations["export_measured_prediction_route_api_v1_measured_predictions__prediction_id__export_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -496,6 +598,28 @@ export interface components {
             /** Count */
             count: number;
         };
+        /** BackupStatus */
+        BackupStatus: {
+            last_archive_verified?: components["schemas"]["BackupVerificationRecord"] | null;
+            last_restore_verified?: components["schemas"]["RestoreVerificationRecord"] | null;
+        };
+        /** BackupVerificationRecord */
+        BackupVerificationRecord: {
+            /** Completed At */
+            completed_at: string;
+            /** Archive Name */
+            archive_name: string;
+            /** Archive Sha256 */
+            archive_sha256: string;
+            /** Archive Size Bytes */
+            archive_size_bytes: number;
+            /** Records Count */
+            records_count: number;
+            /** Verification Passed */
+            verification_passed: boolean;
+            /** Details */
+            details?: string | null;
+        };
         /** BatchFile */
         BatchFile: {
             /** Relative Path */
@@ -569,6 +693,49 @@ export interface components {
             failed: number;
             /** Total */
             total: number;
+        };
+        /** BatchQueueCounts */
+        BatchQueueCounts: {
+            /**
+             * Total
+             * @default 0
+             */
+            total: number;
+            /**
+             * Draft
+             * @default 0
+             */
+            draft: number;
+            /**
+             * Queued
+             * @default 0
+             */
+            queued: number;
+            /**
+             * Running
+             * @default 0
+             */
+            running: number;
+            /**
+             * Completed
+             * @default 0
+             */
+            completed: number;
+            /**
+             * Partial
+             * @default 0
+             */
+            partial: number;
+            /**
+             * Failed
+             * @default 0
+             */
+            failed: number;
+            /**
+             * Cancelled
+             * @default 0
+             */
+            cancelled: number;
         };
         /** BatchRejection */
         BatchRejection: {
@@ -704,6 +871,26 @@ export interface components {
              * @default vacuum
              */
             wavelength_medium: string;
+        };
+        /** CoverageRequirements */
+        CoverageRequirements: {
+            /** Bands Nm */
+            bands_nm: number[][];
+            /** Max Gap Nm */
+            max_gap_nm: number;
+            /** Max Sampling Step Nm */
+            max_sampling_step_nm: number;
+            /** Max Points */
+            max_points: number;
+        };
+        /** DiskUsageStatus */
+        DiskUsageStatus: {
+            /** Total Bytes */
+            total_bytes: number;
+            /** Used Bytes */
+            used_bytes: number;
+            /** Free Bytes */
+            free_bytes: number;
         };
         /** ElementScore */
         ElementScore: {
@@ -1030,6 +1217,43 @@ export interface components {
             /** Observations */
             observations: number[];
         };
+        /** InstrumentProfileInfo */
+        InstrumentProfileInfo: {
+            /** Profile Id */
+            profile_id: string;
+            /** Artifact Type */
+            artifact_type: string;
+            /** Schema Version */
+            schema_version: number;
+            /** Identity */
+            identity: string;
+            /** Sha256 */
+            sha256: string;
+            /** Instrument Id */
+            instrument_id: string;
+            /** Supported Elements */
+            supported_elements: string[];
+            /** Unknown Elements */
+            unknown_elements: string[];
+            /** Thresholds */
+            thresholds: {
+                [key: string]: number;
+            };
+            scale_requirements: components["schemas"]["ScaleRequirements"];
+            coverage_requirements: components["schemas"]["CoverageRequirements"];
+            /** Ready */
+            ready: boolean;
+            /** Unavailable Reason */
+            unavailable_reason?: string | null;
+            /** Qualification */
+            qualification: string;
+            /** Scope */
+            scope: string;
+            /** Final Test Status */
+            final_test_status: string;
+            /** Score Kind */
+            score_kind: string;
+        };
         /** JobProgress */
         JobProgress: {
             /**
@@ -1039,6 +1263,43 @@ export interface components {
             completed: number;
             /** Total */
             total: number;
+        };
+        /** JobQueueCounts */
+        JobQueueCounts: {
+            /**
+             * Total
+             * @default 0
+             */
+            total: number;
+            /**
+             * Queued
+             * @default 0
+             */
+            queued: number;
+            /**
+             * Running
+             * @default 0
+             */
+            running: number;
+            /**
+             * Completed
+             * @default 0
+             */
+            completed: number;
+            /**
+             * Failed
+             * @default 0
+             */
+            failed: number;
+            /**
+             * Cancelled
+             * @default 0
+             */
+            cancelled: number;
+            /** Quota Pending */
+            quota_pending: number;
+            /** Remaining Pending */
+            remaining_pending: number;
         };
         /** JobRequest */
         JobRequest: {
@@ -1099,6 +1360,96 @@ export interface components {
             observed_peak_nm: number;
             /** Delta Nm */
             delta_nm: number;
+        };
+        /** MeasuredPredictionElement */
+        MeasuredPredictionElement: {
+            /** Element */
+            element: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "evaluated" | "unknown";
+            /** Score */
+            score?: number | null;
+            /** Threshold */
+            threshold?: number | null;
+            /** Detected */
+            detected?: boolean | null;
+            /** Accepted */
+            accepted: boolean;
+            /** Line Snr */
+            line_snr?: number | null;
+            /** Reason */
+            reason?: string | null;
+        };
+        /** MeasuredPredictionResponse */
+        MeasuredPredictionResponse: {
+            /**
+             * Schema Version
+             * @default 3
+             */
+            schema_version: number;
+            /** Prediction Id */
+            prediction_id: string;
+            /** Profile Id */
+            profile_id: string;
+            /** Profile Identity */
+            profile_identity: string;
+            /** Profile Sha256 */
+            profile_sha256: string;
+            /** Profile Artifact Type */
+            profile_artifact_type: string;
+            /** Scope */
+            scope: string;
+            /** Qualification */
+            qualification: string;
+            /** Final Test Status */
+            final_test_status: string;
+            /** Measurement Id */
+            measurement_id: string;
+            /** Instrument Id */
+            instrument_id: string;
+            /** Score Kind */
+            score_kind: string;
+            /** Calibrated */
+            calibrated: boolean;
+            /** Calibration Scope */
+            calibration_scope: string;
+            /** Created At */
+            created_at: string;
+            /** Predictions */
+            predictions: components["schemas"]["MeasuredPredictionElement"][];
+            /** Detected Elements */
+            detected_elements: string[];
+            /** Wavelength Conversion */
+            wavelength_conversion?: {
+                [key: string]: unknown;
+            } | null;
+            /** Input Axis */
+            input_axis: {
+                [key: string]: unknown;
+            };
+            /** Model Axis */
+            model_axis: {
+                [key: string]: unknown;
+            };
+            /** Bands Nm */
+            bands_nm: number[][];
+            /** Input Provenance */
+            input_provenance: {
+                [key: string]: unknown;
+            };
+            /** Physical Sample Id */
+            physical_sample_id?: string | null;
+            /** Family Id */
+            family_id?: string | null;
+            /** Session Id */
+            session_id?: string | null;
+            /** Measurement Metadata */
+            measurement_metadata?: {
+                [key: string]: unknown;
+            } | null;
         };
         /** MeasurementMetadata */
         MeasurementMetadata: {
@@ -1238,6 +1589,58 @@ export interface components {
             processing_time_ms: number;
             /** Matched Reference Lines */
             matched_reference_lines: components["schemas"]["MatchedReferenceLine"][];
+        };
+        /** QueueStatus */
+        QueueStatus: {
+            jobs: components["schemas"]["JobQueueCounts"];
+            batches: components["schemas"]["BatchQueueCounts"];
+            /**
+             * Active Total
+             * @default 0
+             */
+            active_total: number;
+        };
+        /** RestoreVerificationRecord */
+        RestoreVerificationRecord: {
+            /** Completed At */
+            completed_at: string;
+            /** Archive Name */
+            archive_name: string;
+            /** Archive Sha256 */
+            archive_sha256: string;
+            /** Restored Records Count */
+            restored_records_count: number;
+            /** Verification Passed */
+            verification_passed: boolean;
+            /** Details */
+            details?: string | null;
+        };
+        /** ScaleRequirements */
+        ScaleRequirements: {
+            /**
+             * Units
+             * @default nm
+             * @constant
+             */
+            units: "nm";
+            /**
+             * Medium
+             * @default vacuum
+             * @constant
+             */
+            medium: "vacuum";
+            /**
+             * Conversion Supported
+             * @default [
+             *       "air"
+             *     ]
+             */
+            conversion_supported: string[];
+            /**
+             * Conversion Method
+             * @default Peck-Reeder 1972 standard air
+             */
+            conversion_method: string;
         };
         /** SeriesAggregate */
         SeriesAggregate: {
@@ -1455,6 +1858,36 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /** StorageCategory */
+        StorageCategory: {
+            /** Record Count */
+            record_count: number;
+            /** Size Bytes */
+            size_bytes: number;
+            /** Quota Records */
+            quota_records?: number | null;
+            /** Remaining Records */
+            remaining_records?: number | null;
+            /** Quota Bytes */
+            quota_bytes?: number | null;
+            /** Remaining Bytes */
+            remaining_bytes?: number | null;
+        };
+        /** StorageStatus */
+        StorageStatus: {
+            /** Categories */
+            categories: {
+                [key: string]: components["schemas"]["StorageCategory"];
+            };
+            /**
+             * Total Used Bytes
+             * @default 0
+             */
+            total_used_bytes: number;
+            /** Quota Headroom Bytes */
+            quota_headroom_bytes?: number | null;
+            disk: components["schemas"]["DiskUsageStatus"];
+        };
         /** SubsetMetrics */
         SubsetMetrics: {
             /** Count */
@@ -1463,6 +1896,244 @@ export interface components {
             micro_f1: number | null;
             /** Exact Match Accuracy */
             exact_match_accuracy: number | null;
+        };
+        /** SystemStatusResponse */
+        SystemStatusResponse: {
+            worker: components["schemas"]["WorkerStatus"];
+            queues: components["schemas"]["QueueStatus"];
+            storage: components["schemas"]["StorageStatus"];
+            backup: components["schemas"]["BackupStatus"];
+        };
+        /** WorkerCurrentTask */
+        WorkerCurrentTask: {
+            /**
+             * Kind
+             * @enum {string}
+             */
+            kind: "job" | "batch";
+            /** Task Id */
+            task_id: string;
+            /** Description */
+            description?: string | null;
+            /** Started At */
+            started_at?: string | null;
+        };
+        /** WorkerStatus */
+        WorkerStatus: {
+            /**
+             * State
+             * @enum {string}
+             */
+            state: "absent" | "running" | "stopped" | "stale";
+            /** Status */
+            status?: ("absent" | "running" | "stopped" | "stale") | null;
+            /** Worker Id */
+            worker_id?: string | null;
+            /** Pid */
+            pid?: number | null;
+            /** Updated At */
+            updated_at?: string | null;
+            current_task?: components["schemas"]["WorkerCurrentTask"] | null;
+            /** Heartbeat Interval Seconds */
+            heartbeat_interval_seconds: number;
+            /** Stale Threshold Seconds */
+            stale_threshold_seconds: number;
+            /** Message */
+            message: string;
+        };
+        /** AxisMetadata */
+        AxisMetadata: {
+            /**
+             * Units
+             * @description Wavelength axis units, must be nm
+             * @constant
+             */
+            units: "nm";
+            /**
+             * Medium
+             * @description Measurement medium
+             * @enum {string}
+             */
+            medium: "air" | "vacuum";
+            /**
+             * Source
+             * @description Axis calibration source
+             */
+            source: string;
+            /**
+             * Source Sha256
+             * @description SHA-256 hash of axis calibration source
+             */
+            source_sha256: string;
+        };
+        /** MeasurementMetadataPayload */
+        MeasurementMetadataPayload: {
+            /**
+             * Schema Version
+             * @description Schema version, must be 1
+             * @default 1
+             * @constant
+             */
+            schema_version: 1;
+            /**
+             * Measurement Id
+             * @default null
+             */
+            measurement_id: string | null;
+            /**
+             * Instrument Id
+             * @default null
+             */
+            instrument_id: string | null;
+            /**
+             * Physical Sample Id
+             * @default null
+             */
+            physical_sample_id: string | null;
+            /**
+             * Family Id
+             * @default null
+             */
+            family_id: string | null;
+            /**
+             * Session Id
+             * @default null
+             */
+            session_id: string | null;
+            /** @description Explicit axis convention and provenance */
+            axis: components["schemas"]["AxisMetadata"];
+            /**
+             * Input Sha256
+             * @default null
+             */
+            input_sha256: string | null;
+        };
+        /** MeasuredPredictionPoint */
+        MeasuredPredictionPoint: {
+            /** Wavelength Nm */
+            wavelength_nm: number;
+            /** Intensity */
+            intensity: number;
+        };
+        /** MeasuredPredictionRequestJson */
+        MeasuredPredictionRequestJson: {
+            /**
+             * Profile Id
+             * @default null
+             */
+            profile_id: string | null;
+            /**
+             * Instrument Id
+             * @default null
+             */
+            instrument_id: string | null;
+            /**
+             * Medium
+             * @default null
+             */
+            medium: ("air" | "vacuum") | null;
+            /**
+             * Units
+             * @default null
+             */
+            units: "nm" | null;
+            /**
+             * Measurement Id
+             * @default null
+             */
+            measurement_id: string | null;
+            /**
+             * Physical Sample Id
+             * @default null
+             */
+            physical_sample_id: string | null;
+            /**
+             * Family Id
+             * @default null
+             */
+            family_id: string | null;
+            /**
+             * Session Id
+             * @default null
+             */
+            session_id: string | null;
+            /**
+             * Csv Content
+             * @default null
+             */
+            csv_content: string | null;
+            /**
+             * Wavelength Nm
+             * @default null
+             */
+            wavelength_nm: number[] | null;
+            /**
+             * Intensity
+             * @default null
+             */
+            intensity: number[] | null;
+            /**
+             * Points
+             * @default null
+             */
+            points: components["schemas"]["MeasuredPredictionPoint"][] | null;
+            /** @default null */
+            metadata: components["schemas"]["MeasurementMetadataPayload"] | null;
+        };
+        /** MeasuredPredictionFormRequest */
+        MeasuredPredictionFormRequest: {
+            /**
+             * File
+             * Format: binary
+             * @description CSV file content (wavelength_nm,intensity)
+             */
+            file: string;
+            /**
+             * Profile Id
+             * @default null
+             */
+            profile_id: string | null;
+            /**
+             * Instrument Id
+             * @default null
+             */
+            instrument_id: string | null;
+            /**
+             * Medium
+             * @default null
+             */
+            medium: ("air" | "vacuum") | null;
+            /**
+             * Units
+             * @default null
+             */
+            units: "nm" | null;
+            /**
+             * Measurement Id
+             * @default null
+             */
+            measurement_id: string | null;
+            /**
+             * Physical Sample Id
+             * @default null
+             */
+            physical_sample_id: string | null;
+            /**
+             * Family Id
+             * @default null
+             */
+            family_id: string | null;
+            /**
+             * Session Id
+             * @default null
+             */
+            session_id: string | null;
+            /**
+             * Metadata
+             * @description Optional JSON-encoded metadata string
+             * @default null
+             */
+            metadata: string | null;
         };
     };
     responses: never;
@@ -1473,6 +2144,89 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    system_status_api_v1_system_status_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SystemStatusResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
     health_api_v1_health_get: {
         parameters: {
             query?: never;
@@ -2584,6 +3338,434 @@ export interface operations {
         };
     };
     export_prediction_api_v1_predictions__prediction_id__export_get: {
+        parameters: {
+            query?: {
+                format?: "json" | "csv" | "zip";
+            };
+            header?: never;
+            path: {
+                prediction_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    list_instrument_profiles_api_v1_instrument_profiles_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InstrumentProfileInfo"][];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_instrument_profile_api_v1_instrument_profiles__profile_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                profile_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InstrumentProfileInfo"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    create_measured_prediction_api_v1_measured_predictions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": components["schemas"]["MeasuredPredictionFormRequest"];
+                "application/json": components["schemas"]["MeasuredPredictionRequestJson"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeasuredPredictionResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_measured_prediction_api_v1_measured_predictions__prediction_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                prediction_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeasuredPredictionResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    export_measured_prediction_route_api_v1_measured_predictions__prediction_id__export_get: {
         parameters: {
             query?: {
                 format?: "json" | "csv" | "zip";

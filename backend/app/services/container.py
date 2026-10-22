@@ -8,8 +8,14 @@ from spectralab_ml.preprocessing import SpectrumPreprocessor
 
 from app.core.config import Settings
 from app.services.batches import BatchStorage
+from app.services.instrument_profiles import InstrumentProfileRegistry
 from app.services.jobs import JobStorage
-from app.services.storage import ExperimentStorage, PredictionStorage, SpectrumStorage
+from app.services.storage import (
+    ExperimentStorage,
+    MeasuredPredictionStorage,
+    PredictionStorage,
+    SpectrumStorage,
+)
 
 
 @dataclass
@@ -23,6 +29,8 @@ class Services:
     predictions: PredictionStorage
     jobs: JobStorage
     batches: BatchStorage
+    instrument_profiles: InstrumentProfileRegistry
+    measured_predictions: MeasuredPredictionStorage
 
 
 def build_services(settings: Settings) -> Services:
@@ -65,4 +73,10 @@ def build_services(settings: Settings) -> Services:
             settings.max_job_records,
         ),
         batches=BatchStorage(settings.resolved_artifacts_dir() / "batches", settings),
+        instrument_profiles=InstrumentProfileRegistry(settings),
+        measured_predictions=MeasuredPredictionStorage(
+            settings.resolved_artifacts_dir() / "measured_predictions",
+            settings.max_stored_measured_predictions,
+            settings.max_measured_prediction_storage_bytes,
+        ),
     )

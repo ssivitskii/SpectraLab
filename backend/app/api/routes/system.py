@@ -5,11 +5,23 @@ from typing import Annotated
 from fastapi import APIRouter, Depends
 
 from app.api.dependencies import get_services
-from app.schemas.api import ElementsInfo, GenerateSpectrumRequest, ModelInfo, ServiceCapabilities
+from app.schemas.api import (
+    ElementsInfo,
+    GenerateSpectrumRequest,
+    ModelInfo,
+    ServiceCapabilities,
+    SystemStatusResponse,
+)
 from app.services.container import Services
 from app.services.exports import public_record
+from app.services.system_status import get_system_status
 
 router = APIRouter(tags=["system"])
+
+
+@router.get("/system/status", response_model=SystemStatusResponse)
+def system_status(services: Annotated[Services, Depends(get_services)]) -> dict[str, object]:
+    return get_system_status(services)
 
 
 @router.get("/health")

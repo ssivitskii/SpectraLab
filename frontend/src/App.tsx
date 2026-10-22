@@ -2,9 +2,11 @@ import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "./api/client";
 import { Analysis } from "./pages/Analysis";
+import { Measured } from "./pages/Measured";
 import { Generator } from "./pages/Generator";
 import { Experiments } from "./pages/Experiments";
 import { BatchAnalysis } from "./pages/BatchAnalysis";
+import { SystemStatus } from "./pages/SystemStatus";
 import { SourceNotice } from "./components/Feedback";
 export function App() {
   const capabilities = useQuery({
@@ -23,9 +25,11 @@ export function App() {
         </a>
         <nav aria-label="Основная навигация">
           <NavLink to="/analysis">Анализ спектра</NavLink>
+          <NavLink to="/measured">Измерения</NavLink>
           <NavLink to="/generator">Генератор</NavLink>
           <NavLink to="/experiments">Эксперименты</NavLink>
           <NavLink to="/batch">Пакетный анализ</NavLink>
+          <NavLink to="/system">Состояние системы</NavLink>
         </nav>
         <span className="version">RESEARCH · v0.1</span>
       </header>
@@ -39,9 +43,11 @@ export function App() {
         />
         <Routes>
           <Route path="/analysis" element={<Analysis />} />
+          <Route path="/measured" element={<Measured />} />
           <Route path="/generator" element={<Generator />} />
           <Route path="/experiments" element={<Experiments />} />
           <Route path="/batch" element={<BatchAnalysis />} />
+          <Route path="/system" element={<SystemStatus />} />
           <Route path="*" element={<Navigate to="/analysis" replace />} />
         </Routes>
         {capabilities.data && (
@@ -78,7 +84,9 @@ export function App() {
             Справочные линии — диагностическое сопоставление, а не доказанное
             объяснение ML-решения. Пустое обнаружение не доказывает отсутствие
             элементов в образце или наличие неизвестного элемента. Определение
-            концентраций и перенос на реальные измерения не реализованы.
+            концентраций и универсальное распознавание для произвольных приборов
+            не реализованы; анализ измерений ограничен квалифицированными
+            исследовательскими профилями с подтверждённой калибровкой.
           </p>
         </details>
       </main>

@@ -124,3 +124,101 @@ def export_record(
             "X-Content-SHA256": hashlib.sha256(data).hexdigest(),
         },
     )
+
+
+def measured_predictions_csv(record: dict[str, Any]) -> bytes:
+    stream = io.StringIO(newline="")
+    writer = csv.writer(stream)
+    writer.writerow(
+        [
+            "element",
+            "status",
+            "score",
+            "threshold",
+            "detected",
+            "accepted",
+            "line_snr",
+            "reason",
+        ]
+    )
+    for item in record.get("predictions", []):
+        writer.writerow(
+            [
+                item.get("element"),
+                item.get("status"),
+                item.get("score") if item.get("score") is not None else "",
+                item.get("threshold") if item.get("threshold") is not None else "",
+                item.get("detected") if item.get("detected") is not None else "",
+                item.get("accepted"),
+                item.get("line_snr") if item.get("line_snr") is not None else "",
+                item.get("reason") or "",
+            ]
+        )
+    return stream.getvalue().encode("utf-8")
+
+
+def export_measured_prediction(
+    prediction_id: str,
+    record: dict[str, Any],
+    raw_csv_bytes: bytes | None,
+    format: Literal["json", "csv", "zip"],
+) -> Response:
+    prov = record.get("input_provenance", {})
+    expected_sha = prov.get("raw_csv_sha256") or prov.get("input_sha256")
+    if expected_sha or prov.get("format") == "csv":
+        if raw_csv_bytes is None:
+            raise ValueError(f"Raw CSV for measured prediction '{prediction_id}' is missing")
+        actual_sha = hashlib.sha256(raw_csv_bytes).hexdigest()
+        if expected_sha and actual_sha != expected_sha:
+            raise ValueError(f"Raw CSV for measured prediction '{prediction_id}' checksum mismatch")
+
+    safe = public_record(record)
+    json_bytes = encode_json(safe)
+    summary_csv = measured_predictions_csv(safe)
+    files = {
+        "prediction.json": json_bytes,
+        "record.json": json_bytes,
+        "summary.csv": summary_csv,
+    }
+    if raw_csv_bytes is not None:
+        files["input.csv"] = raw_csv_bytes
+
+    manifest = {
+        "schema_version": 1,
+        "kind": "measured_prediction",
+        "prediction_id": prediction_id,
+        "profile_id": safe.get("profile_id"),
+        "profile_identity": safe.get("profile_identity"),
+        "profile_sha256": safe.get("profile_sha256"),
+        "instrument_id": safe.get("instrument_id"),
+        "measurement_id": safe.get("measurement_id"),
+        "files": {
+            name: {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+            for name, data in files.items()
+        },
+        "checksum_scope": "exact UTF-8 file bytes; manifest is not self-hashed",
+    }
+    if format == "json":
+        data = encode_json({"manifest": manifest, "record": safe})
+        media_type = "application/json"
+    elif format == "csv":
+        data = summary_csv
+        media_type = "text/csv"
+    else:
+        stream = io.BytesIO()
+        with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            for name, content in files.items():
+                archive.writestr(name, content)
+            archive.writestr("manifest.json", encode_json(manifest))
+        data = stream.getvalue()
+        media_type = "application/zip"
+
+    filename = f"measured-prediction-{prediction_id}.{format}"
+    return Response(
+        data,
+        media_type=media_type,
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+            "X-Content-SHA256": hashlib.sha256(data).hexdigest(),
+        },
+    )
