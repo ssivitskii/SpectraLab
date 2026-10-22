@@ -1,0 +1,2363 @@
+{
+  "schema_version": 1,
+  "run_id": "plasma-replay-20261022T200159-4679d3e8",
+  "status": "completed",
+  "test_status": "REPLAY of the 64-standard ChemCam preflight campaign revealed by the v1 run (2026-10-13). Development evidence for the generator and preprocessing; NOT an independent final and not a qualification of any model.",
+  "protocol_sha256": "1182fc1e0b6f725a6019d091887cd4356f41e033353e5fff4fbed4289760578c",
+  "model_selection_on_real_test": false,
+  "threshold_rule": "select_thresholds schema 3: midpoint of the separating gap",
+  "v1_script_rerun_on_current_code": {
+    "run_id": "chemcam-external-20261022T200152-7bf6f309",
+    "recall_all": {
+      "baseline-nnls": 0.009375,
+      "logistic-ovr": 0.26738281249999996,
+      "random-forest": 0.2625
+    },
+    "published_v1_recall_all": {
+      "baseline-nnls": 0.0374,
+      "logistic-ovr": 0.4549,
+      "random-forest": 0.6827
+    },
+    "before_midpoint_recall_all": {
+      "baseline-nnls": 0.0002,
+      "logistic-ovr": 0.0574,
+      "random-forest": 0.2293
+    }
+  },
+  "aggregate": {
+    "neutral-linear/maxabs/baseline-nnls": {
+      "synthetic_micro_f1": {
+        "mean": 0.9994490358126722,
+        "sd": 0.0012319933760329544,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.009375,
+        "sd": 0.0011134525635733768,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.006349206349206349,
+            "sd": 0.004524505655155309,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.00909090909090909,
+            "sd": 0.006478269460790556,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9431818181818181,
+            "sd": 1.2412670766236366e-16,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.5698412698412699,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.5,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.03125,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.03773584905660377,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.8867924528301888,
+            "sd": 1.2412670766236366e-16,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      }
+    },
+    "neutral-linear/maxabs/logistic-ovr": {
+      "synthetic_micro_f1": {
+        "mean": 0.9978479072054611,
+        "sd": 0.0029486484651308344,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.26738281249999996,
+        "sd": 0.03400298445823626,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.16587301587301587,
+            "sd": 0.04740361320323159,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.2375,
+            "sd": 0.06787335526826344,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.0125,
+            "sd": 0.006987712429686843,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.017777777777777778,
+            "sd": 0.009938079899999066,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.7561904761904761,
+            "sd": 0.10412020883880768,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9557692307692308,
+            "sd": 0.06953724896832517,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.8895833333333332,
+            "sd": 0.1377577090943754,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.8952830188679245,
+            "sd": 0.14455834950473928,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.6264150943396226,
+            "sd": 0.06767950215001062,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.003956392526018966,
+        "sd": 0.0006263187316371213,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.028476770962499627,
+        "sd": 0.002068710485318346,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.6284676542673797,
+        "sd": 0.026551374795390926,
+        "seeds": 5
+      }
+    },
+    "neutral-linear/maxabs/random-forest": {
+      "synthetic_micro_f1": {
+        "mean": 0.9806728764839153,
+        "sd": 0.010722399748194628,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.2625,
+        "sd": 0.02322700068435474,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.8976190476190476,
+            "sd": 0.1384175676295124,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9681818181818181,
+            "sd": 0.04430361065822259,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.6821428571428572,
+            "sd": 0.4198137949722229,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9220779220779219,
+            "sd": 0.08933550854708992,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.1911111111111111,
+            "sd": 0.0960455191487415,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.5692307692307692,
+            "sd": 0.27324869326820406,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.16640625,
+            "sd": 0.17188831624551668,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.19716981132075473,
+            "sd": 0.19916052907224024,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9125786163522014,
+            "sd": 0.060136113952082564,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.02633165147569444,
+        "sd": 0.003678694465430125,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.08365885416666667,
+        "sd": 0.009516931250014925,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.5292948261117446,
+        "sd": 0.02282294636320204,
+        "seeds": 5
+      }
+    },
+    "neutral-linear/robust/baseline-nnls": {
+      "synthetic_micro_f1": {
+        "mean": 0.997266268826371,
+        "sd": 0.0048122602449195565,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.009895833333333331,
+        "sd": 0.0033403576907201304,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.015873015873015872,
+            "sd": 0.010117102209509492,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.022727272727272728,
+            "sd": 0.014485850890888592,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.015625,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.022222222222222223,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.7682539682539682,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9711538461538461,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.003125,
+            "sd": 0.0069877124296868435,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.0037735849056603774,
+            "sd": 0.008437992367923735,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.5660377358490566,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      }
+    },
+    "neutral-linear/robust/logistic-ovr": {
+      "synthetic_micro_f1": {
+        "mean": 0.933202586355679,
+        "sd": 0.029843677595064944,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.5857421875,
+        "sd": 0.08199978987090523,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.8444444444444444,
+            "sd": 0.13242914314509713,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.975,
+            "sd": 0.05590169943749474,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.4428571428571429,
+            "sd": 0.3543191948465884,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.103125,
+            "sd": 0.020222154852413726,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.14222222222222222,
+            "sd": 0.027666443551086075,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.7339682539682539,
+            "sd": 0.04383941929131182,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.4328125,
+            "sd": 0.259146642698444,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.48461538461538467,
+            "sd": 0.27608463483453033,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9346153846153846,
+            "sd": 0.058645964161449675,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.96953125,
+            "sd": 0.03498220808943455,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9660377358490566,
+            "sd": 0.036293177474851585,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.14339622641509434,
+            "sd": 0.06326931491803417,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.1988106391874917,
+        "sd": 0.00164163923622195,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.3321050648181168,
+        "sd": 0.02754075827441571,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.24457459191958675,
+        "sd": 0.005621110854632498,
+        "seeds": 5
+      }
+    },
+    "neutral-linear/robust/random-forest": {
+      "synthetic_micro_f1": {
+        "mean": 0.9884549234247657,
+        "sd": 0.0042299643598414085,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.36744791666666665,
+        "sd": 0.07284084192325592,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.8444444444444444,
+            "sd": 0.07813531363013536,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9977272727272727,
+            "sd": 0.005081972676135881,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.3464285714285714,
+            "sd": 0.3102212837604138,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9965909090909092,
+            "sd": 0.0032669824346587533,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.003125,
+            "sd": 0.0069877124296868435,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.0044444444444444444,
+            "sd": 0.009938079899999066,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.8307936507936506,
+            "sd": 0.10975705552303884,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.1421875,
+            "sd": 0.048601034421861845,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.175,
+            "sd": 0.05981665774998382,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9365384615384617,
+            "sd": 0.059214689375777535,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.4921875,
+            "sd": 0.23648141980727047,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.5528301886792453,
+            "sd": 0.25306065249505827,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.21666666666666665,
+            "sd": 0.43938087754880223,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.7188679245283018,
+            "sd": 0.09177865689945627,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.02637890625,
+        "sd": 0.002845621120158553,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.0882986111111111,
+        "sd": 0.005923274736393047,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.4076161274230331,
+        "sd": 0.012495256503784039,
+        "seeds": 5
+      }
+    },
+    "plasma/maxabs/baseline-nnls": {
+      "synthetic_micro_f1": {
+        "mean": 0.7738301528345888,
+        "sd": 0.011533483712507862,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.8982421875,
+        "sd": 0.021366419804536085,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.8222222222222222,
+            "sd": 0.03371848537499683,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.24642857142857144,
+            "sd": 0.1258896909429612,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.79609375,
+            "sd": 0.062402267336612055,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9811111111111112,
+            "sd": 0.01825741858350553,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.09999999999999999,
+            "sd": 0.11952286093343938,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9968253968253968,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.984375,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9903846153846153,
+            "sd": 1.2412670766236366e-16,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.9875,
+            "sd": 0.006987712429686843,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.89937106918239,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      }
+    },
+    "plasma/maxabs/logistic-ovr": {
+      "synthetic_micro_f1": {
+        "mean": 0.7766245491285487,
+        "sd": 0.00885111551871694,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.8813151041666666,
+        "sd": 0.04745385946163813,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.8238095238095238,
+            "sd": 0.09698302288099346,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.2642857142857143,
+            "sd": 0.4047312663474168,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9993506493506494,
+            "sd": 0.0014519921931816946,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.7484375,
+            "sd": 0.1252012540029302,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9377777777777778,
+            "sd": 0.0757065484715918,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.15,
+            "sd": 0.20885987881733495,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9561904761904761,
+            "sd": 0.07560622550656101,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.9734375,
+            "sd": 0.006987712429686843,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.65,
+            "sd": 0.22360679774997896,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.98046875,
+            "sd": 0.04367320268554277,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9839622641509435,
+            "sd": 0.03586146756367589,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9610062893081761,
+            "sd": 0.05269524544818467,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.16769834288239835,
+        "sd": 0.004613449404872364,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.044751936588989724,
+        "sd": 0.006513027810488984,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.07788905010332565,
+        "sd": 0.008138927335461123,
+        "seeds": 5
+      }
+    },
+    "plasma/maxabs/random-forest": {
+      "synthetic_micro_f1": {
+        "mean": 0.7673855270768826,
+        "sd": 0.00610099391446688,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.9003255208333332,
+        "sd": 0.04711029900944518,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.8357142857142857,
+            "sd": 0.0484874520447807,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.29642857142857143,
+            "sd": 0.19132993194255535,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9996753246753247,
+            "sd": 0.0007259960965908473,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.8,
+            "sd": 0.12728022763829522,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9133333333333333,
+            "sd": 0.07185805624224453,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.42857142857142855,
+            "sd": 0.3040961851058286,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.912063492063492,
+            "sd": 0.09061949108372384,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.984375,
+            "sd": 0.011048543456039806,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.6,
+            "sd": 0.22360679774997902,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.9828125,
+            "sd": 0.03843241836327764,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9867924528301886,
+            "sd": 0.029532973287733067,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.7647798742138365,
+            "sd": 0.20073388946358323,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.18403849826388888,
+        "sd": 0.001848347169799919,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.05446527777777778,
+        "sd": 0.008174158421358926,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.1014347562713797,
+        "sd": 0.009722920129597797,
+        "seeds": 5
+      }
+    },
+    "plasma/robust/baseline-nnls": {
+      "synthetic_micro_f1": {
+        "mean": 0.7665645972867403,
+        "sd": 0.009218068729104599,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.9111328125,
+        "sd": 0.029869086410502194,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.8587301587301587,
+            "sd": 0.06824935384918629,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.3678571428571428,
+            "sd": 0.3045153392470315,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.7984375,
+            "sd": 0.05664735951342966,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9877777777777779,
+            "sd": 0.01138550085106624,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.05714285714285714,
+            "sd": 0.12777531299998798,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.98515625,
+            "sd": 0.0017469281074217107,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.8364779874213838,
+            "sd": 1.2412670766236366e-16,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      }
+    },
+    "plasma/robust/logistic-ovr": {
+      "synthetic_micro_f1": {
+        "mean": 0.7590389717254786,
+        "sd": 0.014485044760855919,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.9277994791666666,
+        "sd": 0.05736670925767563,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.9023809523809524,
+            "sd": 0.09538678868576252,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9988636363636363,
+            "sd": 0.002540986338067965,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.5892857142857142,
+            "sd": 0.3980981573144277,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9730519480519482,
+            "sd": 0.03249998378244728,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.85234375,
+            "sd": 0.16154126734270566,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9444444444444444,
+            "sd": 0.0888888888888889,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.6571428571428571,
+            "sd": 0.31298431857438064,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.6749206349206348,
+            "sd": 0.205328366207063,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.96015625,
+            "sd": 0.006987712429686843,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.5,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.45660377358490567,
+            "sd": 0.3319241603051759,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.21999659538784191,
+        "sd": 0.0012445308118493093,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.10878453619959023,
+        "sd": 0.011318867413319425,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.2121787941484964,
+        "sd": 0.0022352376663084205,
+        "seeds": 5
+      }
+    },
+    "plasma/robust/logistic-ovr+ts": {
+      "synthetic_micro_f1": {
+        "mean": 0.7554897269945317,
+        "sd": 0.01579218998613355,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.9133463541666667,
+        "sd": 0.08145842595269936,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.8880952380952382,
+            "sd": 0.10810852306308386,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9988636363636363,
+            "sd": 0.002540986338067965,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.5285714285714286,
+            "sd": 0.45062315130250014,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9727272727272727,
+            "sd": 0.03265772217008569,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.8109375,
+            "sd": 0.292298712959288,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.8844444444444445,
+            "sd": 0.25839007739997566,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.5928571428571427,
+            "sd": 0.4222751786816415,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.6749206349206348,
+            "sd": 0.205328366207063,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.9578125,
+            "sd": 0.006987712429686843,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.5,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.45660377358490567,
+            "sd": 0.3319241603051759,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.19881822984708034,
+        "sd": 0.0073077539827818006,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.08052269088166834,
+        "sd": 0.01806746047368422,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.16126711062133608,
+        "sd": 0.008131700624573336,
+        "seeds": 5
+      }
+    },
+    "plasma/robust/random-forest": {
+      "synthetic_micro_f1": {
+        "mean": 0.7993417855941818,
+        "sd": 0.01168531064792299,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.9344401041666666,
+        "sd": 0.018269231455636047,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.9264550264550264,
+            "sd": 0.012708054099974027,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.6690476190476191,
+            "sd": 0.05718624344988307,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9186688311688311,
+            "sd": 0.05382723753131861,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.85078125,
+            "sd": 0.016434128099970805,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.3285714285714286,
+            "sd": 0.0686978002202548,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.99375,
+            "sd": 0.00855816496101822,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.8,
+            "sd": 0.27386127875258304,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.998076923076923,
+            "sd": 0.004300130725961119,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.9677083333333332,
+            "sd": 0.05313393511461287,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9867924528301886,
+            "sd": 0.022473828772776615,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.8333333333333333,
+            "sd": 0.25685058345704065,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9547169811320755,
+            "sd": 0.02338489615418642,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.16130655381944445,
+        "sd": 0.004411652272556202,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.07564930555555557,
+        "sd": 0.008274594507736151,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.08850730473204105,
+        "sd": 0.010979535962594671,
+        "seeds": 5
+      }
+    },
+    "plasma/robust/random-forest+ts": {
+      "synthetic_micro_f1": {
+        "mean": 0.7991378060563731,
+        "sd": 0.010962238173797883,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.9270833333333333,
+        "sd": 0.01858464549725027,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.924074074074074,
+            "sd": 0.019543622816656916,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.6583333333333333,
+            "sd": 0.08794630267495618,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9185064935064935,
+            "sd": 0.054366759509385486,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.8359375,
+            "sd": 0.010334966058846057,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.2785714285714286,
+            "sd": 0.04656573146573321,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.98828125,
+            "sd": 0.014352478961620185,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.65,
+            "sd": 0.4088856808449031,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.95,
+            "sd": 0.11180339887498948,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.9614583333333332,
+            "sd": 0.050139508065967536,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9858490566037735,
+            "sd": 0.02187174173465969,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.8166666666666667,
+            "sd": 0.24579802006254375,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9572327044025158,
+            "sd": 0.02151274386979505,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.14932781069499232,
+        "sd": 0.005287142832753255,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.034198595464555705,
+        "sd": 0.003154724428140133,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.06270206800691518,
+        "sd": 0.008111983744464844,
+        "seeds": 5
+      }
+    },
+    "plasma/lines/scaled-logistic": {
+      "synthetic_micro_f1": {
+        "mean": 0.8116398711051808,
+        "sd": 0.008188570421798375,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.90546875,
+        "sd": 0.012999657259604482,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.9063492063492063,
+            "sd": 0.03993964330186073,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.5821428571428571,
+            "sd": 0.17340747694728878,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9993506493506494,
+            "sd": 0.0014519921931816946,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.76015625,
+            "sd": 0.03095564493149836,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9755555555555556,
+            "sd": 0.01867526257107956,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.007142857142857143,
+            "sd": 0.015971914124998498,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9993650793650793,
+            "sd": 0.0014197256999998614,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.996875,
+            "sd": 0.006987712429686843,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.95703125,
+            "sd": 0.04894517221149089,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9971698113207547,
+            "sd": 0.006328494275942825,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.6,
+            "sd": 0.5477225575051662,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9987421383647799,
+            "sd": 0.0028126641226412443,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.13950258706322202,
+        "sd": 0.004220732364361649,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.05146809980722864,
+        "sd": 0.004932894380641132,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.03774971076848917,
+        "sd": 0.0069654523510729194,
+        "seeds": 5
+      }
+    },
+    "plasma/lines/scaled-logistic+ts": {
+      "synthetic_micro_f1": {
+        "mean": 0.8113009515072223,
+        "sd": 0.010926757792130499,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.898046875,
+        "sd": 0.018309497944492714,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.9005291005291006,
+            "sd": 0.04386471550923199,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.5595238095238095,
+            "sd": 0.18476366899010424,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9993506493506494,
+            "sd": 0.0014519921931816946,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.76484375,
+            "sd": 0.02967207658567647,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9733333333333333,
+            "sd": 0.008240220541217374,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.014285714285714285,
+            "sd": 0.01956151991089879,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9987301587301587,
+            "sd": 0.001738801769857664,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.9859375,
+            "sd": 0.010186253758129139,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.75,
+            "sd": 0.25,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.75,
+            "sd": 0.25,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.9393229166666668,
+            "sd": 0.04363047910116529,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.999056603773585,
+            "sd": 0.002109498091980958,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.55,
+            "sd": 0.5055250296034367,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9987421383647799,
+            "sd": 0.0028126641226412443,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.13564542838576896,
+        "sd": 0.002889126552290713,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.029611919344149713,
+        "sd": 0.006339485417783108,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.04147376514007587,
+        "sd": 0.008596169787889116,
+        "seeds": 5
+      }
+    },
+    "plasma/lines/gradient-boosting": {
+      "synthetic_micro_f1": {
+        "mean": 0.8134451088493225,
+        "sd": 0.00998895796557867,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.9106119791666666,
+        "sd": 0.018632478104529067,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.9380952380952381,
+            "sd": 0.02700162831143491,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.7214285714285714,
+            "sd": 0.12150732740145714,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.808116883116883,
+            "sd": 0.05163511669167793,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.7765625,
+            "sd": 0.048742111741606454,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.968888888888889,
+            "sd": 0.02026064725423386,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.06428571428571428,
+            "sd": 0.10534200859823305,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9942857142857143,
+            "sd": 0.006882375678945682,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.99140625,
+            "sd": 0.013643944684822641,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.825,
+            "sd": 0.24366985862022408,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9038461538461539,
+            "sd": 0.2150065362980567,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.9356770833333334,
+            "sd": 0.03645368273910135,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.38333333333333336,
+            "sd": 0.2862594006219611,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.1790757611534215,
+        "sd": 0.00916395675347998,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.1577743833772292,
+        "sd": 0.009817983299419096,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.05632200319524118,
+        "sd": 0.008565919309326004,
+        "seeds": 5
+      }
+    },
+    "plasma/lines/gradient-boosting+ts": {
+      "synthetic_micro_f1": {
+        "mean": 0.8144115539855825,
+        "sd": 0.012941678242199583,
+        "seeds": 5
+      },
+      "external_recall_all": {
+        "mean": 0.9235677083333332,
+        "sd": 0.022108353170708802,
+        "seeds": 5
+      },
+      "per_element": {
+        "Na": {
+          "recall_positive_only": {
+            "mean": 0.9412698412698413,
+            "sd": 0.025930649607467524,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.7357142857142857,
+            "sd": 0.11668792323360386,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.7566558441558442,
+            "sd": 0.03869123300201294,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 44,
+            "negative": 14
+          }
+        },
+        "Mg": {
+          "recall_positive_only": {
+            "mean": 0.83203125,
+            "sd": 0.05391474117907133,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9933333333333334,
+            "sd": 0.012044157438154894,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.2642857142857143,
+            "sd": 0.20139817399816692,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.9942857142857143,
+            "sd": 0.006882375678945682,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 45,
+            "negative": 7
+          }
+        },
+        "Ca": {
+          "recall_positive_only": {
+            "mean": 0.99140625,
+            "sd": 0.013643944684822641,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.825,
+            "sd": 0.24366985862022408,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 0.7,
+            "sd": 0.27386127875258304,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 52,
+            "negative": 2
+          }
+        },
+        "Fe": {
+          "recall_positive_only": {
+            "mean": 0.92890625,
+            "sd": 0.05043451334868564,
+            "seeds": 5
+          },
+          "operational_recall": {
+            "mean": 0.9981132075471699,
+            "sd": 0.004218996183961866,
+            "seeds": 5
+          },
+          "operational_fpr": {
+            "mean": 0.3333333333333333,
+            "sd": 0.44487826050130463,
+            "seeds": 5
+          },
+          "operational_roc_auc": {
+            "mean": 1.0,
+            "sd": 0.0,
+            "seeds": 5
+          },
+          "operational_support": {
+            "positive": 53,
+            "negative": 3
+          }
+        }
+      },
+      "synthetic_brier": {
+        "mean": 0.13320051516635684,
+        "sd": 0.003556601323612569,
+        "seeds": 5
+      },
+      "synthetic_ece": {
+        "mean": 0.04943076500643946,
+        "sd": 0.006184135004414393,
+        "seeds": 5
+      },
+      "external_operational_brier": {
+        "mean": 0.058338223609686546,
+        "sd": 0.00697112648131006,
+        "seeds": 5
+      }
+    }
+  }
+}

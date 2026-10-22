@@ -29,10 +29,20 @@ def test_threshold_search_is_per_class_and_invariant_to_other_class_scale():
     original, _ = select_thresholds(scores, y, default=0.5)
     scores[:, 1] *= 1000
     thresholds, metadata = select_thresholds(scores, y, default=0.5)
-    assert thresholds[0] == original[0] == 0.002
+    assert thresholds[0] == original[0] == pytest.approx(0.0015)
+    assert thresholds[1] == 500.0
     np.testing.assert_array_equal(scores >= thresholds, y)
     assert metadata["validation_f1"] == [1.0, 1.0]
-    assert metadata["schema_version"] == 2
+    assert metadata["schema_version"] == 3
+
+
+def test_threshold_is_the_midpoint_of_the_separating_gap():
+    y = np.array([[0], [0], [1], [1]])
+    scores = np.array([[0.1], [0.2], [0.8], [0.9]])
+    thresholds, _ = select_thresholds(scores, y, default=0.5)
+    assert thresholds[0] == pytest.approx(0.5)
+    everything = select_thresholds(np.array([[0.3], [0.3]]), np.array([[1], [0]]), default=0.5)
+    assert everything[0][0] == 0.3
 
 
 def test_threshold_search_matches_brute_force_with_ties():
@@ -47,7 +57,14 @@ def test_threshold_search_matches_brute_force_with_ties():
             predicted = scores[:, column] >= threshold
             tp = (predicted & (y[:, column] == 1)).sum()
             f1.append(2 * tp / (predicted.sum() + y[:, column].sum()))
-        assert thresholds[column] == candidates[np.argmax(f1)]
+        best = int(np.argmax(f1))
+        expected = candidates[best]
+        if best > 0:
+            expected = (candidates[best - 1] + candidates[best]) / 2
+        assert thresholds[column] == pytest.approx(expected)
+        np.testing.assert_array_equal(
+            scores[:, column] >= thresholds[column], scores[:, column] >= candidates[best]
+        )
 
 
 @pytest.mark.parametrize("bad", [np.nan, np.inf, -1, 2, 0.5])

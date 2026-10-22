@@ -95,3 +95,10 @@ analytics:
 	$(RUN) python scripts/03_model_comparison.py
 smoke:
 	$(RUN) python scripts/smoke.py
+.PHONY: plasma-reference plasma-replay plasma-replay-dry
+plasma-reference:
+	$(RUN) python scripts/prepare_plasma_reference_v3.py
+plasma-replay:
+	$(RUN) python scripts/validate_chemcam_plasma.py
+plasma-replay-dry:
+	$(RUN) python scripts/validate_chemcam_plasma.py --dry-run
