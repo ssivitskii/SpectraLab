@@ -1,0 +1,360 @@
+{
+  "files": {
+    "raw/H_I_lines.csv": {
+      "rows": 188,
+      "accepted": 118,
+      "missing_level_data": 70,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/H_I_levels.csv": {
+      "rows": 106,
+      "accepted": 105,
+      "skipped": 0,
+      "no_data": false
+    },
+    "raw/He_I_lines.csv": {
+      "rows": 182,
+      "accepted": 179,
+      "missing_level_data": 3,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/He_I_levels.csv": {
+      "rows": 843,
+      "accepted": 837,
+      "skipped": 5,
+      "no_data": false
+    },
+    "raw/He_II_lines.csv": {
+      "rows": 58,
+      "accepted": 58,
+      "missing_level_data": 0,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/He_II_levels.csv": {
+      "rows": 149,
+      "accepted": 148,
+      "skipped": 0,
+      "no_data": false
+    },
+    "raw/Na_I_lines.csv": {
+      "rows": 198,
+      "accepted": 159,
+      "missing_level_data": 39,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Na_I_levels.csv": {
+      "rows": 430,
+      "accepted": 139,
+      "skipped": 284,
+      "no_data": false
+    },
+    "raw/Na_II_lines.csv": {
+      "rows": 776,
+      "accepted": 133,
+      "missing_level_data": 643,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Na_II_levels.csv": {
+      "rows": 165,
+      "accepted": 150,
+      "skipped": 12,
+      "no_data": false
+    },
+    "raw/Mg_I_lines.csv": {
+      "rows": 274,
+      "accepted": 179,
+      "missing_level_data": 95,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Mg_I_levels.csv": {
+      "rows": 323,
+      "accepted": 222,
+      "skipped": 91,
+      "no_data": false
+    },
+    "raw/Mg_II_lines.csv": {
+      "rows": 197,
+      "accepted": 175,
+      "missing_level_data": 22,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Mg_II_levels.csv": {
+      "rows": 149,
+      "accepted": 82,
+      "skipped": 62,
+      "no_data": false
+    },
+    "raw/Ca_I_lines.csv": {
+      "rows": 159,
+      "accepted": 132,
+      "missing_level_data": 27,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Ca_I_levels.csv": {
+      "rows": 787,
+      "accepted": 455,
+      "skipped": 325,
+      "no_data": false
+    },
+    "raw/Ca_II_lines.csv": {
+      "rows": 60,
+      "accepted": 25,
+      "missing_level_data": 35,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Ca_II_levels.csv": {
+      "rows": 72,
+      "accepted": 69,
+      "skipped": 2,
+      "no_data": false
+    },
+    "raw/Fe_I_lines.csv": {
+      "rows": 5914,
+      "accepted": 2374,
+      "missing_level_data": 3540,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Fe_I_levels.csv": {
+      "rows": 847,
+      "accepted": 846,
+      "skipped": 0,
+      "no_data": false
+    },
+    "raw/Fe_II_lines.csv": {
+      "rows": 5522,
+      "accepted": 3498,
+      "missing_level_data": 2024,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Fe_II_levels.csv": {
+      "rows": 1028,
+      "accepted": 1027,
+      "skipped": 0,
+      "no_data": false
+    },
+    "raw/Si_I_lines.csv": {
+      "rows": 163,
+      "accepted": 106,
+      "missing_level_data": 57,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Si_I_levels.csv": {
+      "rows": 542,
+      "accepted": 452,
+      "skipped": 88,
+      "no_data": false
+    },
+    "raw/Si_II_lines.csv": {
+      "rows": 212,
+      "accepted": 149,
+      "missing_level_data": 63,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Si_II_levels.csv": {
+      "rows": 151,
+      "accepted": 95,
+      "skipped": 54,
+      "no_data": false
+    },
+    "raw/Al_I_lines.csv": {
+      "rows": 109,
+      "accepted": 43,
+      "missing_level_data": 66,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Al_I_levels.csv": {
+      "rows": 192,
+      "accepted": 114,
+      "skipped": 73,
+      "no_data": false
+    },
+    "raw/Al_II_lines.csv": {
+      "rows": 401,
+      "accepted": 238,
+      "missing_level_data": 163,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Al_II_levels.csv": {
+      "rows": 219,
+      "accepted": 217,
+      "skipped": 0,
+      "no_data": false
+    },
+    "raw/K_I_lines.csv": {
+      "rows": 112,
+      "accepted": 97,
+      "missing_level_data": 15,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/K_I_levels.csv": {
+      "rows": 299,
+      "accepted": 188,
+      "skipped": 108,
+      "no_data": false
+    },
+    "raw/K_II_lines.csv": {
+      "rows": 130,
+      "accepted": 125,
+      "missing_level_data": 5,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/K_II_levels.csv": {
+      "rows": 97,
+      "accepted": 96,
+      "skipped": 0,
+      "no_data": false
+    },
+    "raw/Ti_I_lines.csv": {
+      "rows": 2406,
+      "accepted": 425,
+      "missing_level_data": 1981,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Ti_I_levels.csv": {
+      "rows": 559,
+      "accepted": 558,
+      "skipped": 0,
+      "no_data": false
+    },
+    "raw/Ti_II_lines.csv": {
+      "rows": 1227,
+      "accepted": 462,
+      "missing_level_data": 765,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Ti_II_levels.csv": {
+      "rows": 253,
+      "accepted": 252,
+      "skipped": 0,
+      "no_data": false
+    },
+    "raw/Mn_I_lines.csv": {
+      "rows": 609,
+      "accepted": 485,
+      "missing_level_data": 124,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Mn_I_levels.csv": {
+      "rows": 552,
+      "accepted": 359,
+      "skipped": 191,
+      "no_data": false
+    },
+    "raw/Mn_II_lines.csv": {
+      "rows": 2438,
+      "accepted": 608,
+      "missing_level_data": 1830,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/Mn_II_levels.csv": {
+      "rows": 533,
+      "accepted": 532,
+      "skipped": 0,
+      "no_data": false
+    },
+    "raw/O_I_lines.csv": {
+      "rows": 251,
+      "accepted": 231,
+      "missing_level_data": 20,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/O_I_levels.csv": {
+      "rows": 614,
+      "accepted": 234,
+      "skipped": 376,
+      "no_data": false
+    },
+    "raw/O_II_lines.csv": {
+      "rows": 893,
+      "accepted": 406,
+      "missing_level_data": 487,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/O_II_levels.csv": {
+      "rows": 287,
+      "accepted": 247,
+      "skipped": 35,
+      "no_data": false
+    },
+    "raw/C_I_lines.csv": {
+      "rows": 494,
+      "accepted": 201,
+      "missing_level_data": 293,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/C_I_levels.csv": {
+      "rows": 435,
+      "accepted": 401,
+      "skipped": 32,
+      "no_data": false
+    },
+    "raw/C_II_lines.csv": {
+      "rows": 723,
+      "accepted": 661,
+      "missing_level_data": 62,
+      "invalid": 0,
+      "no_data": false
+    },
+    "raw/C_II_levels.csv": {
+      "rows": 415,
+      "accepted": 179,
+      "skipped": 235,
+      "no_data": false
+    }
+  },
+  "totals": {
+    "transitions": 11267,
+    "species": 25,
+    "by_species": {
+      "Al_1": 43,
+      "Al_2": 238,
+      "C_1": 201,
+      "C_2": 661,
+      "Ca_1": 132,
+      "Ca_2": 25,
+      "Fe_1": 2374,
+      "Fe_2": 3498,
+      "H_1": 118,
+      "He_1": 179,
+      "He_2": 58,
+      "K_1": 97,
+      "K_2": 125,
+      "Mg_1": 179,
+      "Mg_2": 175,
+      "Mn_1": 485,
+      "Mn_2": 608,
+      "Na_1": 159,
+      "Na_2": 133,
+      "O_1": 231,
+      "O_2": 406,
+      "Si_1": 106,
+      "Si_2": 149,
+      "Ti_1": 425,
+      "Ti_2": 462
+    }
+  }
+}

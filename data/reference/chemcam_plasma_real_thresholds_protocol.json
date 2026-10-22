@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "protocol_id": "chemcam-plasma-real-thresholds-v4",
+  "registered_at": "2026-10-22",
+  "test_status": "REPLAY: models and synthetic data identical to v3; only decision thresholds for Na, Mg, Ca, Fe are re-selected on real laboratory development spectra. Preflight 64 and calib_2021 71 were both revealed earlier (v1 2026-10-13 and the adaptation final run). Development evidence, not an independent final.",
+  "base_protocol": {
+    "path": "data/reference/chemcam_external_protocol.json",
+    "sha256": "c4b417be023a7aeb7e8e0adb67b1d578e2b5ef5b6966b33a1e415294dd61f06b",
+    "inherits": "sample selection, replicate handling, grid 350-800 nm step 0.1, observation windows [[383,468],[500,800]], classes, seeds, positive-only recall estimand"
+  },
+  "plasma_reference": {
+    "path": "data/reference/nist_plasma_v3/plasma_reference.json",
+    "content_sha256": "09644caf71b682eb548d2f92e24ca09c8247cd82659d5ecc4239009eefeee342"
+  },
+  "model_seeds": [
+    7,
+    17,
+    29,
+    43,
+    71
+  ],
+  "synthetic": {
+    "base_samples": 600,
+    "variations": 2,
+    "split": [
+      0.6,
+      0.2,
+      0.2
+    ],
+    "variation_meaning": "new plasma conditions, instrument draw and noise for the same composition",
+    "bands": [
+      [
+        350,
+        470,
+        [
+          0.15,
+          0.3
+        ]
+      ],
+      [
+        470,
+        800,
+        [
+          0.4,
+          0.8
+        ]
+      ]
+    ],
+    "bands_source": "ChemCam VIO/VNIR resolution ranges from instrument documentation (Wiens et al. 2012, Space Sci. Rev. 170), fixed before the run",
+    "neutral_variant": "exact v1 linear neutral-template generator (240 base samples x 2) for attribution"
+  },
+  "ranges": {
+    "hot_temperature_k": [
+      9000.0,
+      14000.0
+    ],
+    "hot_density_cm3": [
+      3e+16,
+      2e+17
+    ],
+    "cool_temperature_k": [
+      5500.0,
+      9000.0
+    ],
+    "cool_density_cm3": [
+      5000000000000000.0,
+      5e+16
+    ],
+    "cool_weight": [
+      0.3,
+      1.5
+    ],
+    "heavy_density_cm3": [
+      3e+16,
+      3e+17
+    ],
+    "path_length_cm": [
+      0.03,
+      0.2
+    ],
+    "stark_fwhm_nm": [
+      0.02,
+      0.15
+    ],
+    "stark_spread": 0.5,
+    "continuum_factor": [
+      0.1,
+      3.0
+    ],
+    "presence_probability": 0.55,
+    "target_mass_fraction": [
+      0.0002,
+      0.3
+    ],
+    "hydrogen_mass_fraction": [
+      0.0001,
+      0.02
+    ],
+    "helium_mass_fraction": [
+      0.001,
+      0.05
+    ],
+    "interferents": {
+      "Si": [
+        0.9,
+        0.02,
+        0.35
+      ],
+      "Al": [
+        0.85,
+        0.005,
+        0.15
+      ],
+      "K": [
+        0.7,
+        0.0001,
+        0.05
+      ],
+      "Ti": [
+        0.7,
+        0.0001,
+        0.03
+      ],
+      "Mn": [
+        0.7,
+        5e-05,
+        0.01
+      ],
+      "C": [
+        0.8,
+        0.001,
+        0.05
+      ]
+    },
+    "oxygen_per_cation_mass": 0.8,
+    "shift_nm_std": 0.05,
+    "stretch_std": 0.0001,
+    "response_coefficient_std": 0.2,
+    "baseline_level": [
+      0.0,
+      0.05
+    ],
+    "peak_snr": [
+      20.0,
+      300.0
+    ],
+    "read_snr": [
+      200.0,
+      2000.0
+    ]
+  },
+  "robust_transform": {
+    "smoothness": 10000000.0,
+    "asymmetry": 0.01,
+    "iterations": 10,
+    "normalization": "band_l1"
+  },
+  "line_features": {
+    "per_element": 10,
+    "context_elements": [
+      "Si",
+      "Al",
+      "K",
+      "Ti",
+      "Mn",
+      "O",
+      "C"
+    ],
+    "per_context_element": 5,
+    "template_conditions": "T=10000 K, n_e=1e17 cm^-3, optically thin, mid-range band FWHM",
+    "window": "peak +/-0.25 nm minus median of 0.6-1.5 nm side windows, same band; asinh(1000 x)"
+  },
+  "variants": [
+    {
+      "id": "neutral-linear/maxabs",
+      "data": "neutral",
+      "representation": "maxabs",
+      "models": [
+        "baseline-nnls",
+        "logistic-ovr",
+        "random-forest"
+      ],
+      "purpose": "reproduce v1 numbers with the same code path"
+    },
+    {
+      "id": "neutral-linear/robust",
+      "data": "neutral",
+      "representation": "robust",
+      "models": [
+        "baseline-nnls",
+        "logistic-ovr",
+        "random-forest"
+      ],
+      "purpose": "effect of preprocessing alone"
+    },
+    {
+      "id": "plasma/maxabs",
+      "data": "plasma",
+      "representation": "maxabs",
+      "models": [
+        "baseline-nnls",
+        "logistic-ovr",
+        "random-forest"
+      ],
+      "purpose": "effect of the generator alone"
+    },
+    {
+      "id": "plasma/robust",
+      "data": "plasma",
+      "representation": "robust",
+      "models": [
+        "baseline-nnls",
+        "logistic-ovr",
+        "logistic-ovr+ts",
+        "random-forest",
+        "random-forest+ts"
+      ],
+      "purpose": "generator + preprocessing; temperature scaling"
+    },
+    {
+      "id": "plasma/lines",
+      "data": "plasma",
+      "representation": "lines",
+      "models": [
+        "scaled-logistic",
+        "scaled-logistic+ts",
+        "gradient-boosting",
+        "gradient-boosting+ts"
+      ],
+      "purpose": "line-window features"
+    }
+  ],
+  "thresholds": "per-class F1 over distinct scores on synthetic validation (defaults 0.15 NNLS, 0.5 otherwise); with +ts: temperature fitted on half of validation base IDs, thresholds on the other half",
+  "metrics": {
+    "primary_inherited": "v1 positive-only recall (oxide > 0), equal physical-sample weight, cluster bootstrap",
+    "operational": "positives >= 1 wt%, negatives (0, 0.1] wt% published oxide; recall, FPR, ROC-AUC on sample-mean scores; separate physical-sample bootstraps",
+    "calibration": "Brier/ECE on synthetic test; Brier on real operational labels",
+    "synthetic": "micro-F1 on synthetic test"
+  },
+  "reporting": "All variants, models and seeds are reported. No variant, threshold or parameter is chosen on real results. A crashed run before metrics is not a result; any completed run is reported.",
+  "known_limitations": [
+    "The real campaign is already revealed (replay).",
+    "Negative support is small: Na 14, Mg 7, Ca 2, Fe 3 materials.",
+    "Generator ranges come from literature, but the author has seen v1 results.",
+    "No real-spectrum fitting, alignment or threshold tuning.",
+    "Development spectra are LANL testbed 2013 measurements; preflight is the flight model before launch; calib_2021 test is the testbed in 2017-2019.",
+    "Some development standards share composition with preflight standards (same reference materials, different instrument and session).",
+    "Fe has only 8 development negatives, so its point FPR budget means 0/8."
+  ],
+  "based_on": {
+    "path": "data/reference/chemcam_plasma_replay_protocol.json",
+    "sha256": "1182fc1e0b6f725a6019d091887cd4356f41e033353e5fff4fbed4289760578c"
+  },
+  "real_thresholds": {
+    "adaptation_protocol": {
+      "path": "data/reference/chemcam_adaptation_protocol.json",
+      "sha256": "0d7c4f5baa35203f60087f9eb3b0294975cb12328d0f85beba20f6e4db91a87e"
+    },
+    "tuning_role": "development",
+    "evaluation_roles": [
+      "test"
+    ],
+    "maximum_fpr": 0.05,
+    "rule": "spectralab_ml.evaluation.instrument_selection.select_operational_thresholds: maximum physical-sample recall subject to tuning point FPR <= 0.05; ties lower FPR then higher threshold. Unknown labels excluded. H and He keep synthetic thresholds.",
+    "labels": "adaptation protocol operational labels: positive >= 1 wt%, negative (0, 0.1] wt%, otherwise unknown",
+    "models": "trained only on synthetic data exactly as in v3; real spectra never enter fitting or calibration",
+    "reported": "for every variant/model/seed: preflight positive-only and operational metrics with real thresholds; calib_2021 test operational metrics with synthetic and real thresholds"
+  }
+}

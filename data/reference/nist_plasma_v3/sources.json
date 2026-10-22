@@ -1,0 +1,202 @@
+{
+  "H_I_lines.csv": {
+    "sha256": "dbaa8f666e0f127012af72a82096aa830cab2e97cce8c651c787e0b7a4bac286",
+    "retrieved_at": "2026-10-22"
+  },
+  "H_I_levels.csv": {
+    "sha256": "5fb07aee0f26a5cd738f351c8d66faa39f72f82dfa8e0d3c886dc43151c00d9b",
+    "retrieved_at": "2026-10-22"
+  },
+  "He_I_lines.csv": {
+    "sha256": "6c21343efe0a316cdf40cd4cfc1a29af9caae27c0c40c4cc2808d86a6b2e4d5b",
+    "retrieved_at": "2026-10-22"
+  },
+  "He_I_levels.csv": {
+    "sha256": "6ebbef557c09db07c8e702b73e1f8f19ecb3d8bcd3776fa7f4d6079506099209",
+    "retrieved_at": "2026-10-22"
+  },
+  "He_II_lines.csv": {
+    "sha256": "bbe4b2cd73d75704f4348d31e629e8b81f382433dc84b597428ca8035ed27f69",
+    "retrieved_at": "2026-10-22"
+  },
+  "He_II_levels.csv": {
+    "sha256": "5f12aac723b1fa1168e701abd887a3de98da70d783aab4130e5c2bec1d6eea76",
+    "retrieved_at": "2026-10-22"
+  },
+  "Na_I_lines.csv": {
+    "sha256": "86c31a3c01d0f184ed54d96e32cc482d67ec2fea9ba34565202e438a504bd8e0",
+    "retrieved_at": "2026-10-22"
+  },
+  "Na_I_levels.csv": {
+    "sha256": "cec88d5ec2605605e84155ed934d38f94cdcb5b4f5e7a9be3ecdc6d3523a2eb9",
+    "retrieved_at": "2026-10-22"
+  },
+  "Na_II_lines.csv": {
+    "sha256": "d9c0e9e5a1bf03f7d3b5288c89280d4782dae2da8a31e1a3766e5ac9cb987f9c",
+    "retrieved_at": "2026-10-22"
+  },
+  "Na_II_levels.csv": {
+    "sha256": "57be7a466d7660fdd29cf5fea2cd50ce36152e3a37d1ef878fdea98da90aa27e",
+    "retrieved_at": "2026-10-22"
+  },
+  "Mg_I_lines.csv": {
+    "sha256": "432fd02415821fff3ed6b65ac0023da0bb45944d54a24b99002ff295ee7aea8f",
+    "retrieved_at": "2026-10-22"
+  },
+  "Mg_I_levels.csv": {
+    "sha256": "3981f815f5e0bfc7318fb4c15d4074c6b939403d2e4a8b21d2c1551033f767c3",
+    "retrieved_at": "2026-10-22"
+  },
+  "Mg_II_lines.csv": {
+    "sha256": "0153e46fb6afb78bc2e21983cc60f50b2939f444cf229e138866f2ba9b7cac09",
+    "retrieved_at": "2026-10-22"
+  },
+  "Mg_II_levels.csv": {
+    "sha256": "cb7ff9e46038d90202e405efd784eeb713d35af204ab71d7b08f378650e57a05",
+    "retrieved_at": "2026-10-22"
+  },
+  "Ca_I_lines.csv": {
+    "sha256": "48f04f91890deb7bea605f5c709f9af9ed47446416617bc25ae7de05d16ff938",
+    "retrieved_at": "2026-10-22"
+  },
+  "Ca_I_levels.csv": {
+    "sha256": "f1651f276ac8787ce4acc9918466ed9950610cb28384963924b1a79084a58000",
+    "retrieved_at": "2026-10-22"
+  },
+  "Ca_II_lines.csv": {
+    "sha256": "a87d1194263f5f8db86bc80106895f4dfa096bfb24ddb78825cb85fd89aa20e7",
+    "retrieved_at": "2026-10-22"
+  },
+  "Ca_II_levels.csv": {
+    "sha256": "56c0e81d0bd44aa06d985a4a86f7429d67f35aff480909a4ca4a5aff4f950a21",
+    "retrieved_at": "2026-10-22"
+  },
+  "Fe_I_lines.csv": {
+    "sha256": "c79ca07bdaa9452c790c672739d36494d219004bedf18df55bf64fee8313770b",
+    "retrieved_at": "2026-10-22"
+  },
+  "Fe_I_levels.csv": {
+    "sha256": "ff7dfc1dcd60f29cf02482a252ce1be2dd61ed7a6cbb5612096a653b4e9a3a91",
+    "retrieved_at": "2026-10-22"
+  },
+  "Fe_II_lines.csv": {
+    "sha256": "ab6a176b89922be82d6868fc3d9c32680a57c57b06856cb320a21a4547719035",
+    "retrieved_at": "2026-10-22"
+  },
+  "Fe_II_levels.csv": {
+    "sha256": "a9621686cedd85b3facd9f491c7b7cc7d5d03610e65827fb28a09d4130a13ca0",
+    "retrieved_at": "2026-10-22"
+  },
+  "Si_I_lines.csv": {
+    "sha256": "e33079eddb78b7e3ddd99d11643d60824e053873aad4f57fd9bef801d5ac9345",
+    "retrieved_at": "2026-10-22"
+  },
+  "Si_I_levels.csv": {
+    "sha256": "a9a1ac32fba6e1c258d74d910c8138e7f91d0b22b1bb54a9f9b1f10fcd2bcea8",
+    "retrieved_at": "2026-10-22"
+  },
+  "Si_II_lines.csv": {
+    "sha256": "f746c87f8749fa874411240343ec3fe35bc1e628304345c5d566157f8e18c38f",
+    "retrieved_at": "2026-10-22"
+  },
+  "Si_II_levels.csv": {
+    "sha256": "244192be09c87b2faaa6387e38fdc1da85db7299d0ef118ec2891dc496fa7c3e",
+    "retrieved_at": "2026-10-22"
+  },
+  "Al_I_lines.csv": {
+    "sha256": "508e1274db942c6867762cf68b19629bd7c453ce02bf9ba9a5ab724c2856dd8a",
+    "retrieved_at": "2026-10-22"
+  },
+  "Al_I_levels.csv": {
+    "sha256": "7ba898fb12a9f25a064263278d533369916c3622ec615141b1d49d7cec7da23c",
+    "retrieved_at": "2026-10-22"
+  },
+  "Al_II_lines.csv": {
+    "sha256": "bbc655d51be0666047f81f3339baf727d480ccb5bc3479041703404405cadb87",
+    "retrieved_at": "2026-10-22"
+  },
+  "Al_II_levels.csv": {
+    "sha256": "b346d96d078f6513e7bf08b54a3555b352496aa02004254632daacb6061f3e94",
+    "retrieved_at": "2026-10-22"
+  },
+  "K_I_lines.csv": {
+    "sha256": "232c204c60b1946f2f8443c4b6cb8b10e9649f4cb2619e46490202c02acc8545",
+    "retrieved_at": "2026-10-22"
+  },
+  "K_I_levels.csv": {
+    "sha256": "53dbdead6c5281136b9caead19fb9a7022190a705765c0fb5bc8d4728c6a3173",
+    "retrieved_at": "2026-10-22"
+  },
+  "K_II_lines.csv": {
+    "sha256": "56c43b60902f7c3e31350a7b34778e1329e909766b39b4e6adf7b7960efc72b0",
+    "retrieved_at": "2026-10-22"
+  },
+  "K_II_levels.csv": {
+    "sha256": "b2e36f6a0be1fe1f982ccdfd552adcc55650616c352ae3026a7478875af6b44a",
+    "retrieved_at": "2026-10-22"
+  },
+  "Ti_I_lines.csv": {
+    "sha256": "029e5c06c8643ff0f7728f265683827c9df31d581686f6d5600d93a2bb3f2cb6",
+    "retrieved_at": "2026-10-22"
+  },
+  "Ti_I_levels.csv": {
+    "sha256": "9e50c66e52f0607f1b2826ea3859eabe1320c80ea02b7279a428c4f79ea4dfc4",
+    "retrieved_at": "2026-10-22"
+  },
+  "Ti_II_lines.csv": {
+    "sha256": "07fc732e565bc3ecd65847a702be562a7b66206d8da39cb6456fa384e2c5a191",
+    "retrieved_at": "2026-10-22"
+  },
+  "Ti_II_levels.csv": {
+    "sha256": "c6e4025069bde47367a033869f7930dc22eac419c9ea3c32daa7a645878cd619",
+    "retrieved_at": "2026-10-22"
+  },
+  "Mn_I_lines.csv": {
+    "sha256": "aa0ada8f48ea2cdb61ae6c06fb3db9750e7d3ed1f1448477233b779239638281",
+    "retrieved_at": "2026-10-22"
+  },
+  "Mn_I_levels.csv": {
+    "sha256": "351f59ab0547df46820a60450c77e088101c84ed5d2d5c30aabd290da7179f5c",
+    "retrieved_at": "2026-10-22"
+  },
+  "Mn_II_lines.csv": {
+    "sha256": "0ce42ff6a9a5ddf32d972da1f118e0a978fe89f0f242718142e923ca4630ccde",
+    "retrieved_at": "2026-10-22"
+  },
+  "Mn_II_levels.csv": {
+    "sha256": "1f934d6cc10d47820b862c2625b761904ab04d6a5ff27e3e0deff612d8532821",
+    "retrieved_at": "2026-10-22"
+  },
+  "O_I_lines.csv": {
+    "sha256": "75899a465384ca8e27581cd5a826a1c986b6374bff975f9ad991c2bf8e8a67ee",
+    "retrieved_at": "2026-10-22"
+  },
+  "O_I_levels.csv": {
+    "sha256": "dbd09e1da94cb7239be950ad05df0c96b8771285d3046f98a5ef6c2d28024333",
+    "retrieved_at": "2026-10-22"
+  },
+  "O_II_lines.csv": {
+    "sha256": "78500d3ccc216475d609070ab3ed90d1707e26d561ce6c8c2cc7aefee4d4c473",
+    "retrieved_at": "2026-10-22"
+  },
+  "O_II_levels.csv": {
+    "sha256": "f71448ca6f533fd644ae92257f484821398db200671fe995bbf747f4758c184b",
+    "retrieved_at": "2026-10-22"
+  },
+  "C_I_lines.csv": {
+    "sha256": "d2803d8c02d9ff589ef9515839729aaf92bf675aa952c91dd96c4da62a3fed0e",
+    "retrieved_at": "2026-10-22"
+  },
+  "C_I_levels.csv": {
+    "sha256": "69809bb6bae2a68290bbbef547d3133b6c3e4f99591fecab6d97f03e2704857a",
+    "retrieved_at": "2026-10-22"
+  },
+  "C_II_lines.csv": {
+    "sha256": "6ccf162b926c8bc0e46d908b7fce9cf70c70186c646517e0d88687ba330e7d10",
+    "retrieved_at": "2026-10-22"
+  },
+  "C_II_levels.csv": {
+    "sha256": "78a5060ebb551a06ff9cdb32d68fca6d5ce3ccd6e9da2a2b4cfa636838403e91",
+    "retrieved_at": "2026-10-22"
+  }
+}

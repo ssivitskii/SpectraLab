@@ -133,11 +133,21 @@ def select_thresholds(
         # Match the previous tie policy: prefer the lowest threshold with maximum F1.
         best = np.flatnonzero(f1 == np.max(f1))[-1]
         chosen_f1.append(float(f1[best]))
-        thresholds[column] = ordered_scores[ends[best]]
+        included = float(ordered_scores[ends[best]])
+        threshold = included
+        if ends[best] + 1 < len(ordered_scores):
+            excluded = float(ordered_scores[ends[best] + 1])
+            midpoint = excluded + (included - excluded) / 2
+            if excluded < midpoint <= included:
+                threshold = midpoint
+        thresholds[column] = threshold
     return thresholds, {
         "split": "validation",
-        "schema_version": 2,
-        "criterion": "per-class F1 over every distinct score threshold; lowest threshold on ties",
+        "schema_version": 3,
+        "criterion": (
+            "per-class F1 over every distinct score boundary; lowest boundary on ties; "
+            "threshold at the midpoint between the lowest accepted and highest rejected score"
+        ),
         "validation_f1": chosen_f1,
         "fallback_columns": [i for i, value in enumerate(chosen_f1) if value is None],
         "fallback_reason": "Single-class validation: fixed default retained, not tuned",
