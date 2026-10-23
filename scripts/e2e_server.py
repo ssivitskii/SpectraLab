@@ -34,7 +34,7 @@ def main() -> None:
             processor,
             root / "artifacts/models",
             seed=42,
-            model_ids=["baseline-nnls"],
+            model_ids=["baseline-nnls", "line-logistic", "line-logistic-robust"],
         )
         experiment = root / "reports/experiments/e2e-fixture"
         experiment.mkdir(parents=True)

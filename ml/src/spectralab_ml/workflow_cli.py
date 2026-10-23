@@ -286,6 +286,9 @@ def command_final_evaluate(args: argparse.Namespace) -> None:
 
 
 def register_workflows(subparsers: argparse._SubParsersAction) -> None:
+    from spectralab_ml.series_cli import register_series_workflow
+
+    register_series_workflow(subparsers)
     doctor = subparsers.add_parser(
         "ml-check", help="Check ML configs and reference integrity offline"
     )

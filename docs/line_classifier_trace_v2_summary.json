@@ -1,0 +1,1590 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "scope": "synthetic development; not independent final or real-data validation",
+  "created_at": "2026-10-23T19:01:22.586598+00:00",
+  "run_directory": "reports/experiments/line-trace-v2-20261023T190122",
+  "seeds": [
+    7,
+    17,
+    29,
+    43,
+    71
+  ],
+  "base_samples_per_variant": 144,
+  "variations": 2,
+  "repeats": 2,
+  "conditions": [
+    {
+      "name": "equal",
+      "ratio": 1,
+      "background_peak_ratio": 0,
+      "shift_nm": 0,
+      "snr_db": 20
+    },
+    {
+      "name": "weak_0.10",
+      "ratio": 0.1,
+      "background_peak_ratio": 0,
+      "shift_nm": 0,
+      "snr_db": 20
+    },
+    {
+      "name": "weak_0.03",
+      "ratio": 0.03,
+      "background_peak_ratio": 0,
+      "shift_nm": 0,
+      "snr_db": 20
+    },
+    {
+      "name": "weak_0.01",
+      "ratio": 0.01,
+      "background_peak_ratio": 0,
+      "shift_nm": 0,
+      "snr_db": 20
+    },
+    {
+      "name": "weak_0.10_background",
+      "ratio": 0.1,
+      "background_peak_ratio": 2,
+      "shift_nm": 0,
+      "snr_db": 20
+    },
+    {
+      "name": "weak_0.03_background",
+      "ratio": 0.03,
+      "background_peak_ratio": 2,
+      "shift_nm": 0,
+      "snr_db": 20
+    },
+    {
+      "name": "weak_0.10_shift",
+      "ratio": 0.1,
+      "background_peak_ratio": 0,
+      "shift_nm": 0.5,
+      "snr_db": 20
+    },
+    {
+      "name": "equal_shift",
+      "ratio": 1,
+      "background_peak_ratio": 0,
+      "shift_nm": 0.75,
+      "snr_db": 20
+    },
+    {
+      "name": "absent_control",
+      "ratio": 0,
+      "background_peak_ratio": 0,
+      "shift_nm": 0,
+      "snr_db": 20
+    },
+    {
+      "name": "absent_control_background",
+      "ratio": 0,
+      "background_peak_ratio": 2,
+      "shift_nm": 0,
+      "snr_db": 20
+    }
+  ],
+  "reference": {
+    "source": "demo_fixture",
+    "retrieved_at": "2026-10-01",
+    "export_parameters": "hand-curated teaching fixture; neutral atoms; 350-800 nm",
+    "units": "nm",
+    "wavelength_medium": "vacuum",
+    "official_nist_export": false,
+    "notice": "Demonstration values for software testing. Do not cite as NIST data.",
+    "checksum_sha256": "f5280bd0ecc99197f3216d1fb0eecc26cef8ff3fefb05326ecb974ea4daaf9eb",
+    "imported_at": "2026-10-23T19:01:22.586311+00:00",
+    "cleaning_rules": "reject non-vacuum/invalid; observed preferred within one transition row; only exact duplicates removed; raw fields retained"
+  },
+  "project": {
+    "elements": [
+      "H",
+      "He",
+      "Na",
+      "Mg",
+      "Ca",
+      "Fe"
+    ],
+    "wavelength_start_nm": 350.0,
+    "wavelength_end_nm": 800.0,
+    "model_step_nm": 0.05,
+    "wavelength_medium": "vacuum",
+    "ion_stage": 1,
+    "schema_version": 1,
+    "reference_cache": null,
+    "reference_sha256": null
+  },
+  "protocol": {
+    "architecture": "same multi-scale windows; robust classifier is element-local",
+    "training": "demo vs line_robust_v1; same group IDs and counts, different compositions/conditions",
+    "thresholds": "per-model validation only; no controlled-condition tuning",
+    "evaluation": "every ordered pair; independent noise seeds; paired arrays",
+    "controls": "ratio zero removes target, never relabels an unknown as absent",
+    "caveat": "conditions share compositions/noise seeds; SD across five seeds is not a physical confidence interval"
+  },
+  "source_sha256": {
+    "ml/src/spectralab_ml/datasets.py": "4ebbdc38c3f5a98671580e50fefe9504425befd5c04ed295beb78ed0c1c02ea5",
+    "ml/src/spectralab_ml/models/line_classifier.py": "72f5e629a1a9f536e9aba21fd78433dec95c44bac7415f8c658cd6496f280cee",
+    "ml/src/spectralab_ml/evaluation/trace.py": "031bd056fe1a431bb5b4b24c854681b39b25d7c78d3e6fbf59069490f4dc470d",
+    "scripts/benchmark_line_trace.py": "8df34f2bbf1bc097ac87384352da544f352e9e3c2c588e1f7663d200551ab662"
+  },
+  "training": [
+    {
+      "seed": 7,
+      "model_id": "line-logistic",
+      "profile": "demo",
+      "dataset_hash": "2db07b238649b039bcd9d63352f64eff78c9a67af168d6d95c346c38cfba91df",
+      "split_hash": "5bfe14f7d47962e2636a4112388ebbe623813184755fe4979224c479588b52f7",
+      "thresholds": {
+        "H": -0.029065081376177027,
+        "He": -0.9202243310525509,
+        "Na": -0.5827864030490328,
+        "Mg": -0.7841970312375341,
+        "Ca": 0.8692815666868716,
+        "Fe": 0.034966139614097
+      },
+      "model_sha256": "ce4cb6fe4b9220d5c413db59182a290cf93f134bf2ca90152afe022839fafc6e",
+      "heldout_micro_f1": 1.0,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    },
+    {
+      "seed": 7,
+      "model_id": "line-logistic-robust",
+      "profile": "line_robust_v1",
+      "dataset_hash": "ef0d9050507dd894ae8dd62c8b3399cad495f721c63ebd5a421a7d3aa4a094ea",
+      "split_hash": "5bfe14f7d47962e2636a4112388ebbe623813184755fe4979224c479588b52f7",
+      "thresholds": {
+        "H": -1.9241692145984501,
+        "He": 0.2537986341294598,
+        "Na": -1.0788756422836143,
+        "Mg": -2.051554706977969,
+        "Ca": -1.0525240801432476,
+        "Fe": -0.7416709060994728
+      },
+      "model_sha256": "1e562a058fbf311eee4d81a844b9aa417bdbb0a2ad94f842032eb2148acc9a5c",
+      "heldout_micro_f1": 0.9389312977099237,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    },
+    {
+      "seed": 17,
+      "model_id": "line-logistic",
+      "profile": "demo",
+      "dataset_hash": "44091d28d21d0bf638d491d58e69eab2f8f5463c2c30589116871a4534997a0e",
+      "split_hash": "2b34385d81b35173a09a35947260780422229d33dc2d1ac6bda814a1422bf0a1",
+      "thresholds": {
+        "H": -1.5941610657649616,
+        "He": -0.7338598607641407,
+        "Na": 1.0929683209639935,
+        "Mg": 0.2741935684543755,
+        "Ca": -0.8668818441949204,
+        "Fe": -0.960362621310539
+      },
+      "model_sha256": "b6984487eaa9b838011a4d85ae166ccf2202503cc7109d26c9bbb4acf4e84677",
+      "heldout_micro_f1": 1.0,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    },
+    {
+      "seed": 17,
+      "model_id": "line-logistic-robust",
+      "profile": "line_robust_v1",
+      "dataset_hash": "51e50bcf9630dc3f7b5cf70348802a7f3cb6dbbbd79cc6142d83351f7eef8a4c",
+      "split_hash": "2b34385d81b35173a09a35947260780422229d33dc2d1ac6bda814a1422bf0a1",
+      "thresholds": {
+        "H": -1.1538084948365466,
+        "He": 0.10788487277635994,
+        "Na": 1.5644392314727196,
+        "Mg": -0.12528445979152725,
+        "Ca": 0.438171360585476,
+        "Fe": -1.6931873849624282
+      },
+      "model_sha256": "84fae2d4b275b798c7aee0e501ac8df098bc92fd21f749726a0a02672bed5f7e",
+      "heldout_micro_f1": 0.9689922480620154,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    },
+    {
+      "seed": 29,
+      "model_id": "line-logistic",
+      "profile": "demo",
+      "dataset_hash": "5549a092fa7ad9b2954013172c9b6b1199f63522b743f956c7400962ea297dfe",
+      "split_hash": "0d36ca0fc1419e81faefb7131ea6eff5a4ca247b0a5850e436513510451862a5",
+      "thresholds": {
+        "H": 0.3942905455004797,
+        "He": -1.340945423997863,
+        "Na": -1.5385783543450153,
+        "Mg": -0.448140212237532,
+        "Ca": -0.0135283628488585,
+        "Fe": 0.2207883495950238
+      },
+      "model_sha256": "7e2b1de144a9c5c37629804fa61ffd678b30c36dc7970c53c4ef2113a1966a5b",
+      "heldout_micro_f1": 1.0,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    },
+    {
+      "seed": 29,
+      "model_id": "line-logistic-robust",
+      "profile": "line_robust_v1",
+      "dataset_hash": "0c0bc0cb6503729e45a072eea925dde0b98eeb8b235a75b981804eefeb7de1db",
+      "split_hash": "0d36ca0fc1419e81faefb7131ea6eff5a4ca247b0a5850e436513510451862a5",
+      "thresholds": {
+        "H": -0.587407362487455,
+        "He": -1.6796938492814215,
+        "Na": 1.980979327564513,
+        "Mg": 0.7435314322855398,
+        "Ca": -1.5416271062490448,
+        "Fe": 4.388113575446867
+      },
+      "model_sha256": "8b7efdd2911ebb2a6302b7912fad32886493ff19970e4b7b3d8494b95d3bad52",
+      "heldout_micro_f1": 0.937007874015748,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    },
+    {
+      "seed": 43,
+      "model_id": "line-logistic",
+      "profile": "demo",
+      "dataset_hash": "a5bfd8c443ad49dd8410aba2a0f8878c4a6bb907619404613885806efa48b7c6",
+      "split_hash": "323d013fb14ff97db813991725785afefbc1c82f6572de42ca63df6b3526aaa0",
+      "thresholds": {
+        "H": -0.6221757058575532,
+        "He": 0.5284603754617674,
+        "Na": -0.28591230266602263,
+        "Mg": -0.240422604083931,
+        "Ca": -0.9355177079178238,
+        "Fe": -0.29588559096848854
+      },
+      "model_sha256": "5c6bc4045e129bd0b445fe4eac8818bc9bb1e8c4713bce55807c1e37a86b8d4a",
+      "heldout_micro_f1": 1.0,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    },
+    {
+      "seed": 43,
+      "model_id": "line-logistic-robust",
+      "profile": "line_robust_v1",
+      "dataset_hash": "d3be132a030a62345ebed54ce96b69faaf8434e7138a7f9c8487ecef7b7c86b0",
+      "split_hash": "323d013fb14ff97db813991725785afefbc1c82f6572de42ca63df6b3526aaa0",
+      "thresholds": {
+        "H": -1.4567547181712897,
+        "He": -0.09835199401137862,
+        "Na": -2.147537481695316,
+        "Mg": 3.2311211026995745,
+        "Ca": -0.1695191957980997,
+        "Fe": -2.038725584500177
+      },
+      "model_sha256": "fd393160504714a86e7459168ede805884b964f9cb09b46fb15915f1565c7d6a",
+      "heldout_micro_f1": 0.9727626459143969,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    },
+    {
+      "seed": 71,
+      "model_id": "line-logistic",
+      "profile": "demo",
+      "dataset_hash": "b578c3821dfd21d844316b0f0766d7ff8691995ad0972f1e284555f5e93360d8",
+      "split_hash": "0d09dd7c2dba15ed3ef4cbc20427601ec0b16536ecf624c61d53441fb8c44c94",
+      "thresholds": {
+        "H": -0.516291589322047,
+        "He": 0.3377266118582778,
+        "Na": -0.2560668884934705,
+        "Mg": 0.3840281812053341,
+        "Ca": 1.4353400783444759,
+        "Fe": -0.1796586837557399
+      },
+      "model_sha256": "b41e2751cf84830780cf015860326532220d194fbf782470dd7ef7670fbfa8cd",
+      "heldout_micro_f1": 1.0,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    },
+    {
+      "seed": 71,
+      "model_id": "line-logistic-robust",
+      "profile": "line_robust_v1",
+      "dataset_hash": "603516d7633c8a7c1fd34d102b9b7f1a7eeb4e585292d2fee9d7dbacf793dcfa",
+      "split_hash": "0d09dd7c2dba15ed3ef4cbc20427601ec0b16536ecf624c61d53441fb8c44c94",
+      "thresholds": {
+        "H": 3.0455893127558546,
+        "He": -1.4240104278652854,
+        "Na": -0.4615513418085482,
+        "Mg": 1.8195624273002844,
+        "Ca": 1.6758028511216647,
+        "Fe": 1.091751807756824
+      },
+      "model_sha256": "adf62de8176892052601138e0954d1ae140ea719e0e2f2d5f1c1be3b0949d0ae",
+      "heldout_micro_f1": 0.9609375,
+      "group_counts": {
+        "train": 86,
+        "validation": 29,
+        "test": 29
+      }
+    }
+  ],
+  "aggregate": [
+    {
+      "condition": "equal",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "equal",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.10",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 0.7243117869742701,
+        "sd": 0.02666793708734408,
+        "per_seed": [
+          0.7301587301587301,
+          0.7628865979381443,
+          0.7301587301587301,
+          0.7027027027027027,
+          0.6956521739130435
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.13666666666666666,
+        "sd": 0.0660387091871965,
+        "per_seed": [
+          0.15,
+          0.23333333333333334,
+          0.15,
+          0.08333333333333333,
+          0.06666666666666667
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.13666666666666666,
+        "sd": 0.0660387091871965,
+        "per_seed": [
+          0.15,
+          0.23333333333333334,
+          0.15,
+          0.08333333333333333,
+          0.06666666666666667
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.10",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.03",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 0.6666666666666666,
+        "sd": 0.0,
+        "per_seed": [
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.03",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 0.9338660248434995,
+        "sd": 0.0234882163901568,
+        "per_seed": [
+          0.9655172413793104,
+          0.9427312775330396,
+          0.918918918918919,
+          0.9380530973451328,
+          0.9041095890410958
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.7533333333333332,
+        "sd": 0.08283182426526119,
+        "per_seed": [
+          0.8666666666666667,
+          0.7833333333333333,
+          0.7,
+          0.7666666666666667,
+          0.65
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.7533333333333332,
+        "sd": 0.08283182426526119,
+        "per_seed": [
+          0.8666666666666667,
+          0.7833333333333333,
+          0.7,
+          0.7666666666666667,
+          0.65
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.01",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 0.6666666666666666,
+        "sd": 0.0,
+        "per_seed": [
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.01",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 0.7056277730805307,
+        "sd": 0.04474445334966741,
+        "per_seed": [
+          0.723404255319149,
+          0.6885245901639344,
+          0.6666666666666666,
+          0.7755102040816326,
+          0.6740331491712708
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.09333333333333334,
+        "sd": 0.10967122584241401,
+        "per_seed": [
+          0.13333333333333333,
+          0.05,
+          0.0,
+          0.26666666666666666,
+          0.016666666666666666
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.09333333333333334,
+        "sd": 0.10967122584241401,
+        "per_seed": [
+          0.13333333333333333,
+          0.05,
+          0.0,
+          0.26666666666666666,
+          0.016666666666666666
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.10_background",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 0.6666666666666666,
+        "sd": 0.0,
+        "per_seed": [
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.10_background",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 0.9552410356851526,
+        "sd": 0.021985651082327164,
+        "per_seed": [
+          0.9873417721518988,
+          0.961038961038961,
+          0.9427312775330396,
+          0.9565217391304348,
+          0.9285714285714286
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.8299999999999998,
+        "sd": 0.0811377429642539,
+        "per_seed": [
+          0.95,
+          0.85,
+          0.7833333333333333,
+          0.8333333333333334,
+          0.7333333333333333
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.8299999999999998,
+        "sd": 0.0811377429642539,
+        "per_seed": [
+          0.95,
+          0.85,
+          0.7833333333333333,
+          0.8333333333333334,
+          0.7333333333333333
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.03_background",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 0.6666666666666666,
+        "sd": 0.0,
+        "per_seed": [
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.03_background",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 0.6931810508711583,
+        "sd": 0.040735847296917996,
+        "per_seed": [
+          0.6956521739130435,
+          0.6740331491712708,
+          0.6666666666666666,
+          0.7628865979381443,
+          0.6666666666666666
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.06333333333333332,
+        "sd": 0.09888264649460884,
+        "per_seed": [
+          0.06666666666666667,
+          0.016666666666666666,
+          0.0,
+          0.23333333333333334,
+          0.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.06333333333333332,
+        "sd": 0.09888264649460884,
+        "per_seed": [
+          0.06666666666666667,
+          0.016666666666666666,
+          0.0,
+          0.23333333333333334,
+          0.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.10_shift",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 0.6710382513661202,
+        "sd": 0.009775160557376142,
+        "per_seed": [
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6885245901639344,
+          0.6666666666666666,
+          0.6666666666666666
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.01,
+        "sd": 0.022360679774997897,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.05,
+          0.0,
+          0.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.01,
+        "sd": 0.022360679774997897,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.05,
+          0.0,
+          0.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "weak_0.10_shift",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 0.9918144914530785,
+        "sd": 0.011792694950898894,
+        "per_seed": [
+          0.97165991902834,
+          1.0,
+          0.9915966386554622,
+          0.99581589958159,
+          1.0
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.9666666666666668,
+        "sd": 0.048591265790377515,
+        "per_seed": [
+          0.8833333333333333,
+          1.0,
+          0.9666666666666667,
+          0.9833333333333333,
+          1.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 0.99,
+        "sd": 0.014907119849998601,
+        "per_seed": [
+          1.0,
+          1.0,
+          0.9666666666666667,
+          0.9833333333333333,
+          1.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.005833333333333334,
+        "sd": 0.013043729868748775,
+        "per_seed": [
+          0.029166666666666667,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "equal_shift",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "equal_shift",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 0.9584183673469389,
+        "sd": 0.029538459071999472,
+        "per_seed": [
+          0.9375,
+          1.0,
+          0.9795918367346939,
+          0.9375,
+          0.9375
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 0.8233333333333333,
+        "sd": 0.12671051872498812,
+        "per_seed": [
+          0.7333333333333333,
+          1.0,
+          0.9166666666666666,
+          0.7333333333333333,
+          0.7333333333333333
+        ]
+      },
+      "weak_target_recall": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "target_false_positive_rate": null,
+      "false_positive_rate": {
+        "mean": 0.04416666666666667,
+        "sd": 0.03167762968124702,
+        "per_seed": [
+          0.06666666666666667,
+          0.0,
+          0.020833333333333332,
+          0.06666666666666667,
+          0.06666666666666667
+        ]
+      }
+    },
+    {
+      "condition": "absent_control",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "weak_target_recall": null,
+      "target_false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "absent_control",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "weak_target_recall": null,
+      "target_false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "absent_control_background",
+      "model_id": "line-logistic",
+      "micro_f1": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "weak_target_recall": null,
+      "target_false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "condition": "absent_control_background",
+      "model_id": "line-logistic-robust",
+      "micro_f1": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "exact_match_accuracy": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "weak_target_recall": null,
+      "target_false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "false_positive_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "per_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ],
+  "full_report_sha256": "e426a0fdfa3149ccfba7339fb726bbea293fb45804b0d02e4b557e3eb4aef989",
+  "evaluation_hashes": [
+    {
+      "seed": 7,
+      "condition": "equal",
+      "evaluation_hash": "98e1edb5c689cd2e15b93dd9e3872f5d80f7108972b9762c3b703f661b5439f4"
+    },
+    {
+      "seed": 7,
+      "condition": "weak_0.10",
+      "evaluation_hash": "c2022599adf0042977bc451cbdba11c872cb9c6c3a775765dab4b5b4442d2af8"
+    },
+    {
+      "seed": 7,
+      "condition": "weak_0.03",
+      "evaluation_hash": "6e4055204e3d8d23c6ac22532a92a71976402e0d4be374009d8a7831c6b53562"
+    },
+    {
+      "seed": 7,
+      "condition": "weak_0.01",
+      "evaluation_hash": "d17e1baf0ac4cb2dc89818ebf3be6efc769fcdf074cb4d4cf8695af805d13837"
+    },
+    {
+      "seed": 7,
+      "condition": "weak_0.10_background",
+      "evaluation_hash": "0dbfe1755b09dda6f33c96d87d795e317100eeb2ab26cdcecf3e0d503ffaa701"
+    },
+    {
+      "seed": 7,
+      "condition": "weak_0.03_background",
+      "evaluation_hash": "e2b139533494497354bb8896bf263b0fb39c29af4b999d4d3fbf966cfc19e47c"
+    },
+    {
+      "seed": 7,
+      "condition": "weak_0.10_shift",
+      "evaluation_hash": "36ae3c045f3e391701c3c9aca8fc27ac289879c9faea2f631084017bea14925e"
+    },
+    {
+      "seed": 7,
+      "condition": "equal_shift",
+      "evaluation_hash": "92223544164ba5ddf009b25f16b162ecb2f772dff65963aca8c38906e42c1457"
+    },
+    {
+      "seed": 7,
+      "condition": "absent_control",
+      "evaluation_hash": "40c8dea173e7a857084340471cbd826d8b7e34ed571873f13f8901797c6c9b16"
+    },
+    {
+      "seed": 7,
+      "condition": "absent_control_background",
+      "evaluation_hash": "fcab8c92c8009f062937ab0202aece9a6b7115ae8d02a6d95e21f3de2f807133"
+    },
+    {
+      "seed": 17,
+      "condition": "equal",
+      "evaluation_hash": "c9470cdc233584326aeea22c55d74191befbe84c5675a87ac03b0cf7c936db33"
+    },
+    {
+      "seed": 17,
+      "condition": "weak_0.10",
+      "evaluation_hash": "844ce798b64f28370a8e447853fe2d63d71ed32c905d098e4d2f5d1df15c4b67"
+    },
+    {
+      "seed": 17,
+      "condition": "weak_0.03",
+      "evaluation_hash": "847c21fc7548f42bff7b9faca38a7f22cd60d84373546c9c09e68c9c265cf498"
+    },
+    {
+      "seed": 17,
+      "condition": "weak_0.01",
+      "evaluation_hash": "4c225bce373cee01e562f6754cf563dd0ef1ee77e592905aa30196a666dbb121"
+    },
+    {
+      "seed": 17,
+      "condition": "weak_0.10_background",
+      "evaluation_hash": "6931cdfac1651dc750e8618d4fff4197545527293c7584c7f6bfa9ea944050b9"
+    },
+    {
+      "seed": 17,
+      "condition": "weak_0.03_background",
+      "evaluation_hash": "73a5fa55ccfc4ac50b2ef8fb69b7707230b66442a6e73e365012302fea26f93a"
+    },
+    {
+      "seed": 17,
+      "condition": "weak_0.10_shift",
+      "evaluation_hash": "f11ff7aad76a314dea93036914c999c2ad3fd709cd43483d054b59931581e7fc"
+    },
+    {
+      "seed": 17,
+      "condition": "equal_shift",
+      "evaluation_hash": "1f547258152d1176e8e8a190b06b3a0027fc63525a9b082699c1ae63208e6d2f"
+    },
+    {
+      "seed": 17,
+      "condition": "absent_control",
+      "evaluation_hash": "049085cbceb57a256066ca021e9605038bb74b8b894e9b77cd6aa818610a8e20"
+    },
+    {
+      "seed": 17,
+      "condition": "absent_control_background",
+      "evaluation_hash": "b22fb0506b472dfa12a13d12c529b8ce58dd287e0e7c827c1559e5576dd65f81"
+    },
+    {
+      "seed": 29,
+      "condition": "equal",
+      "evaluation_hash": "d843d7fb8a743d30617ad232672a4330162e0a5303386044e872bfd4dad2eb25"
+    },
+    {
+      "seed": 29,
+      "condition": "weak_0.10",
+      "evaluation_hash": "d7d1f66b0c3ff9be5e322a48faa6047460edd646aeb49ae826fbcd7e2b938b21"
+    },
+    {
+      "seed": 29,
+      "condition": "weak_0.03",
+      "evaluation_hash": "ad54d79970070f6e5ce7b06d37e75cdcf29438c909df0abb25a751443e066e72"
+    },
+    {
+      "seed": 29,
+      "condition": "weak_0.01",
+      "evaluation_hash": "61b434800fb3d17a7a86ce767137f8f3c0d941bc18ba0c8239186c3ee58dd64a"
+    },
+    {
+      "seed": 29,
+      "condition": "weak_0.10_background",
+      "evaluation_hash": "a5749601b4ed096591890b897b91131dffc1e8108db9be70e272f2670cbfc1c1"
+    },
+    {
+      "seed": 29,
+      "condition": "weak_0.03_background",
+      "evaluation_hash": "f2662701fbbd26c9d1ed3832f909bc1e9ee99d48d06429398b994be7f74f00d8"
+    },
+    {
+      "seed": 29,
+      "condition": "weak_0.10_shift",
+      "evaluation_hash": "b254b73d0867c62ceaa629e15a6dafda85394db2d8e187babfb7f18d214296fa"
+    },
+    {
+      "seed": 29,
+      "condition": "equal_shift",
+      "evaluation_hash": "048fdb9542b4ffacc94940a0fec57134f7bf93ee6340ad500cc345b55db6b6d4"
+    },
+    {
+      "seed": 29,
+      "condition": "absent_control",
+      "evaluation_hash": "f0586382e2dc5384f5178d3b16456e41928a3810670827d28650714bce6b66ed"
+    },
+    {
+      "seed": 29,
+      "condition": "absent_control_background",
+      "evaluation_hash": "4b0a1f503556499018f08f4b71ad56cbebc71ef53075afc18ab7619871ce7fcf"
+    },
+    {
+      "seed": 43,
+      "condition": "equal",
+      "evaluation_hash": "b1057b3b720c2793cf1dd0222d4b8a186a1d3b4b97f81be6f689f984f67b5db9"
+    },
+    {
+      "seed": 43,
+      "condition": "weak_0.10",
+      "evaluation_hash": "e3e1d7bf3d4e5ab004e513b39cfe3c55bd37036cead8b5262e8642914937a68a"
+    },
+    {
+      "seed": 43,
+      "condition": "weak_0.03",
+      "evaluation_hash": "c5ce1e2c8e62746b9c10371d972edca7d031a8db7b1508df43a7611b8a706517"
+    },
+    {
+      "seed": 43,
+      "condition": "weak_0.01",
+      "evaluation_hash": "633e2dcfb6f6111d881d58cb83df35540b9d8a49c49e20a7d2a065f6f0ef6820"
+    },
+    {
+      "seed": 43,
+      "condition": "weak_0.10_background",
+      "evaluation_hash": "7e17968b53766aedb33c6df9e8a86d55a70fcc92c31d178339f8c901440a593d"
+    },
+    {
+      "seed": 43,
+      "condition": "weak_0.03_background",
+      "evaluation_hash": "2e8a63b4bcb3e712cc4462dce5eb7b1118612d29d47a29ed4a2f4b32256d927d"
+    },
+    {
+      "seed": 43,
+      "condition": "weak_0.10_shift",
+      "evaluation_hash": "3cb2c32704295b6d1e95c6c465175d774c567d8958620e3a585395a1d192fe35"
+    },
+    {
+      "seed": 43,
+      "condition": "equal_shift",
+      "evaluation_hash": "f181cad5caac3b29403ee69ac23dcf5a8b8dafa5c83ba7a54fafdd51b1b65b95"
+    },
+    {
+      "seed": 43,
+      "condition": "absent_control",
+      "evaluation_hash": "bd71f65b7b5b2bb4712292b243e9cfb69ee11a0e6dba71a194feb34ac26b4310"
+    },
+    {
+      "seed": 43,
+      "condition": "absent_control_background",
+      "evaluation_hash": "ba37d2d91a09e343714f55b217950d760ad2571a7ec783b27e446d7407c606fa"
+    },
+    {
+      "seed": 71,
+      "condition": "equal",
+      "evaluation_hash": "66936f2261afad6027e94e2ae3773ce874cba407e6716882287ee13ef271bdf0"
+    },
+    {
+      "seed": 71,
+      "condition": "weak_0.10",
+      "evaluation_hash": "9229a49ed1be522fe0260e81e555e878692f711aa594bd4339f8ba08163f6c18"
+    },
+    {
+      "seed": 71,
+      "condition": "weak_0.03",
+      "evaluation_hash": "54a4103f9b8019969b965ce5ed10f52d12ded2cf4aec9dc3d9367ad1300114d2"
+    },
+    {
+      "seed": 71,
+      "condition": "weak_0.01",
+      "evaluation_hash": "fa41fb948dcb213996e87bc8eb1c6ed5024852752792df3814a2814ce232d017"
+    },
+    {
+      "seed": 71,
+      "condition": "weak_0.10_background",
+      "evaluation_hash": "b97e68dff55ef3139c569518d7f33b3d7c2832632e3d403de363674d111a5965"
+    },
+    {
+      "seed": 71,
+      "condition": "weak_0.03_background",
+      "evaluation_hash": "24076965c76feec2c43e2b9d891bdf2aff898e4737f9b90ab7a6915d02e10cfb"
+    },
+    {
+      "seed": 71,
+      "condition": "weak_0.10_shift",
+      "evaluation_hash": "221165b8ad7690bfc8ba9939eb45d85f2135b96408af85ad37593593e0c43e62"
+    },
+    {
+      "seed": 71,
+      "condition": "equal_shift",
+      "evaluation_hash": "72de26bba4df845fedbc3e581901324cfc0e7da3619fed1fdfffe78704ae76b6"
+    },
+    {
+      "seed": 71,
+      "condition": "absent_control",
+      "evaluation_hash": "8f0653888d3e5bf64bdbd616ce58513b55111b61d814c5ee1f3f4665b4ca7daa"
+    },
+    {
+      "seed": 71,
+      "condition": "absent_control_background",
+      "evaluation_hash": "b7df833c7d9623453e7bd71382e70289fe81e4530c10ce041f7ea20dbefd7e2a"
+    }
+  ]
+}

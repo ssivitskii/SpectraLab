@@ -1,0 +1,2927 @@
+{
+  "schema_version": 1,
+  "scope": "synthetic development comparison; not real-data or independent final validation",
+  "seeds": [
+    7,
+    17,
+    29,
+    43,
+    71
+  ],
+  "limitations": [
+    "18 fixed compositions per condition, repeated over five training/noise seeds",
+    "Conditions share compositions; seed SD is not a physical confidence interval",
+    "Neither model architecture nor thresholds are fitted on controlled stress spectra",
+    "No quantitative concentration claims and no ChemCam profile replacement"
+  ],
+  "series": [
+    {
+      "source": {
+        "path": "reports/experiments/line-classifier-v1-series-20261023T184122-96ae0134",
+        "result_sha256": "9616d3e2e0b65db3070390ed374abf8675a3131d158abe21a46bd7cdca1aa16a"
+      },
+      "reference_metadata": {
+        "source": "demo_fixture",
+        "retrieved_at": "2026-10-01",
+        "export_parameters": "hand-curated teaching fixture; neutral atoms; 350-800 nm",
+        "units": "nm",
+        "wavelength_medium": "vacuum",
+        "official_nist_export": false,
+        "notice": "Demonstration values for software testing. Do not cite as NIST data.",
+        "checksum_sha256": "f5280bd0ecc99197f3216d1fb0eecc26cef8ff3fefb05326ecb974ea4daaf9eb",
+        "imported_at": "2026-10-23T18:41:22.413859+00:00",
+        "cleaning_rules": "reject non-vacuum/invalid; observed preferred within one transition row; only exact duplicates removed; raw fields retained"
+      },
+      "protocol_hash": "240ae9e03935026633794565063ad140e67695cd215559e1460944c55aba0f62",
+      "source_hash": "9a172904a638fbf6f8337fc8ccf8746e146e6f5f8629b8176fed9580db929343",
+      "configuration": {
+        "schema_version": 1,
+        "run_id": "line-classifier-v1",
+        "seed": 42,
+        "seeds": [
+          7,
+          17,
+          29,
+          43,
+          71
+        ],
+        "protocol": "controlled_sweep",
+        "models": [
+          "baseline-nnls",
+          "logistic-ovr",
+          "random-forest",
+          "line-logistic"
+        ],
+        "base_samples": 144,
+        "variations": 2,
+        "factor": "snr_db",
+        "values": [
+          5.0,
+          10.0,
+          20.0,
+          30.0,
+          null
+        ],
+        "elements": null,
+        "mixture_sizes": [
+          1,
+          2,
+          3
+        ],
+        "project_config": null,
+        "reference_cache": null,
+        "reference_sha256": null,
+        "timing_warmups": 1,
+        "timing_repeats": 3,
+        "calibrate": false,
+        "generation": {
+          "instrumental_fwhm_nm": 1.0,
+          "calibration_shift_nm": 0.15
+        }
+      },
+      "aggregates": [
+        {
+          "model_id": "baseline-nnls",
+          "factor": "snr_db",
+          "value": 5.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.2677504666666667,
+              "std": 0.00959852845915315,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "baseline-nnls",
+          "factor": "snr_db",
+          "value": 10.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.26474813333333336,
+              "std": 0.014252630204989718,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "baseline-nnls",
+          "factor": "snr_db",
+          "value": 20.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.26895001111111105,
+              "std": 0.005318463138004115,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "baseline-nnls",
+          "factor": "snr_db",
+          "value": 30.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.27133286666666667,
+              "std": 0.005853458486043898,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "baseline-nnls",
+          "factor": "snr_db",
+          "value": null,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.27826621111111105,
+              "std": 0.005067472049993882,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "snr_db",
+          "value": 5.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.014145844444444444,
+              "std": 0.00032775505429708305,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "snr_db",
+          "value": 10.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.01421388888888889,
+              "std": 0.0007368600896144851,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "snr_db",
+          "value": 20.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.014201833333333335,
+              "std": 0.00034182700393222917,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "snr_db",
+          "value": 30.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.014313888888888886,
+              "std": 0.0005318197852192192,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "snr_db",
+          "value": null,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.013883799999999998,
+              "std": 0.001132080373297292,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "snr_db",
+          "value": 5.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.9972602739726029,
+              "std": 0.006126213636985751,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.9974358974358974,
+              "std": 0.005733507634614825,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.9888888888888889,
+              "std": 0.024845199749997673,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0018518518518518517,
+              "std": 0.00414086662499961,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.052187022222222226,
+              "std": 0.0005277421049347762,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 0.9846153846153847,
+                "std": 0.03440104580768905,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.9666666666666668,
+                "std": 0.07453559924999298,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "snr_db",
+          "value": 10.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.052628711111111115,
+              "std": 0.002301285373317364,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "snr_db",
+          "value": 20.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.05293102222222222,
+              "std": 0.0022911327137547116,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "snr_db",
+          "value": 30.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.053951400000000004,
+              "std": 0.0015723580243666273,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "snr_db",
+          "value": null,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.05318473333333333,
+              "std": 0.001613070950407754,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "snr_db",
+          "value": 5.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.1473425888888889,
+              "std": 0.004294623254973661,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "snr_db",
+          "value": 10.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.14372592222222222,
+              "std": 0.004134876225736461,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "snr_db",
+          "value": 20.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.14490693333333335,
+              "std": 0.0051090949991651,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "snr_db",
+          "value": 30.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.1412699,
+              "std": 0.004466961659585839,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "snr_db",
+          "value": null,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.1264472111111111,
+              "std": 0.003868334003821728,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        }
+      ],
+      "paired_vs_logistic": [
+        {
+          "value": 5.0,
+          "candidate_minus_logistic_f1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_delta": 0.0,
+          "min_delta": 0.0,
+          "max_delta": 0.0
+        },
+        {
+          "value": 10.0,
+          "candidate_minus_logistic_f1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_delta": 0.0,
+          "min_delta": 0.0,
+          "max_delta": 0.0
+        },
+        {
+          "value": 20.0,
+          "candidate_minus_logistic_f1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_delta": 0.0,
+          "min_delta": 0.0,
+          "max_delta": 0.0
+        },
+        {
+          "value": 30.0,
+          "candidate_minus_logistic_f1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_delta": 0.0,
+          "min_delta": 0.0,
+          "max_delta": 0.0
+        },
+        {
+          "value": null,
+          "candidate_minus_logistic_f1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_delta": 0.0,
+          "min_delta": 0.0,
+          "max_delta": 0.0
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "reports/experiments/line-classifier-drift-v1-series-20261023T184307-b9ce7651",
+        "result_sha256": "1434a01f163b438c96fab44c3edf4bba774a1a51aaab0e89e59a58ec3c299b0f"
+      },
+      "reference_metadata": {
+        "source": "demo_fixture",
+        "retrieved_at": "2026-10-01",
+        "export_parameters": "hand-curated teaching fixture; neutral atoms; 350-800 nm",
+        "units": "nm",
+        "wavelength_medium": "vacuum",
+        "official_nist_export": false,
+        "notice": "Demonstration values for software testing. Do not cite as NIST data.",
+        "checksum_sha256": "f5280bd0ecc99197f3216d1fb0eecc26cef8ff3fefb05326ecb974ea4daaf9eb",
+        "imported_at": "2026-10-23T18:43:07.461377+00:00",
+        "cleaning_rules": "reject non-vacuum/invalid; observed preferred within one transition row; only exact duplicates removed; raw fields retained"
+      },
+      "protocol_hash": "0afd9e1045666750300f9e0e9aa89fb67df4cd94c3d0baa7599989603a30eecd",
+      "source_hash": "9a172904a638fbf6f8337fc8ccf8746e146e6f5f8629b8176fed9580db929343",
+      "configuration": {
+        "schema_version": 1,
+        "run_id": "line-classifier-drift-v1",
+        "seed": 42,
+        "seeds": [
+          7,
+          17,
+          29,
+          43,
+          71
+        ],
+        "protocol": "controlled_sweep",
+        "models": [
+          "baseline-nnls",
+          "logistic-ovr",
+          "random-forest",
+          "line-logistic"
+        ],
+        "base_samples": 144,
+        "variations": 2,
+        "factor": "calibration_shift_nm",
+        "values": [
+          0.0,
+          0.15,
+          0.3,
+          0.5,
+          0.75
+        ],
+        "elements": null,
+        "mixture_sizes": [
+          1,
+          2,
+          3
+        ],
+        "project_config": null,
+        "reference_cache": null,
+        "reference_sha256": null,
+        "timing_warmups": 1,
+        "timing_repeats": 3,
+        "calibrate": false,
+        "generation": {
+          "instrumental_fwhm_nm": 0.5,
+          "snr_db": 10.0
+        }
+      },
+      "aggregates": [
+        {
+          "model_id": "baseline-nnls",
+          "factor": "calibration_shift_nm",
+          "value": 0.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.26475834444444446,
+              "std": 0.006187136235522338,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "baseline-nnls",
+          "factor": "calibration_shift_nm",
+          "value": 0.15,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.26440230000000003,
+              "std": 0.0058970388827155745,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "baseline-nnls",
+          "factor": "calibration_shift_nm",
+          "value": 0.3,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.9828571428571429,
+              "std": 0.015649215928719037,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.9701343101343101,
+              "std": 0.028432764125588348,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.9333333333333332,
+              "std": 0.060858061945018485,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.01111111111111111,
+              "std": 0.010143010324169742,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.2630393555555555,
+              "std": 0.006164877595783032,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 0.9793103448275863,
+                "std": 0.01888698474155743,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.9,
+                "std": 0.09128709291752767,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "baseline-nnls",
+          "factor": "calibration_shift_nm",
+          "value": 0.5,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.196390977443609,
+              "std": 0.09024811748190767,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.15965367965367966,
+              "std": 0.05399155302641961,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.1,
+              "std": 0.024845199749997663,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.2962962962962963,
+              "std": 0.018518518518518517,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.26547454444444446,
+              "std": 0.006722795014095204,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 0.45714285714285713,
+                "std": 0.095831484749991,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.3,
+                "std": 0.07453559924999298,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 0.13048128342245988,
+                "std": 0.12109672602967411,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "baseline-nnls",
+          "factor": "calibration_shift_nm",
+          "value": 0.75,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.3333333333333333,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.26578147777777783,
+              "std": 0.006274952599619313,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 0.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 0.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "calibration_shift_nm",
+          "value": 0.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.014473144444444443,
+              "std": 0.00025443879360537397,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "calibration_shift_nm",
+          "value": 0.15,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.014285188888888889,
+              "std": 0.0003994377213156967,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "calibration_shift_nm",
+          "value": 0.3,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.9971830985915492,
+              "std": 0.0062987830352106665,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.9952380952380953,
+              "std": 0.01064794274999901,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.9888888888888889,
+              "std": 0.024845199749997673,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0018518518518518517,
+              "std": 0.00414086662499961,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.014719444444444443,
+              "std": 0.00028162596955606746,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 0.9966101694915255,
+                "std": 0.0075798914491518096,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.9833333333333334,
+                "std": 0.03726779962499651,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "calibration_shift_nm",
+          "value": 0.5,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.9174082439299831,
+              "std": 0.0450393096503645,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.8559966120835686,
+              "std": 0.07945340901604728,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.7333333333333334,
+              "std": 0.12668615834434863,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.05,
+              "std": 0.0258597037847573,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.014498611111111111,
+              "std": 0.0004598168801507887,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 0.9636363636363636,
+                "std": 0.04979295977319694,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.9333333333333333,
+                "std": 0.09128709291752767,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 0.9075247215849209,
+                "std": 0.045919216064077444,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.6333333333333334,
+                "std": 0.1513825177048746,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "logistic-ovr",
+          "factor": "calibration_shift_nm",
+          "value": 0.75,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.49287515571354784,
+              "std": 0.0906558916777385,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.37567251461988305,
+              "std": 0.059202548014934485,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.14444444444444443,
+              "std": 0.04969039949999532,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.22777777777777777,
+              "std": 0.028986066374997264,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.014120366666666667,
+              "std": 0.0006604615256408596,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 0.5424242424242424,
+                "std": 0.07218866211861572,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.39999999999999997,
+                "std": 0.09128709291752769,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 0.4822298876154445,
+                "std": 0.09466972326726675,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.016666666666666666,
+                "std": 0.037267799624996496,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "calibration_shift_nm",
+          "value": 0.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.05228379999999999,
+              "std": 0.0011503771245568596,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "calibration_shift_nm",
+          "value": 0.15,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.05160647777777777,
+              "std": 0.0014643181284040854,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "calibration_shift_nm",
+          "value": 0.3,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.05179212222222222,
+              "std": 0.0009995340823554348,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "calibration_shift_nm",
+          "value": 0.5,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.7580295566502462,
+              "std": 0.030315384602856564,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.6056060606060606,
+              "std": 0.02710526589504142,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.36666666666666664,
+              "std": 0.09296222517045283,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.12962962962962962,
+              "std": 0.013094570021973102,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.05125601111111111,
+              "std": 0.0009764437801861368,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 0.8,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.6666666666666666,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 0.7491304347826088,
+                "std": 0.036911737571000344,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.21666666666666665,
+                "std": 0.13944333775567927,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "random-forest",
+          "factor": "calibration_shift_nm",
+          "value": 0.75,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.44597594819611464,
+              "std": 0.030464853595989765,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.3423909423909424,
+              "std": 0.023085534790389838,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.11111111111111112,
+              "std": 1.5515838457795457e-17,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.23888888888888885,
+              "std": 0.010143010324169748,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.05182177777777778,
+              "std": 0.0010508197042908578,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 0.5,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.3333333333333333,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 0.43468286099865044,
+                "std": 0.03681144389074519,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "calibration_shift_nm",
+          "value": 0.0,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.14462545555555556,
+              "std": 0.004938717907832774,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "calibration_shift_nm",
+          "value": 0.15,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.14445231111111112,
+              "std": 0.00421526035610532,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "calibration_shift_nm",
+          "value": 0.3,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.14303195555555556,
+              "std": 0.002320262957173621,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "calibration_shift_nm",
+          "value": 0.5,
+          "metrics": {
+            "micro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 1.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0,
+              "std": 0.0,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.1426888888888889,
+              "std": 0.0019443815025527206,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        },
+        {
+          "model_id": "line-logistic",
+          "factor": "calibration_shift_nm",
+          "value": 0.75,
+          "metrics": {
+            "micro_f1": {
+              "mean": 0.9942857142857143,
+              "std": 0.012777531299998802,
+              "count": 5
+            },
+            "macro_f1": {
+              "mean": 0.9888888888888889,
+              "std": 0.024845199749997625,
+              "count": 5
+            },
+            "exact_match_accuracy": {
+              "mean": 0.9777777777777779,
+              "std": 0.04969039949999535,
+              "count": 5
+            },
+            "hamming_loss": {
+              "mean": 0.0037037037037037034,
+              "std": 0.00828173324999922,
+              "count": 5
+            },
+            "inference_ms_per_spectrum": {
+              "mean": 0.14521064444444445,
+              "std": 0.0017294859020800981,
+              "count": 5
+            },
+            "single": {
+              "micro_f1": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 1.0,
+                "std": 0.0,
+                "count": 5
+              },
+              "count": {
+                "mean": 6.0,
+                "std": 0.0,
+                "count": 5
+              }
+            },
+            "mixture": {
+              "micro_f1": {
+                "mean": 0.993103448275862,
+                "std": 0.015421158465515773,
+                "count": 5
+              },
+              "exact_match_accuracy": {
+                "mean": 0.9666666666666666,
+                "std": 0.07453559924999298,
+                "count": 5
+              },
+              "count": {
+                "mean": 12.0,
+                "std": 0.0,
+                "count": 5
+              }
+            }
+          }
+        }
+      ],
+      "paired_vs_logistic": [
+        {
+          "value": 0.0,
+          "candidate_minus_logistic_f1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_delta": 0.0,
+          "min_delta": 0.0,
+          "max_delta": 0.0
+        },
+        {
+          "value": 0.15,
+          "candidate_minus_logistic_f1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mean_delta": 0.0,
+          "min_delta": 0.0,
+          "max_delta": 0.0
+        },
+        {
+          "value": 0.3,
+          "candidate_minus_logistic_f1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.014084507042253502
+          ],
+          "mean_delta": 0.0028169014084507005,
+          "min_delta": 0.0,
+          "max_delta": 0.014084507042253502
+        },
+        {
+          "value": 0.5,
+          "candidate_minus_logistic_f1": [
+            0.09090909090909094,
+            0.04347826086956519,
+            0.02857142857142858,
+            0.125,
+            0.125
+          ],
+          "mean_delta": 0.08259175607001694,
+          "min_delta": 0.02857142857142858,
+          "max_delta": 0.125
+        },
+        {
+          "value": 0.75,
+          "candidate_minus_logistic_f1": [
+            0.5652173913043479,
+            0.4814814814814815,
+            0.5652173913043479,
+            0.5652173913043479,
+            0.3299191374663073
+          ],
+          "mean_delta": 0.5014105585721665,
+          "min_delta": 0.3299191374663073,
+          "max_delta": 0.5652173913043479
+        }
+      ]
+    }
+  ]
+}

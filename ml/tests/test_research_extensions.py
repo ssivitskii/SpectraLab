@@ -62,6 +62,8 @@ def test_detector_limits_noise_and_reproducibility(catalog, classes):
 
 
 def test_reference_cache_integrity_and_legacy(tmp_path, catalog):
+    # to_cache updates metadata; do not mutate the shared session reference.
+    catalog = ReferenceCatalog(catalog.lines, dict(catalog.metadata))
     path = tmp_path / "reference.json"
     catalog.to_cache(path)
     assert len(ReferenceCatalog.from_cache(path).lines) == len(catalog.lines)

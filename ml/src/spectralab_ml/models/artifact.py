@@ -204,8 +204,12 @@ def save_artifact(
     directory: Path, estimator: object, preprocessor: SpectrumPreprocessor, manifest: ModelManifest
 ) -> None:
     from spectralab_ml.models.cnn import CNN1D
+    from spectralab_ml.models.line_classifier import LineLogisticOVR
 
     is_cnn = isinstance(estimator, CNN1D)
+    line_estimator = getattr(estimator, "estimator", estimator)
+    if isinstance(line_estimator, LineLogisticOVR):
+        manifest = replace(manifest, model_configuration=line_estimator.configuration())
     if is_cnn:
         manifest = replace(
             manifest,
@@ -301,6 +305,14 @@ def load_artifact(
         payload = joblib.load(model_path)
         estimator, preprocessor = payload["estimator"], payload["preprocessor"]
     _check_manifest(manifest, preprocessor)
+    from spectralab_ml.models.line_classifier import LineLogisticOVR
+
+    line_estimator = getattr(estimator, "estimator", estimator)
+    if isinstance(line_estimator, LineLogisticOVR) and (
+        line_estimator.configuration() != manifest.model_configuration
+        or not numpy.array_equal(line_estimator.grid_nm, preprocessor.model_grid)
+    ):
+        raise ValueError("Line model configuration or grid does not match the artifact")
     if estimator.score_kind != manifest.score_kind or estimator.calibrated != manifest.calibrated:
         raise ValueError("Artifact score/calibration metadata is inconsistent")
     if type(estimator).__name__ != manifest.model_type:

@@ -223,6 +223,7 @@ function AnalysisWorkspace({
             <label>
               Метод
               <select
+                aria-label="Метод распознавания"
                 value={selected[0] ?? ""}
                 onChange={(event) => {
                   setSelected([event.target.value]);

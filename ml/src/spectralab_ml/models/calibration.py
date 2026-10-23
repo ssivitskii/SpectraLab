@@ -13,7 +13,7 @@ from spectralab_ml.models.validation import binary_labels, finite_matrix, traini
 
 
 def probability_view(estimator: Any, scores: np.ndarray) -> np.ndarray:
-    if estimator.score_kind == "logistic_decision_function":
+    if estimator.score_kind in {"logistic_decision_function", "line_logistic_decision_function"}:
         return expit(scores)
     return np.clip(scores, 0, 1)
 
@@ -113,7 +113,7 @@ class CalibratedEstimator:
 
 
 def score_logits(score_kind: str, scores: np.ndarray) -> np.ndarray:
-    if score_kind == "logistic_decision_function":
+    if score_kind in {"logistic_decision_function", "line_logistic_decision_function"}:
         return np.asarray(scores, dtype=float)
     probabilities = np.clip(np.asarray(scores, dtype=float), 1e-4, 1 - 1e-4)
     return np.log(probabilities / (1 - probabilities))

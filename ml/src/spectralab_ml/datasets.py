@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import itertools
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -146,7 +146,10 @@ def build_demo_dataset(
     variations: int = 2,
     combinations: list[tuple[str, ...]] | None = None,
     ion_stage: int = 1,
+    generation_profile: str = "demo",
 ) -> DatasetBundle:
+    if generation_profile not in {"demo", "line_robust_v1"}:
+        raise ValueError("Unknown synthetic generation profile")
     if (
         not class_order
         or len(set(class_order)) != len(class_order)
@@ -178,6 +181,12 @@ def build_demo_dataset(
         )
         for i in range(base_samples)
     }
+    if generation_profile == "line_robust_v1":
+        # Composition and relative contributions belong to the base group, not a shot.
+        # Weak components are explicit positives; absent components remain controls.
+        for base_id, (combo, _) in definitions.items():
+            weights = np.exp(rng.uniform(np.log(0.02), 0, len(combo)))
+            definitions[base_id] = (combo, tuple((weights / weights.max()).tolist()))
     for offset in range(1000):
         allocations = split_base_sample_ids(list(definitions), seed + offset)
         covered = set(
@@ -210,9 +219,22 @@ def build_demo_dataset(
                     else {}
                 ),
             )
+            if generation_profile == "line_robust_v1":
+                params = replace(params, calibration_shift_nm=float(rng.uniform(-0.5, 0.5)))
             spectrum = generate_spectrum(
                 params, catalog, class_order=class_order, base_sample_id=base_id
             )
+            if generation_profile == "line_robust_v1":
+                peak = float(np.max(spectrum.clean_signal))
+                span = preprocessor.wavelength_end_nm - preprocessor.wavelength_start_nm
+                params = replace(
+                    params,
+                    background_level=float(rng.choice([0, 0.5, 2])) * peak,
+                    background_slope=float(rng.uniform(-0.5, 0.5)) * peak / span,
+                )
+                spectrum = generate_spectrum(
+                    params, catalog, class_order=class_order, base_sample_id=base_id
+                )
             records.append({**spectrum.to_dict(), "split": split})
             rows[split].append(preprocessor.transform(spectrum.wavelength_nm, spectrum.intensity))
             labels[split].append([spectrum.true_labels[e] for e in class_order])
@@ -233,6 +255,8 @@ def build_demo_dataset(
         "classes": class_order,
         "preprocessing": preprocessor.to_dict(),
     }
+    if generation_profile != "demo":
+        identity["generation_profile"] = generation_profile
     digest = hashlib.sha256(
         json.dumps(identity, sort_keys=True, allow_nan=False, separators=(",", ":")).encode()
     ).hexdigest()

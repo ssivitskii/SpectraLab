@@ -7,6 +7,7 @@ import pytest
 from spectralab_ml.data.chemcam_measurements import (
     MAX_CCS_BYTES,
     read_chemcam_ccs,
+    read_chemcam_ccs_shots,
 )
 
 
@@ -41,6 +42,20 @@ def test_header_and_shot_count_are_dynamic_and_provider_summaries_are_not_used(t
     np.testing.assert_array_equal(
         read_chemcam_ccs(path, checksum, discard_first_shots=1)[1], [2.5, 2.5]
     )
+
+
+def test_raw_shot_reader_preserves_shot_identity_for_qc_before_aggregation(tmp_path):
+    path, checksum = write(tmp_path, ccs(3))
+
+    wavelength, shots, metadata = read_chemcam_ccs_shots(path, checksum)
+
+    np.testing.assert_array_equal(wavelength, [350, 351])
+    np.testing.assert_array_equal(shots, [[1, 1], [2, 2], [3, 3]])
+    assert metadata == {
+        "shot_count": 3,
+        "input_sha256": checksum,
+        "provider_summary_columns_validated": True,
+    }
 
 
 def test_checksum_is_verified_before_parsing_and_requires_full_hash(tmp_path):

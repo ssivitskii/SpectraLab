@@ -1,5 +1,5 @@
 SHELL := /bin/sh
-export PATH := $(CURDIR)/.tools/bin:$(PATH)
+export PATH := $(CURDIR)/.tools/node/bin:$(CURDIR)/.tools/bin:$(PATH)
 export MPLBACKEND := Agg
 export MPLCONFIGDIR := $(CURDIR)/.cache/matplotlib
 export npm_config_cache := $(CURDIR)/.cache/npm
@@ -15,6 +15,15 @@ CONFIG ?= ml/configs/experiments/smoke.yaml
 .PHONY: setup demo dev api test lint api-types experiment build analytics smoke series reference worker e2e browser-install open-set external-data external-validation external-validation-download expanded-benchmark
 setup:
 	sh scripts/setup.sh
+.PHONY: line-model line-model-benchmark line-model-robust line-model-trace-benchmark
+line-model:
+	$(RUN) python scripts/train_line_classifier.py
+line-model-benchmark:
+	$(RUN) spectralab series --config ml/configs/experiments/line_classifier.yaml
+line-model-robust:
+	$(RUN) python scripts/train_line_classifier.py --profile line_robust_v1
+line-model-trace-benchmark:
+	$(RUN) python scripts/benchmark_line_trace.py
 demo:
 	$(RUN) spectralab demo
 	$(RUN) python scripts/smoke.py
