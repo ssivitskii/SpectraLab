@@ -17,7 +17,14 @@ from typing import Any
 import yaml
 
 CONFIG_VERSION = 1
-MODEL_IDS = {"baseline-nnls", "logistic-ovr", "random-forest", "cnn-1d"}
+MODEL_IDS = {
+    "baseline-nnls",
+    "logistic-ovr",
+    "random-forest",
+    "cnn-1d",
+    "line-logistic",
+    "line-logistic-robust",
+}
 FACTORS = {
     "snr_db",
     "instrumental_fwhm_nm",

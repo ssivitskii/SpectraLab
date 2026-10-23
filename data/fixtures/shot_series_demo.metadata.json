@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "measurement_id": "synthetic-shot-series-demo",
+  "physical_sample_id": "synthetic-material-demo",
+  "family_id": "synthetic-family-demo",
+  "session_id": "synthetic-session-demo",
+  "instrument_id": "synthetic-fixture-only",
+  "input_sha256": "187125973eaf59d6a4f1182ffb3360168d0e05397ea78ace6862ece0f13723ea",
+  "axis": {
+    "units": "nm",
+    "medium": "vacuum",
+    "source": "Synthetic fixture shot_series_demo.csv; axis declared by fixture, not NASA evidence",
+    "source_sha256": "187125973eaf59d6a4f1182ffb3360168d0e05397ea78ace6862ece0f13723ea",
+    "bands_nm": [[500.0, 501.0]],
+    "max_step_nm": 0.101
+  }
+}

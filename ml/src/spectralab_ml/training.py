@@ -17,6 +17,7 @@ from spectralab_ml.models import (
     save_artifact,
 )
 from spectralab_ml.models.estimators import MultiLabelEstimator, select_thresholds
+from spectralab_ml.models.line_classifier import LineLogisticOVR
 from spectralab_ml.preprocessing import SpectrumPreprocessor
 from spectralab_ml.simulation import GenerationConfig, generate_spectrum
 
@@ -64,7 +65,14 @@ def make_estimators(
     ion_stage: int = 1,
 ) -> dict[str, MultiLabelEstimator]:
     requested = model_ids or ["baseline-nnls", "logistic-ovr", "random-forest"]
-    if not set(requested) <= {"baseline-nnls", "logistic-ovr", "random-forest", "cnn-1d"}:
+    if not set(requested) <= {
+        "baseline-nnls",
+        "logistic-ovr",
+        "random-forest",
+        "cnn-1d",
+        "line-logistic",
+        "line-logistic-robust",
+    }:
         raise ValueError("Unknown model ID")
     models = {}
     for model_id in requested:
@@ -76,6 +84,15 @@ def make_estimators(
             models[model_id] = LogisticOVR(seed=seed)
         elif model_id == "random-forest":
             models[model_id] = RandomForestMultiLabel(seed=seed)
+        elif model_id in {"line-logistic", "line-logistic-robust"}:
+            models[model_id] = LineLogisticOVR.from_catalog(
+                catalog,
+                preprocessor.model_grid,
+                class_order,
+                seed=seed,
+                ion_stage=ion_stage,
+                element_local=model_id == "line-logistic-robust",
+            )
         else:
             from spectralab_ml.models.cnn import CNN1D
 
@@ -176,7 +193,12 @@ def train_and_save_models(
         calibration_metadata = {}
         reliability = None
         threshold_mask = np.ones(len(dataset.validation.X), dtype=bool)
-        if calibrate and model_id in {"logistic-ovr", "random-forest"}:
+        if calibrate and model_id in {
+            "logistic-ovr",
+            "random-forest",
+            "line-logistic",
+            "line-logistic-robust",
+        }:
             calibration_mask, threshold_mask, partitions = calibration_partition(dataset, seed)
             uncalibrated = estimator
             before = reliability_metrics(
@@ -204,7 +226,10 @@ def train_and_save_models(
             0.15
             if model_id == "baseline-nnls"
             else (
-                0.0 if model_id in {"logistic-ovr", "cnn-1d"} and not estimator.calibrated else 0.5
+                0.0
+                if model_id in {"logistic-ovr", "cnn-1d", "line-logistic", "line-logistic-robust"}
+                and not estimator.calibrated
+                else 0.5
             )
         )
         thresholds, selection = select_thresholds(validation_scores, validation_y, default=default)

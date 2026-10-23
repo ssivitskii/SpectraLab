@@ -75,7 +75,14 @@ class ModelRegistry:
                 "diagnostic_code": None,
             }
         ]
-        for model_id in ("baseline-nnls", "logistic-ovr", "random-forest", "cnn-1d"):
+        for model_id in (
+            "baseline-nnls",
+            "logistic-ovr",
+            "random-forest",
+            "cnn-1d",
+            "line-logistic",
+            "line-logistic-robust",
+        ):
             try:
                 _, _, manifest = self._load(model_id)
                 models.append(
@@ -125,7 +132,14 @@ class ModelRegistry:
         return models
 
     def _load(self, model_id: str) -> tuple[Any, Any, Any]:
-        if model_id not in {"baseline-nnls", "logistic-ovr", "random-forest", "cnn-1d"}:
+        if model_id not in {
+            "baseline-nnls",
+            "logistic-ovr",
+            "random-forest",
+            "cnn-1d",
+            "line-logistic",
+            "line-logistic-robust",
+        }:
             raise FileNotFoundError("Неизвестная модель; выберите модель из /models")
         directory = self.artifacts_dir / model_id
         if directory.is_symlink() or directory.resolve().parent != self.artifacts_dir:
@@ -244,6 +258,12 @@ class ModelRegistry:
                 "реальные измерения требуют отдельной проверки."
             ),
         ]
+        if model_id == "line-logistic-robust":
+            warnings.append(
+                "Экспериментальная модель слабых компонентов: это не концентрации "
+                "и не валидированный предел обнаружения. При большом сдвиге оси "
+                "возможны дополнительные ложные срабатывания; сравните с line-logistic."
+            )
         return PredictionResult(
             model_id=model_id,
             model_version=metadata["version"],

@@ -87,10 +87,14 @@ NEXT09–NEXT10 выполнены частично. Для NEXT12 объеди�
 Разделы «Измерения» и «Состояние системы» используют ту же дизайн-систему.
 [Изменения и проверка](docs/photon.md), [дизайн-система](DESIGN.md).
 
-Нужны Python **3.12** (любой патч-релиз; проверено на 3.12.13 и 3.12.14), Node **22.14.0**
-и npm **10.9.2**. Версии зафиксированы в `.python-version`, `.nvmrc` и manifests; зависимости — в `uv.lock` и
-`frontend/package-lock.json`. `make setup` устанавливает uv 0.6.17, если его нет.
-При использовании nvm сначала выполните `nvm install && nvm use`.
+Проект использует Python **3.12**, Node **22.14.0** и npm **10.9.2**. Версии
+зафиксированы в `.python-version`, `.nvmrc` и manifests; зависимости — в `uv.lock`
+и `frontend/package-lock.json`. Для первого запуска нужны `python3`, `curl`,
+`tar` и доступ к сети. `make setup` устанавливает uv 0.6.17, если его нет,
+создаёт Python-окружение и на macOS/Linux при необходимости загружает закреплённую
+пару Node/npm в `.tools/node` с проверкой SHA-256. Системные установки не меняются;
+команды проекта автоматически используют локальный runtime. Подходящий системный
+Node/npm (например, через nvm) также поддерживается.
 
 ```bash
 make setup
@@ -98,15 +102,23 @@ make demo
 make dev
 ```
 
+Подробности окружения, настройка PyCharm и проверки перед сдачей:
+[локальный запуск](docs/local_runtime.md).
+
 `make demo` использует `demo_fixture`, создаёт небольшой синтетический датасет в
 `data/processed/`, обучает доверенные локальные модели в `artifacts/models/` и
 выполняет API→ML smoke. До обучения работает `builtin-nnls`; после demo доступны
 `baseline-nnls`, `logistic-ovr` и `random-forest`.
 
-`make dev` запускает backend и frontend: [интерфейс](http://localhost:5173),
-[Swagger](http://localhost:8000/docs). Ctrl+C останавливает оба процесса.
-Только backend: `make api`. Для выполнения заданий, созданных в интерфейсе,
-запустите **в другом терминале**:
+`make dev` запускает backend, frontend и worker: [интерфейс](http://localhost:5173),
+[Swagger](http://localhost:8000/docs). Очереди заданий обрабатываются сразу;
+Ctrl+C останавливает все три процесса. Сообщение `SpectraLab ready` появляется
+после ответа обоих серверов. Занятые порты дают явную ошибку, а не скрытый переход
+на другой порт. Для своих портов: `API_PORT=8100 UI_PORT=5200 make dev`.
+
+Если worker уже запущен отдельно, используйте
+`scripts/uv.sh run --frozen --all-packages --no-sync python scripts/dev.py --no-worker`.
+Только backend: `make api`; только worker:
 
 ```bash
 make worker
@@ -148,6 +160,22 @@ loopback. Остановите `make dev` перед Compose. `docker compose do
   Ссылки на spectrum/run/job восстанавливаются после обновления страницы.
 
 ## Команды исследований и проверки
+
+Новая модель `line-logistic` использует 174 многомасштабных признака атомных линий.
+В синтетическом drift benchmark при сдвиге 0.75 nm micro-F1 — 0.994 против 0.493
+у обычной логистической регрессии (пять matched seed). Обучение: `make line-model`;
+затем выберите модель в разделе «Анализ».
+[Протокол, график и ограничения](docs/line_classifier_v1.md).
+
+Для слабых компонентов добавлен `line-logistic-robust` (`make line-model-robust`):
+в synthetic development при весе 0.10 полнота второго компонента выросла с 13.7%
+до 100% по пяти seed. При крупном drift возможны дополнительные ложные
+срабатывания, поэтому исходная модель сохранена.
+[Протокол, сравнение и ограничения](docs/line_classifier_trace_v2.md).
+
+Анализ серии LIBS-shots доступен через `spectralab analyze-series`: контроль
+качества каждого выстрела, проверка покрытия полос, median-агрегат и CSV/JSON
+отчёт с provenance. [Запускаемый синтетический пример и формат метаданных](docs/shot_series.md).
 
 ```bash
 # Быстрые проверки и сборка

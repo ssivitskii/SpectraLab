@@ -1,0 +1,15 @@
+schema_version: 1
+run_id: line-classifier-v1
+seed: 42
+seeds: [7, 17, 29, 43, 71]
+protocol: controlled_sweep
+models: [baseline-nnls, logistic-ovr, random-forest, line-logistic]
+base_samples: 144
+variations: 2
+factor: snr_db
+values: [5, 10, 20, 30, null]
+generation:
+  instrumental_fwhm_nm: 1.0
+  calibration_shift_nm: 0.15
+timing_warmups: 1
+timing_repeats: 3
