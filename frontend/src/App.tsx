@@ -3,23 +3,28 @@ import { Link, NavLink, Navigate, Route, Routes, useLocation } from "react-route
 import { useQuery } from "@tanstack/react-query";
 import { api } from "./api/client";
 import { Analysis } from "./pages/Analysis";
+import { Measured } from "./pages/Measured";
 import { Generator } from "./pages/Generator";
 import { Experiments } from "./pages/Experiments";
 import { BatchAnalysis } from "./pages/BatchAnalysis";
+import { SystemStatus } from "./pages/SystemStatus";
 import { SourceNotice } from "./components/Feedback";
 import { Icon, SpectrumMark, type IconName } from "./components/Icon";
 
 const sections: { path: string; label: string; description: string; icon: IconName }[] = [
   { path: "/analysis", label: "Анализ спектра", description: "Сигнал и элементы", icon: "spectrum" },
+  { path: "/measured", label: "Измерения", description: "Приборные профили", icon: "sliders" },
   { path: "/generator", label: "Генератор", description: "Синтетические образцы", icon: "flask" },
   { path: "/experiments", label: "Эксперименты", description: "Модели и сравнение", icon: "experiments" },
   { path: "/batch", label: "Пакетный анализ", description: "Очереди измерений", icon: "layers" },
+  { path: "/system", label: "Состояние системы", description: "Worker и хранилище", icon: "activity" },
 ];
 
 export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const current = sections.find((section) => section.path === location.pathname) ?? sections[0];
+  const usesSpectrumCatalog = location.pathname !== "/measured" && location.pathname !== "/system";
   const capabilities = useQuery({ queryKey: ["capabilities"], queryFn: ({ signal }) => api.capabilities({ signal }) });
   useEffect(() => { document.title = current.label + " · SpectraLab"; }, [current.label]);
 
@@ -45,7 +50,7 @@ export function App() {
         <header className="context-bar">
           <div className="breadcrumb"><span>Рабочая среда</span><span aria-hidden="true">/</span><strong>{current.label}</strong></div>
           <div className="context-details">
-            {capabilities.data && <span className="context-medium">{capabilities.data.spectrum.wavelength_medium} <span aria-hidden="true">·</span> {capabilities.data.spectrum.units}</span>}
+            {usesSpectrumCatalog && capabilities.data && <span className="context-medium">{capabilities.data.spectrum.wavelength_medium} <span aria-hidden="true">·</span> {capabilities.data.spectrum.units}</span>}
             <span className={"connection " + (capabilities.isError ? "connection-error" : capabilities.isPending ? "connection-pending" : "connection-ready")} role="status"><Icon name="activity" size={16} />{capabilities.isPending ? "Подключение…" : capabilities.isError ? "API недоступен" : "API доступен"}</span>
             {capabilities.isError && <button className="icon-button" aria-label="Повторить подключение к API" onClick={() => void capabilities.refetch()}><Icon name="refresh" size={17} /></button>}
           </div>
@@ -53,19 +58,21 @@ export function App() {
         <main id="workspace" tabIndex={-1}>
           <Routes>
             <Route path="/analysis" element={<Analysis />} />
+            <Route path="/measured" element={<Measured />} />
             <Route path="/generator" element={<Generator />} />
             <Route path="/experiments" element={<Experiments />} />
             <Route path="/batch" element={<BatchAnalysis />} />
+            <Route path="/system" element={<SystemStatus />} />
             <Route path="*" element={<Navigate to="/analysis" replace />} />
           </Routes>
-          <div className="research-context"><SourceNotice source={capabilities.data ? String(capabilities.data.reference.source ?? "") : undefined} /></div>
+          {usesSpectrumCatalog && <div className="research-context"><SourceNotice source={capabilities.data ? String(capabilities.data.reference.source ?? "") : undefined} /></div>}
           <section className="methodology-section" aria-label="Методика и происхождение">
             <details className="methodology" id="methodology">
               <summary><Icon name="info" size={18} />Методика и ограничения</summary>
               <div className="details-body">
                 <p>Задача multi-label для классов выбранного справочника. Несколько элементов могут присутствовать одновременно. NNLS сопоставляет спектр со справочными шаблонами; Logistic Regression и Random Forest обучаются на синтетических данных.</p>
                 <p>Диапазон, единицы и система длин волн определяются профилем сервиса. В генераторе независимы аппаратное уширение, дискретизация и шум. Относительные интенсивности — условный prior. Score не равен вероятности; пороги обучаемых артефактов выбираются на validation.</p>
-                <p>Справочные линии — диагностическое сопоставление, а не доказанное объяснение ML-решения. Пустое обнаружение не доказывает отсутствие элементов в образце или наличие неизвестного элемента. Определение концентраций и перенос на реальные измерения не реализованы.</p>
+                <p>Справочные линии — диагностическое сопоставление, а не доказанное объяснение ML-решения. Пустое обнаружение не доказывает отсутствие элементов в образце или наличие неизвестного элемента. Определение концентраций и универсальное распознавание для произвольных приборов не реализованы. Анализ измерений ограничен исследовательскими профилями с подтверждённой калибровкой; независимая финальная проверка с blank-контролями Fe/Mg остаётся открытой.</p>
               </div>
             </details>
             {capabilities.data && <details className="methodology"><summary><Icon name="file" size={18} />Справочник и версии схем</summary><pre>{JSON.stringify({ reference: capabilities.data.reference, schema_versions: capabilities.data.schema_versions, range: capabilities.data.spectrum }, null, 2)}</pre></details>}

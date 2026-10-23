@@ -9,7 +9,7 @@ web
 ## Users
 
 One researcher working on one local computer. Confirmed in this conversation;
-the current redesign covers all four application sections.
+Photon now covers all six application sections, including measured spectra and system status.
 
 ## Product Purpose
 
@@ -19,8 +19,8 @@ of elemental presence and run reproducible model experiments.
 ## Operating Context
 
 React 19 / TypeScript / Vite frontend, Plotly charts and FastAPI backend.
-Russian interface. Four existing routes: analysis, generator, experiments,
-and batch analysis. A separate local worker executes queued jobs.
+Russian interface. Six routes: analysis, measured spectra, generator, experiments,
+batch analysis and system status. A separate local worker executes queued jobs.
 
 ## Capabilities and Constraints
 
@@ -32,15 +32,18 @@ Preserve existing API contracts and browser navigation/deep links.
 This is a research product. Scores are not automatically probabilities;
 synthetic mixture weights are not measured concentrations. Reference lines
 are diagnostic associations. No live spectrometer, team accounts or remote
-multiuser service is implemented. Worker capability is not worker heartbeat.
-The published Ca v4 research profile is a CLI artifact, not an API model.
+multiuser service is implemented. Worker state comes from the actual host lock and heartbeat, not capabilities.
+The trusted Ca v4 research profile is available through the measured API as well
+as CLI, with explicit instrument and calibrated axis provenance. The LTE plasma
+generator remains a separate research script, not the measured API model.
 Independent final validation remains incomplete.
 
 ## Brand Commitments
 
 Keep the SpectraLab name and Russian scientific terminology. The user asks for
-a new visual design from scratch, maximally technological, using UI/UX Pro Max,
-Taste and Impeccable. The old visual styling has no authority in this redesign.
+the Photon visual world selected on 2026-10-20, extended to colleagues’ new
+sections using UI/UX Pro Max and Impeccable. Preserve its existing tokens,
+self-hosted type, outline icons and task-first layouts.
 
 ## Evidence on Hand
 
@@ -54,5 +57,5 @@ worker online status, measurement provenance or independent validation.
 - Keep the spectrum and the research task central.
 - Distinguish inputs, predictions and chemical ground truth.
 - Make pending, empty, failed and completed states understandable.
-- Keep all four research workflows usable by keyboard and on a phone.
+- Keep all six research workflows usable by keyboard and on a phone.
 - Preserve scientific limitations while moving detailed explanation out of the task's primary path.

@@ -439,3 +439,265 @@ class BatchResponse(BaseModel):
     error_code: str | None = None
     error_message: str | None = None
     idempotency_key: str
+
+
+class WorkerCurrentTask(BaseModel):
+    kind: Literal["job", "batch"]
+    task_id: str
+    description: str | None = None
+    started_at: str | None = None
+
+
+class WorkerStatus(BaseModel):
+    state: Literal["absent", "running", "stopped", "stale"]
+    status: Literal["absent", "running", "stopped", "stale"] | None = None
+    worker_id: str | None = None
+    pid: int | None = None
+    updated_at: str | None = None
+    current_task: WorkerCurrentTask | None = None
+    heartbeat_interval_seconds: float
+    stale_threshold_seconds: float
+    message: str
+
+
+class JobQueueCounts(BaseModel):
+    total: int = 0
+    queued: int = 0
+    running: int = 0
+    completed: int = 0
+    failed: int = 0
+    cancelled: int = 0
+    quota_pending: int
+    remaining_pending: int
+
+
+class BatchQueueCounts(BaseModel):
+    total: int = 0
+    draft: int = 0
+    queued: int = 0
+    running: int = 0
+    completed: int = 0
+    partial: int = 0
+    failed: int = 0
+    cancelled: int = 0
+
+
+class QueueStatus(BaseModel):
+    jobs: JobQueueCounts
+    batches: BatchQueueCounts
+    active_total: int = 0
+
+
+class StorageCategory(BaseModel):
+    record_count: int
+    size_bytes: int
+    quota_records: int | None = None
+    remaining_records: int | None = None
+    quota_bytes: int | None = None
+    remaining_bytes: int | None = None
+
+
+class DiskUsageStatus(BaseModel):
+    total_bytes: int
+    used_bytes: int
+    free_bytes: int
+
+
+class StorageStatus(BaseModel):
+    categories: dict[str, StorageCategory]
+    total_used_bytes: int = 0
+    quota_headroom_bytes: int | None = None
+    disk: DiskUsageStatus
+
+
+class BackupVerificationRecord(BaseModel):
+    completed_at: str
+    archive_name: str
+    archive_sha256: str
+    archive_size_bytes: int
+    records_count: int
+    verification_passed: bool
+    details: str | None = None
+
+
+class RestoreVerificationRecord(BaseModel):
+    completed_at: str
+    archive_name: str
+    archive_sha256: str
+    restored_records_count: int
+    verification_passed: bool
+    details: str | None = None
+
+
+class BackupStatus(BaseModel):
+    last_archive_verified: BackupVerificationRecord | None = None
+    last_restore_verified: RestoreVerificationRecord | None = None
+
+
+class SystemStatusResponse(BaseModel):
+    worker: WorkerStatus
+    queues: QueueStatus
+    storage: StorageStatus
+    backup: BackupStatus
+
+
+class ScaleRequirements(BaseModel):
+    units: Literal["nm"] = "nm"
+    medium: Literal["vacuum"] = "vacuum"
+    conversion_supported: list[str] = ["air"]
+    conversion_method: str = "Peck-Reeder 1972 standard air"
+
+
+class CoverageRequirements(BaseModel):
+    bands_nm: list[list[float]]
+    max_gap_nm: float
+    max_sampling_step_nm: float
+    max_points: int
+
+
+class InstrumentProfileInfo(BaseModel):
+    profile_id: str
+    artifact_type: str
+    schema_version: int
+    identity: str
+    sha256: str
+    instrument_id: str
+    supported_elements: list[str]
+    unknown_elements: list[str]
+    thresholds: dict[str, float]
+    scale_requirements: ScaleRequirements
+    coverage_requirements: CoverageRequirements
+    ready: bool
+    unavailable_reason: str | None = None
+    qualification: str
+    scope: str
+    final_test_status: str
+    score_kind: str
+
+
+class MeasuredPredictionElement(BaseModel):
+    element: str
+    status: Literal["evaluated", "unknown"]
+    score: float | None = None
+    threshold: float | None = None
+    detected: bool | None = None
+    accepted: bool
+    line_snr: float | None = None
+    reason: str | None = None
+
+
+class MeasuredPredictionPoint(StrictModel):
+    wavelength_nm: float = Field(..., ge=100.0, le=2000.0)
+    intensity: float = Field(...)
+
+
+class MeasuredPredictionResponse(BaseModel):
+    schema_version: int = 3
+    prediction_id: str
+    profile_id: str
+    profile_identity: str
+    profile_sha256: str
+    profile_artifact_type: str
+    scope: str
+    qualification: str
+    final_test_status: str
+    measurement_id: str
+    instrument_id: str
+    score_kind: str
+    calibrated: bool
+    calibration_scope: str
+    created_at: str
+    predictions: list[MeasuredPredictionElement]
+    detected_elements: list[str]
+    wavelength_conversion: dict[str, Any] | None = None
+    input_axis: dict[str, Any]
+    model_axis: dict[str, Any]
+    bands_nm: list[list[float]]
+    input_provenance: dict[str, Any]
+    physical_sample_id: str | None = None
+    family_id: str | None = None
+    session_id: str | None = None
+    measurement_metadata: dict[str, Any] | None = None
+
+
+class AxisMetadata(StrictModel):
+    units: Literal["nm"] = Field(..., description="Wavelength axis units, must be nm")
+    medium: Literal["air", "vacuum"] = Field(..., description="Measurement medium")
+    source: str = Field(..., min_length=1, max_length=200, description="Axis calibration source")
+    source_sha256: str = Field(
+        ...,
+        pattern=r"^[a-f0-9]{64}$",
+        description="SHA-256 hash of axis calibration source",
+    )
+
+
+class MeasurementMetadataPayload(StrictModel):
+    schema_version: Literal[1] = Field(default=1, description="Schema version, must be 1")
+    measurement_id: str | None = Field(default=None, min_length=1, max_length=128)
+    instrument_id: str | None = Field(default=None, min_length=1, max_length=128)
+    physical_sample_id: str | None = Field(default=None, min_length=1, max_length=128)
+    family_id: str | None = Field(default=None, min_length=1, max_length=128)
+    session_id: str | None = Field(default=None, min_length=1, max_length=128)
+    axis: AxisMetadata = Field(..., description="Explicit axis convention and provenance")
+    input_sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
+
+
+class MeasuredPredictionRequestJson(StrictModel):
+    profile_id: str | None = Field(default=None, max_length=128)
+    instrument_id: str | None = Field(default=None, max_length=128)
+    medium: Literal["air", "vacuum"] | None = None
+    units: Literal["nm"] | None = Field(default=None, max_length=16)
+    measurement_id: str | None = Field(default=None, max_length=128)
+    physical_sample_id: str | None = Field(default=None, max_length=128)
+    family_id: str | None = Field(default=None, max_length=128)
+    session_id: str | None = Field(default=None, max_length=128)
+    csv_content: str | None = Field(default=None, max_length=16_000_000)
+    wavelength_nm: list[float] | None = None
+    intensity: list[float] | None = None
+    points: list[MeasuredPredictionPoint] | None = None
+    metadata: MeasurementMetadataPayload | None = None
+
+    @model_validator(mode="after")
+    def validate_payload(self) -> MeasuredPredictionRequestJson:
+        has_csv = self.csv_content is not None
+        has_points = self.points is not None
+        has_arrays = self.wavelength_nm is not None or self.intensity is not None
+
+        representations = sum([bool(has_csv), bool(has_points), bool(has_arrays)])
+        if representations != 1:
+            raise ValueError(
+                "Exactly one spectrum representation is required: 'csv_content', 'points', "
+                "or ('wavelength_nm' and 'intensity')"
+            )
+        if has_arrays:
+            if self.wavelength_nm is None or self.intensity is None:
+                raise ValueError("Both 'wavelength_nm' and 'intensity' arrays are required")
+            if len(self.wavelength_nm) != len(self.intensity):
+                raise ValueError("'wavelength_nm' and 'intensity' must have matching lengths")
+            if len(self.wavelength_nm) == 0:
+                raise ValueError("Arrays must not be empty")
+            if any(not math.isfinite(w) for w in self.wavelength_nm) or any(
+                not math.isfinite(i) for i in self.intensity
+            ):
+                raise ValueError("Array values must be finite numbers")
+        if has_points:
+            if len(self.points) == 0:
+                raise ValueError("points list must not be empty")
+            if any(not math.isfinite(p.intensity) for p in self.points):
+                raise ValueError("Point intensity values must be finite numbers")
+        if has_csv and not self.csv_content.strip():
+            raise ValueError("csv_content must not be empty")
+        return self
+
+
+class MeasuredPredictionFormRequest(StrictModel):
+    file: bytes = Field(..., description="CSV file content (wavelength_nm,intensity)")
+    profile_id: str | None = Field(default=None, max_length=128)
+    instrument_id: str | None = Field(default=None, max_length=128)
+    medium: Literal["air", "vacuum"] | None = None
+    units: Literal["nm"] | None = Field(default=None, max_length=16)
+    measurement_id: str | None = Field(default=None, max_length=128)
+    physical_sample_id: str | None = Field(default=None, max_length=128)
+    family_id: str | None = Field(default=None, max_length=128)
+    session_id: str | None = Field(default=None, max_length=128)
+    metadata: str | None = Field(default=None, description="Optional JSON-encoded metadata string")

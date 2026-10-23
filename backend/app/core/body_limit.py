@@ -4,13 +4,15 @@ from starlette.responses import JSONResponse
 class BodyLimitMiddleware:
     """Bound request bytes before multipart or JSON parsers allocate their structures."""
 
-    def __init__(self, app, max_bytes: int):
+    def __init__(self, app, max_bytes: int, route_limits: dict[tuple[str, str], int] | None = None):
         self.app = app
         self.max_bytes = max_bytes
+        self.route_limits = route_limits or {}
 
     async def __call__(self, scope, receive, send):
         if scope["type"] != "http" or scope["method"] not in ("POST", "PUT", "PATCH"):
             return await self.app(scope, receive, send)
+        max_bytes = self.route_limits.get((scope["method"], scope["path"]), self.max_bytes)
         chunks = []
         size = 0
         while True:
@@ -18,13 +20,13 @@ class BodyLimitMiddleware:
             if message["type"] == "http.disconnect":
                 return
             size += len(message.get("body", b""))
-            if size > self.max_bytes:
+            if size > max_bytes:
                 response = JSONResponse(
                     {
                         "error": {
                             "code": "payload_too_large",
                             "message": "Размер запроса превышает допустимый лимит",
-                            "details": None,
+                            "details": {"max_request_bytes": max_bytes},
                         }
                     },
                     status_code=413,

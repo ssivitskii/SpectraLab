@@ -110,3 +110,68 @@ class CalibratedEstimator:
                 for index, calibration in enumerate(self.calibrators)
             ]
         )
+
+
+def score_logits(score_kind: str, scores: np.ndarray) -> np.ndarray:
+    if score_kind == "logistic_decision_function":
+        return np.asarray(scores, dtype=float)
+    probabilities = np.clip(np.asarray(scores, dtype=float), 1e-4, 1 - 1e-4)
+    return np.log(probabilities / (1 - probabilities))
+
+
+def fit_temperatures(logits: np.ndarray, y: np.ndarray) -> tuple[np.ndarray, list[int]]:
+    from scipy.optimize import minimize_scalar
+
+    logits, y = finite_matrix(logits, "Logits"), binary_labels(y)
+    if logits.shape != y.shape:
+        raise ValueError("Logits and labels must align")
+    temperatures = np.ones(y.shape[1])
+    fallback = []
+    for column in range(y.shape[1]):
+        if len(np.unique(y[:, column])) < 2:
+            fallback.append(column)
+            continue
+        z, truth = logits[:, column], y[:, column]
+
+        def loss(log_temperature: float, z=z, truth=truth) -> float:
+            scaled = z / np.exp(log_temperature)
+            return float(np.mean(np.logaddexp(0, np.where(truth == 1, -scaled, scaled))))
+
+        result = minimize_scalar(loss, bounds=(-5, 5), method="bounded")
+        temperatures[column] = float(np.exp(result.x))
+    return temperatures, fallback
+
+
+@dataclass
+class TemperatureScaledEstimator:
+    estimator: Any
+    score_kind: str = "temperature_scaled_probability_synthetic_development"
+    calibrated: bool = True
+    temperatures: np.ndarray | None = None
+    calibration_metadata: dict = field(default_factory=dict)
+
+    def fit(self, X: np.ndarray, y: np.ndarray) -> TemperatureScaledEstimator:
+        self.estimator.fit(X, y)
+        self.temperatures = None
+        self.calibration_metadata = {}
+        return self
+
+    def fit_calibration(self, X: np.ndarray, y: np.ndarray) -> TemperatureScaledEstimator:
+        X, y = training_arrays(X, y)
+        logits = score_logits(self.estimator.score_kind, self.estimator.scores(X))
+        self.temperatures, fallback = fit_temperatures(logits, y)
+        self.calibration_metadata = {
+            "schema_version": 1,
+            "method": "per-class temperature scaling of log-odds, NLL, log T in [-5, 5]",
+            "scope": "synthetic development split only; real spectra unvalidated",
+            "temperatures": self.temperatures.tolist(),
+            "unit_temperature_fallback_columns": fallback,
+            "sample_count": len(X),
+        }
+        return self
+
+    def scores(self, X: np.ndarray) -> np.ndarray:
+        if self.temperatures is None:
+            raise ValueError("Calibration has not been fitted")
+        logits = score_logits(self.estimator.score_kind, self.estimator.scores(X))
+        return expit(logits / self.temperatures)

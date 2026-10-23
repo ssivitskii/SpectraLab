@@ -16,6 +16,9 @@ class Settings(BaseSettings):
     cors_origins: list[str] = ["http://localhost:5173"]
     max_upload_bytes: int = 5_000_000
     max_request_bytes: int = 6_000_000
+    # The CSV itself remains capped at 16 MB; JSON escaping and multipart fields
+    # need additional room before the parser can inspect the decoded file.
+    max_measured_request_bytes: int = Field(default=32_000_000, ge=17_000_000)
     max_stored_spectra: int = 500
     max_storage_bytes: int = 500_000_000
     max_spectrum_points: int = 100_000
@@ -32,6 +35,11 @@ class Settings(BaseSettings):
     max_batch_upload_bytes: int = Field(default=100_000_000, ge=1000)
     max_batch_input_storage_bytes: int = Field(default=500_000_000, ge=1000)
     max_batch_cache_bytes: int = Field(default=100_000_000, ge=1000)
+    worker_heartbeat_interval_seconds: float = Field(default=5.0, ge=0.5, le=60.0)
+    worker_heartbeat_stale_seconds: float = Field(default=20.0, ge=1.0, le=300.0)
+    max_stored_measured_predictions: int = Field(default=1000, ge=1)
+    max_measured_prediction_storage_bytes: int = Field(default=100_000_000, ge=1000)
+    instrument_profiles_path: Path | None = None
 
     def resolved_data_dir(self) -> Path:
         return (self.data_dir or self.project_root / "data").resolve()

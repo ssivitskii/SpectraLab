@@ -14,13 +14,15 @@
 
 | Метод | Путь | Содержимое |
 | --- | --- | --- |
-| GET | `/health` | статус, готовность справочника, ready-модели |
+| GET | `/health` | статус, готовность справочника, ready-модели (лёгкий liveness probe) |
+| GET | `/system/status` | детальное состояние worker, очередей, квот хранилища и проверенной копии |
 | GET | `/capabilities` | версии схем; диапазон, сетка, units, medium; ограничения CSV; defaults/limits генератора; квоты и параметры очереди |
 | GET | `/elements` | классы, активная стадия ионизации, metadata справочника, число линий |
 | GET | `/models` | ID/версия/ready, `score_kind`, `calibrated`, источник, область применимости, `diagnostic_code` и `unavailable_reason` |
 
 Клиент получает настройки из capabilities. Ввод — vacuum nm; преобразование air
-выполняется явно вне HTTP, автоматической смены среды нет. `/models` объясняет
+выполняется явно вне HTTP, автоматической смены среды в этих маршрутах нет. Приборный маршрут
+`/measured-predictions` отдельно поддерживает явный air→vacuum. `/models` объясняет
 необученную/повреждённую/несовместимую модель безопасным кодом, без локального пути.
 CNN доступна только с optional runtime и совместимым артефактом; отсутствие runtime
 не препятствует запуску сервиса.
@@ -31,6 +33,40 @@ cache проверяется независимо. При отсутствии �
 по умолчанию `demo_fixture`. Выбор загружается при старте и един для `/elements`,
 генерации и registry; для смены нужен перезапуск. HTTP не принимает путь справочника.
 Модель с другим source/checksum, class order, ion stage или preprocessing отклоняется.
+
+## Состояние системы, worker и хранилища
+
+Маршрут `/health` сохраняет обратную совместимость и лёгкий контракт (`{"status":"ok",...}`),
+служа быстрым liveness probe. Для детальной наблюдаемости локального рабочего места
+одного исследователя предназначен `GET /system/status`:
+
+```bash
+curl -s http://127.0.0.1:8000/api/v1/system/status | jq
+```
+
+Ответ включает:
+- `worker`: статус (`state` и синоним `status`: `absent`, `running`, `stopped`, `stale`), `worker_id`, `pid`,
+  `current_task` (`kind`, `task_id`, `description`, `started_at`), `heartbeat_interval_seconds`,
+  `stale_threshold_seconds` (по умолчанию 20 с) и диагностическое сообщение `message`.
+  Worker удерживает неблокирующую host-lock блокировку `fcntl.flock(LOCK_EX | LOCK_NB)`
+  на файле `.worker.lock` в каталоге заданий. Если блокировка не удерживается — worker `absent`.
+  Если удерживается, статус определяется по возрасту `.worker_heartbeat.json`: свежий —
+  `running`, старше порога `worker_heartbeat_stale_seconds` (по умолчанию 20 с) — `stale`.
+  При повреждении файла heartbeat возвращается безопасный статус `stale` с сохранением работоспособности API.
+- `queues`: счётчики заданий `jobs` (`total`, `queued`, `running`, `completed`, `failed`, `cancelled`,
+  `quota_pending`, `remaining_pending`), `batches` (`total`, `draft`, `queued`, `running`, `completed`,
+  `partial`, `failed`, `cancelled`), а также общий счётчик активных задач `active_total`.
+- `storage`: учёт занятого места и квот по категориям: `spectra`, `predictions`,
+  `measured_predictions`, `jobs`, `batches`, `batch_inputs`, `batch_cache`. Для каждой
+  категории возвращаются `record_count`, `size_bytes`, `quota_records`, `remaining_records`,
+  `quota_bytes`, `remaining_bytes`.
+  Суммарные поля `total_used_bytes` и `quota_headroom_bytes` отражают общий объём и запас до квоты.
+  Блок `disk` (`total_bytes`, `used_bytes`, `free_bytes`) даёт данные файловой системы.
+- `backup`: сведения о последней проверенной резервной копии (`last_archive_verified`: `completed_at`,
+  `archive_name`, `archive_sha256`, `archive_size_bytes`, `records_count`, `verification_passed`, `details`)
+  и восстановлении (`last_restore_verified`: `completed_at`, `archive_name`, `archive_sha256`,
+  `restored_records_count`, `verification_passed`, `details`), считываемые из `.backup_status.json`.
+  При повреждении структуры служебного файла возвращается `null` для повреждённой записи без аварии HTTP 500.
 
 ## Спектры и история
 
@@ -245,6 +281,143 @@ CLI выполняет пакет через worker subprocess или ждёт �
 Отчёт сохраняет предупреждения модели: пакетная обработка не является валидацией
 состава реального образца.
 
+## Приборные профили и анализ реальных измерений
+
+Для анализа реальных физических измерений (в отличие от синтетических спектров) API поддерживает
+исследовательские приборные профили (например, `calcium-v4`), учитывающие спектральные полосы
+прибора, разрывы, калибровку и перевод air→vacuum.
+
+| Метод | Путь | Действие |
+| --- | --- | --- |
+| GET | `/instrument-profiles` | список зарегистрированных доверенных профилей |
+| GET | `/instrument-profiles/{id}` | метаданные профиля: полосы, пороги, требования к шкале и покрытию |
+| POST | `/measured-predictions` | анализ измеренного спектра через выбранный профиль (multipart или JSON) |
+| GET | `/measured-predictions/{id}` | сохранённый результат анализа со снимком provenance |
+| GET | `/measured-predictions/{id}/export?format=json\|csv\|zip` | экспорт анализа в JSON, CSV или ZIP-архив |
+
+### Метаданные и требования приборного профиля
+
+Каждый профиль (`GET /instrument-profiles/{id}`) описывает поддерживаемые элементы
+(`supported_elements`), неоцениваемые элементы (`unknown_elements`), калиброванные
+пороги, а также требования:
+- `scale_requirements`: рабочая среда `vacuum` nm; при передаче `medium="air"` сервер
+  автоматически выполняет точный пересчёт `air → vacuum` по формуле Peck–Reeder 1972
+  (Standard Air).
+- `coverage_requirements`: список спектральных полос `bands_nm`, максимальный шаг
+  дискретизации `max_sampling_step_nm` (0.5 nm) и максимально допустимый внутренний
+  разрыв `max_gap_nm` (0.5 nm). Если спектр содержит разрывы внутри полосы больше 0.5 nm,
+  запрос отклоняется с кодом 422.
+
+### Отправка измерения на анализ
+
+`POST /measured-predictions` принимает данные в двух взаимоисключающих форматах:
+1. **Multipart form-data**:
+   - `file`: CSV-файл со спектром (заголовок `wavelength_nm,intensity`).
+   - `profile_id`: идентификатор приборного профиля (по умолчанию `calcium-v4`).
+   - `metadata`: JSON-строка со схемой метаданных измерения (типизированный `MeasurementMetadataPayload`, обязательны явные сведения о приборе и оси).
+   - Дополнительные поля: `instrument_id`, `medium` (`air` или `vacuum`), `units` (строго `nm`), `measurement_id`,
+     `physical_sample_id`, `family_id`, `session_id` (длина строковых ID до 128 символов). При передаче они проверяются на строгое
+     соответствие блоку `metadata`; противоречащие значения или недопустимые единицы (например, `angstrom`) отклоняются с кодом 422.
+2. **JSON**:
+   - Спектральные данные передаются ровно через **одно** представление: `csv_content` (строка CSV),
+     `points` (список `[{"wavelength_nm": float, "intensity": float}]`) либо согласованная пара массивов
+     `wavelength_nm` и `intensity`. Передача нескольких или пустых представлений отклоняется с 422.
+   - `profile_id`: идентификатор приборного профиля (по умолчанию `calcium-v4`).
+   - `metadata`: типизированный объект метаданных измерения (`MeasurementMetadataPayload`). Вложенные строковые
+     идентификаторы (`measurement_id`, `physical_sample_id`, `family_id`, `session_id`) строго валидируются
+     (строка длиной до 128 символов; объекты/словари отклоняются без приведения типов через `str`).
+   - Верхнеуровневые параметры `instrument_id`, `medium`, `units` (`nm`), `measurement_id`, `physical_sample_id`,
+     `family_id`, `session_id`.
+
+#### Обязательные подтверждения прибора и оси (provenance)
+Сервер **никогда не подставляет** неподтверждённые сведения об измерении из профиля модели:
+- `instrument_id`: идентификатор прибора должен быть явно предоставлен вызывающей стороной
+  (в параметрах запроса или в `metadata.instrument_id`) и соответствовать прибору профиля
+  (`chemcam-lanl-testbed` для профиля `calcium-v4`).
+- `axis`: объект `axis` в метаданных обязателен и должен содержать явные параметры:
+  - `units`: единицы измерения (обязательно явно строго `"nm"`; отсутствие, `null` или иные единицы отклоняются с кодом 422).
+  - `medium`: среда измерения (`air` или `vacuum`).
+  - `source`: идентификатор источника калибровки оси (непустая строка).
+  - `source_sha256`: контрольная сумма источника оси (64-значный lowercase hex SHA-256).
+- При отсутствии обязательных сведений об измерении, их несовместимости с профилем или противоречии
+  между параметрами запроса и метаданными запрос отклоняется со статусом **422 Unprocessable Entity**.
+
+Обработка запроса (валидация схемы Pydantic, парсинг CSV, выполнение ML-модели и сохранение на диск)
+вынесена в рабочий пул потоков (`anyio.to_thread.run_sync`), благодаря чему event loop API не
+блокируется во время вычислений. Атрибуты образца (`physical_sample_id`, `family_id`, `session_id`,
+`measurement_metadata`) сохраняются в неизменном виде, возвращаются в ответах GET, экспортах
+и восстанавливаются из backup.
+
+Примеры вызова через curl (на синтетических тестовых данных):
+
+```bash
+# 1. Каталог профилей
+curl -s http://127.0.0.1:8000/api/v1/instrument-profiles | jq
+
+# 2. Анализ через multipart CSV с явными метаданными прибора и оси
+curl -s -X POST http://127.0.0.1:8000/api/v1/measured-predictions \
+  -F "file=@measurement.csv" \
+  -F 'metadata={
+    "schema_version": 1,
+    "instrument_id": "chemcam-lanl-testbed",
+    "measurement_id": "meas-run-001",
+    "physical_sample_id": "SAMPLE-01",
+    "axis": {
+      "units": "nm",
+      "medium": "air",
+      "source": "chemcam-wave-calibration-v1",
+      "source_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    }
+  }' | jq
+
+# 3. Анализ через JSON со списком точек и подтверждённой осью
+curl -s -X POST http://127.0.0.1:8000/api/v1/measured-predictions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "profile_id": "calcium-v4",
+    "metadata": {
+      "schema_version": 1,
+      "instrument_id": "chemcam-lanl-testbed",
+      "measurement_id": "meas-run-002",
+      "physical_sample_id": "SAMPLE-02",
+      "axis": {
+        "units": "nm",
+        "medium": "air",
+        "source": "chemcam-wave-calibration-v1",
+        "source_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      }
+    },
+    "points": [
+      {"wavelength_nm": 240.9267, "intensity": 1.0},
+      {"wavelength_nm": 240.9767, "intensity": 1.2}
+    ]
+  }' | jq
+
+# 4. Получение сохранённого результата по ID
+curl -s http://127.0.0.1:8000/api/v1/measured-predictions/<prediction_id> | jq
+
+# 5. Экспорт ZIP-архива (содержит prediction.json, record.json, summary.csv, input.csv, manifest.json)
+# Обратите внимание: флаг -i не используется, чтобы заголовки ответа не попали в архив
+curl -s "http://127.0.0.1:8000/api/v1/measured-predictions/<prediction_id>/export?format=zip" \
+  -o measured_prediction.zip
+```
+
+### Защита от утечки меток, селективный отказ и неизвестные элементы
+
+- **Защита от утечки и подтасовки (anti-cheating):** CSV-файлы с заголовками, содержащими
+  химические концентрации или оксидные метки (например, `Na2O`, `MgO`, `CaO`, `FeOT`,
+  `target`, `concentration`), а также нечисловые значения (NaN, Inf) отклоняются сервером
+  с кодом 422 до обработки модели.
+- **Селективный отказ (selective refusal):** если уверенность модели недостаточна для
+  надёжного решения, элемент получает `status: "unknown"`, `detected: null`, `accepted: false`
+  и пояснение `reason: "below_frozen_evidence_or_score_margin"`.
+- **Неоцениваемые элементы:** элементы `H` и `He`, не оцениваемые приборным профилем
+  `calcium-v4`, возвращаются со значением `status: "unknown"`, `detected: null`, `score: null`,
+  `accepted: false` и пояснением `reason: "unsupported_by_profile"`.
+- **Экспорт с provenance:** ZIP-экспорт содержит исходный загруженный CSV `input.csv`,
+  `prediction.json`, `summary.csv` и `manifest.json` с контрольными суммами SHA-256 каждого файла.
+  Ответ сопровождается HTTP-заголовком `X-Content-SHA256`.
+
 ## Локальный режим, квоты и резервная копия
 
 Выбран режим одного локального исследователя. Запускайте API на `127.0.0.1`; сервис
@@ -255,8 +428,14 @@ CLI выполняет пакет через worker subprocess или ждёт �
 `.env` и `.env.*` исключены из Docker build context.
 
 Настройки `SPECTRALAB_*`: `MAX_REQUEST_BYTES` 6 MB, `MAX_UPLOAD_BYTES` 5 MB,
+`MAX_MEASURED_REQUEST_BYTES` 32 MB только для POST `/measured-predictions`.
+Лимит декодированного CSV измерения — 16 000 000 байт, максимум 100 000 точек;
+дополнительный объём HTTP-конверта нужен для JSON-экранирования и multipart metadata.
+Превышение любого байтового лимита возвращает 413. Остальные квоты:
+
 `MAX_STORED_SPECTRA` 500, `MAX_STORAGE_BYTES` 500 MB,
 `MAX_STORED_PREDICTIONS` 1000, `MAX_PREDICTION_STORAGE_BYTES` 100 MB,
+`MAX_STORED_MEASURED_PREDICTIONS` 1000, `MAX_MEASURED_PREDICTION_STORAGE_BYTES` 100 MB,
 `MAX_PENDING_JOBS` 10, `MAX_JOB_RECORDS` 1000, `JOB_TIMEOUT_SECONDS` 3600,
 `WORKER_MEMORY_MB` 4096, `MAX_BATCH_FILES` 200, `MAX_BATCH_RECORDS` 100,
 `MAX_BATCH_UPLOAD_BYTES` 100 MB, `MAX_BATCH_INPUT_STORAGE_BYTES` 500 MB,
@@ -271,22 +450,43 @@ prediction/job/report каталогов выполняет владелец п�
 SPECTRALAB_ARTIFACTS_DIR=/tmp/restored-artifacts SPECTRALAB_REPORTS_DIR=/tmp/restored-reports .venv/bin/python -m app.maintenance restore /tmp/spectralab-backup.zip
 ```
 
-Копируются JSON-записи spectra/predictions/jobs/batches/experiments, дочерние seeds
-и исходные CSV пакетов с checksum. Кэш batch inference и служебные логи не включаются.
-Модели, секреты и `.env` не включаются; доверенные модели и выбранный reference cache
-сохраняйте отдельно. Restore проверяет весь архив, IDs, имена и checksums до записи,
-отклоняет traversal, работает только с пустыми каталогами и не перезаписывает данные.
-Восстановленные running jobs/batches становятся failed и требуют явного повтора/resume. Индекс
-истории строится из восстановленных записей. При аварии диска во время восстановления
-используйте новый пустой каталог и повторите restore из той же копии.
+### Потоковое копирование и верификация архива
+
+- **Потоковый backup:** архив записывается и его контрольные суммы проверяются
+  чанками по 64 KB. Restore проверяет архив до записи, но затем читает записи
+  целиком в память; лимит суммарного распакованного размера — 1 500 000 000 байт.
+  Это не потоковое восстановление с постоянным потреблением памяти.
+- **Временный файл на том же носителе:** архив создаётся под именем `.{name}.{uuid}.tmp`
+  в каталоге назначения, предотвращая неполные файлы при сбое.
+- **Предварительная валидация (archive pre-verification):** перед публикацией созданный архив
+  проверяется на физическую целостность zip-контейнера, читается `manifest.json`, и проверяются
+  контрольные суммы всех записей.
+- **Атомарная публикация без перезаписи:** готовый проверенный архив перемещается на целевое имя.
+  Если файл с таким именем уже существует, операция немедленно прерывается с ошибкой,
+  существующий архив сохраняется, а временный файл `.tmp` удаляется.
+- **Сохранение статуса проверенной копии:** при успешной публикации в каталог артефактов
+  записывается файл `.backup_status.json` (`last_archive_verified` с именем, SHA-256, размером,
+  количеством записей и временем). При операции `restore` аналогично фиксируется запись
+  `last_restore_verified`.
+- **Состав архива:** копируются JSON-записи spectra, predictions, jobs, batches, experiments,
+  дочерние seeds, исходные CSV пакетов и записи реальных измерений `measured_predictions`
+  (вместе с исходными сырыми CSV). Кэш batch inference и служебные логи не включаются.
+  Временный heartbeat worker (`.worker_heartbeat.json`) намеренно исключён из архива,
+  чтобы после восстановления не возникало ложного статуса работающего worker.
+  Модели, секреты и `.env` не включаются; доверенные модели и выбранный reference cache
+  сохраняйте отдельно. Restore проверяет весь архив, IDs, имена и checksums до записи,
+  отклоняет traversal, работает только с пустыми каталогами и не перезаписывает данные.
+  Восстановленные running jobs/batches становятся failed и требуют явного повтора/resume. Индекс
+  истории строится из восстановленных записей. При аварии диска во время восстановления
+  используйте новый пустой каталог и повторите restore из той же копии.
 
 Проверено: backend API/contract tests, cursor при одинаковых timestamps и вставке,
 metadata/restart/corrupt record, checksums экспорта, параллельная запись из двух
-процессов, backup/restore и отклонение подмены/traversal, idempotency, cancellation,
+процессов, streaming backup и preverified restore и отклонение подмены/traversal, idempotency, cancellation,
 resource timeout и recovery. Отдельный реальный smoke worker завершил seed 101 с
 тремя моделями; health и predict отвечали во время обучения, series и дочерний run
 прошли HTTP-контракт. Синтетические результаты не валидируют реальные измерения.
 Пакетные проверки покрывают client/server отказы CSV, возобновление загрузки и
 очереди, checksums/provenance, повторное использование вычислений без дублирования
-predictions, смену model identity, лимит кэша, backup/restore исходных байтов,
-реальный worker subprocess и повторный CLI-запуск.
+predictions, смену model identity, лимит кэша, streaming backup и preverified restore исходных байтов
+и измеренных спектров, реальный worker subprocess и повторный CLI-запуск.
