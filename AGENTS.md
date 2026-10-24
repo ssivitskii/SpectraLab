@@ -88,6 +88,16 @@
 
 ## Журнал изменений
 
+### 2026-10-24 UTC — Codex: DS/ML portfolio research overview
+
+- Reorganized `README.md` around research questions, grouped evaluation and
+  evidence. Preserved the previous detailed introduction in
+  `docs/research-overview-history.md` and kept all run instructions.
+- No model, threshold, dataset or experiment result changed. Historical external
+  results remain separate from later development/replay; independent final is open.
+- Verified repository-relative Markdown targets and `git diff --check`.
+  No scientific experiments rerun for this documentation-only contribution.
+
 ### 2026-10-23 UTC — Codex: отдельная ветка для доработок
 
 - По новой просьбе пользователя создана `codex/core-ml-improvements` от

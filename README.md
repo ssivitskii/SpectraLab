@@ -1,84 +1,47 @@
-# SpectraLab
+# SpectraLab — Scientific ML for Atomic Spectra
 
-SpectraLab — учебно-исследовательский инструмент для multi-label распознавания
-элементов по атомному эмиссионному спектру. Стандартный профиль содержит `H`, `He`,
-`Na`, `Mg`, `Ca`, `Fe`. Это оценка присутствия: `component_weights` — относительные
-вклады генератора, не концентрации, массовые доли или проценты.
+**A reproducible research toolkit for spectral classification, instrument shift
+and synthetic-to-real evaluation.**
 
-Выбран режим **одного исследователя на одном локальном компьютере**. `ml/` содержит
-справочники, генератор, модели и эксперименты; `backend/` предоставляет FastAPI и
-локальное хранение; `frontend/` — русский React-интерфейс. Обучение выполняется
-из CLI или отдельным worker, вне процесса обработки HTTP-запросов. Пользователей,
-аутентификации и доступа к чужим данным в этой конфигурации нет.
+SpectraLab studies multi-label element identification from LIBS/atomic emission
+spectra. It combines physical simulation, classical baselines, learned line
+features and grouped evaluation. The standard element set is H, He, Na, Mg, Ca
+and Fe. Predictions describe presence; generator weights are not concentrations.
 
-**ML08 завершён:** проведена внешняя проверка на 64 стандартах / 255 спектрах
-NASA PDS ChemCam с подтверждёнными public-domain лицензией и vacuum-шкалой.
-Измеренный recall показывает существенные пропуски; подтверждённых отрицательных
-меток нет, поэтому F1/precision и эксплуатационная надёжность не заявляются.
-[Протокол, результаты и ограничения](docs/external_validation.md).
+## What this project demonstrates
 
-**Приборная модель v2:** добавлены четыре материала с низким MgO, диагностика
-кампаний и признаки UV/видимых линий. На вложенной групповой development-проверке
-recall Mg — 96.0%, Fe — 93.6%; FPR — 0/39 и 1/25 соответственно.
-[Отчёт и команды](docs/instrument_v2.md). Продолжение поиска выявило новые
-low-Fe кандидаты в PDS и CSA, включая графит KD-2. Подтверждены лицензии и
-химические данные, но шкала и необходимые контрольные границы остаются
-неполными. Финальная проверка v2 **не выполнена**;
-[аудит источников и условия допуска](docs/final_validation_search_v3.md).
+| Research question | Evidence | Scope |
+| --- | --- | --- |
+| Do line-based features tolerate wavelength drift? | Synthetic shift 0.75 nm: line-logistic micro-F1 0.994 vs logistic-ovr 0.493, five matched seeds | Controlled synthetic experiment; no claim of instrument transfer |
+| Can a calcium model reduce false positives? | Ca development FPR 7.84% -> 1.96%, recall 90.32% -> 91.40% on the main grouped split | Adaptive development on disclosed data; no independent final |
+| Do synthetic models transfer to measurements? | ChemCam external protocol covers 64 physical standards / 255 spectra and exposes large transfer failures | Positive-only labels limit which metrics are identifiable; later replay results are separate |
 
-**ML v4 · 2026-10-19:** усилены проверки численных данных и разделения групп,
-добавлены CLI для measured spectra и новый протокол финальной кампании.
-Development-исследование сравнивает continuum/SNR, линии I/II, калибровку и отказ
-на **202 уже раскрытых измерениях / 199 физических материалах**. Это development,
-включая прежний v1 test; нового независимого final нет.
-[Исследование и ограничения](docs/development_v3.md),
-[сводка реализации и итоговых проверок](docs/ml_v4.md).
+Sources: [line-feature study](docs/line_classifier_v1.md),
+[Ca development protocol](docs/calcium_v4.md),
+[historical external validation](docs/external_validation.md).
+The archived external figures describe their original implementation; the
+[plasma study](docs/plasma_generator_v3.md) documents later changes and replay.
 
-**Ca · новая development-модель:** FPR снижен с **7,84% до 1,96%**,
-recall вырос с **90,32% до 91,40%** на основном групповом разбиении.
-На всех пяти согласованных разбиениях FPR — 0–1,96%, recall выше своего baseline.
-Четыре калиброванных участника ансамбля и порог выбираются по внутренним группам;
-Ca всегда получает бинарный ответ. Это адаптивное исследование тех же раскрытых
-данных: верхняя граница условного 95% интервала FPR — 6,38%, независимый перенос
-не подтверждён. [Все три раунда, критерии и ограничения](docs/calcium_v4.md).
+## Evaluation discipline
 
-Замороженный [исследовательский профиль Ca v4](reports/adaptation_v4/calcium-zero-20261019T190232-12a3f9cb/research_profile.json)
-включён в репозиторий: он содержит исходный профиль Na/Mg/Fe и четыре участника
-Ca-ансамбля, доступен для `instrument-predict --profile` без повторного обучения.
-SHA-256: `c5f80da66252c2a407a9cf69435ddb124adef5b106eb7073758b7bdbac3d56d5`.
-Это исследовательская модель; независимая финальная проверка остаётся открытой.
+Physical samples, sessions and repeated shots are grouped where applicable.
+Model fitting, calibration and threshold selection use their designated splits.
+Synthetic, development, replay and independent final results are labeled
+separately. Independent final validation for Fe/Mg remains blocked by missing
+admitted external controls. Current metrics do not establish deployment reliability.
 
-**LTE-генератор плазмы · replay 2026-10-22:** новый генератор считает ионизацию по Саха,
-заселённости по Больцману, линии стадий I и II с самопоглощением, континуум и
-матричные помехи по выгрузкам NIST с энергиями уровней. Предобработка: вычитание
-фона ALS и нормировка каждой полосы спектрометра; признаки по окнам линий;
-temperature scaling. На уже раскрытых 64 стандартах ChemCam recall вырос с 0,01–0,27
-до 0,90–0,93. ROC-AUC признаков по линиям равна 1,00 для Na/Mg/Ca/Fe, но пороги,
-выбранные на синтетике, не переносятся: FPR Na 0,58. Mg: recall 0,98 при FPR 0,01.
-Это replay, а не независимый final. Опубликованные числа v1 текущим кодом не
-воспроизводятся (причина — смена перебора порога в ML v4; порог теперь ставится посередине промежутка между классами). Порог, подобранный на реальных
-calib_2015, снижает FPR на calib_2021 до 0–2% для Na/Ca/Fe при recall 0,64–0,72; у Mg FPR 0,15.
-[Физика, протокол, результаты](docs/plasma_generator_v3.md), [все изменения](CHANGES.md).
+## Research and application
 
-**BAM310 и GOE100 · проверка v8:** новые метаданные PDS указывают для GoeDV
-источник информации о составе `LANL EES`, но не партию порошка. Независимость
-GOE100↔GoeDV и применимая погрешность Mg остаются неподтверждёнными.
-Новый лицензированный Figshare-архив относится к пегматиту; BAM310 в нём не
-идентифицирован. [Запрос BAM310 опубликован](https://github.com/JVrabel/PAPER_distanceLIBS/issues/1)
-с разрешения пользователя, ответов при проверке нет. **Независимая финальная
-оценка не выполнена**; модель и пороги сохранены, предсказаний на новых данных нет.
-[Новые свидетельства и оставшиеся задачи](docs/final_gap_v8.md).
+- `ml/`: reference-line provenance, simulation, preprocessing, estimators,
+  training and evaluation.
+- `backend/`: FastAPI, local storage and experiment worker.
+- `frontend/`: interactive spectrum analysis and experiment inspection.
 
-В [TODO](docs/todo.md) NEXT04–NEXT06 завершены как программные механизмы, NEXT11 — как исследование калибровки.
-NEXT13 завершён как development-улучшение Ca.
-NEXT01–NEXT03 и NEXT07–NEXT08 остаются заблокированы внешними данными;
-NEXT09–NEXT10 выполнены частично. Для NEXT12 объединены backend и интерфейс Photon: реализованы
-`GET /system/status` (состояние worker, очередей и квот), потоковый backup и проверяемый offline restore с
-историей копий, а также API анализа реальных измерений по
-приборным профилям (`/instrument-profiles`, `/measured-predictions`).
-[Интеграция и проверка](docs/photon_integration.md).
-Для каждой задачи указаны зависимости и критерий завершения.
-[Краткий roadmap](docs/roadmap.md).
+The application supports one researcher on one local machine.
+See the [experiment protocol](docs/experiment_protocol.md),
+[research results](docs/research_results.md),
+[current roadmap](docs/roadmap.md) and
+[detailed research history](docs/research-overview-history.md).
 
 ## Быстрый запуск
 
