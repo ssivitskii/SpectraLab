@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+<title id="title">SpectraLab architecture</title>
+<desc id="desc">INTERACTIVE ANALYSIS: React workbench → FastAPI → ML inference → Inspect &amp; export. BACKGROUND EXPERIMENTS: API job request → Local worker → ML experiment → Stored runs. One researcher, one local machine. Synthetic results and measured-instrument studies stay separate.</desc>
+<rect x="1" y="1" width="1198" height="478" rx="22" fill="#1C152D" stroke="#49365F"/>
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif">
+<defs><marker id="arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 1L6 4L0 7" fill="none" stroke="#C09AFF" stroke-width="1.4"/></marker></defs>
+<text x="32" y="44" font-size="15" fill="#C09AFF" font-weight="700" letter-spacing="1.6">INTERACTIVE ANALYSIS</text>
+<rect x="32" y="68" width="260" height="123" rx="12" fill="#2D2243" stroke="#49365F"/>
+<text x="50" y="92" font-size="13" fill="#C09AFF" font-weight="700" >01</text>
+<text x="50" y="123" font-size="23" fill="#F5EEFF" font-weight="650" >React workbench</text>
+<text x="50" y="151" font-size="17" fill="#C3B1DC" font-weight="400" >Generate / upload</text>
+<text x="50" y="174" font-size="17" fill="#C3B1DC" font-weight="400" >Inspect spectra</text>
+<path d="M296 130H312" fill="none" stroke="#C09AFF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="320" y="68" width="260" height="123" rx="12" fill="#2D2243" stroke="#49365F"/>
+<text x="338" y="92" font-size="13" fill="#C09AFF" font-weight="700" >02</text>
+<text x="338" y="123" font-size="23" fill="#F5EEFF" font-weight="650" >FastAPI</text>
+<text x="338" y="151" font-size="17" fill="#C3B1DC" font-weight="400" >Validate inputs</text>
+<text x="338" y="174" font-size="17" fill="#C3B1DC" font-weight="400" >Resolve model registry</text>
+<path d="M584 130H600" fill="none" stroke="#C09AFF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="608" y="68" width="260" height="123" rx="12" fill="#2D2243" stroke="#49365F"/>
+<text x="626" y="92" font-size="13" fill="#C09AFF" font-weight="700" >03</text>
+<text x="626" y="123" font-size="23" fill="#F5EEFF" font-weight="650" >ML inference</text>
+<text x="626" y="151" font-size="17" fill="#C3B1DC" font-weight="400" >Preprocess + features</text>
+<text x="626" y="174" font-size="17" fill="#C3B1DC" font-weight="400" >Scores + thresholds</text>
+<path d="M872 130H888" fill="none" stroke="#C09AFF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="896" y="68" width="260" height="123" rx="12" fill="#2D2243" stroke="#49365F"/>
+<text x="914" y="92" font-size="13" fill="#C09AFF" font-weight="700" >04</text>
+<text x="914" y="123" font-size="23" fill="#F5EEFF" font-weight="650" >Inspect &amp; export</text>
+<text x="914" y="151" font-size="17" fill="#C3B1DC" font-weight="400" >API-managed history</text>
+<text x="914" y="174" font-size="17" fill="#C3B1DC" font-weight="400" >JSON / CSV / ZIP</text>
+<text x="32" y="237" font-size="15" fill="#C09AFF" font-weight="700" letter-spacing="1.6">BACKGROUND EXPERIMENTS</text>
+<rect x="32" y="261" width="260" height="123" rx="12" fill="#2D2243" stroke="#49365F"/>
+<text x="50" y="285" font-size="13" fill="#C09AFF" font-weight="700" >01</text>
+<text x="50" y="316" font-size="23" fill="#F5EEFF" font-weight="650" >API job request</text>
+<text x="50" y="344" font-size="17" fill="#C3B1DC" font-weight="400" >Create durable record</text>
+<text x="50" y="367" font-size="17" fill="#C3B1DC" font-weight="400" >Local file-backed queue</text>
+<path d="M296 323H312" fill="none" stroke="#C09AFF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="320" y="261" width="260" height="123" rx="12" fill="#2D2243" stroke="#49365F"/>
+<text x="338" y="285" font-size="13" fill="#C09AFF" font-weight="700" >02</text>
+<text x="338" y="316" font-size="23" fill="#F5EEFF" font-weight="650" >Local worker</text>
+<text x="338" y="344" font-size="17" fill="#C3B1DC" font-weight="400" >Host-local lock</text>
+<text x="338" y="367" font-size="17" fill="#C3B1DC" font-weight="400" >Bounded subprocess</text>
+<path d="M584 323H600" fill="none" stroke="#C09AFF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="608" y="261" width="260" height="123" rx="12" fill="#2D2243" stroke="#49365F"/>
+<text x="626" y="285" font-size="13" fill="#C09AFF" font-weight="700" >03</text>
+<text x="626" y="316" font-size="23" fill="#F5EEFF" font-weight="650" >ML experiment</text>
+<text x="626" y="344" font-size="17" fill="#C3B1DC" font-weight="400" >Simulate, fit, evaluate</text>
+<text x="626" y="367" font-size="17" fill="#C3B1DC" font-weight="400" >Grouped data splits</text>
+<path d="M872 323H888" fill="none" stroke="#C09AFF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="896" y="261" width="260" height="123" rx="12" fill="#2D2243" stroke="#49365F"/>
+<text x="914" y="285" font-size="13" fill="#C09AFF" font-weight="700" >04</text>
+<text x="914" y="316" font-size="23" fill="#F5EEFF" font-weight="650" >Stored runs</text>
+<text x="914" y="344" font-size="17" fill="#C3B1DC" font-weight="400" >Metrics + provenance</text>
+<text x="914" y="367" font-size="17" fill="#C3B1DC" font-weight="400" >UI reads API reports</text>
+<path d="M32 419H1168" stroke="#49365F"/>
+<text x="32" y="451" font-size="17" fill="#C3B1DC" font-weight="400" >One researcher, one local machine. Synthetic results and measured-instrument studies stay separate.</text>
+</g></svg>

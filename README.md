@@ -1,4 +1,19 @@
-# SpectraLab — Scientific ML for Atomic Spectra
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="docs/assets/readme/cover-dark-mobile.svg">
+  <source media="(max-width: 600px)" srcset="docs/assets/readme/cover-light-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/readme/cover-dark.svg">
+  <img src="docs/assets/readme/cover-light.svg" width="100%" alt="SpectraLab — Atomic spectra, line features and instrument shift">
+</picture>
+
+<p align="center">
+  <a href="#architecture">Architecture</a> &nbsp;·&nbsp;
+  <a href="#research-highlights">Research</a> &nbsp;·&nbsp;
+  <a href="#quick-start">Quick start</a> &nbsp;·&nbsp;
+  <a href="#documentation">Documentation</a> &nbsp;·&nbsp;
+  <a href="docs/usage-guide.md">Подробное руководство</a>
+</p>
+
+## Overview
 
 **A reproducible research toolkit for spectral classification, instrument shift
 and synthetic-to-real evaluation.**
@@ -8,7 +23,30 @@ spectra. It combines physical simulation, classical baselines, learned line
 features and grouped evaluation. The standard element set is H, He, Na, Mg, Ca
 and Fe. Predictions describe presence; generator weights are not concentrations.
 
-## What this project demonstrates
+## Architecture
+
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="docs/assets/readme/architecture-dark-mobile.svg">
+  <source media="(max-width: 600px)" srcset="docs/assets/readme/architecture-light-mobile.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/readme/architecture-dark.svg">
+  <img src="docs/assets/readme/architecture-light.svg" width="100%" alt="Interactive analysis: React → FastAPI validation and model registry → ML preprocessing and inference → API-managed history and exports. Background experiments: API durable queue → local worker subprocess → grouped ML experiments → stored reports shown by the UI.">
+</picture>
+
+The application supports one researcher on one local machine. FastAPI validates
+inputs and manages registries and local storage; the ML package implements the
+scientific pipeline. Long-running experiments use a separate worker and durable
+file-backed job records.
+
+| Layer | Implementation |
+| --- | --- |
+| React workbench: analysis, generation, experiments and measurements | [`frontend/src/pages/`](frontend/src/pages/) |
+| FastAPI routes, model registry and local storage | [`backend/app/main.py`](backend/app/main.py) · [`services/container.py`](backend/app/services/container.py) |
+| Durable jobs and bounded experiment subprocesses | [`backend/app/worker.py`](backend/app/worker.py) |
+| Reference data, simulation, preprocessing, estimators and evaluation | [`ml/src/spectralab_ml/`](ml/src/spectralab_ml/) |
+
+<a id="what-this-project-demonstrates"></a>
+
+## Research highlights
 
 | Research question | Evidence | Scope |
 | --- | --- | --- |
@@ -30,430 +68,128 @@ Synthetic, development, replay and independent final results are labeled
 separately. Independent final validation for Fe/Mg remains blocked by missing
 admitted external controls. Current metrics do not establish deployment reliability.
 
-## Research and application
+## Quick start
 
-- `ml/`: reference-line provenance, simulation, preprocessing, estimators,
-  training and evaluation.
-- `backend/`: FastAPI, local storage and experiment worker.
-- `frontend/`: interactive spectrum analysis and experiment inspection.
-
-The application supports one researcher on one local machine.
-See the [experiment protocol](docs/experiment_protocol.md),
-[research results](docs/research_results.md),
-[current roadmap](docs/roadmap.md) and
-[detailed research history](docs/research-overview-history.md).
-
-## Быстрый запуск
-
-Интерфейс полностью обновлён в направлении **Photon**: анализ, генератор,
-эксперименты и пакетный анализ адаптированы для компьютера и узкого экрана.
-Разделы «Измерения» и «Состояние системы» используют ту же дизайн-систему.
-[Изменения и проверка](docs/photon.md), [дизайн-система](DESIGN.md).
-
-Проект использует Python **3.12**, Node **22.14.0** и npm **10.9.2**. Версии
-зафиксированы в `.python-version`, `.nvmrc` и manifests; зависимости — в `uv.lock`
-и `frontend/package-lock.json`. Для первого запуска нужны `python3`, `curl`,
-`tar` и доступ к сети. `make setup` устанавливает uv 0.6.17, если его нет,
-создаёт Python-окружение и на macOS/Linux при необходимости загружает закреплённую
-пару Node/npm в `.tools/node` с проверкой SHA-256. Системные установки не меняются;
-команды проекта автоматически используют локальный runtime. Подходящий системный
-Node/npm (например, через nvm) также поддерживается.
+The pinned environment is **Python 3.12 · Node 22.14.0 · npm 10.9.2**.
+The first setup needs `python3`, `curl`, `tar` and network access.
 
 ```bash
+git clone https://github.com/ssivitskii/SpectraLab.git
+cd SpectraLab
 make setup
 make demo
 make dev
 ```
 
-Подробности окружения, настройка PyCharm и проверки перед сдачей:
-[локальный запуск](docs/local_runtime.md).
+`make setup` installs the pinned dependencies and, when needed, a project-local
+Node/npm runtime on macOS/Linux. `make demo` creates a small synthetic fixture
+dataset, trains local baseline models and runs an API-to-ML smoke check.
+The demo fixture is not a NIST dataset.
 
-`make demo` использует `demo_fixture`, создаёт небольшой синтетический датасет в
-`data/processed/`, обучает доверенные локальные модели в `artifacts/models/` и
-выполняет API→ML smoke. До обучения работает `builtin-nnls`; после demo доступны
-`baseline-nnls`, `logistic-ovr` и `random-forest`.
+`make dev` starts the **UI, API and worker** together:
+[workbench](http://localhost:5173) · [API documentation](http://localhost:8000/docs).
+Stop all three with Ctrl+C. Alternative ports: `API_PORT=8100 UI_PORT=5200 make dev`.
 
-`make dev` запускает backend, frontend и worker: [интерфейс](http://localhost:5173),
-[Swagger](http://localhost:8000/docs). Очереди заданий обрабатываются сразу;
-Ctrl+C останавливает все три процесса. Сообщение `SpectraLab ready` появляется
-после ответа обоих серверов. Занятые порты дают явную ошибку, а не скрытый переход
-на другой порт. Для своих портов: `API_PORT=8100 UI_PORT=5200 make dev`.
+The Photon interface includes spectrum generation and analysis, batch jobs,
+measured-profile inference, experiment reports and system status.
+[Interface design](docs/photon.md) · [Detailed local setup](docs/local_runtime.md)
 
-Если worker уже запущен отдельно, используйте
-`scripts/uv.sh run --frozen --all-packages --no-sync python scripts/dev.py --no-worker`.
-Только backend: `make api`; только worker:
+<details>
+<summary><strong>Docker and individual services</strong></summary>
 
-```bash
-make worker
-```
+`docker compose up --build` serves the UI at `localhost:8080` and the API at
+`localhost:8000`, bound to loopback. Stop `make dev` first. Compose starts the API
+and UI; run the worker separately. `docker compose down` preserves local data.
 
-Альтернатива — `docker compose up --build`: интерфейс на
-[localhost:8080](http://localhost:8080), API на `localhost:8000`; порты привязаны к
-loopback. Остановите `make dev` перед Compose. `docker compose down` сохраняет
-локальные данные и артефакты. Compose запускает API и UI; worker запускается отдельно.
+Individual services: `make api` and `make worker`.
+[Full runtime instructions](docs/usage-guide.md#быстрый-запуск)
 
-## Что доступно в интерфейсе
+</details>
 
-- **Генератор:** элементы и ограничения из capabilities, Gaussian/Voigt, шум,
-  response и насыщение; локальный версионированный пресет с параметрами и seed,
-  переход к анализу и экспорт CSV. Истина генератора отделена от prediction.
-- **Анализ:** проверка CSV до отправки, история спектров, metadata образца/прибора/
-  сессии/калибровки, сравнение нескольких ready-моделей с независимыми результатами
-  и ошибками. Видны версии, источник, тип score, пороги и причины недоступности.
-- **Пакетный анализ:** папка или несколько CSV, очередь с сохранённым ID,
-  восстановление незагруженных файлов по SHA-256, повтор незавершённых результатов,
-  отдельные ошибки и единый JSON/CSV/ZIP. Worker обрабатывает выбранные модели;
-  успешные результаты при возобновлении сохраняются.
-- **Измерения:** доверенный приборный профиль, явные единицы и air/vacuum,
-  происхождение калибровки оси, CSV до 16 MB, сохранённый результат и JSON/CSV/ZIP.
-  Профиль Ca v4 исследовательский; H/He не оцениваются, независимый final не выполнен.
-- **Состояние системы:** реальный heartbeat worker, очереди, квоты, свободное
-  место и статус последней проверенной копии/восстановления. Создание копии
-  и восстановление выполняются offline из CLI.
-- **График:** display-only огибающая для плотных спектров, фильтр справочных линий,
-  доступная таблица reference/observed wavelength и delta, клавиатурный выбор
-  диапазона и сохранение zoom при переключении слоёв. Prediction и экспорт
-  используют полные исходные массивы.
-- **Эксперименты:** cursor-пагинация и фильтры, одиночные запуски и серии,
-  mean/SD/count из сохранённого отчёта, переключение метрик и single/mixture,
-  состав серии и причины failed/incomplete. Несовместимые протоколы и источники
-  не объединяются молча.
-- **Задания и экспорт:** создание, реальные статусы и прогресс, отмена, повтор с
-  idempotency key и переход к отчёту; JSON/CSV/ZIP с версиями, provenance и checksum.
-  Ссылки на spectrum/run/job восстанавливаются после обновления страницы.
+## Explore the research
 
-## Команды исследований и проверки
-
-Новая модель `line-logistic` использует 174 многомасштабных признака атомных линий.
-В синтетическом drift benchmark при сдвиге 0.75 nm micro-F1 — 0.994 против 0.493
-у обычной логистической регрессии (пять matched seed). Обучение: `make line-model`;
-затем выберите модель в разделе «Анализ».
-[Протокол, график и ограничения](docs/line_classifier_v1.md).
-
-Для слабых компонентов добавлен `line-logistic-robust` (`make line-model-robust`):
-в synthetic development при весе 0.10 полнота второго компонента выросла с 13.7%
-до 100% по пяти seed. При крупном drift возможны дополнительные ложные
-срабатывания, поэтому исходная модель сохранена.
-[Протокол, сравнение и ограничения](docs/line_classifier_trace_v2.md).
-
-Анализ серии LIBS-shots доступен через `spectralab analyze-series`: контроль
-качества каждого выстрела, проверка покрытия полос, median-агрегат и CSV/JSON
-отчёт с provenance. [Запускаемый синтетический пример и формат метаданных](docs/shot_series.md).
+| Start with | What you can inspect |
+| --- | --- |
+| [Line-feature classifier](docs/line_classifier_v1.md) | Matched-seed synthetic drift study and feature design |
+| [Weak-component study](docs/line_classifier_trace_v2.md) | Robust line features, recall gains and drift regressions |
+| [Instrument adaptation](docs/instrument_adaptation.md) | Grouped ChemCam study, operational labels and transfer failures |
+| [Calcium development](docs/calcium_v4.md) | Disclosed adaptive rounds and limits of the current profile |
+| [Plasma generator](docs/plasma_generator_v3.md) | Extended simulation assumptions and historical-test replays |
+| [Shot-series analysis](docs/shot_series.md) | Quality control, aggregation and a runnable synthetic example |
 
 ```bash
-# Быстрые проверки и сборка
+# Install the line-feature model in the local workbench
+make line-model
+
+# Run a configured grouped experiment
+make experiment CONFIG=ml/configs/experiments/noise_robustness.yaml
+
+# Run the project's software checks
 make test
 make lint
 make build
-make api-types
-make analytics
-
-# Реальный браузер + изолированный временный backend
-make browser-install
-make e2e
-
-# Одиночный эксперимент и согласованная серия на пяти фиксированных seed
-make experiment CONFIG=ml/configs/experiments/noise_robustness.yaml
-make series CONFIG=ml/configs/experiments/benchmark_series.yaml
-
-# Сборка локального NIST cache из сохранённых выгрузок, без сети
-make reference
-make experiment CONFIG=ml/configs/experiments/nist_smoke.yaml
-
-# Исследование калибровки и одного физического механизма
-make series CONFIG=ml/configs/experiments/calibration.yaml
-make series CONFIG=ml/configs/experiments/physics_voigt.yaml
-
-# Отдельный синтетический open-set benchmark
-make open-set
-
-# Расширенный NIST benchmark: слабые примеси, близкие линии, профили и сетки
-make expanded-benchmark
-
-# Завершённая проверка synthetic→real; скачивание нужно только в первый раз
-make external-validation-download
-make external-validation
-
-# Предыдущий недопущенный PDS intake сохранён для аудита
-make external-data
 ```
 
-`make external-data` требует сети и проверяет совместимость/происхождение данных;
-он не публикует метрики при нерешённых ограничениях. `make open-set` исследует
-отказ от ответа отдельно от обычного `/predict` и не включает эту политику в API
-автоматически.
+Research commands, source preparation and measured-prediction CLI examples:
+[full guide](docs/usage-guide.md#команды-исследований-и-проверки).
 
-Пакетная обработка доступна также из локального CLI:
+## Documentation
 
-```bash
-scripts/uv.sh run --frozen --all-packages --no-sync python -m app.batch \
-  /path/to/spectra --models builtin-nnls --output reports/my-batch.zip
-# Возобновить сохранённый batch; для недозагруженных файлов укажите папку снова
-scripts/uv.sh run --frozen --all-packages --no-sync python -m app.batch \
-  /path/to/spectra --resume BATCH_ID --output reports/my-batch-resumed.zip
-```
+| Topic | Guide |
+| --- | --- |
+| Local setup and troubleshooting | [Runtime](docs/local_runtime.md) · [Full usage guide](docs/usage-guide.md) |
+| Data sources and input contracts | [Sources](docs/sources.md) · [CSV and reference data](docs/usage-guide.md#справочники-и-входной-csv) |
+| API, storage and exports | [API reference](docs/api.md) · [Artifacts and local operation](docs/usage-guide.md#артефакты-хранение-и-локальный-режим) |
+| Scientific assumptions and evaluation | [Physics](docs/physics_assumptions.md) · [Experiment protocol](docs/experiment_protocol.md) · [Results](docs/research_results.md) |
+| Current state and next steps | [Roadmap](docs/roadmap.md) · [Verification](docs/verification.md) · [Research history](docs/research-overview-history.md) |
 
-CLI с `--enqueue` только ставит пакет в очередь для `make worker`; без него запускает
-локальную обработку либо ждёт работающий worker. Существующий export не перезаписывается.
-Разрывы диапазона ChemCam обрабатывает отдельный исследовательский адаптер; обычный
-CSV API продолжает требовать покрытие профиля проекта.
+Predictions describe element presence, not concentration. Generator weights are
+not mass fractions; a score is not automatically a calibrated probability.
+Synthetic accuracy, development results and historical replays do not establish
+reliability on an independent instrument. Detailed limitations remain alongside
+each linked experiment and in the [usage guide](docs/usage-guide.md).
 
-Конфиги проекта и эксперимента имеют явную `schema_version: 1`; неизвестные поля,
-типы, сетка и несовместимые условия отклоняются до создания run. Одиночный запуск
-получает новый неизменяемый каталог в `reports/experiments/`; серия сохраняет
-ожидаемые seed, дочерние run-ID, hashes и исходные результаты. В сравнительные
-агрегаты входят только полные согласованные seed. SD использует `ddof=1` и равен
-`null` при числе наблюдений меньше двух. Failed/incomplete не заменяются нулями.
+<details>
+<summary>Previous README sections / Разделы подробного руководства</summary>
 
-Benchmark-профиль использует сетку 0.5 nm, обычный demo — 0.05 nm; результаты и
-модели разных профилей нельзя смешивать. Скорость измеряется после прогрева с
-повторами, median и p95. Фактические результаты:
-[исследовательский отчёт](docs/research_results.md),
-[расширенный benchmark](docs/expanded_benchmark.md),
-[протокол экспериментов](docs/experiment_protocol.md).
+<a id="быстрый-запуск"></a>
 
-## Исследовательский профиль прибора
+[Быстрый запуск](docs/usage-guide.md#быстрый-запуск)
 
-Текущая development-итерация использует отдельный `LineAdapterV3`: три фиксированных
-варианта признаков, пять внешних групповых folds и раздельные fit/calibrate/tune
-группы внутри обучения. Идентичные материалы, семейства, сессии и SHA не пересекают
-роли. Протокол, численные JSON-профили и OOF predictions сохраняются в
-`reports/adaptation_v3/`. Четыре дополнительных seed исследуют чувствительность
-к разделению тех же данных; это не независимые наборы.
-[Полный отчёт](docs/development_v3.md).
+<a id="что-доступно-в-интерфейсе"></a>
 
-```bash
-# Офлайн-диагностика конфигов, выбранного reference и сохранённых источников
-make ml-check
-# Явный пересчёт химических единиц/оксидов; неоднозначный FeO блокируется
-make assay-normalization
-# Development-only исследование; нужны ранее подготовленные локальные измерения
-make instrument-v3-development
-# Три раскрытых раунда Ca; нужны закреплённые локальные входы и предыдущие runs
-make calcium-development
-make calcium-crossfit
-make calcium-operating
+[Что доступно в интерфейсе](docs/usage-guide.md#что-доступно-в-интерфейсе)
 
-# Применение нового JSON-профиля с явными metadata прибора и шкалы
-scripts/uv.sh run --frozen --all-packages --no-sync spectralab instrument-predict \
-  --profile /path/to/profile.json --input /path/to/measurement.csv \
-  --metadata /path/to/measurement.metadata.json --output reports/measured-prediction.json
-```
+<a id="команды-исследований-и-проверки"></a>
 
-Measured CLI принимает `wavelength_nm,intensity` или `--input-format chemcam-ccs`,
-проверяет instrument ID, checksum при его указании, покрытие полос и разрывы.
-Metadata schema 1 содержит `measurement_id`, `instrument_id` и `axis` с `units: nm`,
-`medium: air|vacuum`, `source`, `source_sha256`. Air→vacuum преобразуется явно.
-Отказ даёт `detected: null`; `H`/`He` остаются unknown. Калибровка v3 относится
-только к известным operational labels development; её независимая польза,
-безопасность отказа и перенос на другой прибор не подтверждены. Профиль
-не регистрируется в API автоматически.
+[Команды исследований и проверки](docs/usage-guide.md#команды-исследований-и-проверки)
 
-Команды `spectralab final-template`, `final-preflight`, `final-freeze` и
-`final-evaluate` разделяют планирование, допуск, заморозку и однократную оценку.
-Новый guard допускает отдельные сертифицированные Fe/Mg blanks, проверяет aliases,
-исторические SHA, прибор, покрытие и заранее заданную поддержку. До чтения численных
-входов оценка сохраняет постоянные receipts; `--replay` обозначает повтор уже
-раскрытого теста. Нужен один сохранённый `--receipt-dir` для всех кампаний.
-Найденные PDS/CSA кандидаты пока не позволяют провести такой final.
-[Протокол и команды ML v4](docs/ml_v4.md).
+<a id="исследовательский-профиль-прибора"></a>
 
-Предыдущая development-итерация и CLI `predict_line_v2.py` описаны в
-[отчёте v2](docs/instrument_v2.md). Приведённая ниже проверка v1 — исторический
-зафиксированный эксперимент; её test теперь используется как development
-и повторно независимым не считается.
+[Исследовательский профиль прибора](docs/usage-guide.md#исследовательский-профиль-прибора)
 
-Отдельный профиль `chemcam-lanl-testbed` обучается на измерениях ChemCam
-`calib_2015` и проверяется на удержанных стандартах `calib_2021`. Зафиксированная
-выборка содержит **127 development-спектров** и **71 test-стандарт**. Один исходно
-выбранный файл отсутствует в архиве и исключён до обучения без замены.
-Одинаковые опубликованные имена объединены в 124 физических
-материалов; в test 71 материал и 70 семейств. Физические образцы, семейства, сессии
-и ранее использованные материалы разделяются до обучения; development дополнительно
-делится на train/tune. На итоговом test профиль показал ограничения: recall Mg = 0,
-FPR Fe = 47.1%; профиль остаётся исследовательским. Полное сравнение — в
-[отчёте](docs/instrument_adaptation.md).
+<a id="справочники-и-входной-csv"></a>
 
-```bash
-# Получить выбранные CCS CSV и PDS labels, сохранить provenance и SHA-256
-make instrument-data
-# Зафиксировать проверенный состав, разделение, метки и правила до предсказаний
-make instrument-freeze
-# Обучить кандидатов на train, выбрать модель/пороги на tune, затем проверить test
-make instrument-adaptation
+[Справочники и входной CSV](docs/usage-guide.md#справочники-и-входной-csv)
 
-# Явно повторить тот же закреплённый эксперимент после первого использования test
-.venv/bin/python scripts/adapt_chemcam.py --replay
+<a id="физика-модели-и-область-применимости"></a>
 
-# Применить сохранённый profile к одному новому CCS CSV; output должен быть новым
-scripts/uv.sh run --frozen --all-packages --no-sync python scripts/predict_instrument.py \
-  --artifact /path/to/run/profile --input /path/to/new_ccs.csv \
-  --instrument-id chemcam-lanl-testbed --output reports/new-instrument-prediction.json
-```
+[Физика, модели и область применимости](docs/usage-guide.md#физика-модели-и-область-применимости)
 
-Запуск исследования печатает каталог в `reports/adaptation/`; его `profile/`
-передаётся в `--artifact`. CLI требует совпадения прибора и сохранённые пороги,
-усредняет shots 6…N и использует только полосы профиля, отклоняя внутренние разрывы
-больше 0.5 nm. Результат сохраняет SHA-256 входа, identity профиля, правила обработки,
-score и пороги. `instrument_adapted_logistic_score` **не является вероятностью**,
-`calibrated: false`; профиль не регистрируется в API автоматически.
+<a id="артефакты-хранение-и-локальный-режим"></a>
 
-Метки `Na`, `Mg`, `Ca`, `Fe` определены по опубликованным `Na2O`, `MgO`, `CaO`,
-`FeOT` в wt%: `0 < x <= 0.1` — operational negative, `x >= 1` — positive,
-остальное, включая ноль и пропуски, — unknown. Это отдельная задача
-`operational_above_threshold`, не доказательство отсутствия элемента и не измеренный
-предел обнаружения. `H`/`He` остаются unknown. Источники и точный протокол:
-[происхождение данных](docs/sources.md), [адаптация прибора](docs/instrument_adaptation.md).
+[Артефакты, хранение и локальный режим](docs/usage-guide.md#артефакты-хранение-и-локальный-режим)
 
-## Справочники и входной CSV
+<a id="генерация-из-cli-и-расширение"></a>
 
-Demo всегда использует `data/fixtures/demo_lines.csv`: это вручную отобранный
-учебный `demo_fixture`, явно **не NIST**. Отдельный двухстрочный Na I fixture
-проверяет импорт формата. Полный сохранённый источник для шести поддерживаемых
-элементов находится в `data/reference/nist_neutral_350_800/`: исходные выгрузки,
-metadata, URLs, версия, raw SHA-256 и проверяемый `catalog.json`. NIST atomic lines —
-справочные данные, не измеренные спектры смесей.
+[Генерация из CLI и расширение](docs/usage-guide.md#генерация-из-cli-и-расширение)
 
-Выберите cache в конфиге исследования (`reference_cache`, при необходимости
-`reference_sha256`) или через CLI `--reference-cache`. Команды `train`, `experiment`
-и `series` используют выбранный источник согласованно. Для локального API задайте
-источник до запуска:
+<a id="проверка-и-дальнейшая-работа"></a>
 
-```bash
-SPECTRALAB_REFERENCE_CACHE=data/reference/nist_neutral_350_800/catalog.json make api
-```
+[Проверка и дальнейшая работа](docs/usage-guide.md#проверка-и-дальнейшая-работа)
 
-Смена источника требует перезапуска. `/elements`, генератор и registry используют
-один каталог; несовместимая модель отклоняется. Источник не выбирается произвольным
-путём из HTTP-запроса. Импорт другой сохранённой выгрузки:
+</details>
 
-```bash
-scripts/uv.sh run --frozen --all-packages --no-sync spectralab import-reference \
-  --input path/to/export.csv --metadata path/to/export.metadata.json \
-  --cache data/cache/reference.json --report reports/reference_import.json
-```
+---
 
-CSV измерения содержит ровно `wavelength_nm,intensity`:
-
-```csv
-wavelength_nm,intensity
-350.0,0.01
-575.0,1.0
-800.0,0.02
-```
-
-Это минимальный пример формата; для содержательного анализа нужна более плотная
-сетка. Требуются конечные числа, возрастающие длины волн без дублей, ненулевой
-сигнал и полное покрытие диапазона проекта. Стандартный профиль — 350–800 nm,
-`vacuum`, до 5 MB и 100 000 точек. Актуальные условия выдаёт `/capabilities`.
-Air/vacuum преобразуется явно, а не угадывается при загрузке. SNR загруженного
-CSV остаётся неизвестным. Подробности: [API](docs/api.md), [источники](docs/sources.md).
-
-## Физика, модели и область применимости
-
-Генератор поддерживает интегрированные по пикселям Gaussian/Voigt-профили,
-Gaussian либо Poisson/read noise, отклик детектора, насыщение, фон, сдвиг
-калибровки и вариацию амплитуд. Параметры, единицы и seed сохраняются в provenance.
-Профили учитывают потерянные за конечным окном хвосты без скрытой перенормировки.
-Для Poisson/read `snr_db` равен `null`, что не означает отсутствие шума.
-
-Линии различают `(element, ion_stage)`; проект задаёт активную стадию, а шаблоны
-разных ионов разделены. Для стандартного воздуха реализовано отдельное
-преобразование Peck–Reeder с проверенными эталонами и provenance. Стандартный
-справочник остаётся нейтральным; новая стадия требует подходящего источника и
-совместимого обучения. Старые несовместимые артефакты не загружаются молча.
-
-NNLS, Logistic OVR и Random Forest остаются основными baseline. NNLS возвращает
-`nnls_coefficient_times_fit_quality`: это коэффициент шаблона, умноженный на
-качество реконструкции, **не вероятность**. Калибровка Logistic/RF реализована,
-но **по умолчанию выключена**. При `calibrate: true` development делится по base IDs
-на обучение калибратора и выбор порогов; test не участвует в настройке. В отчёте
-сравниваются Brier/ECE и reliability plots до/после; улучшение не предполагается
-заранее. `calibrated` отражает применённый метод и его область проверки.
-
-ML core проверяет форму и конечность матриц, бинарные метки и отсутствие общих
-base IDs между train/validation/test до обучения. Подбор порогов перебирает
-реальные уровни score; повторное обучение сбрасывает прежнюю калибровку.
-Исправлен Random Forest для одного выходного класса. Эти изменения не переписывают
-сохранённые исследовательские профили v1/v2.
-
-Опциональная multi-label **1D CNN** подключена через интерфейс estimator.
-Минимальный runtime работает без PyTorch. Для её обучения установите extra:
-
-```bash
-scripts/uv.sh sync --frozen --all-packages --extra cnn
-make series CONFIG=ml/configs/experiments/cnn_comparison.yaml
-```
-
-Для `/models` и `/predict` нужны optional runtime и совместимый CNN-артефакт в
-доверенном каталоге моделей. CNN checkpoint хранит численные веса NPZ, версию
-архитектуры, seed, class order, preprocessing и SHA-256; загрузка не использует
-pickle. Преимущество CNN над baseline определяется измерением, не предполагается.
-Jupyter также опционален: extra `notebooks` содержит `ipykernel` и `jupyterlab`.
-
-Пустой `detected_elements` означает только отсутствие превышения порогов известных
-классов. Он не доказывает отсутствие элементов или наличие неизвестного вещества.
-Open-set benchmark отдельно измеряет false rejection известных и false acceptance
-удержанных неизвестных элементов/смесей на синтетических данных.
-
-Физические механизмы — управляемые приближения, не полная модель плазмы или прибора.
-Не моделируются LTE/non-LTE популяции, self-absorption и измеренная QE-кривая.
-Диагностические линии не являются доказанным объяснением ML-решения. Ограничения:
-[физические допущения](docs/physics_assumptions.md),
-[внешняя валидация](docs/external_validation.md).
-
-## Артефакты, хранение и локальный режим
-
-Model manifest сохраняет версии, порядок классов, ion stage, grid/preprocessing,
-source/checksum, параметры генератора, dataset/split IDs и hashes, seed, thresholds,
-calibration, метрики и зависимости. При загрузке проверяются совместимость и
-целостность. Dataset содержит observed/clean spectra, labels и base IDs; true labels
-не поступают в predictor. Серии сохраняют raw runs, а экспорт позволяет проверить
-сохранённую запись независимо от UI, без локальных путей и исполняемых моделей.
-
-История spectra/predictions, durable jobs и измеренных предсказаний переживают перезапуск;
-записи защищены атомарной заменой и локальными POSIX locks. Worker выполняет серию в
-отдельном subprocess с лимитами и непрерывно сообщает состояние через heartbeat.
-После прерывания незавершённое задание не становится ложным `completed`.
-Реализованы раздельные квоты, request ID, детальный API статуса системы (`/system/status`),
-а также потоковый offline backup с чанковым хешированием, предверификацией архива
-и сохранением статуса проверенной копии. Restore сначала проверяет и читает записи
-архива в память (лимит распакованных данных 1,5 GB), затем восстанавливает пустое хранилище. Команды и ограничения восстановления описаны в [API](docs/api.md).
-
-Запускайте сервис на loopback одного компьютера. Несколько машин, сетевые файловые
-системы и совместный сетевой доступ не входят в выбранный режим. `.env` исключён
-из Docker build context. Локальные измерения, обученные артефакты и полные отчёты
-исключены из Git; исключение — опубликованный замороженный исследовательский
-профиль Ca v4. Компактные справочники, сводки и manifests происхождения версионируются.
-Joblib-артефакты должны происходить из доверенного источника: SHA-256 подтверждает
-целостность, но не доверие к автору.
-
-## Генерация из CLI и расширение
-
-```bash
-scripts/uv.sh run --frozen --all-packages --no-sync spectralab generate \
-  --config ml/configs/generate_demo.json --output artifacts/generated-spectrum.json
-```
-
-Опциональный `--reference-cache` выбирает импортированный справочник. Используйте
-элементы/стадию с линиями в каталоге и согласованный диапазон.
-
-Новый элемент требует изменения project config и трассируемого справочника,
-перезапуска API и переобучения. Интерфейс получает классы и ограничения из API.
-Новая модель реализует `MultiLabelEstimator.fit(X, y)` и `scores(X)` с матрицей
-N × C в сохранённом порядке классов; добавляется в training/registry, задаёт
-`score_kind`, calibration и формат артефакта. Требуются совместимость preprocessing,
-разделение split, настройка порогов вне test и round-trip проверки.
-
-## Проверка и дальнейшая работа
-
-`make test` проверяет ML, API и компоненты UI. `make lint` запускает Ruff, ESLint и
-TypeScript; `make build` — production UI. `make api-types` пересоздаёт типы OpenAPI.
-CI выполняет основные проверки, demo, аналитику и браузерные E2E с диагностическими
-артефактами. Измерение графика на 100 000 точек, сценарии и условия проверки:
-[frontend validation](docs/frontend-validation.md). Plotly загружается лениво;
-предупреждение Vite о чанке около 1 MB не является ошибкой сборки.
-
-Фактические результаты и ограничения: [research results](docs/research_results.md),
-[verification](docs/verification.md). Статусы выполненных задач, внешних блокеров и
-следующие улучшения: [TODO](docs/todo.md).
+[← Back to portfolio](https://github.com/ssivitskii#selected-work)

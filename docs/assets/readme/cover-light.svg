@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="354" viewBox="0 0 1200 354" role="img" aria-labelledby="title desc">
+<title id="title">SpectraLab</title>
+<desc id="desc">Read the lines. Study the shift.</desc>
+<rect x="1" y="1" width="1198" height="352" rx="22" fill="#F8F5FF" stroke="#DDD0F1"/>
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif">
+<text x="48" y="43" font-size="15" fill="#7747CB" font-weight="700" letter-spacing="1.6">SCIENTIFIC MACHINE LEARNING</text>
+<text x="46" y="127" font-size="62" fill="#2D214F" font-weight="750" letter-spacing="-2">SpectraLab</text>
+<text x="48" y="180" font-size="25" fill="#65557E" font-weight="400" >Read the lines.</text>
+<text x="48" y="214" font-size="25" fill="#65557E" font-weight="400" >Study the shift.</text>
+<g transform="translate(862 22)"><rect width="286" height="222" rx="18" fill="#ECE5FA"/><text x="20" y="31" font-size="13" fill="#65557E" font-weight="700" letter-spacing="1.2">SPECTRAL SIGNATURE</text><path d="M47 49V173" stroke="#DDD0F1" stroke-width="1"/><path d="M95 49V173" stroke="#DDD0F1" stroke-width="1"/><path d="M143 49V173" stroke="#DDD0F1" stroke-width="1"/><path d="M191 49V173" stroke="#DDD0F1" stroke-width="1"/><path d="M239 49V173" stroke="#DDD0F1" stroke-width="1"/><path d="M20 172H265" stroke="#65557E" opacity=".4"/><path d="M21 165L39 165L44 147L49 78L54 145L60 165L78 165L84 125L89 153L94 165L126 165L133 140L140 53L147 140L153 165L187 165L194 146L199 98L205 149L212 165L235 165L242 133L249 161L263 165" fill="none" stroke="#7747CB" stroke-width="3.5" stroke-linejoin="round"/><text x="20" y="203" font-size="11" fill="#65557E" font-weight="600" letter-spacing="1">ILLUSTRATIVE SIGNAL</text></g>
+<path d="M48 253H1152" stroke="#DDD0F1"/>
+<text x="48" y="286" font-size="12" fill="#7747CB" font-weight="700" letter-spacing="1.5">SIGNAL</text>
+<text x="48" y="318" font-size="22" fill="#2D214F" font-weight="550" >Atomic spectra</text>
+<text x="323" y="286" font-size="12" fill="#7747CB" font-weight="700" letter-spacing="1.5">METHOD</text>
+<text x="323" y="318" font-size="22" fill="#2D214F" font-weight="550" >Simulation + ML</text>
+<text x="598" y="286" font-size="12" fill="#7747CB" font-weight="700" letter-spacing="1.5">EVIDENCE</text>
+<text x="598" y="318" font-size="22" fill="#2D214F" font-weight="550" >Grouped evaluation</text>
+<text x="1148" y="318" font-size="13" fill="#65557E" font-weight="600" text-anchor="end" letter-spacing="2">ML / DS</text>
+</g></svg>
