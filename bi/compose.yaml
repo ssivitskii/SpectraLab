@@ -1,0 +1,39 @@
+x-superset: &superset
+  image: ${BI_IMAGE}
+  build: .
+  env_file: .env
+  environment:
+    SUPERSET_CONFIG_PATH: /app/bi/superset_config.py
+  volumes:
+    - .:/app/bi:ro
+    - superset_home:/app/superset_home
+  depends_on:
+    db:
+      condition: service_healthy
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: bi
+      POSTGRES_PASSWORD: ${BI_DB_PASSWORD}
+      POSTGRES_DB: bi
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U bi -d bi]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+  init:
+    <<: *superset
+    command: [sh, -c, 'superset db upgrade && superset init && python /app/bi/bootstrap.py']
+  superset:
+    <<: *superset
+    ports:
+      - 127.0.0.1:${BI_PORT}:8088
+    command: [gunicorn, --bind, '0.0.0.0:8088', --workers, '2', --timeout, '120', 'superset.app:create_app()']
+
+volumes:
+  postgres_data:
+  superset_home:

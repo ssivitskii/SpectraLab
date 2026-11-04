@@ -64,3 +64,9 @@ reports/campaign_shift_v2/
 !.impeccable/mocks/decision/photon.html
 .impeccable/review/
 reports/external_plasma/
+
+# Local BI state and generated snapshots
+bi/.env
+bi/data/
+
+bi/demo-runtime/
