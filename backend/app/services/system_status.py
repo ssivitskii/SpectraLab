@@ -362,6 +362,29 @@ def get_storage_status(settings: Settings) -> dict[str, Any]:
         "remaining_bytes": None,
     }
 
+    # Series
+    series_dir = artifacts_dir / "series"
+    sr_count = 0
+    sr_size = 0
+    if series_dir.exists():
+        for d in series_dir.iterdir():
+            if d.is_dir() and not d.name.startswith("."):
+                sr_count += 1
+                for f in d.rglob("*"):
+                    if f.is_file() and not f.is_symlink():
+                        try:
+                            sr_size += f.stat().st_size
+                        except OSError:
+                            continue
+    series_cat = {
+        "record_count": sr_count,
+        "size_bytes": sr_size,
+        "quota_records": settings.max_stored_series,
+        "remaining_records": max(0, settings.max_stored_series - sr_count),
+        "quota_bytes": settings.max_series_storage_bytes,
+        "remaining_bytes": max(0, settings.max_series_storage_bytes - sr_size),
+    }
+
     # Free filesystem space
     try:
         usage = shutil.disk_usage(artifacts_dir)
@@ -381,6 +404,7 @@ def get_storage_status(settings: Settings) -> dict[str, Any]:
         "spectra": spectra_cat,
         "predictions": predictions_cat,
         "measured_predictions": measured_cat,
+        "series": series_cat,
         "jobs": jobs_cat,
         "batches": batches_cat,
         "batch_inputs": batch_inputs_cat,

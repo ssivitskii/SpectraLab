@@ -10,6 +10,7 @@ from app.core.config import Settings
 from app.services.batches import BatchStorage
 from app.services.instrument_profiles import InstrumentProfileRegistry
 from app.services.jobs import JobStorage
+from app.services.series_storage import SeriesStorage
 from app.services.storage import (
     ExperimentStorage,
     MeasuredPredictionStorage,
@@ -31,6 +32,7 @@ class Services:
     batches: BatchStorage
     instrument_profiles: InstrumentProfileRegistry
     measured_predictions: MeasuredPredictionStorage
+    series: SeriesStorage
 
 
 def build_services(settings: Settings) -> Services:
@@ -78,5 +80,10 @@ def build_services(settings: Settings) -> Services:
             settings.resolved_artifacts_dir() / "measured_predictions",
             settings.max_stored_measured_predictions,
             settings.max_measured_prediction_storage_bytes,
+        ),
+        series=SeriesStorage(
+            settings.resolved_artifacts_dir() / "series",
+            settings.max_stored_series,
+            settings.max_series_storage_bytes,
         ),
     )

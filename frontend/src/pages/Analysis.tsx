@@ -18,6 +18,8 @@ import {
 import { SpectrumChart } from "../components/Chart";
 import { ErrorNotice, Loading } from "../components/Feedback";
 import { Icon } from "../components/Icon";
+import { PlasmaDiagnosticsCard } from "../components/PlasmaDiagnosticsCard";
+import { QuantitativeAssayCard } from "../components/QuantitativeAssayCard";
 export function Analysis() {
   const [search, setSearch] = useSearchParams();
   const id = search.get("spectrum") ?? "";
@@ -379,6 +381,20 @@ function AnalysisWorkspace({
                 units={capabilities.data?.spectrum.units}
               />
               <SpectrumMetadata key={`metadata-${id}`} spectrum={spectrum.data} />
+              <PlasmaDiagnosticsCard
+                key={`plasma-${id}`}
+                spectrumId={id}
+                wavelengthNm={spectrum.data.wavelength_nm}
+                intensity={spectrum.data.intensity}
+                medium={medium}
+              />
+              <QuantitativeAssayCard
+                key={`quantitative-${id}`}
+                spectrumId={id}
+                wavelengthNm={spectrum.data.wavelength_nm}
+                intensity={spectrum.data.intensity}
+                medium={medium}
+              />
             </>
           ) : (
             <div className="empty tall spectrum-empty">

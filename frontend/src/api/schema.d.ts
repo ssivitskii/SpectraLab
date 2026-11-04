@@ -243,6 +243,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/plasma/diagnostics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Get Plasma Diagnostics */
+        post: operations["get_plasma_diagnostics_api_v1_plasma_diagnostics_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/quantitative/predict": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Predict Quantitative */
+        post: operations["predict_quantitative_api_v1_quantitative_predict_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/instrument-profiles": {
         parameters: {
             query?: never;
@@ -320,6 +354,75 @@ export interface paths {
         };
         /** Export Measured Prediction Route */
         get: operations["export_measured_prediction_route_api_v1_measured_predictions__prediction_id__export_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/series/analyze": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Analyze Series */
+        post: operations["analyze_series_api_v1_series_analyze_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/series": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Series */
+        get: operations["list_series_api_v1_series_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/series/{series_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Series */
+        get: operations["get_series_api_v1_series__series_id__get"];
+        put?: never;
+        post?: never;
+        /** Delete Series */
+        delete: operations["delete_series_api_v1_series__series_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/series/{series_id}/files/{filename}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Series File */
+        get: operations["get_series_file_api_v1_series__series_id__files__filename__get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -872,6 +975,56 @@ export interface components {
              */
             wavelength_medium: string;
         };
+        /** BoltzmannFitDto */
+        BoltzmannFitDto: {
+            /** Temperature K */
+            temperature_k: number;
+            /** Temperature Uncertainty K */
+            temperature_uncertainty_k: number;
+            /** R Squared */
+            r_squared: number;
+            /** Slope */
+            slope: number;
+            /** Intercept */
+            intercept: number;
+            /** Slope Stderr */
+            slope_stderr: number;
+            /** Element */
+            element: string;
+            /** Ion Stage */
+            ion_stage: number;
+            /** Points */
+            points: components["schemas"]["BoltzmannPointDto"][];
+            /** Confidence Score */
+            confidence_score: number;
+            /** Status */
+            status: string;
+            /** Status Message */
+            status_message: string;
+        };
+        /** BoltzmannPointDto */
+        BoltzmannPointDto: {
+            /** Element */
+            element: string;
+            /** Ion Stage */
+            ion_stage: number;
+            /** Wavelength Nm */
+            wavelength_nm: number;
+            /** Ek Ev */
+            ek_ev: number;
+            /** Ei Ev */
+            ei_ev: number;
+            /** Gk */
+            gk: number;
+            /** Aki */
+            aki: number;
+            /** Net Intensity */
+            net_intensity: number;
+            /** Y Value */
+            y_value: number;
+            /** Residual */
+            residual: number;
+        };
         /** CoverageRequirements */
         CoverageRequirements: {
             /** Bands Nm */
@@ -1361,6 +1514,21 @@ export interface components {
             /** Delta Nm */
             delta_nm: number;
         };
+        /** McWhirterDto */
+        McWhirterDto: {
+            /** Criterion Satisfied */
+            criterion_satisfied?: boolean | null;
+            /** Min Electron Density Cm3 */
+            min_electron_density_cm3: number;
+            /** Temperature K */
+            temperature_k: number;
+            /** Energy Gap Ev */
+            energy_gap_ev: number;
+            /** Status */
+            status: string;
+            /** Notes */
+            notes: string;
+        };
         /** MeasuredPredictionElement */
         MeasuredPredictionElement: {
             /** Element */
@@ -1508,6 +1676,57 @@ export interface components {
             /** Recall */
             recall: number | null;
         };
+        /** PlasmaDiagnosticsRequest */
+        PlasmaDiagnosticsRequest: {
+            /** Spectrum Id */
+            spectrum_id?: string | null;
+            /** Wavelength Nm */
+            wavelength_nm?: number[] | null;
+            /** Intensity */
+            intensity?: number[] | null;
+            /**
+             * Element
+             * @default auto
+             */
+            element: string;
+            /**
+             * Instrumental Fwhm Nm
+             * @default 0.1
+             */
+            instrumental_fwhm_nm: number;
+            /**
+             * Medium
+             * @default vacuum
+             * @enum {string}
+             */
+            medium: "air" | "vacuum";
+        };
+        /** PlasmaDiagnosticsResponse */
+        PlasmaDiagnosticsResponse: {
+            boltzmann?: components["schemas"]["BoltzmannFitDto"] | null;
+            stark?: components["schemas"]["StarkDensityDto"] | null;
+            mcwhirter?: components["schemas"]["McWhirterDto"] | null;
+            summary: components["schemas"]["PlasmaDiagnosticsSummaryDto"];
+        };
+        /** PlasmaDiagnosticsSummaryDto */
+        PlasmaDiagnosticsSummaryDto: {
+            /** Temperature K */
+            temperature_k: number;
+            /** Temperature Uncertainty K */
+            temperature_uncertainty_k: number;
+            /** Electron Density Cm3 */
+            electron_density_cm3?: number | null;
+            /** Element */
+            element: string;
+            /** Boltzmann R Squared */
+            boltzmann_r_squared: number;
+            /** Boltzmann Points Count */
+            boltzmann_points_count: number;
+            /** Lte Valid */
+            lte_valid?: boolean | null;
+            /** Diagnostics Ready */
+            diagnostics_ready: boolean;
+        };
         /** PredictArraysRequest */
         PredictArraysRequest: {
             /**
@@ -1590,6 +1809,71 @@ export interface components {
             /** Matched Reference Lines */
             matched_reference_lines: components["schemas"]["MatchedReferenceLine"][];
         };
+        /** QuantitativePredictRequest */
+        QuantitativePredictRequest: {
+            /** Spectrum Id */
+            spectrum_id?: string | null;
+            /** Wavelength Nm */
+            wavelength_nm?: number[] | null;
+            /** Intensity */
+            intensity?: number[] | null;
+            /** Targets */
+            targets?: string[] | null;
+            /**
+             * Confidence Level
+             * @default 0.95
+             */
+            confidence_level: number;
+            /**
+             * Medium
+             * @default vacuum
+             * @enum {string}
+             */
+            medium: "air" | "vacuum";
+        };
+        /** QuantitativePredictionDto */
+        QuantitativePredictionDto: {
+            /** Species */
+            species: string;
+            /** Element */
+            element: string;
+            /** Value Wt Percent */
+            value_wt_percent: number;
+            /** Lower Wt Percent */
+            lower_wt_percent: number;
+            /** Upper Wt Percent */
+            upper_wt_percent: number;
+            /** Confidence Level */
+            confidence_level: number;
+            /** Unit */
+            unit: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "in_domain" | "near_boundary" | "out_of_domain" | "below_lod";
+            /** Lod Wt Percent */
+            lod_wt_percent: number;
+            /** Leverage */
+            leverage: number;
+            /** Warning */
+            warning?: string | null;
+        };
+        /** QuantitativeReportResponse */
+        QuantitativeReportResponse: {
+            /** Predictions */
+            predictions: components["schemas"]["QuantitativePredictionDto"][];
+            /** Model Id */
+            model_id: string;
+            /** Model Version */
+            model_version: string;
+            /** Confidence Level */
+            confidence_level: number;
+            /** Total Detected Mass Wt Percent */
+            total_detected_mass_wt_percent: number;
+            /** Applicability Domain Summary */
+            applicability_domain_summary: string;
+        };
         /** QueueStatus */
         QueueStatus: {
             jobs: components["schemas"]["JobQueueCounts"];
@@ -1657,6 +1941,87 @@ export interface components {
                 };
             };
         };
+        /** SeriesAggregatePoint */
+        SeriesAggregatePoint: {
+            /** Wavelength Nm */
+            wavelength_nm: number;
+            /** Intensity */
+            intensity: number;
+            /** Intensity Mad */
+            intensity_mad: number;
+        };
+        /** SeriesAnalysisResponse */
+        SeriesAnalysisResponse: {
+            /**
+             * Schema Version
+             * @default 2
+             */
+            schema_version: number;
+            /** Series Id */
+            series_id: string;
+            /** Created At */
+            created_at: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "completed" | "insufficient_series";
+            /**
+             * Workflow
+             * @default chemcam-shot-series-v1
+             */
+            workflow: string;
+            /** Source Sha256 */
+            source_sha256: string;
+            /**
+             * Metadata Sha256
+             * @default null
+             */
+            metadata_sha256: string | null;
+            /** Shot Count */
+            shot_count: number;
+            /** Accepted Shot Count */
+            accepted_shot_count: number;
+            /** Accepted Shot Indices */
+            accepted_shot_indices: number[];
+            /** Discard First Shots */
+            discard_first_shots: number;
+            /** Discarded Shot Numbers */
+            discarded_shot_numbers: number[];
+            /** Accepted Shot Numbers */
+            accepted_shot_numbers: number[];
+            /** Policy */
+            policy: {
+                [key: string]: unknown;
+            };
+            /** Shots */
+            shots: components["schemas"]["SeriesShotDiagnostic"][];
+            /**
+             * Measurement
+             * @default null
+             */
+            measurement: {
+                [key: string]: unknown;
+            } | null;
+            /**
+             * Coverage
+             * @default null
+             */
+            coverage: {
+                [key: string]: unknown;
+            }[] | null;
+            /** Outputs */
+            outputs?: {
+                [key: string]: {
+                    [key: string]: unknown;
+                };
+            };
+            /**
+             * Aggregate
+             * @default null
+             */
+            aggregate: components["schemas"]["SeriesAggregatePoint"][] | null;
+        };
         /** SeriesFailedRun */
         SeriesFailedRun: {
             /** Seed */
@@ -1697,6 +2062,13 @@ export interface components {
                 [key: string]: unknown;
             } | null;
         };
+        /** SeriesListResponse */
+        SeriesListResponse: {
+            /** Items */
+            items: components["schemas"]["SeriesSummaryItem"][];
+            /** Total */
+            total: number;
+        };
         /** SeriesSeedRun */
         SeriesSeedRun: {
             /** Seed */
@@ -1713,6 +2085,73 @@ export interface components {
             error?: string | {
                 [key: string]: unknown;
             } | null;
+        };
+        /** SeriesShotDiagnostic */
+        SeriesShotDiagnostic: {
+            /** Shot Index */
+            shot_index: number;
+            /** Shot Number */
+            shot_number: number;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "accepted" | "rejected_quality";
+            /**
+             * Snr
+             * @default null
+             */
+            snr: number | null;
+            /** Snr Status */
+            snr_status: string;
+            /**
+             * Normalised Shape Distance
+             * @default null
+             */
+            normalised_shape_distance: number | null;
+            /** Reasons */
+            reasons: string[];
+        };
+        /** SeriesSummaryItem */
+        SeriesSummaryItem: {
+            /** Series Id */
+            series_id: string;
+            /** Created At */
+            created_at: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "completed" | "insufficient_series" | "unknown";
+            /** Shot Count */
+            shot_count: number;
+            /** Accepted Shot Count */
+            accepted_shot_count: number;
+            /**
+             * Measurement Id
+             * @default null
+             */
+            measurement_id: string | null;
+            /**
+             * Physical Sample Id
+             * @default null
+             */
+            physical_sample_id: string | null;
+            /**
+             * Family Id
+             * @default null
+             */
+            family_id: string | null;
+            /**
+             * Session Id
+             * @default null
+             */
+            session_id: string | null;
+            /**
+             * Instrument Id
+             * @default null
+             */
+            instrument_id: string | null;
         };
         /** ServiceCapabilities */
         ServiceCapabilities: {
@@ -1857,6 +2296,25 @@ export interface components {
             computed: {
                 [key: string]: unknown;
             };
+        };
+        /** StarkDensityDto */
+        StarkDensityDto: {
+            /** Electron Density Cm3 */
+            electron_density_cm3?: number | null;
+            /** Line Name */
+            line_name: string;
+            /** Center Wavelength Nm */
+            center_wavelength_nm: number;
+            /** Observed Fwhm Nm */
+            observed_fwhm_nm: number;
+            /** Instrumental Fwhm Nm */
+            instrumental_fwhm_nm: number;
+            /** Stark Fwhm Nm */
+            stark_fwhm_nm: number;
+            /** Status */
+            status: string;
+            /** Status Message */
+            status_message: string;
         };
         /** StorageCategory */
         StorageCategory: {
@@ -2134,6 +2592,86 @@ export interface components {
              * @default null
              */
             metadata: string | null;
+        };
+        /** SeriesAnalysisRequestJson */
+        SeriesAnalysisRequestJson: {
+            /**
+             * Csv Content
+             * @description CSV content of the shot series
+             */
+            csv_content: string;
+            /**
+             * Metadata
+             * @default null
+             */
+            metadata: {
+                [key: string]: unknown;
+            } | null;
+            /**
+             * Discard First Shots
+             * @default 5
+             */
+            discard_first_shots: number;
+            /**
+             * Min Snr
+             * @default 3
+             */
+            min_snr: number;
+            /**
+             * Min Accepted Shots
+             * @default 2
+             */
+            min_accepted_shots: number;
+            /**
+             * Saturation Ceiling
+             * @default null
+             */
+            saturation_ceiling: number | null;
+            /**
+             * Outlier Mad Z
+             * @default 6
+             */
+            outlier_mad_z: number;
+        };
+        /** SeriesAnalysisFormRequest */
+        SeriesAnalysisFormRequest: {
+            /**
+             * File
+             * Format: binary
+             * @description CSV file of the shot series
+             */
+            file: string;
+            /**
+             * Metadata
+             * @description Optional JSON-encoded metadata string
+             * @default null
+             */
+            metadata: string | null;
+            /**
+             * Discard First Shots
+             * @default 5
+             */
+            discard_first_shots: number;
+            /**
+             * Min Snr
+             * @default 3
+             */
+            min_snr: number;
+            /**
+             * Min Accepted Shots
+             * @default 2
+             */
+            min_accepted_shots: number;
+            /**
+             * Saturation Ceiling
+             * @default null
+             */
+            saturation_ceiling: number | null;
+            /**
+             * Outlier Mad Z
+             * @default 6
+             */
+            outlier_mad_z: number;
         };
     };
     responses: never;
@@ -3424,6 +3962,180 @@ export interface operations {
             };
         };
     };
+    get_plasma_diagnostics_api_v1_plasma_diagnostics_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PlasmaDiagnosticsRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlasmaDiagnosticsResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    predict_quantitative_api_v1_quantitative_predict_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["QuantitativePredictRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QuantitativeReportResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
     list_instrument_profiles_api_v1_instrument_profiles_get: {
         parameters: {
             query?: never;
@@ -3773,6 +4485,438 @@ export interface operations {
             header?: never;
             path: {
                 prediction_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    analyze_series_api_v1_series_analyze_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": components["schemas"]["SeriesAnalysisFormRequest"];
+                "application/json": components["schemas"]["SeriesAnalysisRequestJson"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SeriesAnalysisResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    list_series_api_v1_series_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+                offset?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SeriesListResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_series_api_v1_series__series_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                series_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SeriesAnalysisResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    delete_series_api_v1_series__series_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                series_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_series_file_api_v1_series__series_id__files__filename__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                series_id: string;
+                filename: string;
             };
             cookie?: never;
         };

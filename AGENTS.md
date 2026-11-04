@@ -60,6 +60,14 @@
 
 - Локальная BI-отчётность активности очереди доступна через `bi/start.py`: PostgreSQL
   и Apache Superset. Она не оценивает научное качество моделей; детали в README.
+- Добавлена физическая диагностика плазмы (LTE): график Больцмана для $T_e$,
+  штарковская плотность электронов $n_e$ по $H_\alpha$ и проверка критерия МакВиртера;
+  доступна через `POST /api/v1/plasma/diagnostics` и UI-компонент `PlasmaDiagnosticsCard`.
+- Добавлен модуль количественного анализа состава (Assay) оксидов (`FeOT`, `MgO`, `CaO`,
+  `TiO2`, `SiO2`, `Al2O3`) с калиброванными конформными интервалами (Split Conformal
+  Prediction 90%, 95%, 99%) и хемометрическим контролем области применимости (Applicability
+  Domain / Mahalanobis leverage $h(x)$): доступен через `POST /api/v1/quantitative/predict`
+  и UI-компонент `QuantitativeAssayCard`.
 
 ## Инварианты работы с данными и моделями
 
@@ -90,6 +98,125 @@
   python scripts/prepare_instrument_data.py --metadata-only`.
 
 ## Журнал изменений
+
+### 2026-11-04 UTC — Antigravity: Веха 4 — Количественная регрессия и калиброванная неопределённость (Assay & Conformal Uncertainty)
+
+- В рамках комплексного плана развития реализован модуль количественной оценки состава (Assay) с конформными доверительными интервалами и детекцией области применимости:
+  - `ml/src/spectralab_ml/models/quantitative.py`:
+    - Спецификация оксидных множителей и пределов обнаружения (`OXIDE_FACTORS` для `FeOT`, `MgO`, `CaO`, `TiO2`, `SiO2`, `Al2O3`), пересчёт длин волн воздух-вакуум;
+    - Алгоритм экстракции площадей аналитических линий с интегральной нормализацией спектра (`extract_species_line_features`);
+    - Ridge-регрессия и Split Conformal Prediction с конечной выборкой ($q = \lceil(n+1)(1-\alpha)\rceil/n$, гарантированное маргинальное покрытие $\ge 1-\alpha$ для 90%, 95%, 99%);
+    - Хемометрический детектор области применимости (Applicability Domain) на основе расстояния Махаланобиса / leverage $h(x) = (x - \bar{x}) \Sigma^{-1} (x - \bar{x})^T$ относительно критического порога $h^* = 3(p+1)/n$ (статусы `in_domain`, `near_boundary`, `out_of_domain`, `below_lod`).
+  - `backend/app/schemas/api.py`: добавлены Pydantic-схемы `QuantitativePredictionDto`, `QuantitativeReportResponse`, `QuantitativePredictRequest`.
+  - `backend/app/api/routes/quantitative.py`: добавлен эндпоинт `POST /api/v1/quantitative/predict` с поддержкой `spectrum_id`, прямых спектральных массивов, выбора целевых оксидов и уровня доверия.
+  - `backend/app/main.py`: зарегистрирован роутер `quantitative.router`.
+  - `frontend/src/api/client.ts` и `schema.d.ts`: добавлены метод `api.quantitativePredict` и TypeScript-типы.
+  - `frontend/src/components/QuantitativeAssayCard.tsx`: интерактивный интерфейс оценки оксидов (карточки, wt%/ppm, шкала конформного интервала, бейджи статуса применимости AD, селектор доверия 90/95/99%, сумма обнаруженных оксидов и раскрывающаяся таблица).
+  - `frontend/src/pages/Analysis.tsx` и `ShotSeries.tsx`: компонент встроен в анализ одиночного спектра и агрегированной серии.
+  - `ml/tests/test_quantitative_regression.py`: 4 модульных теста ядра (предсказания, конформное масштабирование, OOD leverage, air/vacuum).
+  - `backend/tests/test_quantitative_api.py`: 4 интеграционных теста API (массивы, spectrum_id, фильтрация таргетов, валидация).
+  - `frontend/src/test/quantitative.test.tsx`: 5 модульных тестов Vitest (рендер, смена доверия, сводная таблица, LOD/OOD бейджи, обработка ошибок).
+  - `frontend/e2e/quantitative.spec.ts`: сквозной Playwright E2E тест (генерация Fe/Mg/Ca, проверка предсказаний, смена доверия до 99%, раскрытие таблицы).
+- Проверки: `make lint build` (Ruff 184 files clean, ESLint clean, TypeScript clean, Vite build успешен);
+  `make test` (695 Python passed, 4 skipped; 68 Vitest passed в 11 suites); `make e2e` (13/13 browser tests passed).
+- Известные ограничения: базовые калибровки обучены на синтетической матрице с контролируемым шумом;
+  количественные оценки на реальных приборных данных ChemCam без дополнительного согласованного эталонного assay набора с неопределенностями остаются оценочными development-моделями (согласно инвариантам проекта).
+
+
+### 2026-11-04 UTC — Antigravity: Веха 3 — Физическая диагностика плазмы и график Больцмана (LTE Plasma Diagnostics)
+
+- В рамках комплексного плана развития реализован модуль физической диагностики параметров плазмы:
+  - `ml/src/spectralab_ml/simulation/diagnostics.py`: расчёт электронной температуры плазмы $T_e \pm \Delta T_e$
+    методом графика Больцмана ($\ln(I_{ki}\lambda_{ki}/g_k A_{ki}) = -E_k / (k_B T_e) + C$) на нерезонансных
+    линиях NIST (Fe I, Ti I, Mg I, Ca I) с оценкой $R^2$ и composite confidence score; оценка плотности электронов
+    $n_e$ по штарковскому уширению линии $H_\alpha$ ($656.46\text{ нм}$ vac / $656.28\text{ нм}$ air) с
+    деконволюцией инструментального контура Фойгта (Olivero-Longbothum); проверка критерия МакВиртера применимости
+    приближения LTE ($n_e \ge 1.6 \times 10^{12} T_e^{1/2} (\Delta E)^3\ \text{см}^{-3}$).
+  - `backend/app/schemas/api.py`: добавлены схемы `BoltzmannPointDto`, `BoltzmannFitDto`, `StarkDensityDto`,
+    `McWhirterDto`, `PlasmaDiagnosticsSummaryDto`, `PlasmaDiagnosticsResponse` и `PlasmaDiagnosticsRequest`.
+  - `backend/app/api/routes/plasma.py`: добавлен эндпоинт `POST /api/v1/plasma/diagnostics` с поддержкой передачи
+    как `spectrum_id`, так и произвольных массивов длины волны/интенсивности, выбора элемента и разрешения.
+  - `frontend/src/api/client.ts` и `schema.d.ts`: добавлены клиентские методы `api.plasmaDiagnostics` и типизация.
+  - `frontend/src/components/PlasmaDiagnosticsCard.tsx`: интерактивный компонент с карточками параметров
+    ($T_e$, $n_e$, LTE McWhirter badge), селектором элемента (авто/Fe/Ti/Mg/Ca), выбором FWHM прибора,
+    графиком Больцмана Plotly с линией регрессии и раскрывающейся таблицей линий со спектральными параметрами.
+  - `frontend/src/pages/Analysis.tsx` и `ShotSeries.tsx`: физическая диагностика плазмы встроена в рабочий экран
+    анализа спектра и в анализ серий выстрелов (по агрегированному медианному профилю).
+  - `ml/tests/test_plasma_diagnostics.py`: 5 модульных тестов физического ядра (точность восстановления $T_e$
+    на синтетических спектрах 8000 K, 10000 K, 12000 K с погрешностью $\le 8\%$, Штарк $n_e$, критерий МакВиртера,
+    устойчивость к шуму).
+  - `backend/tests/test_plasma_api.py`: 3 интеграционных теста API (массивы, spectrum_id, валидация).
+  - `frontend/src/test/plasma_diagnostics.test.tsx`: 4 модульных теста Vitest (метрики, переключение элементов,
+    раскрытие таблицы линий, обработка ошибок).
+  - `frontend/e2e/plasma.spec.ts`: Playwright E2E тест (генерация спектра Fe+H, отображение параметров плазмы,
+    проверка API-запроса при смене элемента).
+- Проверки: `make lint build` (Ruff 180 files, ESLint, TypeScript, Vite build без ошибок);
+  `scripts/uv.sh run pytest` (683 Python passed, 4 skipped);
+  Vitest (63 passed в 10 suites); `make e2e` (12/12 browser tests passed).
+
+
+### 2026-11-04 UTC — Antigravity: Веха 2 — UI интеграция анализа серий выстрелов (Shot-Series UI)
+
+- В рамках плана развития core-функциональности реализован пользовательский интерфейс анализа серий выстрелов:
+  - `frontend/src/api/client.ts`: добавлены методы `analyzeSeries`, `seriesList`, `series`,
+    `downloadSeriesFile`, `deleteSeries` и парсер предпросмотра `parseSeriesCsvPreview`.
+  - `frontend/src/components/Icon.tsx`: добавлена иконка серии импульсов (`series`).
+  - `frontend/src/components/SeriesChart.tsx`: интерактивный Plotly-график с отображением медианного
+    спектра, коридора дисперсии ($\pm 1\ \text{MAD}$), всех выстрелов (принятые/отклонённые) и подсветкой
+    выстрела при наведении на строку таблицы.
+  - `frontend/src/pages/ShotSeries.tsx`: страница анализа серий выстрелов с загрузкой файлов (drag-and-drop,
+    кнопка загрузки демо ChemCam), панелью параметров QC (discard first shots, SNR min, saturation ceiling,
+    outlier MAD z), карточками метрик качества, интерактивной таблицей диагностики выстрелов с бейджами,
+    кнопками скачивания артефактов (`receipt.json`, `aggregate.csv`, `dispersion.csv`) и историей серий.
+  - `frontend/src/App.tsx`: добавлен пункт навигации «Серии» и маршрут `/series`.
+  - `frontend/src/test/series.test.tsx`: 5 модульных тестов Vitest (пустое состояние, загрузка демо,
+    отображение диагностики QC, скачивание артефактов, предпросмотр CSV и обработка ошибок).
+  - `frontend/e2e/series.spec.ts`: сквозной тест Playwright (загрузка демо, отправка в API, проверка
+    результатов анализа, скачивание `receipt.json`, адаптивность на мобильном экране 390px).
+- Проверки: `make lint build` (Ruff, ESLint, TypeScript, Vite build без ошибок); `make test`
+  (679 Python passed, 4 skipped; 59 UI passed); `make e2e` (11/11 browser tests passed).
+
+
+### 2026-11-04 UTC — Antigravity: Веха 1 — REST API и хранилище серий выстрелов (Shot-Series)
+
+- В рамках плана развития core-функциональности реализован бэкенд для анализа серий выстрелов:
+  - `backend/app/schemas/api.py`: добавлены Pydantic-схемы запросов (`SeriesAnalysisFormRequest`,
+    `SeriesAnalysisRequestJson`) и ответов (`SeriesAnalysisResponse`, `SeriesListResponse`,
+    `SeriesShotDiagnostic`, `SeriesAggregatePoint`).
+  - `backend/app/services/series_storage.py`: создано хранилище `SeriesStorage` для изолированного
+    сохранения результатов серии (`receipt.json`, `aggregate.csv`, `dispersion.csv`, `metadata.json`,
+    `raw_input.csv`) с потокобезопасной блокировкой и LRU-ротацией по квотам.
+  - `backend/app/services/series.py`: сервисный модуль `analyze_shot_series_service` на базе
+    `spectralab_ml.data.shot_series` с поддержкой ChemCam CCS и произвольных multi-shot CSV,
+    автоматической нормализацией метаданных и контролем качества (QC: SNR, насыщение, shape outlier).
+  - `backend/app/api/routes/series.py`: добавлены маршруты `POST /api/v1/series/analyze`,
+    `GET /api/v1/series`, `GET /api/v1/series/{series_id}`, `GET /api/v1/series/{series_id}/files/{filename}`
+    и `DELETE /api/v1/series/{series_id}`.
+  - `backend/app/main.py`: подключён роутер серий и настроен лимит входящих файлов до 32 МБ.
+  - `backend/app/services/system_status.py`: добавлена категория `series` в отчёт хранилища статуса системы.
+  - `frontend/src/api/schema.d.ts`: актуализированы типизированные контракты через `make api-types`.
+  - `backend/tests/test_series_api.py`: добавлены 5 тестов (multipart/json обработка, QC отбраковка,
+    скачивание файлов, удаление и валидация).
+- Проверки: `make lint build` (Ruff, ESLint, TypeScript, Vite build без ошибок); `make test`
+  (679 Python passed, 4 skipped; 54 UI passed); `make e2e` (10/10 browser tests passed).
+
+
+### 2026-11-04 UTC — Antigravity: настройка рабочей среды, IDE и локальных артефактов
+
+- Проект и ветка `main` синхронизированы с `origin/main` (`b21f2b7`).
+- Подготовлено окружение Python: виртуальное окружение `.venv` (Python 3.12.10, uv),
+  пакеты `spectralab-ml` и `spectralab-backend` подключены в editable-режиме через workspace uv.
+- Создана локальная конфигурация `.env` на основе `.env.example`.
+- Добавлены настройки IDE в `.vscode/settings.json` (интерпретатор `.venv/bin/python`,
+  `pytest`, форматтер `ruff`, `extraPaths` для `ml/src`, `backend`, `scripts`) и рекомендации
+  расширений в `.vscode/extensions.json`. В `.gitignore` добавлен `.vscode/`.
+- Установлен браузер Playwright Chromium (`make browser-install`) в `.cache/ms-playwright`.
+- Сгенерированы локальные demo-артефакты и обучены модели (`make demo`, `make line-model`,
+  `make line-model-robust`): модели `builtin-nnls`, `line-logistic` и `line-logistic-robust`
+  сохранены в `artifacts/models/`.
+- Проверки: `make test` (674 passed, 4 skipped; 54 UI passed), `make lint build`
+  (Ruff, ESLint, TypeScript, Vite build без ошибок), `make e2e` (10/10 browser tests passed).
+
 
 ### 2026-11-04 UTC — Codex: независимые локальные BI-сессии
 

@@ -39,6 +39,8 @@ class Settings(BaseSettings):
     worker_heartbeat_stale_seconds: float = Field(default=20.0, ge=1.0, le=300.0)
     max_stored_measured_predictions: int = Field(default=1000, ge=1)
     max_measured_prediction_storage_bytes: int = Field(default=100_000_000, ge=1000)
+    max_stored_series: int = Field(default=500, ge=1)
+    max_series_storage_bytes: int = Field(default=500_000_000, ge=1000)
     instrument_profiles_path: Path | None = None
 
     def resolved_data_dir(self) -> Path:

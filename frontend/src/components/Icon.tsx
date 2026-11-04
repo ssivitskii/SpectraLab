@@ -18,6 +18,12 @@ const paths = {
   activity: <path d="M2 12h5l3-8 4 16 3-8h5" />,
   search: <><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 5 5" /></>,
   sliders: <path d="M6 3v18M12 3v18M18 3v18M3 8h6m0 8h6m0-10h6" />,
+  series: (
+    <>
+      <path d="M3 16h4l2-8 3 12 3-8 2 4h7" />
+      <path d="M3 20h18" />
+    </>
+  ),
   arrowUpRight: <path d="M5 19 19 5M5 5h14v14" />,
   folder: <path d="M3 6h7l2 3h9v12H3V6Z" />,
   play: <path d="m8 4 12 8-12 8V4Z" />,
@@ -25,6 +31,9 @@ const paths = {
   refresh: <><path d="M20 7v5h-5M4 17v-5h5" /><path d="M6.1 6a8 8 0 0 1 13.3 3M4.6 15a8 8 0 0 0 13.3 3" /></>,
   plus: <path d="M12 5v14M5 12h14" />,
   grid: <><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></>,
+  flame: (
+    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+  ),
 } satisfies Record<string, ReactNode>;
 
 export type IconName = keyof typeof paths;

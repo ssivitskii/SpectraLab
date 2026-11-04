@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { api } from "./api/client";
 import { Analysis } from "./pages/Analysis";
 import { Measured } from "./pages/Measured";
+import { ShotSeries } from "./pages/ShotSeries";
 import { Generator } from "./pages/Generator";
 import { Experiments } from "./pages/Experiments";
 import { BatchAnalysis } from "./pages/BatchAnalysis";
@@ -14,6 +15,7 @@ import { Icon, SpectrumMark, type IconName } from "./components/Icon";
 const sections: { path: string; label: string; description: string; icon: IconName }[] = [
   { path: "/analysis", label: "Анализ спектра", description: "Сигнал и элементы", icon: "spectrum" },
   { path: "/measured", label: "Измерения", description: "Приборные профили", icon: "sliders" },
+  { path: "/series", label: "Серии выстрелов", description: "QC и агрегация", icon: "series" },
   { path: "/generator", label: "Генератор", description: "Синтетические образцы", icon: "flask" },
   { path: "/experiments", label: "Эксперименты", description: "Модели и сравнение", icon: "experiments" },
   { path: "/batch", label: "Пакетный анализ", description: "Очереди измерений", icon: "layers" },
@@ -24,7 +26,10 @@ export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const current = sections.find((section) => section.path === location.pathname) ?? sections[0];
-  const usesSpectrumCatalog = location.pathname !== "/measured" && location.pathname !== "/system";
+  const usesSpectrumCatalog =
+    location.pathname !== "/measured" &&
+    location.pathname !== "/system" &&
+    location.pathname !== "/series";
   const capabilities = useQuery({ queryKey: ["capabilities"], queryFn: ({ signal }) => api.capabilities({ signal }) });
   useEffect(() => { document.title = current.label + " · SpectraLab"; }, [current.label]);
 
@@ -59,6 +64,7 @@ export function App() {
           <Routes>
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/measured" element={<Measured />} />
+            <Route path="/series" element={<ShotSeries />} />
             <Route path="/generator" element={<Generator />} />
             <Route path="/experiments" element={<Experiments />} />
             <Route path="/batch" element={<BatchAnalysis />} />

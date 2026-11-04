@@ -16,7 +16,18 @@ from fastapi.responses import JSONResponse
 from pydantic import ValidationError as PydanticValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from app.api.routes import batches, experiments, jobs, measured, predict, spectra, system
+from app.api.routes import (
+    batches,
+    experiments,
+    jobs,
+    measured,
+    plasma,
+    predict,
+    quantitative,
+    series,
+    spectra,
+    system,
+)
 from app.core.body_limit import BodyLimitMiddleware
 from app.core.config import settings
 from app.core.logging import configure_logging
@@ -27,6 +38,10 @@ from app.schemas.api import (
     MeasuredPredictionPoint,
     MeasuredPredictionRequestJson,
     MeasurementMetadataPayload,
+    SeriesAnalysisFormRequest,
+    SeriesAnalysisRequestJson,
+    SeriesAnalysisResponse,
+    SeriesListResponse,
 )
 from app.services.container import build_services
 from app.services.exports import public_record
@@ -65,6 +80,8 @@ app.add_middleware(
     route_limits={
         ("POST", "/api/v1/measured-predictions"): settings.max_measured_request_bytes,
         ("POST", "/api/v1/measured-predictions/"): settings.max_measured_request_bytes,
+        ("POST", "/api/v1/series/analyze"): settings.max_measured_request_bytes,
+        ("POST", "/api/v1/series/analyze/"): settings.max_measured_request_bytes,
     },
 )
 app.add_middleware(
@@ -80,7 +97,10 @@ for router in (
     system.router,
     spectra.router,
     predict.router,
+    plasma.router,
+    quantitative.router,
     measured.router,
+    series.router,
     experiments.router,
     jobs.router,
     batches.router,
@@ -104,6 +124,10 @@ def custom_openapi() -> dict[str, Any]:
         MeasuredPredictionPoint,
         MeasuredPredictionRequestJson,
         MeasuredPredictionFormRequest,
+        SeriesAnalysisRequestJson,
+        SeriesAnalysisFormRequest,
+        SeriesAnalysisResponse,
+        SeriesListResponse,
     ):
         m_schema = model.model_json_schema(ref_template="#/components/schemas/{model}")
         if "$defs" in m_schema:

@@ -701,3 +701,186 @@ class MeasuredPredictionFormRequest(StrictModel):
     family_id: str | None = Field(default=None, max_length=128)
     session_id: str | None = Field(default=None, max_length=128)
     metadata: str | None = Field(default=None, description="Optional JSON-encoded metadata string")
+
+
+class SeriesShotDiagnostic(BaseModel):
+    shot_index: int
+    shot_number: int
+    status: Literal["accepted", "rejected_quality"]
+    snr: float | None = None
+    snr_status: str
+    normalised_shape_distance: float | None = None
+    reasons: list[str]
+
+
+class SeriesAggregatePoint(StrictModel):
+    wavelength_nm: float = Field(..., ge=100.0, le=2000.0)
+    intensity: float = Field(...)
+    intensity_mad: float = Field(...)
+
+
+class SeriesAnalysisResponse(BaseModel):
+    schema_version: int = 2
+    series_id: str
+    created_at: str
+    status: Literal["completed", "insufficient_series"]
+    workflow: str = "chemcam-shot-series-v1"
+    source_sha256: str
+    metadata_sha256: str | None = None
+    shot_count: int
+    accepted_shot_count: int
+    accepted_shot_indices: list[int]
+    discard_first_shots: int
+    discarded_shot_numbers: list[int]
+    accepted_shot_numbers: list[int]
+    policy: dict[str, Any]
+    shots: list[SeriesShotDiagnostic]
+    measurement: dict[str, Any] | None = None
+    coverage: list[dict[str, Any]] | None = None
+    outputs: dict[str, dict[str, Any]] = Field(default_factory=dict)
+    aggregate: list[SeriesAggregatePoint] | None = None
+
+
+class SeriesSummaryItem(BaseModel):
+    series_id: str
+    created_at: str
+    status: Literal["completed", "insufficient_series", "unknown"]
+    shot_count: int
+    accepted_shot_count: int
+    measurement_id: str | None = None
+    physical_sample_id: str | None = None
+    family_id: str | None = None
+    session_id: str | None = None
+    instrument_id: str | None = None
+
+
+class SeriesListResponse(BaseModel):
+    items: list[SeriesSummaryItem]
+    total: int
+
+
+class SeriesAnalysisRequestJson(StrictModel):
+    csv_content: str = Field(..., description="CSV content of the shot series")
+    metadata: dict[str, Any] | None = None
+    discard_first_shots: int = Field(default=5, ge=0)
+    min_snr: float = Field(default=3.0, ge=0.0)
+    min_accepted_shots: int = Field(default=2, ge=1)
+    saturation_ceiling: float | None = None
+    outlier_mad_z: float = Field(default=6.0, gt=0.0)
+
+
+class SeriesAnalysisFormRequest(StrictModel):
+    file: bytes = Field(..., description="CSV file of the shot series")
+    metadata: str | None = Field(default=None, description="Optional JSON-encoded metadata string")
+    discard_first_shots: int = Field(default=5, ge=0)
+    min_snr: float = Field(default=3.0, ge=0.0)
+    min_accepted_shots: int = Field(default=2, ge=1)
+    saturation_ceiling: float | None = None
+    outlier_mad_z: float = Field(default=6.0, gt=0.0)
+
+
+class BoltzmannPointDto(BaseModel):
+    element: str
+    ion_stage: int
+    wavelength_nm: float
+    ek_ev: float
+    ei_ev: float
+    gk: float
+    aki: float
+    net_intensity: float
+    y_value: float
+    residual: float
+
+
+class BoltzmannFitDto(BaseModel):
+    temperature_k: float
+    temperature_uncertainty_k: float
+    r_squared: float
+    slope: float
+    intercept: float
+    slope_stderr: float
+    element: str
+    ion_stage: int
+    points: list[BoltzmannPointDto]
+    confidence_score: float
+    status: str
+    status_message: str
+
+
+class StarkDensityDto(BaseModel):
+    electron_density_cm3: float | None = None
+    line_name: str
+    center_wavelength_nm: float
+    observed_fwhm_nm: float
+    instrumental_fwhm_nm: float
+    stark_fwhm_nm: float
+    status: str
+    status_message: str
+
+
+class McWhirterDto(BaseModel):
+    criterion_satisfied: bool | None = None
+    min_electron_density_cm3: float
+    temperature_k: float
+    energy_gap_ev: float
+    status: str
+    notes: str
+
+
+class PlasmaDiagnosticsSummaryDto(BaseModel):
+    temperature_k: float
+    temperature_uncertainty_k: float
+    electron_density_cm3: float | None = None
+    element: str
+    boltzmann_r_squared: float
+    boltzmann_points_count: int
+    lte_valid: bool | None = None
+    diagnostics_ready: bool
+
+
+class PlasmaDiagnosticsResponse(BaseModel):
+    boltzmann: BoltzmannFitDto | None = None
+    stark: StarkDensityDto | None = None
+    mcwhirter: McWhirterDto | None = None
+    summary: PlasmaDiagnosticsSummaryDto
+
+
+class PlasmaDiagnosticsRequest(StrictModel):
+    spectrum_id: str | None = None
+    wavelength_nm: list[float] | None = None
+    intensity: list[float] | None = None
+    element: str = Field(default="auto", max_length=16)
+    instrumental_fwhm_nm: float = Field(default=0.10, ge=0.001, le=5.0)
+    medium: Literal["air", "vacuum"] = "vacuum"
+
+
+class QuantitativePredictionDto(BaseModel):
+    species: str
+    element: str
+    value_wt_percent: float
+    lower_wt_percent: float
+    upper_wt_percent: float
+    confidence_level: float
+    unit: str
+    status: Literal["in_domain", "near_boundary", "out_of_domain", "below_lod"]
+    lod_wt_percent: float
+    leverage: float
+    warning: str | None = None
+
+
+class QuantitativeReportResponse(BaseModel):
+    predictions: list[QuantitativePredictionDto]
+    model_id: str
+    model_version: str
+    confidence_level: float
+    total_detected_mass_wt_percent: float
+    applicability_domain_summary: str
+
+
+class QuantitativePredictRequest(StrictModel):
+    spectrum_id: str | None = None
+    wavelength_nm: list[float] | None = None
+    intensity: list[float] | None = None
+    targets: list[str] | None = None
+    confidence_level: float = Field(default=0.95, ge=0.5, le=0.999)
+    medium: Literal["air", "vacuum"] = "vacuum"

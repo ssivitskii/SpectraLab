@@ -35,6 +35,22 @@ export type AxisMetadata = components["schemas"]["AxisMetadata"];
 export type MeasurementMetadataPayload = components["schemas"]["MeasurementMetadataPayload"];
 export type ScaleRequirements = components["schemas"]["ScaleRequirements"];
 export type CoverageRequirements = components["schemas"]["CoverageRequirements"];
+export type SeriesShotDiagnostic = components["schemas"]["SeriesShotDiagnostic"];
+export type SeriesAggregatePoint = components["schemas"]["SeriesAggregatePoint"];
+export type SeriesAnalysisResponse = components["schemas"]["SeriesAnalysisResponse"];
+export type SeriesSummaryItem = components["schemas"]["SeriesSummaryItem"];
+export type SeriesListResponse = components["schemas"]["SeriesListResponse"];
+export type SeriesAnalysisRequestJson = components["schemas"]["SeriesAnalysisRequestJson"];
+export type BoltzmannPointDto = components["schemas"]["BoltzmannPointDto"];
+export type BoltzmannFitDto = components["schemas"]["BoltzmannFitDto"];
+export type StarkDensityDto = components["schemas"]["StarkDensityDto"];
+export type McWhirterDto = components["schemas"]["McWhirterDto"];
+export type PlasmaDiagnosticsSummaryDto = components["schemas"]["PlasmaDiagnosticsSummaryDto"];
+export type PlasmaDiagnosticsResponse = components["schemas"]["PlasmaDiagnosticsResponse"];
+export type PlasmaDiagnosticsRequest = components["schemas"]["PlasmaDiagnosticsRequest"];
+export type QuantitativePredictionDto = components["schemas"]["QuantitativePredictionDto"];
+export type QuantitativeReportResponse = components["schemas"]["QuantitativeReportResponse"];
+export type QuantitativePredictRequest = components["schemas"]["QuantitativePredictRequest"];
 export type RequestOptions = { signal?: AbortSignal; timeoutMs?: number };
 export class ApiError extends Error {
   readonly code: string;
@@ -287,6 +303,68 @@ export const api = {
   },
   systemStatus: (options?: RequestOptions) =>
     request<SystemStatusResponse>("/system/status", {}, options),
+  analyzeSeries: (
+    body: FormData | components["schemas"]["SeriesAnalysisRequestJson"],
+    options?: RequestOptions,
+  ) => {
+    if (body instanceof FormData) {
+      return request<SeriesAnalysisResponse>(
+        "/series/analyze",
+        { method: "POST", body },
+        options,
+      );
+    }
+    return request<SeriesAnalysisResponse>(
+      "/series/analyze",
+      json(body),
+      options,
+    );
+  },
+  seriesList: (options?: RequestOptions & { limit?: number; offset?: number }) =>
+    request<SeriesListResponse>(
+      `/series?${queryString({ limit: options?.limit ?? 50, offset: options?.offset ?? 0 })}`,
+      {},
+      options,
+    ),
+  series: (series_id: string, options?: RequestOptions) =>
+    request<SeriesAnalysisResponse>(
+      `/series/${encodeURIComponent(series_id)}`,
+      {},
+      options,
+    ),
+  downloadSeriesFile: async (series_id: string, filename: string) => {
+    const blob = await request<Blob>(
+      `/series/${encodeURIComponent(series_id)}/files/${encodeURIComponent(filename)}`,
+      {},
+      {},
+      true,
+    );
+    saveBlob(filename, blob);
+  },
+  deleteSeries: (series_id: string, options?: RequestOptions) =>
+    request<{ success: boolean; series_id: string }>(
+      `/series/${encodeURIComponent(series_id)}`,
+      { method: "DELETE" },
+      options,
+    ),
+  plasmaDiagnostics: (
+    body: PlasmaDiagnosticsRequest,
+    options?: RequestOptions,
+  ) =>
+    request<PlasmaDiagnosticsResponse>(
+      "/plasma/diagnostics",
+      json(body),
+      options,
+    ),
+  quantitativePredict: (
+    body: QuantitativePredictRequest,
+    options?: RequestOptions,
+  ) =>
+    request<QuantitativeReportResponse>(
+      "/quantitative/predict",
+      json(body),
+      options,
+    ),
 };
 function saveBlob(name: string, blob: Blob) {
   const url = URL.createObjectURL(blob);
@@ -489,5 +567,112 @@ export async function validateMeasuredCsv(
     maxWavelength: maxW,
     minIntensity: minI,
     maxIntensity: maxI,
+  };
+}
+
+export type ParsedSeriesPreview = {
+  shotCount: number;
+  pointCount: number;
+  minWavelength: number;
+  maxWavelength: number;
+  previewWavelengths: number[];
+  previewShots: { shotNumber: number; values: number[] }[];
+};
+
+export function parseSeriesCsvPreview(csvText: string, maxPoints = 100_000): ParsedSeriesPreview {
+  const lines = csvText.trim().split(/\r?\n/);
+  if (lines.length < 2) {
+    throw new ApiError(
+      "CSV должен содержать заголовок и данные серии выстрелов.",
+      "invalid_point_count",
+    );
+  }
+
+  let shotCount: number | null = null;
+  let headerIndex = -1;
+  let headerFields: string[] = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    if (line.startsWith("#")) {
+      const content = line.slice(1).trim();
+      const nshotsMatch = content.match(/NSHOTS\s*=\s*(\d+)/i);
+      if (nshotsMatch) {
+        shotCount = Number(nshotsMatch[1]);
+      } else if (content.toLowerCase().startsWith("wave")) {
+        headerIndex = i;
+        headerFields = content.split(",").map((s) => s.trim().toLowerCase());
+        break;
+      }
+    } else if (line.toLowerCase().startsWith("wave") || line.toLowerCase().startsWith("wavelength_nm")) {
+      headerIndex = i;
+      headerFields = line.split(",").map((s) => s.trim().toLowerCase());
+      break;
+    }
+  }
+
+  if (headerIndex === -1) {
+    throw new ApiError(
+      "Не найден заголовок с длинами волн ('# wave' или 'wavelength_nm').",
+      "invalid_csv_header",
+    );
+  }
+
+  const shotCols: { colIndex: number; shotNumber: number }[] = [];
+  for (let c = 1; c < headerFields.length; c++) {
+    const col = headerFields[c];
+    const match = col.match(/^shot(\d+)$/i);
+    if (match) {
+      shotCols.push({ colIndex: c, shotNumber: Number(match[1]) });
+    }
+  }
+
+  const detectedShotCount = shotCount ?? shotCols.length;
+  if (detectedShotCount < 1) {
+    throw new ApiError(
+      "Не удалось определить столбцы выстрелов (ожидались shot1, shot2...).",
+      "no_shots_found",
+    );
+  }
+
+  const wave: number[] = [];
+  const shotsData: number[][] = shotCols.map(() => []);
+
+  const dataLines = lines.slice(headerIndex + 1);
+  for (let idx = 0; idx < dataLines.length; idx++) {
+    const row = dataLines[idx].trim();
+    if (!row || row.startsWith("#")) continue;
+    const parts = row.split(",");
+    if (parts.length < headerFields.length) continue;
+
+    const w = Number(parts[0].trim());
+    if (!Number.isFinite(w)) continue;
+    wave.push(w);
+
+    for (let s = 0; s < shotCols.length; s++) {
+      const val = Number(parts[shotCols[s].colIndex]?.trim());
+      shotsData[s].push(Number.isFinite(val) ? val : 0);
+    }
+    if (wave.length >= maxPoints) break;
+  }
+
+  if (wave.length < 2) {
+    throw new ApiError(
+      "CSV должен содержать не менее двух строк числовых данных.",
+      "invalid_point_count",
+    );
+  }
+
+  return {
+    shotCount: detectedShotCount,
+    pointCount: wave.length,
+    minWavelength: wave[0],
+    maxWavelength: wave[wave.length - 1],
+    previewWavelengths: wave,
+    previewShots: shotCols.map((c, idx) => ({
+      shotNumber: c.shotNumber,
+      values: shotsData[idx],
+    })),
   };
 }

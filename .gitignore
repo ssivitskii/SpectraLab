@@ -1,5 +1,6 @@
 .DS_Store
 .idea/
+.vscode/
 artifacts/shot-series*/
 .env
 .env.*
@@ -39,11 +40,13 @@ artifacts/*.json
 artifacts/*.csv
 reports/verification/
 frontend/test-results/
+test-results/
 frontend/playwright-report/
 artifacts/jobs/
 artifacts/batches/
 artifacts/predictions/
 artifacts/measured_predictions/
+artifacts/series/
 reports/external/
 reports/adaptation/
 reports/adaptation_v2/
