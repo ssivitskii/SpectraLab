@@ -133,6 +133,15 @@ make build
 Research commands, source preparation and measured-prediction CLI examples:
 [full guide](docs/usage-guide.md#команды-исследований-и-проверки).
 
+## BI: experiment job activity
+
+Export the actual local job store with `python3 bi/export.py --source artifacts/jobs --output /tmp/spectralab-jobs.csv` (use `$SPECTRALAB_ARTIFACTS_DIR/jobs` if configured). The source is the JSON directory written by `JobStorage`: each `<job_id>.json` contains status, configuration, timestamps and progress. An empty existing directory exports a header only; a missing directory or malformed record fails. The CSV excludes job IDs, idempotency keys, seeds, hashes, errors and request contents. It contains only creation time, status, config, evidence, elapsed seconds and progress counts. Terminal elapsed time is creation to last update, including queue time; it is not execution time. Evidence is `unknown`: `demo` configuration does not establish whether data are synthetic, development, replay or independent final. The dashboard reports activity, not scientific quality. No demo data are generated automatically.
+
+Локальный Superset (Docker): `python3 bi/start.py --source <путь к источнику> --port 18089`. Снимок обновляется повторным запуском. Вход: `admin`, пароль хранится только в игнорируемом `bi/.env`. Стек слушает localhost; это локальная разработческая установка.
+
+For a local demonstration, set `SPECTRALAB_ARTIFACTS_DIR` to an isolated directory and `SPECTRALAB_REPORTS_DIR` to its `reports` subdirectory, start `make api` and `make worker`, then submit a `demo` job via `POST /api/v1/jobs` (for example `{"seeds":[42],"config_name":"demo","idempotency_key":"bi-demo-one"}`). Export the resulting `jobs` directory using the command above. These are demonstration jobs, not evidence of real-instrument performance.
+Остановить локальный BI без удаления данных: `BI_IMAGE=local/spectralab-bi:6.1.0 BI_PORT=18089 docker compose --env-file bi/.env -p spectralab-bi -f bi/compose.yaml down`.
+
 ## Documentation
 
 | Topic | Guide |

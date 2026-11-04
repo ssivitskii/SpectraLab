@@ -1,0 +1,51 @@
+{
+  "title": "SpectraLab experiment jobs",
+  "charts": [
+    {
+      "title": "Total jobs",
+      "table": "bi_total",
+      "columns": [
+        "jobs"
+      ],
+      "viz_type": "big_number_total",
+      "metric": "jobs"
+    },
+    {
+      "title": "Jobs by status",
+      "table": "bi_status",
+      "columns": [
+        "status",
+        "jobs"
+      ],
+      "viz_type": "echarts_timeseries_bar",
+      "metric": "jobs",
+      "groupby": [
+        "status"
+      ]
+    },
+    {
+      "title": "Time from creation to last update (terminal jobs)",
+      "table": "bi_elapsed",
+      "columns": [
+        "status",
+        "jobs",
+        "avg_elapsed_seconds"
+      ],
+      "viz_type": "table"
+    },
+    {
+      "title": "Job records",
+      "table": "bi_detail",
+      "columns": [
+        "created_at",
+        "status",
+        "config_name",
+        "evidence",
+        "elapsed_seconds",
+        "completed",
+        "total"
+      ],
+      "viz_type": "table"
+    }
+  ]
+}
