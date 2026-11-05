@@ -18,8 +18,11 @@ import {
 import { SpectrumChart } from "../components/Chart";
 import { ErrorNotice, Loading } from "../components/Feedback";
 import { Icon } from "../components/Icon";
+import { CalibrationTransferCard } from "../components/CalibrationTransferCard";
+import { DossierModal } from "../components/DossierModal";
 import { PlasmaDiagnosticsCard } from "../components/PlasmaDiagnosticsCard";
 import { QuantitativeAssayCard } from "../components/QuantitativeAssayCard";
+import { SelfAbsorptionCard } from "../components/SelfAbsorptionCard";
 export function Analysis() {
   const [search, setSearch] = useSearchParams();
   const id = search.get("spectrum") ?? "";
@@ -54,7 +57,8 @@ function AnalysisWorkspace({
   const queryClient = useQueryClient();
   const [selected, setSelected] = useState(["builtin-nnls"]),
     [attempt, setAttempt] = useState(0),
-    [mediumOverride, setMedium] = useState<string>();
+    [mediumOverride, setMedium] = useState<string>(),
+    [dossierOpen, setDossierOpen] = useState(false);
   const capabilities = useQuery({
     queryKey: ["capabilities"],
     queryFn: ({ signal }) => api.capabilities({ signal }),
@@ -381,8 +385,42 @@ function AnalysisWorkspace({
                 units={capabilities.data?.spectrum.units}
               />
               <SpectrumMetadata key={`metadata-${id}`} spectrum={spectrum.data} />
+              <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "12px", marginBottom: "8px" }}>
+                <button
+                  type="button"
+                  className="primary"
+                  data-testid="generate-dossier-btn"
+                  onClick={() => setDossierOpen(true)}
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <Icon name="file" size={16} />
+                  Сформировать измерительное досье
+                </button>
+              </div>
+              <DossierModal
+                isOpen={dossierOpen}
+                onClose={() => setDossierOpen(false)}
+                spectrumId={id}
+                wavelengthNm={spectrum.data.wavelength_nm}
+                intensity={spectrum.data.intensity}
+                medium={medium as "air" | "vacuum"}
+              />
+              <CalibrationTransferCard
+                key={`transfer-${id}`}
+                spectrumId={id}
+                wavelengthNm={spectrum.data.wavelength_nm}
+                intensity={spectrum.data.intensity}
+                medium={medium}
+              />
               <PlasmaDiagnosticsCard
                 key={`plasma-${id}`}
+                spectrumId={id}
+                wavelengthNm={spectrum.data.wavelength_nm}
+                intensity={spectrum.data.intensity}
+                medium={medium}
+              />
+              <SelfAbsorptionCard
+                key={`sa-${id}`}
                 spectrumId={id}
                 wavelengthNm={spectrum.data.wavelength_nm}
                 intensity={spectrum.data.intensity}

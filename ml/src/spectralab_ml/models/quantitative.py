@@ -88,19 +88,27 @@ def extract_species_line_features(
     total_spectral_area = float(np.trapezoid(np.maximum(radiance, 0.0), grid_nm))
     norm_factor = 1e4 / max(total_spectral_area, 1e-12)
 
+    step_est = float(np.median(np.diff(grid_nm))) if len(grid_nm) > 1 else 0.05
+    hw = max(half_width_nm, step_est * 1.25)
+    inner = max(side_inner_nm, hw + step_est * 0.5)
+    outer = max(side_outer_nm, inner + step_est * 2.0)
+
     features = []
     for wl in lines:
         delta = np.abs(grid_nm - wl)
-        peak_mask = delta <= half_width_nm
-        side_mask = (delta >= side_inner_nm) & (delta <= side_outer_nm)
+        peak_mask = delta <= hw
+        side_mask = (delta >= inner) & (delta <= outer)
 
-        if not np.any(peak_mask) or np.sum(peak_mask) < 2:
+        if not np.any(peak_mask):
             features.append(0.0)
             continue
 
         base = float(np.median(radiance[side_mask])) if np.any(side_mask) else 0.0
         net_curve = np.maximum(radiance[peak_mask] - base, 0.0)
-        net_area = float(np.trapezoid(net_curve, grid_nm[peak_mask]))
+        if np.sum(peak_mask) >= 2:
+            net_area = float(np.trapezoid(net_curve, grid_nm[peak_mask]))
+        else:
+            net_area = float(net_curve[0] * step_est)
         features.append(net_area * norm_factor)
 
     return np.asarray(features, dtype=float)

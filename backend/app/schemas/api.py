@@ -884,3 +884,235 @@ class QuantitativePredictRequest(StrictModel):
     targets: list[str] | None = None
     confidence_level: float = Field(default=0.95, ge=0.5, le=0.999)
     medium: Literal["air", "vacuum"] = "vacuum"
+
+
+class FeatureContributionDto(BaseModel):
+    species: str
+    line_wl_nm: float
+    contribution_percent: float
+    deviation_direction: Literal["high", "low"]
+
+
+class ApplicabilitySpaceResponse(BaseModel):
+    sample_pc1: float
+    sample_pc2: float
+    t_squared: float
+    t_squared_limit_95: float
+    t_squared_limit_99: float
+    q_residual: float
+    q_residual_limit_95: float
+    status: Literal["in_domain", "near_boundary", "out_of_domain"]
+    variance_explained: list[float]
+    calibration_scores: list[list[Any]]
+    ellipse_95: list[list[float]]
+    ellipse_99: list[list[float]]
+    top_contributions: list[FeatureContributionDto]
+    summary: str
+
+
+class ApplicabilitySpaceRequest(StrictModel):
+    spectrum_id: str | None = None
+    wavelength_nm: list[float] | None = None
+    intensity: list[float] | None = None
+    medium: Literal["air", "vacuum"] = "vacuum"
+
+
+class TransferProfileSummaryDto(BaseModel):
+    profile_id: str
+    name: str
+    method: str
+    source_instrument: str
+    target_instrument: str
+    window_half_width: int
+    alpha: float
+    description: str | None = None
+
+
+class TransferProfilesListResponse(BaseModel):
+    profiles: list[TransferProfileSummaryDto]
+
+
+class TransferDiagnosticsDto(BaseModel):
+    shift_detected_nm: float
+    rmsd_change: float
+    mean_correction_factor: float
+    window_half_width: int
+    alpha: float
+    applied_method: str
+    condition_number: float
+
+
+class TransferApplyRequest(StrictModel):
+    spectrum_id: str | None = None
+    wavelength_nm: list[float] | None = None
+    intensity: list[float] | None = None
+    profile_id: str = "identity"
+    medium: Literal["air", "vacuum"] = "vacuum"
+
+
+class TransferApplyResponse(BaseModel):
+    wavelength_nm: list[float]
+    intensity: list[float]
+    profile_id: str
+    method: str
+    is_identity: bool
+    diagnostics: TransferDiagnosticsDto
+    original_point_count: int
+    corrected_point_count: int
+
+
+class TransferFitRequest(StrictModel):
+    transfer_id: str = Field(min_length=1, max_length=64, pattern=r"^[a-zA-Z0-9._-]+$")
+    name: str = Field(min_length=1, max_length=128)
+    method: Literal["pds", "wavelength_alignment", "combined"]
+    master_wavelength_nm: list[float]
+    master_spectra: list[list[float]]
+    slave_wavelength_nm: list[float]
+    slave_spectra: list[list[float]]
+    window_half_width: int = Field(default=3, ge=1, le=15)
+    alpha: float = Field(default=1e-3, ge=1e-8, le=1.0)
+    source_instrument: str = Field(default="master", max_length=64)
+    target_instrument: str = Field(default="slave", max_length=64)
+    description: str | None = Field(default=None, max_length=256)
+
+
+class TransferFitResponse(BaseModel):
+    profile: TransferProfileSummaryDto
+    sha256: str
+    message: str
+
+
+class LineEvidenceDto(BaseModel):
+    element: str
+    ion_stage: int
+    line_name: str
+    target_oxide: str
+    wavelength_vacuum_nm: float
+    measured_wavelength_nm: float
+    peak_intensity: float
+    background_intensity: float
+    net_intensity: float
+    signal_to_background_ratio: float
+    detected: bool
+    is_blend: bool
+    interfering_elements: list[str]
+    relative_contribution_score: float
+
+
+class ExplainabilityReportDto(BaseModel):
+    lines: list[LineEvidenceDto]
+    detected_elements: list[str]
+    spectral_purity_score: float
+    blend_count: int
+    mean_signal_to_background: float
+    summary: str
+
+
+class MeasurementDossierResponse(BaseModel):
+    dossier_id: str
+    spectrum_id: str | None = None
+    created_at_utc: str
+    sha256: str
+    point_count: int
+    wavelength_range_nm: list[float]
+    transfer: TransferDiagnosticsDto | None = None
+    plasma: PlasmaDiagnosticsSummaryDto | None = None
+    quantitative: QuantitativeReportResponse | None = None
+    explainability: ExplainabilityReportDto
+    executive_summary: str
+    markdown_report: str
+
+
+class DossierGenerateRequest(StrictModel):
+    spectrum_id: str | None = None
+    wavelength_nm: list[float] | None = None
+    intensity: list[float] | None = None
+    transfer_profile_id: str = "identity"
+    plasma_element: str = "auto"
+    plasma_fwhm_nm: float = Field(default=0.10, ge=0.001, le=5.0)
+    quantitative_targets: list[str] | None = None
+    confidence_level: float = Field(default=0.95, ge=0.5, le=0.999)
+    medium: Literal["air", "vacuum"] = "vacuum"
+
+
+class BatchSampleAssayDto(BaseModel):
+    file_id: str
+    relative_path: str
+    sample_id: str | None = None
+    status: str
+    total_mass_wt_percent: float
+    applicability_status: Literal["in_domain", "near_boundary", "out_of_domain", "below_lod"]
+    max_leverage: float
+    predictions: dict[str, QuantitativePredictionDto]
+
+
+class BatchAssaySummaryDto(BaseModel):
+    total_samples: int
+    in_domain_count: int
+    near_boundary_count: int
+    out_of_domain_count: int
+    mean_concentrations: dict[str, float]
+    mean_total_mass_wt_percent: float
+    confidence_level: float
+
+
+class BatchAssayResponse(BaseModel):
+    batch_id: str
+    summary: BatchAssaySummaryDto
+    samples: list[BatchSampleAssayDto]
+
+
+class DoubletAbsorptionDto(BaseModel):
+    name: str
+    element: str
+    ion_stage: int
+    status: Literal["absorbed", "thin", "not_detected", "not_covered"]
+    observed_ratio: float
+    theoretical_ratio: float
+    tau_line1: float
+    tau_line2: float
+    sa_factor_line1: float
+    sa_factor_line2: float
+    line1_wl_nm: float
+    line2_wl_nm: float
+    line1_i_obs: float
+    line2_i_obs: float
+    line1_i_corrected: float
+    line2_i_corrected: float
+
+
+class SelfAbsorptionResponse(BaseModel):
+    doublets: list[DoubletAbsorptionDto]
+    mean_self_absorption_factor: float
+    summary: str
+
+
+class CFLibsElementDto(BaseModel):
+    element: str
+    atomic_fraction: float
+    weight_fraction_wt: float
+    intercept_q: float
+    lines_used_count: int
+    uncertainty_wt: float
+
+
+class CFLibsResponse(BaseModel):
+    temperature_k: float
+    elements: list[CFLibsElementDto]
+    normalization_factor_f: float
+    summary: str
+
+
+class SelfAbsorptionRequest(StrictModel):
+    spectrum_id: str | None = None
+    wavelength_nm: list[float] | None = None
+    intensity: list[float] | None = None
+    medium: Literal["air", "vacuum"] = "vacuum"
+
+
+class CFLibsRequest(StrictModel):
+    spectrum_id: str | None = None
+    wavelength_nm: list[float] | None = None
+    intensity: list[float] | None = None
+    temperature_k: float | None = Field(default=None, ge=1000.0, le=50000.0)
+    medium: Literal["air", "vacuum"] = "vacuum"

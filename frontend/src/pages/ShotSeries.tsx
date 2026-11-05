@@ -11,6 +11,8 @@ import {
 import { ErrorNotice, Loading } from "../components/Feedback";
 import { Icon } from "../components/Icon";
 import { SeriesChart } from "../components/SeriesChart";
+import { CalibrationTransferCard } from "../components/CalibrationTransferCard";
+import { DossierModal } from "../components/DossierModal";
 import { PlasmaDiagnosticsCard } from "../components/PlasmaDiagnosticsCard";
 import { QuantitativeAssayCard } from "../components/QuantitativeAssayCard";
 
@@ -66,6 +68,7 @@ export function ShotSeries() {
 
   const [activeShotNumber, setActiveShotNumber] = useState<number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [dossierOpen, setDossierOpen] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const discardInputId = useId();
@@ -502,6 +505,29 @@ export function ShotSeries() {
               {/* Физическая диагностика плазмы по агрегированному спектру */}
               {activeSeries.aggregate && activeSeries.aggregate.length >= 10 && (
                 <>
+                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "12px", marginBottom: "8px" }}>
+                    <button
+                      type="button"
+                      className="primary"
+                      onClick={() => setDossierOpen(true)}
+                      style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                    >
+                      <Icon name="file" size={16} />
+                      Сформировать измерительное досье серии
+                    </button>
+                  </div>
+                  <DossierModal
+                    isOpen={dossierOpen}
+                    onClose={() => setDossierOpen(false)}
+                    wavelengthNm={activeSeries.aggregate.map((p) => p.wavelength_nm)}
+                    intensity={activeSeries.aggregate.map((p) => p.intensity)}
+                    medium="vacuum"
+                  />
+                  <CalibrationTransferCard
+                    wavelengthNm={activeSeries.aggregate.map((p) => p.wavelength_nm)}
+                    intensity={activeSeries.aggregate.map((p) => p.intensity)}
+                    medium="vacuum"
+                  />
                   <PlasmaDiagnosticsCard
                     wavelengthNm={activeSeries.aggregate.map((p) => p.wavelength_nm)}
                     intensity={activeSeries.aggregate.map((p) => p.intensity)}

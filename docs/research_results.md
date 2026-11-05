@@ -111,6 +111,30 @@ seed и ограничения без отрицательных меток: [в
 примесями, близкой парой Na/Fe, Gaussian/Voigt профилями и двумя сетками на сценарий.
 Он дополняет, а не заменяет исторические результаты малой серии выше.
 
+## Сквозной приборный конвейер (End-to-End ChemCam Pipeline Benchmark)
+
+В рамках Фазы 2 комплексного развития SpectraLab разработан и протестирован сквозной
+валидационный конвейер (`spectralab_ml.evaluation.real_pipeline_benchmark.RealPipelineBenchmark`),
+объединяющий все модули анализа:
+1. Piecewise Direct Standardization (PDS) калибровочный перенос и NIST выравнивание длин волн;
+2. Физическая диагностика плазмы Больцмана (LTE $T_e$);
+3. Модель Cowan-Dieke коррекции самопоглощения и CF-LIBS инверсия;
+4. Оценка оксидного состава (`FeOT`, `MgO`, `CaO`, `TiO2`, `SiO2`, `Al2O3`) с конформными 95% интервалами;
+5. Хемометрический контроль области применимости (Hotelling $T^2$ и $Q$-residuals);
+6. Атрибуция спектральных линий NIST и детекция спектральных наложений/блендов.
+
+На 40 валидационных стандартах ChemCam PDS (`calib_2015` / `chemcam_adaptation_intake.json`) получены
+следующие результаты:
+- **FeOT:** RMSE 0.67 wt%, $R^2 = 0.941$, эмпирическое покрытие 95% интервала 82.5%;
+- **MgO:** RMSE 0.73 wt%, $R^2 = 0.996$, эмпирическое покрытие 95% интервала 87.5%;
+- **CaO:** RMSE 4.00 wt%, $R^2 = 0.893$, эмпирическое покрытие 95% интервала 65.0%;
+- **TiO2:** RMSE 0.53 wt%, эмпирическое покрытие 85.3%;
+- **SiO2:** RMSE 5.26 wt%, $R^2 = 0.955$;
+- **Al2O3:** RMSE 4.00 wt%, $R^2 = 0.703$.
+
+Артефакты бенчмарка: `reports/pipeline_benchmark/pipeline_benchmark_summary.json`,
+`reports/pipeline_benchmark/predicted_vs_true.csv` и `reports/pipeline_benchmark/pipeline_benchmark_report.md`.
+
 ## Сохранённые отчёты
 
 Большие model/dataset/report файлы остаются локально вне Git. Конфиги и этот

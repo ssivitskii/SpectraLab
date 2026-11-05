@@ -68,6 +68,38 @@
   Prediction 90%, 95%, 99%) и хемометрическим контролем области применимости (Applicability
   Domain / Mahalanobis leverage $h(x)$): доступен через `POST /api/v1/quantitative/predict`
   и UI-компонент `QuantitativeAssayCard`.
+- Добавлен модуль калибровочного переноса между приборами (Calibration Transfer):
+  ленточная Piecewise Direct Standardization (PDS) с регуляризацией Ridge, автоматическое
+  полиномиальное выравнивание шкалы длин волн по реперным эмиссионным линиям NIST и
+  версионированные профили переноса с SHA-256; доступен через REST API `GET/POST /api/v1/transfer/*`
+  и UI-компонент `CalibrationTransferCard`.
+- Добавлено объяснимое измерительное досье спектра (Unified Dossier) и спектральная
+  атрибуция линий NIST (Line Explainability): расчёт отношения сигнал/фон (SBR), детекция
+  спектральных наложений/блендов ($\Delta\lambda \le 0.15\text{ нм}$), экспорт свидетельства
+  в JSON, печатный HTML и CSV; доступно через REST API `/api/v1/dossier/*` и модальное
+  окно `DossierModal`.
+- Добавлен пакетный количественный анализ оксидов и матричный аудит применимости
+  (Batch Quantitative Assay & Applicability Audit): расчёт оксидных содержаний (`FeOT`, `MgO`,
+  `CaO`, `TiO2`, `SiO2`, `Al2O3`), сводка по доле образцов In-Domain/OOD, экспорт хемометрической
+  матрицы в формате CSV; доступен через REST API `/api/v1/batches/{id}/assay-matrix*` и UI-компонент
+  `BatchAssayCard`.
+
+- Добавлено физическое самопоглощение (Cowan-Dieke) и безкалибровочный анализ (CF-LIBS):
+  оценка оптической толщины $\tau_0$ по резонансным дублетам Mg II, Ca II, Na I, восстановление
+  непоглощенных интенсивностей $I_0$ и инверсия элементного состава по инвариантам Саха-Больцмана;
+  доступно через REST API `/api/v1/plasma/self-absorption`, `/api/v1/plasma/cf-libs` и UI-компонент
+  `SelfAbsorptionCard`.
+
+- Добавлена визуализация хемометрической области применимости (Applicability Domain & Leverage Space):
+  разложение в пространство главных компонент (PCA), 95% и 99% эллипсы Хотеллинга ($T^2$),
+  ортогональные невязки ($Q$-residuals) и декомпозиция вкладов линий в отклонение образца;
+  доступно через REST API `/api/v1/quantitative/applicability-space` и UI-компонент `ApplicabilityDomainChart`.
+
+- Добавлен сквозной приборный валидационный конвейер (End-to-End Real-Instrument Pipeline & Benchmark):
+  автоматизированная цепочка PDS transfer $\to$ NIST alignment $\to$ Boltzmann $T_e$ $\to$ Cowan-Dieke
+  self-absorption $\to$ CF-LIBS $\to$ quantitative assay $\to$ 95% conformal bounds $\to$ Hotelling $T^2$/Q $\to$
+  line attribution; воспроизводимая валидация на 40 стандартах ChemCam PDS (`calib_2015`);
+  отчёты в `reports/pipeline_benchmark/` и `docs/research_results.md`.
 
 ## Инварианты работы с данными и моделями
 
@@ -98,6 +130,142 @@
   python scripts/prepare_instrument_data.py --metadata-only`.
 
 ## Журнал изменений
+
+### 2026-11-05 UTC — Antigravity: Веха 10 — Сквозная приборная валидация на ChemCam Replay (End-to-End Real-Instrument Pipeline & Benchmark)
+
+- В рамках Фазы 2 комплексного плана развития реализован сквозной валидационный конвейер для реальных приборных серий:
+  - `ml/src/spectralab_ml/evaluation/real_pipeline_benchmark.py`:
+    - Модуль `RealPipelineBenchmark` связывает в непрерывную воспроизводимую цепочку все стадии обработки:
+      1) Компенсация дрейфа шкалы и PDS-перенос (`CalibrationTransferModel`);
+      2) Диагностика плазмы по Саха–Больцману (`analyze_plasma_diagnostics`);
+      3) Физическая коррекция самопоглощения Cowan–Dieke и CF-LIBS инверсия (`analyze_self_absorption`, `compute_cf_libs_inversion`);
+      4) Количественная регрессия оксидов (`QuantitativeAssayRegressor`) с калиброванными конформными интервалами 90%, 95%, 99%;
+      5) Хемометрический контроль области применимости в пространстве главных компонент (`ApplicabilitySpaceModel`, эллипсы Hotelling $T^2$ и $Q$-невязки);
+      6) Спектральная атрибуция линий NIST и контроль наложений (`analyze_spectral_explainability`);
+    - Автоматическая оценка 40 сертифицированных геохимических стандартов ChemCam NASA PDS (`chemcam_adaptation_intake.json`, `calib_2015`);
+    - Вычисление валидационных метрик: RMSE, MAE, $R^2$, эмпирическое покрытие 95% конформных интервалов (FeOT RMSE 0.67 wt%, $R^2 = 0.941$, покрытие 82.5%; MgO RMSE 0.73 wt%, $R^2 = 0.996$, покрытие 87.5%; SiO2 RMSE 5.26 wt%, $R^2 = 0.955$; TiO2 RMSE 0.53 wt%, покрытие 85.3%);
+    - Генерация воспроизводимых артефактов в `reports/pipeline_benchmark/`:
+      `pipeline_benchmark_summary.json`, `pipeline_benchmark_report.md` и детального CSV `predicted_vs_true.csv`.
+  - `ml/tests/test_real_pipeline_benchmark.py`: модульный тест валидации стабильности пайплайна, расчета погрешностей и корректности экспорта артефактов.
+  - `docs/research_results.md`: добавлен раздел со сводной таблицей и выводами сквозной приборной валидации.
+- Проверки: `make lint build` (Ruff 203 files clean, ESLint clean, TypeScript clean, Vite build успешен);
+  `make test` (728 Python passed, 4 skipped; 86 Vitest passed в 16 suites); `make e2e` (18/18 browser tests passed); `git diff --check` (clean).
+- Известные ограничения: валидация проведена на открытых предполётных калибровочных стандартах LANL ChemCam testbed (`calib_2015`); полевые марсианские спектры с высокой пылевой эрозией требуют отдельного аудита в соответствии с дорожной картой проекта.
+
+
+### 2026-11-05 UTC — Antigravity: Веха 9 — Визуализация хемометрической области применимости (Applicability Domain Visualizer & Leverage Space)
+
+- В рамках Фазы 2 комплексного плана развития реализован модуль визуализации хемометрического пространства применимости:
+  - `ml/src/spectralab_ml/models/applicability_space.py`:
+    - Модель многомерного пространства применимости `ApplicabilitySpaceModel` на основе 24 аналитических признаков оксидов (`FeOT`, `MgO`, `CaO`, `TiO2`, `SiO2`, `Al2O3`);
+    - PCA-проекция в плоскость главных компонент (PC1, PC2), вычисление объясненной дисперсии;
+    - Расчёт 95% и 99% доверительных эллипсов Хотеллинга ($T^2 = \sum t_k^2 / s_k^2$) по точному $F$-распределению;
+    - Оценка ортогональных $Q$-невязок модели ($Q = \|x - \hat{x}\|^2$) и перцентильных порогов $Q_{95}, Q_{99}$;
+    - Декомпозиция вкладов спектральных линий в невязку (Influence decomposition) с определением направления отклонения (`high`/`low`).
+  - `backend/app/schemas/api.py`: добавлены Pydantic-схемы `FeatureContributionDto`, `ApplicabilitySpaceResponse`, `ApplicabilitySpaceRequest`.
+  - `backend/app/api/routes/quantitative.py`: добавлен эндпоинт `POST /api/v1/quantitative/applicability-space` с поддержкой прямых массивов и stored `spectrum_id`.
+  - `frontend/src/api/client.ts` и `schema.d.ts`: добавлены клиентский метод `api.quantitativeApplicabilitySpace` и типизация.
+  - `frontend/src/components/ApplicabilityDomainChart.tsx`: интерактивная визуализация Plotly с точками калибровочных стандартов (базальт, андезит, гранит, перидотит), эллипсами $T^2$ (95% и 99%), маркером исследуемого образца, карточками метрик $T^2 / Q$ и раскрывающимся списком вкладов спектральных линий.
+  - `frontend/src/components/QuantitativeAssayCard.tsx`: встроена кнопка переключения «Пространство AD (PCA)» и компонент `ApplicabilityDomainChart`.
+  - `ml/tests/test_applicability_space.py`: 4 модульных теста ядра (инициализация, in-domain, out-of-domain, air/vacuum).
+  - `backend/tests/test_applicability_space_api.py`: 3 интеграционных теста API (массивы, stored spectrum_id, ошибки валидации).
+  - `frontend/src/test/applicability_space.test.tsx`: 3 модульных теста Vitest (рендер метрик $T^2/Q$, переключение вкладов, ошибки API).
+  - `frontend/e2e/applicability_space.spec.ts`: сквозной Playwright E2E тест (генерация спектра, открытие карточки AD, проверка метрик и декомпозиции).
+- Проверки: `make lint build` (Ruff 201 files clean, ESLint clean, TypeScript clean, Vite build успешен);
+  `make test` (727 Python passed, 4 skipped; 86 Vitest passed в 16 suites); `make e2e` (18/18 browser tests passed).
+- Известные ограничения: многомерное пространство калибровано на ключевых породообразующих силикатных матрицах; образцы с доминированием редких элементов (карбонаты, сульфаты) корректно классифицируются как out-of-domain.
+
+
+### 2026-11-05 UTC — Antigravity: Веха 8 — Физическое самопоглощение и CF-LIBS (Self-Absorption & CF-LIBS)
+
+- В рамках Фазы 2 комплексного плана развития реализован модуль физического самопоглощения и безкалибровочного LIBS-анализа:
+  - `ml/src/spectralab_ml/simulation/self_absorption.py`:
+    - Модель Cowan-Dieke ($SA = (1 - \exp(-\tau_0))/\tau_0$);
+    - 1D Brent solver для нахождения оптической толщины $\tau_0$ по наблюдаемым отношениям дублетов ($R_{\text{obs}} \le R_{\text{theo}}$) на кураторских дублетах (`Mg II 279.64/280.35`, `Ca II 393.48/396.96`, `Na I 589.16/589.76`);
+    - Реконструкция непоглощенной интенсивности ($I_0 = I_{\text{obs}} / SA$);
+    - Мультиэлементная CF-LIBS инверсия (`compute_cf_libs_inversion`) с использованием статистических сумм NIST $U(T)$ из `PlasmaReference`, экспоненциальных Больцмановских весов и замыкания $\sum C_i = 1.0$.
+  - `backend/app/schemas/api.py`: добавлены Pydantic-схемы `DoubletAbsorptionDto`, `SelfAbsorptionResponse`, `CFLibsElementDto`, `CFLibsResponse`, `SelfAbsorptionRequest`, `CFLibsRequest`.
+  - `backend/app/api/routes/plasma.py`: добавлены эндпоинты `POST /api/v1/plasma/self-absorption` и `POST /api/v1/plasma/cf-libs` (с автоматическим определением температуры через Boltzmann fit при отсутствии `temperature_k`).
+  - `frontend/src/api/client.ts` и `schema.d.ts`: добавлены клиентские методы `api.plasmaSelfAbsorption`, `api.plasmaCFLibs` и типы данных.
+  - `frontend/src/components/SelfAbsorptionCard.tsx`: интерактивная карточка Photon со статусами дублетов (`absorbed`, `thin`, `not_detected`), $R_{\text{obs}} / R_{\text{theo}}$, $\tau_0$, $SA$, $I_{\text{obs}} \to I_0$ и сеткой элементного состава CF-LIBS.
+  - `frontend/src/pages/Analysis.tsx`: компонент `SelfAbsorptionCard` встроен в страницу анализа спектра.
+  - `ml/tests/test_self_absorption.py`: 4 модульных теста ядра (Cowan-Dieke фактор, Brent solver, Mg/Ca дублеты, CF-LIBS инверсия).
+  - `backend/tests/test_self_absorption_api.py`: 4 интеграционных теста API (массивы, stored spectrum_id, CF-LIBS, валидация).
+  - `frontend/src/test/self_absorption.test.tsx`: 3 модульных теста Vitest (рендер дублетов, переключение деталей, ошибка API).
+  - `frontend/e2e/self_absorption.spec.ts`: сквозной Playwright E2E тест (генерация спектра, рендер дублетов Mg/Ca, раскрытие деталей CF-LIBS).
+- Проверки: `make lint build` (Ruff 198 files clean, ESLint clean, TypeScript clean, Vite build успешен);
+  `make test` (720 Python passed, 4 skipped; 83 Vitest passed в 15 suites); `make e2e` (17/17 browser tests passed).
+- Известные ограничения: базовые реперные дублеты сфокусированы на Mg II, Ca II, Na I в диапазоне 250–650 нм; CF-LIBS инверсия предполагает оптически тонкий режим для аналитических линий после отбора/коррекции.
+
+
+### 2026-11-05 UTC — Antigravity: Веха 7 — Пакетный количественный анализ и матричный экспорт (Batch Quantitative Assay & Applicability Audit)
+
+- В рамках Фазы 2 комплексного плана развития реализован модуль пакетной оценки состава и контроля области применимости:
+  - `backend/app/schemas/api.py`: добавлены Pydantic-схемы `BatchSampleAssayDto`, `BatchAssaySummaryDto`, `BatchAssayResponse`.
+  - `backend/app/services/batches.py`:
+    - Метод `BatchStorage.get_assay_matrix`: вычисление содержаний оксидов (`FeOT`, `MgO`, `CaO`, `TiO2`, `SiO2`, `Al2O3`), конформных интервалов (90%, 95%, 99%), худшего статуса применимости (`in_domain`, `near_boundary`, `out_of_domain`), максимального leverage $h(x)$ и агрегированных средних для всех валидных файлов пакета;
+    - Метод `BatchStorage.export_assay_matrix_csv`: генерация RFC 4180 CSV матрицы концентраций и границ погрешности по всем образцам пакета.
+  - `backend/app/api/routes/batches.py`: добавлены эндпоинты `GET /api/v1/batches/{batch_id}/assay-matrix` и `GET /api/v1/batches/{batch_id}/assay-matrix/download`.
+  - `frontend/src/api/client.ts` и `schema.d.ts`: добавлены клиентские функции `api.batchAssayMatrix`, `api.batchAssayMatrixDownloadUrl` и типизация.
+  - `frontend/src/components/BatchAssayCard.tsx`: интерактивная панель Photon с KPI-сводкой (число образцов, In-domain счетчик, средняя масса, средние оксиды), селектором доверия (90/95/99%), таблицей образцов с AD бейджами и кнопкой выгрузки CSV матрицы.
+  - `frontend/src/pages/BatchAnalysis.tsx`: компонент `BatchAssayCard` встроен в детальное представление пакета.
+  - `backend/tests/test_batch_assay_api.py`: интеграционный тест создания пакета, загрузки спектров, выборки матрицы и скачивания CSV.
+  - `frontend/src/test/batch_assay.test.tsx`: 3 модульных теста Vitest (рендер KPI, селектор доверия, обработка ошибок).
+  - `frontend/e2e/batch_assay.spec.ts`: сквозной Playwright E2E тест (создание пакета, загрузка файла, проверка карточки, выбор 99%, проверка URL экспорта).
+- Проверки: `make lint build` (Ruff clean, ESLint clean, TypeScript clean, Vite build успешен);
+  `make test` (712 Python passed, 4 skipped; 80 Vitest passed в 14 suites); `make e2e` (16/16 browser tests passed).
+- Известные ограничения: пакетный расчет оксидов ориентирован на спектры со стандартным охватом (350–800 нм); файлы вне допустимого диапазона пропускаются с сохранением статуса ошибки.
+
+
+### 2026-11-05 UTC — Antigravity: Веха 6 — Объяснимое измерительное досье и экспорт комплексного свидетельства (Unified Dossier & Line Explainability)
+
+- В рамках Фазы 2 комплексного плана развития реализован модуль измерительного досье и спектральной атрибуции:
+  - `ml/src/spectralab_ml/models/explainability.py`:
+    - Каталог аналитических линий NIST (`LINE_CATALOG`) с энергиями $E_k$, вероятностями переходов $A_{ki}$ и целевыми оксидами;
+    - Алгоритм детекции линий, расчёта локального фона по крыльям, чистой интенсивности ($I_{net}$) и отношения сигнал/фон ($SBR$);
+    - Детектор спектральных наложений/интерференций (`find_spectral_blends`) в окне $\le 0.15\text{ нм}$;
+    - Оценка чистоты спектра (`spectral_purity_score`) и относительного вклада линий (`relative_contribution_score`).
+  - `backend/app/schemas/api.py`: добавлены Pydantic-схемы `LineEvidenceDto`, `ExplainabilityReportDto`, `MeasurementDossierResponse`, `DossierGenerateRequest`.
+  - `backend/app/services/dossier.py`: реализован сервис `DossierStorage` с синтезом резюме, генерацией отчёта Markdown, рендерингом стилизованного печатного HTML и экспортом CSV.
+  - `backend/app/services/container.py`: сервис `dossier` внедрен в DI-контейнер `Services`.
+  - `backend/app/api/routes/dossier.py`: добавлены эндпоинты `POST /api/v1/dossier/generate`, `GET /api/v1/dossier/{id}`, `GET /api/v1/dossier/{id}/download?format=json|html|csv`.
+  - `backend/app/main.py`: роутер `dossier.router` зарегистрирован в FastAPI.
+  - `frontend/src/api/client.ts` и `schema.d.ts`: добавлены клиентские методы `api.dossierGenerate`, `api.dossierGet`, `api.dossierDownloadUrl` и типизация.
+  - `frontend/src/components/DossierModal.tsx`: интерактивное модальное окно с паспортом измерения (SHA-256, диапазон), бейджами чистоты/Te/массы, табами «Линии NIST» (с фильтром), «Оксидный состав (Assay)», «Протокол Markdown» и кнопками скачивания HTML/CSV/JSON.
+  - `frontend/src/pages/Analysis.tsx` и `ShotSeries.tsx`: встроена кнопка вызова измерительного досье для одиночных спектров и серий.
+  - `ml/tests/test_explainability.py`: 3 модульных теста ядра (детекция линий, SBR, бленды, air/vacuum).
+  - `backend/tests/test_dossier_api.py`: 3 интеграционных теста API (генерация, выборка по ID, скачивание JSON/HTML/CSV, stored spectrum_id, 404/422).
+  - `frontend/src/test/dossier.test.tsx`: 5 модульных тестов Vitest (рендер, табы, фильтрация, закрытие).
+  - `frontend/e2e/dossier.spec.ts`: сквозной Playwright E2E тест (генерация спектра, открытие модала, проверка данных, переключение табов, закрытие).
+- Проверки: `make lint build` (Ruff 194 files clean, ESLint clean, TypeScript clean, Vite build успешен);
+  `make test` (711 Python passed, 4 skipped; 77 Vitest passed в 13 suites); `make e2e` (15/15 browser tests passed).
+- Известные ограничения: каталог спектральных линий сфокусирован на основных породообразующих элементах (Fe, Ti, Mg, Ca, Si, Al, Na, H); редкие примеси и высокоионизованные стадии (>II) не включены в базовый каталог.
+
+
+### 2026-11-05 UTC — Antigravity: Веха 5 — Калибровочный перенос между приборами (Calibration Transfer: PDS & Wavelength Alignment)
+
+- В рамках комплексного плана развития реализован модуль калибровочного переноса между приборами и компенсации дрейфа спектрометров:
+  - `ml/src/spectralab_ml/models/calibration_transfer.py`:
+    - Алгоритм ленточной Piecewise Direct Standardization (PDS) с регуляризацией Ridge ($O(k \cdot p)$ памяти и времени) и поддержкой аддитивного фона;
+    - Алгоритм автоматического полиномиального выравнивания длины волны (`fit_wavelength_shift_polynomial`, `apply_wavelength_correction`) по реперным эмиссионным линиям NIST (`STANDARD_REFERENCE_LINES`);
+    - Класс `CalibrationTransferModel` с криптографическим SHA-256 хешированием матриц, сохранением и загрузкой JSON-артефактов;
+    - Предустановленные профили переноса (`identity`, `chemcam_pds_v1`, `wavelength_alignment_v1`, `combined_pds_alignment_v1`).
+  - `backend/app/schemas/api.py`: добавлены Pydantic-схемы `TransferProfileSummaryDto`, `TransferProfilesListResponse`, `TransferDiagnosticsDto`, `TransferApplyRequest`, `TransferApplyResponse`, `TransferFitRequest`, `TransferFitResponse`.
+  - `backend/app/services/transfer_storage.py`: реализовано хранилище `TransferStorage` для обнаружения, применения и регистрации профилей переноса.
+  - `backend/app/services/container.py`: сервис `transfer` внедрен в DI-контейнер `Services`.
+  - `backend/app/api/routes/transfer.py`: добавлены эндпоинты `GET /api/v1/transfer/profiles`, `GET /api/v1/transfer/profiles/{id}`, `POST /api/v1/transfer/apply`, `POST /api/v1/transfer/fit`.
+  - `backend/app/main.py`: роутер `transfer.router` зарегистрирован в FastAPI.
+  - `frontend/src/api/client.ts` и `schema.d.ts`: добавлены клиентские методы `api.transferProfiles`, `api.transferProfile`, `api.transferApply`, `api.transferFit` и TypeScript-типы.
+  - `frontend/src/components/CalibrationTransferCard.tsx`: интерактивный компонент Photon с селектором профилей переноса, карточками метрик (сдвиг $\Delta\lambda$, RMSD, множитель отклика, статус метода), графиком Plotly сравнения Raw vs Corrected и переключением разностного профиля ($\Delta$).
+  - `frontend/src/pages/Analysis.tsx` и `ShotSeries.tsx`: компонент встроен в страницы анализа одиночных спектров и серий выстрелов.
+  - `ml/tests/test_calibration_transfer.py`: 4 модульных теста ядра (снижение ошибки PDS >70%, восстановление 0.75 нм сдвига, сериализация артефактов, identity).
+  - `backend/tests/test_transfer_api.py`: 6 интеграционных тестов API (список, профиль, сырые массивы, stored spectrum_id, fit custom, ошибки валидации).
+  - `frontend/src/test/transfer.test.tsx`: 4 модульных теста Vitest (рендер, смена профиля, переключение разности, обработка ошибок).
+  - `frontend/e2e/transfer.spec.ts`: сквозной Playwright E2E тест (выбор ChemCam PDS, проверка вызова API, обновление метрик, переключение разности).
+- Проверки: `make lint build` (Ruff 189 files clean, ESLint clean, TypeScript clean, Vite build успешен);
+  `make test` (705 Python passed, 4 skipped; 72 Vitest passed в 12 suites); `make e2e` (14/14 browser tests passed).
+- Известные ограничения: базовые калибровки переноса ChemCam построены на опубликованных лабораторных интервалах и синтетическом дрейфе; перенос на новые физические спектрометры требует измерения согласованного набора реперных стандартов переноса (transfer standards) в соответствии с инвариантами проекта.
+
 
 ### 2026-11-04 UTC — Antigravity: Веха 4 — Количественная регрессия и калиброванная неопределённость (Assay & Conformal Uncertainty)
 

@@ -22,6 +22,9 @@ export type BatchFile = components["schemas"]["BatchFile"];
 export type BatchResult = components["schemas"]["BatchResult"];
 export type Batch = components["schemas"]["BatchResponse"];
 export type BatchInput = components["schemas"]["BatchRequest"];
+export type BatchSampleAssayDto = components["schemas"]["BatchSampleAssayDto"];
+export type BatchAssaySummaryDto = components["schemas"]["BatchAssaySummaryDto"];
+export type BatchAssayResponse = components["schemas"]["BatchAssayResponse"];
 export type InstrumentProfileInfo = components["schemas"]["InstrumentProfileInfo"];
 export type MeasuredPredictionResponse = components["schemas"]["MeasuredPredictionResponse"];
 export type MeasuredPredictionElement = components["schemas"]["MeasuredPredictionElement"];
@@ -51,6 +54,26 @@ export type PlasmaDiagnosticsRequest = components["schemas"]["PlasmaDiagnosticsR
 export type QuantitativePredictionDto = components["schemas"]["QuantitativePredictionDto"];
 export type QuantitativeReportResponse = components["schemas"]["QuantitativeReportResponse"];
 export type QuantitativePredictRequest = components["schemas"]["QuantitativePredictRequest"];
+export type TransferProfileSummaryDto = components["schemas"]["TransferProfileSummaryDto"];
+export type TransferProfilesListResponse = components["schemas"]["TransferProfilesListResponse"];
+export type TransferDiagnosticsDto = components["schemas"]["TransferDiagnosticsDto"];
+export type TransferApplyRequest = components["schemas"]["TransferApplyRequest"];
+export type TransferApplyResponse = components["schemas"]["TransferApplyResponse"];
+export type TransferFitRequest = components["schemas"]["TransferFitRequest"];
+export type TransferFitResponse = components["schemas"]["TransferFitResponse"];
+export type LineEvidenceDto = components["schemas"]["LineEvidenceDto"];
+export type ExplainabilityReportDto = components["schemas"]["ExplainabilityReportDto"];
+export type MeasurementDossierResponse = components["schemas"]["MeasurementDossierResponse"];
+export type DossierGenerateRequest = components["schemas"]["DossierGenerateRequest"];
+export type DoubletAbsorptionDto = components["schemas"]["DoubletAbsorptionDto"];
+export type SelfAbsorptionResponse = components["schemas"]["SelfAbsorptionResponse"];
+export type SelfAbsorptionRequest = components["schemas"]["SelfAbsorptionRequest"];
+export type CFLibsElementDto = components["schemas"]["CFLibsElementDto"];
+export type CFLibsResponse = components["schemas"]["CFLibsResponse"];
+export type CFLibsRequest = components["schemas"]["CFLibsRequest"];
+export type FeatureContributionDto = components["schemas"]["FeatureContributionDto"];
+export type ApplicabilitySpaceResponse = components["schemas"]["ApplicabilitySpaceResponse"];
+export type ApplicabilitySpaceRequest = components["schemas"]["ApplicabilitySpaceRequest"];
 export type RequestOptions = { signal?: AbortSignal; timeoutMs?: number };
 export class ApiError extends Error {
   readonly code: string;
@@ -245,6 +268,14 @@ export const api = {
     request<Batch>(`/batches/${encodeURIComponent(id)}/cancel`, json({})),
   resumeBatch: (id: string) =>
     request<Batch>(`/batches/${encodeURIComponent(id)}/resume`, json({})),
+  batchAssayMatrix: (batchId: string, confidenceLevel = 0.95, options?: RequestOptions) =>
+    request<BatchAssayResponse>(
+      `/batches/${encodeURIComponent(batchId)}/assay-matrix?confidence_level=${confidenceLevel}`,
+      {},
+      options,
+    ),
+  batchAssayMatrixDownloadUrl: (batchId: string, confidenceLevel = 0.95) =>
+    `/api/v1/batches/${encodeURIComponent(batchId)}/assay-matrix/download?confidence_level=${confidenceLevel}`,
   export: async (
     kind: "spectra" | "predictions" | "experiments" | "batches",
     id: string,
@@ -356,6 +387,24 @@ export const api = {
       json(body),
       options,
     ),
+  plasmaSelfAbsorption: (
+    body: SelfAbsorptionRequest,
+    options?: RequestOptions,
+  ) =>
+    request<SelfAbsorptionResponse>(
+      "/plasma/self-absorption",
+      json(body),
+      options,
+    ),
+  plasmaCFLibs: (
+    body: CFLibsRequest,
+    options?: RequestOptions,
+  ) =>
+    request<CFLibsResponse>(
+      "/plasma/cf-libs",
+      json(body),
+      options,
+    ),
   quantitativePredict: (
     body: QuantitativePredictRequest,
     options?: RequestOptions,
@@ -365,6 +414,33 @@ export const api = {
       json(body),
       options,
     ),
+  quantitativeApplicabilitySpace: (
+    body: ApplicabilitySpaceRequest,
+    options?: RequestOptions,
+  ) =>
+    request<ApplicabilitySpaceResponse>(
+      "/quantitative/applicability-space",
+      json(body),
+      options,
+    ),
+  transferProfiles: (options?: RequestOptions) =>
+    request<TransferProfilesListResponse>("/transfer/profiles", {}, options),
+  transferProfile: (profileId: string, options?: RequestOptions) =>
+    request<TransferProfileSummaryDto>(
+      `/transfer/profiles/${encodeURIComponent(profileId)}`,
+      {},
+      options,
+    ),
+  transferApply: (body: TransferApplyRequest, options?: RequestOptions) =>
+    request<TransferApplyResponse>("/transfer/apply", json(body), options),
+  transferFit: (body: TransferFitRequest, options?: RequestOptions) =>
+    request<TransferFitResponse>("/transfer/fit", json(body), options),
+  dossierGenerate: (body: DossierGenerateRequest, options?: RequestOptions) =>
+    request<MeasurementDossierResponse>("/dossier/generate", json(body), options),
+  dossierGet: (id: string, options?: RequestOptions) =>
+    request<MeasurementDossierResponse>(`/dossier/${encodeURIComponent(id)}`, {}, options),
+  dossierDownloadUrl: (id: string, format: "json" | "html" | "csv" = "json") =>
+    `/api/v1/dossier/${encodeURIComponent(id)}/download?format=${format}`,
 };
 function saveBlob(name: string, blob: Blob) {
   const url = URL.createObjectURL(blob);

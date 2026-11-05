@@ -47,6 +47,8 @@ artifacts/batches/
 artifacts/predictions/
 artifacts/measured_predictions/
 artifacts/series/
+artifacts/transfer_profiles/
+artifacts/dossiers/
 reports/external/
 reports/adaptation/
 reports/adaptation_v2/

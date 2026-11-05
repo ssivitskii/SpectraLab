@@ -1,0 +1,79 @@
+{
+  "benchmark_id": "chemcam-replay-pipeline-v1",
+  "created_at_utc": "2026-11-05T14:42:16.401709+00:00",
+  "dataset_source": "NASA PDS MSL ChemCam (MSL-M-CHEMCAM-LIBS-4/5-RDR-V1.0)",
+  "standards_evaluated_count": 40,
+  "pipeline_stages": [
+    "PDS_transfer_and_wavelength_alignment",
+    "Boltzmann_LTE_plasma_diagnostics",
+    "Cowan_Dieke_self_absorption_correction",
+    "CF_LIBS_closure_inversion",
+    "Quantitative_ridge_regression",
+    "Conformal_prediction_intervals_95",
+    "Applicability_domain_Hotelling_T2_and_Q",
+    "NIST_spectral_lines_attribution"
+  ],
+  "oxide_metrics": {
+    "FeOT": {
+      "oxide": "FeOT",
+      "sample_count": 40,
+      "rmse": 0.6661943422013564,
+      "mae": 0.5546578442429559,
+      "r_squared": 0.9405341967736516,
+      "coverage_95_percent": 82.5,
+      "mean_interval_width": 1.6729609378501347
+    },
+    "MgO": {
+      "oxide": "MgO",
+      "sample_count": 40,
+      "rmse": 0.7264966815102955,
+      "mae": 0.3418361946161875,
+      "r_squared": 0.9961559731018644,
+      "coverage_95_percent": 87.5,
+      "mean_interval_width": 1.5218687187828952
+    },
+    "CaO": {
+      "oxide": "CaO",
+      "sample_count": 40,
+      "rmse": 3.9952971026243658,
+      "mae": 2.0361381162851786,
+      "r_squared": 0.8932896770650349,
+      "coverage_95_percent": 65.0,
+      "mean_interval_width": 1.4344855972439094
+    },
+    "TiO2": {
+      "oxide": "TiO2",
+      "sample_count": 34,
+      "rmse": 0.5260841024946706,
+      "mae": 0.4733544445023501,
+      "r_squared": -2.1037250962059746,
+      "coverage_95_percent": 85.29411764705883,
+      "mean_interval_width": 1.302867522589227
+    },
+    "SiO2": {
+      "oxide": "SiO2",
+      "sample_count": 40,
+      "rmse": 5.256709398115375,
+      "mae": 4.272231074324324,
+      "r_squared": 0.9550951802883851,
+      "coverage_95_percent": 30.0,
+      "mean_interval_width": 4.699891232446441
+    },
+    "Al2O3": {
+      "oxide": "Al2O3",
+      "sample_count": 40,
+      "rmse": 4.004058124116804,
+      "mae": 3.373702777176649,
+      "r_squared": 0.7034553359233766,
+      "coverage_95_percent": 32.5,
+      "mean_interval_width": 5.30818228128764
+    }
+  },
+  "mean_temperature_k": 8000.0,
+  "temperature_std_k": 0.0,
+  "mean_purity_score": 1.0,
+  "applicability_counts": {
+    "out_of_domain": 40
+  },
+  "report_path": "/Users/scryde/SpectraLab/reports/pipeline_benchmark/pipeline_benchmark_summary.json"
+}

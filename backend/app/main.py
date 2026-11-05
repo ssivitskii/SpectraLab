@@ -18,6 +18,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from app.api.routes import (
     batches,
+    dossier,
     experiments,
     jobs,
     measured,
@@ -27,6 +28,7 @@ from app.api.routes import (
     series,
     spectra,
     system,
+    transfer,
 )
 from app.core.body_limit import BodyLimitMiddleware
 from app.core.config import settings
@@ -99,6 +101,8 @@ for router in (
     predict.router,
     plasma.router,
     quantitative.router,
+    transfer.router,
+    dossier.router,
     measured.router,
     series.router,
     experiments.router,

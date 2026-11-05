@@ -2,10 +2,16 @@ from __future__ import annotations
 
 from typing import Annotated, Literal
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Response, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile
 
 from app.api.dependencies import get_services
-from app.schemas.api import BatchFile, BatchRejection, BatchRequest, BatchResponse
+from app.schemas.api import (
+    BatchAssayResponse,
+    BatchFile,
+    BatchRejection,
+    BatchRequest,
+    BatchResponse,
+)
 from app.services.batch_exports import export_batch
 from app.services.batches import model_snapshot
 from app.services.container import Services
@@ -113,3 +119,30 @@ def batch_export(
     format: Literal["json", "csv", "zip"] = "zip",
 ) -> Response:
     return export_batch(services.batches, batch_id, format)
+
+
+@router.get("/{batch_id}/assay-matrix", response_model=BatchAssayResponse)
+def get_batch_assay_matrix(
+    batch_id: str,
+    services: Annotated[Services, Depends(get_services)],
+    confidence_level: Annotated[float, Query(ge=0.5, le=0.999)] = 0.95,
+) -> dict:
+    return services.batches.get_assay_matrix(batch_id, services, confidence_level=confidence_level)
+
+
+@router.get("/{batch_id}/assay-matrix/download")
+def download_batch_assay_matrix_csv(
+    batch_id: str,
+    services: Annotated[Services, Depends(get_services)],
+    confidence_level: Annotated[float, Query(ge=0.5, le=0.999)] = 0.95,
+) -> Response:
+    content = services.batches.export_assay_matrix_csv(
+        batch_id, services, confidence_level=confidence_level
+    )
+    return Response(
+        content=content,
+        media_type="text/csv; charset=utf-8",
+        headers={
+            "Content-Disposition": f'attachment; filename="batch_{batch_id}_assay_matrix.csv"'
+        },
+    )

@@ -503,6 +503,147 @@ class BatchStorage:
                 return  # Cache is optional; a full cache must not discard a valid analysis.
             atomic_json(destination, payload)
 
+    def get_assay_matrix(
+        self, batch_id: str, services: Services, *, confidence_level: float = 0.95
+    ) -> dict[str, Any]:
+        from spectralab_ml.models.quantitative import get_default_quantitative_regressor
+
+        record = self.get(batch_id)
+        regressor = get_default_quantitative_regressor()
+
+        samples: list[dict[str, Any]] = []
+        oxide_totals: dict[str, float] = {}
+        oxide_counts: dict[str, int] = {}
+        total_mass_sum = 0.0
+        in_domain_cnt = 0
+        near_boundary_cnt = 0
+        out_of_domain_cnt = 0
+
+        for file in record["files"]:
+            if file["status"] != "ready":
+                continue
+            raw = self.input_bytes(file)
+            wavelengths, intensities = parse_csv(raw, services)
+            quant_report = regressor.predict(
+                np.asarray(wavelengths),
+                np.asarray(intensities),
+                confidence_level=confidence_level,
+                medium="vacuum",
+            )
+            preds_dict = {}
+            worst_status = "in_domain"
+            max_lev = 0.0
+
+            for p in quant_report.predictions:
+                preds_dict[p.species] = p.to_dict()
+                oxide_totals[p.species] = oxide_totals.get(p.species, 0.0) + p.value_wt_percent
+                oxide_counts[p.species] = oxide_counts.get(p.species, 0) + 1
+                if p.leverage > max_lev:
+                    max_lev = p.leverage
+                if p.status == "out_of_domain":
+                    worst_status = "out_of_domain"
+                elif p.status == "near_boundary" and worst_status != "out_of_domain":
+                    worst_status = "near_boundary"
+
+            if worst_status == "in_domain":
+                in_domain_cnt += 1
+            elif worst_status == "near_boundary":
+                near_boundary_cnt += 1
+            else:
+                out_of_domain_cnt += 1
+
+            sample_mass = quant_report.total_detected_mass_wt_percent
+            total_mass_sum += sample_mass
+
+            sample_id = None
+            if file.get("measurement_metadata"):
+                sample_id = file["measurement_metadata"].get("sample_id") or file[
+                    "measurement_metadata"
+                ].get("physical_sample_id")
+
+            samples.append(
+                {
+                    "file_id": file["file_id"],
+                    "relative_path": file["relative_path"],
+                    "sample_id": sample_id,
+                    "status": file["status"],
+                    "total_mass_wt_percent": sample_mass,
+                    "applicability_status": worst_status,
+                    "max_leverage": max_lev,
+                    "predictions": preds_dict,
+                }
+            )
+
+        n_samples = len(samples)
+        mean_concs = {
+            ox: float(oxide_totals[ox] / oxide_counts[ox])
+            for ox in oxide_totals
+            if oxide_counts.get(ox, 0) > 0
+        }
+        mean_mass = float(total_mass_sum / n_samples) if n_samples > 0 else 0.0
+
+        summary = {
+            "total_samples": n_samples,
+            "in_domain_count": in_domain_cnt,
+            "near_boundary_count": near_boundary_cnt,
+            "out_of_domain_count": out_of_domain_cnt,
+            "mean_concentrations": mean_concs,
+            "mean_total_mass_wt_percent": mean_mass,
+            "confidence_level": confidence_level,
+        }
+
+        return {
+            "batch_id": batch_id,
+            "summary": summary,
+            "samples": samples,
+        }
+
+    def export_assay_matrix_csv(
+        self, batch_id: str, services: Services, *, confidence_level: float = 0.95
+    ) -> str:
+        matrix = self.get_assay_matrix(batch_id, services, confidence_level=confidence_level)
+        stream = io.StringIO(newline="")
+        species_list = ["FeOT", "MgO", "CaO", "TiO2", "SiO2", "Al2O3"]
+        headers = [
+            "file_id",
+            "relative_path",
+            "sample_id",
+            "applicability_status",
+            "max_leverage",
+            "total_mass_wt",
+        ]
+        for sp in species_list:
+            headers.extend([f"{sp}_wt", f"{sp}_low", f"{sp}_high", f"{sp}_status"])
+
+        writer = csv.DictWriter(stream, fieldnames=headers)
+        writer.writeheader()
+
+        for s in matrix["samples"]:
+            row = {
+                "file_id": s["file_id"],
+                "relative_path": s["relative_path"],
+                "sample_id": s["sample_id"] or "",
+                "applicability_status": s["applicability_status"],
+                "max_leverage": f"{s['max_leverage']:.2f}",
+                "total_mass_wt": f"{s['total_mass_wt_percent']:.3f}",
+            }
+            preds = s["predictions"]
+            for sp in species_list:
+                if sp in preds:
+                    p = preds[sp]
+                    row[f"{sp}_wt"] = f"{p['value_wt_percent']:.3f}"
+                    row[f"{sp}_low"] = f"{p['lower_wt_percent']:.3f}"
+                    row[f"{sp}_high"] = f"{p['upper_wt_percent']:.3f}"
+                    row[f"{sp}_status"] = p["status"]
+                else:
+                    row[f"{sp}_wt"] = ""
+                    row[f"{sp}_low"] = ""
+                    row[f"{sp}_high"] = ""
+                    row[f"{sp}_status"] = ""
+            writer.writerow(row)
+
+        return stream.getvalue()
+
 
 def process_batch(services: Services, batch_id: str) -> dict[str, Any]:
     batches = services.batches

@@ -5,6 +5,7 @@ import {
   type QuantitativePredictionDto,
   type QuantitativeReportResponse,
 } from "../api/client";
+import { ApplicabilityDomainChart } from "./ApplicabilityDomainChart";
 import { Loading } from "./Feedback";
 import { Icon } from "./Icon";
 
@@ -53,6 +54,7 @@ export function QuantitativeAssayCard({
 }) {
   const [confidenceLevel, setConfidenceLevel] = useState<number>(0.95);
   const [showTable, setShowTable] = useState<boolean>(false);
+  const [showPCA, setShowPCA] = useState<boolean>(false);
 
   const isEnabled = Boolean(
     spectrumId || (wavelengthNm && intensity && wavelengthNm.length >= 10),
@@ -192,6 +194,15 @@ export function QuantitativeAssayCard({
               </div>
               <button
                 type="button"
+                data-testid="toggle-pca-btn"
+                className="button button-small button-ghost"
+                onClick={() => setShowPCA(!showPCA)}
+              >
+                <Icon name={showPCA ? "chevronDown" : "search"} size={14} />
+                {showPCA ? "Скрыть AD" : "Пространство AD (PCA)"}
+              </button>
+              <button
+                type="button"
                 data-testid="toggle-table-btn"
                 className="button button-small button-ghost"
                 onClick={() => setShowTable(!showTable)}
@@ -201,6 +212,16 @@ export function QuantitativeAssayCard({
               </button>
             </div>
           </div>
+
+          {/* Applicability Domain Space Chart */}
+          {showPCA && (
+            <ApplicabilityDomainChart
+              spectrumId={spectrumId}
+              wavelengthNm={wavelengthNm}
+              intensity={intensity}
+              medium={medium}
+            />
+          )}
 
           {/* Oxide Grid */}
           <div

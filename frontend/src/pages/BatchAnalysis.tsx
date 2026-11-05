@@ -11,6 +11,7 @@ import {
 } from "../api/client";
 import { ErrorNotice, Loading } from "../components/Feedback";
 import { Icon } from "../components/Icon";
+import { BatchAssayCard } from "../components/BatchAssayCard";
 import {
   batchFilePath,
   prepareBatchFile,
@@ -712,6 +713,7 @@ export function BatchAnalysis() {
                   общую уверенность.
                 </p>
               </details>
+              <BatchAssayCard batchId={id} />
               <div className="section-heading results-heading">
                 <div>
                   <h3>Результаты по файлам</h3>

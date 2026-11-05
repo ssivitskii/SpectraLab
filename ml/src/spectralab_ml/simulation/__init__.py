@@ -10,18 +10,38 @@ from spectralab_ml.simulation.diagnostics import (
     compute_stark_density,
 )
 from spectralab_ml.simulation.generator import GenerationConfig, Spectrum, generate_spectrum
+from spectralab_ml.simulation.self_absorption import (
+    CURATED_DOUBLETS,
+    CFLibsElementResult,
+    CFLibsReport,
+    DoubletAbsorptionResult,
+    SelfAbsorptionReport,
+    analyze_self_absorption,
+    compute_cf_libs_inversion,
+    cowan_dieke_sa_factor,
+    solve_cowan_dieke_tau,
+)
 
 __all__ = [
+    "CURATED_DOUBLETS",
     "BoltzmannFitResult",
     "BoltzmannPoint",
+    "CFLibsElementResult",
+    "CFLibsReport",
+    "DoubletAbsorptionResult",
     "GenerationConfig",
     "McWhirterResult",
     "PlasmaDiagnosticsResult",
+    "SelfAbsorptionReport",
     "Spectrum",
     "StarkDensityResult",
     "analyze_plasma_diagnostics",
+    "analyze_self_absorption",
     "check_mcwhirter_criterion",
     "compute_boltzmann_fit",
+    "compute_cf_libs_inversion",
     "compute_stark_density",
+    "cowan_dieke_sa_factor",
     "generate_spectrum",
+    "solve_cowan_dieke_tau",
 ]

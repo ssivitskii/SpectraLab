@@ -260,6 +260,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/plasma/self-absorption": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Get Self Absorption */
+        post: operations["get_self_absorption_api_v1_plasma_self_absorption_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/plasma/cf-libs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Get Cf Libs */
+        post: operations["get_cf_libs_api_v1_plasma_cf_libs_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/quantitative/predict": {
         parameters: {
             query?: never;
@@ -271,6 +305,142 @@ export interface paths {
         put?: never;
         /** Predict Quantitative */
         post: operations["predict_quantitative_api_v1_quantitative_predict_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/quantitative/applicability-space": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Get Applicability Space */
+        post: operations["get_applicability_space_api_v1_quantitative_applicability_space_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/transfer/profiles": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Transfer Profiles */
+        get: operations["list_transfer_profiles_api_v1_transfer_profiles_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/transfer/profiles/{profile_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Transfer Profile */
+        get: operations["get_transfer_profile_api_v1_transfer_profiles__profile_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/transfer/apply": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Apply Calibration Transfer */
+        post: operations["apply_calibration_transfer_api_v1_transfer_apply_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/transfer/fit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Fit Calibration Transfer */
+        post: operations["fit_calibration_transfer_api_v1_transfer_fit_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/dossier/generate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Generate Dossier */
+        post: operations["generate_dossier_api_v1_dossier_generate_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/dossier/{dossier_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Dossier */
+        get: operations["get_dossier_api_v1_dossier__dossier_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/dossier/{dossier_id}/download": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Download Dossier */
+        get: operations["download_dossier_api_v1_dossier__dossier_id__download_get"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -688,6 +858,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/batches/{batch_id}/assay-matrix": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Batch Assay Matrix */
+        get: operations["get_batch_assay_matrix_api_v1_batches__batch_id__assay_matrix_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/batches/{batch_id}/assay-matrix/download": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Download Batch Assay Matrix Csv */
+        get: operations["download_batch_assay_matrix_csv_api_v1_batches__batch_id__assay_matrix_download_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -700,6 +904,55 @@ export interface components {
             std: number | null;
             /** Count */
             count: number;
+        };
+        /** ApplicabilitySpaceRequest */
+        ApplicabilitySpaceRequest: {
+            /** Spectrum Id */
+            spectrum_id?: string | null;
+            /** Wavelength Nm */
+            wavelength_nm?: number[] | null;
+            /** Intensity */
+            intensity?: number[] | null;
+            /**
+             * Medium
+             * @default vacuum
+             * @enum {string}
+             */
+            medium: "air" | "vacuum";
+        };
+        /** ApplicabilitySpaceResponse */
+        ApplicabilitySpaceResponse: {
+            /** Sample Pc1 */
+            sample_pc1: number;
+            /** Sample Pc2 */
+            sample_pc2: number;
+            /** T Squared */
+            t_squared: number;
+            /** T Squared Limit 95 */
+            t_squared_limit_95: number;
+            /** T Squared Limit 99 */
+            t_squared_limit_99: number;
+            /** Q Residual */
+            q_residual: number;
+            /** Q Residual Limit 95 */
+            q_residual_limit_95: number;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "in_domain" | "near_boundary" | "out_of_domain";
+            /** Variance Explained */
+            variance_explained: number[];
+            /** Calibration Scores */
+            calibration_scores: unknown[][];
+            /** Ellipse 95 */
+            ellipse_95: number[][];
+            /** Ellipse 99 */
+            ellipse_99: number[][];
+            /** Top Contributions */
+            top_contributions: components["schemas"]["FeatureContributionDto"][];
+            /** Summary */
+            summary: string;
         };
         /** BackupStatus */
         BackupStatus: {
@@ -722,6 +975,33 @@ export interface components {
             verification_passed: boolean;
             /** Details */
             details?: string | null;
+        };
+        /** BatchAssayResponse */
+        BatchAssayResponse: {
+            /** Batch Id */
+            batch_id: string;
+            summary: components["schemas"]["BatchAssaySummaryDto"];
+            /** Samples */
+            samples: components["schemas"]["BatchSampleAssayDto"][];
+        };
+        /** BatchAssaySummaryDto */
+        BatchAssaySummaryDto: {
+            /** Total Samples */
+            total_samples: number;
+            /** In Domain Count */
+            in_domain_count: number;
+            /** Near Boundary Count */
+            near_boundary_count: number;
+            /** Out Of Domain Count */
+            out_of_domain_count: number;
+            /** Mean Concentrations */
+            mean_concentrations: {
+                [key: string]: number;
+            };
+            /** Mean Total Mass Wt Percent */
+            mean_total_mass_wt_percent: number;
+            /** Confidence Level */
+            confidence_level: number;
         };
         /** BatchFile */
         BatchFile: {
@@ -941,6 +1221,30 @@ export interface components {
             /** Error Message */
             error_message?: string | null;
         };
+        /** BatchSampleAssayDto */
+        BatchSampleAssayDto: {
+            /** File Id */
+            file_id: string;
+            /** Relative Path */
+            relative_path: string;
+            /** Sample Id */
+            sample_id?: string | null;
+            /** Status */
+            status: string;
+            /** Total Mass Wt Percent */
+            total_mass_wt_percent: number;
+            /**
+             * Applicability Status
+             * @enum {string}
+             */
+            applicability_status: "in_domain" | "near_boundary" | "out_of_domain" | "below_lod";
+            /** Max Leverage */
+            max_leverage: number;
+            /** Predictions */
+            predictions: {
+                [key: string]: components["schemas"]["QuantitativePredictionDto"];
+            };
+        };
         /** Body_upload_api_v1_spectra_upload_post */
         Body_upload_api_v1_spectra_upload_post: {
             /**
@@ -1025,6 +1329,49 @@ export interface components {
             /** Residual */
             residual: number;
         };
+        /** CFLibsElementDto */
+        CFLibsElementDto: {
+            /** Element */
+            element: string;
+            /** Atomic Fraction */
+            atomic_fraction: number;
+            /** Weight Fraction Wt */
+            weight_fraction_wt: number;
+            /** Intercept Q */
+            intercept_q: number;
+            /** Lines Used Count */
+            lines_used_count: number;
+            /** Uncertainty Wt */
+            uncertainty_wt: number;
+        };
+        /** CFLibsRequest */
+        CFLibsRequest: {
+            /** Spectrum Id */
+            spectrum_id?: string | null;
+            /** Wavelength Nm */
+            wavelength_nm?: number[] | null;
+            /** Intensity */
+            intensity?: number[] | null;
+            /** Temperature K */
+            temperature_k?: number | null;
+            /**
+             * Medium
+             * @default vacuum
+             * @enum {string}
+             */
+            medium: "air" | "vacuum";
+        };
+        /** CFLibsResponse */
+        CFLibsResponse: {
+            /** Temperature K */
+            temperature_k: number;
+            /** Elements */
+            elements: components["schemas"]["CFLibsElementDto"][];
+            /** Normalization Factor F */
+            normalization_factor_f: number;
+            /** Summary */
+            summary: string;
+        };
         /** CoverageRequirements */
         CoverageRequirements: {
             /** Bands Nm */
@@ -1044,6 +1391,81 @@ export interface components {
             used_bytes: number;
             /** Free Bytes */
             free_bytes: number;
+        };
+        /** DossierGenerateRequest */
+        DossierGenerateRequest: {
+            /** Spectrum Id */
+            spectrum_id?: string | null;
+            /** Wavelength Nm */
+            wavelength_nm?: number[] | null;
+            /** Intensity */
+            intensity?: number[] | null;
+            /**
+             * Transfer Profile Id
+             * @default identity
+             */
+            transfer_profile_id: string;
+            /**
+             * Plasma Element
+             * @default auto
+             */
+            plasma_element: string;
+            /**
+             * Plasma Fwhm Nm
+             * @default 0.1
+             */
+            plasma_fwhm_nm: number;
+            /** Quantitative Targets */
+            quantitative_targets?: string[] | null;
+            /**
+             * Confidence Level
+             * @default 0.95
+             */
+            confidence_level: number;
+            /**
+             * Medium
+             * @default vacuum
+             * @enum {string}
+             */
+            medium: "air" | "vacuum";
+        };
+        /** DoubletAbsorptionDto */
+        DoubletAbsorptionDto: {
+            /** Name */
+            name: string;
+            /** Element */
+            element: string;
+            /** Ion Stage */
+            ion_stage: number;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "absorbed" | "thin" | "not_detected" | "not_covered";
+            /** Observed Ratio */
+            observed_ratio: number;
+            /** Theoretical Ratio */
+            theoretical_ratio: number;
+            /** Tau Line1 */
+            tau_line1: number;
+            /** Tau Line2 */
+            tau_line2: number;
+            /** Sa Factor Line1 */
+            sa_factor_line1: number;
+            /** Sa Factor Line2 */
+            sa_factor_line2: number;
+            /** Line1 Wl Nm */
+            line1_wl_nm: number;
+            /** Line2 Wl Nm */
+            line2_wl_nm: number;
+            /** Line1 I Obs */
+            line1_i_obs: number;
+            /** Line2 I Obs */
+            line2_i_obs: number;
+            /** Line1 I Corrected */
+            line1_i_corrected: number;
+            /** Line2 I Corrected */
+            line2_i_corrected: number;
         };
         /** ElementScore */
         ElementScore: {
@@ -1212,6 +1634,35 @@ export interface components {
             error?: string | {
                 [key: string]: unknown;
             } | null;
+        };
+        /** ExplainabilityReportDto */
+        ExplainabilityReportDto: {
+            /** Lines */
+            lines: components["schemas"]["LineEvidenceDto"][];
+            /** Detected Elements */
+            detected_elements: string[];
+            /** Spectral Purity Score */
+            spectral_purity_score: number;
+            /** Blend Count */
+            blend_count: number;
+            /** Mean Signal To Background */
+            mean_signal_to_background: number;
+            /** Summary */
+            summary: string;
+        };
+        /** FeatureContributionDto */
+        FeatureContributionDto: {
+            /** Species */
+            species: string;
+            /** Line Wl Nm */
+            line_wl_nm: number;
+            /** Contribution Percent */
+            contribution_percent: number;
+            /**
+             * Deviation Direction
+             * @enum {string}
+             */
+            deviation_direction: "high" | "low";
         };
         /** GenerateSpectrumRequest */
         GenerateSpectrumRequest: {
@@ -1499,6 +1950,37 @@ export interface components {
             /** Idempotency Key */
             idempotency_key: string;
         };
+        /** LineEvidenceDto */
+        LineEvidenceDto: {
+            /** Element */
+            element: string;
+            /** Ion Stage */
+            ion_stage: number;
+            /** Line Name */
+            line_name: string;
+            /** Target Oxide */
+            target_oxide: string;
+            /** Wavelength Vacuum Nm */
+            wavelength_vacuum_nm: number;
+            /** Measured Wavelength Nm */
+            measured_wavelength_nm: number;
+            /** Peak Intensity */
+            peak_intensity: number;
+            /** Background Intensity */
+            background_intensity: number;
+            /** Net Intensity */
+            net_intensity: number;
+            /** Signal To Background Ratio */
+            signal_to_background_ratio: number;
+            /** Detected */
+            detected: boolean;
+            /** Is Blend */
+            is_blend: boolean;
+            /** Interfering Elements */
+            interfering_elements: string[];
+            /** Relative Contribution Score */
+            relative_contribution_score: number;
+        };
         /** MatchedReferenceLine */
         MatchedReferenceLine: {
             /** Element */
@@ -1618,6 +2100,29 @@ export interface components {
             measurement_metadata?: {
                 [key: string]: unknown;
             } | null;
+        };
+        /** MeasurementDossierResponse */
+        MeasurementDossierResponse: {
+            /** Dossier Id */
+            dossier_id: string;
+            /** Spectrum Id */
+            spectrum_id?: string | null;
+            /** Created At Utc */
+            created_at_utc: string;
+            /** Sha256 */
+            sha256: string;
+            /** Point Count */
+            point_count: number;
+            /** Wavelength Range Nm */
+            wavelength_range_nm: number[];
+            transfer?: components["schemas"]["TransferDiagnosticsDto"] | null;
+            plasma?: components["schemas"]["PlasmaDiagnosticsSummaryDto"] | null;
+            quantitative?: components["schemas"]["QuantitativeReportResponse"] | null;
+            explainability: components["schemas"]["ExplainabilityReportDto"];
+            /** Executive Summary */
+            executive_summary: string;
+            /** Markdown Report */
+            markdown_report: string;
         };
         /** MeasurementMetadata */
         MeasurementMetadata: {
@@ -1925,6 +2430,30 @@ export interface components {
              * @default Peck-Reeder 1972 standard air
              */
             conversion_method: string;
+        };
+        /** SelfAbsorptionRequest */
+        SelfAbsorptionRequest: {
+            /** Spectrum Id */
+            spectrum_id?: string | null;
+            /** Wavelength Nm */
+            wavelength_nm?: number[] | null;
+            /** Intensity */
+            intensity?: number[] | null;
+            /**
+             * Medium
+             * @default vacuum
+             * @enum {string}
+             */
+            medium: "air" | "vacuum";
+        };
+        /** SelfAbsorptionResponse */
+        SelfAbsorptionResponse: {
+            /** Doublets */
+            doublets: components["schemas"]["DoubletAbsorptionDto"][];
+            /** Mean Self Absorption Factor */
+            mean_self_absorption_factor: number;
+            /** Summary */
+            summary: string;
         };
         /** SeriesAggregate */
         SeriesAggregate: {
@@ -2361,6 +2890,135 @@ export interface components {
             queues: components["schemas"]["QueueStatus"];
             storage: components["schemas"]["StorageStatus"];
             backup: components["schemas"]["BackupStatus"];
+        };
+        /** TransferApplyRequest */
+        TransferApplyRequest: {
+            /** Spectrum Id */
+            spectrum_id?: string | null;
+            /** Wavelength Nm */
+            wavelength_nm?: number[] | null;
+            /** Intensity */
+            intensity?: number[] | null;
+            /**
+             * Profile Id
+             * @default identity
+             */
+            profile_id: string;
+            /**
+             * Medium
+             * @default vacuum
+             * @enum {string}
+             */
+            medium: "air" | "vacuum";
+        };
+        /** TransferApplyResponse */
+        TransferApplyResponse: {
+            /** Wavelength Nm */
+            wavelength_nm: number[];
+            /** Intensity */
+            intensity: number[];
+            /** Profile Id */
+            profile_id: string;
+            /** Method */
+            method: string;
+            /** Is Identity */
+            is_identity: boolean;
+            diagnostics: components["schemas"]["TransferDiagnosticsDto"];
+            /** Original Point Count */
+            original_point_count: number;
+            /** Corrected Point Count */
+            corrected_point_count: number;
+        };
+        /** TransferDiagnosticsDto */
+        TransferDiagnosticsDto: {
+            /** Shift Detected Nm */
+            shift_detected_nm: number;
+            /** Rmsd Change */
+            rmsd_change: number;
+            /** Mean Correction Factor */
+            mean_correction_factor: number;
+            /** Window Half Width */
+            window_half_width: number;
+            /** Alpha */
+            alpha: number;
+            /** Applied Method */
+            applied_method: string;
+            /** Condition Number */
+            condition_number: number;
+        };
+        /** TransferFitRequest */
+        TransferFitRequest: {
+            /** Transfer Id */
+            transfer_id: string;
+            /** Name */
+            name: string;
+            /**
+             * Method
+             * @enum {string}
+             */
+            method: "pds" | "wavelength_alignment" | "combined";
+            /** Master Wavelength Nm */
+            master_wavelength_nm: number[];
+            /** Master Spectra */
+            master_spectra: number[][];
+            /** Slave Wavelength Nm */
+            slave_wavelength_nm: number[];
+            /** Slave Spectra */
+            slave_spectra: number[][];
+            /**
+             * Window Half Width
+             * @default 3
+             */
+            window_half_width: number;
+            /**
+             * Alpha
+             * @default 0.001
+             */
+            alpha: number;
+            /**
+             * Source Instrument
+             * @default master
+             */
+            source_instrument: string;
+            /**
+             * Target Instrument
+             * @default slave
+             */
+            target_instrument: string;
+            /** Description */
+            description?: string | null;
+        };
+        /** TransferFitResponse */
+        TransferFitResponse: {
+            profile: components["schemas"]["TransferProfileSummaryDto"];
+            /** Sha256 */
+            sha256: string;
+            /** Message */
+            message: string;
+        };
+        /** TransferProfileSummaryDto */
+        TransferProfileSummaryDto: {
+            /** Profile Id */
+            profile_id: string;
+            /** Name */
+            name: string;
+            /** Method */
+            method: string;
+            /** Source Instrument */
+            source_instrument: string;
+            /** Target Instrument */
+            target_instrument: string;
+            /** Window Half Width */
+            window_half_width: number;
+            /** Alpha */
+            alpha: number;
+            /** Description */
+            description?: string | null;
+        };
+        /** TransferProfilesListResponse */
+        TransferProfilesListResponse: {
+            /** Profiles */
+            profiles: components["schemas"]["TransferProfileSummaryDto"][];
         };
         /** WorkerCurrentTask */
         WorkerCurrentTask: {
@@ -4049,6 +4707,180 @@ export interface operations {
             };
         };
     };
+    get_self_absorption_api_v1_plasma_self_absorption_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SelfAbsorptionRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SelfAbsorptionResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_cf_libs_api_v1_plasma_cf_libs_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CFLibsRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CFLibsResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
     predict_quantitative_api_v1_quantitative_predict_post: {
         parameters: {
             query?: never;
@@ -4069,6 +4901,694 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["QuantitativeReportResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_applicability_space_api_v1_quantitative_applicability_space_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ApplicabilitySpaceRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApplicabilitySpaceResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    list_transfer_profiles_api_v1_transfer_profiles_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TransferProfilesListResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_transfer_profile_api_v1_transfer_profiles__profile_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                profile_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TransferProfileSummaryDto"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    apply_calibration_transfer_api_v1_transfer_apply_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TransferApplyRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TransferApplyResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    fit_calibration_transfer_api_v1_transfer_fit_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TransferFitRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TransferFitResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    generate_dossier_api_v1_dossier_generate_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DossierGenerateRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeasurementDossierResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_dossier_api_v1_dossier__dossier_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                dossier_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeasurementDossierResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    download_dossier_api_v1_dossier__dossier_id__download_get: {
+        parameters: {
+            query?: {
+                format?: "json" | "html" | "csv";
+            };
+            header?: never;
+            path: {
+                dossier_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
                 };
             };
             /** @description Bad Request */
@@ -6372,6 +7892,180 @@ export interface operations {
         parameters: {
             query?: {
                 format?: "json" | "csv" | "zip";
+            };
+            header?: never;
+            path: {
+                batch_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_batch_assay_matrix_api_v1_batches__batch_id__assay_matrix_get: {
+        parameters: {
+            query?: {
+                confidence_level?: number;
+            };
+            header?: never;
+            path: {
+                batch_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BatchAssayResponse"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Not Found */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Conflict */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Request Entity Too Large */
+            413: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Unprocessable Entity */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Insufficient Storage */
+            507: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    download_batch_assay_matrix_csv_api_v1_batches__batch_id__assay_matrix_download_get: {
+        parameters: {
+            query?: {
+                confidence_level?: number;
             };
             header?: never;
             path: {

@@ -8,6 +8,7 @@ from spectralab_ml.preprocessing import SpectrumPreprocessor
 
 from app.core.config import Settings
 from app.services.batches import BatchStorage
+from app.services.dossier import DossierStorage
 from app.services.instrument_profiles import InstrumentProfileRegistry
 from app.services.jobs import JobStorage
 from app.services.series_storage import SeriesStorage
@@ -17,6 +18,7 @@ from app.services.storage import (
     PredictionStorage,
     SpectrumStorage,
 )
+from app.services.transfer_storage import TransferStorage
 
 
 @dataclass
@@ -33,6 +35,8 @@ class Services:
     instrument_profiles: InstrumentProfileRegistry
     measured_predictions: MeasuredPredictionStorage
     series: SeriesStorage
+    transfer: TransferStorage
+    dossier: DossierStorage
 
 
 def build_services(settings: Settings) -> Services:
@@ -86,4 +90,6 @@ def build_services(settings: Settings) -> Services:
             settings.max_stored_series,
             settings.max_series_storage_bytes,
         ),
+        transfer=TransferStorage(settings.resolved_artifacts_dir() / "transfer_profiles"),
+        dossier=DossierStorage(settings.resolved_artifacts_dir() / "dossiers"),
     )

@@ -1,43 +1,30 @@
 from __future__ import annotations
 
 import functools
-from typing import Annotated
+from typing import Annotated, Any
 
 import anyio.to_thread
 import numpy as np
 from fastapi import APIRouter, Depends, HTTPException
+from spectralab_ml.models.applicability_space import get_default_applicability_model
 from spectralab_ml.models.quantitative import get_default_quantitative_regressor
 
 from app.api.dependencies import get_services
-from app.schemas.api import QuantitativePredictRequest, QuantitativeReportResponse
+from app.schemas.api import (
+    ApplicabilitySpaceRequest,
+    ApplicabilitySpaceResponse,
+    QuantitativePredictRequest,
+    QuantitativeReportResponse,
+)
 from app.services.container import Services
 
 router = APIRouter(tags=["quantitative"])
 
 
-def _execute_quantitative_sync(
-    wave: np.ndarray,
-    flux: np.ndarray,
-    targets: list[str] | None,
-    confidence_level: float,
-    medium: str,
-) -> dict:
-    regressor = get_default_quantitative_regressor()
-    report = regressor.predict(
-        wave,
-        flux,
-        targets=targets,
-        confidence_level=confidence_level,
-        medium=medium,
-    )
-    return report.to_dict()
-
-
-@router.post("/quantitative/predict", response_model=QuantitativeReportResponse)
-async def predict_quantitative(
-    request: QuantitativePredictRequest,
-    services: Annotated[Services, Depends(get_services)],
-) -> dict:
+def _extract_wave_flux_medium(
+    request: Any,
+    services: Services,
+) -> tuple[np.ndarray, np.ndarray, str]:
     if request.spectrum_id:
         stored = services.spectra.get(request.spectrum_id)
         if not stored:
@@ -60,6 +47,43 @@ async def predict_quantitative(
             422,
             detail="Either 'spectrum_id' or both 'wavelength_nm' and 'intensity' must be provided",
         )
+    return wave, flux, medium
+
+
+def _execute_quantitative_sync(
+    wave: np.ndarray,
+    flux: np.ndarray,
+    targets: list[str] | None,
+    confidence_level: float,
+    medium: str,
+) -> dict:
+    regressor = get_default_quantitative_regressor()
+    report = regressor.predict(
+        wave,
+        flux,
+        targets=targets,
+        confidence_level=confidence_level,
+        medium=medium,
+    )
+    return report.to_dict()
+
+
+def _execute_applicability_space_sync(
+    wave: np.ndarray,
+    flux: np.ndarray,
+    medium: str,
+) -> dict:
+    model = get_default_applicability_model()
+    report = model.analyze(wave, flux, medium=medium)
+    return report.to_dict()
+
+
+@router.post("/quantitative/predict", response_model=QuantitativeReportResponse)
+async def predict_quantitative(
+    request: QuantitativePredictRequest,
+    services: Annotated[Services, Depends(get_services)],
+) -> dict:
+    wave, flux, medium = _extract_wave_flux_medium(request, services)
 
     fn = functools.partial(
         _execute_quantitative_sync,
@@ -67,6 +91,22 @@ async def predict_quantitative(
         flux=flux,
         targets=request.targets,
         confidence_level=request.confidence_level,
+        medium=medium,
+    )
+    return await anyio.to_thread.run_sync(fn)
+
+
+@router.post("/quantitative/applicability-space", response_model=ApplicabilitySpaceResponse)
+async def get_applicability_space(
+    request: ApplicabilitySpaceRequest,
+    services: Annotated[Services, Depends(get_services)],
+) -> dict:
+    wave, flux, medium = _extract_wave_flux_medium(request, services)
+
+    fn = functools.partial(
+        _execute_applicability_space_sync,
+        wave=wave,
+        flux=flux,
         medium=medium,
     )
     return await anyio.to_thread.run_sync(fn)
